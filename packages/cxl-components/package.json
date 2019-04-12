@@ -1,6 +1,6 @@
 {
   "name": "@conversionxl/cxl-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "CXL",
   "license": "UNLICENSED",
   "main": "src/index.js",
