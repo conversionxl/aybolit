@@ -10,7 +10,9 @@
     "directory": "packages/cxl-components"
   },
   "dependencies": {
+    "@conversionxl/cxl-theme": "^0.1.1",
     "@vaadin/vaadin-button": "^2.1.5",
+    "@vaadin/vaadin-ordered-layout": "^1.1.0",
     "lit-element": "^2.0.1",
     "lit-html": "^1.0.0"
   },

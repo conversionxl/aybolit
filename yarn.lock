@@ -712,6 +712,15 @@
   resolved "https://registry.yarnpkg.com/@bundled-es-modules/chai/-/chai-4.2.1.tgz#124e9cc71584cb576c90b3e4e455abf525bbd3aa"
   integrity sha512-8tZO0prhIK8viNBAIo29lSXDJtTs/FrLwfNKsZiD0LzlTSGq6Ld2u7Bh73pUP2DvxMFqNbEWsRoUifOIvjDH8w==
 
+"@conversionxl/cxl-marketing-layout@^0.1.0":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@conversionxl/cxl-marketing-layout/-/cxl-marketing-layout-0.1.1.tgz#163662609c95b2131afe6130eb5acbbe7b8ece89"
+  integrity sha512-fz1V39ccEAM248XayUD35xfH2Duq8cUUgkG6B9OZDQ65bjI/qBhJMxDWIOsTpxGMVwGf68KYVi/kLYOTH6W0pA==
+  dependencies:
+    "@conversionxl/cxl-components" "^0.1.0"
+    "@conversionxl/cxl-theme" "^0.1.0"
+    "@vaadin/vaadin-button" "^2.1.5"
+
 "@emotion/babel-utils@^0.6.4":
   version "0.6.10"
   resolved "https://registry.yarnpkg.com/@emotion/babel-utils/-/babel-utils-0.6.10.tgz#83dbf3dfa933fae9fc566e54fbb45f14674c6ccc"
@@ -2192,7 +2201,7 @@
     "@vaadin/vaadin-development-mode-detector" "^2.0.0"
     "@vaadin/vaadin-usage-statistics" "^2.0.2"
 
-"@vaadin/vaadin-lumo-styles@^1.3.3", "@vaadin/vaadin-lumo-styles@^1.4.2":
+"@vaadin/vaadin-lumo-styles@^1.1.0", "@vaadin/vaadin-lumo-styles@^1.3.3", "@vaadin/vaadin-lumo-styles@^1.4.2":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-lumo-styles/-/vaadin-lumo-styles-1.4.2.tgz#c0f8c6bfeccace2db3601b6f043912da65bdc6ee"
   integrity sha512-6JrmxxQRkDfght5JiViVtd9xoIEwFAHIZjgEwW5ygQw2Zbr++vz6+9oBe6l93nM5JjOMHjR/TXW/+md0FrAZ+w==
@@ -2201,12 +2210,23 @@
     "@polymer/iron-iconset-svg" "^3.0.0"
     "@polymer/polymer" "^3.0.0"
 
-"@vaadin/vaadin-material-styles@^1.2.0":
+"@vaadin/vaadin-material-styles@^1.1.0", "@vaadin/vaadin-material-styles@^1.2.0":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-material-styles/-/vaadin-material-styles-1.2.2.tgz#7a4d30cd09adf7b93d8201d83f806c9dc103c1a7"
   integrity sha512-da4zBLC9e16AjTXh1wG3jdFFV+2/L57NeQez2xj/al689uvts8WpB7NErXhNMUU5m9X2os4XpyEBS+OX/8OUdQ==
   dependencies:
     "@polymer/polymer" "^3.0.0"
+
+"@vaadin/vaadin-ordered-layout@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-ordered-layout/-/vaadin-ordered-layout-1.1.0.tgz#3602f46d3ac563669c26f9ebe1f3099feebc919d"
+  integrity sha512-ln3dXms/JmKCYu4sTc/xANxF13V8S6A1f/0xKvohYOEU5fRvq7suc8SR7GesyfXouF40kbFJ49sqTquK9TP95A==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+    "@vaadin/vaadin-element-mixin" "^2.0.0"
+    "@vaadin/vaadin-lumo-styles" "^1.1.0"
+    "@vaadin/vaadin-material-styles" "^1.1.0"
+    "@vaadin/vaadin-themable-mixin" "^1.2.1"
 
 "@vaadin/vaadin-themable-mixin@^1.2.1":
   version "1.4.4"
