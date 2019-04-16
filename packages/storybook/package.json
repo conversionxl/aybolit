@@ -8,18 +8,12 @@
     "@aybolit/white-label": "^0.1.0",
     "@conversionxl/cxl-components": "^0.1.0",
     "@conversionxl/cxl-theme": "^0.1.0",
-<<<<<<< ours
     "@storybook/addon-knobs": "^5.0.6",
     "@storybook/addon-viewport": "^5.0.6",
     "@storybook/addons": "^5.0.6",
     "@storybook/core": "^5.0.6",
     "@storybook/polymer": "^5.0.6",
     "@storybook/storybook-deployer": "^2.8.1",
-=======
-    "@storybook/addon-knobs": "^5.0.5",
-    "@storybook/addons": "^5.0.5",
-    "@storybook/polymer": "^5.0.5",
->>>>>>> theirs
     "lit-html": "^1.0.0"
   },
   "scripts": {
