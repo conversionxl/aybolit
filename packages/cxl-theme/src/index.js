@@ -9,10 +9,4 @@ import './templates/lumo-typography.js';
 import './templates/lumo-colors.js';
 
 // Lumo component style extensions
-import './templates/vaadin-button';
-import './templates/vaadin-text-field';
-import './templates/vaadin-dialog-overlay';
 import './templates/vaadin-ordered-layout';
-import './templates/vaadin-tabs';
-import './templates/vaadin-tab';
-import './templates/vaadin-icons';
