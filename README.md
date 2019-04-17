@@ -1,55 +1,85 @@
-# Aybolit
+# CXL <3 Aybolit
 
-Aybolit is a lightweight, standards-based, framework agnostic UI components library built with [LitElement](https://github.com/Polymer/lit-element).
+Check out [Aybolit source](https://github.com/web-padawan/aybolit "Aybolit source")
 
-> *Aybolit* is a fictional character from the children's poems by Korney Chukovsky. He is a traveling doctor who treats animals for free, regardless of their injuries. The name may be translated as "Ouch, [it] hurts!"
+CXL aybolit is a monorepo package with yarn package management.
 
-[Live Demo ↗](https://web-padawan.github.io/aybolit/)
+### Start
+Run `yarn` to install dependencies
 
-[![CircleCI](https://img.shields.io/circleci/project/github/web-padawan/aybolit.svg?style=flat-square)](https://circleci.com/gh/web-padawan/aybolit)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+Run `yarn build` to build styles
 
-## Overview
+Run `yarn storybook` to launch storybook
 
-Aybolit is based on the modern web standards: [Custom Elements](https://caniuse.com/#feat=custom-elementsv1), [Shadow DOM](https://caniuse.com/#feat=shadowdomv1) and [CSS Custom Properties](https://caniuse.com/#feat=css-variables). Using these parts of the web platform allows Aybolit to easily solve several common problems which have been around for years:
+### Create a new component
 
-1. Proper style scoping and **zero global CSS**! With Aybolit you are safe to use any CSS class name in your project, and never get any side effects. Forget about the evil hacks like using `!important` to override 3rd party CSS specificity.
+All components are within @conversionxl/cxl-component package. It can be used as a dependency to include components.
 
-2. Granular DOM structure. You no longer have to place HTML elements in the specific order to satisfy CSS selectors like `input ~ label` - these are now implementation detail. The resulting markup is cleaner, easier to read and maintain.
+Use a blank Lit-Element class to create a component in  `/packages/cxl-components/src/components`
 
-3. Flexible theming API: custom CSS properties and `calc()` allow to dynamically change colors at any part of the cascade, and make it possible to auto-adjust level of contrast for elements like buttons and checkboxes.
+    // Import the LitElement base class and html helper function
+    import { LitElement, html } from 'lit-element';
+    import '@vaadin/vaadin-button/vaadin-button.js';
+    
+    import myElementStyles from '../styles/my-element-css.js';
+    
+    // Extend the LitElement base class
+    class MyElement extends LitElement {
+      static get properties() {
+        return {
+          prop1: { type: String }
+        };
+      }
 
-The mission of Aybolit is to let developers stop reinventing the wheel, and ensure a painless developer experience. Aybolit starts with the basics and provides a few primitive UI components, laying the groundwork for a lot more in future.
+	  constructor() {
+		super();
+		this.prop1 = 'Yesss!!';
+	  }
 
-## Project Structure
+	  static get styles() {
+		return myElementStyles;
+	  }
+    
+      render() {
+        return html`
+          <div class="wrap">
+            <vaadin-button theme="primary your-custom-overwrite" @click="${this.fireClickEvent}">
+              <slot></slot>
+            </vaadin-button>
+          </div>
+        `;
+      }
+    
+      fireClickEvent() {
+        alert(this.prop1);
+      }
+    }
+    
+    // Register the new element with the browser.
+    customElements.define('my-element', MyElement);
 
-Aybolit project is a monorepo and contains the following npm packages:
 
-- [`@aybolit/core`](https://github.com/web-padawan/aybolit/tree/master/packages/core) - components base classes with "normalized" styles.
+Create a new .scss file to `/packages/cxl-components/scss` with the name you defined in your new component `import myElementStyles from '../styles/my-element-css.js';`
 
-- [`@aybolit/bootstrap`](https://github.com/web-padawan/aybolit/tree/master/packages/bootstrap) - set of components inspired by [Bootstrap](https://getbootstrap.com) framework.
+Now run `yarn build` to generate *my-element-css.js*
 
-- [`@aybolit/bulma`](https://github.com/web-padawan/aybolit/tree/master/packages/bulma) - set of components inspired by [Bulma](https://bulma.io) CSS framework.
+### Adding styles to Vaadin core components
 
-- [`@aybolit/material`](https://github.com/web-padawan/aybolit/tree/master/packages/material) - set of components inspired by [Material Design](https://material.io).
+@conversionxl/cxl-theme package holds template files to extend styles of Vaadin components [https://vaadin.com/components](https://vaadin.com/components)
 
-- [`@aybolit/white-label`](https://github.com/web-padawan/aybolit/tree/master/packages/white-label) - set of components with bare minimum of styles.
+If you are customizing Vaadin button's `<vaadin-button>Button</vaadin-button>` component and need to adjust size, padding, position, colors etc. you would create (if not created already) vaadin-button.js to `/packages/cxl-theme/src/templates/vaadin-button.js` which contains
 
-Check the README of each individual package for more details.
+    import  vaadinButtonStyles  from  '../styles/vaadin-button-css.js';
 
-## Supported Browsers
+	const $template = document.createElement('template');
+	
+	$template.innerHTML = `
+	  <dom-module id="cxl-vaadin-button" theme-for="vaadin-button">
+	    <template>
+	      <style> ${vaadinButtonStyles} </style>
+	    </template> 
+	  </dom-module>`;
+	
+	document.head.appendChild($template.content);
 
-Chrome, Firefox 64+ and Safari 11+ are targeted browsers. They all support Custom Elements,
-Shadow DOM, custom CSS properties and ES modules, and do not need any polyfills.
-
-Any up-to-date Chromium-based browsers, like Samsung Internet, Opera, Vivaldi, Brave, Yandex Browser and many others, are supported too. Microsoft Edge will hopefully join this group later this year.
-
-Internet Explorer is not officially supported. It is generally possible to make web components work in IE11 using polyfills and Babel, but certain things will not work as expected to say the least.
-
-## Contact
-
-If you have questions, feedback or anything to share related to the project, feel free to contact me via:
-
-- Twitter [@serhiikulykov](https://twitter.com/serhiikulykov)
-- Polymer Project Slack [@web-padawan](https://polymer.slack.com/team/U0XBXC79U/)
-- or [submit an issue](https://github.com/web-padawan/aybolit/issues)
+and create a scss style file to `/packages/cxl-theme/scss/vaadin-button.scss`.  Follow styling structure and namings according to vaadin-button core styles. [https://github.com/vaadin/vaadin-button/blob/master/theme/lumo/vaadin-button-styles.html](https://github.com/vaadin/vaadin-button/blob/master/theme/lumo/vaadin-button-styles.html). Your new styles will be added after core styles.
