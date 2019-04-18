@@ -1,0 +1,9 @@
+html,
+:host {
+  /* Primary */
+  --lumo-primary-color: hsl(8, 100%, 39%);
+  --lumo-primary-color-50pct: hsla(8, 100%, 39%, 0.5);
+  --lumo-primary-color-10pct: hsla(8, 100%, 39%, 0.1);
+  --lumo-primary-text-color: var(--lumo-primary-color);
+  --lumo-primary-contrast-color: #fff;
+}
