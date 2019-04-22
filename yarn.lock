@@ -707,28 +707,6 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@conversionxl/cxl-components@^0.1.0":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@conversionxl/cxl-components/-/cxl-components-0.1.1.tgz#c9b9c81d0461a59326d7dd1936a267920cbec790"
-  integrity sha512-KXrJ67h1P+DUmi8QJQmxWvQEOWm8zJUalpdM+AYadvyE6yTusNdnz4V0O8uBEnAWplQ+s6PdCG6dRRAKL8Xp9g==
-  dependencies:
-    "@vaadin/vaadin-button" "^2.1.5"
-    lit-element "^2.0.1"
-    lit-html "^1.0.0"
-
-"@conversionxl/cxl-theme@^0.1.0":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@conversionxl/cxl-theme/-/cxl-theme-0.1.1.tgz#40962776ebe5c9c33f90660ae52db891b07c0f1f"
-  integrity sha512-hIffeh+4ZlNjxwDut2sDFF1miEink+W8/u0NIDAqT8XhkUIU42uDAU5WGc2H1QIU2oM0crPJ8U32oZofowiTFw==
-  dependencies:
-    "@pika/pack" "^0.3.0"
-    "@pika/plugin-build-web" "^0.3.0"
-    "@pika/plugin-bundle-web" "^0.3.0"
-    "@pika/plugin-standard-pkg" "^0.3.0"
-    "@polymer/iron-icon" "^3.0.1"
-    "@polymer/iron-iconset-svg" "^3.0.1"
-    "@vaadin/vaadin-lumo-styles" "^1.4.2"
-
 "@emotion/babel-utils@^0.6.4":
   version "0.6.10"
   resolved "https://registry.yarnpkg.com/@emotion/babel-utils/-/babel-utils-0.6.10.tgz#83dbf3dfa933fae9fc566e54fbb45f14674c6ccc"
@@ -1651,7 +1629,7 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-icon@^3.0.0", "@polymer/iron-icon@^3.0.1":
+"@polymer/iron-icon@^3.0.0":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@polymer/iron-icon/-/iron-icon-3.0.1.tgz#93211c39d8825fe4965a68419566036c1df291eb"
   integrity sha512-QLPwirk+UPZNaLnMew9VludXA4CWUCenRewgEcGYwdzVgDPCDbXxy6vRJjmweZobMQv/oVLppT2JZtJFnPxX6g==
@@ -1660,7 +1638,7 @@
     "@polymer/iron-meta" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-iconset-svg@^3.0.0", "@polymer/iron-iconset-svg@^3.0.1":
+"@polymer/iron-iconset-svg@^3.0.0":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@polymer/iron-iconset-svg/-/iron-iconset-svg-3.0.1.tgz#568d6e7dbc120299dae63be3600aeba0d30ddbea"
   integrity sha512-XNwURbNHRw6u2fJe05O5fMYye6GSgDlDqCO+q6K1zAnKIrpgZwf2vTkBd5uCcZwsN0FyCB3mvNZx4jkh85dRDw==
