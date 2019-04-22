@@ -9,3 +9,4 @@ import '@vaadin/vaadin-button';
 
 // Import custom components
 import '@conversionxl/cxl-skin/src/components/cxl-navbar.js'; // eslint-disable-line import/no-extraneous-dependencies
+import '@conversionxl/cxl-skin/src/components/cxl-marketing-layout.js'; // eslint-disable-line import/no-extraneous-dependencies
