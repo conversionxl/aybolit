@@ -1,10 +1,11 @@
-// Import lumo styles
-import '@vaadin/vaadin-button';
-
 // Import global styles
 import './templates/global.js';
 
-export * from '@conversionxl/cxl-lumo-styles';
+// Import lumo styles
+import '@conversionxl/cxl-lumo-styles'; // eslint-disable-line import/no-extraneous-dependencies
 
-// Import components
-export * from '@conversionxl/cxl-skin/src/components/cxl-navbar.js';
+// Import third-party components
+import '@vaadin/vaadin-button';
+
+// Import custom components
+import '@conversionxl/cxl-skin/src/components/cxl-navbar.js'; // eslint-disable-line import/no-extraneous-dependencies

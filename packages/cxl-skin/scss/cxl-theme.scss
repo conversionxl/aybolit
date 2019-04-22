@@ -15,16 +15,20 @@ a:hover {
   display: flex;
 }
 
-.hide {
-  visibility: hidden !important;
-}
-
-.text-primary {
+strong {
   color: var(--lumo-primary-text-color);
 }
 
-.text-center {
-  text-align: center;
+.align {
+  &-left {
+    text-align: left;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-right {
+    text-align: right;
+  }
 }
 
 .vertical-line {
