@@ -3,12 +3,13 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { html } from 'lit-html';
 
 import '@conversionxl/cxl-marketing'; // eslint-disable-line import/no-extraneous-dependencies
+import '@conversionxl/cxl-institute'; // eslint-disable-line import/no-extraneous-dependencies
 
 storiesOf('Layouts', module)
   .addDecorator(withKnobs)
-  .add('cxl-marketing-layout', () => {
+  .add('cxl-layout-marketing', () => {
     return html`
-      <cxl-marketing-layout>
+      <cxl-layout-marketing>
         <cxl-navbar id="topnav" navtype="topnav" theme="topnav">
           <vaadin-button theme="primary main-button" onclick="window.location.href='#'"
             >Get free trial</vaadin-button
@@ -109,6 +110,21 @@ storiesOf('Layouts', module)
             </li>
           </ul>
         </cxl-navbar>
-      </cxl-marketing-layout>
+      </cxl-layout-marketing>
+    `;
+  })
+  .add('cxl-layout-institute', () => {
+    return html`
+      <cxl-layout-institute>
+        <cxl-app-layout>
+          <h3 slot="sidebar-header">Training Manager</h3>
+          <div class="sidebar-content" slot="sidebar-content">
+            <strong class="extra-heading">Digital analytics minidegree program</strong>
+          </div>
+          <div slot="content">
+            test content
+          </div>
+        </cxl-app-layout>
+      </cxl-layout-institute>
     `;
   });

@@ -1,0 +1,169 @@
+@import "./utils/mixins";
+
+:host {
+  position: relative;
+  display: grid;
+  grid-template-areas: "sidebar content";
+  grid-template-columns: 315px auto;
+  margin-left: 64px;
+
+  flex: 1 1 auto;
+  flex-direction: column;
+
+  background: #f6f6f6;
+  height: 100%;
+  min-height: 100%;
+}
+
+:host([sidebarsize="small"]) {
+  grid-template-columns: 250px auto;
+}
+
+[part="sidebar"] {
+  grid-area: sidebar;
+  height: 100%;
+}
+
+[part="content"] {
+  grid-area: content;
+  position: relative;
+}
+
+[part="content"][page-visible] {
+  display: block !important;
+}
+
+[part="sidebar"][page-visible] {
+  display: flex !important;
+}
+
+vaadin-tabs {
+  grid-area: tabs;
+  border-bottom: 1px solid var(--lumo-contrast-10pct);
+  box-shadow: none;
+  display: none;
+}
+
+vaadin-tabs vaadin-tab {
+  font-size: var(--lumo-font-size-s);
+  box-shadow: none;
+}
+
+vaadin-tabs vaadin-tab::before,
+vaadin-tabs vaadin-tab::after {
+  width: 80%;
+}
+
+[part="header"] {
+  grid-area: header;
+  padding: var(--lumo-space-m);
+  border-bottom: 1px solid var(--lumo-contrast-10pct);
+  display: none;
+}
+[part="header"] h3 {
+  line-height: 30px;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 500;
+  padding-left: var(--lumo-space-m);
+}
+[part="header"] .logo {
+  text-decoration: none;
+  color: #1a1a1a;
+  margin-right: var(--lumo-space-m);
+  flex: 0 auto;
+}
+[part="header"] .logo .cxl {
+  font: italic 900 1.6rem Roboto, sans-serif;
+  text-transform: none;
+}
+[part="header"] .logo .cxl span {
+  color: var(--lumo-primary-text-color);
+  font-style: normal;
+}
+
+#sidebar {
+  position: relative;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+
+  .sidebar-header {
+    padding: var(--lumo-space-m);
+    h3 {
+      margin: 0;
+      line-height: 38px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+
+  .sidebar-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    .extra-heading {
+      display: block;
+      padding: var(--lumo-space-m);
+      padding-right: var(--lumo-space-m);
+
+      font-weight: 900;
+      line-height: 38px;
+      font-size: 16px;
+
+      color: #1a1a1a;
+    }
+  }
+}
+
+::slotted(.sidebar-content) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+@include respond-below(small) {
+  :host {
+    grid-template-areas: "header" "tabs" "sidebar" "content";
+    grid-template-columns: auto;
+    grid-template-rows: 60px 43px auto 1fr;
+    margin-left: 0;
+  }
+
+  vaadin-tabs {
+    display: block;
+  }
+
+  [part="header"] {
+    display: flex;
+  }
+
+  [part="content"],
+  [part="sidebar"] {
+    display: none;
+  }
+
+  [part="sidebar"] {
+    position: absolute;
+    top: 105px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@include respond-below(medium) {
+  #sidebar {
+    .sidebar-header {
+      display: none;
+    }
+  }
+}
+
+@include respond-between(small, medium) {
+  :host {
+    margin-left: 0;
+  }
+}
