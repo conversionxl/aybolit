@@ -8,4 +8,4 @@ import '@conversionxl/cxl-lumo-styles'; // eslint-disable-line import/no-extrane
 import '@vaadin/vaadin-button';
 
 // Import custom components
-import '@conversionxl/cxl-skin/src/components/cxl-layout-institute.js'; // eslint-disable-line import/no-extraneous-dependencies
+import '@conversionxl/cxl-ui/src/components/cxl-institute-layout.js'; // eslint-disable-line import/no-extraneous-dependencies

@@ -1,14 +1,15 @@
 // Import the LitElement base class and html helper function
 import { LitElement, html } from 'lit-element';
-import instituteLayoutStyles from '../styles/layout-institute-base-css.js';
+import cxlThemeStyles from '../styles/cxl-theme-css.js';
+import cxlInstituteLayoutStyles from '../styles/cxl-institute-layout-css.js';
 
-export class InstituteLayoutElement extends LitElement {
+class CXLInstituteLayoutElement extends LitElement {
   static get properties() {
     return {};
   }
 
   static get styles() {
-    return instituteLayoutStyles;
+    return [cxlThemeStyles, cxlInstituteLayoutStyles];
   }
 
   render() {
@@ -50,3 +51,5 @@ export class InstituteLayoutElement extends LitElement {
     this.shadowRoot.getElementById(tab).setAttribute('page-visible', '');
   }
 }
+
+customElements.define('cxl-layout-institute', CXLInstituteLayoutElement);

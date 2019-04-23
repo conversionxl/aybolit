@@ -1,5 +1,5 @@
-@import "@conversionxl/cxl-skin/scss/utils/mixins";
-@import "@conversionxl/cxl-skin/scss/cxl-theme";
+@import "@conversionxl/cxl-ui/scss/utils/mixins";
+@import "@conversionxl/cxl-ui/scss/cxl-theme";
 
 vaadin-dialog-overlay[theme~="search"] [part="overlay"] {
   display: none;

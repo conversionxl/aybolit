@@ -1,5 +1,5 @@
 {
-  "name": "@conversionxl/cxl-skin",
+  "name": "@conversionxl/cxl-ui",
   "version": "0.1.1",
   "author": "CXL",
   "license": "UNLICENSED",
@@ -9,6 +9,7 @@
     "@pika/plugin-build-web": "^0.3.0",
     "@pika/plugin-bundle-web": "^0.3.0",
     "@pika/plugin-standard-pkg": "^0.3.0",
+    "@vaadin/vaadin-tabs": "^2.1.2",
     "lit-element": "^2.1.0"
   },
   "@pika/pack": {

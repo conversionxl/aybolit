@@ -1,5 +1,13 @@
 @import "./utils/mixins";
 
+:host {
+  display: block;
+}
+
+:host([hidden]) {
+  display: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
 [part="nav-buttons"] {
   padding: 0;
   display: flex;

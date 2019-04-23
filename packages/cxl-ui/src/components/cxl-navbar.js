@@ -1,7 +1,8 @@
 import { LitElement, html } from 'lit-element';
-import navbarBaseStyles from '../styles/navbar-base-css.js';
+import cxlThemeStyles from '../styles/cxl-theme-css.js';
+import cxlNavbarStyles from '../styles/cxl-navbar-css.js';
 
-export class NavbarElement extends LitElement {
+class CXLNavbarElement extends LitElement {
   static get properties() {
     return {
       navType: {
@@ -16,7 +17,7 @@ export class NavbarElement extends LitElement {
   }
 
   static get styles() {
-    return navbarBaseStyles;
+    return [cxlThemeStyles, cxlNavbarStyles];
   }
 
   render() {
@@ -53,3 +54,5 @@ export class NavbarElement extends LitElement {
     return fixedClass;
   }
 }
+
+customElements.define('cxl-navbar', CXLNavbarElement);
