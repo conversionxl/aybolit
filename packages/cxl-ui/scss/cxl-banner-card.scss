@@ -1,0 +1,77 @@
+@import "@conversionxl/cxl-lumo-styles/scss/mixins";
+
+:host {
+  display: grid;
+  box-sizing: border-box;
+  font-family: var(--lumo-font-family);
+  font-size: var(--lumo-font-size-m);
+  line-height: var(--lumo-line-height-xs);
+  padding: 1em;
+  min-height: var(--lumo-size-m);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.0437896);
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #000000;
+  box-shadow: var(--lumo-box-shadow-s);
+  border-radius: 5px;
+  height: 350px;
+  width: 250px;
+}
+
+:host([selected]) {
+  box-shadow: 0px 0px 0px 1px var(--lumo-primary-color);
+}
+
+  ::slotted([slot=banner-image]) {
+    grid-area: banner-image;
+    height: 100px;
+    margin: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+
+  ::slotted([slot=banner-title]) {
+    align-self: end;
+    color: #ffffff;
+    font-weight: bold;
+    grid-area: banner-title;
+    margin: 1em 0 0 !important;
+  }
+
+  .entry__content {
+    align-self: center;
+  }
+
+  .entry__footer {
+    align-self: end;
+  }
+
+  ::slotted([slot=banner-description]) {
+    color: #ffffff;
+    grid-area: banner-description;
+  }
+
+  ::slotted([slot=banner-link]) {
+    align-self: end;
+    color: #ffffff !important;
+    font-size: var(--lumo-font-size-xs);
+    grid-area: banner-link;
+    text-decoration: none;
+  }
+
+::slotted([slot=banner-link]:hover) {
+  text-decoration: underline;
+}
+
+
+:host(:hover) {
+  border-color: #c53b26;
+  box-sizing: border-box;
+  box-shadow: 1px 2px 4px #fff3f1;
+}

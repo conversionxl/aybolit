@@ -1,0 +1,109 @@
+@import "@conversionxl/cxl-lumo-styles/scss/mixins";
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  font-family: var(--lumo-font-family);
+  font-size: var(--lumo-font-size-m);
+  line-height: var(--lumo-line-height-xs);
+  padding: 1em;
+  min-height: var(--lumo-size-m);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.0437896);
+  background: #FFFFFF;
+  border: 1px solid #DADADA;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+:host {
+  box-shadow: var(--lumo-box-shadow-s);
+  border-radius: 5px;
+  height: 350px;
+  width: 250px;
+}
+
+:host([selected]) {
+  box-shadow: 0px 0px 0px 1px var(--lumo-primary-color);
+}
+
+:host {
+  display: grid;
+
+  figure {
+    margin: 0;
+  }
+
+  footer {
+    align-self: end;
+  }
+
+  .entry__header{
+    align-self: center;
+  }
+
+  .entry__content {
+    align-self: center;
+  }
+
+  ::slotted([slot=course-image]) {
+    align-self: center;
+    border-radius: 50%;
+    height: 80px;
+    grid-area: course-image;
+    width: 80px;
+    margin: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+
+  ::slotted([slot=course-instructor]) {
+    grid-area: course-instructor;
+    margin: 0 !important;
+  }
+
+  ::slotted([slot=course-title]) {
+    align-self: end;
+    font-weight: bold;
+    grid-area: course-title;
+    margin: 0;
+  }
+
+  ::slotted([slot=course-description]) {
+    position: relative;
+    grid-area: course-description;
+    overflow: hidden;
+  }
+
+  ::slotted([slot=course-duration]) {
+    align-self: end;
+    grid-area: course-duration;
+
+    &:after {
+      content: ' | ';
+    }
+  }
+
+  ::slotted([slot=course-type]) {
+    align-self: end;
+    grid-area: course-type;
+
+    &:after {
+      content: ' | ';
+    }
+  }
+
+  ::slotted([slot=course-category]) {
+    align-self: end;
+    grid-area: course-category;
+  }
+}
+
+:host(:hover) {
+  border-color: #C53B26;
+  box-sizing: border-box;
+  box-shadow: 1px 2px 4px #FFF3F1;
+}

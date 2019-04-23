@@ -7,6 +7,7 @@
   "dependencies": {
     "@aybolit/white-label": "^0.1.0",
     "@conversionxl/cxl-lumo-styles": "^0.1.0",
+    "@conversionxl/cxl-ui": "^0.1.0",
     "@storybook/addon-knobs": "^5.0.6",
     "@storybook/addon-viewport": "^5.0.6",
     "@storybook/addons": "^5.0.6",
