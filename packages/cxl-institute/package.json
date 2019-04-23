@@ -9,6 +9,7 @@
     "@pika/plugin-build-web": "^0.3.0",
     "@pika/plugin-bundle-web": "^0.3.0",
     "@pika/plugin-standard-pkg": "^0.3.0",
+    "@polymer/iron-icon": "^3.0.1",
     "@vaadin/vaadin-button": "^2.1.5",
     "lit-element": "^2.1.0"
   },

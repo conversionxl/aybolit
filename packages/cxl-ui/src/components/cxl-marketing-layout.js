@@ -19,4 +19,4 @@ class CXLMarketingLayoutElement extends LitElement {
   }
 }
 
-customElements.define('cxl-layout-marketing', CXLMarketingLayoutElement);
+customElements.define('cxl-marketing-layout', CXLMarketingLayoutElement);

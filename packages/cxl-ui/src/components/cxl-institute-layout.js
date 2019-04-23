@@ -3,6 +3,8 @@ import { LitElement, html } from 'lit-element';
 import cxlThemeStyles from '../styles/cxl-theme-css.js';
 import cxlInstituteLayoutStyles from '../styles/cxl-institute-layout-css.js';
 
+import '@vaadin/vaadin-tabs';
+
 class CXLInstituteLayoutElement extends LitElement {
   static get properties() {
     return {};
@@ -37,7 +39,7 @@ class CXLInstituteLayoutElement extends LitElement {
       </div>
 
       <div id="content" part="content" page-visible>
-        <slot name="content"></slot>
+        <slot></slot>
       </div>
     `;
   }
@@ -52,4 +54,4 @@ class CXLInstituteLayoutElement extends LitElement {
   }
 }
 
-customElements.define('cxl-layout-institute', CXLInstituteLayoutElement);
+customElements.define('cxl-institute-layout', CXLInstituteLayoutElement);

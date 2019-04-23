@@ -1,0 +1,70 @@
+@import "./utils/mixins";
+
+:host {
+  display: block;
+}
+
+.header-wrapper {
+  padding: var(--lumo-space-m);
+  display: grid;
+  grid-template-areas: "toggle title";
+  grid-template-columns: 40px auto;
+
+  .content-toggle {
+    grid-area: toggle;
+    margin-right: var(--lumo-space-xs);
+    min-width: 0;
+    min-height: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding-left: 7px;
+      &:hover {
+        fill: var(--lumo-primary-text-color);
+      }
+    }
+  }
+
+  .header-title {
+    grid-area: title;
+    h3 {
+      margin: 0;
+      line-height: 38px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+
+  .header-button {
+    display: none; // add with-button to cxl-content-header to display button
+    grid-area: button;
+    text-align: right;
+
+    ::slotted(vaadin-button) {
+      margin: 0;
+    }
+  }
+}
+
+:host([with-button]) {
+  .header-wrapper {
+    grid-template-areas: "toggle title button";
+    grid-template-columns: 40px auto auto;
+
+    .header-button {
+      display: block;
+    }
+  }
+}
+
+@include respond-below(small) {
+  :host {
+    display: none;
+  }
+}

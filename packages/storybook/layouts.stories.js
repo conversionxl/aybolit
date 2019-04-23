@@ -116,15 +116,51 @@ storiesOf('Layouts', module)
   .add('cxl-layout-institute', () => {
     return html`
       <cxl-layout-institute>
-        <cxl-app-layout>
-          <h3 slot="sidebar-header">Training Manager</h3>
-          <div class="sidebar-content" slot="sidebar-content">
-            <strong class="extra-heading">Digital analytics minidegree program</strong>
+        <div class="wrapper">
+          <div id="left-nav">
+            <a href="/">
+              <div class="logo">
+                <span class="cxl">C<span>XL</span></span>
+              </div>
+            </a>
+            <div class="top-nav">
+              <ul class="nav-items">
+                <li>
+                  <a href="trainings" class="active">
+                    <iron-icon class="size-l" icon="lumo:nav-trainings"></iron-icon>
+                    <iron-icon class="size-l" icon="lumo:nav-trainings-active"></iron-icon>
+                    <span>Trainings</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="roadmap">
+                    <iron-icon class="size-l" icon="lumo:nav-roadmap"></iron-icon>
+                    <iron-icon class="size-l" icon="lumo:nav-roadmap-active"></iron-icon>
+                    <span>Discover</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="discover">
+                    <iron-icon class="size-l" icon="lumo:nav-discover"></iron-icon>
+                    <iron-icon class="size-l" icon="lumo:nav-discover-active"></iron-icon>
+                    <span>Manage</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="bottom-nav">
+              <ul class="nav-items">
+                <li>
+                  <a href="/">
+                    <iron-icon class="size-l" icon="lumo:user"></iron-icon>
+                    <span>Profile</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div slot="content">
-            test content
-          </div>
-        </cxl-app-layout>
+          <cxl-app-layout> </cxl-app-layout>
+        </div>
       </cxl-layout-institute>
     `;
   });
