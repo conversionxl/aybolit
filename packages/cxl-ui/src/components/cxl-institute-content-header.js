@@ -19,29 +19,19 @@ class CXLInstituteContentHeaderElement extends LitElement {
 
   render() {
     return html`
-      <div class="header-wrapper">
-        <div class="content-toggle">
-          <a @click="${this._toggleContent}"
-            ><svg
-              class="interface-icon o__standard"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2 12h11a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zm0-5h9a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2zm0-5h12a1 1 0 0 1 0 2H2a1 1 0 1 1 0-2z"
-              ></path></svg
-          ></a>
-        </div>
-
-        <div class="header-title">
-          <h3><slot></slot></h3>
-        </div>
-
-        <div class="header-button"><slot name="header-button"></slot></div>
+      <div class="content-toggle">
+        <a @click="${this._toggleContent}">
+          <iron-icon class="size-m" icon="lumo:menu"></iron-icon>
+        </a>
       </div>
-      <div class="vertical-line"></div>
+
+      <div class="header-title">
+        <h3><slot></slot></h3>
+      </div>
+
+      <div class="header-button">
+        <slot name="header-button"></slot>
+      </div>
     `;
   }
 
