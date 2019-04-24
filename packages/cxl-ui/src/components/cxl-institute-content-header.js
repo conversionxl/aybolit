@@ -1,7 +1,7 @@
 // Import the LitElement base class and html helper function
 import { LitElement, html } from 'lit-element';
 import cxlThemeStyles from '../styles/cxl-theme-css.js';
-import cxlInstituteContentHeaderStyles from '../styles/cxl-institute-content-css.js';
+import cxlInstituteContentHeaderStyles from '../styles/cxl-institute-content-header-css.js';
 
 class CXLInstituteContentHeaderElement extends LitElement {
   static get properties() {

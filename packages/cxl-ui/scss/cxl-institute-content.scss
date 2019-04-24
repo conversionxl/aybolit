@@ -4,13 +4,13 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 0;
+  right: 64px; // TODO: hack.
   left: 0;
   background: #fff;
 
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
+  // display: flex;
+  // flex-direction: column;
+  // flex: 1 1 auto;
 
   border-top-left-radius: var(--lumo-border-radius-l);
   border-bottom-left-radius: var(--lumo-border-radius-l);

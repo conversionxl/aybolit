@@ -159,6 +159,7 @@ storiesOf('Layouts', module)
           </div>
         </div>
         <cxl-institute-layout>
+          <!-- Sidebar -->
           <h3 slot="sidebar-header">Training Manager</h3>
           <div class="sidebar-content" slot="sidebar-content">
             <strong class="extra-heading">Digital analytics minidegree program</strong>
@@ -194,6 +195,18 @@ storiesOf('Layouts', module)
               </div>
             </vaadin-details>
           </div>
+
+          <!-- Content -->
+          <cxl-institute-content>
+            <cxl-institute-content-header with-button slot="content-header">
+              Course
+              <vaadin-button theme="primary main-button" slot="header-button">
+                Optional button
+              </vaadin-button>
+            </cxl-institute-content-header>
+
+            Spit out content here
+          </cxl-institute-content>
         </cxl-institute-layout>
       </div>
     `;
