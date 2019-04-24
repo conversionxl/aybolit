@@ -2,8 +2,8 @@ import { storiesOf } from '@storybook/polymer';
 import { withKnobs } from '@storybook/addon-knobs';
 import { html } from 'lit-html';
 
-import '@conversionxl/cxl-marketing'; // eslint-disable-line import/no-extraneous-dependencies
-import '@conversionxl/cxl-institute'; // eslint-disable-line import/no-extraneous-dependencies
+import '@conversionxl/cxl-marketing';
+import '@conversionxl/cxl-institute';
 
 storiesOf('Layouts', module)
   .addDecorator(withKnobs)

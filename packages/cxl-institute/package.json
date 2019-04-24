@@ -5,6 +5,8 @@
   "license": "UNLICENSED",
   "main": "src/index.js",
   "dependencies": {
+    "@conversionxl/cxl-lumo-styles": "^0.1.0",
+    "@conversionxl/cxl-ui": "^0.1.0",
     "@pika/pack": "^0.3.0",
     "@pika/plugin-build-web": "^0.3.0",
     "@pika/plugin-bundle-web": "^0.3.0",
