@@ -5,7 +5,6 @@
   display: grid;
   grid-template-areas: "sidebar content";
   grid-template-columns: 315px auto;
-  margin-left: 64px;
 
   flex: 1 1 auto;
   flex-direction: column;
@@ -37,6 +36,7 @@
   display: flex !important;
 }
 
+// TODO: Add theme for layout tabs and move styles to cxl-lumo-styles package
 vaadin-tabs {
   grid-area: tabs;
   border-bottom: 1px solid var(--lumo-contrast-10pct);
@@ -83,45 +83,21 @@ vaadin-tabs vaadin-tab::after {
 }
 
 #sidebar {
-  position: relative;
-  flex: 1 1 auto;
-  flex-direction: column;
-  overflow: hidden;
+  // position: relative;
+  // flex: 1 1 auto;
+  // flex-direction: column;
+  // overflow: hidden;
 
   .sidebar-header {
     padding: var(--lumo-space-m);
-    h3 {
-      margin: 0;
-      line-height: 38px;
-      font-weight: 500;
-      font-size: 18px;
-    }
   }
 
-  .sidebar-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    .extra-heading {
-      display: block;
-      padding: var(--lumo-space-m);
-      padding-right: var(--lumo-space-m);
-
-      font-weight: 900;
-      line-height: 38px;
-      font-size: 16px;
-
-      color: #1a1a1a;
-    }
-  }
-}
-
-::slotted(.sidebar-content) {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
+  // ::slotted(.sidebar-content) {
+  //   height: 100%;
+  //   display: flex;
+  //   flex-direction: column;
+  //   flex: 1 1 auto;
+  // }
 }
 
 @include respond-below(small) {

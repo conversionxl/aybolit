@@ -113,54 +113,88 @@ storiesOf('Layouts', module)
       </cxl-layout-marketing>
     `;
   })
-  .add('cxl-layout-institute', () => {
+  .add('cxl-institute-layout', () => {
     return html`
-      <cxl-layout-institute>
-        <div class="wrapper">
-          <div id="left-nav">
-            <a href="/">
-              <div class="logo">
-                <span class="cxl">C<span>XL</span></span>
-              </div>
-            </a>
-            <div class="top-nav">
-              <ul class="nav-items">
-                <li>
-                  <a href="trainings" class="active">
-                    <iron-icon class="size-l" icon="cxl:nav-trainings"></iron-icon>
-                    <iron-icon class="size-l" icon="cxl:nav-trainings-active"></iron-icon>
-                    <span>Trainings</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="roadmap">
-                    <iron-icon class="size-l" icon="cxl:nav-roadmap"></iron-icon>
-                    <iron-icon class="size-l" icon="cxl:nav-roadmap-active"></iron-icon>
-                    <span>Discover</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="discover">
-                    <iron-icon class="size-l" icon="cxl:nav-discover"></iron-icon>
-                    <iron-icon class="size-l" icon="cxl:nav-discover-active"></iron-icon>
-                    <span>Manage</span>
-                  </a>
-                </li>
-              </ul>
+      <div class="wrapper">
+        <div id="left-nav">
+          <a href="/">
+            <div class="logo">
+              <span class="cxl">C<span>XL</span></span>
             </div>
-            <div class="bottom-nav">
-              <ul class="nav-items">
-                <li>
-                  <a href="/">
-                    <iron-icon class="size-l" icon="lumo:user"></iron-icon>
-                    <span>Profile</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+          </a>
+          <div class="top-nav">
+            <ul class="nav-items">
+              <li>
+                <a href="trainings" class="active">
+                  <iron-icon class="size-l" icon="cxl:nav-trainings"></iron-icon>
+                  <iron-icon class="size-l" icon="cxl:nav-trainings-active"></iron-icon>
+                  <span>Trainings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roadmap">
+                  <iron-icon class="size-l" icon="cxl:nav-roadmap"></iron-icon>
+                  <iron-icon class="size-l" icon="cxl:nav-roadmap-active"></iron-icon>
+                  <span>Discover</span>
+                </a>
+              </li>
+              <li>
+                <a href="discover">
+                  <iron-icon class="size-l" icon="cxl:nav-discover"></iron-icon>
+                  <iron-icon class="size-l" icon="cxl:nav-discover-active"></iron-icon>
+                  <span>Manage</span>
+                </a>
+              </li>
+            </ul>
           </div>
-          <cxl-app-layout> </cxl-app-layout>
+          <div class="bottom-nav">
+            <ul class="nav-items">
+              <li>
+                <a href="/">
+                  <iron-icon class="size-l" icon="lumo:user"></iron-icon>
+                  <span>Profile</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </cxl-layout-institute>
+        <cxl-institute-layout>
+          <h3 slot="sidebar-header">Training Manager</h3>
+          <div class="sidebar-content" slot="sidebar-content">
+            <strong class="extra-heading">Digital analytics minidegree program</strong>
+            <vaadin-details theme="sidebar-track" opened>
+              <div slot="summary">Google Analytics</div>
+              <div>
+                <cxl-institute-sidebar-items>
+                  <cxl-institute-sidebar-item item-type="track" track-value="1:42">
+                    <!-- href class active -->
+                    <a href="trainings/analytics-fundamentals/484381">Analytics fundamentals</a>
+                  </cxl-institute-sidebar-item>
+                  <cxl-institute-sidebar-item item-type="track" track-value="3:14">
+                    <a href="trainings/google-analytics-for-beginners/179345"
+                      >Google Analytics for beginners</a
+                    >
+                  </cxl-institute-sidebar-item>
+                  <cxl-institute-sidebar-item item-type="track" track-value="3:14">
+                    <a href="trainings/conducting-an-analytics-audit/12230"
+                      >Conducting an analytics audit</a
+                    >
+                  </cxl-institute-sidebar-item>
+                  <cxl-institute-sidebar-item item-type="track" track-value="3:14">
+                    <a href="trainings/using-analytics-to-find-conversion-opportunities/12673"
+                      >Using analytics to find conversion opportunities</a
+                    >
+                  </cxl-institute-sidebar-item>
+                  <cxl-institute-sidebar-item item-type="track" track-value="3:14">
+                    <a href="trainings/intermediate-google-analytics/149924"
+                      >Intermediate Google Analytics</a
+                    >
+                  </cxl-institute-sidebar-item>
+                </cxl-institute-sidebar-items>
+              </div>
+            </vaadin-details>
+          </div>
+        </cxl-institute-layout>
+      </div>
     `;
   });

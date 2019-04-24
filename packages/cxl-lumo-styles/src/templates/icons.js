@@ -70,10 +70,3 @@ $documentContainer.innerHTML = `
 `;
 
 document.head.appendChild($documentContainer.content);
-
-/* NOTICE: Generated with 'gulp icons' */
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/

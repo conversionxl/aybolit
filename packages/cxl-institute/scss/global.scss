@@ -25,7 +25,6 @@ cxl-app-layout {
   grid-area: nav;
   background: #ebebeb;
   width: 64px;
-  position: absolute;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -133,39 +132,18 @@ cxl-app-layout {
   }
 }
 
-#sidebar {
-  position: relative;
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-
-  .sidebar-header {
+// TODO: Any better solution?
+.sidebar-content {
+  .extra-heading {
+    display: block;
     padding: var(--lumo-space-m);
-    h3 {
-      margin: 0;
-      line-height: 38px;
-      font-weight: 500;
-      font-size: 18px;
-    }
-  }
+    padding-right: var(--lumo-space-m);
 
-  .sidebar-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    .extra-heading {
-      display: block;
-      padding: var(--lumo-space-m);
-      padding-right: var(--lumo-space-m);
+    font-weight: 900;
+    line-height: 38px;
+    font-size: 16px;
 
-      font-weight: 900;
-      line-height: 38px;
-      font-size: 16px;
-
-      color: #1a1a1a;
-    }
+    color: #1a1a1a;
   }
 }
 
@@ -180,12 +158,6 @@ cxl-app-layout {
     grid-template-areas: "app" "nav";
     grid-template-columns: auto;
     grid-template-rows: auto 65px;
-  }
-
-  #sidebar {
-    .sidebar-header {
-      display: none;
-    }
   }
 
   #left-nav {
