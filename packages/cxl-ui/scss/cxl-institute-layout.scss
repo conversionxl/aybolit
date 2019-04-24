@@ -80,21 +80,9 @@ vaadin-tabs vaadin-tab::after {
 }
 
 #sidebar {
-  // position: relative;
-  // flex: 1 1 auto;
-  // flex-direction: column;
-  // overflow: hidden;
-
   .sidebar-header {
     padding: var(--lumo-space-m);
   }
-
-  // ::slotted(.sidebar-content) {
-  //   height: 100%;
-  //   display: flex;
-  //   flex-direction: column;
-  //   flex: 1 1 auto;
-  // }
 }
 
 @include respond-below(small) {

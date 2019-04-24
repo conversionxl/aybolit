@@ -8,10 +8,6 @@
   left: 0;
   background: #fff;
 
-  // display: flex;
-  // flex-direction: column;
-  // flex: 1 1 auto;
-
   border-top-left-radius: var(--lumo-border-radius-l);
   border-bottom-left-radius: var(--lumo-border-radius-l);
   box-shadow: -4px 1px 15px -8px #777;
@@ -44,12 +40,6 @@
   }
 }
 
-@include respond-below(small) {
-  :host {
-    // position: relative;
-  }
-}
-
 @include respond-below(medium) {
   :host {
     border-radius: 0;
@@ -58,7 +48,4 @@
   [part="content"] {
     padding: var(--lumo-space-m) var(--lumo-space-m);
   }
-}
-
-@include respond-between(small, medium) {
 }
