@@ -127,22 +127,22 @@ storiesOf('Layouts', module)
               <ul class="nav-items">
                 <li>
                   <a href="trainings" class="active">
-                    <iron-icon class="size-l" icon="lumo:nav-trainings"></iron-icon>
-                    <iron-icon class="size-l" icon="lumo:nav-trainings-active"></iron-icon>
+                    <iron-icon class="size-l" icon="cxl:nav-trainings"></iron-icon>
+                    <iron-icon class="size-l" icon="cxl:nav-trainings-active"></iron-icon>
                     <span>Trainings</span>
                   </a>
                 </li>
                 <li>
                   <a href="roadmap">
-                    <iron-icon class="size-l" icon="lumo:nav-roadmap"></iron-icon>
-                    <iron-icon class="size-l" icon="lumo:nav-roadmap-active"></iron-icon>
+                    <iron-icon class="size-l" icon="cxl:nav-roadmap"></iron-icon>
+                    <iron-icon class="size-l" icon="cxl:nav-roadmap-active"></iron-icon>
                     <span>Discover</span>
                   </a>
                 </li>
                 <li>
                   <a href="discover">
-                    <iron-icon class="size-l" icon="lumo:nav-discover"></iron-icon>
-                    <iron-icon class="size-l" icon="lumo:nav-discover-active"></iron-icon>
+                    <iron-icon class="size-l" icon="cxl:nav-discover"></iron-icon>
+                    <iron-icon class="size-l" icon="cxl:nav-discover-active"></iron-icon>
                     <span>Manage</span>
                   </a>
                 </li>
