@@ -19,13 +19,13 @@
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-:host([hidesidebar]) {
+:host([hidesidebar="true"]) {
   left: -315px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-:host([hidesidebar][sidebarsize="small"]) {
+:host([hidesidebar="true"][sidebarsize="small"]) {
   left: -250px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

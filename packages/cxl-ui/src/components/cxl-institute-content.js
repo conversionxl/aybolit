@@ -7,7 +7,7 @@ class CXLInstituteContentElement extends LitElement {
   static get properties() {
     return {
       hideSidebar: {
-        type: Boolean,
+        type: String,
         value: false,
         reflect: true
       },
@@ -30,16 +30,14 @@ class CXLInstituteContentElement extends LitElement {
   render() {
     return html`
       <slot name="content-header"></slot>
-      <!-- <cxl-scrollit> -->
       <div id="content" part="content" media-size="large">
         <slot></slot>
       </div>
-      <!-- </cxl-scrollit> -->
     `;
   }
 
   firstUpdated() {
-    const appLayoutSelector = document.querySelector('cxl-app-layout');
+    const appLayoutSelector = document.querySelector('cxl-institute-layout');
     if (appLayoutSelector.hasAttribute('sidebarsize')) {
       this.sidebarSize = appLayoutSelector.getAttribute('sidebarsize');
     }

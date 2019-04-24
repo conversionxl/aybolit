@@ -46,7 +46,8 @@ class CXLInstituteContentHeaderElement extends LitElement {
   }
 
   _toggleContent() {
-    // Eventer.DISPATCH.TOGGLE_SIDEBAR({});
+    this.hideSidebar = !this.hideSidebar;
+    document.querySelector('cxl-institute-content').setAttribute('hidesidebar', this.hideSidebar);
   }
 }
 
