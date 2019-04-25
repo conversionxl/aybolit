@@ -14,8 +14,6 @@
     "@storybook/core": "^5.0.6",
     "@storybook/polymer": "^5.0.6",
     "@storybook/storybook-deployer": "^2.8.1",
-    "@vaadin/vaadin-button": "^2.1.5",
-    "@vaadin/vaadin-tabs": "^2.1.2",
     "lit-html": "^1.0.0"
   },
   "scripts": {

@@ -1,7 +1,7 @@
 {
   "name": "@conversionxl/cxl-lumo-styles",
   "version": "0.1.0",
-  "author": "CXL",
+  "author": "CXL <leho@conversionxl.com>",
   "license": "UNLICENSED",
   "main": "src/index.js",
   "dependencies": {
@@ -13,6 +13,11 @@
     "@polymer/iron-iconset-svg": "^3.0.1",
     "@vaadin/vaadin-lumo-styles": "^1.4.2",
     "lit-element": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conversionxl/aybolit",
+    "directory": "packages/cxl-lumo-styles"
   },
   "@pika/pack": {
     "pipeline": [
