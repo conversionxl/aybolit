@@ -4,7 +4,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 64px; // TODO: hack.
+  right: 0;
   left: 0;
   background: #fff;
 
@@ -13,6 +13,12 @@
   box-shadow: -4px 1px 15px -8px #777;
 
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+
+  height: 100vh;
 }
 
 :host([hidesidebar="true"]) {
@@ -27,6 +33,11 @@
   border-bottom-left-radius: 0;
 }
 
+.wrapper {
+  overflow: auto;
+  height: auto;
+}
+
 [part="content"] {
   padding: var(--lumo-space-xl) var(--lumo-space-m);
   flex: 1 1 auto;
@@ -37,6 +48,12 @@
   &[media-size="large"] {
     max-width: 1024px;
     margin: 0 auto;
+  }
+}
+
+@include respond-below(small) {
+  :host {
+    height: auto;
   }
 }
 

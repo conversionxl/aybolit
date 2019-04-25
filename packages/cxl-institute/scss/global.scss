@@ -122,8 +122,9 @@ body {
 
 // TODO: Any better solution?
 .sidebar-content {
-  overflow: auto;
-  height: auto;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
   .extra-heading {
     display: block;
     padding: var(--lumo-space-m);

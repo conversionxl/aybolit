@@ -22,10 +22,6 @@
 
 [part="sidebar"] {
   grid-area: sidebar;
-  display: flex;
-  overflow: hidden;
-  height: 100vh;
-  flex-direction: column;
 }
 
 [part="content"] {

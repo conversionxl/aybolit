@@ -30,8 +30,10 @@ class CXLInstituteContentElement extends LitElement {
   render() {
     return html`
       <slot name="content-header"></slot>
-      <div id="content" part="content" media-size="large">
-        <slot></slot>
+      <div class="wrapper">
+        <div id="content" part="content" media-size="large">
+          <slot></slot>
+        </div>
       </div>
     `;
   }
