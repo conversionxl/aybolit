@@ -30,6 +30,10 @@ class CXLInstituteLayoutElement extends LitElement {
         <vaadin-tab @click="${() => this.changeTab('content')}">Something here</vaadin-tab>
       </vaadin-tabs>
 
+      <div part="icon-nav">
+        <slot name="icon-nav"></slot>
+      </div>
+
       <div id="sidebar" part="sidebar">
         <div class="sidebar-header">
           <slot name="sidebar-header"></slot>

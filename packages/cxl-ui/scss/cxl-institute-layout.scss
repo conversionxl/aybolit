@@ -3,8 +3,8 @@
 :host {
   position: relative;
   display: grid;
-  grid-template-areas: "sidebar content";
-  grid-template-columns: 315px auto;
+  grid-template-areas: "nav sidebar content";
+  grid-template-columns: 67px 315px auto;
 
   background: #f6f6f6;
   height: 100%;
@@ -15,9 +15,17 @@
   grid-template-columns: 250px auto;
 }
 
+[part="icon-nav"] {
+  grid-area: nav;
+  height: 100%;
+}
+
 [part="sidebar"] {
   grid-area: sidebar;
-  height: 100%;
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  flex-direction: column;
 }
 
 [part="content"] {
@@ -87,10 +95,11 @@ vaadin-tabs vaadin-tab::after {
 
 @include respond-below(small) {
   :host {
-    grid-template-areas: "header" "tabs" "sidebar" "content";
-    grid-template-columns: auto;
-    grid-template-rows: 60px 43px auto 1fr;
+    grid-template-areas: "header" "tabs" "sidebar" "content" "nav";
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto 1fr auto;
     margin-left: 0;
+    min-height: 100vh;
   }
 
   vaadin-tabs {
@@ -104,14 +113,6 @@ vaadin-tabs vaadin-tab::after {
   [part="content"],
   [part="sidebar"] {
     display: none;
-  }
-
-  [part="sidebar"] {
-    position: absolute;
-    top: 105px;
-    left: 0;
-    right: 0;
-    bottom: 0;
   }
 }
 
