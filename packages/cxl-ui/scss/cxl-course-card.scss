@@ -1,0 +1,80 @@
+@import 'sass-mq';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+
+  .entry__header {
+    height: calc( 15 * var(--lumo-margin) );
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      overflow: visible;
+      z-index: 1;
+
+      ::slotted(.entry__header-course-instructor) {
+        background-color: var(--lumo-white);
+        padding-bottom: var(--lumo-padding);
+      }
+    }
+
+    ::slotted(.entry__header-course-thumbnail) {
+      align-self: center;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--lumo-border-radius-round);
+      height: calc( 1.5 * var(--lumo-card-thumbnail-size) );
+      margin: 0;
+      width: calc( 1.5 * var(--lumo-card-thumbnail-size) );
+    }
+
+    ::slotted(.entry__header-course-instructor) {
+      margin: 0;
+    }
+
+    ::slotted(.entry__title) {
+      //font-size: var(--lumo-font-size-m);
+      font-weight: bold;
+      margin: var(--lumo-margin) 0 calc( 0.25 * var(--lumo-margin) );
+    }
+  }
+
+  .entry__content {
+    flex: 1 0 auto;
+    margin: var(--lumo-margin) 0 calc( 2 * var(--lumo-margin) );
+
+    ::slotted(.entry__content-course-content) {
+      margin: 0;
+    }
+  }
+
+  .entry__footer {
+    ::slotted(.entry__footer-course-specs) {
+      margin: 0;
+    }
+  }
+
+  @include mq($until: tablet) {
+    width: 250px;
+
+    .entry__header {
+      height: auto;
+
+      ::slotted(.entry__title) {
+        font-size: var(--lumo-font-size-xl);
+      }
+
+      &:hover {
+        ::slotted(.entry__header-course-instructor) {
+          padding: 0;
+        }
+      }
+    }
+
+    .entry__content {
+      margin: var(--lumo-margin) 0;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import 'sass-mq';
+
+:host {
+  border: calc( 0.5 * var(--lumo-margin) ) solid var(--lumo-contrast-30pct);
+  border-radius: var(--lumo-border-radius-s);
+  display: grid;
+  grid-gap: calc( 2 * var(--lumo-margin) );
+  grid-template-columns: repeat( auto-fit, minmax( var(--lumo-data-grid-column-size), 1fr ) );
+  padding: calc( 0.5 * var(--lumo-padding) );
+  flex-wrap: wrap;
+
+  @include mq($from: wide) {
+    grid-template-columns: repeat( var(--lumo-data-grid-items), auto );
+    padding: calc( 2 * var(--lumo-padding) ) var(--lumo-padding);
+  }
+
+  ::slotted(*) {
+    margin: 0 auto ;
+  }
+}

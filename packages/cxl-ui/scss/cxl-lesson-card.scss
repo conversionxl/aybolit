@@ -1,0 +1,71 @@
+@import 'sass-mq';
+
+:host {
+  padding: calc( 2 * var(--lumo-padding) );
+  width: 750px;
+
+  header {
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-template-areas:
+      "entry__header-lesson-thumbnail entry__header-lesson-title-highlighted entry__header-lesson-title entry__header-lesson-title"
+      "entry__header-lesson-thumbnail entry__header-lesson-specs entry__header-lesson-specs entry__header-lesson-specs";
+
+    ::slotted(h2) {
+      align-self: end;
+      margin: 0 0 calc( 0.25 * var(--lumo-margin) );
+    }
+
+    ::slotted(.lesson-thumbnail) {
+      align-self: center;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--lumo-border-radius-round);
+      grid-area: entry__header-lesson-thumbnail;
+      height: calc( 1.5 * var(--lumo-card-thumbnail-size) );
+      margin: 0 calc( 2 * var(--lumo-margin) ) 0 0;
+      vertical-align: middle;
+      width: calc( 1.5 * var(--lumo-card-thumbnail-size) );
+    }
+
+    ::slotted(h2) {
+      align-self: end;
+      font-weight: bold;
+      grid-area: entry__header-lesson-title;
+      margin: 0;
+    }
+
+    ::slotted(.lesson-specs) {
+      grid-area: entry__header-lesson-specs;
+      margin: 0;
+    }
+  }
+
+  .entry__content {
+      border-top: 1px solid var(--lumo-contrast-30pct);
+      margin: calc( 1.5 * var(--lumo-margin) ) 0 0;
+      padding: calc( 1.5 * var(--lumo-padding) ) 0 0;
+
+    ::slotted(p) {
+      margin: 0;
+    }
+  }
+
+  @include mq($until: tablet) {
+    height: auto;
+    width: auto;
+
+    header {
+      display: block;
+
+      ::slotted([slot=entry-title-highlighted]) {
+        display: inline-block;
+        margin: var(--lumo-margin) 0 0;
+      }
+
+      ::slotted([slot=entry-title]) {
+        display: inline-block;
+      }
+    }
+  }
+}

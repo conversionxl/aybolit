@@ -1,0 +1,44 @@
+{
+  "name": "@conversionxl/cxl-core",
+  "version": "0.1.0",
+  "author": "CXL <paul@conversionxl.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/web-padawan/aybolit.git",
+    "directory": "packages/cxl-core"
+  },
+  "dependencies": {
+    "lit-element": "^2.0.1",
+    "lit-html": "^1.0.0",
+    "@conversionxl/cxl-lumo-styles": "^0.1.0"
+  },
+  "devDependencies": {
+    "@aybolit/test-helpers": "^0.1.0",
+    "@open-wc/testing-helpers": "^0.8.6",
+    "@pika/pack": "^0.3.0",
+    "@pika/plugin-build-web": "^0.3.0",
+    "@pika/plugin-bundle-web": "^0.3.0",
+    "@pika/plugin-standard-pkg": "^0.3.0"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-bundle-web"
+      ]
+    ]
+  },
+  "scripts": {
+    "dist": "pack build"
+  }
+}

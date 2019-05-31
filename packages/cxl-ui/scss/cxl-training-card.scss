@@ -1,0 +1,55 @@
+@import 'sass-mq';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+
+  .entry__header {
+    ::slotted(.entry__header-training-thumbnail) {
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--lumo-border-radius-round);
+      font-family: lumo-icons;
+      font-size: var(--lumo-icon-size-l);
+      height: calc( 1.5 * var(--lumo-card-thumbnail-size) );
+      margin: 0;
+      width: calc( 1.5 * var(--lumo-card-thumbnail-size) );
+      position: relative;
+
+      &:before {
+        background-color: var(--lumo-white);
+        border-radius: var(--lumo-border-radius-round);
+        content: var(--lumo-icons-play);
+        color: var(--lumo-black);
+        left: calc( var(--lumo-card-thumbnail-size) / 2 );
+        position: absolute;
+        top: calc( var(--lumo-card-thumbnail-size) / 2 );
+      }
+    }
+
+    .entry__title {
+      font-weight: bold;
+      margin: calc( 1.5 * var(--lumo-margin) ) 0 0;
+    }
+  }
+
+  .entry__content {
+    flex: 1 0 auto;
+    margin: var(--lumo-margin) 0;
+
+    ::slotted(.entry__content-training-content) {
+      margin: 0;
+    }
+  }
+
+  .entry__footer {}
+
+  @include mq($until: tablet) {
+    width: 250px;
+
+    .entry__title {
+      font-size: var(--lumo-font-size-l);
+    }
+  }
+}

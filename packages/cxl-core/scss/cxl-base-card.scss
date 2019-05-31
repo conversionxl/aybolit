@@ -1,0 +1,27 @@
+:host {
+  background: var(--lumo-white);
+  border: 1px solid var(--lumo-contrast-30pct);
+  border-radius: var(--lumo-border-radius-s);
+  box-sizing: border-box;
+  box-shadow: var(--lumo-box-shadow-s);
+  cursor: pointer;
+  display: block;
+  font-family: var(--lumo-font-family);
+  font-size: var(--lumo-font-size-m);
+  height: auto;
+  line-height: var(--lumo-line-height-xs);
+  padding: var(--lumo-padding);
+  width: auto;
+
+  @at-root #{&}(:hover) {
+    border-color: var(--lumo-primary-color);
+    box-shadow: none;
+  }
+
+  .entry__header {
+    ::slotted(h5) {
+      font-size: var(--lumo-font-size-m);
+      margin: 0;
+    }
+  }
+}

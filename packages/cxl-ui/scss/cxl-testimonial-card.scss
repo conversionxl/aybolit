@@ -1,0 +1,61 @@
+@import 'sass-mq';
+
+:host {
+  padding: calc( 2 * var(--lumo-padding) );
+  width: 500px;
+
+  .entry__header {
+    ::slotted(.entry__header-user-thumbnail) {
+      align-self: end;
+      border-radius: var(--lumo-border-radius-round);
+      height: var(--lumo-card-thumbnail-size);
+      display: inline-block;
+      width: var(--lumo-card-thumbnail-size);
+      margin: 0 calc( 2 * var(--lumo-margin) ) 0 0;
+      background-size: cover;
+      background-position: center;
+      vertical-align: middle;
+    }
+
+    ::slotted(.entry__header-company-thumbnail) {
+      align-self: center;
+      height: calc( 0.5 * var(--lumo-card-thumbnail-size) );
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .entry__content {
+    align-self: end;
+    grid-area: content;
+    margin: calc( 2 * var(--lumo-margin) ) 0;
+  }
+
+  .entry__footer {
+    font-size: small;
+
+    ::slotted(.entry__header-user-name) {
+      align-self: end;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    ::slotted(.entry__header-user-company) {
+      margin: 0;
+    }
+  }
+
+  @include mq($until: tablet) {
+    height: auto;
+    width: auto;
+
+    @at-root #{&}([in-container]) {
+      height: auto;
+      width: 250px;
+    }
+  }
+
+  @at-root #{&}([in-container]) {
+    height: 350px;
+  }
+}
