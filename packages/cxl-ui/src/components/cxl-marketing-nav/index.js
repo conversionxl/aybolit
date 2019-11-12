@@ -220,31 +220,42 @@ export class CXLMarketingNavElement extends LitElement {
        *
        * @see https://github.com/vaadin/vaadin-context-menu/issues/254
        */
-      const _contextMenuItems = this.contextMenuItems[menuItemId];
-
-      _contextMenuItems.forEach((item, i, self) => {
-        if (item.component === 'a') {
-          const menuItem = document.createElement('vaadin-context-menu-item');
-          const link = document.createElement('a');
-
-          link.href = item.href;
-          link.text = item.text;
-
-          menuItem.appendChild(link);
-
-          // eslint-disable-next-line no-param-reassign
-          self[i] = { component: menuItem };
-        }
-      });
-
       // Populate.
-      contextMenu.items = _contextMenuItems;
+      contextMenu.items = this._createContextMenuItems(this.contextMenuItems[menuItemId]);
 
       // Prevent close on upstream events: clicks, keydown, etc
       contextMenu.addEventListener('item-selected', e => {
         e.stopImmediatePropagation();
       });
     });
+  }
+
+  /**
+   * Create children `<vaadin-context-menu>` elements.
+   *
+   * @private
+   */
+  _createContextMenuItems(contextMenuItems) {
+    contextMenuItems.forEach((item, i, self) => {
+      if (item.children !== undefined) {
+        this._createContextMenuItems(item.children);
+      }
+
+      if (item.component === 'a') {
+        const menuItem = document.createElement('vaadin-context-menu-item');
+        const link = document.createElement('a');
+
+        link.href = item.href;
+        link.text = item.text;
+
+        menuItem.appendChild(link);
+
+        // eslint-disable-next-line no-param-reassign
+        self[i] = { component: menuItem };
+      }
+    });
+
+    return contextMenuItems;
   }
 
   /**
