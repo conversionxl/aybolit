@@ -2,6 +2,7 @@ import { LitElement, html, customElement, property, query } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
+import CXLMarketingNavStickyElement from './cxl-marketing-nav-sticky.js';
 import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-tabs';
 import '@vaadin/vaadin-context-menu';
@@ -65,7 +66,8 @@ export class CXLMarketingNavElement extends LitElement {
           ?hidden="${this.minimal}"
         >
           <a
-            ><iron-icon icon="lumo:search"></iron-icon> Search <iron-icon icon="lumo:dropdown"></iron-icon
+            ><iron-icon icon="lumo:search"></iron-icon> Search
+            <iron-icon icon="lumo:dropdown"></iron-icon
           ></a>
           <vaadin-context-menu
             close-on="outside-click"
@@ -124,18 +126,23 @@ export class CXLMarketingNavElement extends LitElement {
      *
      * @see https://github.com/vaadin/vaadin-item/blob/v2.1.1/src/vaadin-item-mixin.html#L136
      */
-    const menuItemSearchContextMenu = this.menuItemSearchElement.querySelector('vaadin-context-menu');
+    const menuItemSearchContextMenu = this.menuItemSearchElement.querySelector(
+      'vaadin-context-menu'
+    );
 
-    menuItemSearchContextMenu.addEventListener('opened-changed', ee => {
-      const searchForm = ee.target.$.overlay.querySelector('.search-form');
+    menuItemSearchContextMenu.addEventListener(
+      'opened-changed',
+      ee => {
+        const searchForm = ee.target.$.overlay.querySelector('.search-form');
 
-      searchForm.addEventListener('keydown', ef => {
-        // Allow Esc.
-        if (ef.key !== 'Esc') {
-          ef.stopPropagation()
-        }
-      });
-    }/* , { once: true } necessary for `content-changed`? */);
+        searchForm.addEventListener('keydown', ef => {
+          // Allow Esc.
+          if (ef.key !== 'Esc') {
+            ef.stopPropagation();
+          }
+        });
+      } /* , { once: true } necessary for `content-changed`? */
+    );
 
     menuItemSearchContextMenu.addEventListener('item-selected', e => {
       e.stopImmediatePropagation();
@@ -159,6 +166,9 @@ export class CXLMarketingNavElement extends LitElement {
      * Decide `<vaadin-tabs>` initial orientation.
      */
     this._updatedWide();
+
+    // eslint-disable-next-line no-unused-vars
+    const stickyElement = new CXLMarketingNavStickyElement();
 
     super.firstUpdated(changedProperties);
   }
@@ -212,9 +222,9 @@ export class CXLMarketingNavElement extends LitElement {
    * @todo Links cannot be sub-menu hosts?
    */
   _updatedContextMenuItems() {
-    Object.values(this.contextMenuItems).forEach((items) => {
+    Object.values(this.contextMenuItems).forEach(items => {
       items.forEach(menuItem => {
-        if (! menuItem.children) {
+        if (!menuItem.children) {
           return;
         }
 
@@ -250,7 +260,7 @@ export class CXLMarketingNavElement extends LitElement {
     this.menuItemsElements.forEach(el => {
       el.setAttribute('orientation', orientation);
       el.setAttribute('wide', this.wide);
-    } );
+    });
 
     this.menuShadowItemsElement.setAttribute('wide', this.wide);
   }
