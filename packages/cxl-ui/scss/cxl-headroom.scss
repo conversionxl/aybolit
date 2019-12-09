@@ -1,0 +1,7 @@
+:host {
+  background-color: var(--lumo-shade);
+}
+
+:host([hidden]) {
+  display: none;
+}

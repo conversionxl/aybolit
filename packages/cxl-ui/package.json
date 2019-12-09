@@ -20,7 +20,8 @@
     "@vaadin/vaadin-tabs": "^3.0.5",
     "@vaadin/vaadin-themable-mixin": "^1.5.2",
     "lit-element": "^2.2.1",
-    "lit-html": "^1.1.2"
+    "lit-html": "^1.1.2",
+    "throttle-debounce": "2.1.0"
   },
   "@pika/pack": {
     "pipeline": [
