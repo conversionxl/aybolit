@@ -77,6 +77,9 @@ export class CXLHeadroom extends LitElement {
   @property({ type: Boolean, attribute: false })
   resizeTicking = false;
 
+  @property({ type: Function })
+  top = () => 0;
+
   @query('.cxl-headroom-inner')
   innerElement;
 
@@ -109,6 +112,16 @@ export class CXLHeadroom extends LitElement {
         this.parent().addEventListener('resize', this._handleResize);
       }
     }
+
+    requestAnimationFrame(() => {
+      // In the Shadow DOM, the `change` event is not leaked
+      // into the ancestor tree, so we must do this manually.
+      // Dispatch an event that supports Polymer two-way binding.
+      const bubbles = true;
+      const composed = true;
+      const detail = { value: true };
+      this.dispatchEvent(new CustomEvent('connected-init', { bubbles, composed, detail }));
+    });
   }
 
   disconnectedCallback() {
@@ -121,6 +134,11 @@ export class CXLHeadroom extends LitElement {
 
   firstUpdated(changedProperties) {
     this._setHeightOffset();
+
+    requestAnimationFrame(() => {
+      this.height = parseFloat(getComputedStyle(this.innerElement).getPropertyValue('height'), 10);
+      // this.height = this.innerElement ? this.innerElement.offsetHeight : '';
+    });
 
     super.firstUpdated(changedProperties);
   }
@@ -166,9 +184,25 @@ export class CXLHeadroom extends LitElement {
   }
 
   _setHeightOffset() {
-    this.height = this.innerElement ? this.innerElement.offsetHeight : '';
+    /*
+    window.setTimeout(() => {
+    // do something
+    }, 0);
+    */
+    requestAnimationFrame(() => {
+      this.height = parseFloat(getComputedStyle(this.innerElement).getPropertyValue('height'), 10);
+      // this.height = this.innerElement ? this.innerElement.offsetHeight : '';
 
-    this.resizeTicking = false;
+      this.resizeTicking = false;
+
+      // In the Shadow DOM, the `change` event is not leaked
+      // into the ancestor tree, so we must do this manually.
+      // Dispatch an event that supports Polymer two-way binding.
+      const bubbles = true;
+      const composed = true;
+      const detail = { height: this.height };
+      this.dispatchEvent(new CustomEvent('set-height-offset', { bubbles, composed, detail }));
+    });
   }
 
   _getScrollY() {
@@ -275,9 +309,17 @@ export class CXLHeadroom extends LitElement {
   render() {
     const { style } = this;
 
+    // @todo: find a better solution to solve this issue
+    // if we use "-100%" and element has "top" set to anything other than "0",
+    // it won't hide the element will show it partially or fully depending upon the "top" value.
+    if (this.translateY === '-100%') {
+      // eslint-disable-next-line radix
+      this.translateY = `-${parseInt(this.top()) + this.height}px`;
+    }
+
     let innerStyle = {
-      position: this.disable || this.state === 'unfixed' ? 'relative' : 'fixed',
-      top: 0,
+      position: this.disable || this.state === 'unfixed' ? 'static' : 'fixed', // relative
+      top: this.top(),
       left: 0,
       right: 0,
       zIndex: 1,
@@ -314,7 +356,8 @@ export class CXLHeadroom extends LitElement {
 
     const wrapperStyles = {
       ...this.wrapperStyle,
-      height: this.height ? this.height : null
+      height: this.height ? `${this.height}px` : null,
+      backgroundColor: 'initial'
     };
 
     const wrapperClassName = this.userClassName

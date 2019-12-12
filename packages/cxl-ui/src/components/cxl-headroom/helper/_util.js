@@ -25,6 +25,7 @@ export default class {
       };
       // We're at the top and not fixed yet.
     }
+
     if (currentScrollY <= props.pinStart && state.state !== 'unfixed') {
       return {
         action: 'unfix',
@@ -33,6 +34,7 @@ export default class {
       };
       // We're unfixed and headed down. Carry on.
     }
+
     if (currentScrollY <= state.height && scrollDirection === 'down' && state.state === 'unfixed') {
       return {
         action: 'none',
@@ -40,6 +42,7 @@ export default class {
         distanceScrolled
       };
     }
+
     if (
       currentScrollY > state.height + props.pinStart &&
       scrollDirection === 'down' &&
@@ -53,6 +56,7 @@ export default class {
       // We're past the header and scrolling down.
       // We transition to "unpinned" if necessary.
     }
+
     if (
       scrollDirection === 'down' &&
       ['pinned', 'unfixed'].indexOf(state.state) >= 0 &&
@@ -66,6 +70,7 @@ export default class {
       };
       // We're scrolling up, we transition to "pinned"
     }
+
     if (
       scrollDirection === 'up' &&
       distanceScrolled > props.upTolerance &&
@@ -79,6 +84,7 @@ export default class {
       // We're scrolling up, and inside the header.
       // We transition to pin regardless of upTolerance
     }
+
     if (
       scrollDirection === 'up' &&
       currentScrollY <= state.height &&
@@ -90,6 +96,7 @@ export default class {
         distanceScrolled
       };
     }
+
     return {
       action: 'none',
       scrollDirection,

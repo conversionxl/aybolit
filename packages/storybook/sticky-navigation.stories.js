@@ -13,10 +13,34 @@ export const CxlMarketingNav = () => {
     const cxlMarketingNavElement = document.querySelector('cxl-marketing-nav');
 
     cxlMarketingNavElement.contextMenuItems = contextMenuItems;
+
+    const cxlHeadroomNavElement = document.querySelector('cxl-headroom#cxl-headroom-primary-nav');
+    const cxlHeadroomSubNavElement = document.querySelector('cxl-headroom#cxl-headroom-sub-nav');
+
+    function setSubNavTop(top) {
+      cxlHeadroomSubNavElement.top = () => {
+        return `${top}px`;
+      };
+    }
+
+    cxlHeadroomNavElement.addEventListener('set-height-offset', e => {
+      setSubNavTop(e.detail.height);
+    });
+
+    cxlHeadroomSubNavElement.addEventListener('connected-init', () => {
+      const getOffset = el => {
+        const rect = el.getBoundingClientRect();
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+      };
+      cxlHeadroomSubNavElement.pinStart = getOffset(cxlHeadroomSubNavElement).top;
+    });
   }, []);
 
+  // eslint-disable-next-line lit/no-invalid-html
   return html`
-    <cxl-headroom>
+    <cxl-headroom id="cxl-headroom-primary-nav">
       <cxl-marketing-nav id="menu-primary" class="menu menu-primary" role="navigation">
         <template id="cxl-marketing-nav-search-form-template">
           <vaadin-context-menu-item class="menu-item-search">
@@ -176,6 +200,45 @@ export const CxlMarketingNav = () => {
           <vaadin-tab class="menu-item" theme="cxl-marketing-nav"><a>Help</a></vaadin-tab>
         </vaadin-tabs>
       </cxl-marketing-nav>
+    </cxl-headroom>
+    <vaadin-item theme="cxl-hero-content">
+      <h1>Learn to optimize your design using <strong>data.</strong></h1>
+      <h2><span>Online course:</span> <strong>Data-driven UX masterclass</strong></h2>
+      <h5>by Karl Gilis, world-renowned CRO Expert &amp; Information Architect.</h5>
+      <p>
+        Get a proven and hand-on UX framework to make more money with your website &amp; landing
+        pages. Use user research tools and techniques to uncover usability and UX problems on any
+        site.
+      </p>
+    </vaadin-item>
+    <cxl-headroom id="cxl-headroom-sub-nav" pinStart="120">
+      <vaadin-tabs>
+        <vaadin-tab theme="cxl-marketing-nav-tab">
+          <vaadin-button theme="primary cxl-button margin-right"
+            ><a href="">Start your free trial</a></vaadin-button
+          >
+        </vaadin-tab>
+        <vaadin-tab theme="cxl-marketing-nav-tab">
+          <vaadin-button theme="primary cxl-button cxl-transparent"
+            ><a href="">Download syllabus</a></vaadin-button
+          >
+        </vaadin-tab>
+        <vaadin-tab theme="cxl-marketing-nav-tab cxl-from-tablet">
+          <a href="#testimonials">
+            Testimonials
+          </a>
+        </vaadin-tab>
+        <vaadin-tab theme="cxl-marketing-nav-tab cxl-from-tablet">
+          <a href="#case-studies">
+            Instructors
+          </a>
+        </vaadin-tab>
+        <vaadin-tab theme="cxl-marketing-nav-tab cxl-from-tablet">
+          <a href="#case-studies">
+            Curriculum
+          </a>
+        </vaadin-tab>
+      </vaadin-tabs>
     </cxl-headroom>
     <main>
       <style>
