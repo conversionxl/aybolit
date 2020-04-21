@@ -1,5 +1,8 @@
 :host([theme~="cxl-accordion-card"]) {
-  column-gap: calc(var(--lumo-space-m) * 2);
-  column-rule: 1px solid var(--lumo-shade-10pct); // match panel `outline`
-  column-width: calc(var(--lumo-space-m) * 18);
+  display: grid;
+  max-width: 100vw;
+  grid-template-columns: repeat(auto-fill, minmax(calc(var(--lumo-space-m) * 21), 1fr));
+  grid-template-rows: repeat(auto-fill, calc(var(--lumo-space-m) * 16));
+  gap: calc(var(--lumo-space-m) * 2);
+  grid-auto-flow: row;
 }
