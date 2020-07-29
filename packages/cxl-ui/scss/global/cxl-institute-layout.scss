@@ -102,5 +102,14 @@ cxl-institute-layout {
         margin: 0 auto;
       }
     }
+
+    .woocommerce-account & {
+      > .entry {
+        .entry-content,
+        .entry-footer {
+          padding: 0;
+        }
+      }
+    }
   }
 }
