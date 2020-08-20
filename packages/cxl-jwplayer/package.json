@@ -19,6 +19,7 @@
     "@pika/plugin-build-web": "^0.8.1",
     "@pika/plugin-bundle-web": "^0.8.1",
     "@pika/plugin-standard-pkg": "^0.8.1",
+    "@vaadin/vaadin-themable-mixin": "^1.5.2",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2"
   },
