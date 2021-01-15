@@ -5,7 +5,7 @@ import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
 import archiveData from './theme=cxl-archive.data.json';
 
 export default {
-  title: 'CXL UI|cxl-vaadin-accordion'
+  title: 'CXL UI/cxl-vaadin-accordion'
 };
 
 export const CxlVaadinAccordionThemeArchive = () => {

@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 
 export default {
-  title: 'CXL UI|cxl-vaadin-accordion'
+  title: 'CXL UI/cxl-vaadin-accordion'
 };
 
 export const CxlVaadinAccordionThemeMinidegreeTrack = () => {

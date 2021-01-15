@@ -4,7 +4,7 @@ import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import faqData from './theme=cxl-faq.data.json';
 
 export default {
-  title: 'CXL UI|cxl-vaadin-accordion'
+  title: 'CXL UI/cxl-vaadin-accordion'
 };
 
 export const CxlVaadinAccordionThemeFaq = () => {
