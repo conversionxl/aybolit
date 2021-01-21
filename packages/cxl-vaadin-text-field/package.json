@@ -10,7 +10,7 @@
     "directory": "packages/cxl-vaadin-text-field"
   },
   "dependencies": {
-    "@vaadin/vaadin-text-field": "^3.0.0-alpha1"
+    "@vaadin/vaadin-text-field": "^2.8.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
