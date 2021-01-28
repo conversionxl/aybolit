@@ -34,7 +34,10 @@ export const CXLInstituteLayout = () => {
           <a href="https://conversionxli.warmpress.com/course/the-persuasion-slide/">The Persuasion Slide</a>
         </h3>
 
-        <label>Lessons</label>
+        <section class="course-meta">
+				  <span>Completed 4 lesson of 9 in total and have not passed the final exam</span>
+          <vaadin-progress-bar value="0.20" theme="error" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.2" role="progressbar" style="--vaadin-progress-value:0.2;"></vaadin-progress-bar>
+			  </section>
 
         <article class="entry author-susie has-excerpt post-3671 lesson type-lesson status-publish has-post-thumbnail post course membership-content access-granted " itemscope="itemscope" itemtype="http://schema.org/CreativeWork" id="post-3671">
           <header class="entry-header">
@@ -125,13 +128,17 @@ export const CXLInstituteLayout = () => {
         <header class="entry-header">
           <label>Lesson</label>
           <h1 class="entry-title">The Persuasion Slide</h1>
-          <div class="entry-byline">
-            <span class="progress statement course-completion-rate">Completed 4 lessons of 8 in total</span>
-            <vaadin-progress-bar value="0.50">Completed 4 lessons of 8 in total</vaadin-progress-bar>
-            <section class="course-meta course-enrolment">
-              <div class="status in-progress">In Progress</div>
-            </section>
-          </div>
+          <div class="entry-byline">                                
+            <section class="lesson-meta"></section>		
+            <footer>
+              <form id="sensei_lesson_button_form" class="lesson_button_form" method="POST" action="https://conversionxli.warmpress.com/lesson/optimizing-email-marketing-list-growth/">
+                <input type="hidden" name="woothemes_sensei_complete_lesson_noonce" id="woothemes_sensei_complete_lesson_noonce" value="751d308bb8">
+                <input type="hidden" name="quiz_action" value="lesson-complete">
+                <input type="hidden" name="quiz_complete" class="quiz-submit complete" value="1">
+                <vaadin-button type="submit" name="quiz_complete" class="quiz-submit complete" theme="primary" onclick="document.getElementById('sensei_lesson_button_form').submit();" tabindex="0" role="button"><iron-icon icon="vaadin:check-circle" slot="prefix"></iron-icon>Mark lesson complete</vaadin-button>
+              </form>
+            </footer>
+            </div>
         </header>
 
         <div class="entry-media">
@@ -169,6 +176,15 @@ export const CXLInstituteLayout = () => {
 
         <h2 id="overview-video">Overview video<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" href="#overview-video" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
         <p>Ending paragraph here.</p>
+        <footer class="entry-footer">
+        	<section class="lesson-meta"></section>	
+					<form id="sensei_lesson_button_form" class="lesson_button_form" method="POST" action="https://conversionxli.warmpress.com/lesson/optimizing-email-marketing-list-growth/">
+				    <input type="hidden" name="woothemes_sensei_complete_lesson_noonce" id="woothemes_sensei_complete_lesson_noonce" value="751d308bb8">
+				    <input type="hidden" name="quiz_action" value="lesson-complete">
+				    <input type="hidden" name="quiz_complete" class="quiz-submit complete" value="1">
+				    <vaadin-button type="submit" name="quiz_complete" class="quiz-submit complete" theme="primary" onclick="document.getElementById('sensei_lesson_button_form').submit();" tabindex="0" role="button"><iron-icon icon="vaadin:check-circle" slot="prefix"></iron-icon>Mark lesson complete</vaadin-button>
+			    </form>		
+        </footer>
       </article>
     </cxl-institute-layout>
 `;
