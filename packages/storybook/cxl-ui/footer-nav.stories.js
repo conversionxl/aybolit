@@ -1,7 +1,7 @@
 import { html } from 'lit-html';
 
 export default {
-  title: 'CXL UI/footer',
+  title: 'CXL UI/footer'
 };
 
 export const CXLFooterNav = () => html`

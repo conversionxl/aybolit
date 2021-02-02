@@ -5,7 +5,7 @@ import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../footer-nav.stories';
 
 export default {
-  title: 'CXL UI/cxl-app-layout',
+  title: 'CXL UI/cxl-app-layout'
 };
 
 export const CXLAppLayout1cc = () => html`

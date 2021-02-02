@@ -16,7 +16,7 @@ export const CXLVaadinAccordionThemeFaq = () => html`
     theme="cxl-faq"
   >
     ${faqData.map(
-      (el) => html`
+      el => html`
         <vaadin-accordion-panel
           id="${el.cxl_hybrid_attr_post['@attributes'].id}"
           class="${el.cxl_hybrid_attr_post['@attributes'].class}"
