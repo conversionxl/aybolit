@@ -21,6 +21,7 @@
     "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/web-components": "^6.1.14",
     "@vaadin/vaadin-button": "^2.1.5",
+    "@vaadin/vaadin-context-menu": "^4.5.0",
     "lit-html": "^1.0.0"
   },
   "scripts": {

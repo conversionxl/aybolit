@@ -6,7 +6,7 @@ import { CXLFooterNav } from '../footer-nav.stories';
 import { CXLVaadinAccordionThemeArchive } from '../cxl-vaadin-accordion.stories';
 
 export default {
-  title: 'CXL UI/cxl-app-layout'
+  title: 'CXL UI/cxl-app-layout',
 };
 
 export const CXLAppLayout1cw = () => html`

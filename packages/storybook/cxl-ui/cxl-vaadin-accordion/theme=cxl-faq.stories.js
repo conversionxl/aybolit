@@ -9,6 +9,7 @@ export default {
 };
 
 const saveInlineCommentHandler = evt => {
+  // eslint-disable-next-line no-console
   console.log(evt);
   setTimeout(() => document.body.click(), 1000);
 };
