@@ -9,7 +9,6 @@ export default {
 };
 
 const saveInlineCommentHandler = evt => {
-  // eslint-disable-next-line no-console
   console.log(evt);
   setTimeout(() => document.body.click(), 1000);
 };
@@ -39,6 +38,7 @@ export const CxlVaadinAccordionThemeFaq = () => {
               <h5 class="entry-title" itemprop="headline">
                 <cxl-inline-comment-context-menu
                   id="${el.cxl_hybrid_attr_post['@attributes'].id}_title"
+                  textarea-placeholder="Comment on title"
                   @cxl-save-inline-comment=${saveInlineCommentHandler}
                 >
                   <a>${unsafeHTML(el.title.rendered)}</a>
@@ -48,6 +48,7 @@ export const CxlVaadinAccordionThemeFaq = () => {
             <div class="entry-summary" itemprop="description">
               <cxl-inline-comment-context-menu
                 id="${el.cxl_hybrid_attr_post['@attributes'].id}_content"
+                textarea-placeholder="Comment on content"
                 @cxl-save-inline-comment=${saveInlineCommentHandler}
               >
                 <span>${unsafeHTML(el.content.rendered)}</span>
