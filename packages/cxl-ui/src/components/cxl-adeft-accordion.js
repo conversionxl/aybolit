@@ -1,8 +1,6 @@
 import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/vaadin-accordion';
-import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import cxlAdeftAccordionGlobalStyles from '../styles/global/cxl-adeft-accordion-css.js';
 import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
 
 /**
@@ -16,9 +14,5 @@ export class CXLAdeftAccordion extends CXLVaadinAccordion {
    */
   ready() {
     super.ready();
-
-    registerGlobalStyles(cxlAdeftAccordionGlobalStyles, {
-      moduleId: 'cxl-adeft-accordion-global'
-    });
   }
 }
