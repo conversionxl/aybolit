@@ -955,6 +955,15 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@cwmr/iron-star-rating@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@cwmr/iron-star-rating/-/iron-star-rating-3.1.4.tgz#d9901ae0e7d198ae5175896b1bdfcad09a866e91"
+  integrity sha512-lpOF5r5QpQIVTq6mt9PpwtbD1srETC+xR8TmjBZXMlGwqhdXwJisyAq3/l1ae6KMrVUBMrANNq+7F8UOQIqjnw==
+  dependencies:
+    "@polymer/iron-icon" "^3.0.0"
+    "@polymer/iron-icons" "^3.0.0"
+    "@polymer/polymer" "^3.0.0"
+
 "@emotion/cache@^10.0.27", "@emotion/cache@^10.0.9":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
@@ -2174,7 +2183,7 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-icon@^3.0.0":
+"@polymer/iron-icon@^3.0.0", "@polymer/iron-icon@^3.0.0-pre.26":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@polymer/iron-icon/-/iron-icon-3.0.1.tgz#93211c39d8825fe4965a68419566036c1df291eb"
   integrity sha512-QLPwirk+UPZNaLnMew9VludXA4CWUCenRewgEcGYwdzVgDPCDbXxy6vRJjmweZobMQv/oVLppT2JZtJFnPxX6g==
@@ -2183,7 +2192,16 @@
     "@polymer/iron-meta" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-iconset-svg@^3.0.0", "@polymer/iron-iconset-svg@^3.0.1":
+"@polymer/iron-icons@^3.0.0":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@polymer/iron-icons/-/iron-icons-3.0.1.tgz#c1bd31d8483afbdb5422cdc384081e19c9267cfe"
+  integrity sha512-xtEI8erH2GIBiF3QxEMyW81XuVjguu6Le5WjEEpX67qd9z7jjmc4T/ke3zRUlnDydex9p8ytcwVpMIKcyvjYAQ==
+  dependencies:
+    "@polymer/iron-icon" "^3.0.0-pre.26"
+    "@polymer/iron-iconset-svg" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-iconset-svg@^3.0.0", "@polymer/iron-iconset-svg@^3.0.0-pre.26", "@polymer/iron-iconset-svg@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@polymer/iron-iconset-svg/-/iron-iconset-svg-3.0.1.tgz#568d6e7dbc120299dae63be3600aeba0d30ddbea"
   integrity sha512-XNwURbNHRw6u2fJe05O5fMYye6GSgDlDqCO+q6K1zAnKIrpgZwf2vTkBd5uCcZwsN0FyCB3mvNZx4jkh85dRDw==
