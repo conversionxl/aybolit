@@ -1,0 +1,10 @@
+[part="summary"] {
+  padding: 0;
+  box-shadow: var(--lumo-box-shadow-m);
+}
+:host(.empty-content) [part="toggle"] {
+  display: none;
+}
+[part="toggle"] {
+  padding: var(--lumo-space-m);
+}
