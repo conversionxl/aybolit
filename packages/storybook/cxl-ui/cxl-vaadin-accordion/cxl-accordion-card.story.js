@@ -4,21 +4,15 @@ import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
 import archiveData from './theme=cxl-archive.data.json';
 
-export default {
-  title: 'CXL UI|cxl-vaadin-accordion'
-};
-
-export const CxlVaadinAccordionThemeArchive = () => {
+export const CXLVaadinAccordionThemeArchive = () => {
   let lastEntryTitle1stLetter = 'Z';
 
-  const firstLetterHeading = el => {
+  const firstLetterHeading = (el) => {
     const firstLetter = el.title.raw.charAt(0);
     let heading = html``;
 
     if (firstLetter !== lastEntryTitle1stLetter) {
-      heading = html`
-        <h3 id="letter-${firstLetter}">${firstLetter}</h3>
-      `;
+      heading = html` <h3 id="letter-${firstLetter}">${firstLetter}</h3> `;
       lastEntryTitle1stLetter = firstLetter;
     }
 
@@ -43,7 +37,7 @@ export const CxlVaadinAccordionThemeArchive = () => {
       theme="cxl-accordion-card"
     >
       ${archiveData.map(
-        el => html`
+        (el) => html`
           ${firstLetterHeading(el)}
           <cxl-accordion-card
             id="${el.cxl_hybrid_attr_post['@attributes'].id}"
@@ -91,9 +85,4 @@ export const CxlVaadinAccordionThemeArchive = () => {
       )}
     </cxl-vaadin-accordion>
   `;
-};
-
-// @todo localStorage data panel?
-CxlVaadinAccordionThemeArchive.story = {
-  name: 'cxl-accordion-card'
 };

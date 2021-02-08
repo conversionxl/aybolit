@@ -1,3 +1,5 @@
+@use "mixins";
+
 html {
   // Variables.
   --cxl-content-width: 36em;
@@ -42,11 +44,12 @@ a {
   }
 }
 
-// Heading highlights.
+// Heading highlights w/ formatting (strikethrough etc) support.
 b,
 strong {
-  h1 > &,
-  h2 > & {
+  h1 &,
+  h2 &,
+  h3 & {
     color: var(--lumo-primary-color);
   }
 }
@@ -96,4 +99,8 @@ ul {
   width: var(--cxl-thumbnail-size);
   height: var(--cxl-thumbnail-size);
   border-radius: 50%;
+}
+
+.wrap {
+  @include mixins.wrap();
 }

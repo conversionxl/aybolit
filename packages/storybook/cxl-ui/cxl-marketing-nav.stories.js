@@ -5,10 +5,10 @@ import { Headroom } from '@conversionxl/cxl-ui';
 import contextMenuItems from './cxl-marketing-nav.data.json';
 
 export default {
-  title: 'CXL UI'
+  title: 'CXL UI/cxl-marketing-nav',
 };
 
-export const CxlMarketingNav = () => {
+export const CXLMarketingNav = () => {
   useEffect(() => {
     // Populate `<cxl-marketing-nav>` context menus.
     const cxlMarketingNavElement = document.querySelector('cxl-marketing-nav');
@@ -19,16 +19,15 @@ export const CxlMarketingNav = () => {
     const headroom = new Headroom(cxlMarketingNavElement, {
       tolerance: {
         up: 30,
-        down: 0
-      }
+        down: 30,
+      },
     });
 
     headroom.init();
   }, []);
 
-  // @todo https://github.com/43081j/eslint-plugin-lit/issues/63
   return html`
-    <cxl-marketing-nav id="menu-primary" class="menu menu-primary" role="navigation">
+    <cxl-marketing-nav id="menu-primary" class="menu menu-primary" role="navigation" slot="header">
       <template id="cxl-marketing-nav-search-form-template">
         <vaadin-context-menu-item class="menu-item-search">
           <form
@@ -190,35 +189,7 @@ export const CxlMarketingNav = () => {
         <vaadin-tab class="menu-item" theme="cxl-marketing-nav"><a>Help</a></vaadin-tab>
       </vaadin-tabs>
     </cxl-marketing-nav>
-
-    <main>
-      <style>
-        /* headroom.js */
-        body {
-          min-height: 3000px;
-        }
-
-        /* @todo @include wrap mixin. */
-        .wrap {
-          margin: 0 auto;
-          max-width: var(--cxl-wrap-width, none);
-          padding: 0 var(--cxl-wrap-padding);
-          position: relative;
-        }
-      </style>
-
-      <div class="wrap">
-        <p>
-          We need to test context menu items vs body links styling, so here's a
-          <a href="https://cxl.com">link somewhere like cxl.com</a>.
-        </p>
-        <p><a href="https://cxl.com">Another link</a> for good measure.</p>
-        <hr />
-      </div>
-    </main>
   `;
 };
 
-CxlMarketingNav.story = {
-  name: 'cxl-marketing-nav'
-};
+CXLMarketingNav.storyName = 'menu-primary';

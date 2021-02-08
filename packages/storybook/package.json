@@ -11,6 +11,7 @@
     "@aybolit/white-label": "^0.1.0",
     "@conversionxl/cxl-lumo-styles": "^0.2.2",
     "@conversionxl/cxl-ui": "^0.2.1",
+    "@cwmr/iron-star-rating": "^3.1.4",
     "@storybook/addon-knobs": "^5.3.13",
     "@storybook/addon-viewport": "^5.3.13",
     "@storybook/addons": "^5.3.13",
@@ -18,7 +19,8 @@
     "@storybook/core": "^5.3.13",
     "@storybook/polymer": "^5.3.13",
     "@storybook/storybook-deployer": "^2.8.1",
-    "@vaadin/vaadin-button": "^2.1.5",
+    "@storybook/web-components": "^6.1.14",
+    "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "lit-html": "^1.0.0"
   },
   "scripts": {
