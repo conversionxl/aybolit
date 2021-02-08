@@ -10,7 +10,7 @@ cxl-adeft-accordion {
     margin-bottom: var(--lumo-space-s);
 
     &[opened] {
-      $opened-margin: calc(var(--lumo-space-xl) * -1);
+      $opened-margin: calc(var(--lumo-space-l) * -1);
       margin-right: $opened-margin;
       margin-left: $opened-margin;
     }
