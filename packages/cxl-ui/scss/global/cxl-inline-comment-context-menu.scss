@@ -1,0 +1,60 @@
+.list-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - var(--lumo-space-s));
+  height: 100%;
+  padding: var(--lumo-space-xs);
+  overflow: hidden;
+
+  vaadin-list-box {
+    overflow: hidden;
+    background-color: var(--lumo-base-color);
+  }
+
+  .area-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: var(--lumo-space-s);
+    margin: 0;
+
+    textarea {
+      width: calc(100% - var(--lumo-space-m));
+      border-radius: var(--lumo-border-radius-m);
+      box-shadow: var(--lumo-box-shadow-xs);
+    }
+    .message {
+      color: var(--lumo-body-text-color);
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    button {
+      padding: var(--lumo-space-xs) var(--lumo-space-s);
+      font-weight: var(--lumo-font-size-l);
+      border-radius: var(--lumo-border-radius-m);
+      box-shadow: var(--lumo-box-shadow-xs);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    #send {
+      margin-right: var(--lumo-space-s);
+      color: var(--lumo-base-color);
+      background: var(--lumo-primary-color);
+    }
+
+    #cancel {
+      color: var(--lumo-primary-color);
+      background-color: var(--lumo-base-color);
+    }
+  }
+}
