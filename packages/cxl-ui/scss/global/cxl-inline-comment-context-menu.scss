@@ -29,32 +29,4 @@
       color: var(--lumo-body-text-color);
     }
   }
-
-  .buttons {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-    button {
-      padding: var(--lumo-space-xs) var(--lumo-space-s);
-      font-weight: var(--lumo-font-size-l);
-      border-radius: var(--lumo-border-radius-m);
-      box-shadow: var(--lumo-box-shadow-xs);
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    #send {
-      margin-right: var(--lumo-space-s);
-      color: var(--lumo-base-color);
-      background: var(--lumo-primary-color);
-    }
-
-    #cancel {
-      color: var(--lumo-primary-color);
-      background-color: var(--lumo-base-color);
-    }
-  }
 }

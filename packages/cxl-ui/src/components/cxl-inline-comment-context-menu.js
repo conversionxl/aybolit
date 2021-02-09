@@ -1,5 +1,6 @@
 import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
+import '@vaadin/vaadin-button';
 import { ContextMenuElement } from '@vaadin/vaadin-context-menu/src/vaadin-context-menu.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlInlineCommentContextMenuGlobalStyles from '../styles/global/cxl-inline-comment-context-menu-css.js';
@@ -63,25 +64,23 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
     };
   }
 
-  // eslint-disable-next-line class-methods-use-this
   appendContextMenuScript() {
     const contextMenu = this;
     contextMenu.closeOn = 'blur';
 
     contextMenu.renderer = (root) => {
       const listBox = this._getListBoxElementOrClearIfExists(root);
-
-      listBox.innerHTML = this._getListBoxDefaultHTML(listBox);
-
       const sendButton = root.querySelector('#send');
       const cancelButton = root.querySelector('#cancel');
       const textarea = root.querySelector('.area-container textarea');
 
-      cancelButton.onclick = () => {
-        listBox.innerHTML = '';
-      };
+      listBox.innerHTML = this._getListBoxDefaultHTML(listBox);
 
-      sendButton.onclick = () => {
+      cancelButton.addEventListener('click', () => {
+        listBox.innerHTML = '';
+      });
+
+      sendButton.addEventListener('click', () => {
         sendButton.disabled = true;
         sendButton.textContent = this.buttonTextSavingComment;
         this._dispachCustomEvent(textarea, contextMenu);
@@ -93,7 +92,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
             listBox.innerHTML = '';
           }, 3000);
         }, 2000);
-      };
+      });
     };
   }
 
@@ -101,7 +100,7 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
   _getListBoxElementOrClearIfExists(root) {
     let listBox = root.firstElementChild;
 
-    // // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
+    // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
     if (listBox) {
       listBox.innerHTML = '';
     } else {
@@ -118,8 +117,8 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
                 <textarea placeholder="${this.textareaPlaceholder}"></textarea>
             </div>
             <div class="buttons">
-              <button id="send">${this.buttonText}</button>
-              <button id="cancel">Cancel</button>
+              <vaadin-button theme="primary" id="send">${this.buttonText}</vaadin-button>
+              <vaadin-button theme="secondary" id="cancel">Cancel</vaadin-button>
             </div>
           </div>
         `;
