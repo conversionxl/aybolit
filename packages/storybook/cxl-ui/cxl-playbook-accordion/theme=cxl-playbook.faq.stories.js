@@ -1,10 +1,10 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import faqData from './theme=cxl-faq.data.json';
+import faqData from '../cxl-vaadin-accordion/theme=cxl-faq.data.json';
 
 export default {
-  title: 'CXL UI/cxl-adeft-accordion',
+  title: 'CXL UI/cxl-playbook-accordion',
 };
 
 const Template = () => html`
@@ -12,16 +12,16 @@ const Template = () => html`
     .plural .entry-title {
       margin: 0;
     }
-    cxl-adeft-accordion {
+    cxl-playbook-accordion {
       padding: 10px;
     }
   </style>
 
   <cxl-app-layout theme="2c-l" id="container">
-    <cxl-adeft-accordion
+    <cxl-playbook-accordion
       id="cxl-vaadin-accordion-26107"
       theme="reverse"
-      class="cxl-adeft-accordion-class"
+      class="cxl-playbook-accordion-class"
     >
       ${faqData.map(
         (el) => html`
@@ -46,12 +46,12 @@ const Template = () => html`
           </vaadin-accordion-panel>
         `
       )}
-    </cxl-adeft-accordion>
+    </cxl-playbook-accordion>
   </cxl-app-layout>
 `;
 
 export const CxlAdeftVaadinAccordionThemeFaq = Template.bind({});
 
 CxlAdeftVaadinAccordionThemeFaq.story = {
-  name: 'CXL UI/cxl-adeft-accordion',
+  name: 'CXL UI/cxl-playbook-accordion',
 };

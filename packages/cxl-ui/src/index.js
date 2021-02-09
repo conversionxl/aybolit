@@ -7,7 +7,7 @@ export { CXLSectionElement } from './components/cxl-section.js';
 
 // Order matters.
 export { CXLVaadinAccordion } from './components/cxl-vaadin-accordion.js';
-export { CXLAdeftAccordion } from './components/cxl-adeft-accordion.js';
+export { CxlPlaybookAccordion } from './components/cxl-playbook-accordion.js';
 export { CXLAccordionCard } from './components/cxl-accordion-card.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from
