@@ -8,7 +8,7 @@ export { CXLSectionElement } from './components/cxl-section.js';
 // Order matters.
 export { CXLVaadinAccordion } from './components/cxl-vaadin-accordion.js';
 export { CXLAccordionCard } from './components/cxl-accordion-card.js';
-export { CXLAdeftStarRating } from './components/cxl-adeft-star-rating.js';
+export { CxlStarRating } from './components/cxl-star-rating.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from
 export { Headroom };

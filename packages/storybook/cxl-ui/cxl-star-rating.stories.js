@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
-import '@conversionxl/cxl-ui/src/components/cxl-adeft-star-rating.js';
+import '@conversionxl/cxl-ui/src/components/cxl-star-rating.js';
 
 /**
  * 2021-01-14
@@ -10,18 +10,18 @@ import '@conversionxl/cxl-ui/src/components/cxl-adeft-star-rating.js';
  */
 
 export default {
-  title: 'CXL UI/cxl-adeft-star-rating',
+  title: 'CXL UI/cxl-star-rating',
 };
 
 const Template = () => html`
   <cxl-app-layout id="container" theme="2c-l">
-    <h2>Adeft Star Rating</h2>
-    <cxl-adeft-star-rating id="rating_post_id_1234"></cxl-adeft-star-rating>
+    <h2>CXL Star Rating</h2>
+    <cxl-star-rating id="rating_post_id_1234"></cxl-star-rating>
   </cxl-app-layout>
 `;
 
-export const CxlAdeftStarRating = Template.bind({});
+export const CxlStarRating = Template.bind({});
 
-CxlAdeftStarRating.story = {
-  name: 'cxl-adeft-star-rating',
+CxlStarRating.story = {
+  name: 'cxl-star-rating',
 };
