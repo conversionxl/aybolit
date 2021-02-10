@@ -2,8 +2,8 @@ import { customElement, html, LitElement, property } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import '@cwmr/iron-star-rating';
 
-@customElement('cxl-adeft-star-rating')
-export class CXLAdeftStarRating extends LitElement {
+@customElement('cxl-star-rating')
+export class CxlStarRating extends LitElement {
   @property({ reflect: true, type: Number })
   value;
 
@@ -12,7 +12,7 @@ export class CXLAdeftStarRating extends LitElement {
 
   @property({ type: String })
   get uniqueId() {
-    return `cxl-adeft-star-rating_${this.id}`;
+    return `cxl-star-rating_${this.id}`;
   }
 
   _saveState(value) {
