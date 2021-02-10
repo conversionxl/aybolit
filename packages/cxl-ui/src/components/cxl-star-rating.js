@@ -6,30 +6,6 @@ export class CxlStarRating extends IronStarRating {
     return 'cxl-star-rating';
   }
 
-  static get properties() {
-    return {
-      value: {
-        type: Number,
-        value: 0,
-        notify: true,
-        observer: '_valueChanged',
-      },
-      icon: {
-        type: String,
-        value: 'icons:star',
-      },
-      disableAutoUpdate: {
-        type: Boolean,
-        value: false,
-      },
-      readonly: {
-        type: Boolean,
-        value: false,
-        reflectToAttribute: true,
-      },
-    };
-  }
-
   _getUniqueId() {
     return `cxl-star-rating_${this.id}`;
   }
