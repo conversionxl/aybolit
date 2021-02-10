@@ -1,52 +1,64 @@
-import { customElement, html, LitElement, property } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
-import '@cwmr/iron-star-rating';
+import { IronStarRating } from '@cwmr/iron-star-rating';
 
-@customElement('cxl-star-rating')
-export class CxlStarRating extends LitElement {
-  @property({ reflect: true, type: Number })
-  value;
+export class CxlStarRating extends IronStarRating {
+  static get is() {
+    return 'cxl-star-rating';
+  }
 
-  @property({ reflect: true, type: Boolean })
-  readonly;
+  static get properties() {
+    return {
+      value: {
+        type: Number,
+        value: 0,
+        notify: true,
+        observer: '_valueChanged',
+      },
+      icon: {
+        type: String,
+        value: 'icons:star',
+      },
+      disableAutoUpdate: {
+        type: Boolean,
+        value: false,
+      },
+      readonly: {
+        type: Boolean,
+        value: false,
+        reflectToAttribute: true,
+      },
+    };
+  }
 
-  @property({ type: String })
-  get uniqueId() {
+  _getUniqueId() {
     return `cxl-star-rating_${this.id}`;
   }
 
   _saveState(value) {
     if (value !== false && !Number.isNaN(value)) {
-      localStorage.setItem(this.uniqueId, value);
+      localStorage.setItem(this._getUniqueId(), value);
     }
   }
 
   _updateReadonlyAndValue() {
-    const value = localStorage.getItem(this.uniqueId);
+    const value = localStorage.getItem(this._getUniqueId());
 
     if (value && Number.parseFloat(value) > 0) {
-      this.readonly = true;
-      this.value = value;
+      this.setAttribute('value', value);
+      this.setAttribute('readonly', 'true');
     }
   }
 
-  _valueChangedCallback(event) {
-    this._saveState(event.detail.value);
+  _valueChanged(newValue, oldValue) {
+    super._valueChanged(newValue, oldValue);
+    if (newValue !== 0 && !newValue) {
+      return;
+    }
+    if (newValue > 0) {
+      this._saveState(newValue);
+    }
     this._updateReadonlyAndValue();
-  }
-
-  firstUpdated(_changedProperties) {
-    this._updateReadonlyAndValue();
-    super.firstUpdated(_changedProperties);
-  }
-
-  render() {
-    return html`
-      <iron-star-rating
-        ?readonly=${this.readonly}
-        @value-changed=${this._valueChangedCallback}
-        value=${this.value}
-      ></iron-star-rating>
-    `;
   }
 }
+
+window.customElements.define(CxlStarRating.is, CxlStarRating);
