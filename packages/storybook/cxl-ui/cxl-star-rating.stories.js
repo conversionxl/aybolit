@@ -13,11 +13,11 @@ export default {
   title: 'CXL UI/cxl-star-rating',
 };
 
-export const CxlStarRating = () => html`
+export const CXLStarRating = () => html`
   <cxl-app-layout id="container" theme="2c-l">
     <h2>CXL Star Rating</h2>
     <cxl-star-rating id="rating_post_id_1234"></cxl-star-rating>
   </cxl-app-layout>
 `;
 
-CxlStarRating.storyName = 'cxl-star-rating';
+CXLStarRating.storyName = 'cxl-star-rating';

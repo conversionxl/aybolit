@@ -1,7 +1,7 @@
 import '@conversionxl/cxl-lumo-styles';
 import { IronStarRating } from '@cwmr/iron-star-rating';
 
-export class CxlStarRating extends IronStarRating {
+export class CXLStarRating extends IronStarRating {
   static get is() {
     return 'cxl-star-rating';
   }
@@ -37,4 +37,4 @@ export class CxlStarRating extends IronStarRating {
   }
 }
 
-window.customElements.define(CxlStarRating.is, CxlStarRating);
+window.customElements.define(CXLStarRating.is, CXLStarRating);
