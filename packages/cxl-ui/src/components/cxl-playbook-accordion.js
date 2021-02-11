@@ -4,7 +4,7 @@ import '@vaadin/vaadin-accordion';
 import '@vaadin/vaadin-checkbox';
 import { css, registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import cxlAdeftAccordionGlobalStyles from '../styles/global/cxl-playbook-accordion-css.js';
+import cxlPlaybookAccordionGlobalStyles from '../styles/global/cxl-playbook-accordion-css.js';
 import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
 
 /**
@@ -12,11 +12,11 @@ import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
  * Saves panel state, restores on page load.
  */
 @customElement('cxl-playbook-accordion')
-export class CxlPlaybookAccordion extends CXLVaadinAccordion {
+export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   constructor() {
     super();
-    registerStyles('vaadin-accordion-panel', [CxlPlaybookAccordion._getAccordionPanelStyles()]);
-    registerStyles('vaadin-checkbox', [CxlPlaybookAccordion._getVaadinCheckboxStyles()]);
+    registerStyles('vaadin-accordion-panel', [CXLPlaybookAccordion._getAccordionPanelStyles()]);
+    registerStyles('vaadin-checkbox', [CXLPlaybookAccordion._getVaadinCheckboxStyles()]);
   }
 
   static _getAccordionPanelStyles() {
@@ -54,7 +54,7 @@ export class CxlPlaybookAccordion extends CXLVaadinAccordion {
     super.ready();
 
     // Define and register a style sheet for the <vaadin-text-field> component
-    registerGlobalStyles(cxlAdeftAccordionGlobalStyles, {
+    registerGlobalStyles(cxlPlaybookAccordionGlobalStyles, {
       moduleId: 'cxl-playbook-accordion-global',
     });
 

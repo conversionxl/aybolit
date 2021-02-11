@@ -7,7 +7,7 @@ export default {
   title: 'CXL UI/cxl-playbook-accordion',
 };
 
-export const CxlPlaybookAccordionThemeFaq = () => html`
+export const CXLPlaybookAccordionThemeFaq = () => html`
   <style>
     .plural .entry-title {
       margin: 0;
@@ -50,4 +50,4 @@ export const CxlPlaybookAccordionThemeFaq = () => html`
   </cxl-app-layout>
 `;
 
-CxlPlaybookAccordionThemeFaq.storyName = '[layout=2c-l] (default)';
+CXLPlaybookAccordionThemeFaq.storyName = '[layout=2c-l] (default)';
