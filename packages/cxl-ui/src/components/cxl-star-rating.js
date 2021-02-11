@@ -29,7 +29,7 @@ export class CXLStarRating extends IronStarRating {
     }
   }
 
-  __shouldSaveStateToLocalStorage() {
+  _shouldSaveStateToLocalStorage() {
     return this.id !== undefined && this.id !== null && String(this.id).length > 0;
   }
 
@@ -40,7 +40,7 @@ export class CXLStarRating extends IronStarRating {
       return;
     }
 
-    if (!this.__shouldSaveStateToLocalStorage() && newValue > 0) {
+    if (!this._shouldSaveStateToLocalStorage() && newValue > 0) {
       this.setAttribute('readonly', 'true');
       return;
     }
