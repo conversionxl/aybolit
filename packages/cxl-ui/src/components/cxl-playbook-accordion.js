@@ -151,7 +151,7 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   }
 
   _dispatchCustomEvent(stateItems) {
-    const event = new CustomEvent('cxl-vaadin-accordion-state-changed', {
+    const event = new CustomEvent('cxl-playbook-accordion-state-changed', {
       detail: {
         items: stateItems,
         bubbles: true,
