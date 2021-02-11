@@ -13,10 +13,18 @@ export default {
   title: 'CXL UI/cxl-star-rating',
 };
 
+const valueChangedCallback = (event) => {
+  // eslint-disable-next-line no-console
+  console.log(event);
+};
+
 export const CXLStarRating = () => html`
   <cxl-app-layout id="container" theme="2c-l">
     <h2>CXL Star Rating</h2>
-    <cxl-star-rating id="rating_post_id_1234"></cxl-star-rating>
+    <cxl-star-rating
+      id="rating_post_id_1234"
+      @value-changed="${valueChangedCallback}"
+    ></cxl-star-rating>
   </cxl-app-layout>
 `;
 
