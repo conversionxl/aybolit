@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-inline-comment-context-menu.js';
-import faqData from './theme=cxl-faq.data.json';
+import faqData from '../cxl-vaadin-accordion/theme=cxl-faq.data.json';
 
 export default {
   title: 'CXL UI/cxl-inline-comment-context-menu',
