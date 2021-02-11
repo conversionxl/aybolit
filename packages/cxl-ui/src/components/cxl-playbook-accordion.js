@@ -68,6 +68,7 @@ export class CxlPlaybookAccordion extends CXLVaadinAccordion {
    */
   _saveAccordionState(items) {
     const storageId = this.getAttribute('id');
+
     // Avoid null key.
     if (storageId) {
       const stateItems = [];
