@@ -7,7 +7,7 @@ export default {
   title: 'CXL UI/cxl-playbook-accordion',
 };
 
-const Template = () => html`
+export const CxlPlaybookAccordionThemeFaq = () => html`
   <style>
     .plural .entry-title {
       margin: 0;
@@ -50,8 +50,4 @@ const Template = () => html`
   </cxl-app-layout>
 `;
 
-export const CxlAdeftVaadinAccordionThemeFaq = Template.bind({});
-
-CxlAdeftVaadinAccordionThemeFaq.story = {
-  name: 'CXL UI/cxl-playbook-accordion',
-};
+CxlPlaybookAccordionThemeFaq.storyName = '[layout=2c-l] (default)';
