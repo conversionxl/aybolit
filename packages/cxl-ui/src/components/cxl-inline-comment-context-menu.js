@@ -70,11 +70,11 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
 
     contextMenu.renderer = (root) => {
       const listBox = this._getListBoxElementOrClearIfExists(root);
-      const sendButton = root.querySelector('#send');
-      const cancelButton = root.querySelector('#cancel');
-      const textarea = root.querySelector('.area-container textarea');
-
       listBox.innerHTML = this._getListBoxDefaultHTML(listBox);
+
+      const sendButton = listBox.querySelector('#send');
+      const cancelButton = listBox.querySelector('#cancel');
+      const textarea = listBox.querySelector('.area-container textarea');
 
       cancelButton.addEventListener('click', () => {
         listBox.innerHTML = '';
@@ -90,7 +90,8 @@ export class CXLInlineCommentContextMenu extends ContextMenuElement {
 
           setTimeout(() => {
             listBox.innerHTML = '';
-          }, 3000);
+            this.close();
+          }, 2000);
         }, 2000);
       });
     };
