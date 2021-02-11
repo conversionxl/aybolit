@@ -1,6 +1,10 @@
 import '@conversionxl/cxl-lumo-styles';
 import { IronStarRating } from '@cwmr/iron-star-rating';
 
+/**
+ * Notice: If you don't provide `id` attribute for the component,
+ * it won't store the state in the `localStorage`
+ */
 export class CXLStarRating extends IronStarRating {
   static get is() {
     return 'cxl-star-rating';
@@ -11,7 +15,7 @@ export class CXLStarRating extends IronStarRating {
   }
 
   _saveState(value) {
-    if (value !== false && !Number.isNaN(value)) {
+    if (value && Number.parseFloat(value) > 0) {
       localStorage.setItem(this._getUniqueId(), value);
     }
   }
@@ -25,14 +29,23 @@ export class CXLStarRating extends IronStarRating {
     }
   }
 
+  __shouldSaveStateToLocalStorage() {
+    return this.id !== undefined && this.id !== null && String(this.id).length > 0;
+  }
+
   _valueChanged(newValue, oldValue) {
     super._valueChanged(newValue, oldValue);
+
     if (newValue !== 0 && !newValue) {
       return;
     }
-    if (newValue > 0) {
-      this._saveState(newValue);
+
+    if (!this.__shouldSaveStateToLocalStorage() && newValue > 0) {
+      this.setAttribute('readonly', 'true');
+      return;
     }
+
+    this._saveState(newValue);
     this._updateReadonlyAndValue();
   }
 }
