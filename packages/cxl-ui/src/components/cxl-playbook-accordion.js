@@ -1,4 +1,4 @@
-import { customElement, property } from 'lit-element';
+import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/vaadin-accordion';
 import '@vaadin/vaadin-checkbox';
@@ -13,22 +13,28 @@ import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
  */
 @customElement('cxl-playbook-accordion')
 export class CXLPlaybookAccordion extends CXLVaadinAccordion {
-  @property({ type: HTMLCollection })
+  /**
+   *
+   * @return {NodeListOf<Element>}
+   */
   get accordionPanels() {
-    return this.shadowRoot.querySelectorAll('vaadin-accordion-panel');
+    return this.querySelectorAll('vaadin-accordion-panel');
   }
 
-  @property({ type: HTMLCollection })
-  get panelSummarySlotElements() {
-    return this.accordionPanels.querySelectorAll('div[slot="summary"]');
-  }
-
-  @property({ type: HTMLCollection })
+  /**
+   *
+   * @return {NodeListOf<Element>}
+   */
   get panelSummarySlotCheckboxes() {
-    return this.panelSummarySlotElements.querySelectorAll('vaadin-checkbox');
+    return Array.from(this.accordionPanels).map((el) =>
+      el.querySelector('div[slot="summary"] vaadin-checkbox')
+    );
   }
 
-  @property({ type: String })
+  /**
+   *
+   * @return {string}
+   */
   get checkboxesStorageId() {
     const attr = this.getAttribute('id') || 'default_id';
     return `${attr}_checkboxes`;
@@ -73,7 +79,6 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
    */
   ready() {
     super.ready();
-
     // Define and register a style sheet for the <vaadin-text-field> component
     registerGlobalStyles(cxlPlaybookAccordionGlobalStyles, {
       moduleId: 'cxl-playbook-accordion-global',
@@ -151,15 +156,15 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
 
       const isChecked =
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
-      const accordionPanel = panels[index];
 
-      accordionPanel.querySelectorAll('.summary-top').forEach((el) => {
-        if (isChecked) {
-          el.classList.add('checked');
-        } else {
-          el.classList.remove('checked');
-        }
-      });
+      const accordionPanel = panels[index];
+      const summaryTop = accordionPanel.querySelector('.summary-top');
+
+      if (isChecked) {
+        summaryTop.classList.add('checked');
+      } else {
+        summaryTop.classList.remove('checked');
+      }
     });
   }
 
