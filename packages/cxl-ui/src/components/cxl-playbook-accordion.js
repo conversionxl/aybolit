@@ -102,11 +102,6 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
     localStorage.setItem(checkboxesStorageId, JSON.stringify(stateCheckboxes));
   }
 
-  // Restore accordion panel state.
-  _updateItems(items, opened) {
-    super._updateItems(items, opened);
-  }
-
   _updateCheckboxesStates() {
     const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
     const stateCheckboxes = JSON.parse(localStorage.getItem(checkboxesStorageId));
