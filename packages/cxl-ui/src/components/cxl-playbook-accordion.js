@@ -1,4 +1,4 @@
-import { customElement } from 'lit-element';
+import { customElement, property } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/vaadin-accordion';
 import '@vaadin/vaadin-checkbox';
@@ -13,6 +13,27 @@ import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
  */
 @customElement('cxl-playbook-accordion')
 export class CXLPlaybookAccordion extends CXLVaadinAccordion {
+  @property({ type: HTMLCollection })
+  get accordionPanels() {
+    return this.shadowRoot.querySelectorAll('vaadin-accordion-panel');
+  }
+
+  @property({ type: HTMLCollection })
+  get panelSummarySlotElements() {
+    return this.accordionPanels.querySelectorAll('div[slot="summary"]');
+  }
+
+  @property({ type: HTMLCollection })
+  get panelSummarySlotCheckboxes() {
+    return this.panelSummarySlotElements.querySelectorAll('vaadin-checkbox');
+  }
+
+  @property({ type: String })
+  get checkboxesStorageId() {
+    const attr = this.getAttribute('id') || 'default_id';
+    return `${attr}_checkboxes`;
+  }
+
   constructor() {
     super();
     registerStyles('vaadin-accordion-panel', [CXLPlaybookAccordion._getAccordionPanelStyles()]);
@@ -89,7 +110,7 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
 
   _saveCheckboxesState() {
     const stateCheckboxes = [];
-    const checkboxes = this.querySelectorAll('vaadin-checkbox');
+    const checkboxes = this.panelSummarySlotCheckboxes;
 
     checkboxes.forEach((value, key) => {
       const checkbox = checkboxes[key];
@@ -98,23 +119,22 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
     });
 
-    const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
-    localStorage.setItem(checkboxesStorageId, JSON.stringify(stateCheckboxes));
+    localStorage.setItem(this.checkboxesStorageId, JSON.stringify(stateCheckboxes));
   }
 
   _updateCheckboxesStates() {
-    const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
-    const stateCheckboxes = JSON.parse(localStorage.getItem(checkboxesStorageId));
+    const stateCheckboxes = JSON.parse(localStorage.getItem(this.checkboxesStorageId));
 
     if (stateCheckboxes === null) {
       return;
     }
 
-    const checkboxes = this.querySelectorAll('vaadin-checkbox');
+    const checkboxes = this.panelSummarySlotCheckboxes;
 
     checkboxes.forEach((item, key) => {
       const checkbox = checkboxes[key];
       const isChecked = !!stateCheckboxes[key]; // autocast from null or undefined to boolean
+
       checkbox.setAttribute('aria-checked', isChecked ? 'true' : 'false');
       checkbox.checked = isChecked;
     });
@@ -123,16 +143,14 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   }
 
   _updateCSSAndPanelStateToCheckboxesStates() {
-    const checkboxes = this.querySelectorAll('vaadin-checkbox');
-    const panels = this.querySelectorAll('vaadin-accordion-panel');
+    const panels = this.accordionPanels;
 
-    checkboxes.forEach((checkbox, index) => {
+    this.panelSummarySlotCheckboxes.forEach((checkbox, index) => {
       if (!panels[index])
         throw new Error(`vaadin-accordion-panel with index ${index} doesn't exist`);
 
       const isChecked =
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
-
       const accordionPanel = panels[index];
 
       accordionPanel.querySelectorAll('.summary-top').forEach((el) => {
@@ -150,7 +168,7 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
       detail: {
         items: stateItems,
         bubbles: true,
-        id: this.getAttribute('id'),
+        id: this.getAttribute('id') || 'default_id',
       },
     });
 
