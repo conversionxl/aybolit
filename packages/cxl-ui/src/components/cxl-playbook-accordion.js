@@ -15,6 +15,33 @@ import vaadinCheckboxStyles from '../styles/cxl-playbook-accordion/vaadin-checkb
  */
 @customElement('cxl-playbook-accordion')
 export class CXLPlaybookAccordion extends CXLVaadinAccordion {
+  /**
+   *
+   * @return {NodeListOf<Element>}
+   */
+  get accordionPanels() {
+    return this.querySelectorAll('vaadin-accordion-panel');
+  }
+
+  /**
+   *
+   * @return {NodeListOf<Element>}
+   */
+  get panelSummarySlotCheckboxes() {
+    return Array.from(this.accordionPanels).map((el) =>
+      el.querySelector('div[slot="summary"] vaadin-checkbox')
+    );
+  }
+
+  /**
+   *
+   * @return {string}
+   */
+  get checkboxesStorageId() {
+    const attr = this.getAttribute('id') || 'default_id';
+    return `${attr}_checkboxes`;
+  }
+
   constructor() {
     super();
     registerStyles('vaadin-accordion-panel', [vaadinAccordionPanelStyles]);
@@ -26,7 +53,6 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
    */
   ready() {
     super.ready();
-
     // Define and register a style sheet for the <vaadin-text-field> component
     registerGlobalStyles(cxlPlaybookAccordionGlobalStyles, {
       moduleId: 'cxl-playbook-accordion-global',
@@ -63,7 +89,7 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
 
   _saveCheckboxesState() {
     const stateCheckboxes = [];
-    const checkboxes = this.querySelectorAll('vaadin-checkbox');
+    const checkboxes = this.panelSummarySlotCheckboxes;
 
     checkboxes.forEach((value, key) => {
       const checkbox = checkboxes[key];
@@ -72,23 +98,22 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
     });
 
-    const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
-    localStorage.setItem(checkboxesStorageId, JSON.stringify(stateCheckboxes));
+    localStorage.setItem(this.checkboxesStorageId, JSON.stringify(stateCheckboxes));
   }
 
   _updateCheckboxesStates() {
-    const checkboxesStorageId = `${this.getAttribute('id')}_checkboxes`;
-    const stateCheckboxes = JSON.parse(localStorage.getItem(checkboxesStorageId));
+    const stateCheckboxes = JSON.parse(localStorage.getItem(this.checkboxesStorageId));
 
     if (stateCheckboxes === null) {
       return;
     }
 
-    const checkboxes = this.querySelectorAll('vaadin-checkbox');
+    const checkboxes = this.panelSummarySlotCheckboxes;
 
     checkboxes.forEach((item, key) => {
       const checkbox = checkboxes[key];
       const isChecked = !!stateCheckboxes[key]; // autocast from null or undefined to boolean
+
       checkbox.setAttribute('aria-checked', isChecked ? 'true' : 'false');
       checkbox.checked = isChecked;
     });
@@ -97,10 +122,9 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   }
 
   _updateCSSAndPanelStateToCheckboxesStates() {
-    const checkboxes = this.querySelectorAll('vaadin-checkbox');
-    const panels = this.querySelectorAll('vaadin-accordion-panel');
+    const panels = this.accordionPanels;
 
-    checkboxes.forEach((checkbox, index) => {
+    this.panelSummarySlotCheckboxes.forEach((checkbox, index) => {
       if (!panels[index])
         throw new Error(`vaadin-accordion-panel with index ${index} doesn't exist`);
 
@@ -108,14 +132,13 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
 
       const accordionPanel = panels[index];
+      const summaryTop = accordionPanel.querySelector('.summary-top');
 
-      accordionPanel.querySelectorAll('.summary-top').forEach((el) => {
-        if (isChecked) {
-          el.classList.add('checked');
-        } else {
-          el.classList.remove('checked');
-        }
-      });
+      if (isChecked) {
+        summaryTop.classList.add('checked');
+      } else {
+        summaryTop.classList.remove('checked');
+      }
     });
   }
 
@@ -124,7 +147,7 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
       detail: {
         items: stateItems,
         bubbles: true,
-        id: this.getAttribute('id'),
+        id: this.getAttribute('id') || 'default_id',
       },
     });
 
