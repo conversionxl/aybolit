@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import faqData from '../cxl-vaadin-accordion/theme=cxl-faq.data.json';
+import '@vaadin/vaadin-ordered-layout';
 
 export default {
   title: 'CXL UI/cxl-playbook-accordion',
@@ -30,14 +31,15 @@ export const CXLPlaybookAccordionThemeFaq = () => html`
             class="${el.cxl_hybrid_attr_post['@attributes'].class}"
             theme="reverse"
           >
-            <div slot="summary">
+            <vaadin-horizontal-layout theme="padding" slot="summary">
               <div class="left">
                 <vaadin-checkbox value="Option" theme="custom"></vaadin-checkbox>
               </div>
               <div class="right">
                 <div class="summary-top">${unsafeHTML(el.title.rendered)}</div>
               </div>
-            </div>
+            </vaadin-horizontal-layout>
+
             <vaadin-vertical-layout>
               <div class="item-content">
                 <div>${unsafeHTML(el.content.rendered)}</div>
