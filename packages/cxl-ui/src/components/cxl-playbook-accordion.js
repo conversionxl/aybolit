@@ -2,10 +2,12 @@ import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/vaadin-accordion';
 import '@vaadin/vaadin-checkbox';
-import { css, registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
+import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlPlaybookAccordionGlobalStyles from '../styles/global/cxl-playbook-accordion-css.js';
 import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
+import vaadinAccordionPanelStyles from '../styles/cxl-playbook-accordion/vaadin-accordion-panel-css.js';
+import vaadinCheckboxStyles from '../styles/cxl-playbook-accordion/vaadin-checkbox-css.js';
 
 /**
  * Allows opening multiple panels simultaneously.
@@ -42,36 +44,8 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
 
   constructor() {
     super();
-    registerStyles('vaadin-accordion-panel', [CXLPlaybookAccordion._getAccordionPanelStyles()]);
-    registerStyles('vaadin-checkbox', [CXLPlaybookAccordion._getVaadinCheckboxStyles()]);
-  }
-
-  static _getAccordionPanelStyles() {
-    return css`
-      [part='summary'] {
-        box-shadow: 0 4px 12px rgba(36, 38, 40, 0.12);
-        padding: 0;
-      }
-      :host(.emptyContent) [part='toggle'] {
-        display: none;
-      }
-      [part='toggle'] {
-        padding: 12px;
-      }
-    `;
-  }
-
-  static _getVaadinCheckboxStyles() {
-    return css`
-      :host([theme~='custom']) [part='checkbox'] {
-        border: 2px solid !important;
-        width: 18px;
-        height: 18px;
-      }
-      :host([theme~='custom']) [part='label'] {
-        display: none;
-      }
-    `;
+    registerStyles('vaadin-accordion-panel', [vaadinAccordionPanelStyles]);
+    registerStyles('vaadin-checkbox', [vaadinCheckboxStyles]);
   }
 
   /**
@@ -79,6 +53,7 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
    */
   ready() {
     super.ready();
+
     // Define and register a style sheet for the <vaadin-text-field> component
     registerGlobalStyles(cxlPlaybookAccordionGlobalStyles, {
       moduleId: 'cxl-playbook-accordion-global',
