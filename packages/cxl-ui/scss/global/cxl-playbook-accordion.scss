@@ -28,21 +28,13 @@ cxl-playbook-accordion {
   }
 
   [slot="summary"] {
-    display: flex;
-
     .left {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: var(--lumo-space-xl);
-      min-width: var(--lumo-space-xl);
       border-radius: var(--lumo-border-radius-l);
     }
 
     .right {
-      width: calc(100% - #{var(--lumo-space-xl)});
-      padding: var(--lumo-space-l);
-
       .summary-top {
         padding: var(--lumo-space-s);
 

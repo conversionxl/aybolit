@@ -27,7 +27,7 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
    */
   get panelSummarySlotCheckboxes() {
     return Array.from(this.accordionPanels).map((el) =>
-      el.querySelector('div[slot="summary"] vaadin-checkbox')
+      el.querySelector('[slot="summary"] vaadin-checkbox')
     );
   }
 
