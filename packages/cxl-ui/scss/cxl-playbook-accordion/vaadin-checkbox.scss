@@ -7,6 +7,6 @@
   display: none;
 }
 [part="checkbox"]::after {
-  margin-top: 10%;
-  margin-left: 10%;
+  margin-top: calc(var(--lumo-size-xs) * 0.125);
+  margin-left: calc(var(--lumo-size-xs) * 0.135);
 }
