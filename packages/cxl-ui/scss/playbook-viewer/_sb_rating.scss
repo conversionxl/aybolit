@@ -1,0 +1,11 @@
+.sidebar-rating {
+  margin-top: var(--lumo-space-xxl);
+
+  .rating-with-tooltip {
+    display: flex;
+  }
+
+  div {
+    margin-bottom: $margin-between-boxes;
+  }
+}

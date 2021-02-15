@@ -29,7 +29,7 @@ import RenderPeerReviewedText from './render-partials/peerReviewedText';
 
 export default {
   decorators: [withKnobs],
-  title: 'CXL Playbook Viewer'
+  title: 'CXL Playbook Viewer',
 };
 
 export const CxlPlaybookViewerLayout = () => {
@@ -42,7 +42,7 @@ export const CxlPlaybookViewerLayout = () => {
   const userHasVoted = false;
 
   registerGlobalStyles(playbookViewerCSS, {
-    moduleId: 'cxl-playbook-viewer-layout-global'
+    moduleId: 'cxl-playbook-viewer-layout-global',
   });
 
   if (userHasVoted) {
@@ -102,8 +102,6 @@ export const CxlPlaybookViewerLayout = () => {
           <div class="adeft-peer-reviewed-mobile">
             ${RenderPeerReviewedText(dataAdapter.getExpertsNames())}
           </div>
-          <!-- Rating with tooltips -->
-          ${RenderRatingWithTooltip('main-rating-with-tooltip', userLoggedIn)}
         </div>
       </div>
 
@@ -113,18 +111,21 @@ export const CxlPlaybookViewerLayout = () => {
       </div>
 
       <!-- Use Case -->
-      <div class="main-use-case">
-        ${RenderUseCase(dataAdapter.getUseCase())}
-      </div>
+      <div class="main-use-case">${RenderUseCase(dataAdapter.getUseCase())}</div>
 
       <section
         class="widget ${hasWidgetBackground ? 'has-background' : ''} only-desktop"
         slot="sidebar"
       >
         <div class="inner-sidebar-wrapper">
+          <div class="sidebar-rating">
+            <!-- Rating with tooltips -->
+            ${RenderRatingWithTooltip('main-rating-with-tooltip', userLoggedIn)}
+          </div>
+
           <div class="sidebar-published">
-            <div>Last updated:</div>
             <div>
+              Last updated:
               <strong>${moment(dataAdapter.getPlaybookTimestamp()).format('DD. MMMM YYYY')}</strong>
             </div>
           </div>
@@ -178,7 +179,7 @@ export const CxlPlaybookViewerLayout = () => {
           class="cxl-adeft-accordion-class"
         >
           ${dataAdapter.getAccordionData().items.map(
-            el => html`
+            (el) => html`
               <vaadin-accordion-panel id="step_${el.idx}" theme="reverse">
                 <div slot="summary">
                   <div class="left">
@@ -223,5 +224,5 @@ export const CxlPlaybookViewerLayout = () => {
 };
 
 CxlPlaybookViewerLayout.story = {
-  name: 'cxl-playbook-viewer'
+  name: 'cxl-playbook-viewer',
 };
