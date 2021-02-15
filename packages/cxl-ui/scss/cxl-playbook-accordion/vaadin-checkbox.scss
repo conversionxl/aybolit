@@ -1,0 +1,12 @@
+:host([theme~="custom"]) [part="checkbox"] {
+  width: var(--lumo-size-xs);
+  height: var(--lumo-size-xs);
+  border: 2px solid;
+}
+:host([theme~="custom"]) [part="label"] {
+  display: none;
+}
+[part="checkbox"]::after {
+  margin-top: 10%;
+  margin-left: 10%;
+}

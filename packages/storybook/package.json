@@ -8,7 +8,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@aybolit/white-label": "^0.1.0",
     "@conversionxl/cxl-lumo-styles": "^0.2.2",
     "@conversionxl/cxl-ui": "^0.2.1",
     "@cwmr/iron-star-rating": "^3.1.4",
@@ -21,6 +20,9 @@
     "@storybook/polymer": "^5.3.13",
     "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/web-components": "^6.1.14",
+    "@vaadin/vaadin-button": "^3.0.0-alpha1",
+    "@vaadin/vaadin-ordered-layout": "^1.4.0",
+    "lit-html": "^1.0.0",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "lit-html": "^1.0.0",
     "moment": "^2.29.1"

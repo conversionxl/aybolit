@@ -175,15 +175,15 @@ export const CxlPlaybookViewerLayout = () => {
       <!--slot sidebar-->
 
       <div id="container">
-        <cxl-adeft-accordion
+        <cxl-playbook-accordion
           id="cxl-vaadin-accordion-26107"
           theme="reverse"
-          class="cxl-adeft-accordion-class"
+          class="cxl-playbook-accordion-class"
         >
           ${dataAdapter.getAccordionData().items.map(
             (el) => html`
               <vaadin-accordion-panel id="step_${el.idx}" theme="reverse">
-                <div slot="summary">
+                <vaadin-horizontal-layout theme="padding" slot="summary">
                   <div class="left">
                     <vaadin-checkbox value="Option" theme="custom"></vaadin-checkbox>
                   </div>
@@ -194,7 +194,8 @@ export const CxlPlaybookViewerLayout = () => {
                       </cxl-inline-comment-context-menu>
                     </div>
                   </div>
-                </div>
+                </vaadin-horizontal-layout>
+
                 <vaadin-vertical-layout>
                   <div class="item-content">
                     <cxl-inline-comment-context-menu id="inline_comment_content_${el.idx}">
@@ -205,7 +206,7 @@ export const CxlPlaybookViewerLayout = () => {
               </vaadin-accordion-panel>
             `
           )}
-        </cxl-adeft-accordion>
+        </cxl-playbook-accordion>
       </div>
       <!-- container -->
 

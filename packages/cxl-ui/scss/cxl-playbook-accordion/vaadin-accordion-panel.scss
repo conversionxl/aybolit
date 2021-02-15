@@ -1,0 +1,12 @@
+[part="summary"] {
+  padding: 0;
+  box-shadow: var(--lumo-box-shadow-m);
+}
+:host(.empty-content) [part="toggle"] {
+  display: none;
+}
+
+:host([theme~="reverse"]) [part="toggle"] {
+  padding: var(--lumo-space-xs);
+  margin-right: var(--lumo-space-s);
+}

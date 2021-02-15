@@ -11,6 +11,7 @@ $margin-between-boxes: var(--lumo-space-l);
 
 /** Main container modules */
 @import "./playbook-viewer/main-title";
+@import "./playbook-viewer/accordion";
 @import "./playbook-viewer/main-author-info-with-rating";
 
 /** Sidebar modules */
