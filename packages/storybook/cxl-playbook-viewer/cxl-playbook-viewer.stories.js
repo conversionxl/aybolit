@@ -27,6 +27,8 @@ import RenderPeerReviewedText from './render-partials/peerReviewedText';
 // import RenderSyncWith from './render-partials/syncWith'; // greg: disabled as per request
 // import RenderSidebarActions from './sections/sidebar/sidebarActions'; // greg: disabled as per request
 
+import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
+
 export default {
   decorators: [withKnobs],
   title: 'CXL Playbook Viewer',
@@ -207,18 +209,7 @@ export const CxlPlaybookViewerLayout = () => {
       </div>
       <!-- container -->
 
-      <footer slot="footer">
-        <div class="links">
-          <div class="footer-el logo">
-            <div>
-              <iron-icon icon="cxl:adeft-logo"></iron-icon>
-            </div>
-          </div>
-          <div class="footer-el year">&copy; 2020 Adeft</div>
-          <a href="#" class="footer-el contact">Contact us</a>
-        </div>
-        <!-- links -->
-      </footer>
+      ${CXLFooterNav()}
     </cxl-app-layout>
   `;
 };
