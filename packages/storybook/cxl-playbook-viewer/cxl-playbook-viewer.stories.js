@@ -35,7 +35,7 @@ export default {
 };
 
 export const CxlPlaybookViewerLayout = () => {
-  const hasPanelsScroll = boolean('Has panels scroll?', true);
+  const hasPanelsScroll = boolean('Has panels scroll?', false);
   const hasWidgetBackground = boolean('Has widget background?', false);
 
   const dataAdapter = new DataAdapter(jsonData.data);
