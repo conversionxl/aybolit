@@ -1,6 +1,7 @@
 [part="summary"] {
   padding: 0;
   box-shadow: var(--lumo-box-shadow-xs);
+  border-radius: var(--lumo-border-radius-s);
 }
 :host(.empty-content) [part="toggle"] {
   display: none;
