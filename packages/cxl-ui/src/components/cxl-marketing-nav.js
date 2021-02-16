@@ -283,31 +283,11 @@ export class CXLMarketingNavElement extends LitElement {
         const contextMenuItems = this._createContextMenuItems(menuItem.children);
         contextMenu.items = contextMenuItems;
 
-        const setDescription = async () => {
-          contextMenu.items = contextMenuItems;
-          contextMenu.render();
-
-          const description = document.createElement('vaadin-context-menu-item');
-          render(html`${unsafeHTML(menuItem.description)}`, description);
-
-          setTimeout(() => {
-            description.style.maxWidth = getComputedStyle(
-              document.querySelector('vaadin-context-menu-list-box')
-            ).width;
-
-            contextMenu.items = [
-              ...contextMenuItems,
-              { component: document.createElement('hr') },
-              { component: description },
-            ];
-            contextMenu.render();
-          }, 0);
-        };
-
         if (menuItem.description) {
           contextMenu.addEventListener('opened-changed', () => {
-            if (!document.querySelector('vaadin-context-menu-list-box')) return;
-            setDescription();
+            if (document.querySelector('vaadin-context-menu-list-box')) {
+              this._setContextMenuItemDescription(menuItem);
+            }
           });
 
           const observe = (mediaQueryString, callback) => {
@@ -318,8 +298,9 @@ export class CXLMarketingNavElement extends LitElement {
           };
 
           observe('(min-width: 420px) and (min-height: 420px)', () => {
-            if (!document.querySelector('vaadin-context-menu-list-box')) return;
-            setDescription();
+            if (document.querySelector('vaadin-context-menu-list-box')) {
+              this._setContextMenuItemDescription(menuItem);
+            }
           });
         }
 
@@ -329,6 +310,34 @@ export class CXLMarketingNavElement extends LitElement {
         });
       });
     });
+  }
+
+  /**
+   * Set context menu item description
+   */
+  _setContextMenuItemDescription(menuItem) {
+    const contextMenu = this.querySelector(
+      `vaadin-tab#menu-item-${menuItem.id} > vaadin-context-menu`
+    );
+
+    contextMenu.items = this._createContextMenuItems(menuItem.children);
+    contextMenu.render();
+
+    const description = document.createElement('vaadin-context-menu-item');
+    render(html`${unsafeHTML(menuItem.description)}`, description);
+
+    setTimeout(() => {
+      description.style.maxWidth = getComputedStyle(
+        document.querySelector('vaadin-context-menu-list-box')
+      ).width;
+
+      contextMenu.items = [
+        ...contextMenu.items,
+        { component: document.createElement('hr') },
+        { component: description },
+      ];
+      contextMenu.render();
+    }, 0);
   }
 
   /**
