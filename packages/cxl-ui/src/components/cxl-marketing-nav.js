@@ -47,11 +47,6 @@ export class CXLMarketingNavElement extends LitElement {
 
   render() {
     return html`
-      <style>
-        .description {
-          max-width: 128px !important;
-        }
-      </style>
       <vaadin-tabs
         id="menu-shadow-items"
         class="menu-items"
