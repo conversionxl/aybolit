@@ -34,6 +34,31 @@ export default {
   title: 'CXL Playbook Viewer',
 };
 
+const FeatherLightLightboxDependencies = () => html`
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      jQuery(function($){
+          $('head').append('<link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" type="text/css" rel="stylesheet" />');
+
+          $(".wp-block-image img").each(function(){
+              const el = $(this);
+              const src = el.attr("src");
+              console.log("src=" + src);
+              el.wrap('<a href="'+ src +'" data-featherlight="iframe" class="fl"></a>');
+
+          });
+
+          $('a.fl').featherlight({
+            targetAttr: 'href'
+          });
+
+          console.log("featherlight LOADED!");
+      })
+    </script>
+  `
+
+
 export const CxlPlaybookViewerLayout = () => {
   const hasPanelsScroll = boolean('Has panels scroll?', false);
   const hasWidgetBackground = boolean('Has widget background?', false);
@@ -54,6 +79,7 @@ export const CxlPlaybookViewerLayout = () => {
   }
 
   return html`
+    ${FeatherLightLightboxDependencies()}
     <cxl-app-layout
       id="container"
       layout="2c-l"
@@ -198,9 +224,7 @@ export const CxlPlaybookViewerLayout = () => {
 
                 <vaadin-vertical-layout>
                   <div class="item-content">
-                    <cxl-inline-comment-context-menu id="inline_comment_content_${el.idx}">
                       ${unsafeHTML(el.content)}
-                    </cxl-inline-comment-context-menu>
                   </div>
                 </vaadin-vertical-layout>
               </vaadin-accordion-panel>
