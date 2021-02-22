@@ -955,10 +955,9 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@cwmr/iron-star-rating@^3.1.4":
+"@cwmr/iron-star-rating@github:conversionxl/iron-star-rating":
   version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@cwmr/iron-star-rating/-/iron-star-rating-3.1.4.tgz#d9901ae0e7d198ae5175896b1bdfcad09a866e91"
-  integrity sha512-lpOF5r5QpQIVTq6mt9PpwtbD1srETC+xR8TmjBZXMlGwqhdXwJisyAq3/l1ae6KMrVUBMrANNq+7F8UOQIqjnw==
+  resolved "https://codeload.github.com/conversionxl/iron-star-rating/tar.gz/6e5258fb2b8ec8b30cc9b723b8a26d7bcbc2540b"
   dependencies:
     "@polymer/iron-icon" "^3.0.0"
     "@polymer/iron-icons" "^3.0.0"
