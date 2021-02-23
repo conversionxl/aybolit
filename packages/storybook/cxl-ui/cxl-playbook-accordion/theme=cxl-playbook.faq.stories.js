@@ -13,9 +13,6 @@ export const CXLPlaybookAccordionThemeFaq = () => html`
     .plural .entry-title {
       margin: 0;
     }
-    cxl-playbook-accordion {
-      padding: 10px;
-    }
   </style>
 
   <cxl-app-layout theme="2c-l" id="container">
