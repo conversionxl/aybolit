@@ -1,6 +1,4 @@
 import { customElement } from 'lit-element';
-import '@conversionxl/cxl-lumo-styles';
-import '@vaadin/vaadin-accordion';
 import '@vaadin/vaadin-checkbox';
 import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
