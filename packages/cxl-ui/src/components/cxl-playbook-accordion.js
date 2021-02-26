@@ -14,7 +14,6 @@ import vaadinCheckboxStyles from '../styles/cxl-playbook-accordion/vaadin-checkb
 @customElement('cxl-playbook-accordion')
 export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   /**
-   *
    * @return {NodeListOf<Element>}
    */
   get accordionPanels() {
@@ -22,7 +21,6 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   }
 
   /**
-   *
    * @return {NodeListOf<Element>}
    */
   get panelSummarySlotCheckboxes() {
@@ -32,7 +30,6 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   }
 
   /**
-   *
    * @return {string}
    */
   get checkboxesStorageId() {
@@ -60,7 +57,6 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   }
 
   /**
-   *
    * @param {HTMLCollection} items
    * @private
    */
