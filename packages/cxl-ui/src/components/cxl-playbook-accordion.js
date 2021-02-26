@@ -79,8 +79,6 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
 
       this._updateCSSAndPanelStateToCheckboxesStates();
 
-      this._dispatchCustomEvent(stateItems);
-
       this._saveCheckboxesState();
     }
   }
@@ -138,17 +136,5 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
         summaryTop.classList.remove('checked');
       }
     });
-  }
-
-  _dispatchCustomEvent(stateItems) {
-    const event = new CustomEvent('cxl-playbook-accordion-state-changed', {
-      detail: {
-        items: stateItems,
-        bubbles: true,
-        id: this.getAttribute('id') || 'default_id',
-      },
-    });
-
-    this.dispatchEvent(event);
   }
 }
