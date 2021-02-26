@@ -142,3 +142,13 @@
     }
   }
 }
+
+/**
+ * Theme "cxl-playbook-accordion".
+ */
+:host([theme~="cxl-playbook-accordion"]) {
+  [part="summary"] {
+    padding-top: var(--lumo-space-m);
+    padding-bottom: var(--lumo-space-m);
+  }
+}

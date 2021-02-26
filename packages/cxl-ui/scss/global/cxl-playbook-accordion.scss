@@ -1,47 +1,7 @@
-@use "~@conversionxl/cxl-lumo-styles/scss/mq";
-@use "../mixins";
-
 cxl-playbook-accordion {
-  vaadin-vertical-layout {
-    display: flex;
-  }
-
-  vaadin-accordion-panel {
-    margin-bottom: var(--lumo-space-s);
-
-    &[opened] {
-      $opened-margin: calc(var(--lumo-space-l) * -1);
-      margin-right: $opened-margin;
-      margin-left: $opened-margin;
-    }
-
-    @media #{mq.$medium} {
-      &[opened] {
-        margin-right: 0;
-        margin-left: 0;
-      }
-    }
-  }
-
-  .item-content {
-    padding: var(--lumo-space-l) calc(var(--lumo-space-l) / 2);
-  }
-
-  [slot="summary"] {
-    .left {
-      display: flex;
-      align-items: center;
-      border-radius: var(--lumo-border-radius-l);
-    }
-
-    .right {
-      .summary-top {
-        padding: var(--lumo-space-s);
-
-        &.checked {
-          text-decoration: line-through;
-        }
-      }
+  .entry-header {
+    &.checked {
+      text-decoration: line-through;
     }
   }
 }

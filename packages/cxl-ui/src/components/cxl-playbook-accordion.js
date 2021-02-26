@@ -1,32 +1,19 @@
 import { customElement } from 'lit-element';
 import '@vaadin/vaadin-checkbox';
-import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlPlaybookAccordionGlobalStyles from '../styles/global/cxl-playbook-accordion-css.js';
 import { CXLVaadinAccordion } from './cxl-vaadin-accordion';
-import vaadinAccordionPanelStyles from '../styles/cxl-playbook-accordion/vaadin-accordion-panel-css.js';
-import vaadinCheckboxStyles from '../styles/cxl-playbook-accordion/vaadin-checkbox-css.js';
 
 /**
- * Allows opening multiple panels simultaneously.
- * Saves panel state, restores on page load.
+ * Integrates checkboxes + their state tracking in accordion panels.
  */
 @customElement('cxl-playbook-accordion')
 export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   /**
    * @return {NodeListOf<Element>}
    */
-  get accordionPanels() {
-    return this.querySelectorAll('vaadin-accordion-panel');
-  }
-
-  /**
-   * @return {NodeListOf<Element>}
-   */
   get panelSummarySlotCheckboxes() {
-    return Array.from(this.accordionPanels).map((el) =>
-      el.querySelector('[slot="summary"] vaadin-checkbox')
-    );
+    return this.items.map((el) => el.querySelector('[slot="summary"] vaadin-checkbox'));
   }
 
   /**
@@ -37,23 +24,14 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
     return `${attr}_checkboxes`;
   }
 
-  constructor() {
-    super();
-    registerStyles('vaadin-accordion-panel', [vaadinAccordionPanelStyles]);
-    registerStyles('vaadin-checkbox', [vaadinCheckboxStyles]);
-  }
-
-  /**
-   * Global styles.
-   */
   ready() {
     super.ready();
-    // Define and register a style sheet for the <vaadin-text-field> component
+
     registerGlobalStyles(cxlPlaybookAccordionGlobalStyles, {
       moduleId: 'cxl-playbook-accordion-global',
     });
 
-    this._updateCheckboxesStates();
+    this.addEventListener('items-changed', this._itemsChanged);
   }
 
   /**
@@ -114,23 +92,40 @@ export class CXLPlaybookAccordion extends CXLVaadinAccordion {
   }
 
   _updateCSSAndPanelStateToCheckboxesStates() {
-    const panels = this.accordionPanels;
-
     this.panelSummarySlotCheckboxes.forEach((checkbox, index) => {
-      if (!panels[index])
-        throw new Error(`vaadin-accordion-panel with index ${index} doesn't exist`);
+      if (!this.items[index])
+        throw new Error(`vaadin-accordion-panel with index ${index} doesn't exist.`);
 
       const isChecked =
         checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
 
-      const accordionPanel = panels[index];
-      const summaryTop = accordionPanel.querySelector('.summary-top');
+      const entryHeader = this.items[index].querySelector('.entry-header');
 
       if (isChecked) {
-        summaryTop.classList.add('checked');
+        entryHeader.classList.add('checked');
       } else {
-        summaryTop.classList.remove('checked');
+        entryHeader.classList.remove('checked');
       }
     });
+  }
+
+  /**
+   * @private
+   * @see cxl-accordion-card
+   */
+  _setupCheckboxClicked() {
+    this.panelSummarySlotCheckboxes.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        this._saveAccordionState(this.items);
+
+        // Stop panel open on checkbox click.
+        e.stopPropagation();
+      });
+    });
+  }
+
+  _itemsChanged() {
+    this._updateCheckboxesStates();
+    this._setupCheckboxClicked();
   }
 }
