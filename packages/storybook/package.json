@@ -10,6 +10,7 @@
   "dependencies": {
     "@conversionxl/cxl-lumo-styles": "^0.2.2",
     "@conversionxl/cxl-ui": "^0.2.1",
+    "@storybook/addon-controls": "^6.1.20",
     "@storybook/addon-knobs": "^6.1.14",
     "@storybook/addon-viewport": "^6.1.14",
     "@storybook/addons": "^6.1.14",
