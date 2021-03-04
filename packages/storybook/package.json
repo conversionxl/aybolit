@@ -19,7 +19,8 @@
     "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/web-components": "^6.1.14",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
-    "lit-html": "^1.0.0"
+    "lit-html": "^1.0.0",
+    "lorem-ipsum": "^2.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
