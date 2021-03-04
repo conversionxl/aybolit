@@ -9,17 +9,25 @@ import { customElement, html, LitElement, property, query } from 'lit-element';
 @customElement('cxl-paywall')
 export class CXLPaywallElement extends LitElement {
   @property({ type: Number }) _count = 0;
+
   @property({ type: Number }) _limit = 10;
+
   @property({ type: Boolean }) _shouldSubscribe = false;
 
+  @property({ type: Number }) _month = 0;
+
   @property({ type: Number }) delay = 1000;
+
   @property({ type: Number }) duration = 1000;
+
   @property({ type: Number }) opacity = 0;
+
   @property({ type: Boolean }) subscribed = false;
 
   @query('#content') content;
 
   _animation;
+
   _hidden = false;
 
   render() {
@@ -48,14 +56,25 @@ export class CXLPaywallElement extends LitElement {
   }
 
   firstUpdated() {
+    this._checkDate();
     this._increment();
-    this._write();
+  }
+
+  /**
+   * Check if we are in a new month
+   */
+  _checkDate() {
+    const month = new Date().getMonth();
+    if (Math.abs(month - this._month) > 1) {
+      this._month = month;
+      this._count = 0;
+      this._write();
+    }
   }
 
   /**
    * Hide the content
    */
-
   _hide() {
     if (this._hidden) return;
     this._animation?.cancel();
@@ -80,24 +99,25 @@ export class CXLPaywallElement extends LitElement {
   /**
    * Increment the count
    */
-
   _increment() {
-    this._count = this._count + 1;
+    this._count += 1;
+    this._write();
   }
 
   /**
-   * Read the count from local storage
+   * Read from local storage
    */
-
   _read() {
     const count = localStorage.getItem('cxl-paywall-count');
     if (count !== undefined) this._count = Number(count);
+
+    const month = localStorage.getItem('cxl-paywall-month');
+    if (month !== undefined) this._month = month;
   }
 
   /**
    * Show content (Only needed for Storybook demo)
    */
-
   _show() {
     if (!this._hidden) return;
     this._animation?.cancel();
@@ -108,7 +128,7 @@ export class CXLPaywallElement extends LitElement {
         },
       ],
       {
-        duration: 1000,
+        duration: 0,
         fill: 'forwards',
       }
     );
@@ -122,7 +142,6 @@ export class CXLPaywallElement extends LitElement {
   /**
    * Check if content should be displayed or not
    */
-
   validate() {
     if (!this.subscribed) {
       if (this._count >= this._limit) {
@@ -138,10 +157,10 @@ export class CXLPaywallElement extends LitElement {
   }
 
   /**
-   * Write the count to local storage
+   * Write to local storage
    */
-
   _write() {
     localStorage.setItem('cxl-paywall-count', String(this._count));
+    localStorage.setItem('cxl-paywall-month', String(this._month));
   }
 }
