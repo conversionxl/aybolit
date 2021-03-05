@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const path = require('path');
+const fs = require('fs');
 const commandLineArgs = require('command-line-args');
 const commandLineUsage = require('command-line-usage');
 const glob = require('glob');
@@ -51,7 +52,24 @@ if (!source) {
 
 glob(source, (err, files) => {
   files
-    .filter((file) => !path.basename(file).startsWith('_'))
+    .map((file) => {
+      // Partial?
+      if (! path.basename(file).startsWith('_') ) {
+        return file;
+      }
+
+      // if partial, search for the parent
+      const parentScss = `${path.dirname(file)}.scss`;
+      if (fs.existsSync(parentScss)) {
+        return parentScss;
+      }
+
+      console.log(
+        `Warning! Partial file detected ${file} \nbut can't find file that should import it: ${parentScss}`
+      );
+      return null;
+    })
+    .filter((file) => file !== null)
     .forEach((file) => {
       sassRender(file).catch((error) => {
         console.error(error);
