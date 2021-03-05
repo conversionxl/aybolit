@@ -9,25 +9,17 @@ import { customElement, html, LitElement, property, query } from 'lit-element';
 @customElement('cxl-paywall')
 export class CXLPaywallElement extends LitElement {
   @property({ type: Number }) _count = 0;
-
-  @property({ type: Number }) _limit = 10;
-
-  @property({ type: Boolean }) _shouldSubscribe = false;
-
-  @property({ type: Number }) _month = 0;
-
   @property({ type: Number }) delay = 1000;
-
   @property({ type: Number }) duration = 1000;
-
+  @property({ type: Number }) _limit = 10;
+  @property({ type: Number }) _month = 0;
   @property({ type: Number }) opacity = 0;
-
+  @property({ type: Boolean }) _shouldSubscribe = false;
   @property({ type: Boolean }) subscribed = false;
 
   @query('#content') content;
 
   _animation;
-
   _hidden = false;
 
   render() {
@@ -112,7 +104,7 @@ export class CXLPaywallElement extends LitElement {
     if (count !== undefined) this._count = Number(count);
 
     const month = localStorage.getItem('cxl-paywall-month');
-    if (month !== undefined) this._month = month;
+    if (month !== undefined) this._month = Number(month);
   }
 
   /**
@@ -140,6 +132,11 @@ export class CXLPaywallElement extends LitElement {
   }
 
   /**
+   * Truncate content
+   */
+  _truncate() {}
+
+  /**
    * Check if content should be displayed or not
    */
   validate() {
@@ -148,12 +145,10 @@ export class CXLPaywallElement extends LitElement {
         setTimeout(() => {
           this._hide();
         }, this.delay);
-      } else {
-        this._show();
+        return;
       }
-    } else {
-      this._show();
     }
+    this._show();
   }
 
   /**
