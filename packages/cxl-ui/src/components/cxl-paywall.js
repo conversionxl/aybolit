@@ -9,17 +9,25 @@ import { customElement, html, LitElement, property, query } from 'lit-element';
 @customElement('cxl-paywall')
 export class CXLPaywallElement extends LitElement {
   @property({ type: Number }) _count = 0;
+
   @property({ type: Number }) delay = 1000;
+
   @property({ type: Number }) duration = 1000;
+
   @property({ type: Number }) _limit = 10;
+
   @property({ type: Number }) _month = 0;
+
   @property({ type: Number }) opacity = 0;
+
   @property({ type: Boolean }) _shouldSubscribe = false;
+
   @property({ type: Boolean }) subscribed = false;
 
   @query('#content') content;
 
   _animation;
+
   _hidden = false;
 
   render() {
@@ -68,7 +76,6 @@ export class CXLPaywallElement extends LitElement {
    * Hide the content
    */
   _hide() {
-    if (this._hidden) return;
     this._animation?.cancel();
     this._animation = this.content.animate(
       [
@@ -111,7 +118,6 @@ export class CXLPaywallElement extends LitElement {
    * Show content (Only needed for Storybook demo)
    */
   _show() {
-    if (!this._hidden) return;
     this._animation?.cancel();
     this._animation = this.content.animate(
       [
@@ -132,23 +138,14 @@ export class CXLPaywallElement extends LitElement {
   }
 
   /**
-   * Truncate content
-   */
-  _truncate() {}
-
-  /**
    * Check if content should be displayed or not
    */
   validate() {
-    if (!this.subscribed) {
-      if (this._count >= this._limit) {
-        setTimeout(() => {
-          this._hide();
-        }, this.delay);
-        return;
-      }
-    }
-    this._show();
+    if (!this.subscribed && this._count >= this._limit) {
+      setTimeout(() => {
+        if (!this._hidden) this._hide();
+      }, this.delay);
+    } else if (this._hidden) this._show();
   }
 
   /**
