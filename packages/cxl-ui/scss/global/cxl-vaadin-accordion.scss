@@ -5,7 +5,7 @@ cxl-vaadin-accordion {
   /**
    * Theme "cxl-accordion-card".
    */
-  &[theme~="cxl-accordion-card"] {
+  &[theme~="cxl-accordion-card"] { display: grid; grid-gap: var(--lumo-space-m); grid-template-columns: repeat( auto-fill, minmax( calc( var(--cxl-wrap-width) / 4 ), 1fr ) );
     iron-icon {
       --iron-icon-height: var(--lumo-icon-size-s);
       --iron-icon-width: var(--iron-icon-height);
@@ -41,11 +41,15 @@ cxl-vaadin-accordion {
       word-break: break-word;
     }
 
-    cxl-accordion-card[opened] {
-      .entry-title {
-        overflow: visible;
+    cxl-accordion-card { height: min-content; margin: 0;
+      &[opened] {
+        .entry-title {
+          overflow: visible;
+        }
       }
     }
+
+    h3 { grid-column: 1 / -1; }
   }
 
   /**
