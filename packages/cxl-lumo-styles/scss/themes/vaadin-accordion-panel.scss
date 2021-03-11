@@ -142,3 +142,22 @@
     }
   }
 }
+
+/**
+ * Theme "cxl-playbook-accordion".
+ */
+:host([theme~="cxl-playbook-accordion"]) {
+  [part="content"] {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--lumo-space-l);
+    margin-bottom: var(--lumo-space-l);
+    margin-left: calc(var(--lumo-space-l) + var(--lumo-space-xs));
+    border-left: solid calc(var(--lumo-space-xs) / 2) var(--lumo-primary-color);
+  }
+
+  [part="summary"] {
+    padding-top: var(--lumo-space-m);
+    padding-bottom: var(--lumo-space-m);
+  }
+}

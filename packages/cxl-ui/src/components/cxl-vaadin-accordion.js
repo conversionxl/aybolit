@@ -65,6 +65,7 @@ export class CXLVaadinAccordion extends AccordionElement {
            * If no state, allow initial first panel open.
            *
            * @see https://github.com/vaadin/vaadin-accordion/blob/v1.0.1/src/vaadin-accordion.html#L89
+           * @todo maybe unhook from storageId dependency? Some stories may not need `id` attrs.
            */
         } else if (opened === 0) {
           super._updateItems(items, opened);

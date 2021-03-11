@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "rendered": "Create a document and make notes on these four key elements: market conditions, competitive positioning, your ideal customers, your product offering, and pricing."
+    },
+    "content": {
+      "rendered": "\n<ul><li>For example, your “battle environment” may be a market that is flush with competitors, while your “target enemy” may include a segmented, independent Buyer Persona.</li><li>Knowing each of these elements will help you choose a GtM strategy that will acquire, <a href=\"https://cxl.com/blog/customer-retention-strategy/\" target=\"_blank\" rel=\"noreferrer noopener\">retain</a>, and grow your customers in the most capital-efficient way.</li></ul>\n"
+    }
+  },
+  {
+    "id": 2,
+    "title": {
+      "rendered": "Analyze your customer data to decide if you have lifetime value customers or a large client pool."
+    },
+    "content": {
+      "rendered": "\n<ul><li>A sales-led strategy provides the personalization and assistance required to satisfy a lifetime value customer base.</li><li>A market-led strategy is best for a large client pool, where enough prospective clients exist to mitigate potential marketing-qualified lead leaking.</li></ul>\n"
+    }
+  },
+  {
+    "id": 3,
+    "title": {
+      "rendered": "Analyze the uniqueness of your product within the market."
+    },
+    "content": {
+      "rendered": "\n<p>If you are providing a hyper-niche solution, a sales-led approach will work best.</p>\n"
+    }
+  },
+  {
+    "id": 4,
+    "title": {
+      "rendered": "Evaluate market conditions and competitor pricing."
+    },
+    "content": {
+      "rendered": "\n<ul><li>Sales-led strategies can suffer in a competitive environment where businesses with more efficient CACs dictate product pricing.</li><li>Market-led strategies can take advantage of previous customer knowledge.</li></ul>\n"
+    }
+  },
+  {
+    "id": 5,
+    "title": {
+      "rendered": "Establish a budget for customer acquisition costs (CAC)."
+    },
+    "content": {
+      "rendered": "\n<ul><li>Sales-led strategies have a high CAC and lifetime value customers need to recoup the cost of acquisition.&nbsp;</li><li>A market-led strategy has a lower CAC.</li></ul>\n"
+    }
+  },
+  {
+    "id": 6,
+    "title": {
+      "rendered": "Analyze your sales (sales-led) and marketing (market-led) teams to decide where your business is strongest."
+    },
+    "content": {
+      "rendered": "\n<ul><li>For example, a sales-led strategy leverages your sales team to reach potential clients, so your sales team will need to be strong from start to finish.</li><li>A market-led strategy will require your marketing team to drive Marketing Qualified Leads.</li></ul>\n"
+    }
+  },
+  {
+    "id": 7,
+    "title": {
+      "rendered": "Create a tactical plan for your go-to-market strategy that includes your customer acquisition process and channels."
+    },
+    "content": {
+      "rendered": "\n<p>Having a document that details your acquisition channels (SEO; email campaigns; social media like Facebook, Twitter, or LinkedIn; so on) and stages (for example: stranger > researcher > visitor > lead > established > well-established > promoter) will help you to choose the appropriate go-to-market strategy.</p>\n"
+    }
+  }
+]
