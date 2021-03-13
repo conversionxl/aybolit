@@ -72,8 +72,8 @@
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-twbs-bootstrap": "^2.1.0",
     "vrtest": "^0.2.0",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.10"
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1"
   },
   "husky": {
     "hooks": {

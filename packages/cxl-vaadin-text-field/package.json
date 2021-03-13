@@ -1,0 +1,18 @@
+{
+  "name": "@conversionxl/cxl-vaadin-text-field",
+  "version": "0.0.1",
+  "author": "CXL <leho@cxl.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conversionxl/aybolit",
+    "directory": "packages/cxl-vaadin-text-field"
+  },
+  "dependencies": {
+    "@vaadin/vaadin-text-field": "^3.0.0-alpha1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
