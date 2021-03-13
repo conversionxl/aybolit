@@ -1,11 +1,6 @@
 import '@vaadin/vaadin-dialog';
 import { customElement, html, LitElement, property, query } from 'lit-element';
 
-/**
- * Do we want to let an unsubscribed user read the same article an unlimited amount of times?
- * Do we want to remove content from the DOM?
- */
-
 @customElement('cxl-paywall')
 export class CXLPaywallElement extends LitElement {
   @property({ type: Number }) _count = 0;
@@ -28,6 +23,8 @@ export class CXLPaywallElement extends LitElement {
 
   _animation;
 
+  _clickListener;
+
   _hidden = false;
 
   render() {
@@ -35,7 +32,12 @@ export class CXLPaywallElement extends LitElement {
       <div id="content">
         <slot></slot>
       </div>
-      <vaadin-dialog no-close-on-esc no-close-on-outside-click ?opened=${this._shouldSubscribe}>
+      <vaadin-dialog
+        modeless
+        no-close-on-esc
+        no-close-on-outside-click
+        ?opened=${this._shouldSubscribe}
+      >
         <template> You have reached you're limit of free playbooks, please sign-up here. </template>
       </vaadin-dialog>
     `;
@@ -73,6 +75,33 @@ export class CXLPaywallElement extends LitElement {
   }
 
   /**
+   * Disable interaction with protected content
+   */
+  _disable() {
+    // Capture and reject
+    if (!this._clickListener) {
+      this._clickListener = (e) => {
+        e.stopPropagation();
+      };
+      this.addEventListener('click', this._clickListener, { capture: true });
+    }
+
+    // Disable text selection
+    this.style.userSelect = 'none';
+  }
+
+  /**
+   * Enable interaction with protected content
+   */
+  _enable() {
+    this.removeEventListener('click', this._clickListener);
+    this._clickListener = false;
+
+    // Re-enable text selection
+    this.style.userSelect = 'initial';
+  }
+
+  /**
    * Hide the content
    */
   _hide() {
@@ -93,6 +122,8 @@ export class CXLPaywallElement extends LitElement {
       this._shouldSubscribe = true;
     };
     this._animation.play();
+
+    this._disable();
   }
 
   /**
@@ -135,6 +166,8 @@ export class CXLPaywallElement extends LitElement {
       this._shouldSubscribe = false;
     };
     this._animation.play();
+
+    this._enable();
   }
 
   /**
