@@ -92,7 +92,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/cro-foundations/#more-17689"
                   class="more-link"
                   ><span aria-label="Continue reading CRO foundations"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -161,7 +161,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/best-practices/#more-19335"
                   class="more-link"
                   ><span aria-label="Continue reading Best Practices"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -214,7 +214,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/conversion-copywriting/#more-17706"
                   class="more-link"
                   ><span aria-label="Continue reading Conversion Copywriting"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -263,7 +263,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/product-messaging-sales-page-copywriting/#more-28479"
                   class="more-link"
                   ><span aria-label="Continue reading Product messaging &amp; salespage copywriting"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -318,7 +318,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/people-and-psychology/#more-17701"
                   class="more-link"
                   ><span aria-label="Continue reading Intro to Web Psychology"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -384,7 +384,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/social-proof/#more-4311"
                   class="more-link"
                   ><span aria-label="Continue reading Social Proof"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -436,7 +436,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/intro-to-neuromarketing/#more-226965"
                   class="more-link"
                   ><span aria-label="Continue reading Intro to Neuromarketing"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -493,7 +493,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   class="more-link"
                   ><span
                     aria-label="Continue reading Developing &amp; Testing an Emotional Content Strategy"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -560,7 +560,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/influence-interactive-design/#more-6764"
                   class="more-link"
                   ><span aria-label="Continue reading Influence and interactive design"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -615,7 +615,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/intro-digital-analytics/#more-3708"
                   class="more-link"
                   ><span aria-label="Continue reading Intro to Digital Analytics"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -664,7 +664,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/google-analytics-beginners/#more-179345"
                   class="more-link"
                   ><span aria-label="Continue reading Google Analytics for beginners"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -748,7 +748,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/conversion-research/#more-17707"
                   class="more-link"
                   ><span aria-label="Continue reading Conversion Research"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -812,7 +812,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   class="more-link"
                   ><span
                     aria-label="Continue reading Using analytics to find conversion opportunities"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -879,7 +879,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/google-tag-manager-for-beginners/#more-112809"
                   class="more-link"
                   ><span aria-label="Continue reading Google Tag Manager for beginners"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -941,7 +941,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/fast-and-rigorous-user-personas/#more-16305"
                   class="more-link"
                   ><span aria-label="Continue reading Fast and Rigorous User Personas"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -990,7 +990,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   class="more-link"
                   ><span
                     aria-label="Continue reading Heuristic analysis frameworks for conversion optimization audits"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>
@@ -1047,7 +1047,7 @@ export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`
                   href="https://conversionxli.warmpress.com/course/conducting-an-analytics-audit/#more-12230"
                   class="more-link"
                   ><span aria-label="Continue reading Conducting an analytics audit"
-                    >See course <iron-icon icon="lumo:angle-right"></iron-icon></span
+                    >Open <iron-icon icon="lumo:angle-right"></iron-icon></span
                 ></a>
               </p>
             </div>

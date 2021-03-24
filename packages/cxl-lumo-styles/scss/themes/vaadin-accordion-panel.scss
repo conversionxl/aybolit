@@ -161,3 +161,41 @@
     padding-bottom: var(--lumo-space-m);
   }
 }
+
+:host([theme~="cxl-hub-sidebar"]) {
+  [part="toggle"] {
+    margin-right: var(--lumo-space-m);
+    color: var(--lumo-secondary-text-color);
+    background: none;
+  }
+  [part="toggle"]:hover {
+    color: var(--lumo-secondary-text-color);
+  }
+  [part="summary"] {
+    color: var(--lumo-body-text-color);
+  }
+}
+
+:host([theme~="cxl-hub-sidebar"][opened]) {
+  [part="toggle"] {
+    color: var(--lumo-primary-color);
+  }
+  [part="toggle"]:hover {
+    color: var(--lumo-primary-color);
+  }
+  [part="summary"] {
+    font-weight: 700;
+    color: var(--lumo-primary-color);
+  }
+
+  a {
+    // greg here was block !important
+    display: block;
+    color: var(--lumo-secondary-text-color);;
+  }
+  [part="content"] {
+    padding-left: calc(var(--lumo-space-xl) * 1.5);
+  }
+
+}
+

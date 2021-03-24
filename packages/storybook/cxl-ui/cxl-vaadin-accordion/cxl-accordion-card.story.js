@@ -50,6 +50,11 @@ export const CXLVaadinAccordionThemeArchive = () => {
           >
             <header class="entry-header" slot="summary">
               <h3 class="entry-title no-anchor" itemprop="headline">
+                <div class="entry-tag">${el.cxl_hybrid_attr_post['@attributes'].class.includes(
+                  'category-minidegree-programs'
+                  )
+                  ? 'Minidegree'
+                  : 'Course'}</div>
                 <a href="${el.conversionxl_certificate_sales_page}" rel="bookmark" itemprop="url"
                   >${el.title.raw}</a
                 >
@@ -77,7 +82,7 @@ export const CXLVaadinAccordionThemeArchive = () => {
             </div>
             <div class="entry-footer" style="text-align: right;">
               <a href="${el.conversionxl_certificate_sales_page}"
-                >View training<iron-icon icon="lumo:angle-right"></iron-icon
+                >Open<iron-icon icon="lumo:angle-right"></iron-icon
               ></a>
             </div>
           </cxl-accordion-card>

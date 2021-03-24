@@ -33,12 +33,29 @@ cxl-vaadin-accordion {
       }
     }
 
+    .thumbnail {
+      --cxl-thumbnail-size: 4rem; // == 64px
+    }
+
     .entry-title {
       flex: 1;
       height: calc(var(--lumo-line-height-xs) * 4em);
       overflow: hidden;
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
+      .entry-tag {
+        margin-bottom: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-m);
+        color: var(--lumo-primary-text-color); // make it red for the default version (light) -- comment to know what/Greg
+      }
+    }
+
+    cxl-accordion-card[theme~="dark"] {
+      .entry-title {
+        .entry-tag {
+          color: var(--lumo-secondary-text-color);
+        }
+      }
     }
 
     cxl-accordion-card[opened] {
@@ -58,7 +75,6 @@ cxl-vaadin-accordion {
 
     .entry-title {
       @include mixins.entry-title-with-progress-icons();
-
       margin: 0;
     }
 
@@ -122,6 +138,13 @@ cxl-vaadin-accordion {
       }
     }
 
+    .entry-title {
+      .entry-tag {
+        margin-bottom: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-m);
+      }
+    }
+
     .entry-summary {
       @media #{mq.$small} {
         // @todo Eliminate magic number.
@@ -130,8 +153,174 @@ cxl-vaadin-accordion {
     }
 
     .thumbnail {
-      --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
+      // --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
+      --cxl-thumbnail-size: 4rem; // == 64px
       background-color: var(--lumo-contrast-70pct);
     }
   }
+
+  // Greg: these will probably get removed but i needed to add them somewhere
+
+  &[theme~="cxl-hub-cards"] {
+    @media #{mq.$large} {
+
+      // Greg: tried these three approaches, including the original column-approach
+      // but the design suggests the 'masonry' layout very strongly so went this way
+
+      // column-count: 2;
+      // column-gap: calc(var(--lumo-space-m) * 2);
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: var(--lumo-space-m) var(--lumo-space-m);
+      grid-template-areas: ". .";
+
+      // display: flex;
+      // flex-direction: row;
+      // flex-wrap: wrap;
+      // width: 100%;
+    }
+
+    iron-icon {
+      --iron-icon-height: var(--lumo-icon-size-s);
+      --iron-icon-width: var(--iron-icon-height);
+    }
+
+    p {
+      font-family: inherit;
+    }
+
+    .entry-byline {
+      display: flex; // iron-icon vs text alignment
+      flex-basis: 100%;
+      flex-wrap: wrap;
+      margin: var(--lumo-space-s) 0;
+      overflow: hidden;
+      font-weight: 300;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      // @see https://stackoverflow.com/questions/29732575/how-to-specify-line-breaks-in-a-multi-line-flexbox-layout
+      hr {
+        width: 100%;
+        margin: 0;
+        visibility: hidden;
+      }
+    }
+
+    .entry-title {
+      flex: 1;
+      height: auto;
+      margin: 0;
+      overflow: hidden;
+      font-size: var(--lumo-font-size-xl);
+      word-break: break-word;
+
+      a {
+        display: block;
+        // margin-top: var(--lumo-space-m);
+        margin-top: 0;
+        margin-bottom: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-xl);
+        line-height: var(--lumo-line-height-s);
+        color: inherit;
+      }
+
+      .entry-tag {
+        margin-bottom: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-m);
+        color: var(--lumo-secondary-text-color);
+      }
+    }
+
+    .thumbnail {
+      --cxl-thumbnail-size: 4rem; // == 64px
+      background-color: var(--lumo-contrast-70pct);
+    }
+
+    .entry-breadcrumbs-list {
+      padding-left: 0;
+      margin-left: 0;
+      list-style-type: none;
+    }
+
+    .entry-breacdrumbs-list-element {
+      display: inline;
+      a {
+        color: var(--lumo-secondary-text-color);
+      }
+      &::after {
+        color: var(--lumo-secondary-text-color);
+        content: "/";
+      }
+    }
+
+    .entry-breacdrumbs-list-element:last-child {
+      &::after {
+        display: none;
+        content: "";
+      }
+    }
+
+    // This one fixes layout when there's no image on the right because of ::slotted flex-wrap : [
+    cxl-accordion-card {
+      height: min-content;
+      // this margin below would have to be applied in another approach to gridding -- masonry
+      // margin: 0 0 var(--lumo-space-m) 0;
+      margin: 0;
+      .entry-header {
+        display: block;
+      }
+    }
+
+    cxl-accordion-card[theme~="light"] {
+      &:hover {
+        border-bottom: 1px solid var(--lumo-primary-color);
+      }
+
+      // Dirty? Not sure why needed, but needed - Greg, otherwise the bottom border style gets lost somewhere, but if we only
+      // add the style to the bottom when opened & hovered, the things will be jumping across the columns yuck
+      border-bottom: 1px solid transparent;
+
+      // &[opened], &:hover {
+      //   border-bottom: 1px solid var(--lumo-primary-color);
+      // }
+
+      .entry-title {
+        .entry-tag {
+          color: var(--lumo-primary-text-color);
+        }
+      }
+    }
+
+    cxl-accordion-card[opened] {
+      border-bottom: 1px solid var(--lumo-primary-color);
+      // .entry-title {
+      //   overflow: visible;
+      // }
+    }
+  }
+
+  /**
+    Theme of the cxl-vaadin-accordion that hosts the
+    vaadin-accordion-panels responsible for a 2-level menu
+
+    As discovery shows, trying to change the <a> styles in the
+    vaadin-accordion-pannel itself is a hard (?) task
+  */
+  &[theme~="cxl-hub-sidebar"] {
+    .cxl-hub-sidebar-items {
+      [cxl-sidebar-hub-link] {
+        display: block;
+        margin-bottom: var(--lumo-space-s);
+        color: var(--lumo-body-text-color);
+      }
+      [cxl-sidebar-playbooks-count] {
+        padding-left: var(--lumo-space-s);
+        color: var(--lumo-secondary-text-color);
+      }
+    }
+  }
+
 }
