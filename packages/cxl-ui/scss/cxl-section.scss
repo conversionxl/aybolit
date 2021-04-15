@@ -42,8 +42,8 @@
    */
   --lumo-space-xxl: calc(var(--lumo-space-xl) + var(--lumo-space-l));
 
-  margin-top: var(--lumo-space-xxl);
-  margin-bottom: var(--lumo-space-xxl);
+  margin-top: var(--cxl-wrap-margin-top, --lumo-space-xxl);
+  margin-bottom: var(--cxl-wrap-margin-bottom, --lumo-space-xxl);
 
   /**
    * Block editor integration.
