@@ -12,7 +12,7 @@ const CxlSingleversionCardDisplay = (el, userId, selected) => {
     <cxl-accordion-card
       id="${el.cxl_hybrid_attr_post['@attributes'].id}"
       class="${el.cxl_hybrid_attr_post['@attributes'].class}"
-      theme="${postType === 'minidegree' ? 'dark' : ''}"
+      theme="${postType === 'minidegree' ? 'dark' : ''} cxl-accordion-playbook-card"
     >
       <header class="entry-header" slot="summary">
         <label

@@ -28,7 +28,7 @@ const getContent = (el) => html`
 `;
 
 const CxlHubCardDisplay = (el, userId, selected) => html`
-  <cxl-accordion-card id="${el.id}" class="term entry" theme="dark">
+  <cxl-accordion-card id="${el.id}" class="term entry" theme="dark cxl-accordion-playbook-card">
     <header class="entry-header" slot="summary">
       <label title="Hub/${el.categories_names.join('/')}" class="entry-type">
         <div>HUB</div>
