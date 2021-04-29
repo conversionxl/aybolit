@@ -7,6 +7,7 @@ export class CXLAccordionCard extends AccordionPanelElement {
   ready() {
     super.ready();
 
+    // Stop card open on title click.
     this.querySelectorAll('a[href]').forEach((el) => {
       el.addEventListener('click', (e) => {
         e.stopPropagation();
