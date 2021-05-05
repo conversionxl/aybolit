@@ -26,6 +26,7 @@
   // Fading content doesn't work well on slider.
   --_lumo-tabs-overflow-mask-image: unset !important; /* stylelint-disable-line declaration-no-important */
 
+  // Show scrollbar in Firefox.
   overflow: auto;
 
   // Show horizontal scrollbar.
