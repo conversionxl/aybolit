@@ -27,6 +27,10 @@
   &::-webkit-scrollbar-thumb:horizontal {
     min-width: var(--scrollbar-minlength);
   }
+
+  // Firefox
+  scrollbar-color: var(--scrollbar-color);
+  scrollbar-width: thin;
 }
 
 @mixin wrap($max-width: var(--cxl-wrap-width, none), $padding: var(--cxl-wrap-padding, none)) {
