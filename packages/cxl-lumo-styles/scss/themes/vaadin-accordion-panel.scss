@@ -133,6 +133,7 @@
   }
 }
 
+/** why is this repeated here, and not changed above? **/
 @media (hover: hover) {
   :host([theme~="cxl-faq"][opened]:not([disabled])) {
     [part="summary"]:hover {
@@ -147,13 +148,18 @@
  * Theme "cxl-playbook-accordion".
  */
 :host([theme~="cxl-playbook-accordion"]) {
+  border-bottom-color: var(--lumo-primary-color-10pct);
+
   [part="content"] {
+    * {
+      font-size: var(--lumo-font-size-m);
+    }
+
     padding-top: 0;
     padding-bottom: 0;
     padding-left: var(--lumo-space-l);
     margin-bottom: var(--lumo-space-l);
     margin-left: calc(var(--lumo-space-l) + var(--lumo-space-xs));
-    border-left: solid calc(var(--lumo-space-xs) / 2) var(--lumo-primary-color);
   }
 
   [part="summary"] {

@@ -94,4 +94,41 @@ cxl-app-layout {
       }
     }
   }
+
+  &[layout^="2c-l"] {
+    .widget {
+      &.has-background {
+        background-color: var(--lumo-shade-5pct);
+      }
+
+      > label {
+        display: block;
+      }
+
+      .widget-title {
+        margin-top: 0.5em; /* match <p> */
+        font-weight: 700;
+
+        > a {
+          color: inherit;
+        }
+      }
+    }
+
+    .peer-profile-url {
+      color: inherit;
+    }
+
+    .entry-header {
+      .peer-reviewed-by {
+        text-transform: none;
+      }
+    }
+
+    .entry-content {
+      p {
+        font-family: var(--lumo-font-family);
+      }
+    }
+  }
 }

@@ -17,81 +17,21 @@ export const CXLAppLayout2cl = () => {
   const playbookId = 1234;
   const hasWidgetBackground = boolean('Has widget background?', false);
 
+  // styles in: cxl-ui/scss/global/cxl-app-layout.scss
+  // under: &[layout^="2c-l"]
+
   return html`
-    <style>
-      .widget.has-background {
-        background-color: var(--lumo-shade-5pct);
-      }
-      .widget > label {
-        display: block;
-      }
-      .widget h5.widget-title {
-        font-weight: 700;
-        margin-top: 0.5em; /* match <p> */
-      }
-
-      .widget h5.widget-title > a {
-        color: inherit;
-      }
-    </style>
-
     <cxl-app-layout id="container" layout="2c-l" scroll="panels">
       ${CXLMarketingNav()}
-
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <label>Last updated</label>
-        <p>
-          <strong><date>Jan 26, 2021</date></strong>
-        </p>
-      </section>
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>Actions</label>
         <p>Rate this playbook ${CXLStarRating()}</p>
         <p>
           <vaadin-button theme="tertiary contrast"
-            >Share <iron-icon icon="lumo:cog" slot="prefix"></iron-icon
-          ></vaadin-button>
-          <br />
-          <vaadin-button theme="tertiary contrast"
-            >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
+            >Leave feedback <iron-icon icon="lumo:error" slot="prefix"></iron-icon
           ></vaadin-button>
         </p>
-      </section>
-
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <label>About the author</label>
-        <vaadin-accordion opened="-1">
-          <vaadin-accordion-panel theme="reverse">
-            <h5 class="widget-title" slot="summary">
-              <a href="https://trafficiscurrency.com"
-                ><img
-                  style="--cxl-thumbnail-size: var(--lumo-font-size-xxxl); vertical-align: middle"
-                  class="thumbnail"
-                  src="https://secure.gravatar.com/avatar/7a56e8ca34286d16241bb78980ee63e5?s=96&amp;d=mm&amp;r=g"
-                />
-                Wes Bush</a
-              >
-            </h5>
-            <p>
-              Wes would rather jump out of a plane than read about what skydiving feels like.
-              Similarly, he rather test out a promising software product than read a whitepaper
-              about how “life-changing” the product is going to be.
-            </p>
-            <p>
-              Last time Wes checked, he has generated well over 130,000 free trial users since
-              founding <a href="https://trafficiscurrency.com">Traffic Is Currency</a>, an agency
-              that specializes in this kind of thing.
-            </p>
-          </vaadin-accordion-panel>
-        </vaadin-accordion>
-      </section>
-
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <label>Peer reviewed by</label>
-        <h5 class="widget-title">
-          <a href="https://twitter.com/andreea_maco">Andreea Macoveiciuc</a>
-        </h5>
       </section>
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
@@ -103,11 +43,52 @@ export const CXLAppLayout2cl = () => {
         </h5>
       </section>
 
+      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+        <label>Related course</label>
+        <h5 class="widget-title">
+          <a href="https://cxl.com/blog/saas-go-to-market-strategy/"
+            >This is example course name here. Just an example provided</a
+          >
+        </h5>
+      </section>
+
+      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+        <label>Last updated</label>
+        <p>
+          <strong><date>Jan 26, 2021</date></strong>
+        </p>
+      </section>
+
       <article id="post-${playbookId}" class="entry post-${playbookId} playbook type-playbook">
         <header class="entry-header">
           <label>Playbook</label>
           <h1 class="entry-title">Choose a traditional SaaS go-to-market strategy</h1>
           <div class="entry-byline">
+            <section class="widget">
+              <label>About the author</label>
+              <vaadin-accordion opened="-1">
+                <vaadin-accordion-panel theme="reverse">
+                  <h5 class="widget-title" slot="summary">
+                    <a href="https://trafficiscurrency.com"
+                    ><img
+                      style="--cxl-thumbnail-size: var(--lumo-font-size-xxxl); vertical-align: middle"
+                      class="thumbnail"
+                      src="https://secure.gravatar.com/avatar/7a56e8ca34286d16241bb78980ee63e5?s=96&amp;d=mm&amp;r=g"
+                    />
+                      Wes Bush</a
+                    >
+                  </h5>
+                </vaadin-accordion-panel>
+              </vaadin-accordion>
+            </section>
+
+            <section class="widget">
+              <label class="peer-reviewed-by">Peer reviewed by</label>
+              <h5 class="widget-title">
+                <a href="https://twitter.com/andreea_maco" class="peer-profile-url">Andreea Macoveiciuc</a>
+              </h5>
+            </section>
+
             <label for="cxl-playbook-progress-bar-${playbookId}"></label>
             <cxl-playbook-progress-bar
               id="cxl-playbook-progress-bar-${playbookId}"
