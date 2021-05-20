@@ -35,6 +35,10 @@ export class CXLMarketingNavElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   minimal = false;
 
+  // Conditionally hide search box
+  @property({ type: String, reflect: 'true' })
+  showSearch = 'true';
+
   // vaadin-device-detector.
   @property({ type: Boolean, reflect: true })
   wide;
@@ -64,7 +68,7 @@ export class CXLMarketingNavElement extends LitElement {
         <vaadin-tab
           class="menu-item menu-item-search"
           theme="cxl-marketing-nav"
-          ?hidden="${this.minimal}"
+          ?hidden="${this.isSearchHidden()}"
         >
           <a
             ><iron-icon icon="lumo:search"></iron-icon> Search
@@ -86,11 +90,9 @@ export class CXLMarketingNavElement extends LitElement {
           ></a>
         </vaadin-tab>
       </vaadin-tabs>
-
       <nav>
         <slot></slot>
       </nav>
-
       <vaadin-device-detector
         @wide-changed="${(e) => {
           /**
@@ -101,13 +103,19 @@ export class CXLMarketingNavElement extends LitElement {
            * @see https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask
            */
           const { wide } = e.target;
-
           Promise.resolve().then(() => {
             this.wide = wide;
           });
         }}"
       ></vaadin-device-detector>
     `;
+  }
+
+  /**
+   * Hide search when minimal view is enabled
+   */
+  isSearchHidden() {
+    return this.minimal || this.showSearch === 'false';
   }
 
   firstUpdated(changedProperties) {
