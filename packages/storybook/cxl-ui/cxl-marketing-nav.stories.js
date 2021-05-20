@@ -2,13 +2,17 @@ import { html } from 'lit-html';
 import { useEffect } from '@storybook/client-api';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { Headroom } from '@conversionxl/cxl-ui';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import contextMenuItems from './cxl-marketing-nav.data.json';
 
 export default {
+  decorators: [withKnobs],
   title: 'CXL UI/cxl-marketing-nav',
 };
 
 export const CXLMarketingNav = () => {
+  const loggedIn = boolean('Is user logged in?', true);
+
   useEffect(() => {
     // Populate `<cxl-marketing-nav>` context menus.
     const cxlMarketingNavElement = document.querySelector('cxl-marketing-nav');
@@ -37,7 +41,10 @@ export const CXLMarketingNav = () => {
             action="https://conversionxl.com/institute/?s="
           >
             <label for="search-input"
-              >Search <em style="color: var(--lumo-primary-color);">C</em>XL Institute:</label
+              >${loggedIn
+                ? html`Search courses, playbooks and resources`
+                : html`Search Blogs & Playbooks`}
+              <em style="color: var(--lumo-primary-color);">C</em>XL Institute:</label
             >
             <input id="search-input" type="search" class="search-field" value="" name="s" />
             <vaadin-button
@@ -103,8 +110,9 @@ export const CXLMarketingNav = () => {
           theme="cxl-marketing-nav"
         >
           <a
-            ><iron-icon icon="lumo:search"></iron-icon> Search
-            <iron-icon icon="lumo:dropdown"></iron-icon
+            ><iron-icon icon="lumo:search"></iron-icon> ${loggedIn
+              ? html`Search courses, playbooks and resources`
+              : html`Search Blogs & Playbooks`} <iron-icon icon="lumo:dropdown"></iron-icon
           ></a>
         </vaadin-tab>
       </vaadin-tabs>

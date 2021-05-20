@@ -1,0 +1,60 @@
+{
+
+  "categories": [
+    {
+      "name": "Category 1",
+      "id": "category-1"
+    },
+    {
+      "name": "Category 2",
+      "id": "category-2"
+    },
+    {
+      "name": "Category 3",
+      "id": "category-3"
+    },
+    {
+      "name": "Category 4",
+      "id": "category-4"
+    },
+    {
+      "name": "Category 5",
+      "id": "category-6"
+    }
+  ],
+
+  "topics": [
+    {
+      "name": "Topic one",
+      "id": "topic-one"
+    },
+    {
+      "name": "Topic two",
+      "id": "topic-two"
+    },
+    {
+      "name": "Topic three",
+      "id": "topic-three"
+    }
+  ],
+
+  "sort_type": [
+    {
+      "name": "Title [A-Z]",
+      "id": "1"
+    },
+    {
+      "name": "Title [Z-A]",
+      "id": "2"
+    },
+    {
+      "name": "Votes [Desc]",
+      "id": "3"
+    },
+    {
+      "name": "Votes [Asc]",
+      "id": "4"
+    }
+  ]
+
+}

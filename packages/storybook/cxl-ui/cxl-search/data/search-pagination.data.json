@@ -1,0 +1,39 @@
+{
+  "pages": [
+    {
+      "page": "1"
+    },
+    {
+      "page": "2",
+      "url": "#"
+    },
+    {
+      "page": "3",
+      "url": "#"
+    },
+    {
+      "page": "4",
+      "url": "#"
+    },
+    {
+      "page": "5",
+      "url": "#"
+    }
+  ],
+
+  "prevPage": {
+    "page": "1",
+    "url": "#"
+  },
+
+  "nextPage": {
+    "page": "2",
+    "url": "#"
+  },
+
+  "lastPage": {
+    "page": "18",
+    "url": "#"
+  }
+
+}
