@@ -18,8 +18,8 @@
     "@storybook/core": "^6.1.21",
     "@storybook/storybook-deployer": "^2.8.8",
     "@storybook/web-components": "^6.1.21",
-    "@vaadin/vaadin-button": "^3.0.0-alpha1",
-    "@vaadin/vaadin-notification": "^2.0.0-alpha1",
+    "@vaadin/vaadin-button": "21.0.0-alpha3",
+    "@vaadin/vaadin-notification": "21.0.0-alpha3",
     "lit-html": "^1.0.0"
   },
   "scripts": {
