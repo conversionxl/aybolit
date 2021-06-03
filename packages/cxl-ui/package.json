@@ -21,7 +21,7 @@
     "@vaadin/vaadin-notification": "21.0.0-alpha3",
     "@vaadin/vaadin-progress-bar": "21.0.0-alpha3",
     "@vaadin/vaadin-tabs": "21.0.0-alpha3",
-    "@vaadin/vaadin-themable-mixin": "^1.6.2",
+    "@vaadin/vaadin-themable-mixin": "^21.0.0-alpha5",
     "headroom.js": "^0.12.0",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2"

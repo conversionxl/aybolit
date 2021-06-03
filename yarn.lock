@@ -3754,7 +3754,7 @@
     "@vaadin/vaadin-material-styles" "^21.0.0-alpha3"
     "@vaadin/vaadin-themable-mixin" "^21.0.0-alpha3"
 
-"@vaadin/vaadin-themable-mixin@^1.5.2", "@vaadin/vaadin-themable-mixin@^1.6.2":
+"@vaadin/vaadin-themable-mixin@^1.5.2":
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-themable-mixin/-/vaadin-themable-mixin-1.6.2.tgz#8d619722819ba850af777579a550ff8b1d2b960f"
   integrity sha512-PZZOZnke3KUlZsDrRVbWxAGEeFBPRyRayNRCvip0XnQK+Zs3cLuRgdgbdro3Ir9LZ3Izsw6HqA6XNMKffEP67A==
@@ -3766,6 +3766,14 @@
   version "21.0.0-alpha4"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-themable-mixin/-/vaadin-themable-mixin-21.0.0-alpha4.tgz#8b23f265e6df1918b696ebf470895e97ace31a20"
   integrity sha512-n9qLijSzPTr0shz2W37bBt0BZsTTxs1BtWC5ZHeyTKrPfYYlkMe5ULMa+NGnGjH2XawObWrSVR4IWG3nFUY16g==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+    lit "^2.0.0-rc.1"
+
+"@vaadin/vaadin-themable-mixin@^21.0.0-alpha5":
+  version "21.0.0-alpha5"
+  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-themable-mixin/-/vaadin-themable-mixin-21.0.0-alpha5.tgz#685483830c7d99b6e2bbe27fc7c3e3b162a47873"
+  integrity sha512-XXPxeDlPdR0jREzU/LL1h85sO28rZ8tLgUhkgufI3PpgkujGXgVWGa4anE1yAmmLF8je38KKe8Yg/DcVuwb2bw==
   dependencies:
     "@polymer/polymer" "^3.0.0"
     lit "^2.0.0-rc.1"
