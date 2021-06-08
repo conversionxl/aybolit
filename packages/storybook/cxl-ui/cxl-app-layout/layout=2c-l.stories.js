@@ -60,14 +60,13 @@ export const CXLAppLayout2cl = () => {
             >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
           ></vaadin-button>
         </p>
-      </section>
-
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
-        <cxl-save-playbooks
-          playbookId="${playbookId}"
-          userId="${userId}"
-          ?selected=${playbookSaved}
-        ></cxl-save-playbooks>
+        <p>
+          <cxl-save-playbooks
+            playbookId="${playbookId}"
+            userId="${userId}"
+            ?selected=${playbookSaved}
+          ></cxl-save-playbooks>
+        </p>
       </section>
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">

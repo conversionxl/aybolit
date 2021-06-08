@@ -1,3 +1,13 @@
+a {
+  &:hover {
+    color: var(--lumo-contrast-80pct);
+    cursor: pointer;
+  }
+
+  &:hover iron-icon {
+    color: #fdd835;
+  }
+}
 iron-icon {
   color: #eee;
 
