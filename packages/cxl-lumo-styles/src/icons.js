@@ -57,8 +57,10 @@ $documentContainer.innerHTML = `
     <svg>
       <defs>
         <g id="check-circle"><path d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM7.1 11.7l-4.2-4.1 1.4-1.4 2.7 2.7 5-4.9 1.4 1.4-6.3 6.3z"/></g>
+        <g id="comment"><path d="M8 1c-4.4 0-8 2.5-8 5.5 0 2 2 3.8 4 4.8 0 0 0 0 0 0 0 2.1-2 2.8-2 2.8 2.8 0 4.4-1.3 5.1-2.1 0.3 0 0.6 0 0.9 0 4.4 0 8-2.5 8-5.5s-3.6-5.5-8-5.5z"/></g>
         <g id="play-circle-o"><path d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"/><path d="M6 4v8l6-4z"/></g>
         <g id="quote-right"><path d="M9 9v-7h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-0.6-1.4c0 0 2-0.3 2.4-1.9 0.4-1.2-0.4-2.2-0.4-2.2h-3.9z"/><path d="M0 9v-7h7v7.1c0 4.8-4.5 5.4-4.5 5.4l-0.6-1.4c0 0 2-0.3 2.4-1.9 0.4-1.2-0.4-2.2-0.4-2.2h-3.9z"/></g>
+        <g id="star"><path d="M12.9 15.4l-4.9-2.6-4.9 2.6 0.9-5.4-4-3.9 5.5-0.8 2.4-5 2.4 5 5.5 0.8-3.8 3.9 0.9 5.4z"/></g>
       </defs>
     </svg>
   </iron-iconset-svg>
@@ -67,13 +69,15 @@ $documentContainer.innerHTML = `
       font-family: vaadin-icons;
       font-style: normal;
       font-weight: initial;
-      src: url("data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOwAAsAAAAACAAAAANiAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGVgCDHAqDSIMcATYCJAMQCwoABCAFhEYHVBsFB8gusG3YkyQS1jYY98cnsgDemEQ8/P/a//a5d2a+YSrRo5g2MY8sQqJq+w1f3SzxSCT6zDuXnxGqKc5YtTcgUgi5NAVKlmYEbmzxeRBmjkADuX1QgPZP3bQH2o0xDPoA40zaOBaXpdTVYoqsuGAiB+bNA7B25E9cThvTPrD5swBgzI3T2raoLJvW5s7XxjHPE+wCKfCErAd4hgm8cI9AqymqBC5c3NENYg9tFy6IF8ypDvLkOLRfQyBcNit6GKFZV7XsTP/igZJ0Kp3iTvz++G1qJJIycw5atqdRATV/XjZe5xU1BnOXnfWCIMXJmHAea+xrde8QlEYmCNJqhILNAjjULLFW36RGdc3Sa1E3u395ZEkQFSexA5hBxuyOSXw+mcYkPonGa+kTOKQAzWjCFbwn8oCVSZZ6gp44D2OnN1a9uMCl4hW4W74Dl/lb1ib6erSe+c0W1YU+1S1UXcSya8euaF2V8OGgmHRhwBTtnkufLSaEa7KPJoWXOgqD0GDcpXfQqodVj2gcPXhB5+qRBlZbyxpErCeIBrNa0RBbO+P8a1WvXXv8eHa+thekLIibIeX+kpId5eQfCUiQOUjZPxLVcGWkeU2XT1eu+rTVM///e3mDX9zts95zge+guj7fejX46xObF0wOfsx4VK/3Q0dHl+ayTp72q0v7KrvgypfR/vm2j4VePBkfcnTr9gHAANTkb3lljJs1ffhGP2PMoaeWrZ0r/ua2/Be+den5A2XjJV+LxBB/fxowUhhWCI62aJP70v+Ed76gJ+2k1bXxrcXo4n4Nf+jw1sSSJh1yZU613RFfkAeDpTbjwUoHs8BW49Xtb9OdI0gULUIfKwAmnTwEsz4O8QX5HCz18gZW+vgFtloTwV9rMyo2HENIMVzJwNT1Ook2aSNezcFXegn3DOrC3ElTms5rJi7hSBAF+mehN6XlCaFClVMHNlEXDrJtChmnJsFC1oVgZb7Je8QfTsbUAVMQRGFwSQwY5fJ0IjSTbAgfURSiexGcJzKHB+WS5YzEN6vd0WhEIJSI3yy4+jpNHkFQQSoOEQfUNE/ESttVUkPN2qeZCEyQ6TNCTBkfl1LHquWdtc672QKtnIeKSJGjiFKHnfsItiRscGyTGHYIzeYbJRo1cZQKInFD0wUAAAA=") format("woff2");
+      src: url("data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPwAAsAAAAACKAAAAOiAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGVgCDMgqEQIQHATYCJAMUCwwABCAFhEYHXhuUBxEVnJ3IfhzkZK6m2v7xuOuKIzJZFWXR+N+DgHLL2WxCaeBUpeLOVdyf7v5ic6lf1A24APkJczzhXVzxy2PJlZUVAAPXUj/S7sEqASCyMTrsLemfnmuzqAQpkYFt4BOzPcRbXeZbEIBOPLkoxaXVjbHt3cHSF09U9EEBUbLo3aNbB4ycFrUCIzAqDAVnSn8xFw2U4cohYKYXIZ6RIBSYjibR71W/a0ln8t+cfHtaNrRGWspGLB7ODcDGIYHo5ejFwEJrb2Tgi0aiyx6VfFA8RhSUoTaLfdv97WmrFYQbkuvGPzxQkSgIEAZ0qRnh+WqVg+NZTKjwNpYJCW+7M6HA29P8a5FquL8OGIENCEngwVdREEgUF0Ooi6sM9BgxvfEtAxjf5DYwq9ldYELTO3GtOzZr0q1JvpqxzMnjxFj3peFLgxc6O89odrfINKMeZJxFHzGjm2QsSKaDZFx+z2YDHqE3VjoNkjbKWO+V0evCDfSqYKyzc9OwtTtFbfRb4bncc7Grq33lvMbXGu8Lzt3ar6jhFEtx/4KC/sUWW5Plzu9fYCm2zXzRkQcGa7Nm69alJTRril+R8xRLXP+YgjrF9Vo3r9OkqKJbEoRc3ZD6vc6Hv6e0dWy+/4n0KZbYctF+ikV5+8dYYqd02mJol6yO6ekds7p8QxayQlOXzG/IyYAyYZkTZw3JWc67TRn5/9f1P5vf7t2HUg9vKIpb3u3EmE0tuqovtoc0Ta5p+SR5+YBpni41bUcPD92959Ck8mY5jfzH/gwufl7lk+Lp44Z5ajXtZvVkKADWnvKdbATWZ167cxJ0Vq/c/iV+hotOq7a3s8v+bTTJdwCPNtUvQEFz7nuVIXN/ABkN2U4fgS7XiiotLULxZyHhNvLfddlrt9tzZhinwHxLAwq1MEdiGcidAKzC/UgaJqJIBsykknSiKDzfhBN9kAi1NgJ3xhKSgi1LSRJ31oBV+BGShit3SAbc+UTSaSrUXzMRKlpiroh7qGMwXPsXuUtGSVfAd/5IeuAK67TkPe1ElQSVdjg/oF/dpmrBChc4ciX3ypmhCUcyOnnVdphny/zhJsNluCLuoY7BcO1f5C4ZpUFdQPtH0jnK4mCdlobgk7Q2pkWl3Xd+wODbuU3VgpUrXODYzaOUDR9DK94tktHJd/C0w4zdbFPpNLG8PM8ZQB/0Z2hPipBCFZowYDaeTBpNEJPp+eAKC1X9bBkf2RNHfv+/sNIowXkdBgAA") format("woff2");
     }
 
     html {
       --vaadin-icons-check-circle: "\\e7c5";
+      --vaadin-icons-comment: "\\e768";
       --vaadin-icons-play-circle-o: "\\e72e";
       --vaadin-icons-quote-right: "\\e6c3";
+      --vaadin-icons-star: "\\e7a1";
     }
   </style>
 `;
