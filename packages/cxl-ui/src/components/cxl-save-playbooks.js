@@ -80,7 +80,7 @@ export class CXLSavePlaybooksElement extends LitElement {
   }
 
   render() {
-    const text = `${this.selected ? 'Unsave' : 'Save'} Playbook`;
+    const text = this.starOnly ? `` : `${this.selected ? 'Unsave' : 'Save'} Playbook`;
 
     return html`
       <div>
