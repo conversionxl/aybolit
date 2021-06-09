@@ -3,3 +3,8 @@
   column-rule: 1px solid var(--lumo-shade-10pct); // match panel `outline`
   column-width: calc(var(--cxl-wrap-width) / 4);
 }
+
+
+:host([theme~="cxl-hub-sidebar"]) {
+  // background: pink;
+}

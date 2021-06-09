@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Most Recent",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": [],
+    "tags": ["Playbooks", "Courses", "Minidegrees"],
+    "tags_elements_count": [20, 15, 10]
+  },
+  {
+    "title": "My Roadmap",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": [],
+    "tags": ["Started", "Not Started"],
+    "tags_elements_count": [15, 5]
+  },
+  {
+    "title": "Courses",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": [],
+    "tags": ["Started", "Not Started"],
+    "tags_elements_count": [15, 5]
+  },
+  {
+    "title": "Minidegrees",
+    "url": "#",
+    "playbooks_count": 17,
+    "menu": [
+      {
+        "title": "Advanced stuff",
+        "url": "#",
+        "playbooks_count": 10,
+        "menu": [],
+        "tags": ["Started", "Not Started"],
+        "tags_elements_count": [15, 5]
+      },
+      {
+        "title": "Average stuff",
+        "url": "#",
+        "playbooks_count": 7,
+        "menu": [],
+        "tags": ["Started", "Not Started"],
+        "tags_elements_count": [15, 5]
+      }
+    ],
+    "tags": ["Started", "Not Started"],
+    "tags_elements_count": [25, 15]
+  },
+  {
+    "title": "Playbooks",
+    "url": "#",
+    "playbooks_count": 18,
+    "menu": [
+      {
+        "title": "Saved playbooks",
+        "url": "#",
+        "playbooks_count": 10,
+        "menu": [],
+        "tags": ["Drafts", "Peer Review", "Saved"],
+        "tags_elements_count": [3, 17, 6]
+      },
+      {
+        "title": "CXL playbooks",
+        "url": "#",
+        "playbooks_count": 2,
+        "menu": [],
+        "tags": ["Drafts", "Peer Review", "Saved"],
+        "tags_elements_count": [3, 17, 6]
+      },
+      {
+        "title": "Wynter playbooks",
+        "url": "#",
+        "playbooks_count": 1,
+        "menu": [],
+        "tags": ["Drafts", "Peer Review", "Saved"],
+        "tags_elements_count": [3, 17, 6]
+      },
+      {
+        "title": "My drafts",
+        "url": "#",
+        "playbooks_count": 2,
+        "menu": [],
+        "tags": ["Drafts", "Peer Review", "Saved"],
+        "tags_elements_count": [3, 17, 6]
+      },
+      {
+        "title": "Peer review playbooks",
+        "url": "#",
+        "playbooks_count": 3,
+        "menu": [],
+        "tags": ["Drafts", "Peer Review", "Saved"],
+        "tags_elements_count": [3, 17, 6]
+      }
+    ],
+    "tags": ["Drafts", "Peer Review", "Saved", "Team Playbooks CXL", "Team Playbooks Wynter"],
+    "tags_elements_count": [3, 17, 6, 8, 7]
+  },
+  {
+    "title": "Review new contributors",
+    "url": "#",
+    "playbooks_count": 2,
+    "menu": []
+  }
+]

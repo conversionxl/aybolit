@@ -1,0 +1,33 @@
+:host([theme~="cxl-dashboard-sidebar"]) {
+  --vaadin-accordion-panel-border-bottom: solid 1px transparent;
+  border-top: var(--cxl-minidegree-course-border);
+  border-bottom: var(--cxl-minidegree-course-border);
+
+  [part="toggle"] {
+    margin-right: var(--lumo-space-m);
+    color: var(--lumo-secondary-text-color);
+    background: none;
+  }
+  [part="toggle"]:hover {
+    color: var(--lumo-secondary-text-color);
+  }
+  [part="summary"] {
+    color: var(--lumo-body-text-color);
+  }
+}
+
+:host([theme~="cxl-dashboard-sidebar"][opened]) {
+  [part="toggle"] {
+    color: var(--lumo-primary-color);
+  }
+  [part="toggle"]:hover {
+    color: var(--lumo-primary-color);
+  }
+  [part="summary"] {
+    font-weight: 700;
+    color: var(--lumo-primary-color);
+  }
+  [part="content"] {
+    padding-left: calc(var(--lumo-space-xl) * 1.5);
+  }
+}
