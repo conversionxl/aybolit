@@ -10,8 +10,17 @@ export class CXLSavePlaybooksElement extends LitElement {
   @query('a > iron-icon')
   ironIcon;
 
+  /**
+   * Is playbook currently in the "saved" state
+   */
   @property({ type: Boolean, reflect: true })
   selected;
+
+  /**
+   * if true, text "Save / Unsave Playbook" won't be displayed
+   */
+  @property({ type: Boolean, reflect: true })
+  starOnly;
 
   @property({ type: Number, reflect: true })
   playbookId;
@@ -19,6 +28,11 @@ export class CXLSavePlaybooksElement extends LitElement {
   @property({ type: Number, reflect: true })
   userId;
 
+  /**
+   * API Url to which we make a POST request
+   *
+   * @type {string}
+   */
   @property({ type: String, reflect: true })
   apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -66,11 +80,13 @@ export class CXLSavePlaybooksElement extends LitElement {
   }
 
   render() {
+    const text = `${this.selected ? 'Unsave' : 'Save'} Playbook`;
+
     return html`
       <div>
         <a
-          ><iron-icon icon="vaadin:star" class="${this.selected ? 'selected' : ''}"></iron-icon>
-          ${this.selected ? 'Unsave' : 'Save'} Playbook</a
+          ><iron-icon icon="vaadin:star" class="${this.selected ? 'selected' : ''}"></iron-icon
+          >${text}</a
         >
       </div>
     `;
