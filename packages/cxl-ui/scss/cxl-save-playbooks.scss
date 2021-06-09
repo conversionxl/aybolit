@@ -1,21 +1,28 @@
+$star-active-color: #fdd835;
+$star-inactive-color: #eee;
+
 a {
+  display: flex;
+  vertical-align: middle;
+
   &:hover {
     color: var(--lumo-contrast-80pct);
     cursor: pointer;
   }
 
   &:hover iron-icon {
-    color: #fdd835;
+    color: $star-active-color;
   }
 }
 iron-icon {
-  color: #eee;
+  margin-right: var(--lumo-space-xs);
+  color: $star-inactive-color;
 
   &:hover {
-    color: #fdd835;
+    color: $star-active-color;
   }
 }
 
 .selected {
-  color: #fdd835;
+  color: $star-active-color;
 }
