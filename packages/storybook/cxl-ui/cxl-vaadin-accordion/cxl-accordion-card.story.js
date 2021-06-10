@@ -74,7 +74,7 @@ export const CXLVaadinAccordionThemeArchive = () => {
               </div>
             </header>
             <div class="entry-summary" itemprop="description">
-              ${unsafeHTML(el.content.cxl_get_extended_main)}
+              ${el.content.cxl_get_extended_main && unsafeHTML(el.content.cxl_get_extended_main)}
             </div>
             <div class="entry-footer" style="text-align: right;">
               <a href="${el.conversionxl_certificate_sales_page}"
