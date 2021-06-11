@@ -1,4 +1,4 @@
-import { customElement } from 'lit-element';
+import { customElement } from 'lit/decorators';
 import '@conversionxl/cxl-lumo-styles';
 import { AccordionPanelElement } from '@vaadin/vaadin-accordion/src/vaadin-accordion-panel';
 

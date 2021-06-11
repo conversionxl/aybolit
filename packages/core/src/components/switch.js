@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { DelegateFocusMixin } from '../mixins/delegate-focus-mixin.js';
 import switchBaseStyles from '../styles/switch-base-css.js';
 
@@ -10,8 +10,8 @@ export class SwitchElement extends DelegateFocusMixin(LitElement) {
        */
       checked: {
         type: Boolean,
-        reflect: true
-      }
+        reflect: true,
+      },
     };
   }
 
@@ -64,7 +64,7 @@ export class SwitchElement extends DelegateFocusMixin(LitElement) {
     this.setAttribute('aria-checked', checked);
     this.dispatchEvent(
       new CustomEvent('checked-changed', {
-        detail: { value: checked }
+        detail: { value: checked },
       })
     );
   }
@@ -77,10 +77,10 @@ export class SwitchElement extends DelegateFocusMixin(LitElement) {
     // into the ancestor tree, so we must do this manually.
     const changeEvent = new CustomEvent('change', {
       detail: {
-        sourceEvent: e
+        sourceEvent: e,
       },
       bubbles: e.bubbles,
-      cancelable: e.cancelable
+      cancelable: e.cancelable,
     });
     this.dispatchEvent(changeEvent);
   }

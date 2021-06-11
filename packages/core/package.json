@@ -13,8 +13,7 @@
     "directory": "packages/core"
   },
   "dependencies": {
-    "lit-element": "^2.0.1",
-    "lit-html": "^2.0.0-rc.3"
+    "lit": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "@aybolit/test-helpers": "^0.1.0",
