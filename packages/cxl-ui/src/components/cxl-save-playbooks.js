@@ -66,17 +66,13 @@ export class CXLSavePlaybooksElement extends LitElement {
     });
   }
 
-  firstUpdated(_changedProperties) {
-    super.firstUpdated(_changedProperties);
+  async _anchorClicked(event) {
+    event.stopPropagation();
 
-    this.anchor.addEventListener('click', async (e) => {
-      e.stopPropagation();
+    this.ironIcon.classList.toggle('selected');
+    this.selected = !this.selected;
 
-      this.ironIcon.classList.toggle('selected');
-      this.selected = !this.selected;
-
-      await this.sendToApi();
-    });
+    await this.sendToApi();
   }
 
   render() {
@@ -84,10 +80,7 @@ export class CXLSavePlaybooksElement extends LitElement {
 
     return html`
       <div>
-        <a
-          ><iron-icon icon="vaadin:star" class="${this.selected ? 'selected' : ''}"></iron-icon
-          >${text}</a
-        >
+        <a @click=${this._anchorClicked}><iron-icon icon="vaadin:star"></iron-icon>${text}</a>
       </div>
     `;
   }

@@ -18,7 +18,6 @@ export const CXLAppLayout2cl = () => {
   const playbookId = number('Playbook ID', 1234);
   const userId = number('User ID', 5678);
   const playbookSaved = boolean('Is playbook saved?', false);
-  const saveUnsaveTextVisible = boolean('Save/unsave text visible?', true);
   const hasWidgetBackground = boolean('Has widget background?', false);
 
   return html`
@@ -66,7 +65,6 @@ export const CXLAppLayout2cl = () => {
             playbookId="${playbookId}"
             userId="${userId}"
             ?selected=${playbookSaved}
-            ?starOnly=${!saveUnsaveTextVisible}
           ></cxl-save-playbooks>
         </p>
       </section>
