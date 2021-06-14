@@ -76,11 +76,15 @@ export class CXLSavePlaybooksElement extends LitElement {
   }
 
   render() {
-    const text = this.starOnly ? `` : `${this.selected ? 'Unsave' : 'Save'} Playbook`;
+    const text = this.starOnly ? `` : `${this.selected ? 'Saved' : 'Save'}`;
 
     return html`
       <div>
-        <a @click=${this._anchorClicked}><iron-icon icon="vaadin:star"></iron-icon>${text}</a>
+        <a @click=${this._anchorClicked}
+          ><iron-icon icon="vaadin:star"></iron-icon>
+          <slot name="text">${text}</slot>
+          <slot name="after-text"></slot>
+        </a>
       </div>
     `;
   }
