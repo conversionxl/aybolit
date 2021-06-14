@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
+import '@conversionxl/cxl-ui/src/components/cxl-save-playbooks.js';
 import archiveData from './theme=cxl-archive.data.json';
 
 export const CXLVaadinAccordionThemeArchive = () => {
@@ -30,6 +31,15 @@ export const CXLVaadinAccordionThemeArchive = () => {
       .entry-title a {
         color: inherit;
       }
+      .save-playbooks-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+      .save-playbooks-container cxl-save-playbooks {
+        justify-content: flex-end;
+        margin-left: auto;
+      }
     </style>
     <cxl-vaadin-accordion
       id="cxl-vaadin-accordion-26107"
@@ -49,7 +59,15 @@ export const CXLVaadinAccordionThemeArchive = () => {
               : ''}"
           >
             <header class="entry-header" slot="summary">
-              <label class="entry-type">Course</label>
+              <div class="save-playbooks-container">
+                <label class="entry-type"> Course </label>
+                <cxl-save-playbooks
+                  playbookId="123"
+                  userId="456"
+                  isCardVersion
+                ></cxl-save-playbooks>
+              </div>
+
               <h3 class="entry-title no-anchor" itemprop="headline">
                 <a href="${el.conversionxl_certificate_sales_page}" rel="bookmark" itemprop="url"
                   >${el.title.raw}</a
