@@ -80,11 +80,11 @@ export class CXLSavePlaybooksElement extends LitElement {
 
     const afterStar = this.isCardVersion
       ? ''
-      : html`<div class="after-star">${text} Playbook</div>`;
+      : html`<div class="after-star">${text} playbook</div>`;
 
     return html`
       <div>
-        <a @click=${this._anchorClicked} title="${text} Playbook">
+        <a @click=${this._anchorClicked} title="${text} playbook">
           <iron-icon icon="vaadin:star"></iron-icon>
           ${afterStar}
         </a>
