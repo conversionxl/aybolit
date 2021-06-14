@@ -17,10 +17,10 @@ export class CXLSavePlaybooksElement extends LitElement {
   selected;
 
   /**
-   * if true, text "Save / Unsave Playbook" won't be displayed
+   * if true card version of the component (displayed in top-right corner of the card)
    */
   @property({ type: Boolean, reflect: true })
-  starOnly;
+  isCardVersion;
 
   @property({ type: Number, reflect: true })
   playbookId;
@@ -76,14 +76,17 @@ export class CXLSavePlaybooksElement extends LitElement {
   }
 
   render() {
-    const text = this.starOnly ? `` : `${this.selected ? 'Saved' : 'Save'}`;
+    const text = `${this.selected ? 'Unsave' : 'Save'}`;
+
+    const afterStar = this.isCardVersion
+      ? ''
+      : html`<div class="after-star">${text} Playbook</div>`;
 
     return html`
       <div>
-        <a @click=${this._anchorClicked}
-          ><iron-icon icon="vaadin:star"></iron-icon>
-          <slot name="text">${text}</slot>
-          <slot name="after-text"></slot>
+        <a @click=${this._anchorClicked} title="${text} Playbook">
+          <iron-icon icon="vaadin:star"></iron-icon>
+          ${afterStar}
         </a>
       </div>
     `;

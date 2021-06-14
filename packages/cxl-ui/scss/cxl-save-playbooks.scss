@@ -5,8 +5,11 @@ $star-inactive-color: #eee;
   color: $star-active-color;
 }
 
+.after-star {
+  margin-left: var(--lumo-space-xs);
+}
+
 iron-icon {
-  margin-right: var(--lumo-space-xs);
   color: $star-inactive-color;
 
   &:hover {
