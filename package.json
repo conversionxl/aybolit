@@ -95,6 +95,5 @@
       "stylelint --syntax=scss",
       "prettier --single-quote=false --write"
     ]
-  },
-  "dependencies": {}
+  }
 }
