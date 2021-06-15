@@ -19,13 +19,13 @@ export class CXLSavePlaybooksElement extends LitElement {
   /**
    * if true card version of the component (displayed in top-right corner of the card)
    */
-  @property({ type: Boolean, reflect: true })
+  @property({ type: Boolean })
   isCardVersion;
 
-  @property({ type: Number, reflect: true })
+  @property({ type: Number })
   playbookId;
 
-  @property({ type: Number, reflect: true })
+  @property({ type: Number })
   userId;
 
   /**
@@ -33,7 +33,7 @@ export class CXLSavePlaybooksElement extends LitElement {
    *
    * @type {string}
    */
-  @property({ type: String, reflect: true })
+  @property({ type: String })
   apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   static get styles() {

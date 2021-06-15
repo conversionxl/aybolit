@@ -62,6 +62,7 @@ export const CXLAppLayout2cl = () => {
         </p>
         <p>
           <cxl-save-playbooks
+            apiUrl="https://jsonplaceholder.typicode.com/users"
             playbookId="${playbookId}"
             userId="${userId}"
             ?selected=${playbookSaved}
