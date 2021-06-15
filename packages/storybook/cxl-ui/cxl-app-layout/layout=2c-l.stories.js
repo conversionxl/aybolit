@@ -3,7 +3,7 @@ import { withKnobs, boolean, number } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
-import '@conversionxl/cxl-ui/src/components/cxl-save-playbooks.js';
+import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
 import '@vaadin/vaadin-button';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLStarRating } from '../cxl-star-rating.stories';
@@ -15,7 +15,7 @@ export default {
 };
 
 export const CXLAppLayout2cl = () => {
-  const playbookId = number('Playbook ID', 1234);
+  const postId = number('Playbook ID', 1234);
   const userId = number('User ID', 5678);
   const playbookSaved = boolean('Is playbook saved?', false);
   const hasWidgetBackground = boolean('Has widget background?', false);
@@ -61,12 +61,13 @@ export const CXLAppLayout2cl = () => {
           ></vaadin-button>
         </p>
         <p>
-          <cxl-save-playbooks
+          <cxl-save-favorite
             apiUrl="https://jsonplaceholder.typicode.com/users"
-            playbookId="${playbookId}"
+            postType="playbook"
+            postId="${postId}"
             userId="${userId}"
             ?selected=${playbookSaved}
-          ></cxl-save-playbooks>
+          ></cxl-save-favorite>
         </p>
       </section>
 
@@ -114,14 +115,14 @@ export const CXLAppLayout2cl = () => {
         </h5>
       </section>
 
-      <article id="post-${playbookId}" class="entry post-${playbookId} playbook type-playbook">
+      <article id="post-${postId}" class="entry post-${postId} playbook type-playbook">
         <header class="entry-header">
           <label>Playbook</label>
           <h1 class="entry-title">Choose a traditional SaaS go-to-market strategy</h1>
           <div class="entry-byline">
-            <label for="cxl-playbook-progress-bar-${playbookId}"></label>
+            <label for="cxl-playbook-progress-bar-${postId}"></label>
             <cxl-playbook-progress-bar
-              id="cxl-playbook-progress-bar-${playbookId}"
+              id="cxl-playbook-progress-bar-${postId}"
               listen-on-closest="article"
             ></cxl-playbook-progress-bar>
             <!-- [listen-on-closest] fixes race condition vs article classes computation -->

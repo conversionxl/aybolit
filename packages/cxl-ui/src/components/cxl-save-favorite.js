@@ -1,9 +1,9 @@
 import '@conversionxl/cxl-lumo-styles';
 import { customElement, html, LitElement, property, query } from 'lit-element';
-import cxlSavePlaybooksStyles from '../styles/cxl-save-playbooks-css';
+import cxlSaveFavoriteStyles from '../styles/cxl-save-favorite-css';
 
-@customElement('cxl-save-playbooks')
-export class CXLSavePlaybooksElement extends LitElement {
+@customElement('cxl-save-favorite')
+export class CXLSaveFavoriteElement extends LitElement {
   @query('a')
   anchor;
 
@@ -11,7 +11,7 @@ export class CXLSavePlaybooksElement extends LitElement {
   ironIcon;
 
   /**
-   * Is playbook currently in the "saved" state
+   * Is post currently in the "saved" state
    */
   @property({ type: Boolean, reflect: true })
   selected;
@@ -23,10 +23,13 @@ export class CXLSavePlaybooksElement extends LitElement {
   isCardVersion;
 
   @property({ type: Number })
-  playbookId;
+  postId;
 
   @property({ type: Number })
   userId;
+
+  @property({ type: String })
+  postType;
 
   /**
    * API Url to which we make a POST request
@@ -37,7 +40,7 @@ export class CXLSavePlaybooksElement extends LitElement {
   apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   static get styles() {
-    return [cxlSavePlaybooksStyles];
+    return [cxlSaveFavoriteStyles];
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -60,9 +63,10 @@ export class CXLSavePlaybooksElement extends LitElement {
 
   async sendToApi() {
     return this.postData(this.apiUrl, {
-      playbookId: this.playbookId,
-      userId: this.userId,
+      post_id: this.postId,
+      user_id: this.userId,
       save: this.selected,
+      post_type: this.postType,
     });
   }
 
@@ -76,15 +80,13 @@ export class CXLSavePlaybooksElement extends LitElement {
   }
 
   render() {
-    const text = `${this.selected ? 'Unsave' : 'Save'}`;
+    const text = `${this.selected ? 'Unsave' : 'Save'} ${this.postType}`;
 
-    const afterStar = this.isCardVersion
-      ? ''
-      : html`<div class="after-star">${text} playbook</div>`;
+    const afterStar = this.isCardVersion ? '' : html`<div class="after-star">${text}</div>`;
 
     return html`
       <div>
-        <a @click=${this._anchorClicked} title="${text} playbook">
+        <a @click=${this._anchorClicked} title="${text}">
           <iron-icon icon="vaadin:star"></iron-icon>
           ${afterStar}
         </a>
