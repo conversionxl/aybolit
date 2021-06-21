@@ -6,14 +6,21 @@ export default {
   component: CXLSaveFavoriteElement
 };
 
-const Template = ({ ...args }) => html`
+const Template = ({
+                    apiUrl,
+                    postType,
+                    postId,
+                    userId,
+                    isCardVersion,
+                    selected
+                  }) => html`
     <cxl-save-favorite
-      apiUrl=${args.apiUrl}
-      postType=${args.postType}
-      postId=${args.postId}
-      userId=${args.userId}
-      ?isCardVersion=${args.isCardVersion}
-      ?selected=${args.selected}
+      apiUrl=${apiUrl}
+      postType=${postType}
+      postId=${postId}
+      userId=${userId}
+      ?isCardVersion=${isCardVersion}
+      ?selected=${selected}
     ></cxl-save-favorite>
   `;
 
