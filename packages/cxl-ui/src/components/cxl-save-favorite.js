@@ -1,5 +1,5 @@
 import '@conversionxl/cxl-lumo-styles';
-import { customElement, html, LitElement, property, query } from 'lit-element';
+import { customElement, html, LitElement, property, query, nothing } from 'lit-element';
 import cxlSaveFavoriteStyles from '../styles/cxl-save-favorite-css';
 
 @customElement('cxl-save-favorite')
@@ -82,7 +82,7 @@ export class CXLSaveFavoriteElement extends LitElement {
   render() {
     const text = `${this.selected ? 'Unsave' : 'Save'} ${this.postType}`;
 
-    const afterStar = this.isCardVersion ? '' : html`<div class="after-star">${text}</div>`;
+    const afterStar = this.isCardVersion ? nothing : html`<div class="after-star">${text}</div>`;
 
     return html`
       <div>
