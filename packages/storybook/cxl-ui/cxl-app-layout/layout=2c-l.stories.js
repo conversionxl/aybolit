@@ -1,5 +1,4 @@
 import { html } from 'lit-html';
-import { withKnobs, boolean, number } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
@@ -10,17 +9,10 @@ import { CXLStarRating } from '../cxl-star-rating.stories';
 import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion.stories';
 
 export default {
-  decorators: [withKnobs],
   title: 'CXL UI/cxl-app-layout',
 };
 
-export const CXLAppLayout2cl = () => {
-  const postId = number('Playbook ID', 1234);
-  const userId = number('User ID', 5678);
-  const playbookSaved = boolean('Is playbook saved?', false);
-  const hasWidgetBackground = boolean('Has widget background?', false);
-
-  return html`
+const Template = ({...args}) => html`
     <style>
       .widget.has-background {
         background-color: var(--lumo-shade-5pct);
@@ -41,14 +33,14 @@ export const CXLAppLayout2cl = () => {
     <cxl-app-layout id="container" layout="2c-l" scroll="panels">
       ${CXLMarketingNav()}
 
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+      <section class="widget ${args.hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>Last updated</label>
         <p>
           <strong><date>Jan 26, 2021</date></strong>
         </p>
       </section>
 
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+      <section class="widget ${args.hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>Actions</label>
         <p>Rate this playbook ${CXLStarRating()}</p>
         <p>
@@ -64,14 +56,14 @@ export const CXLAppLayout2cl = () => {
           <cxl-save-favorite
             apiUrl="https://jsonplaceholder.typicode.com/users"
             postType="playbook"
-            postId="${postId}"
-            userId="${userId}"
-            ?selected=${playbookSaved}
+            postId="${args.postId}"
+            userId="${args.userId}"
+            ?selected=${args.playbookSaved}
           ></cxl-save-favorite>
         </p>
       </section>
 
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+      <section class="widget ${args.hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>About the author</label>
         <vaadin-accordion opened="-1">
           <vaadin-accordion-panel theme="reverse">
@@ -99,14 +91,14 @@ export const CXLAppLayout2cl = () => {
         </vaadin-accordion>
       </section>
 
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+      <section class="widget ${args.hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>Peer reviewed by</label>
         <h5 class="widget-title">
           <a href="https://twitter.com/andreea_maco">Andreea Macoveiciuc</a>
         </h5>
       </section>
 
-      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+      <section class="widget ${args.hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <label>Related blog posts</label>
         <h5 class="widget-title">
           <a href="https://cxl.com/blog/saas-go-to-market-strategy/"
@@ -115,14 +107,14 @@ export const CXLAppLayout2cl = () => {
         </h5>
       </section>
 
-      <article id="post-${postId}" class="entry post-${postId} playbook type-playbook">
+      <article id="post-${args.postId}" class="entry post-${args.postId} playbook type-playbook">
         <header class="entry-header">
           <label>Playbook</label>
           <h1 class="entry-title">Choose a traditional SaaS go-to-market strategy</h1>
           <div class="entry-byline">
-            <label for="cxl-playbook-progress-bar-${postId}"></label>
+            <label for="cxl-playbook-progress-bar-${args.postId}"></label>
             <cxl-playbook-progress-bar
-              id="cxl-playbook-progress-bar-${postId}"
+              id="cxl-playbook-progress-bar-${args.postId}"
               listen-on-closest="article"
             ></cxl-playbook-progress-bar>
             <!-- [listen-on-closest] fixes race condition vs article classes computation -->
@@ -141,7 +133,15 @@ export const CXLAppLayout2cl = () => {
         <footer class="entry-footer">${CXLPlaybookAccordion(CXLPlaybookAccordion.args)}</footer>
       </article>
     </cxl-app-layout>
-  `;
-};
+`;
+
+export const CXLAppLayout2cl = Template.bind({});
 
 CXLAppLayout2cl.storyName = '[layout=2c-l]';
+
+CXLAppLayout2cl.args = {
+  postId: 1234,
+  userId: 5678,
+  playbookSaved: false,
+  hasWidgetBackground: false
+};
