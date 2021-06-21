@@ -1,23 +1,23 @@
 import { html } from 'lit-html';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
+import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
 import '@vaadin/vaadin-button';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLStarRating } from '../cxl-star-rating.stories';
 import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion.stories';
 
 export default {
-  decorators: [withKnobs],
   title: 'CXL UI/cxl-app-layout',
 };
 
-export const CXLAppLayout2cl = () => {
-  const playbookId = 1234;
-  const hasWidgetBackground = boolean('Has widget background?', false);
-
-  return html`
+const Template = ( {
+                     hasWidgetBackground,
+                     postId,
+                     userId,
+                     playbookSaved,
+                   }) => html`
     <style>
       .widget.has-background {
         background-color: var(--lumo-shade-5pct);
@@ -56,6 +56,15 @@ export const CXLAppLayout2cl = () => {
           <vaadin-button theme="tertiary contrast"
             >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
           ></vaadin-button>
+        </p>
+        <p>
+          <cxl-save-favorite
+            apiUrl="https://jsonplaceholder.typicode.com/users"
+            postType="playbook"
+            postId="${postId}"
+            userId="${userId}"
+            ?selected=${playbookSaved}
+          ></cxl-save-favorite>
         </p>
       </section>
 
@@ -103,14 +112,14 @@ export const CXLAppLayout2cl = () => {
         </h5>
       </section>
 
-      <article id="post-${playbookId}" class="entry post-${playbookId} playbook type-playbook">
+      <article id="post-${postId}" class="entry post-${postId} playbook type-playbook">
         <header class="entry-header">
           <label>Playbook</label>
           <h1 class="entry-title">Choose a traditional SaaS go-to-market strategy</h1>
           <div class="entry-byline">
-            <label for="cxl-playbook-progress-bar-${playbookId}"></label>
+            <label for="cxl-playbook-progress-bar-${postId}"></label>
             <cxl-playbook-progress-bar
-              id="cxl-playbook-progress-bar-${playbookId}"
+              id="cxl-playbook-progress-bar-${postId}"
               listen-on-closest="article"
             ></cxl-playbook-progress-bar>
             <!-- [listen-on-closest] fixes race condition vs article classes computation -->
@@ -129,7 +138,15 @@ export const CXLAppLayout2cl = () => {
         <footer class="entry-footer">${CXLPlaybookAccordion(CXLPlaybookAccordion.args)}</footer>
       </article>
     </cxl-app-layout>
-  `;
-};
+`;
+
+export const CXLAppLayout2cl = Template.bind({});
 
 CXLAppLayout2cl.storyName = '[layout=2c-l]';
+
+CXLAppLayout2cl.args = {
+  postId: 1234,
+  userId: 5678,
+  playbookSaved: false,
+  hasWidgetBackground: false
+};

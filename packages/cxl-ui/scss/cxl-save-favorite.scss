@@ -1,0 +1,32 @@
+$star-active-color: #fdd835;
+$star-inactive-color: #eee;
+
+:host([selected]) iron-icon {
+  color: $star-active-color;
+}
+
+.after-star {
+  margin-left: var(--lumo-space-xs);
+}
+
+iron-icon {
+  color: $star-inactive-color;
+
+  &:hover {
+    color: $star-active-color;
+  }
+}
+
+a {
+  display: flex;
+  vertical-align: middle;
+
+  &:hover {
+    color: var(--lumo-contrast-80pct);
+    cursor: pointer;
+  }
+
+  &:hover iron-icon {
+    color: $star-active-color;
+  }
+}
