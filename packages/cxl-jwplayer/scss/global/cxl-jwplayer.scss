@@ -1,0 +1,194 @@
+:host {
+  display: block;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+
+/* CXL JWPlayer Styles
+/* General Player Styles */
+
+
+.cxl-jwplayer-container {
+  border: solid 1px var(--lumo-shade-10pct);
+  border-radius: var(--lumo-border-radius);
+}
+
+.jwplayer.jw-skin-cxl-institute .jw-controls .jw-slider-time .jw-cue:hover {
+  z-index: 5;
+  height: 30px !important;
+  background-color: var(--lumo-tint);
+}
+
+.jwplayer.jw-skin-cxl-institute .jw-controls .jw-icon-cc, .jwplayer.jw-skin-cxl-institute .jw-controls .jw-settings-sharing,
+.jwplayer.jw-skin-cxl-institute .jw-rightclick .jw-rightclick-list .jw-rightclick-item:last-child,
+.jw-slider-time .jw-cue:hover > .jw-overlay, .hidden,
+.jw-rightclick-list li:first-child,.jwplayer.jw-skin-cxl-institute .jw-flag-user-inactive.jw-state-playing .jw-wrapper .jw-overlays > div[id$="_cxlJWChapters"] {
+  display: none;
+}
+
+/* Scrollbar Styles */
+
+.cxl-jwplayer-container ::-webkit-scrollbar {
+  width: var(--lumo-space-s);
+  height: var(--lumo-space-xs);
+}
+.cxl-jwplayer-container ::-webkit-scrollbar-button {
+  width: var(--lumo-space-s);
+  height: 0;
+}
+.cxl-jwplayer-container ::-webkit-scrollbar-thumb {
+  background: var(--lumo-primary-color);
+  border: 0 none var(--lumo-tint);
+  border-radius: var(--lumo-border-radius);
+}
+.cxl-jwplayer-container ::-webkit-scrollbar-track {
+  background: var(--lumo-shade-5pct);
+  border: 0;
+  border-radius: var(--lumo-border-radius);
+}
+.cxl-jwplayer-container ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/*  CXL JWPlayer: Chapters Plugin Styles */
+
+.cxl-jwplayer-container .transcript-wrapper {
+  width: 80%;
+  height: 200px;
+  padding: var(--lumo-space-xs) var(--lumo-space-m);
+  margin: 0 auto;
+  overflow-y: hidden;
+  resize: vertical;
+}
+
+.cxl-jwplayer-container .transcript-wrapper:hover {
+  overflow-y: scroll;
+}
+
+.cxl-jwplayer-container .transcript-wrapper .transcript {
+  padding: var(--lumo-space-xs) var(--lumo-space-m);
+}
+
+.cxl-jwplayer-container .transcript {
+  cursor: pointer;
+}
+
+.cxl-jwplayer-container .transcript p {
+  font-size: var(--lumo-font-size-m);
+  line-height: calc(var(--lumo-line-height-m) * 1.25);
+}
+
+
+.cxl-jwplayer-container .transcript span {
+  display: inline;
+  padding: var(--lumo-space-xs) var(--lumo-space-xs);
+  line-height: var(--lumo-line-height-s);
+  color: var(--lumo-shade);
+  cursor: pointer;
+}
+
+.cxl-jwplayer-container .transcript span:hover {
+  color: var(--lumo-primary-color);
+}
+
+.cxl-jwplayer-container .transcript span em {
+  font-style: normal;
+  color: var(--lumo-tint);
+  background: var(--lumo-shade-50pct);
+}
+
+.cxl-jwplayer-container .transcript span.current {
+  color: var(--lumo-shade);
+  background: var(--lumo-shade-10pct);
+  border-radius: var(--lumo-border-radius);
+}
+
+.cxl-jwplayer-container .transcript span em.current {
+  background: var(--lumo-primary-color);
+}
+
+.cxl-jwplayer-container .transcript span.current:hover {
+  color: var(--lumo-shade);
+}
+
+.cxl-jwplayer-container .transcript-container .searchbox {
+  display: flex;
+  flex-grow: 2 auto;
+  align-content: center;
+  justify-content: center;
+  padding: var(--lumo-space-s) var(--lumo-space-m);
+  background-color: var(--lumo-shade);
+}
+
+.cxl-jwplayer-container .transcript-container .searchbox input {
+  width: 50%;
+  padding: var(--lumo-space-xs) var(--lumo-space-s);
+  line-height: var(--lumo-line-height);
+  color: var(--lumo-shade);
+  background: var(--lumo-tint);
+  border: 0;
+  border-radius: var(--lumo-border-radius);
+}
+
+.cxl-jwplayer-container .transcript-container .searchbox .match {
+  align-self: center;
+  margin-left: var(--lumo-space-m);
+  font-size: var(--lumo-font-size-s);
+  line-height: var(--lumo-line-height);
+  color: var(--lumo-tint);
+}
+
+@media screen and (max-width: 500px) {
+  .cxl-jwplayer-container .transcript-wrapper {
+      width: 100%;
+  }
+}
+
+/* CXL JWPlayer: Chapters Plugin Styles */
+.jwplayer.jw-skin-cxl-institute .chapters-overlay {
+  top: 0;
+  right: 0;
+  z-index: 5;
+  max-width: 50%;
+  height: 100%;
+  padding: var(--lumo-space-s) var(--lumo-space-m);
+  color: var(--lumo-tint);
+  text-decoration: none;
+  background: var(--lumo-shade);
+}
+
+.jwplayer.jw-skin-cxl-institute .chapters-overlay #close_chapter_nav {
+  display: block;
+  padding: var(--lumo-space-s) var(--lumo-space-s) var(--lumo-space-s) 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.jwplayer.jw-skin-cxl-institute .chapters-overlay .chapters {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.jwplayer.jw-skin-cxl-institute .chapters ul {
+  padding: 0;
+  margin: 0;
+  margin-top: var(--lumo-space-s);
+  list-style-type: none;
+}
+
+.jwplayer.jw-skin-cxl-institute .chapters li {
+  padding: var(--lumo-space-s) 0;
+  margin-bottom: var(--lumo-space-s);
+  font-size: var(--lumo-font-size-s);
+  line-height: var(--lumo-line-height-xs);
+  cursor: pointer;
+}
+
+.jwplayer.jw-skin-cxl-institute .chapters li:hover {
+  text-decoration: underline;
+}

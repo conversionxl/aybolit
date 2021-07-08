@@ -1,0 +1,54 @@
+{
+  "name": "cxl-jwplayer",
+  "version": "0.1.0",
+  "description": "JWPlayer CXL Web Component",
+  "author": "CXL <leho@cxl.com>",
+  "contributors": [
+    "Raphael Mattos <raphael.mattos@contextaware.com.br>"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conversionxl/aybolit.git",
+    "directory": "packages/cxl-jwplayer"
+  },
+  "dependencies": {
+    "@conversionxl/cxl-lumo-styles": "^0.2.2",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-web": "^0.8.1",
+    "@pika/plugin-bundle-web": "^0.8.1",
+    "@pika/plugin-standard-pkg": "^0.8.1",
+    "@vaadin/vaadin-themable-mixin": "^1.5.2",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.2"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-bundle-web",
+        {
+          "minify": {
+            "output": {
+              "comments": false
+            }
+          }
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "pika build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0"
+  }
+}
