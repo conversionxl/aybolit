@@ -1,4 +1,6 @@
 import { LitElement, html, customElement, property, query } from 'lit-element';
+import { render } from 'lit-html';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
@@ -273,7 +275,29 @@ export class CXLMarketingNavElement extends LitElement {
         );
 
         // Populate.
-        contextMenu.items = this._createContextMenuItems(menuItem.children);
+        const contextMenuItems = this._createContextMenuItems(menuItem.children);
+        contextMenu.items = contextMenuItems;
+
+        if (menuItem.description) {
+          contextMenu.addEventListener('opened-changed', () => {
+            if (document.querySelector('vaadin-context-menu-list-box')) {
+              this._setContextMenuItemDescription(menuItem);
+            }
+          });
+
+          const observe = (mediaQueryString, callback) => {
+            const observer = window.matchMedia(mediaQueryString);
+            const matches = (mediaQueryList) => callback(mediaQueryList.matches);
+            matches(observer);
+            observer.addEventListener('change', matches);
+          };
+
+          observe('(min-width: 420px) and (min-height: 420px)', () => {
+            if (document.querySelector('vaadin-context-menu-list-box')) {
+              this._setContextMenuItemDescription(menuItem);
+            }
+          });
+        }
 
         // Prevent close on upstream events: clicks, keydown, etc
         contextMenu.addEventListener('item-selected', (e) => {
@@ -281,6 +305,34 @@ export class CXLMarketingNavElement extends LitElement {
         });
       });
     });
+  }
+
+  /**
+   * Set context menu item description
+   */
+  _setContextMenuItemDescription(menuItem) {
+    const contextMenu = this.querySelector(
+      `vaadin-tab#menu-item-${menuItem.id} > vaadin-context-menu`
+    );
+
+    contextMenu.items = this._createContextMenuItems(menuItem.children);
+    contextMenu.render();
+
+    const description = document.createElement('vaadin-context-menu-item');
+    render(html`${unsafeHTML(menuItem.description)}`, description);
+
+    setTimeout(() => {
+      description.style.maxWidth = getComputedStyle(
+        document.querySelector('vaadin-context-menu-list-box')
+      ).width;
+
+      contextMenu.items = [
+        ...contextMenu.items,
+        { component: document.createElement('hr') },
+        { component: description },
+      ];
+      contextMenu.render();
+    }, 0);
   }
 
   /**
