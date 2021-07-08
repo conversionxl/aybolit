@@ -118,5 +118,17 @@ export class CXLAppLayoutElement extends LitElement {
     registerGlobalStyles(cxlAppLayoutGlobalStyles, {
       moduleId: 'cxl-app-layout-global',
     });
+
+    this.maybeFocusAnchor();
+  }
+
+  maybeFocusAnchor() {
+    const { hash } = window.location;
+
+    if (hash) {
+      window.requestAnimationFrame(() => {
+        this.querySelector(`[id="${hash.substr(1)}"]`).scrollIntoView();
+      });
+    }
   }
 }
