@@ -1,4 +1,6 @@
 import { LitElement, html, customElement, property, query } from 'lit-element';
+import { render } from 'lit-html';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
@@ -274,6 +276,17 @@ export class CXLMarketingNavElement extends LitElement {
 
         // Populate.
         contextMenu.items = this._createContextMenuItems(menuItem.children);
+
+        if (menuItem.description) {
+          const el = document.createElement('vaadin-context-menu-item');
+          el.classList.add('description');
+          render(html` ${unsafeHTML(menuItem.description)} `, el);
+          contextMenu.items = [
+            ...contextMenu.items,
+            { component: document.createElement('hr') },
+            { component: el },
+          ];
+        }
 
         // Prevent close on upstream events: clicks, keydown, etc
         contextMenu.addEventListener('item-selected', (e) => {
