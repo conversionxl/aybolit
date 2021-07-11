@@ -10,7 +10,7 @@ html {
  * Avoid animated SVG `content` on resolved state, browser continues to animate and CPU burn with `opacity: 0`.
  */
 body::before {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -25,6 +25,7 @@ body::before {
  * @see https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count
  */
 body[unresolved] {
+  position: relative;
   overflow: hidden;
   will-change: opacity;
 }
