@@ -67,7 +67,7 @@ export const CXLPlaybookCard = () => html`
             </h2>
 
             <div class="entry-byline">
-              <div>Votes: 400</div>
+              <div>400 votes</div>
               <div>Author: ${el.conversionxl_certificate_instructor}</div>
             </div>
           </header>
