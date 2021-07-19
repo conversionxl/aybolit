@@ -44,12 +44,12 @@ export class CXLLikeOrDislikeElement extends LitElement {
   }
 
   async _upVote(event) {
-    this.value = 1;
+    this.value = this.value === 1 ? 0 : 1;
     await this._vote(event.currentTarget);
   }
 
   async _downVote(event) {
-    this.value = -1;
+    this.value = this.value === -1 ? 0 : -1;
     await this._vote(event.currentTarget);
   }
 
@@ -102,8 +102,10 @@ export class CXLLikeOrDislikeElement extends LitElement {
 
   // eslint-disable-next-line class-methods-use-this
   async _checkItem(target) {
-    target.classList.add('checked');
-    this.counter.classList.add('checked');
+    if (this.value !== 0) {
+      target.classList.add('checked');
+      this.counter.classList.add('checked');
+    }
   }
 
   firstUpdated(_changedProperties) {
@@ -125,13 +127,16 @@ export class CXLLikeOrDislikeElement extends LitElement {
   }
 
   render() {
+    const d1 = this.value === 1 ? 'd' : '';
+    const d2 = this.value === -1 ? 'd' : '';
+
     return html`<div>
       <div counter>${this.upVotes + this.value} Votes</div>
       <div class="vote" @click="${this._upVote}" up>
-        <iron-icon icon="vaadin:thumbs-up-o"></iron-icon><span>Upvote</span>
+        <iron-icon icon="vaadin:thumbs-up-o"></iron-icon><span>Upvote${d1}</span>
       </div>
       <div class="vote" @click="${this._downVote}" down>
-        <iron-icon icon="vaadin:thumbs-down-o"></iron-icon><span>Downvote</span>
+        <iron-icon icon="vaadin:thumbs-down-o"></iron-icon><span>Downvote${d2}</span>
       </div>
     </div>`;
   }
