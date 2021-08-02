@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
-import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
+import '@conversionxl/cxl-ui/src/components/cxl-accordion-multiversion-card.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import jsonData from './playbook-card.data.json';
 
@@ -33,6 +33,15 @@ export const CXLPlaybookCard = () => html`
       display: flex;
       flex-direction: column;
     }
+    div[hidden] {
+      display: none;
+    }
+    .version-authors div:hover {
+      cursor: pointer;
+    }
+    .version-authors div[selected] {
+      font-weight: 700;
+    }
   </style>
   <cxl-vaadin-accordion
     id="cxl-vaadin-accordion-26107"
@@ -41,7 +50,7 @@ export const CXLPlaybookCard = () => html`
   >
     ${jsonData.map(
       (el) => html`
-        <cxl-accordion-card
+        <cxl-accordion-multiversion-card
           id="${el.cxl_hybrid_attr_post['@attributes'].id}"
           class="${el.cxl_hybrid_attr_post['@attributes'].class}"
           theme="${el.cxl_hybrid_attr_post['@attributes'].class.includes(
@@ -73,15 +82,27 @@ export const CXLPlaybookCard = () => html`
           </header>
 
           <div class="entry-content" itemprop="text">
-            <p><strong>Use case</strong></p>
-            <div class="ttr_start"></div>
-            <p>${unsafeHTML(el.content.cxl_get_extended_main)}</p>
-            <div class="ttr_end"></div>
-            <ol>
-              ${el.playbook_steps.map((step) => html` <li>${step.title}</li> `)}
-            </ol>
+            <div class="version-authors">
+              ${el.versions.map(
+                (v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `
+              )}
+            </div>
+
+            ${el.versions.map(
+              (v) => html`
+                <div class="version" data-version-id="${v.version}">
+                  <p><strong>Use case</strong></p>
+                  <div class="ttr_start"></div>
+                  <p>${unsafeHTML(v.content.cxl_get_extended_main)}</p>
+                  <div class="ttr_end"></div>
+                  <ol>
+                    ${v.playbook_steps.map((step) => html` <li>${step.title}</li> `)}
+                  </ol>
+                </div>
+              `
+            )}
           </div>
-        </cxl-accordion-card>
+        </cxl-accordion-multiversion-card>
       `
     )}
   </cxl-vaadin-accordion>

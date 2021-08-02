@@ -1,12 +1,11 @@
 [
   {
     "id": 442534,
+
     "title": {
       "raw": "Set up Goal Tracking in Google Ads"
     },
-    "content": {
-      "cxl_get_extended_main": "<p>Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
-    },
+
     "featured_media": 1497178,
 
     "categories_names": [
@@ -15,40 +14,76 @@
 
     "breadcrumbs": ["paid-advertising", "tracking", "goals", "google-ads"],
 
-    "playbook_steps": [
+    "versions": [
       {
-        "id": 1,
-        "title": "In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+        "version": "1234",
+        "author": "Uncle Sam",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 1234: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 1234: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 1234: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 1234: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          },
+          {
+            "id": 4,
+            "title": "Version 1234: Set up the tag to add to your website."
+          },
+          {
+            "id": 5,
+            "title": "Version 1234: Create your App conversions."
+          },
+          {
+            "id": 6,
+            "title": "Phone Calls Conversions"
+          },
+          {
+            "id": 7,
+            "title": "Go to your Conversion tab and check Tracking Status to ensure the tracking is working."
+          },
+          {
+            "id": 8,
+            "title": "Periodically check your Conversions section to see if your goal tracking still has a status of Recording Conversions or No Recent Conversions."
+          }
+        ]
       },
+
       {
-        "id": 2,
-        "title": "Select the types of conversions that your business needs to track."
-      },
-      {
-        "id": 3,
-        "title": "For website conversions: Create a conversion action by completing the prompts on the following screen."
-      },
-      {
-        "id": 4,
-        "title": "Set up the tag to add to your website."
-      },
-      {
-        "id": 5,
-        "title": "Create your App conversions."
-      },
-      {
-        "id": 6,
-        "title": "Phone Calls Conversions"
-      },
-      {
-        "id": 7,
-        "title": "Go to your Conversion tab and check Tracking Status to ensure the tracking is working."
-      },
-      {
-        "id": 8,
-        "title": "Periodically check your Conversions section to see if your goal tracking still has a status of Recording Conversions or No Recent Conversions."
+        "version": "5678",
+        "author": "Joe Smith",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5678: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5678: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5678: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5678: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
       }
     ],
+
 
     "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/ab-testing-mastery\/",
     "conversionxl_certificate_instructor": "Ton Wesseling",
@@ -73,9 +108,7 @@
     "title": {
       "raw": "Build your Twitter following"
     },
-    "content": {
-      "cxl_get_extended_main": "<p>Connect with your audience and increase your following on Twitter.</p>"
-    },
+
     "featured_media": 899387,
 
     "categories_names": [
@@ -84,49 +117,81 @@
 
     "breadcrumbs": ["social-media", "Twitter", "followers"],
 
-    "playbook_steps": [
-      {
-        "id": 1,
-        "title": "Set up a Twitter account with your complete name, a profile picture, and an attractive header image and a bio with industry-targeted keywords and social proof."
-      },
-      {
-        "id": 2,
-        "title": "Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
-      },
-      {
-        "id": 3,
-        "title": "Use the trending tab and search function on Twitter to identify popular tweets, participate actively, connect with influencers, boost engagement, and curate content."
-      },
-      {
-        "id": 4,
-        "title": "Use Tweetdeck to reach out to niche influencers and participate in their recent tweets by liking, commenting or retweeting."
-      },
-      {
-        "id": 5,
-        "title": "Use Twitter Analytics to identify your top tweets and recycle them for more engagement and re-targeting."
-      },
-      {
-        "id": 6,
-        "title": "Boost the reach of your top-performing tweets with Twitter ads."
-      },
-      {
-        "id": 7,
-        "title": "Create a conversion funnel to warm up your Twitter traffic and build brand awareness before promoting products."
-      },
-      {
-        "id": 8,
-        "title": "Create a Twitter landing page that is engaging and conversion-friendly to attract visitors and re-target them in the future."
-      },
-      {
-        "id": 9,
-        "title": "Promote your Twitter landing page, schedule tweets in advance and diversify your tweet copy by doing these."
-      },
-      {
-        "id": 10,
-        "title": "Engage with niche followers to grab attention, get feedback, and promote your product, using these tips"
-      }
+    "versions": [
 
+      {
+        "version": "33333",
+
+        "author": "Uncle Sam",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 33333: Connect with your audience and increase your following on Twitter.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 33333: Set up a Twitter account with your complete name, a profile picture, and an attractive header image and a bio with industry-targeted keywords and social proof."
+          },
+          {
+            "id": 2,
+            "title": "Version 33333: Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
+          },
+          {
+            "id": 3,
+            "title": "Version 33333: Use the trending tab and search function on Twitter to identify popular tweets, participate actively, connect with influencers, boost engagement, and curate content."
+          },
+          {
+            "id": 4,
+            "title": "Version 33333: Use Tweetdeck to reach out to niche influencers and participate in their recent tweets by liking, commenting or retweeting."
+          },
+          {
+            "id": 5,
+            "title": "Version 33333: Use Twitter Analytics to identify your top tweets and recycle them for more engagement and re-targeting."
+          },
+          {
+            "id": 6,
+            "title": "Version 33333: Boost the reach of your top-performing tweets with Twitter ads."
+          },
+          {
+            "id": 7,
+            "title": "Version 33333: Create a conversion funnel to warm up your Twitter traffic and build brand awareness before promoting products."
+          },
+          {
+            "id": 8,
+            "title": "Version 33333: Create a Twitter landing page that is engaging and conversion-friendly to attract visitors and re-target them in the future."
+          },
+          {
+            "id": 9,
+            "title": "Version 33333: Promote your Twitter landing page, schedule tweets in advance and diversify your tweet copy by doing these."
+          },
+          {
+            "id": 10,
+            "title": "Version 33333: Engage with niche followers to grab attention, get feedback, and promote your product, using these tips"
+          }]
+        },
+
+      {
+        "version": "44444",
+        "author": "Joe Smith",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 44444: Connect with your audience and increase your following on Twitter.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 44444: Set up a Twitter account with your complete name, a profile picture, and an attractive header image and a bio with industry-targeted keywords and social proof."
+          },
+          {
+            "id": 2,
+            "title": "Version 44444: Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
+          }
+        ]
+      }
     ],
+
 
     "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/account-based-marketing\/",
     "conversionxl_certificate_instructor": "Ann  Smarty",
@@ -150,9 +215,7 @@
     "title": {
       "raw": "Identify Broken Internal Links"
     },
-    "content": {
-      "cxl_get_extended_main": "Create better user experience and protect the value of your SEO efforts."
-    },
+
     "featured_media": 1620767,
 
     "categories_names": [
@@ -161,26 +224,60 @@
 
     "breadcrumbs": ["seo", "audit", "broken-links", "internal"],
 
-    "playbook_steps": [
+    "versions": [
       {
-        "id": 1,
-        "title": "Use the tool Screaming Frog to find broken internal links."
+        "version": "8888",
+        "author": "Jason Smith",
+        "content": {
+          "cxl_get_extended_main": "Version 8888: Create better user experience and protect the value of your SEO efforts."
+        },
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 8888: Use the tool Screaming Frog to find broken internal links."
+          },
+          {
+            "id": 2,
+            "title": "Version 8888: Create a spreadsheet using Excel or Google Sheets where you can export or copy and paste the Screaming Frog data on broken links to track your progress."
+          },
+          {
+            "id": 3,
+            "title": "Version 8888: Determine which broken internal links are worth fixing by checking the traffic to each page in Google Analytics and record them in your spreadsheet."
+          },
+          {
+            "id": 4,
+            "title": "Version 8888: Repair your broken internal links by redirecting them in your CMS."
+          },
+          {
+            "id": 5,
+            "title": "Version 8888: Conduct a broken link audit on a monthly basis by repeating these steps every month."
+          }
+        ]
       },
+
       {
-        "id": 2,
-        "title": "Create a spreadsheet using Excel or Google Sheets where you can export or copy and paste the Screaming Frog data on broken links to track your progress."
-      },
-      {
-        "id": 3,
-        "title": "Determine which broken internal links are worth fixing by checking the traffic to each page in Google Analytics and record them in your spreadsheet."
-      },
-      {
-        "id": 4,
-        "title": "Repair your broken internal links by redirecting them in your CMS."
-      },
-      {
-        "id": 5,
-        "title": "Conduct a broken link audit on a monthly basis by repeating these steps every month."
+        "version": "9999",
+
+        "author": "Joe Berry",
+
+        "content": {
+          "cxl_get_extended_main": "Version 9999: Create better user experience and protect the value of your SEO efforts."
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 9999: Use the tool Screaming Frog to find broken internal links."
+          },
+          {
+            "id": 2,
+            "title": "Version 9999: Create a spreadsheet using Excel or Google Sheets where you can export or copy and paste the Screaming Frog data on broken links to track your progress."
+          },
+          {
+            "id": 3,
+            "title": "Version 9999: Determine which broken internal links are worth fixing by checking the traffic to each page in Google Analytics and record them in your spreadsheet."
+          }
+        ]
       }
     ],
 
