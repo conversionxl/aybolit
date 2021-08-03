@@ -42,6 +42,9 @@ export const CXLPlaybookCard = () => html`
     .version-authors div[selected] {
       font-weight: 700;
     }
+    vaadin-details .version-authors {
+      padding-left: calc(var(--lumo-space-l) * 0.9);
+    }
   </style>
   <cxl-vaadin-accordion
     id="cxl-vaadin-accordion-26107"
@@ -83,10 +86,19 @@ export const CXLPlaybookCard = () => html`
 
           <div class="entry-content" itemprop="text">
             <div class="version-authors">
-              ${el.versions.map(
-                (v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `
-              )}
+              ${el.versions
+                .slice(0, 1)
+                .map((v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `)}
             </div>
+
+            <vaadin-details>
+              <div slot="summary">See more versions</div>
+              <div class="version-authors">
+                ${el.versions
+                  .slice(1)
+                  .map((v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `)}
+              </div>
+            </vaadin-details>
 
             ${el.versions.map(
               (v) => html`
