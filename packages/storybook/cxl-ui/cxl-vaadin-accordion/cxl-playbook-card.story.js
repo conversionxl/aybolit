@@ -48,6 +48,9 @@ export const CXLPlaybookCard = () => html`
     .version-authors > div:not([selected]):hover {
       color: var(--lumo-primary-color-50pct);
     }
+    .entry-byline .author:not(:last-child)::after {
+      content: ', ';
+    }
   </style>
   <cxl-vaadin-accordion
     id="cxl-vaadin-accordion-26107"
@@ -83,7 +86,9 @@ export const CXLPlaybookCard = () => html`
 
             <div class="entry-byline">
               <div>400 votes</div>
-              <div>Author: ${el.conversionxl_certificate_instructor}</div>
+              <div>
+                Author: ${el.versions.map((v) => html`<span class="author">${v.author}</span>`)}
+              </div>
             </div>
           </header>
 
