@@ -39,11 +39,14 @@ export const CXLPlaybookCard = () => html`
     .version-authors div:hover {
       cursor: pointer;
     }
-    .version-authors div[selected] {
-      font-weight: 700;
-    }
     vaadin-details .version-authors {
       padding-left: calc(var(--lumo-space-l) * 0.9);
+    }
+    .version-authors div[selected]{
+      font-weight: 700;
+    }
+    .version-authors div{
+      color: var(--lumo-primary-color);
     }
     .version-authors > div:not([selected]):hover {
       color: var(--lumo-primary-color-50pct);
