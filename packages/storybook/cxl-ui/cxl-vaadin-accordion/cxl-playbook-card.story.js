@@ -45,6 +45,9 @@ export const CXLPlaybookCard = () => html`
     vaadin-details .version-authors {
       padding-left: calc(var(--lumo-space-l) * 0.9);
     }
+    .version-authors > div:not([selected]):hover {
+      color: var(--lumo-primary-color-50pct);
+    }
   </style>
   <cxl-vaadin-accordion
     id="cxl-vaadin-accordion-26107"
