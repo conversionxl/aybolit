@@ -55,8 +55,25 @@ export const CXLPlaybookCard = () => html`
     .version-authors > div:not([selected]):hover {
       color: var(--lumo-primary-color-50pct);
     }
+    .default-author {
+      margin-top: var(--lumo-space-m);
+    }
     .entry-byline .author:not(:last-child)::after {
       content: ', ';
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .tags > a {
+      display: block;
+      padding: 0 var(--lumo-space-s);
+      margin: var(--lumo-space-xs) calc(var(--lumo-space-xs) * 2) var(--lumo-space-xs) 0;
+      background: var(--lumo-contrast-10pct);
+      border-radius: 10px;
+    }
+    .tags > a:hover {
+      cursor: pointer;
     }
   </style>
   <cxl-vaadin-accordion
@@ -69,11 +86,11 @@ export const CXLPlaybookCard = () => html`
         <cxl-accordion-multiversion-card
           id="${el.cxl_hybrid_attr_post['@attributes'].id}"
           class="${el.cxl_hybrid_attr_post['@attributes'].class}"
-          theme="${el.cxl_hybrid_attr_post['@attributes'].class.includes(
-            'category-minidegree-programs'
-          )
-            ? 'dark'
-            : ''}"
+          theme="${
+            el.cxl_hybrid_attr_post['@attributes'].class.includes('category-minidegree-programs')
+              ? 'dark'
+              : ''
+          }"
         >
           <header class="entry-header" slot="summary">
             <label
@@ -94,13 +111,18 @@ export const CXLPlaybookCard = () => html`
             <div class="entry-byline">
               <div>400 votes</div>
               <div>
-                Author: ${el.versions.map((v) => html`<span class="author">${v.author}</span>`)}
+                Authors: ${el.versions.map((v) => html`<span class="author">${v.author}</span>`)}
               </div>
             </div>
           </header>
 
           <div class="entry-content" itemprop="text">
-            <div class="version-authors">
+
+            <div class="tags">
+              ${el.categories_names.map((t) => html`<a href="#">${t}</a>`)}
+            </div>
+
+            <div class="version-authors default-author">
               ${el.versions
                 .slice(0, 1)
                 .map((v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `)}
@@ -108,7 +130,7 @@ export const CXLPlaybookCard = () => html`
 
             <vaadin-details>
               <div slot="summary">See more versions</div>
-              <div class="version-authors">
+              <d+iv class="version-authors">
                 ${el.versions
                   .slice(1)
                   .map((v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `)}
