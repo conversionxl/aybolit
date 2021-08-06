@@ -86,11 +86,11 @@ export const CXLPlaybookCard = () => html`
         <cxl-accordion-multiversion-card
           id="${el.cxl_hybrid_attr_post['@attributes'].id}"
           class="${el.cxl_hybrid_attr_post['@attributes'].class}"
-          theme="${
-            el.cxl_hybrid_attr_post['@attributes'].class.includes('category-minidegree-programs')
-              ? 'dark'
-              : ''
-          }"
+          theme="${el.cxl_hybrid_attr_post['@attributes'].class.includes(
+            'category-minidegree-programs'
+          )
+            ? 'dark'
+            : ''}"
         >
           <header class="entry-header" slot="summary">
             <label
@@ -111,29 +111,37 @@ export const CXLPlaybookCard = () => html`
             <div class="entry-byline">
               <div>400 votes</div>
               <div>
-                Authors: ${el.versions.map((v) => html`<span class="author">${v.author}</span>`)}
+                Author:
+                ${el.versions.slice(0, 1).map((v) => html`<span class="author">${v.author}</span>`)}
               </div>
             </div>
           </header>
 
           <div class="entry-content" itemprop="text">
-
-            <div class="tags">
-              ${el.categories_names.map((t) => html`<a href="#">${t}</a>`)}
-            </div>
+            <div class="tags">${el.categories_names.map((t) => html`<a href="#">${t}</a>`)}</div>
 
             <div class="version-authors default-author">
               ${el.versions
                 .slice(0, 1)
-                .map((v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `)}
+                .map(
+                  (v) =>
+                    html`<div data-version-id="${v.version}">
+                      Author: ${v.author} (10 upvotes)
+                    </div> `
+                )}
             </div>
 
             <vaadin-details>
               <div slot="summary">See more versions</div>
-              <d+iv class="version-authors">
+              <div class="version-authors">
                 ${el.versions
                   .slice(1)
-                  .map((v) => html`<div data-version-id="${v.version}">by ${v.author}</div> `)}
+                  .map(
+                    (v) =>
+                      html`<div data-version-id="${v.version}">
+                        Author: ${v.author} (3 upvotes)
+                      </div> `
+                  )}
               </div>
             </vaadin-details>
 
