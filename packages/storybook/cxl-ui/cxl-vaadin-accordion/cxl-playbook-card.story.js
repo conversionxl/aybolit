@@ -117,12 +117,10 @@ export const CXLPlaybookCard = () => html`
             <vaadin-details>
               <div slot="summary">See more versions</div>
               <div class="version-authors">
-                ${el.versions
-                  .slice(1)
-                  .map(
-                    (v) =>
-                      html`<div data-version-id="${v.version}">By ${v.author} (8888 upvotes)</div> `
-                  )}
+                ${el.versions.map(
+                  (v) =>
+                    html`<div data-version-id="${v.version}">By ${v.author} (8888 upvotes)</div> `
+                )}
               </div>
             </vaadin-details>
 
