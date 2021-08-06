@@ -39,9 +39,6 @@ export const CXLPlaybookCard = () => html`
     .version-authors div:hover {
       cursor: pointer;
     }
-    vaadin-details .version-authors {
-      padding-left: calc(var(--lumo-space-l) * 0.9);
-    }
     vaadin-details [slot='summary']:hover {
       cursor: pointer;
     }
@@ -54,9 +51,6 @@ export const CXLPlaybookCard = () => html`
     }
     .version-authors > div:not([selected]):hover {
       color: var(--lumo-primary-color-50pct);
-    }
-    .default-author {
-      margin-top: var(--lumo-space-m);
     }
     .entry-byline .author:not(:last-child)::after {
       content: ', ';
@@ -120,17 +114,6 @@ export const CXLPlaybookCard = () => html`
           <div class="entry-content" itemprop="text">
             <div class="tags">${el.categories_names.map((t) => html`<a href="#">${t}</a>`)}</div>
 
-            <div class="version-authors default-author">
-              ${el.versions
-                .slice(0, 1)
-                .map(
-                  (v) =>
-                    html`<div data-version-id="${v.version}">
-                      Author: ${v.author} (10 upvotes)
-                    </div> `
-                )}
-            </div>
-
             <vaadin-details>
               <div slot="summary">See more versions</div>
               <div class="version-authors">
@@ -138,9 +121,7 @@ export const CXLPlaybookCard = () => html`
                   .slice(1)
                   .map(
                     (v) =>
-                      html`<div data-version-id="${v.version}">
-                        Author: ${v.author} (3 upvotes)
-                      </div> `
+                      html`<div data-version-id="${v.version}">By ${v.author} (8888 upvotes)</div> `
                   )}
               </div>
             </vaadin-details>
