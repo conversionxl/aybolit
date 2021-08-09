@@ -44,7 +44,9 @@ export const CXLPlaybookCard = () => html`
     vaadin-details [slot='summary']:hover {
       cursor: pointer;
     }
-
+    .tags + .version-authors {
+      margin-top: var(--lumo-space-m);
+    }
     .version-authors div[selected] {
       font-weight: 700;
     }
