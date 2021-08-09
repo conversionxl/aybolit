@@ -104,10 +104,7 @@ export const CXLPlaybookCard = () => html`
 
             <div class="entry-byline">
               <div>400 votes</div>
-              <div>
-                Author:
-                ${el.versions.slice(0, 1).map((v) => html`<span class="author">${v.author}</span>`)}
-              </div>
+              <div>Versions: ${html`<span class="author">${el.versions.length}</span>`}</div>
             </div>
           </header>
 

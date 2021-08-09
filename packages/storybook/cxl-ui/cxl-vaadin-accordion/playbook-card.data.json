@@ -60,25 +60,217 @@
       },
 
       {
-        "version": "5678",
-        "author": "Joe Smith",
+        "version": "5679",
+        "author": "Joe Wallnut",
 
         "content": {
-          "cxl_get_extended_main": "<p>Version 5678: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+          "cxl_get_extended_main": "<p>Version 5679: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
         },
 
         "playbook_steps": [
           {
             "id": 1,
-            "title": "Version 5678: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+            "title": "Version 5679: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
           },
           {
             "id": 2,
-            "title": "Version 5678: Select the types of conversions that your business needs to track."
+            "title": "Version 5679: Select the types of conversions that your business needs to track."
           },
           {
             "id": 3,
-            "title": "Version 5678: For website conversions: Create a conversion action by completing the prompts on the following screen."
+            "title": "Version 5679: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5680",
+        "author": "Hanna Marks",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5680: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5680: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5680: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5680: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5777",
+        "author": "Barbara Rowling-Smith",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5777: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5777: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5777: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5777: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5888",
+        "author": "Nathan Mikes",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5888: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5888: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5888: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5888: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5999",
+        "author": "George W. Bash",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5999: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5999: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5999: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5999: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "6677",
+        "author": "Barnack Obama",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 6677: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 6677: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 6677: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 6677: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "61678",
+        "author": "Kano Jackson",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 61678: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 61678: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 61678: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 61678: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "223344",
+        "author": "Joel Chaikovsky",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 223344: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 223344: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 223344: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 223344: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "665555",
+        "author": "Bruce Markinson",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 665555: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 665555: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 665555: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 665555: For website conversions: Create a conversion action by completing the prompts on the following screen."
           }
         ]
       }
@@ -189,6 +381,26 @@
             "title": "Version 44444: Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
           }
         ]
+      },
+
+      {
+        "version": "8890",
+        "author": "Faith Rally",
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 8890: Connect with your audience and increase your following on Twitter.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 8890: Set up a Twitter account with your complete name, a profile picture, and an attractive header image and a bio with industry-targeted keywords and social proof."
+          },
+          {
+            "id": 2,
+            "title": "Version 8890: Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
+          }
+        ]
       }
     ],
 
@@ -251,31 +463,6 @@
           {
             "id": 5,
             "title": "Version 8888: Conduct a broken link audit on a monthly basis by repeating these steps every month."
-          }
-        ]
-      },
-
-      {
-        "version": "9999",
-
-        "author": "Joe Berry",
-
-        "content": {
-          "cxl_get_extended_main": "Version 9999: Create better user experience and protect the value of your SEO efforts."
-        },
-
-        "playbook_steps": [
-          {
-            "id": 1,
-            "title": "Version 9999: Use the tool Screaming Frog to find broken internal links."
-          },
-          {
-            "id": 2,
-            "title": "Version 9999: Create  a spreadsheet using Excel or Google Sheets where you can export or copy and paste the Screaming Frog data on broken links to track your progress."
-          },
-          {
-            "id": 3,
-            "title": "Version 9999: Determine which broken internal links are worth fixing by checking the traffic to each page in Google Analytics and record them in your spreadsheet."
           }
         ]
       }
