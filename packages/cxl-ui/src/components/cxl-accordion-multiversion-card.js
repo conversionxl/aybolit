@@ -1,6 +1,8 @@
 import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import { CXLAccordionCardElement } from './cxl-accordion-card';
+import cxlAccordionMultiversionCardCSS from '../styles/global/cxl-accordion-multiversion-card-css';
 
 @customElement('cxl-accordion-multiversion-card')
 export class CXLAccordionMultiversionCardElement extends CXLAccordionCardElement {
@@ -41,6 +43,9 @@ export class CXLAccordionMultiversionCardElement extends CXLAccordionCardElement
     super.ready();
     this._attachListeners();
     this._clickFirst();
+    registerGlobalStyles(cxlAccordionMultiversionCardCSS, {
+      moduleId: 'cxl-accordion-multiversion-card',
+    });
   }
 
   static get is() {

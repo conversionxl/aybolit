@@ -12,12 +12,7 @@ const CXLSingleMultiversionCardDisplay = (el) => html`
       : ''}"
   >
     <header class="entry-header" slot="summary">
-      <label
-        style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-        title="Playbook"
-        class="entry-type"
-        >Playbook</label
-      >
+      <label title="Playbook" class="entry-type">Playbook</label>
 
       <div class="entry-summary" itemprop="description">${el.breadcrumbs.join('/')}</div>
 
