@@ -3,6 +3,11 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import playbookStepData from './cxl-playbook-accordion.data.json';
 
 export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => html`
+  <style>
+    #root-inner {
+      height: 100vh;
+    }
+  </style>
   <cxl-playbook-accordion id="cxl-playbook-accordion-${PlaybookId}" class="plural" opened="0">
     ${playbookStepData.map(
       (el) => html`

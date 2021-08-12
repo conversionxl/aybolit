@@ -15,6 +15,7 @@ export { CXLPlaybookAccordionElement } from './components/cxl-playbook-accordion
 export { CXLAccordionCardElement } from './components/cxl-accordion-card.js';
 export { CXLAccordionMultiversionCardElement } from './components/cxl-accordion-multiversion-card.js';
 export { CXLStarRatingElement } from './components/cxl-star-rating.js';
+export { CXLPopoverCardElement } from './components/cxl-popover-card.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from
 export { Headroom };
