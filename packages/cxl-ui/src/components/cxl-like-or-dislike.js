@@ -11,9 +11,6 @@ export class CXLLikeOrDislikeElement extends LitElement {
   value = 0;
 
   @property({ type: Number })
-  previousValue = 0;
-
-  @property({ type: Number })
   postId;
 
   @property({ type: Number })
