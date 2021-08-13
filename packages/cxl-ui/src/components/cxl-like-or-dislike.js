@@ -58,6 +58,7 @@ export class CXLLikeOrDislikeElement extends LitElement {
     await this._saveState();
     await this._clearChecked();
     await this._checkItem(target);
+    this.upVotes += this.value;
   }
 
   _getUniqueId() {
@@ -131,7 +132,7 @@ export class CXLLikeOrDislikeElement extends LitElement {
     const d2 = this.value === -1 ? 'd' : '';
 
     return html`<div>
-      <div counter>${this.upVotes + this.value} Votes</div>
+      <div counter>${this.upVotes} Votes</div>
       <div class="vote" @click="${this._upVote}" up>
         <iron-icon icon="vaadin:thumbs-up-o"></iron-icon><span>Upvote${d1}</span>
       </div>
