@@ -11,6 +11,9 @@ export class CXLLikeOrDislikeElement extends LitElement {
   value = 0;
 
   @property({ type: Number })
+  previousValue = 0;
+
+  @property({ type: Number })
   postId;
 
   @property({ type: Number })
@@ -44,26 +47,30 @@ export class CXLLikeOrDislikeElement extends LitElement {
   }
 
   async _upVote(event) {
-    if (this.value === 1) {
-      this.upVotes -= 1;
-    }
     this.value = this.value === 1 ? 0 : 1;
     await this._vote(event.currentTarget);
   }
 
   async _downVote(event) {
-    if (this.value === -1) {
-      this.upVotes += 1;
-    }
     this.value = this.value === -1 ? 0 : -1;
     await this._vote(event.currentTarget);
   }
 
   async _vote(target) {
+    const previousVal = this._getPreviousValue();
+
     await this._sendToApi();
     await this._saveState();
     await this._clearChecked();
     await this._checkItem(target);
+
+    if (previousVal === -1 && this.value !== -1) {
+      this.upVotes += 1;
+    }
+    if (previousVal === 1 && this.value !== 1) {
+      this.upVotes -= 1;
+    }
+
     this.upVotes += this.value;
   }
 
@@ -115,10 +122,14 @@ export class CXLLikeOrDislikeElement extends LitElement {
     }
   }
 
+  _getPreviousValue() {
+    return Number(localStorage.getItem(this._getUniqueId()));
+  }
+
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
 
-    const previousVal = Number(localStorage.getItem(this._getUniqueId()));
+    const previousVal = this._getPreviousValue();
 
     if (previousVal) {
       this.value = previousVal;
