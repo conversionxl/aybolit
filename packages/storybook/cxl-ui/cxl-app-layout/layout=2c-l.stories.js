@@ -1,8 +1,9 @@
 import { html } from 'lit-html';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, number } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
+import '@conversionxl/cxl-ui/src/components/cxl-save-playbooks.js';
 import '@vaadin/vaadin-button';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLStarRating } from '../cxl-star-rating.stories';
@@ -14,7 +15,9 @@ export default {
 };
 
 export const CXLAppLayout2cl = () => {
-  const playbookId = 1234;
+  const playbookId = number('Playbook ID', 1234);
+  const userId = number('User ID', 5678);
+  const playbookSaved = boolean('Is playbook saved?', false);
   const hasWidgetBackground = boolean('Has widget background?', false);
 
   return html`
@@ -57,6 +60,14 @@ export const CXLAppLayout2cl = () => {
             >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
           ></vaadin-button>
         </p>
+      </section>
+
+      <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
+        <cxl-save-playbooks
+          playbookId="${playbookId}"
+          userId="${userId}"
+          ?selected=${playbookSaved}
+        ></cxl-save-playbooks>
       </section>
 
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
