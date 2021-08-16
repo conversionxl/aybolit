@@ -18,6 +18,7 @@
       {
         "version": "1234",
         "author": "Samuel Jackson",
+        "upvotes": 10,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 1234: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -62,6 +63,7 @@
       {
         "version": "5679",
         "author": "Joe Wallnut",
+        "upvotes": 15,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 5679: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -86,6 +88,7 @@
       {
         "version": "5680",
         "author": "Hanna Marks",
+        "upvotes": 10,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 5680: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -110,6 +113,7 @@
       {
         "version": "5777",
         "author": "Barbara Rowling-Smith",
+        "upvotes": 109,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 5777: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -134,6 +138,7 @@
       {
         "version": "5888",
         "author": "Nathan Mikes",
+        "upvotes": 55,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 5888: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -158,6 +163,7 @@
       {
         "version": "5999",
         "author": "George W. Bash",
+        "upvotes": 77,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 5999: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -182,6 +188,7 @@
       {
         "version": "6677",
         "author": "Barnack Obama",
+        "upvotes": 3,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 6677: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -206,6 +213,7 @@
       {
         "version": "61678",
         "author": "Kano Jackson",
+        "upvotes": 32,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 61678: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -230,6 +238,7 @@
       {
         "version": "223344",
         "author": "Joel Chaikovsky",
+        "upvotes": 55,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 223344: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -254,6 +263,7 @@
       {
         "version": "665555",
         "author": "Bruce Markinson",
+        "upvotes": 76,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 665555: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
@@ -316,6 +326,8 @@
 
         "author": "Uncle Sam",
 
+        "upvotes": 0,
+
         "content": {
           "cxl_get_extended_main": "<p>Version 33333: Connect with your audience and increase your following on Twitter.</p>"
         },
@@ -366,6 +378,7 @@
       {
         "version": "44444",
         "author": "Joe Smith",
+        "upvotes": 0,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 44444: Connect with your audience and increase your following on Twitter.</p>"
@@ -386,6 +399,7 @@
       {
         "version": "8890",
         "author": "Faith Rally",
+        "upvotes": 1,
 
         "content": {
           "cxl_get_extended_main": "<p>Version 8890: Connect with your audience and increase your following on Twitter.</p>"
@@ -440,6 +454,7 @@
       {
         "version": "8888",
         "author": "Jason Smith",
+        "upvotes": 8,
         "content": {
           "cxl_get_extended_main": "Version 8888: Create better user experience and protect the value of your SEO efforts."
         },

@@ -145,8 +145,6 @@ export class CXLPopoverCardElement extends LitElement {
 
   // eslint-disable-next-line class-methods-use-this
   async _prepareContent(el) {
-    const getRandomNumber = (min, max) => parseInt(Math.random() * (max - min) + min, 10);
-
     return html`
       <cxl-accordion-multiversion-card
         id="${el.cxl_hybrid_attr_post['@attributes'].id}"
@@ -193,7 +191,7 @@ export class CXLPopoverCardElement extends LitElement {
                       (v) =>
                         html`
                           <div data-version-id="${v.version}">
-                            By ${v.author} (${getRandomNumber(2, 1000)} upvotes)
+                            By ${v.author} (${v.upvotes} upvotes)
                           </div>
                         `
                     )}
@@ -208,7 +206,7 @@ export class CXLPopoverCardElement extends LitElement {
                         (v) =>
                           html`
                             <div data-version-id="${v.version}">
-                              By ${v.author} (${getRandomNumber(2, 1000)} upvotes)
+                              By ${v.author} (${v.upvotes} upvotes)
                             </div>
                           `
                       )}

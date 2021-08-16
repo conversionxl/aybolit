@@ -1,8 +1,6 @@
 import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
-const getRandomNumber = (min, max) => parseInt(Math.random() * (max - min) + min, 10);
-
 const CXLSingleMultiversionCardDisplay = (el) => html`
   <cxl-accordion-multiversion-card
     id="${el.cxl_hybrid_attr_post['@attributes'].id}"
@@ -24,7 +22,7 @@ const CXLSingleMultiversionCardDisplay = (el) => html`
 
       <div class="entry-byline">
         ${el.versions.length === 1
-          ? html` <div>400 votes</div>
+          ? html` <div>${el.versions[0].upvotes} votes</div>
               <div>Author: ${el.versions[0].author}</div>`
           : html``}
         ${el.versions.length > 1
@@ -45,7 +43,7 @@ const CXLSingleMultiversionCardDisplay = (el) => html`
                   (v) =>
                     html`
                       <div data-version-id="${v.version}">
-                        By ${v.author} (${getRandomNumber(2, 1000)} upvotes)
+                        By ${v.author} (${v.upvotes} upvotes)
                       </div>
                     `
                 )}
@@ -60,7 +58,7 @@ const CXLSingleMultiversionCardDisplay = (el) => html`
                     (v) =>
                       html`
                         <div data-version-id="${v.version}">
-                          By ${v.author} (${getRandomNumber(2, 1000)} upvotes)
+                          By ${v.author} (${v.upvotes} upvotes)
                         </div>
                       `
                   )}
