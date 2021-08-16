@@ -176,7 +176,7 @@ export class CXLPopoverCardElement extends LitElement {
 
           <div class="entry-byline">
             ${el.versions.length === 1
-              ? html` <div>400 votes</div>
+              ? html` <div>${el.versions[0].upvotes} votes</div>
                   <div>Author: ${el.versions[0].author}</div>`
               : html``}
             ${el.versions.length > 1
