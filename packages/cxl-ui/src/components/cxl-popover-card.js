@@ -125,6 +125,7 @@ export class CXLPopoverCardElement extends LitElement {
     el.style.left = `${this._getAnchorPositionLeft()}px`;
     el.style.top = `${this._getAnchorPositionTop()}px`;
     el.style.maxWidth = 'calc(var(--cxl-content-width) * 0.7)';
+    el.style.zIndex = 1000;
 
     el.onmouseenter = () => {
       if (this.timeoutId) {
@@ -157,6 +158,13 @@ export class CXLPopoverCardElement extends LitElement {
       >
         <header class="entry-header" slot="summary">
           <label title="Playbook" class="entry-type">Playbook</label>
+
+          <cxl-save-favorite
+            postType="playbook"
+            postId="${el.cxl_hybrid_attr_post['@attributes'].id}"
+            userId="456"
+            isCardVersion
+          ></cxl-save-favorite>
 
           <div class="entry-summary" itemprop="description">${el.breadcrumbs.join('/')}</div>
 

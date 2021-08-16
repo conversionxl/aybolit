@@ -12,6 +12,13 @@ const CXLSingleMultiversionCardDisplay = (el) => html`
     <header class="entry-header" slot="summary">
       <label title="Playbook" class="entry-type">Playbook</label>
 
+      <cxl-save-favorite
+        postType="playbook"
+        postId="${el.cxl_hybrid_attr_post['@attributes'].id}"
+        userId="456"
+        isCardVersion
+      ></cxl-save-favorite>
+
       <div class="entry-summary" itemprop="description">${el.breadcrumbs.join('/')}</div>
 
       <h2 class="entry-title no-anchor" itemprop="headline">

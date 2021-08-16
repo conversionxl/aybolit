@@ -16,10 +16,20 @@
   }
 }
 
-.entry-header label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.entry-header {
+  position: relative;
+
+  label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+cxl-save-favorite {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .entry-summary {
