@@ -266,6 +266,7 @@ export class CXLPopoverMultiversionCardElement extends LitElement {
           @mouseenter=${this._triggerMouseOver}
           @mouseleave=${this._triggerMouseOut}
           href="${this.href}"
+          target="_blank"
           >${this.text}</a
         >
       </span>
