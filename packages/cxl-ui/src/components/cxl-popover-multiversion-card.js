@@ -4,8 +4,8 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@conversionxl/cxl-lumo-styles';
 import cxlPopoverCardStyles from '../styles/cxl-popover-card-css';
 
-@customElement('cxl-popover-card')
-export class CXLPopoverCardElement extends LitElement {
+@customElement('cxl-popover-multiversion-card')
+export class CXLPopoverMultiversionCardElement extends LitElement {
   @property({ type: String })
   apiUrl =
     'https://my-json-server.typicode.com/dominik-stypula-polcode/cxl-playbooks-database/playbooks/442534';
@@ -15,6 +15,9 @@ export class CXLPopoverCardElement extends LitElement {
 
   @property({ type: String })
   text = 'Google';
+
+  @property({ type: Number })
+  userId = 1234;
 
   @property({ type: Number })
   timeoutId;
@@ -118,8 +121,6 @@ export class CXLPopoverCardElement extends LitElement {
   async _showTemporaryElement(content) {
     const el = document.createElement('div');
 
-    console.log(this.anchorPosition);
-
     el.id = 'cxl-popover-tmp-div';
     el.style.position = 'absolute';
     el.style.left = `${this._getAnchorPositionLeft()}px`;
@@ -146,6 +147,7 @@ export class CXLPopoverCardElement extends LitElement {
 
   // eslint-disable-next-line class-methods-use-this
   async _prepareContent(el) {
+    // should we use https://lit.dev/docs/composition/mixins/ for refactoring out card content, or just extend if need?
     return html`
       <cxl-accordion-multiversion-card
         id="${el.cxl_hybrid_attr_post['@attributes'].id}"
@@ -162,7 +164,7 @@ export class CXLPopoverCardElement extends LitElement {
           <cxl-save-favorite
             postType="playbook"
             postId="${el.cxl_hybrid_attr_post['@attributes'].id}"
-            userId="456"
+            userId="${this.userId}"
             isCardVersion
           ></cxl-save-favorite>
 
