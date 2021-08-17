@@ -19,6 +19,9 @@ export class CXLPopoverMultiversionCardElement extends LitElement {
   @property({ type: Number })
   userId = 1234;
 
+  @property({ type: Boolean })
+  selected = false;
+
   @property({ type: Number })
   timeoutId;
 
@@ -165,6 +168,7 @@ export class CXLPopoverMultiversionCardElement extends LitElement {
             postType="playbook"
             postId="${el.cxl_hybrid_attr_post['@attributes'].id}"
             userId="${this.userId}"
+            ?selected=${this.selected}
             isCardVersion
           ></cxl-save-favorite>
 
