@@ -23,10 +23,10 @@ const Template = ({ apiUrl, text, href, userId, selected }) => html`
   </p>
 `;
 
-export const CXLSaveFavoriteThemeDefault = Template.bind({});
+export const CXLPopoverMultiversionCardThemeDefault = Template.bind({});
 
 // more here: https://storybook.js.org/docs/web-components/essentials/controls#fully-custom-args
-CXLSaveFavoriteThemeDefault.args = {
+CXLPopoverMultiversionCardThemeDefault.args = {
   apiUrl:
     'https://my-json-server.typicode.com/dominik-stypula-polcode/cxl-playbooks-database/playbooks/442534',
   text: 'battle tested',
