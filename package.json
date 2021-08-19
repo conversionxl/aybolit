@@ -11,13 +11,14 @@
     "argos": "argos upload test/visual/screenshots/chrome --token $ARGOS_TOKEN || true",
     "build": "rimraf packages/**/styles/**/*.js && yarn build-styling",
     "build-styling": "node packages/sass-render/bin/sass-render.js -s \"packages/*/scss/**/*.scss\"",
-    "deploy-storybook": "yarn --cwd packages/storybook storybook-to-ghpages",
+    "build-storybook":  "yarn --cwd packages/storybook build-storybook -s public",
+    "deploy-storybook": "yarn --cwd packages/storybook storybook-to-ghpages -s public",
     "dist": "lerna run dist",
     "lint": "npm-run-all --parallel lint:*",
     "lint:eclint": "eclint check packages scripts test . !.*/* !**/node_modules/** !**/pkg/**",
     "lint:js": "eslint *.js packages --ignore-path .gitignore",
     "lint:scss": "stylelint packages/**/*.scss",
-    "storybook": "yarn --cwd packages/storybook start-storybook -p 6006",
+    "storybook": "yarn --cwd packages/storybook start-storybook -s public -p 6006",
     "test": "karma start",
     "test:visual": "rimraf tmp && BABEL_ENV=visual webpack --config test/visual/webpack.config.js && rimraf test/visual/screenshots/chrome/* && vrtest run --config test/visual/vrtest.config.js --record",
     "watch": "node scripts/watcher.js"
@@ -96,5 +97,8 @@
       "stylelint --syntax=scss",
       "prettier --single-quote=false --write"
     ]
+  },
+  "msw": {
+    "workerDirectory": "packages/storybook/public"
   }
 }

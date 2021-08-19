@@ -20,7 +20,9 @@
     "@storybook/web-components": "^6.3.0-beta.9",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
-    "lit-html": "^2.0.0-rc.3"
+    "lit-html": "^2.0.0-rc.3",
+    "msw": "^0.34.0",
+    "msw-storybook-addon": "^1.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
