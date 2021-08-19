@@ -36,7 +36,11 @@ export class CXLAccordionMultiversionCardElement extends CXLAccordionCardElement
   }
 
   _clickFirst() {
-    this.querySelectorAll('.version-authors > div')[0].click();
+    const firstVersion = this.querySelectorAll('.version-authors > div')[0];
+
+    if(firstVersion){
+      firstVersion.click();
+    }
   }
 
   ready() {
