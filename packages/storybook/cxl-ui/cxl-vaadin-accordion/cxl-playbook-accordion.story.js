@@ -1,6 +1,8 @@
 import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { rest } from "msw";
 import playbookStepData from './cxl-playbook-accordion.data.json';
+import playbookCardData from "./playbook-card.data.json";
 
 export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => html`
   <style>
@@ -32,3 +34,14 @@ export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => htm
     )}
   </cxl-playbook-accordion>
 `;
+
+CXLPlaybookAccordion.parameters = {
+  msw: [
+    rest.get('https://cxl.fake/playbooks/1', (_req, res, ctx) => {
+      return res(ctx.json(playbookCardData[0]));
+    }),
+    rest.get('https://cxl.fake/minidegrees/1', (_req, res, ctx) => {
+      return res(ctx.json(playbookCardData[2]));
+    }),
+  ],
+};

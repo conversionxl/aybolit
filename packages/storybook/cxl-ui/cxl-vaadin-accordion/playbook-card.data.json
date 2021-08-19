@@ -304,7 +304,6 @@
   },
 
 
-
   {
     "id": 760235,
     "title": {
@@ -488,7 +487,7 @@
     "conversionxl_live_course_duration": "5h 22min",
     "cxl_hybrid_attr_post": {
       "@attributes": {
-        "class": "entry author-martin-bon has-more-link post-826496 certificate type-certificate status-publish has-post-thumbnail category-online-trainings tag-analytics membership-content access-granted format-studio column pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3",
+        "class": "entry category-minidegree-programs author-martin-bon has-more-link post-826496 certificate type-certificate status-publish has-post-thumbnail category-online-trainings tag-analytics membership-content access-granted format-studio column pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3",
         "itemscope": "itemscope",
         "itemtype": "http:\/\/schema.org\/CreativeWork",
         "id": "post-826496"

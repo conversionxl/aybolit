@@ -116,7 +116,7 @@ export class CXLPopoverMultiversionCardElement extends LitElement {
   }
 
   /**
-   * @param {TemplateResult} content
+   * @param {TemplateResult<1>} content
    * @return {Promise<void>}
    * @private
    */
@@ -151,21 +151,23 @@ export class CXLPopoverMultiversionCardElement extends LitElement {
   // eslint-disable-next-line class-methods-use-this
   async _prepareContent(el) {
     // should we use https://lit.dev/docs/composition/mixins/ for refactoring out card content, or just extend if need?
+    const postType = el.cxl_hybrid_attr_post['@attributes'].class.includes(
+          'category-minidegree-programs'
+        )
+          ? 'minidegree'
+          : 'playbook';
+
     return html`
       <cxl-accordion-multiversion-card
         id="${el.cxl_hybrid_attr_post['@attributes'].id}"
         class="${el.cxl_hybrid_attr_post['@attributes'].class}"
-        theme="${el.cxl_hybrid_attr_post['@attributes'].class.includes(
-          'category-minidegree-programs'
-        )
-          ? 'dark'
-          : ''}"
+        theme="${postType === 'minidegree' ? 'dark' : ''}"
       >
         <header class="entry-header" slot="summary">
-          <label title="Playbook" class="entry-type">Playbook</label>
+          <label title="${postType === 'minidegree' ? 'Course' : 'Playbook'}" class="entry-type">${postType === 'minidegree' ? 'COURSE' : 'PLAYBOOK'}</label>
 
           <cxl-save-favorite
-            postType="playbook"
+            postType="${postType === 'minidegree' ? 'minidegree' : 'playbook'}"
             postId="${el.cxl_hybrid_attr_post['@attributes'].id}"
             userId="${this.userId}"
             ?selected=${this.selected}

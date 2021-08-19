@@ -4,9 +4,11 @@ import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
 import '@vaadin/vaadin-button';
+import { rest } from "msw";
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLStarRating } from '../cxl-star-rating.stories';
 import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion.stories';
+import playbookCardData from "../cxl-vaadin-accordion/playbook-card.data.json";
 
 export default {
   title: 'CXL UI/cxl-app-layout',
@@ -149,4 +151,15 @@ CXLAppLayout2cl.args = {
   userId: 5678,
   playbookSaved: false,
   hasWidgetBackground: false
+};
+
+CXLAppLayout2cl.parameters = {
+  msw: [
+    rest.get('https://cxl.fake/playbooks/1', (_req, res, ctx) => {
+      return res(ctx.json(playbookCardData[0]));
+    }),
+    rest.get('https://cxl.fake/minidegrees/1', (_req, res, ctx) => {
+      return res(ctx.json(playbookCardData[2]));
+    }),
+  ],
 };

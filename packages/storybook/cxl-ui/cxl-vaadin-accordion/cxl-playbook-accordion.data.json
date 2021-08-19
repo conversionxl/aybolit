@@ -5,7 +5,7 @@
       "rendered": "Create a document and make notes on these four key elements: market conditions, competitive positioning, your ideal customers, your product offering, and pricing."
     },
     "content": {
-      "rendered": "\n<p>What does a paragraph on top of list look like?</p>\n<ul><li>For example, your <cxl-popover-multiversion-card text=\"battle environment\" href=\"https://cxl.com\"></cxl-popover-multiversion-card> may be a market that is flush with competitors, while your “target enemy” may include a segmented, independent Buyer Persona.</li><li>Knowing each of these elements will help you choose a GtM strategy that will acquire, <a href=\"https://cxl.com/blog/customer-retention-strategy/\" target=\"_blank\" rel=\"noreferrer noopener\">retain</a>, and grow your customers in the most capital-efficient way.</li></ul>\n"
+      "rendered": "\n<p>What does a paragraph on top of list look like?</p>\n<ul><li>For example, your <cxl-popover-multiversion-card text=\"battle environment\" href=\"https://cxl.com\" apiUrl=\"https://cxl.fake/playbooks/1\"></cxl-popover-multiversion-card> may be a market that is flush with competitors, while your “target enemy” may include a segmented, independent Buyer Persona.</li><li>Knowing each of these elements will help you choose a GtM strategy that will acquire, <a href=\"https://cxl.com/blog/customer-retention-strategy/\" target=\"_blank\" rel=\"noreferrer noopener\">retain</a>, and grow your customers in the most capital-efficient way.</li></ul>\n"
     }
   },
   {
@@ -23,7 +23,7 @@
       "rendered": "Analyze the uniqueness of your product within the market."
     },
     "content": {
-      "rendered": "\n<p>If you are providing a hyper-niche solution, a <cxl-popover-multiversion-card text=\"CXL\" href=\"https://cxl.com\"></cxl-popover-multiversion-card> sales-led approach will work best.</p>\n"
+      "rendered": "\n<p>If you are providing a hyper-niche solution, a <cxl-popover-multiversion-card text=\"CXL\" href=\"https://cxl.com\" apiUrl=\"https://cxl.fake/minidegrees/1\"></cxl-popover-multiversion-card> sales-led approach will work best.</p>\n"
     }
   },
   {
@@ -59,7 +59,7 @@
       "rendered": "Create a tactical plan for your go-to-market strategy that includes your customer acquisition process and channels."
     },
     "content": {
-      "rendered": "\n<p>Having a document that details your <cxl-popover-multiversion-card text=\"acquisition channels\" href=\"https://cxl.com\"></cxl-popover-multiversion-card> (SEO; email campaigns; social media like Facebook, Twitter, or LinkedIn; so on) and stages (for example: stranger > researcher > visitor > lead > established > well-established > promoter) will help you to choose the appropriate go-to-market strategy.</p>\n"
+      "rendered": "\n<p>Having a document that details your <cxl-popover-multiversion-card text=\"acquisition channels\" href=\"https://cxl.com\" apiUrl=\"https://cxl.fake/playbooks/1\"></cxl-popover-multiversion-card> (SEO; email campaigns; social media like Facebook, Twitter, or LinkedIn; so on) and stages (for example: stranger > researcher > visitor > lead > established > well-established > promoter) will help you to choose the appropriate go-to-market strategy.</p>\n"
     }
   },
   {
