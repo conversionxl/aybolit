@@ -1,8 +1,8 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-multiversion-card.js';
+import CXLSingleHubCardDisplay from "@conversionxl/cxl-ui/src/components/partials/cxl-single-hub-card-display";
 import jsonData from './hub-card.data.json';
-import CXLSingleHubCardDisplay from "./cxl-single-hub-card-display";
 
 export const CXLPlaybookHubCard = () => html`
   <style>

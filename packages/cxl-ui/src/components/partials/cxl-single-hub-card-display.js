@@ -1,4 +1,4 @@
-import { html, nothing } from 'lit-html';
+import {html, nothing} from "lit-html";
 
 // reason for the helper: https://github.com/lit/lit.dev/issues/452
 export const join = (values, joiner) => values.map((v, i) => [v, i < values.length - 1 ? joiner : nothing]);
@@ -19,11 +19,11 @@ const getByline = (el) => {
 
 const getContent = (el) => html`
   ${el.hubs.length > 0 ?
-    html`${el.hubs.map((p) => html`<div><strong>${p.name}</strong></div>`)}` : nothing
-  }
+  html`${el.hubs.map((p) => html`<div><strong>${p.name}</strong></div>`)}` : nothing
+}
   ${el.playbooks.length > 0 ?
-    html`${el.playbooks.map((p) => html`<div>${p.name}</div>`)}` : nothing
-  }
+  html`${el.playbooks.map((p) => html`<div>${p.name}</div>`)}` : nothing
+}
 `
 
 const CXLSingleHubCardDisplay = (el) => html`

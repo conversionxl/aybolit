@@ -1,13 +1,4 @@
-import { CXLPopoverMultiversionCardElement } from '@conversionxl/cxl-ui';
 import { html } from 'lit-html';
-import { rest } from 'msw';
-import playbookCardData from '../cxl-vaadin-accordion/playbook-card.data.json';
-
-
-export default {
-  title: 'CXL UI/cxl-popover-multiversion-card',
-  component: CXLPopoverMultiversionCardElement,
-};
 
 const Template = ({ apiUrl, text, href, userId, selected }) => html`
   <p>This is some paragraph</p>
@@ -36,17 +27,4 @@ CXLPopoverMultiversionCardThemeDefault.args = {
   href: 'https://cxl.com',
   userId: 555,
   selected: false,
-};
-
-// mocking REST endpoints
-// more here: https://storybook.js.org/addons/msw-storybook-addon
-CXLPopoverMultiversionCardThemeDefault.parameters = {
-  msw: [
-    rest.get('https://cxl.fake/playbooks/1', (_req, res, ctx) => {
-      return res(ctx.json(playbookCardData[0]));
-    }),
-    rest.get('https://cxl.fake/minidegrees/1', (_req, res, ctx) => {
-      return res(ctx.json(playbookCardData[2]));
-    }),
-  ],
 };

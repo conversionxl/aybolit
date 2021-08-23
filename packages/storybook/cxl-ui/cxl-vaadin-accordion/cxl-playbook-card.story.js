@@ -1,8 +1,8 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-multiversion-card.js';
+import CXLSingleMultiversionCardDisplay from '@conversionxl/cxl-ui/src/components/partials/cxl-single-multiversion-card-display';
 import jsonData from './playbook-card.data.json';
-import CXLSingleMultiversionCardDisplay from './cxl-single-multiversion-card-display';
 
 export const CXLPlaybookCard = () => html`
   <style>
