@@ -149,7 +149,7 @@ export class CXLPopoverCardElement extends LitElement {
 
   // eslint-disable-next-line class-methods-use-this
   async _prepareContent(el) {
-    return CXLSingleMultiversionCardDisplay(el);
+    return CXLSingleMultiversionCardDisplay(el, this.userId, this.selected);
   }
 
   // eslint-disable-next-line class-methods-use-this

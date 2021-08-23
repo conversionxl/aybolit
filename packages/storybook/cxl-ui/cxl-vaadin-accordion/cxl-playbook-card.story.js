@@ -15,6 +15,6 @@ export const CXLPlaybookCard = () => html`
     class="archive archive-certificate plural"
     theme="cxl-accordion-card"
   >
-    ${jsonData.map((el) => CXLSingleMultiversionCardDisplay(el))}
+    ${jsonData.map((el) => CXLSingleMultiversionCardDisplay(el, 1234, false))}
   </cxl-vaadin-accordion>
 `;

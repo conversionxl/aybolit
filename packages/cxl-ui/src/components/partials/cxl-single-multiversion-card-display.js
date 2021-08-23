@@ -1,7 +1,7 @@
 import {html} from 'lit-html';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html';
 
-const CXLSingleMultiversionCardDisplay = (el) => {
+const CXLSingleMultiversionCardDisplay = (el, userId, selected) => {
   const postType = el.cxl_hybrid_attr_post['@attributes'].class.includes(
     'category-minidegree-programs'
   )
@@ -21,8 +21,8 @@ const CXLSingleMultiversionCardDisplay = (el) => {
         <cxl-save-favorite
           postType="${postType === 'minidegree' ? 'minidegree' : 'playbook'}"
           postId="${el.cxl_hybrid_attr_post['@attributes'].id}"
-          userId="${this.userId}"
-          ?selected=${this.selected}
+          userId="${userId}"
+          ?selected=${selected}
           isCardVersion
         ></cxl-save-favorite>
 
