@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { CXLPopoverMultiversionCardThemeDefault } from './cxl-popover-card/[theme=default].multiversion.story';
+import { CXLPopoverCardThemeDefault } from './cxl-popover-card/[theme=default].story';
 import playbookCardData from './cxl-vaadin-accordion/playbook-card.data.json';
 import hubsData from './cxl-vaadin-accordion/hub-card.data.json';
 
@@ -19,14 +19,14 @@ const parameters = {
 
 // mocking REST endpoints
 // more here: https://storybook.js.org/addons/msw-storybook-addon
-CXLPopoverMultiversionCardThemeDefault.parameters = parameters;
+CXLPopoverCardThemeDefault.parameters = parameters;
 
-CXLPopoverMultiversionCardThemeDefault.storyName = '[theme=default].cxl-popover-multiversion-card';
+CXLPopoverCardThemeDefault.storyName = '[theme=default].cxl-popover-card';
 
 export default {
   title: 'CXL UI/cxl-popover-card',
 };
 
 export {
-  CXLPopoverMultiversionCardThemeDefault,
+  CXLPopoverCardThemeDefault,
 };

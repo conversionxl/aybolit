@@ -149,7 +149,15 @@ export class CXLPopoverCardElement extends LitElement {
 
   // eslint-disable-next-line class-methods-use-this
   async _prepareContent(el) {
-    return CXLSingleMultiversionCardDisplay(el, this.userId, this.selected);
+    return html`
+      <cxl-vaadin-accordion
+        id="cxl-vaadin-accordion-26107"
+        class="archive archive-certificate plural"
+        theme="cxl-accordion-card"
+      >
+        ${CXLSingleMultiversionCardDisplay(el, this.userId, this.selected)}
+      </cxl-vaadin-accordion>
+    `;
   }
 
   // eslint-disable-next-line class-methods-use-this
