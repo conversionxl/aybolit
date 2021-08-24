@@ -1,26 +1,15 @@
 import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-multiversion-card.js';
+import CXLSingleMultiversionCardDisplay from '@conversionxl/cxl-ui/src/components/partials/cxl-single-multiversion-card-display';
 import CXLSingleHubCardDisplay from "@conversionxl/cxl-ui/src/components/partials/cxl-single-hub-card-display";
-import jsonData from './hub-card.data.json';
+import playbookData from './playbook-card.data.json';
+import hubsData from './hub-card.data.json';
 
-export const CXLPlaybookHubCard = () => html`
+export const CXLMixedCards = () => html`
   <style>
     body {
       background-color: var(--lumo-shade-5pct);
-    }
-    .entry-title {
-      margin-top: 0;
-      height: calc(var(--lumo-line-height-xs) * 3em) !important;
-    }
-    .entry-title a {
-      color: inherit;
-    }
-    .entry-byline  {
-      margin: var(--lumo-space-s) 0;
-    }
-    cxl-accordion-card .entry-summary {
-      color: var(--lumo-contrast-50pct);
     }
   </style>
   <cxl-vaadin-accordion
@@ -28,6 +17,7 @@ export const CXLPlaybookHubCard = () => html`
     class="archive archive-certificate plural"
     theme="cxl-accordion-card"
   >
-    ${jsonData.map((el) => CXLSingleHubCardDisplay(el))}
+    ${hubsData.map((el) => CXLSingleHubCardDisplay(el))}
+    ${playbookData.map((el) => CXLSingleMultiversionCardDisplay(el, 1234, false))}
   </cxl-vaadin-accordion>
 `;
