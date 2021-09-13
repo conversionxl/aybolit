@@ -1,26 +1,26 @@
 {
   "name": "@conversionxl/storybook",
   "private": true,
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": "CXL <leho@cxl.com>",
   "contributors": [
     "Serhii Kulykov <serguey.kulikov@gmail.com>"
   ],
   "license": "MIT",
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^0.2.2",
-    "@conversionxl/cxl-ui": "^0.2.1",
-    "@storybook/addon-controls": "^6.1.21",
-    "@storybook/addon-knobs": "^6.1.21",
-    "@storybook/addon-viewport": "^6.1.21",
-    "@storybook/addons": "^6.1.21",
-    "@storybook/client-api": "^6.1.21",
-    "@storybook/core": "^6.1.21",
-    "@storybook/storybook-deployer": "^2.8.1",
-    "@storybook/web-components": "^6.1.21",
+    "@conversionxl/cxl-lumo-styles": "^1.0.0",
+    "@conversionxl/cxl-ui": "^1.0.0",
+    "@storybook/addon-controls": "^6.3.2",
+    "@storybook/addon-knobs": "^6.3.0",
+    "@storybook/addon-viewport": "^6.3.2",
+    "@storybook/addons": "^6.3.2",
+    "@storybook/client-api": "^6.3.2",
+    "@storybook/core": "^6.3.2",
+    "@storybook/storybook-deployer": "^2.8.10",
+    "@storybook/web-components": "^6.3.2",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
-    "lit-html": "^1.0.0",
+    "lit-html": "^2.0.0-rc.3",
     "lorem-ipsum": "^2.0.3"
   },
   "scripts": {
