@@ -19,7 +19,7 @@ Object.assign(CXLPlaybookAccordion, {
 });
 
 CXLVaadinAccordionThemeArchive.storyName = 'cxl-accordion-card';
-CXLMixedCards.storyName = 'cxl-accordion-card (playbooks & hubs)';
+CXLMixedCards.storyName = 'cxl-playbook-card';
 CXLPlaybookMultiversionCard.storyName = 'cxl-playbook-multiversion-card';
 CXLVaadinAccordionThemeFaq.storyName = '[theme=cxl-faq]';
 CXLVaadinAccordionThemeMinidegreeTrack.storyName = '[theme=cxl-minidegree-track]';
