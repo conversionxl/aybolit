@@ -1,3 +1,5 @@
+@use "../mq";
+
 [part="content"] {
   padding-left: var(--lumo-space-m);
 }
@@ -152,8 +154,11 @@
     padding-bottom: 0;
     padding-left: var(--lumo-space-l);
     margin-bottom: var(--lumo-space-l);
-    margin-left: calc(var(--lumo-space-l) + var(--lumo-space-xs));
-    border-left: solid calc(var(--lumo-space-xs) / 2) var(--lumo-primary-color);
+
+    @media #{mq.$small} {
+      margin-left: calc(var(--lumo-space-l) + var(--lumo-space-xs));
+      box-shadow: -1px 0 0 0 var(--lumo-contrast-10pct); // Match vaadin-tabs[orientation="vertical"].
+    }
   }
 
   [part="summary"] {

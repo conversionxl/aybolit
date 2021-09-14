@@ -5,7 +5,7 @@
       "rendered": "Create a document and make notes on these four key elements: market conditions, competitive positioning, your ideal customers, your product offering, and pricing."
     },
     "content": {
-      "rendered": "\n<ul><li>For example, your “battle environment” may be a market that is flush with competitors, while your “target enemy” may include a segmented, independent Buyer Persona.</li><li>Knowing each of these elements will help you choose a GtM strategy that will acquire, <a href=\"https://cxl.com/blog/customer-retention-strategy/\" target=\"_blank\" rel=\"noreferrer noopener\">retain</a>, and grow your customers in the most capital-efficient way.</li></ul>\n"
+      "rendered": "\n<p>What does a paragraph on top of list look like?</p>\n<ul><li>For example, your “battle environment” may be a market that is flush with competitors, while your “target enemy” may include a segmented, independent Buyer Persona.</li><li>Knowing each of these elements will help you choose a GtM strategy that will acquire, <a href=\"https://cxl.com/blog/customer-retention-strategy/\" target=\"_blank\" rel=\"noreferrer noopener\">retain</a>, and grow your customers in the most capital-efficient way.</li></ul>\n"
     }
   },
   {
@@ -60,6 +60,15 @@
     },
     "content": {
       "rendered": "\n<p>Having a document that details your acquisition channels (SEO; email campaigns; social media like Facebook, Twitter, or LinkedIn; so on) and stages (for example: stranger > researcher > visitor > lead > established > well-established > promoter) will help you to choose the appropriate go-to-market strategy.</p>\n"
+    }
+  },
+  {
+    "id": 8,
+    "title": {
+      "rendered": "Text with <sup>superscript</sup>. Text with <sub>subscript</sub>. Text with <em>italic</em>. Text with <strong>bold</strong>. Text with <strong><em>bold italic</em></strong> and <code>code</code>."
+    },
+    "content": {
+      "rendered": "\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis viverra nibh. Ut ac laoreet nisl. Nullam nec justo egestas, tempus est at, interdum nisi. Donec sed justo tristique, feugiat ligula eu, rhoncus leo. In sollicitudin turpis in libero dapibus viverra. Etiam non nisi risus. Duis quis velit ac risus ullamcorper aliquam.</p>\n"
     }
   }
 ]

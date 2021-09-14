@@ -7,7 +7,7 @@ import { IronStarRating } from '@cwmr/iron-star-rating';
  * Notice: If you don't provide `id` attribute for the component,
  * it won't store the state in the `localStorage`
  */
-export class CXLStarRating extends IronStarRating {
+export class CXLStarRatingElement extends IronStarRating {
   constructor() {
     super();
     this.icon = 'vaadin:star';
@@ -57,4 +57,4 @@ export class CXLStarRating extends IronStarRating {
   }
 }
 
-window.customElements.define(CXLStarRating.is, CXLStarRating);
+window.customElements.define(CXLStarRatingElement.is, CXLStarRatingElement);

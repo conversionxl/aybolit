@@ -1,25 +1,25 @@
 cxl-playbook-accordion {
   ol,
   ul {
-    padding-left: 0;
-    list-style-type: none; // Fights with `[part="content"] border-left`.
+    padding-left: var(--lumo-space-m);
   }
 
   .entry-header {
+    display: flex; // Align `vaadin-checkbox`.
+    align-items: baseline;
+
     &.checked {
       text-decoration: line-through;
     }
 
     .entry-title {
-      display: flex; // Align `vaadin-checkbox`.
-      align-items: baseline;
       margin-top: 0.5em; /* match h3 */
       margin-right: var(--lumo-space-m);
       font-size: var(--lumo-font-size-m);
+    }
 
-      > vaadin-checkbox {
-        margin-right: var(--lumo-space-xs);
-      }
+    > vaadin-checkbox {
+      margin-right: var(--lumo-space-xs);
     }
   }
 }
