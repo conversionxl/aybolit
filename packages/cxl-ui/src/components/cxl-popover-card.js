@@ -2,7 +2,7 @@ import { html, LitElement, render } from 'lit';
 import { customElement, property, query } from 'lit/decorators';
 import '@conversionxl/cxl-lumo-styles';
 import cxlPopoverCardStyles from '../styles/cxl-popover-card-css';
-import CXLSingleMultiversionCardDisplay from "./partials/cxl-single-multiversion-card-display";
+import CXLSingleMultiversionCardDisplay from './partials/cxl-single-multiversion-card-display';
 
 @customElement('cxl-popover-card')
 export class CXLPopoverCardElement extends LitElement {
@@ -105,13 +105,27 @@ export class CXLPopoverCardElement extends LitElement {
   _getOffset(el) {
     let _x = 0;
     let _y = 0;
+
     while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
       _x += el.offsetLeft - el.scrollLeft;
       _y += el.offsetTop - el.scrollTop;
       // eslint-disable-next-line no-param-reassign
       el = el.offsetParent;
     }
+
     return { top: _y, left: _x };
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _generateRandomId(idLength) {
+    let result = '';
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 0, charsLen = chars.length; i < idLength; i += 1) {
+      result += chars.charAt(Math.floor(Math.random() * charsLen));
+    }
+
+    return result;
   }
 
   /**
@@ -151,7 +165,7 @@ export class CXLPopoverCardElement extends LitElement {
   async _prepareContent(el) {
     return html`
       <cxl-vaadin-accordion
-        id="cxl-vaadin-accordion-26107"
+        id="popover-accordion-${this._generateRandomId(10)}"
         class="archive archive-certificate plural"
         theme="cxl-accordion-card"
       >
