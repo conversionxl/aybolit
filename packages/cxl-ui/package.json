@@ -20,6 +20,7 @@
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "@vaadin/vaadin-checkbox": "^3.0.0",
     "@vaadin/vaadin-context-menu": "^5.0.0-alpha2",
+    "@vaadin/vaadin-dialog": "3.0.0-alpha1",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
     "@vaadin/vaadin-progress-bar": "^2.0.0-alpha2",
     "@vaadin/vaadin-tabs": "^4.0.0-alpha4",
