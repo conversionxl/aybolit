@@ -10,6 +10,9 @@ export class CXLPopoverCardElement extends LitElement {
   apiUrl = 'https://cxl.fake/playbooks/1';
 
   @property({ type: String })
+  postType = 'playbook';
+
+  @property({ type: String })
   href = 'https://google.com';
 
   @property({ type: String })
@@ -169,7 +172,7 @@ export class CXLPopoverCardElement extends LitElement {
         class="archive archive-certificate plural"
         theme="cxl-accordion-card"
       >
-        ${CXLSingleMultiversionCardDisplay(el, this.userId, this.selected)}
+        ${CXLSingleMultiversionCardDisplay(el, this.postType, this.userId, this.selected)}
       </cxl-vaadin-accordion>
     `;
   }
