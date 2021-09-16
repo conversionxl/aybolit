@@ -1,5 +1,6 @@
 import '@vaadin/vaadin-dialog';
 import { customElement, html, LitElement, property, query } from 'lit-element';
+import { render } from 'lit-html';
 
 @customElement('cxl-paywall')
 export class CXLPaywallElement extends LitElement {
@@ -21,6 +22,10 @@ export class CXLPaywallElement extends LitElement {
 
   @query('#content') content;
 
+  @query('vaadin-dialog') dialog;
+
+  @query("slot[name='message']") messageSlot;
+
   _animation;
 
   _clickListener;
@@ -29,6 +34,7 @@ export class CXLPaywallElement extends LitElement {
 
   render() {
     return html`
+      <slot name="message"></slot>
       <div id="content">
         <slot></slot>
       </div>
@@ -37,9 +43,7 @@ export class CXLPaywallElement extends LitElement {
         no-close-on-esc
         no-close-on-outside-click
         ?opened=${this._shouldSubscribe}
-      >
-        <template> You have reached you're limit of free playbooks, please sign-up here. </template>
-      </vaadin-dialog>
+      ></vaadin-dialog>
     `;
   }
 
@@ -58,6 +62,7 @@ export class CXLPaywallElement extends LitElement {
   }
 
   firstUpdated() {
+    this._setRenderer();
     this._checkDate();
     this._increment();
   }
@@ -143,6 +148,12 @@ export class CXLPaywallElement extends LitElement {
 
     const month = localStorage.getItem('cxl-paywall-month');
     if (month !== undefined) this._month = Number(month);
+  }
+
+  _setRenderer() {
+    this.dialog.renderer = (root) => {
+      render(this.messageSlot.assignedNodes()[0].children[0], root);
+    };
   }
 
   /**
