@@ -21,6 +21,17 @@ cxl-vaadin-accordion {
       }
     }
 
+    .entry-header {
+      position: relative;
+      height: calc(var(--lumo-size-xl) * 3.2); //230px;
+      padding: 0;
+      overflow-y: hidden;
+
+      label {
+        margin-bottom: var(--lumo-space-s);
+      }
+    }
+
     .entry-byline {
       display: flex; // iron-icon vs text alignment
       flex-basis: 100%;
@@ -36,19 +47,6 @@ cxl-vaadin-accordion {
         width: 100%;
         margin: 0;
         visibility: hidden;
-      }
-    }
-
-    .entry-title {
-      flex: 1;
-      height: calc(var(--lumo-line-height-xs) * 4em);
-      font-size: var(--lumo-font-size-xl);
-      word-break: break-word;
-    }
-
-    cxl-accordion-card[opened] {
-      .entry-title {
-        overflow: visible;
       }
     }
   }

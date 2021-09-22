@@ -1,0 +1,162 @@
+[
+  {
+    "id": 442534,
+    "title": {
+      "raw": "Create a content strategy, can also have longer title, and it could be too long to even fit here, so must be trimmed."
+    },
+
+    "categories_names": [
+      "strategy",
+      "format",
+      "some-longer-category",
+      "other-longer-category"
+    ],
+
+    "hubs": [
+      {
+        "name": "Generate leads with content marketing",
+        "url": "#"
+      },
+      {
+        "name": "Marketing Content Strategy Calendar",
+        "url": "#"
+      }
+    ],
+
+    "playbooks": [
+      {
+        "name": "Create a content strategy for niche B2B sites",
+        "url": ""
+      },
+      {
+        "name": "Create a content hub",
+        "url": ""
+      },
+      {
+        "name": "Create a pillar page and content hub for SEO",
+        "url": ""
+      },
+      {
+        "name": "Create a SaaS content strategy",
+        "url": ""
+      },
+      {
+        "name": "Create a B2B content strategy",
+        "url": ""
+      },
+      {
+        "name": "Create a B2C content strategy",
+        "url": ""
+      },
+      {
+        "name": "Create an ecommerce content strategy",
+        "url": ""
+      }
+    ]
+  },
+
+  {
+    "id": 44244,
+    "title": {
+      "raw": "Choose a content format"
+    },
+
+    "categories_names": [
+      "formats"
+    ],
+
+    "hubs": [
+      {
+        "name": "Use images in content",
+        "url": "#"
+      },
+      {
+        "name": "Use e-books in content marketing",
+        "url": "#"
+      },
+      {
+        "name": "Do tripwire marketing",
+        "url": "#"
+      },
+      {
+        "name": "Use infographics in content",
+        "url": "#"
+      },
+      {
+        "name": "Use webinars in your marketing strategy",
+        "url": "#"
+      },
+      {
+        "name": "Create case studies",
+        "url": "#"
+      },
+      {
+        "name": "Use podcasts for marketing",
+        "url": "#"
+      }
+    ],
+
+    "playbooks": []
+  },
+
+  {
+    "id": 3345345,
+    "title": {
+      "raw": "Build links"
+    },
+
+    "categories_names": [
+      "link-building"
+    ],
+
+    "hubs": [],
+
+    "playbooks": [
+      {
+        "name": "Track and measure your link building results",
+        "url": ""
+      },
+      {
+        "name": "Create free tools to generate leads and backlinks",
+        "url": ""
+      },
+      {
+        "name": "Find relevant link building directories in your industry",
+        "url": ""
+      },
+      {
+        "name": "Find link building prospects with similar content",
+        "url": ""
+      },
+      {
+        "name": "Manage your brand mentions",
+        "url": ""
+      },
+      {
+        "name": "Build a link building outreach sequence",
+        "url": ""
+      },
+      {
+        "name": "Find link-building prospects",
+        "url": ""
+      },
+      {
+        "name": "Audit your content and competitors for link-building",
+        "url": ""
+      },
+      {
+        "name": "Identify your business and link building goals",
+        "url": ""
+      },
+      {
+        "name": "Run an analysis on your link profile",
+        "url": ""
+      },
+      {
+        "name": "Earn links with content marketing",
+        "url": ""
+      }
+    ]
+  }
+
+]
