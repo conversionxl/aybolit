@@ -1,5 +1,5 @@
 import '@vaadin/vaadin-dialog';
-import { customElement, html, LitElement, property, query } from 'lit-element';
+import { css, customElement, html, LitElement, property, query } from 'lit-element';
 import { render } from 'lit-html';
 
 @customElement('cxl-paywall')
@@ -31,6 +31,16 @@ export class CXLPaywallElement extends LitElement {
   _clickListener;
 
   _hidden = false;
+
+  static get styles() {
+    return [
+      css`
+        slot[name='message'] {
+          display: none;
+        }
+      `,
+    ];
+  }
 
   render() {
     return html`
