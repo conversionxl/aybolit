@@ -27,7 +27,6 @@
   #{$selector} > label {
     font-weight: 300;
     color: var(--lumo-contrast-50pct);
-    text-transform: uppercase;
 
     @content;
   }
