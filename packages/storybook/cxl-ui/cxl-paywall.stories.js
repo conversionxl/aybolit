@@ -10,13 +10,20 @@ export default {
   component: 'cxl-paywall',
 };
 
-const Template = ({ _count, _limit, delay, opacity, subscribed }) => {
-  return html`
-    <cxl-paywall ._count=${_count} ._limit=${_limit} delay=${delay} opacity=${opacity} ?subscribed=${subscribed}>
-      ${unsafeHTML(content)}
-    </cxl-paywall>
-  `;
-};
+const Template = ({ _count, _limit, delay, message, opacity, subscribed }) => html`
+  <cxl-paywall
+    ._count=${_count}
+    ._limit=${_limit}
+    delay=${delay}
+    opacity=${opacity}
+    ?subscribed=${subscribed}
+  >
+    <div slot="message">
+      <span>${message}</span>
+    </div>
+    ${unsafeHTML(content)}
+  </cxl-paywall>
+`;
 
 export const Default = (args) => Template(args);
 
@@ -24,6 +31,7 @@ Default.args = {
   _count: 0,
   _limit: 10,
   delay: 1000,
+  message: "You have reached you're limit of free playbooks.",
   opacity: 0.2,
   subscribed: false,
 };
@@ -38,6 +46,9 @@ Default.argTypes = {
   },
   delay: {
     name: 'Delay',
+  },
+  message: {
+    name: 'Message',
   },
   opacity: {
     name: 'Opacity',
