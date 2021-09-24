@@ -2,20 +2,12 @@ import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import { AccordionPanelElement } from '@vaadin/vaadin-accordion/src/vaadin-accordion-panel';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import { registerStyles, css } from '@vaadin/vaadin-themable-mixin/register-styles.js';
-
+import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles';
 import cxlAccordionCardCSS from '../styles/global/cxl-accordion-card-css';
+import cxlAccordionCardLocalCSS from '../styles/cxl-accordion-card-css';
 
-registerStyles(
-  'cxl-accordion-card',
-  css`
-    [part='summary'] {
-      padding: 0;
-      font-size: var(--lumo-font-size-xs);
-      font-weight: 500;
-    }
-  `
-);
+// doesn't work in constructor() nor in ready()
+registerStyles('cxl-accordion-card', cxlAccordionCardLocalCSS);
 
 @customElement('cxl-accordion-card')
 export class CXLAccordionCardElement extends AccordionPanelElement {
