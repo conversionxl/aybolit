@@ -19,6 +19,9 @@ export class CXLLikeOrDislikeElement extends LitElement {
   @property({ type: String })
   postType;
 
+  @property({ type: Boolean })
+  buttonsDisabled = false;
+
   @query('[counter]')
   counter;
 
@@ -44,22 +47,36 @@ export class CXLLikeOrDislikeElement extends LitElement {
   }
 
   async _upVote(event) {
+    if (this.buttonsDisabled) {
+      return;
+    }
+
     this.value = this.value === 1 ? 0 : 1;
+
     await this._vote(event.currentTarget);
   }
 
   async _downVote(event) {
+    if (this.buttonsDisabled) {
+      return;
+    }
+
     this.value = this.value === -1 ? 0 : -1;
+
     await this._vote(event.currentTarget);
   }
 
   async _vote(target) {
     const previousVal = this._getPreviousValue();
 
+    this._disableButtons();
+
     await this._sendToApi();
     await this._saveState();
     await this._clearChecked();
     await this._checkItem(target);
+
+    this._enableButtons();
 
     if (previousVal === -1 && this.value !== -1) {
       this.upVotes += 1;
@@ -69,6 +86,16 @@ export class CXLLikeOrDislikeElement extends LitElement {
     }
 
     this.upVotes += this.value;
+  }
+
+  _disableButtons() {
+    this.buttonsDisabled = true;
+    this.voteAll.forEach((el) => el.classList.add('disabled'));
+  }
+
+  _enableButtons() {
+    this.buttonsDisabled = false;
+    this.voteAll.forEach((el) => el.classList.remove('disabled'));
   }
 
   _getUniqueId() {
