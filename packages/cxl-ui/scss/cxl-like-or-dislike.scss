@@ -29,10 +29,14 @@
   }
 
   .vote:hover {
+    cursor: pointer;
+
     &:not(.checked) {
       color: var(--lumo-contrast-80pct);
     }
 
-    cursor: pointer;
+    &.disabled {
+      cursor: wait;
+    }
   }
 }
