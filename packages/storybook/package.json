@@ -8,8 +8,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.1.0-alpha.5",
-    "@conversionxl/cxl-ui": "^1.1.0-alpha.5",
+    "@conversionxl/cxl-lumo-styles": "^1.1.0-alpha.6",
+    "@conversionxl/cxl-ui": "^1.1.0-alpha.6",
     "@storybook/addon-controls": "^6.3.2",
     "@storybook/addon-knobs": "^6.3.0",
     "@storybook/addon-viewport": "^6.3.2",
