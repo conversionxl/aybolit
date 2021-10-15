@@ -20,8 +20,10 @@
     "@storybook/web-components": "^6.3.12",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
+    "@vaadin/vaadin-themable-mixin": "^1.6.2",
     "lit-html": "^2.0.0-rc.3",
-    "lorem-ipsum": "^2.0.3"
+    "lorem-ipsum": "^2.0.3",
+    "lit-element": "^2.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
