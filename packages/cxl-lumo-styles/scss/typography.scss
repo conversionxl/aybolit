@@ -75,7 +75,9 @@ h6 {
 }
 
 p {
-  font-family: var(--cxl-lumo-font-secondary);
+  .entry-content & {
+    font-family: var(--cxl-lumo-font-secondary);
+  }
 }
 
 blockquote {

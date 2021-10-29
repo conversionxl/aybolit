@@ -27,7 +27,6 @@
   #{$selector} > label {
     font-weight: 300;
     color: var(--lumo-contrast-50pct);
-    text-transform: uppercase;
 
     @content;
   }
@@ -35,4 +34,17 @@
   &[theme~="dark"] #{$selector} > label {
     color: var(--lumo-contrast-90pct);
   }
+}
+
+// https://caniuse.com/?search=line-clamp - way around line-clamp needed
+@mixin ellipsis-for-lines($max-lines: 3) {
+  /* stylelint-disable */
+  display: -moz-box;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $max-lines;
+  -webkit-box-orient: vertical;
+  -moz-line-clamp: $max-lines;
+  -moz-box-orient: vertical;
+  /* stylelint-enable */
 }

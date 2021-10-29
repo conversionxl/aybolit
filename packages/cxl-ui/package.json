@@ -1,6 +1,6 @@
 {
   "name": "@conversionxl/cxl-ui",
-  "version": "1.0.0",
+  "version": "1.1.0-alpha.7",
   "author": "CXL <leho@cxl.com>",
   "license": "SEE LICENSE IN LICENSE",
   "main": "src/index.js",
@@ -10,14 +10,17 @@
     "directory": "packages/cxl-ui"
   },
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.0.0",
+    "@conversionxl/cxl-lumo-styles": "^1.1.0-alpha.2",
+    "@cwmr/iron-star-rating": "github:conversionxl/iron-star-rating",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-web": "^0.9.2",
     "@pika/plugin-bundle-web": "^0.9.2",
     "@pika/plugin-standard-pkg": "^0.9.2",
     "@vaadin/vaadin-accordion": "^2.0.0-alpha5",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
+    "@vaadin/vaadin-checkbox": "^3.0.0",
     "@vaadin/vaadin-context-menu": "^5.0.0-alpha2",
+    "@vaadin/vaadin-dialog": "3.0.0-alpha1",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
     "@vaadin/vaadin-progress-bar": "^2.0.0-alpha2",
     "@vaadin/vaadin-tabs": "^4.0.0-alpha4",

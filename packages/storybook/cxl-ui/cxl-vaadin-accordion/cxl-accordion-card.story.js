@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
+import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
 import archiveData from './theme=cxl-archive.data.json';
 
 export const CXLVaadinAccordionThemeArchive = () => {
@@ -30,6 +31,14 @@ export const CXLVaadinAccordionThemeArchive = () => {
       .entry-title a {
         color: inherit;
       }
+      .entry-header {
+        position: relative;
+      }
+      cxl-save-favorite {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
     </style>
     <cxl-vaadin-accordion
       id="cxl-vaadin-accordion-26107"
@@ -49,7 +58,15 @@ export const CXLVaadinAccordionThemeArchive = () => {
               : ''}"
           >
             <header class="entry-header" slot="summary">
-              <label class="entry-type">Course</label>
+              <label class="entry-type"> Course </label>
+
+              <cxl-save-favorite
+                postType="playbook"
+                postId="123"
+                userId="456"
+                isCardVersion
+              ></cxl-save-favorite>
+
               <h3 class="entry-title no-anchor" itemprop="headline">
                 <a href="${el.conversionxl_certificate_sales_page}" rel="bookmark" itemprop="url"
                   >${el.title.raw}</a
@@ -74,7 +91,7 @@ export const CXLVaadinAccordionThemeArchive = () => {
               </div>
             </header>
             <div class="entry-summary" itemprop="description">
-              ${unsafeHTML(el.content.cxl_get_extended_main)}
+              ${unsafeHTML(String(el.content.cxl_get_extended_main))}
             </div>
             <div class="entry-footer" style="text-align: right;">
               <a href="${el.conversionxl_certificate_sales_page}"

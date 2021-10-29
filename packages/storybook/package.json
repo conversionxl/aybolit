@@ -8,8 +8,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.0.0",
-    "@conversionxl/cxl-ui": "^1.0.0",
+    "@conversionxl/cxl-lumo-styles": "^1.1.0-alpha.7",
+    "@conversionxl/cxl-ui": "^1.1.0-alpha.7",
     "@storybook/addon-controls": "^6.3.12",
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-viewport": "^6.3.12",
@@ -20,7 +20,8 @@
     "@storybook/web-components": "^6.3.12",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
-    "lit-html": "^2.0.0-rc.3"
+    "lit-html": "^2.0.0-rc.3",
+    "lorem-ipsum": "^2.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
