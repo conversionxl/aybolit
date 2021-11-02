@@ -25,37 +25,33 @@
     "@vaadin/vaadin-progress-bar": "^2.0.0-alpha2",
     "@vaadin/vaadin-tabs": "^4.0.0-alpha4",
     "@vaadin/vaadin-themable-mixin": "^1.6.2",
+    "cross-env": "~7.0.2",
     "headroom.js": "^0.12.0",
+    "imports-loader": "^2.0.0",
+    "laravel-mix": "^6.0.39",
     "lit-element": "^2.2.1",
-    "lit-html": "^2.0.0-rc.3"
+    "lit-html": "^2.0.0-rc.3",
+    "postcss-preset-env": "^6.7.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.2.4"
   },
   "@pika/pack": {
     "pipeline": [
       [
         "@pika/plugin-standard-pkg"
-      ],
-      [
-        "@pika/plugin-build-web"
-      ],
-      [
-        "@pika/plugin-bundle-web",
-        {
-          "minify": {
-            "output": {
-              "comments": false
-            }
-          }
-        }
       ]
     ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "pika build && size-limit"
+    "dist": "pika build && npm run prod && size-limit",
+    "dev": "npx mix --mix-config=./webpack.mix.js watch",
+    "prod": "npx mix --mix-config=./webpack.mix.js --production"
   },
   "size-limit": [
     {
-      "path": "pkg/dist-web/index.bundled.js"
+      "path": ["pkg/dist-web/cxl-ui*.js"]
     }
   ]
 }

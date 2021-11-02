@@ -1,5 +1,6 @@
 import { customElement } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
+// import '@vaadin/vaadin-progress-bar';
 import { ProgressBarElement } from '@vaadin/vaadin-progress-bar/src/vaadin-progress-bar';
 
 @customElement('cxl-playbook-progress-bar')
