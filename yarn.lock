@@ -1224,6 +1224,11 @@
   dependencies:
     chalk "^4.0.0"
 
+"@conversionxl/normalize-wheel@^1.0.1":
+  version "1.0.1"
+  resolved "https://npm.cxl.co/@conversionxl%2fnormalize-wheel/-/normalize-wheel-1.0.1.tgz#56a8181fcb9b10f73806e81f6121255849e2d424"
+  integrity sha512-gmQYGD4K6eKycJz8BFNVIZWruUmXpooOMS8dfWS8FYP16gZ9kTuDknTW4Zq213DCO8AxNdHRN71j0CZoLdwv5Q==
+
 "@cwmr/iron-star-rating@github:conversionxl/iron-star-rating":
   version "3.1.4"
   resolved "https://codeload.github.com/conversionxl/iron-star-rating/tar.gz/6e5258fb2b8ec8b30cc9b723b8a26d7bcbc2540b"
