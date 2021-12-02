@@ -1,5 +1,5 @@
 // @see https://github.com/vaadin/vaadin-themable-mixin/blob/v1.5.2/register-styles.html
-import { CSSResult } from 'lit-element';
+import { css, CSSResult, unsafeCSS } from 'lit-element';
 
 let moduleIdIndex = 0;
 const styleMap = {};
@@ -15,7 +15,13 @@ export const registerGlobalStyles = (styles, options) => {
 
   styles.forEach((cssResult) => {
     if (!(cssResult instanceof CSSResult)) {
-      throw new Error('An item in styles is not of type CSSResult. Use `unsafeCSS` or `css`.');
+      // After upgrading vaadin components (37967abeb35bc5382021fcc46095ee31a), cssResult is no long of type CSSResult.
+      // throw new Error('An item in styles is not of type CSSResult. Use `unsafeCSS` or `css`.');
+
+      // eslint-disable-next-line no-param-reassign
+      cssResult = css`
+        ${unsafeCSS(cssResult)}
+      `;
     }
 
     if (!styleMap[cssResult]) {
