@@ -174,7 +174,7 @@ export class CXLLikeOrDislikeElement extends LitElement {
     const plural = this.upVotes !== 1 ? 's' : '';
 
     return html`<div>
-      <div counter>${this.upVotes} Vote${plural}</div>
+      ${this.upVotes > 0 ? html`<div counter>${this.upVotes} Vote${plural}</div>` : ''}
       <div class="vote" @click="${this._upVote}" up>
         <iron-icon icon="vaadin:thumbs-up-o"></iron-icon><span>Upvote${d1}</span>
       </div>
