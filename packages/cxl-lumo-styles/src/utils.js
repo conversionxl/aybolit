@@ -1,5 +1,6 @@
 // @see https://github.com/vaadin/vaadin-themable-mixin/blob/v1.5.2/register-styles.html
 import { css, CSSResult, unsafeCSS } from 'lit-element';
+import '@vaadin/polymer-legacy-adapter';
 
 let moduleIdIndex = 0;
 const styleMap = {};
