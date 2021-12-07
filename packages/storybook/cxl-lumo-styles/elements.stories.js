@@ -1,7 +1,7 @@
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/button';
 import '@vaadin/notification';
-import { html } from 'lit-html';
+import { html } from 'lit';
 import cxlLoadingStyles from '@conversionxl/cxl-lumo-styles/src/styles/loading-css.js';
 import { CXLAppLayout } from '../cxl-ui/cxl-app-layout/layout=1c.stories';
 

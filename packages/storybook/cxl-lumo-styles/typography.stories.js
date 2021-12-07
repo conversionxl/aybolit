@@ -1,7 +1,7 @@
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/button';
 import { withKnobs } from '@storybook/addon-knobs';
-import { html } from 'lit-html';
+import { html } from 'lit';
 
 export default {
   decorators: [withKnobs],

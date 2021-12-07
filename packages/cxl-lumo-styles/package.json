@@ -14,7 +14,6 @@
     "@vaadin/polymer-legacy-adapter": "^22.0.0",
     "@vaadin/vaadin-lumo-styles": "^22.0.0",
     "@vaadin/vaadin-themable-mixin": "^22.0.0",
-    "lit-element": "^2.2.1",
-    "lit-html": "^2.0.0-rc.3"
+    "lit": "^2.0.2"
   }
 }

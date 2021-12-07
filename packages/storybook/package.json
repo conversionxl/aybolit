@@ -20,7 +20,7 @@
     "@storybook/web-components": "^6.3.12",
     "@vaadin/button": "^22.0.0",
     "@vaadin/notification": "^22.0.0",
-    "lit-html": "^2.0.0-rc.3"
+    "lit": "^2.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
