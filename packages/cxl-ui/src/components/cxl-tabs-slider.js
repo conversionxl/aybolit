@@ -1,9 +1,9 @@
 import '@conversionxl/cxl-lumo-styles';
-import { TabsElement } from '@vaadin/vaadin-tabs';
+import { Tabs } from '@vaadin/tabs';
 import { customElement } from 'lit-element';
 
 @customElement('cxl-tabs-slider')
-export class CXLTabsSliderElement extends TabsElement {
+export class CXLTabsSliderElement extends Tabs {
   _updateOverflow() {
     this.centeredContainerWidthCheck();
     super._updateOverflow();

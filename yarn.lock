@@ -3717,27 +3717,6 @@
     "@vaadin/vaadin-material-styles" "^22.0.0"
     "@vaadin/vaadin-themable-mixin" "^22.0.0"
 
-"@vaadin/vaadin-accordion@^22.0.0":
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-accordion/-/vaadin-accordion-22.0.0.tgz#fe5144e74ad5aa3bc3464d60ac297f4915dadc27"
-  integrity sha512-5McGZe6JyVZZ1h3X9EjRSkAmVDICULq/oWAoFjQHCrrPx95WIB/x8KrL8LAcT9f4zj8MRdM/yiBkKsVeFeZ7xA==
-  dependencies:
-    "@vaadin/accordion" "^22.0.0"
-
-"@vaadin/vaadin-button@^22.0.0":
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-button/-/vaadin-button-22.0.0.tgz#98e66de00f432386bb41a3fa3fa2353a80092094"
-  integrity sha512-rQcRQEvpWylRFR76jyVdseriRqpumgva2az7vYiWkV+uu/48iXvituOPJz/1nDBLL8VHveF1krfJ5w5Bl767sg==
-  dependencies:
-    "@vaadin/button" "^22.0.0"
-
-"@vaadin/vaadin-context-menu@^22.0.0":
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-context-menu/-/vaadin-context-menu-22.0.0.tgz#02e63b6faa4f573e627df8824478217548e17509"
-  integrity sha512-OKrzPEjOvW/WQJQOef8Cjo8Fsn+se+0zLlUtOVH5RyAPHp+BhxxYhefoUsI3aD5VYuzaLef0vfbp0wx1i7ckTw==
-  dependencies:
-    "@vaadin/context-menu" "^22.0.0"
-
 "@vaadin/vaadin-development-mode-detector@^2.0.0":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-development-mode-detector/-/vaadin-development-mode-detector-2.0.4.tgz#f49c8009856bead92d248377c36b295b5aae78e5"
@@ -3771,13 +3750,6 @@
     "@polymer/polymer" "^3.0.0"
     "@vaadin/vaadin-themable-mixin" "^22.0.0"
 
-"@vaadin/vaadin-notification@^22.0.0":
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-notification/-/vaadin-notification-22.0.0.tgz#92cc38a0653d9c6e4f585e29bb8cf7f1e7cf6113"
-  integrity sha512-MyUw7HvEcBEnM+D1JpMqtwonIHZ6ETpiaFOEBuK0y17OOCx18i189yEzV83q7zJystuw6yLB/vkyCAEtz8S7Gg==
-  dependencies:
-    "@vaadin/notification" "^22.0.0"
-
 "@vaadin/vaadin-overlay@^22.0.0":
   version "22.0.0"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-overlay/-/vaadin-overlay-22.0.0.tgz#b04eabaf39bb35b1094e366f5c5950fd65f28ced"
@@ -3788,20 +3760,6 @@
     "@vaadin/vaadin-lumo-styles" "^22.0.0"
     "@vaadin/vaadin-material-styles" "^22.0.0"
     "@vaadin/vaadin-themable-mixin" "^22.0.0"
-
-"@vaadin/vaadin-progress-bar@^22.0.0":
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-progress-bar/-/vaadin-progress-bar-22.0.0.tgz#a8bd49933e985d38507a1e0998c0c81a5ce5e001"
-  integrity sha512-93ZQmuzIcAmjUST/D4zZq3r5rFo7LE1abbUZokKAA5owymjEqAhG//ioIROuYcdJgBm9Y8vMx2lbnyRJHymH7A==
-  dependencies:
-    "@vaadin/progress-bar" "^22.0.0"
-
-"@vaadin/vaadin-tabs@^22.0.0":
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-tabs/-/vaadin-tabs-22.0.0.tgz#ca448a08ff44407748c85b91978a6e3400004c1d"
-  integrity sha512-wHkGC0/gr3qMJExGtkaLIYA5F0V2+ULADYPVcnW3xClkeiEq2ThcB2EEe6Hla41aeW+S8dHh5C3gp5GogYjZOQ==
-  dependencies:
-    "@vaadin/tabs" "^22.0.0"
 
 "@vaadin/vaadin-themable-mixin@^22.0.0":
   version "22.0.0"
@@ -13345,9 +13303,9 @@ pinkie@^2.0.0:
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
 pirates@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.1.tgz#643a92caf894566f91b2b986d2c66950a8e2fb87"
-  integrity sha512-WuNqLTbMI3tmfef2TKxlQmAiLHKtFhlsCZnPIpuv2Ow0RDVO8lfy1Opf4NUzlMXLjPl+Men7AuVdX6TA+s+uGA==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.3.tgz#41a4acbc9bc78decd7f205ee828f34929b9d5749"
+  integrity sha512-e30YDq2NWgpyIpaKWgols6m/YfgyIyLEmVvrLH5mGrwUs6R6N2h5+DKluT502tex/BK+DO9DIRZ0qqm1/M3FrQ==
   dependencies:
     node-modules-regexp "^1.0.0"
 

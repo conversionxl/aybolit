@@ -7,8 +7,8 @@ import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import normalizeWheel from '@conversionxl/normalize-wheel';
 import cxlAppLayoutStyles from '../styles/cxl-app-layout-css.js';
 import cxlAppLayoutGlobalStyles from '../styles/global/cxl-app-layout-css.js';
-import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-context-menu/src/vaadin-device-detector.js';
+import '@vaadin/button';
+import '@vaadin/context-menu/src/vaadin-device-detector.js';
 
 const ASIDE_LOCAL_STORAGE_KEY = 'cxl-app-layout-aside-opened';
 
