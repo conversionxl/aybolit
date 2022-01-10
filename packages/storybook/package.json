@@ -19,7 +19,7 @@
     "@storybook/storybook-deployer": "^2.8.10",
     "@storybook/web-components": "^6.3.12",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
-    "@vaadin/vaadin-lumo-styles": "^22.0.2",
+    "@vaadin/vaadin-lumo-styles": "^1.5.0",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
     "@web/test-runner-visual-regression": "^0.6.5",
     "lit": "^2.1.1",
