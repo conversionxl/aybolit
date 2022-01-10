@@ -20,6 +20,8 @@
     "@storybook/web-components": "^6.3.12",
     "@vaadin/vaadin-button": "^3.0.0-alpha1",
     "@vaadin/vaadin-notification": "^2.0.0-alpha1",
+    "@web/test-runner-visual-regression": "^0.6.5",
+    "lit": "^2.1.1",
     "lit-html": "^2.0.0-rc.3",
     "lorem-ipsum": "^2.0.3"
   },
