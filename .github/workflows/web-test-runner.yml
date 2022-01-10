@@ -28,4 +28,5 @@ jobs:
         cache: 'npm'
     - run: yarn install --immutable --immutable-cache --check-cache
     - run: yarn build
-    - run: yarn test:web-test-runner
+    - run: yarn test:web-test-runner --update-visual-baseline
+    - uses: EndBug/add-and-commit@v7.5.0
