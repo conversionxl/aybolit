@@ -5,9 +5,9 @@ name: Web Test Runner
 
 on:
   push:
-    branches: [ main, develop, feature/visual-regression-testing ]
+    branches: [main, develop, feature/visual-regression-testing]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
 
 jobs:
   build:
@@ -20,13 +20,12 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: yarn install --immutable --immutable-cache --check-cache
-    - run: yarn build
-    - run: yarn test:web-test-runner --update-visual-baseline
-    - uses: EndBug/add-and-commit@v7.5.0
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn build
+      - run: yarn test:web-test-runner
