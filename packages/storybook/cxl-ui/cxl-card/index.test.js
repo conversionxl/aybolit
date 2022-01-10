@@ -6,6 +6,17 @@ import { CXLTestimonial } from './[theme=cxl-testimonial].stories';
 
 // eslint-disable-next-line no-undef
 it('can diff an element', async () => {
-  render(CXLTestimonial({ el: { cxl_hybrid_attr_post: { '@attributes': {} } } }), document.body);
-  await visualDiff(document.body, 'cxl-card');
+  const el = document.createElement('div');
+
+  render(CXLTestimonial({ el: { cxl_hybrid_attr_post: { '@attributes': {} } } }), el);
+
+  await new Promise((resolve) => {
+    el.querySelector('.entry-header img').onload = () => {
+      resolve();
+    };
+  });
+
+  document.body.appendChild(el);
+
+  await visualDiff(el, 'cxl-card');
 });
