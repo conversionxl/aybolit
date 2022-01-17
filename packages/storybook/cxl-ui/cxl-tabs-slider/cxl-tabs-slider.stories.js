@@ -12,6 +12,11 @@ export const CXLTabsSlider = ({ Cards }) => html`
   <style>
     vaadin-tab {
       max-width: calc(var(--cxl-content-width) / 2);
+      scroll-snap-align: center;
+    }
+
+    cxl-tabs-slider::part(tabs) {
+      scroll-snap-type: x mandatory;
     }
   </style>
 
