@@ -2,6 +2,13 @@ import '@conversionxl/cxl-lumo-styles';
 import { TabsElement } from '@vaadin/vaadin-tabs';
 import { customElement } from 'lit-element';
 
+const observeMedia = (mediaQueryString, callback) => {
+  const observer = window.matchMedia(mediaQueryString);
+  const matches = (mediaQueryList) => callback(mediaQueryList.matches);
+  observer.addListener(matches);
+  matches(observer);
+};
+
 @customElement('cxl-tabs-slider')
 export class CXLTabsSliderElement extends TabsElement {
   _updateOverflow() {
@@ -36,6 +43,53 @@ export class CXLTabsSliderElement extends TabsElement {
     }
 
     this.setAttribute(themeAttr, themes.join(' '));
+  }
+
+  ready() {
+    super.ready();
+
+    // This is needed to fire the click event.
+    this.style.cursor = 'pointer';
+
+    observeMedia('(min-width: 700px)', (result) => {
+      if (result) {
+        this.manageScrollButtons(true);
+      } else {
+        this.manageScrollButtons(false);
+      }
+
+      const boundOnClick = this.onClick.bind(this);
+
+      if (result) {
+        ['click', 'ontouchstart'].forEach((event) => {
+          document.addEventListener(event, boundOnClick);
+        });
+      } else {
+        ['click', 'ontouchstart'].forEach((event) => {
+          document.removeEventListener(event, boundOnClick);
+        });
+      }
+    });
+  }
+
+  manageScrollButtons(value) {
+    let themes = this.getAttribute('theme').split(' ');
+
+    if (value) {
+      themes = themes.filter((item) => item !== 'hide-scroll-buttons');
+    } else if (!themes.includes('hide-scroll-buttons')) {
+      themes.push('hide-scroll-buttons');
+    }
+
+    this.setAttribute('theme', themes.join(' '));
+  }
+
+  onClick(event) {
+    if (this.contains(event.target)) {
+      this.manageScrollButtons(true);
+    } else {
+      this.manageScrollButtons(false);
+    }
   }
 
   static get is() {
