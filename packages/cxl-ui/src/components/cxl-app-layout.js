@@ -89,6 +89,7 @@ export class CXLAppLayoutElement extends LitElement {
     const mainElement = html`
       <main role="main" itemprop="mainContentOfPage">
         <slot></slot>
+        <slot name="action-bar"></slot>
       </main>
     `;
 
