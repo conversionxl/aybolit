@@ -1,14 +1,13 @@
-import { LitElement } from 'lit-element';
 import { focusin, shiftTabDown, shiftTabEvent } from '@aybolit/test-helpers';
 import { defineCE, fixture, html } from '@open-wc/testing-helpers';
+import { LitElement } from 'lit-element';
+
 import { DelegateFocusMixin } from '../src/mixins/delegate-focus-mixin.js';
 
 const TestElement = defineCE(
   class extends DelegateFocusMixin(LitElement) {
     render() {
-      return html`
-        <input id="input" /><input id="secondInput" />
-      `;
+      return html` <input id="input" /><input id="secondInput" /> `;
     }
 
     get focusElement() {
@@ -152,13 +151,13 @@ describe('delegate-focus-mixin', () => {
       Object.defineProperty(event, 'defaultPrevented', {
         get() {
           return true;
-        }
+        },
       });
       customElement.dispatchEvent(event);
       expect(customElement._isShiftTabbing).not.to.be.ok;
     });
 
-    it('should refocus the field', done => {
+    it('should refocus the field', (done) => {
       focusin(customElement);
       shiftTabDown(document.body);
 

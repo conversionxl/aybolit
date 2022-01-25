@@ -1,5 +1,6 @@
-import { defineCE, fixture } from '@open-wc/testing-helpers';
 import { matchesSelector } from '@aybolit/test-helpers';
+import { defineCE, fixture } from '@open-wc/testing-helpers';
+
 import { ProgressElement } from '../src/components/progress.js';
 
 describe('progress', () => {

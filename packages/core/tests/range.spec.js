@@ -1,4 +1,5 @@
 import { defineCE, fixture } from '@open-wc/testing-helpers';
+
 import { RangeElement } from '../src/components/range.js';
 
 describe('range', () => {

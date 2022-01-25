@@ -1,8 +1,10 @@
-import { customElement, LitElement, html } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
+
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import cxlCardGlobalStyles from '../styles/global/cxl-card-css.js';
+import { customElement, html, LitElement } from 'lit-element';
+
 import cxlCardStyles from '../styles/cxl-card-css.js';
+import cxlCardGlobalStyles from '../styles/global/cxl-card-css.js';
 
 @customElement('cxl-card')
 export class CXLCardElement extends LitElement {

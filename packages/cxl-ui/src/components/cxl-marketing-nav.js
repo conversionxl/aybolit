@@ -1,11 +1,13 @@
-import { LitElement, html, customElement, property, query } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
-import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
-import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
 import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-tabs';
 import '@vaadin/vaadin-context-menu';
+
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import { customElement, html, LitElement, property, query } from 'lit-element';
+
+import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
+import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
 
 @customElement('cxl-marketing-nav')
 export class CXLMarketingNavElement extends LitElement {
@@ -132,9 +134,8 @@ export class CXLMarketingNavElement extends LitElement {
     /**
      * Configure `.menu-item-search`.
      */
-    const menuItemSearchContextMenu = this.menuItemSearchElement.querySelector(
-      'vaadin-context-menu'
-    );
+    const menuItemSearchContextMenu =
+      this.menuItemSearchElement.querySelector('vaadin-context-menu');
 
     /**
      * `<vaadin-context-menu-item>` interferes with form input.

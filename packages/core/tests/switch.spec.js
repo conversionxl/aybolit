@@ -1,4 +1,5 @@
 import { defineCE, fixture } from '@open-wc/testing-helpers';
+
 import { SwitchElement } from '../src/components/switch.js';
 
 describe('switch', () => {

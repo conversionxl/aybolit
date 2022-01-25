@@ -1,4 +1,5 @@
 import { defineCE, fixture } from '@open-wc/testing-helpers';
+
 import { ButtonElement } from '../src/components/button.js';
 
 describe('button', () => {

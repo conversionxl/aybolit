@@ -1,6 +1,8 @@
-import { customElement } from 'lit-element';
 import '@vaadin/vaadin-checkbox';
+
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import { customElement } from 'lit-element';
+
 import cxlPlaybookAccordionGlobalStyles from '../styles/global/cxl-playbook-accordion-css.js';
 import { CXLVaadinAccordionElement } from './cxl-vaadin-accordion';
 

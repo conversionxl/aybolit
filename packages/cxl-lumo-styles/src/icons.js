@@ -1,9 +1,11 @@
-import { css } from '@vaadin/vaadin-themable-mixin/register-styles.js';
-import { registerGlobalStyles } from './utils.js';
 import '@vaadin/vaadin-lumo-styles/font-icons.js';
 import '@vaadin/vaadin-lumo-styles/icons.js';
 import '@vaadin/vaadin-lumo-styles/sizing.js';
 import '@polymer/iron-iconset-svg/iron-iconset-svg.js';
+
+import { css } from '@vaadin/vaadin-themable-mixin/register-styles.js';
+
+import { registerGlobalStyles } from './utils.js';
 
 registerGlobalStyles(
   css`

@@ -1,5 +1,6 @@
 import '@vaadin/vaadin-notification';
 import '@vaadin/vaadin-progress-bar';
+
 import * as Headroom from 'headroom.js';
 
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
@@ -9,14 +10,14 @@ export { CXLSectionElement } from './components/cxl-section.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 
 // Order matters.
-export { CXLVaadinAccordionElement } from './components/cxl-vaadin-accordion.js';
-export { CXLPlaybookProgressBarElement } from './components/cxl-playbook-progress-bar.js';
-export { CXLPlaybookAccordionElement } from './components/cxl-playbook-accordion.js';
 export { CXLAccordionCardElement } from './components/cxl-accordion-card.js';
-export { CXLSaveFavoriteElement } from './components/cxl-save-favorite.js';
-export { CXLStarRatingElement } from './components/cxl-star-rating.js';
 export { CXLLikeOrDislikeElement } from './components/cxl-like-or-dislike.js';
 export { CXLPaywallElement } from './components/cxl-paywall.js';
+export { CXLPlaybookAccordionElement } from './components/cxl-playbook-accordion.js';
+export { CXLPlaybookProgressBarElement } from './components/cxl-playbook-progress-bar.js';
+export { CXLSaveFavoriteElement } from './components/cxl-save-favorite.js';
+export { CXLStarRatingElement } from './components/cxl-star-rating.js';
+export { CXLVaadinAccordionElement } from './components/cxl-vaadin-accordion.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from
 export { Headroom };

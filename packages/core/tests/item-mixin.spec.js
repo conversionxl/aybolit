@@ -1,24 +1,23 @@
-import { LitElement, html } from 'lit-element';
-import { defineCE, fixture } from '@open-wc/testing-helpers';
 import {
-  enter,
-  spaceDown,
-  spaceUp,
-  space,
   blur,
+  enter,
   focus,
   mousedown,
-  mouseup
+  mouseup,
+  space,
+  spaceDown,
+  spaceUp,
 } from '@aybolit/test-helpers';
+import { defineCE, fixture } from '@open-wc/testing-helpers';
+import { html, LitElement } from 'lit-element';
+
 import { ItemMixin } from '../src/mixins/item-mixin.js';
 
 describe('item-mixin', () => {
   const Item = defineCE(
     class extends ItemMixin(LitElement) {
       render() {
-        return html`
-          <div><slot></slot></div>
-        `;
+        return html` <div><slot></slot></div> `;
       }
     }
   );
