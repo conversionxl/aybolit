@@ -9,6 +9,7 @@ export { CXLSectionElement } from './components/cxl-section.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 
 // Order matters.
+// eslint-disable-next-line simple-import-sort/exports
 export { CXLVaadinAccordionElement } from './components/cxl-vaadin-accordion.js';
 export { CXLAccordionCardElement } from './components/cxl-accordion-card.js';
 
