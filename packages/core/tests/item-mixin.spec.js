@@ -8,7 +8,7 @@ import {
   blur,
   focus,
   mousedown,
-  mouseup
+  mouseup,
 } from '@aybolit/test-helpers';
 import { ItemMixin } from '../src/mixins/item-mixin.js';
 
@@ -16,9 +16,7 @@ describe('item-mixin', () => {
   const Item = defineCE(
     class extends ItemMixin(LitElement) {
       render() {
-        return html`
-          <div><slot></slot></div>
-        `;
+        return html` <div><slot></slot></div> `;
       }
     }
   );
