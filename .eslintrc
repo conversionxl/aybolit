@@ -18,7 +18,9 @@
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "no-restricted-globals": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
   "overrides": [
     {
@@ -51,5 +53,6 @@
     },
     "ecmaVersion": 2018,
     "sourceType": "module"
-  }
+  },
+  "plugins": ["simple-import-sort"]
 }
