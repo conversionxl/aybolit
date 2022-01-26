@@ -14,7 +14,7 @@ export function keyboardEventFor(type, keyCode, modifiers = [], key) {
     bubbles: true,
     cancelable: true,
     // Allow event to go outside a ShadowRoot.
-    composed: true
+    composed: true,
   });
 
   event.keyCode = keyCode;

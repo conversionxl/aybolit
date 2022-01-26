@@ -1,4 +1,4 @@
-export const ItemMixin = superClass =>
+export const ItemMixin = (superClass) =>
   class extends superClass {
     /**
      * Used for mixin detection because `instanceof` does not work with mixins.
@@ -14,7 +14,7 @@ export const ItemMixin = superClass =>
          */
         disabled: {
           type: Boolean,
-          reflect: true
+          reflect: true,
         },
 
         /**
@@ -22,8 +22,8 @@ export const ItemMixin = superClass =>
          */
         selected: {
           type: Boolean,
-          reflect: true
-        }
+          reflect: true,
+        },
       };
     }
 
@@ -56,8 +56,8 @@ export const ItemMixin = superClass =>
         };
         document.addEventListener('mouseup', mouseUpListener);
       });
-      this.addEventListener('keydown', e => this._onKeydown(e));
-      this.addEventListener('keyup', e => this._onKeyup(e));
+      this.addEventListener('keydown', (e) => this._onKeydown(e));
+      this.addEventListener('keyup', (e) => this._onKeyup(e));
     }
 
     _selectedChanged(selected) {

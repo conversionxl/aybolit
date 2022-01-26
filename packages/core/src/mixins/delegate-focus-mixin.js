@@ -2,17 +2,17 @@ const $$tabindex = Symbol('tabindex');
 const $$oldTabindex = Symbol('oldTabindex');
 const $$newTabindex = Symbol('newTabindex');
 
-export const DelegateFocusMixin = superClass =>
+export const DelegateFocusMixin = (superClass) =>
   class extends superClass {
     static get properties() {
       return {
         tabIndex: {
           converter: {
             fromAttribute: Number,
-            toAttribute: value => (value == null ? null : value.toString())
+            toAttribute: (value) => (value == null ? null : value.toString()),
           },
           noAccessor: true,
-          reflect: true
+          reflect: true,
         },
 
         /**
@@ -20,8 +20,8 @@ export const DelegateFocusMixin = superClass =>
          */
         disabled: {
           type: Boolean,
-          reflect: true
-        }
+          reflect: true,
+        },
       };
     }
 
@@ -43,13 +43,13 @@ export const DelegateFocusMixin = superClass =>
     }
 
     firstUpdated() {
-      this.addEventListener('focusin', e => {
+      this.addEventListener('focusin', (e) => {
         if (e.composedPath()[0] === this) {
           this._focus();
         }
       });
 
-      this.addEventListener('keydown', e => {
+      this.addEventListener('keydown', (e) => {
         if (!e.defaultPrevented && e.shiftKey && e.keyCode === 9) {
           // Flag is checked in _focus event handler.
           this._isShiftTabbing = true;

@@ -3,26 +3,26 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { DelegateFocusMixin } from '../mixins/delegate-focus-mixin.js';
 import rangeBaseStyles from '../styles/range-base-css.js';
 
-const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
+const isNumeric = (n) => !isNaN(parseFloat(n)) && isFinite(n);
 
 export class RangeElement extends DelegateFocusMixin(LitElement) {
   static get properties() {
     return {
       value: {
-        type: Number
+        type: Number,
       },
 
       min: {
-        type: Number
+        type: Number,
       },
 
       max: {
-        type: Number
+        type: Number,
       },
 
       step: {
-        type: Number
-      }
+        type: Number,
+      },
     };
   }
 
@@ -98,8 +98,8 @@ export class RangeElement extends DelegateFocusMixin(LitElement) {
       this.dispatchEvent(
         new CustomEvent('value-changed', {
           detail: {
-            value: this.value
-          }
+            value: this.value,
+          },
         })
       );
     }
@@ -114,10 +114,10 @@ export class RangeElement extends DelegateFocusMixin(LitElement) {
     // into the ancestor tree, so we must do this manually.
     const changeEvent = new CustomEvent('change', {
       detail: {
-        sourceEvent: e
+        sourceEvent: e,
       },
       bubbles: e.bubbles,
-      cancelable: e.cancelable
+      cancelable: e.cancelable,
     });
     this.dispatchEvent(changeEvent);
   }

@@ -10,8 +10,8 @@ export class ButtonElement extends DelegateFocusMixin(LitElement) {
        */
       link: {
         type: String,
-        reflect: true
-      }
+        reflect: true,
+      },
     };
   }
 
