@@ -1,4 +1,5 @@
 import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
+
 import cxlAccordionCardStyles from './styles/themes/cxl-accordion-card-css.js';
 import cxlTabsSliderStyles from './styles/themes/cxl-tabs-slider-css.js';
 import cxlVaadinAccordionStyles from './styles/themes/vaadin-accordion-css.js';

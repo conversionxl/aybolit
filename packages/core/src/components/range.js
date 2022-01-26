@@ -1,5 +1,6 @@
-import { LitElement, html } from 'lit-element';
+import { html, LitElement } from 'lit-element';
 import { ifDefined } from 'lit-html/directives/if-defined';
+
 import { DelegateFocusMixin } from '../mixins/delegate-focus-mixin.js';
 import rangeBaseStyles from '../styles/range-base-css.js';
 

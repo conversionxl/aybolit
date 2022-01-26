@@ -1,5 +1,6 @@
 import '@vaadin/vaadin-notification';
 import '@vaadin/vaadin-progress-bar';
+
 import * as Headroom from 'headroom.js';
 
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';

@@ -1,4 +1,5 @@
 import '@vaadin/vaadin-lumo-styles/color.js';
+
 import styles from './styles/color-css.js';
 
 const $template = document.createElement('template');

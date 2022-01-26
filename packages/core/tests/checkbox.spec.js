@@ -1,4 +1,5 @@
 import { defineCE, fixture } from '@open-wc/testing-helpers';
+
 import { CheckboxElement } from '../src/components/checkbox.js';
 
 describe('checkbox', () => {

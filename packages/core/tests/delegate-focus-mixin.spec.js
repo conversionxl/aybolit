@@ -1,6 +1,7 @@
-import { LitElement } from 'lit-element';
 import { focusin, shiftTabDown, shiftTabEvent } from '@aybolit/test-helpers';
 import { defineCE, fixture, html } from '@open-wc/testing-helpers';
+import { LitElement } from 'lit-element';
+
 import { DelegateFocusMixin } from '../src/mixins/delegate-focus-mixin.js';
 
 const TestElement = defineCE(
