@@ -1,4 +1,5 @@
 import '@vaadin/vaadin-dialog';
+
 import { css, customElement, html, LitElement, property, query } from 'lit-element';
 import { render } from 'lit-html';
 

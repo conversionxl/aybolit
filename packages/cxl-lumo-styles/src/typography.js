@@ -1,4 +1,5 @@
 import '@vaadin/vaadin-lumo-styles/typography.js';
+
 import styles from './styles/typography-css.js';
 
 const $template = document.createElement('template');

@@ -1,5 +1,7 @@
-import { LitElement, customElement, html, svg } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
+
+import { customElement, html, LitElement, svg } from 'lit-element';
+
 import cxlSectionStyles from '../styles/cxl-section-css';
 
 @customElement('cxl-section')

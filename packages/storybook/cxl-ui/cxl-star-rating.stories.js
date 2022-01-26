@@ -1,5 +1,6 @@
-import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-star-rating.js';
+
+import { html } from 'lit-html';
 
 /**
  * 2021-01-14

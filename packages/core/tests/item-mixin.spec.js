@@ -1,15 +1,16 @@
-import { LitElement, html } from 'lit-element';
-import { defineCE, fixture } from '@open-wc/testing-helpers';
 import {
-  enter,
-  spaceDown,
-  spaceUp,
-  space,
   blur,
+  enter,
   focus,
   mousedown,
   mouseup,
+  space,
+  spaceDown,
+  spaceUp,
 } from '@aybolit/test-helpers';
+import { defineCE, fixture } from '@open-wc/testing-helpers';
+import { html, LitElement } from 'lit-element';
+
 import { ItemMixin } from '../src/mixins/item-mixin.js';
 
 describe('item-mixin', () => {

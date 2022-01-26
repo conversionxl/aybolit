@@ -1,8 +1,8 @@
 import { CXLVaadinAccordionThemeArchive } from './cxl-vaadin-accordion/cxl-accordion-card.story';
+import { CXLHubsAndPlaybooks } from './cxl-vaadin-accordion/cxl-hubs-and-playbooks.story';
 import { CXLPlaybookAccordion } from './cxl-vaadin-accordion/cxl-playbook-accordion.story';
 import { CXLVaadinAccordionThemeFaq } from './cxl-vaadin-accordion/theme=cxl-faq.story';
 import { CXLVaadinAccordionThemeMinidegreeTrack } from './cxl-vaadin-accordion/theme=cxl-minidegree-track.story';
-import { CXLHubsAndPlaybooks } from './cxl-vaadin-accordion/cxl-hubs-and-playbooks.story';
 
 export default {
   title: 'CXL UI/cxl-vaadin-accordion',
@@ -22,9 +22,9 @@ CXLVaadinAccordionThemeMinidegreeTrack.storyName = '[theme=cxl-minidegree-track]
 CXLHubsAndPlaybooks.storyName = 'cxl-hubs-and-playbooks';
 
 export {
+  CXLHubsAndPlaybooks,
   CXLPlaybookAccordion,
   CXLVaadinAccordionThemeArchive,
   CXLVaadinAccordionThemeFaq,
   CXLVaadinAccordionThemeMinidegreeTrack,
-  CXLHubsAndPlaybooks,
 };

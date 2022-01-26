@@ -1,11 +1,13 @@
-import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { registerStyles, css } from '@vaadin/vaadin-themable-mixin/register-styles';
+import { css, registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles';
+import { html } from 'lit-html';
+
+import hubsData from './hub-card.data.json';
 import CxlHubCardDisplay from './partials/cxl-hub-card-display';
 import CxlSingleversionCardDisplay from './partials/cxl-singleversion-card-display';
 import playbookData from './playbook-card.data.json';
-import hubsData from './hub-card.data.json';
 
 registerStyles(
   'cxl-accordion-card',

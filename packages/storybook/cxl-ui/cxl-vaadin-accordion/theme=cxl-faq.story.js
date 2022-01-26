@@ -1,6 +1,8 @@
+import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
+
 import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
+
 import faqData from './theme=cxl-faq.data.json';
 
 export const CXLVaadinAccordionThemeFaq = () => html`
