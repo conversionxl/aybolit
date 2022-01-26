@@ -1,25 +1,25 @@
-import { CXLLikeOrDislikeElement } from '@conversionxl/cxl-ui';
+import { CXLVoteElement } from '@conversionxl/cxl-ui';
 import { html } from 'lit-html';
 
 export default {
-  title: 'CXL UI/cxl-like-or-dislike',
-  component: CXLLikeOrDislikeElement,
+  title: 'CXL UI/cxl-vote',
+  component: CXLVoteElement,
 };
 
 const Template = ({ apiUrl, postType, postId, userId, upVotes }) => html`
-  <cxl-like-or-dislike
+  <cxl-vote
     apiUrl=${apiUrl}
     postType=${postType}
     postId=${postId}
     userId=${userId}
     upVotes=${upVotes}
-  ></cxl-like-or-dislike>
+  ></cxl-vote>
 `;
 
-export const CXLLIkeOrDislikeThemeDefault = Template.bind({});
+export const CXLVoteThemeDefault = Template.bind({});
 
 // more here: https://storybook.js.org/docs/web-components/essentials/controls#fully-custom-args
-CXLLIkeOrDislikeThemeDefault.args = {
+CXLVoteThemeDefault.args = {
   apiUrl: 'https://jsonplaceholder.typicode.com/users',
   postType: 'playbook',
   postId: 123,

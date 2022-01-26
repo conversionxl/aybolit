@@ -1,9 +1,9 @@
 import { customElement, LitElement, html, property, query, queryAll } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
-import cxlLikeOrDislikeStyles from '../styles/cxl-like-or-dislike-css.js';
+import cxlVoteStyles from '../styles/cxl-vote-css.js';
 
-@customElement('cxl-like-or-dislike')
-export class CXLLikeOrDislikeElement extends LitElement {
+@customElement('cxl-vote')
+export class CXLVoteElement extends LitElement {
   @property({ type: Number })
   upVotes = 0;
 
@@ -43,7 +43,7 @@ export class CXLLikeOrDislikeElement extends LitElement {
   apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   static get styles() {
-    return [cxlLikeOrDislikeStyles];
+    return [cxlVoteStyles];
   }
 
   async _upVote(event) {
@@ -99,7 +99,7 @@ export class CXLLikeOrDislikeElement extends LitElement {
   }
 
   _getUniqueId() {
-    return `cxl-like-or-dislike-${this.userId}-${this.postType}-${this.postId}`;
+    return `cxl-vote-${this.userId}-${this.postType}-${this.postId}`;
   }
 
   async _saveState() {
