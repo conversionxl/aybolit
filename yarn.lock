@@ -2006,7 +2006,7 @@
   version "1.0.1"
   resolved "https://npm.cxl.co/@conversionxl%2fnormalize-wheel/-/normalize-wheel-1.0.1.tgz#56a8181fcb9b10f73806e81f6121255849e2d424"
   integrity sha512-gmQYGD4K6eKycJz8BFNVIZWruUmXpooOMS8dfWS8FYP16gZ9kTuDknTW4Zq213DCO8AxNdHRN71j0CZoLdwv5Q==
-  
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -8822,6 +8822,11 @@ eslint-plugin-lit@^1.2.2:
     parse5 "^6.0.1"
     parse5-htmlparser2-tree-adapter "^6.0.1"
     requireindex "^1.2.0"
+
+eslint-plugin-simple-import-sort@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-7.0.0.tgz#a1dad262f46d2184a90095a60c66fef74727f0f8"
+  integrity sha512-U3vEDB5zhYPNfxT5TYR7u01dboFZp+HNpnGhkDB2g/2E4wZ/g1Q9Ton8UwCLfRV9yAKyYqDh62oHOamvkFxsvw==
 
 eslint-scope@5.1.1, eslint-scope@^5.1.1:
   version "5.1.1"
