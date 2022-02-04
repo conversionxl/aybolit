@@ -79,6 +79,7 @@ ul {
  * headroom.js
  */
 .headroom {
+  top: var(--wp-admin--admin-bar--height, 0);
   transition: transform 200ms linear;
 
   &--pinned {
