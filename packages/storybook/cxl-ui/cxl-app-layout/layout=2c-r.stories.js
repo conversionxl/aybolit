@@ -18,19 +18,6 @@ export const CXLAppLayout2cr = () => {
       .widget.has-background {
         background-color: var(--lumo-shade-5pct);
       }
-
-      [slot='action-bar'] > * {
-        margin-left: var(--lumo-space-xs);
-      }
-
-      [slot='action-bar'] > *:first-child {
-        flex: 1;
-        margin-left: unset;
-      }
-
-      cxl-app-layout[wide] [slot='action-bar'] > *:first-child {
-        flex: unset;
-      }
     </style>
 
     <cxl-app-layout
