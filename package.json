@@ -11,6 +11,7 @@
     "argos": "argos upload test/visual/screenshots/chrome --token $ARGOS_TOKEN || true",
     "build": "rimraf packages/**/styles/**/*.js && yarn build-styling",
     "build-styling": "node packages/sass-render/bin/sass-render.js -s \"packages/*/scss/**/*.scss\"",
+    "chromatic": "yarn build && lerna run chromatic --scope \"@conversionxl/storybook\"",
     "deploy-storybook": "yarn --cwd packages/storybook storybook-to-ghpages",
     "dist": "yarn build && lerna run dist",
     "lint": "npm-run-all --parallel lint:*",
