@@ -23,6 +23,7 @@
     "lit-html": "^2.0.0-rc.3"
   },
   "scripts": {
+    "build-storybook": "build-storybook",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
