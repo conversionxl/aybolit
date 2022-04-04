@@ -2,6 +2,7 @@ node_modules
 lerna-debug.log
 packages/**/src/**/styles/**/*-css.js
 packages/**/pkg
+packages/storybook/build-storybook.log
 coverage
 tmp
 test/visual/screenshots
