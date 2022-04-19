@@ -45,3 +45,18 @@ If you have questions, feedback or anything to share related to the project, fee
 - Twitter [@serhiikulykov](https://twitter.com/serhiikulykov)
 - Polymer Project Slack [@web-padawan](https://polymer.slack.com/team/U0XBXC79U/)
 - or [submit an issue](https://github.com/web-padawan/aybolit/issues)
+
+---
+
+## Chromatic
+
+Chromatic (https://chromatic.com) is a visual testing tool. It allows you to test your web components in a variety of browsers and environments. It also allows you to compare the results of your tests with the ones of other developers.
+
+To run Chromatic locally:
+
+```
+npm install
+yarn build
+cd packages/storybook
+npx chromatic --project-token XXXXXXXXXXXX
+```
