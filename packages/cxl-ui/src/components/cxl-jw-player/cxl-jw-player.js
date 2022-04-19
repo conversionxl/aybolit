@@ -12,22 +12,14 @@ export class CXLJWPlayerElement extends LitElement {
       css`
         :host {
           display: block;
+          height: 100%;
         }
       `,
     ];
   }
 
   render() {
-    return html`
-      <style>
-        :host {
-          display: block;
-          height: 100%;
-        }
-      </style>
-
-      <slot></slot>
-    `;
+    return html`<slot></slot>`;
   }
 
   async firstUpdated(_changedProperties) {
