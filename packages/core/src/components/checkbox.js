@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import { DelegateFocusMixin } from '../mixins/delegate-focus-mixin.js';
 import checkboxBaseStyles from '../styles/checkbox-base-css.js';
 
@@ -12,7 +12,7 @@ export class CheckboxElement extends DelegateFocusMixin(LitElement) {
        */
       checked: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
 
       /**
@@ -21,7 +21,7 @@ export class CheckboxElement extends DelegateFocusMixin(LitElement) {
        */
       indeterminate: {
         type: Boolean,
-        reflect: true
+        reflect: true,
       },
 
       /**
@@ -29,8 +29,8 @@ export class CheckboxElement extends DelegateFocusMixin(LitElement) {
        * to the server when the checkbox is inside a form.
        */
       value: {
-        reflect: true
-      }
+        reflect: true,
+      },
     };
   }
 
@@ -105,7 +105,7 @@ export class CheckboxElement extends DelegateFocusMixin(LitElement) {
     }
     this.dispatchEvent(
       new CustomEvent('checked-changed', {
-        detail: { value: checked }
+        detail: { value: checked },
       })
     );
   }
@@ -127,10 +127,10 @@ export class CheckboxElement extends DelegateFocusMixin(LitElement) {
     // into the ancestor tree, so we must do this manually.
     const changeEvent = new CustomEvent('change', {
       detail: {
-        sourceEvent: e
+        sourceEvent: e,
       },
       bubbles: e.bubbles,
-      cancelable: e.cancelable
+      cancelable: e.cancelable,
     });
     this.dispatchEvent(changeEvent);
   }

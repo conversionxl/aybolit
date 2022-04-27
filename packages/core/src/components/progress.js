@@ -1,5 +1,5 @@
-import { LitElement, html } from 'lit-element';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { LitElement, html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined';
 import progressBaseStyles from '../styles/progress-base-css.js';
 
 export class ProgressElement extends LitElement {
@@ -10,7 +10,7 @@ export class ProgressElement extends LitElement {
        * or empty string to set indeterminate state.
        */
       value: {
-        type: Number
+        type: Number,
       },
 
       /**
@@ -18,8 +18,8 @@ export class ProgressElement extends LitElement {
        * Note: the minimum value is always 0.
        */
       max: {
-        type: Number
-      }
+        type: Number,
+      },
     };
   }
 
@@ -39,8 +39,6 @@ export class ProgressElement extends LitElement {
     if (value === null || value === '') {
       value = undefined;
     }
-    return html`
-      <progress value="${ifDefined(value)}" max="${this.max}"></progress>
-    `;
+    return html` <progress value="${ifDefined(value)}" max="${this.max}"></progress> `;
   }
 }
