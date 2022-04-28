@@ -1,8 +1,8 @@
 import { html } from 'lit-html';
-import '@conversionxl/cxl-ui/src/components/cxl-jw-player/cxl-jw-player.js';
+import 'jw-player/src/components/jw-player/jw-player.js';
 
 export default {
-  title: 'CXL UI/cxl-jw-player',
+  title: 'JW Player/JW Player',
 };
 
 const Template = ({}) =>
@@ -11,10 +11,22 @@ const Template = ({}) =>
       #root-inner {
         height: 100vh;
       }
+
+      jw-player {
+        display: block;
+        height: 100%;
+      }
+
+      jw-player * {
+        box-sizing: border-box;
+      }
     </style>
-    <cxl-jw-player playerId="5CFJNXKb" mediaId="fZ0XiGdb">
-      <div class="jw-player"></div>
-    </cxl-jw-player>
+    <jw-player
+      mediaId="fZ0XiGdb"
+      playerId="5CFJNXKb"
+      playlist="tAxwbNsA"
+      type="playlist"
+    ></jw-player>
   `;
 
 export const Default = Template.bind({});
