@@ -12,7 +12,6 @@ export class JWPlayerElement extends LitElement {
   __jwPlayer;
   __positionInterval;
 
-  @property({type:Boolean}) captions = false;
   @property({ type: Array }) __captions = [];
   @property({ type: Number }) __currentCue = 0;
   @property() playerId;
@@ -120,6 +119,10 @@ export class JWPlayerElement extends LitElement {
   __clearPositionInterval() {
     clearInterval(this.__positionInterval);
   }
+
+  // async __getMedia() {
+  //   return await (await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`)).json();
+  // }
 
   async __getPlaylist() {
     return await (await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlist}`)).json();
