@@ -4,7 +4,10 @@ import { parseSync } from 'subtitle';
 
 @customElement('jw-player')
 export class JWPlayerElement extends LitElement {
-  config = {};
+  config = {
+    width: '100%',
+    height: '100%',
+  };
 
   __jwPlayer;
   __positionInterval;
