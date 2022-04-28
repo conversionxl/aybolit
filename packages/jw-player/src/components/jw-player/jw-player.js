@@ -12,6 +12,7 @@ export class JWPlayerElement extends LitElement {
   __jwPlayer;
   __positionInterval;
 
+  @property({type:Boolean}) captions = false;
   @property({ type: Array }) __captions = [];
   @property({ type: Number }) __currentCue = 0;
   @property() playerId;

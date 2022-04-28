@@ -22,6 +22,7 @@ const Template = ({}) =>
       }
     </style>
     <jw-player
+      captions
       mediaId="fZ0XiGdb"
       playerId="5CFJNXKb"
       playlist="tAxwbNsA"
