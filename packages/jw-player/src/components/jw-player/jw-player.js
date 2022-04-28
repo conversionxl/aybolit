@@ -1,48 +1,20 @@
-import { css, html, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-// import './plugins/customPlugin';
 import { parseSync } from 'subtitle';
-// import { parse, resync, stringify } from 'subtitle';
-// import '@vaadin/list-box';
 
 @customElement('jw-player')
 export class JWPlayerElement extends LitElement {
-  config = {
-    width: '100%',
-    height: '100%',
-    plugins: {
-      'http://192.168.0.101:8080/packages/jw-player/src/components/jw-player/plugins/customPlugin.js':
-        {
-          sampleFunction: () => {
-            console.log('from plugin: hello world');
-          },
-          name: 'Dan Woon Acorn',
-        },
-    },
-  };
+  config = {};
 
+  __jwPlayer;
   __positionInterval;
 
   @property({ type: Array }) __captions = [];
   @property({ type: Number }) __currentCue = 0;
-  @property() mediaId;
   @property() playerId;
   @property() playlist;
   @property({ type: Number }) __position = 0;
   @property() type;
-
-  __jwPlayer;
-
-  static get styles() {
-    return [
-      css`
-        :host {
-          display: block;
-          height: 100%;
-        }
-      `,
-    ];
-  }
 
   render() {
     return html`
@@ -119,8 +91,6 @@ export class JWPlayerElement extends LitElement {
     await this.__setup();
 
     this.__getCaptions();
-
-    console.log(this.__jwPlayer.getCues());
   }
 
   get __scriptUrl() {
@@ -133,13 +103,11 @@ export class JWPlayerElement extends LitElement {
 
       this.__captions.forEach(({ data: { end, start } }, index) => {
         if (start <= this.__position && end >= this.__position) {
-          this.__currentCue = index;
-
           const currentCueElement = this.querySelector(`[data-index="${index}"]`);
 
-          console.log(currentCueElement);
-
           currentCueElement.scrollIntoView(true);
+
+          this.__currentCue = index;
         }
       });
     }, 1000);
@@ -149,9 +117,9 @@ export class JWPlayerElement extends LitElement {
     clearInterval(this.__positionInterval);
   }
 
-  async __getMedia() {
-    return await (await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`)).json();
-  }
+  // async __getMedia() {
+  //   return await (await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`)).json();
+  // }
 
   async __getPlaylist() {
     return await (await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlist}`)).json();
@@ -163,8 +131,6 @@ export class JWPlayerElement extends LitElement {
     const response = await (await fetch(file)).text();
 
     this.__captions = parseSync(response);
-
-    console.log(this.__captions);
   }
 
   async __loadScript() {
