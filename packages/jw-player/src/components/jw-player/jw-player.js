@@ -120,10 +120,6 @@ export class JWPlayerElement extends LitElement {
     clearInterval(this.__positionInterval);
   }
 
-  // async __getMedia() {
-  //   return await (await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`)).json();
-  // }
-
   async __getPlaylist() {
     return await (await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlist}`)).json();
   }
