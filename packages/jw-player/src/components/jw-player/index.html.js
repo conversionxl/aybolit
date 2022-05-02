@@ -6,28 +6,33 @@ export const template = function () {
     <style>
       ${style}
     </style>
-    <div class="column flex height-100">
-      <div class="jw-player"></div>
-      <div class="height-50 padding">
-        <div>
-          <input />
-        </div>
-        <div class="height-100 jw-player-captions scroll">
-          <ul>
-            ${this.__captions.map(
-              (caption, index) =>
-                html`
-                  <li
-                    ?active=${index === this.__currentCue}
-                    data-index=${index}
-                    @click=${this.__seek}
-                  >
-                    ${caption.data.text}
-                  </li>
-                `
+    <div class="height-100" style="display: grid; grid-template-rows: 1fr min-content 1fr;">
+      <div>
+        <div class="jw-player"></div>
+      </div>
+      <div class="padding">
+        <label>Search</label>
+        <input @input=${this.__search} />
+        <span>(${this.__matches.length}) matches</span>
+      </div>
+      <div class="scroll">
+        ${this.__chapters.map(
+          (chapter, chapterIndex) => html`
+            <h2>${chapter.data.text}</h2>
+            ${this.__getCaptionsInChapter(chapterIndex).map(
+              (caption, captionIndex) => html`
+                <span
+                  ?active=${captionIndex === this.__currentCue}
+                  data-index=${captionIndex}
+                  ?match=${this.__matches.includes(captionIndex)}
+                  @click=${this.__seek}
+                >
+                  ${caption.data.text}
+                </span>
+              `
             )}
-          </ul>
-        </div>
+          `
+        )}
       </div>
     </div>
   `;

@@ -2,6 +2,7 @@ import { LitElement } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { parseSync } from 'subtitle';
 import { template } from './index.html';
+import lunr from 'lunr';
 
 @customElement('jw-player')
 export class JWPlayerElement extends LitElement {
@@ -11,9 +12,13 @@ export class JWPlayerElement extends LitElement {
   };
 
   __jwPlayer;
+  __searchIndex;
 
   @state() __captions = [];
+  @state() __chapters = [];
+  @state() __currentChapter = 0;
   @state() __currentCue = 0;
+  @state() __matches = [];
   @property() playerId;
   @property() playlist;
 
@@ -42,8 +47,17 @@ export class JWPlayerElement extends LitElement {
     return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
   }
 
-  async __getPlaylist() {
-    return await (await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlist}`)).json();
+  __createIndex() {
+    const captions = this.__captions;
+    return lunr(function () {
+      captions.forEach((caption, index) => {
+        caption.data.id = index;
+
+        this.field('text');
+
+        this.add(caption.data);
+      });
+    });
   }
 
   async __getCaptions() {
@@ -52,6 +66,32 @@ export class JWPlayerElement extends LitElement {
     const response = await (await fetch(file)).text();
 
     return parseSync(response);
+  }
+
+  __getCaptionsInChapter(index) {
+    return this.__captions.filter((caption) => {
+      if (caption.data.start >= this.__chapters[index].data.start) {
+        if (this.__chapters[index + 1]) {
+          if (caption.data.start <= this.__chapters[index + 1].data.start) {
+            return caption;
+          }
+        } else {
+          return caption;
+        }
+      }
+    });
+  }
+
+  async __getChapters() {
+    const playlistItem = this.__jwPlayer.getPlaylistItem();
+    const file = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0].file;
+    const response = await (await fetch(file)).text();
+
+    return parseSync(response);
+  }
+
+  async __getPlaylist() {
+    return await (await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlist}`)).json();
   }
 
   async __loadScript() {
@@ -68,6 +108,12 @@ export class JWPlayerElement extends LitElement {
   __onTimeListener({ position: _position }) {
     const position = _position * 1000; // Convert to milliseconds
 
+    this.__chapters.forEach(({ data: { end, start } }, index) => {
+      if (start <= position && end >= position) {
+        this.__currentChapter = index;
+      }
+    });
+
     this.__captions.forEach(({ data: { end, start } }, index) => {
       if (start <= position && end >= position) {
         this.renderRoot.querySelector(`[data-index="${index}"]`).scrollIntoView(true);
@@ -79,6 +125,16 @@ export class JWPlayerElement extends LitElement {
 
   __registerListeners() {
     this.__jwPlayer.on('time', this.__onTimeListener.bind(this));
+  }
+
+  __search(e) {
+    if (e.target.value === '') {
+      this.__matches = [];
+      return;
+    }
+
+    const result = this.__searchIndex.search(e.target.value);
+    this.__matches = result.map((item) => Number(item.ref));
   }
 
   __seek(e) {
@@ -97,6 +153,11 @@ export class JWPlayerElement extends LitElement {
     await this.__ready;
 
     this.__captions = await this.__getCaptions();
+    this.__chapters = await this.__getChapters();
+
+    console.log(this.__captions, this.__chapters);
+
+    this.__searchIndex = this.__createIndex();
 
     this.__registerListeners();
   }
