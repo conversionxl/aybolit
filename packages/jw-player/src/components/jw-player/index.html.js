@@ -17,7 +17,7 @@ export const template = function () {
         <input ?checked=${this.shouldScroll} type="checkbox" @change=${this.__toggleShouldScroll} />
         <label>Scroll</label>
       </div>
-      <div class="captions scroll">
+      <div class="captions padding scroll">
         ${this.__tracks.map(
           (track, index) =>
             html`${track.isChapter
