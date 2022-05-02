@@ -1,5 +1,5 @@
-import { html } from 'lit-html';
-import 'jw-player/src/components/jw-player/jw-player.js';
+import { html } from 'lit';
+import 'jw-player/src/components/jw-player';
 
 export default {
   title: 'JW Player/JW Player',
