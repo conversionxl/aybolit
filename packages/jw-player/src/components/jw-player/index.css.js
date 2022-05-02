@@ -4,11 +4,21 @@ export const style = html`
   <style>
     [active] {
       background-color: var(--lumo-shade-10pct);
-      /* color: #fff; */
     }
 
     [match]:not([active]) {
-      background-color: yellow;
+      background-color: var(--lumo-primary-color);
+    }
+
+    .captions span {
+      cursor: pointer;
+      border-radius: var(--lumo-space-s);
+      line-height: var(--lumo-line-height-s);
+      /* padding: var(--lumo-space-xs); */
+    }
+
+    .captions span:hover {
+      color: var(--lumo-primary-color);
     }
 
     .flex {
@@ -48,14 +58,14 @@ export const style = html`
       overflow: auto;
     }
 
-    li {
-      border-radius: var(--lumo-space-s);
-      cursor: pointer;
-      padding: 0.5rem;
+    .search {
+      background-color: #000;
+      color: #fff;
     }
 
-    ul {
-      margin-block-start: 0;
+    mark {
+      background-color: var(--lumo-primary-color);
+      color: #fff;
     }
   </style>
 `;

@@ -3,6 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { parseSync } from 'subtitle';
 import { template } from './index.html';
 import lunr from 'lunr';
+import Mark from 'mark.js';
 
 @customElement('jw-player')
 export class JWPlayerElement extends LitElement {
@@ -12,15 +13,19 @@ export class JWPlayerElement extends LitElement {
   };
 
   __jwPlayer;
+  __mark;
   __searchIndex;
 
   @state() __captions = [];
   @state() __chapters = [];
   @state() __currentChapter = 0;
   @state() __currentCue = 0;
+  @state() __currentTrack = 0;
   @state() __matches = [];
   @property() playerId;
   @property() playlist;
+  @property({ type: Boolean }) shouldScroll = true;
+  @state() __tracks = [];
 
   render() {
     return template.bind(this)();
@@ -82,12 +87,18 @@ export class JWPlayerElement extends LitElement {
     });
   }
 
+  __getChapterByPosition(position) {
+    return this.__chapters.find(
+      (chapter) => chapter.data.start <= position && chapter.data.end >= position
+    );
+  }
+
   async __getChapters() {
     const playlistItem = this.__jwPlayer.getPlaylistItem();
     const file = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0].file;
     const response = await (await fetch(file)).text();
 
-    return parseSync(response);
+    return [...[{ data: { start: 0, text: '' } }], ...parseSync(response)];
   }
 
   async __getPlaylist() {
@@ -105,20 +116,28 @@ export class JWPlayerElement extends LitElement {
     });
   }
 
+  async __getTracks() {
+    const tracks = [];
+
+    this.__chapters.forEach((chapter, index) => {
+      chapter.isChapter = true;
+      tracks.push(chapter);
+      tracks.push(...this.__getCaptionsInChapter(index));
+    });
+
+    return tracks;
+  }
+
   __onTimeListener({ position: _position }) {
     const position = _position * 1000; // Convert to milliseconds
 
-    this.__chapters.forEach(({ data: { end, start } }, index) => {
+    this.__tracks.forEach(({ data: { end, start } }, index) => {
       if (start <= position && end >= position) {
-        this.__currentChapter = index;
-      }
-    });
+        if (this.shouldScroll) {
+          this.renderRoot.querySelector(`[data-index="${index}"]`).scrollIntoView(true);
+        }
 
-    this.__captions.forEach(({ data: { end, start } }, index) => {
-      if (start <= position && end >= position) {
-        this.renderRoot.querySelector(`[data-index="${index}"]`).scrollIntoView(true);
-
-        this.__currentCue = index;
+        this.__currentTrack = index;
       }
     });
   }
@@ -128,17 +147,14 @@ export class JWPlayerElement extends LitElement {
   }
 
   __search(e) {
-    if (e.target.value === '') {
-      this.__matches = [];
-      return;
-    }
+    this.__mark.unmark();
 
-    const result = this.__searchIndex.search(e.target.value);
-    this.__matches = result.map((item) => Number(item.ref));
+    this.__mark.mark(e.target.value);
   }
 
   __seek(e) {
     const index = Number(e.currentTarget.dataset.index);
+    console.log(index);
     this.__jwPlayer.seek(this.__captions[index].data.start / 1000);
   }
 
@@ -155,10 +171,18 @@ export class JWPlayerElement extends LitElement {
     this.__captions = await this.__getCaptions();
     this.__chapters = await this.__getChapters();
 
-    console.log(this.__captions, this.__chapters);
+    this.__tracks = await this.__getTracks();
 
     this.__searchIndex = this.__createIndex();
 
+    await this.updateComplete;
+
+    this.__mark = new Mark(this.renderRoot.querySelectorAll('.captions span'));
+
     this.__registerListeners();
+  }
+
+  __toggleShouldScroll() {
+    this.shouldScroll = !this.shouldScroll;
   }
 }

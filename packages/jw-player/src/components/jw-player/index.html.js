@@ -10,28 +10,23 @@ export const template = function () {
       <div>
         <div class="jw-player"></div>
       </div>
-      <div class="padding">
+      <div class="search padding">
         <label>Search</label>
-        <input @input=${this.__search} />
+        <input class="search" @change=${this.__search} />
         <span>(${this.__matches.length}) matches</span>
+        <input ?checked=${this.shouldScroll} type="checkbox" @change=${this.__toggleShouldScroll} />
+        <label>Scroll</label>
       </div>
-      <div class="scroll">
-        ${this.__chapters.map(
-          (chapter, chapterIndex) => html`
-            <h2>${chapter.data.text}</h2>
-            ${this.__getCaptionsInChapter(chapterIndex).map(
-              (caption, captionIndex) => html`
-                <span
-                  ?active=${captionIndex === this.__currentCue}
-                  data-index=${captionIndex}
-                  ?match=${this.__matches.includes(captionIndex)}
-                  @click=${this.__seek}
-                >
-                  ${caption.data.text}
-                </span>
-              `
-            )}
-          `
+      <div class="captions scroll">
+        ${this.__tracks.map(
+          (track, index) =>
+            html`${track.isChapter
+              ? html`<h2>${track.data.text}</h2>`
+              : html`
+                  <span ?active=${(this.__currentTrack === index)} data-index=${index} @click=${this.__seek}>
+                    ${track.data.text}
+                  </span>
+                `}`
         )}
       </div>
     </div>
