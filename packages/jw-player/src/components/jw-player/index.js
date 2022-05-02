@@ -21,7 +21,7 @@ export class JWPlayerElement extends LitElement {
   @state() __currentChapter = 0;
   @state() __currentCue = 0;
   @state() __currentTrack = 0;
-  @state() __matches = [];
+  @state() __matches = 0;
   @property() playerId;
   @property() playlist;
   @property({ type: Boolean }) shouldScroll = true;
@@ -149,7 +149,7 @@ export class JWPlayerElement extends LitElement {
   __search(e) {
     this.__mark.unmark();
 
-    this.__mark.mark(e.target.value);
+    this.__mark.mark(e.target.value, { done: (total) => (this.__matches = total) });
   }
 
   __seek(e) {

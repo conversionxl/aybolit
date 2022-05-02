@@ -10,10 +10,10 @@ export const template = function () {
       <div>
         <div class="jw-player"></div>
       </div>
-      <div class="search padding">
+      <div class="center gap search padding">
         <label>Search</label>
-        <input class="search" @change=${this.__search} />
-        <span>(${this.__matches.length}) matches</span>
+        <input placeholder="Type and press enter to search" @change=${this.__search} />
+        <span>(${this.__matches} matches)</span>
         <input ?checked=${this.shouldScroll} type="checkbox" @change=${this.__toggleShouldScroll} />
         <label>Scroll</label>
       </div>

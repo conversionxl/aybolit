@@ -12,13 +12,18 @@ export const style = html`
 
     .captions span {
       cursor: pointer;
-      border-radius: var(--lumo-space-s);
-      line-height: var(--lumo-line-height-s);
-      /* padding: var(--lumo-space-xs); */
+      border-radius: var(--lumo-space-xs);
+      padding: var(--lumo-space-xs) calc(var(--lumo-space-xs) / 2);
     }
 
     .captions span:hover {
       color: var(--lumo-primary-color);
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .flex {
@@ -32,6 +37,10 @@ export const style = html`
 
     .flex.grow {
       flex-grow: 1;
+    }
+
+    .gap {
+      gap: var(--lumo-space-m);
     }
 
     .grid {
@@ -61,6 +70,13 @@ export const style = html`
     .search {
       background-color: #000;
       color: #fff;
+    }
+
+    .search input {
+      border-radius: var(--lumo-space-xs);
+      color: var(--lumo-shade);
+      line-height: var(--lumo-line-height);
+      padding: var(--lumo-space-xs) var(--lumo-space-s);
     }
 
     mark {
