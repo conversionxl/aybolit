@@ -34,9 +34,9 @@ export class JWPlayerElement extends LitElement {
   }
 
   // disable shadow dom
-  createRenderRoot() {
-    return this;
-  }
+  // createRenderRoot() {
+  //   return this;
+  // }
 
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
@@ -166,7 +166,10 @@ export class JWPlayerElement extends LitElement {
   async __setup() {
     const jwPlayer = await this.__loadScript();
 
-    this.__jwPlayer = jwPlayer(this.renderRoot.querySelector('.jw-player')).setup({
+    const el = document.createElement('div');
+    this.appendChild(el);
+
+    this.__jwPlayer = jwPlayer(el).setup({
       ...this.config,
       ...(await this.__getPlaylist()),
     });
@@ -178,7 +181,7 @@ export class JWPlayerElement extends LitElement {
 
       // Make sure the DOM is up to date
       await this.updateComplete;
-      
+
       // this.__searchIndex = this.__createIndex();
 
       this.__mark = new Mark(this.renderRoot.querySelectorAll('.captions span'));

@@ -2,6 +2,10 @@ import { html } from 'lit';
 
 export const style = html`
   <style>
+    :host([captions]) #container {
+      grid-template-rows: 1fr max-content 1fr;
+    }
+
     [active] {
       background-color: var(--lumo-shade-10pct);
     }
@@ -45,7 +49,6 @@ export const style = html`
 
     .grid {
       display: grid;
-      grid-template-rows: 1fr min-content 1fr;
     }
 
     .height-50 {
