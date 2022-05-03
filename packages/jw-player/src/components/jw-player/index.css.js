@@ -45,6 +45,7 @@ export const style = html`
 
     .grid {
       display: grid;
+      grid-template-rows: 1fr min-content 1fr;
     }
 
     .height-50 {

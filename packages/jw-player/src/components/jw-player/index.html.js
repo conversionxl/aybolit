@@ -6,7 +6,7 @@ export const template = function () {
     <style>
       ${style}
     </style>
-    <div class="height-100" style="display: grid; grid-template-rows: 1fr min-content 1fr;">
+    <div class="grid height-100" style="display: grid; grid-template-rows: 1fr min-content 1fr;">
       <div>
         <div class="jw-player"></div>
       </div>

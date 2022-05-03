@@ -12,6 +12,7 @@ export class JWPlayerElement extends LitElement {
     height: '100%',
   };
 
+  __boundOnTimeListener;
   __jwPlayer;
   __mark;
   __searchIndex;
@@ -22,6 +23,7 @@ export class JWPlayerElement extends LitElement {
   @state() __currentCue = 0;
   @state() __currentTrack = 0;
   @state() __matches = 0;
+  @property({ type: Boolean }) captions = false;
   @property() playerId;
   @property() playlist;
   @property({ type: Boolean }) shouldScroll = true;
@@ -52,18 +54,18 @@ export class JWPlayerElement extends LitElement {
     return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
   }
 
-  __createIndex() {
-    const captions = this.__captions;
-    return lunr(function () {
-      captions.forEach((caption, index) => {
-        caption.data.id = index;
+  // __createIndex() {
+  //   const captions = this.__captions;
+  //   return lunr(function () {
+  //     captions.forEach((caption, index) => {
+  //       caption.data.id = index;
 
-        this.field('text');
+  //       this.field('text');
 
-        this.add(caption.data);
-      });
-    });
-  }
+  //       this.add(caption.data);
+  //     });
+  //   });
+  // }
 
   async __getCaptions() {
     const playlistItem = this.__jwPlayer.getPlaylistItem();
@@ -119,6 +121,9 @@ export class JWPlayerElement extends LitElement {
   async __getTracks() {
     const tracks = [];
 
+    this.__captions = await this.__getCaptions();
+    this.__chapters = await this.__getChapters();
+
     this.__chapters.forEach((chapter, index) => {
       chapter.isChapter = true;
       tracks.push(chapter);
@@ -143,7 +148,8 @@ export class JWPlayerElement extends LitElement {
   }
 
   __registerListeners() {
-    this.__jwPlayer.on('time', this.__onTimeListener.bind(this));
+    this.__boundOnTimeListener = this.__onTimeListener.bind(this);
+    this.__jwPlayer.on('time', this.__boundOnTimeListener);
   }
 
   __search(e) {
@@ -154,8 +160,7 @@ export class JWPlayerElement extends LitElement {
 
   __seek(e) {
     const index = Number(e.currentTarget.dataset.index);
-    console.log(index);
-    this.__jwPlayer.seek(this.__captions[index].data.start / 1000);
+    this.__jwPlayer.seek(this.__tracks[index].data.start / 1000);
   }
 
   async __setup() {
@@ -168,18 +173,18 @@ export class JWPlayerElement extends LitElement {
 
     await this.__ready;
 
-    this.__captions = await this.__getCaptions();
-    this.__chapters = await this.__getChapters();
+    if (this.captions) {
+      this.__tracks = await this.__getTracks();
 
-    this.__tracks = await this.__getTracks();
+      // Make sure the DOM is up to date
+      await this.updateComplete;
+      
+      // this.__searchIndex = this.__createIndex();
 
-    this.__searchIndex = this.__createIndex();
+      this.__mark = new Mark(this.renderRoot.querySelectorAll('.captions span'));
 
-    await this.updateComplete;
-
-    this.__mark = new Mark(this.renderRoot.querySelectorAll('.captions span'));
-
-    this.__registerListeners();
+      this.__registerListeners();
+    }
   }
 
   __toggleShouldScroll() {
