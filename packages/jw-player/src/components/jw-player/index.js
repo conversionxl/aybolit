@@ -24,8 +24,9 @@ export class JWPlayerElement extends LitElement {
   @state() __currentTrack = 0;
   @state() __matches = 0;
   @property({ type: Boolean }) captions = false;
+  @property() mediaId;
   @property() playerId;
-  @property() playlist;
+  @property() playlistId;
   @property({ type: Boolean }) shouldScroll = true;
   @state() __tracks = [];
 
@@ -103,8 +104,15 @@ export class JWPlayerElement extends LitElement {
     return [...[{ data: { start: 0, text: '' } }], ...parseSync(response)];
   }
 
+  async __getMedia() {
+    return await (await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`)).json();
+  }
+
   async __getPlaylist() {
-    return await (await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlist}`)).json();
+    return (
+      this.playlistId &&
+      (await (await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`)).json())
+    );
   }
 
   async __loadScript() {
@@ -125,8 +133,7 @@ export class JWPlayerElement extends LitElement {
     this.__chapters = await this.__getChapters();
 
     this.__chapters.forEach((chapter, index) => {
-      chapter.isChapter = true;
-      tracks.push(chapter);
+      tracks.push({ ...chapter, ...{ isChapter: true } });
       tracks.push(...this.__getCaptionsInChapter(index));
     });
 
@@ -171,6 +178,7 @@ export class JWPlayerElement extends LitElement {
 
     this.__jwPlayer = jwPlayer(el).setup({
       ...this.config,
+      ...(await this.__getMedia()),
       ...(await this.__getPlaylist()),
     });
 

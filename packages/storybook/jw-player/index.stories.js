@@ -5,7 +5,7 @@ export default {
   title: 'JW Player/JW Player',
 };
 
-const Template = ({ captions }) =>
+const Template = ({ captions, mediaId, playlistId }) =>
   html`
     <style>
       #root-inner {
@@ -23,9 +23,9 @@ const Template = ({ captions }) =>
     </style>
     <jw-player
       ?captions=${captions}
-      mediaId="fZ0XiGdb"
+      mediaId=${mediaId}
       playerId="5CFJNXKb"
-      playlist="tAxwbNsA"
+      playlist=${playlistId}
       type="playlist"
     ></jw-player>
   `;
@@ -35,5 +35,6 @@ export const Default = Template.bind({});
 Object.assign(Default, {
   args: {
     captions: true,
+    mediaId: 'fZ0XiGdb',
   },
 });
