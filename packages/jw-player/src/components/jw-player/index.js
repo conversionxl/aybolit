@@ -34,15 +34,17 @@ export class JWPlayerElement extends LitElement {
     return template.bind(this)();
   }
 
-  // disable shadow dom
-  // createRenderRoot() {
-  //   return this;
-  // }
-
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
 
     this.__setup();
+  }
+
+  updated(_changedProperties) {
+    super.updated(_changedProperties);
+    if (_changedProperties.has('captions') || _changedProperties.has('mediaId')) {
+      // this.__setup();
+    }
   }
 
   get __ready() {
@@ -54,19 +56,6 @@ export class JWPlayerElement extends LitElement {
   get __scriptUrl() {
     return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
   }
-
-  // __createIndex() {
-  //   const captions = this.__captions;
-  //   return lunr(function () {
-  //     captions.forEach((caption, index) => {
-  //       caption.data.id = index;
-
-  //       this.field('text');
-
-  //       this.add(caption.data);
-  //     });
-  //   });
-  // }
 
   async __getCaptions() {
     const playlistItem = this.__jwPlayer.getPlaylistItem();
@@ -161,7 +150,6 @@ export class JWPlayerElement extends LitElement {
 
   __search(e) {
     this.__mark.unmark();
-
     this.__mark.mark(e.target.value, { done: (total) => (this.__matches = total) });
   }
 
@@ -189,8 +177,6 @@ export class JWPlayerElement extends LitElement {
 
       // Make sure the DOM is up to date
       await this.updateComplete;
-
-      // this.__searchIndex = this.__createIndex();
 
       this.__mark = new Mark(this.renderRoot.querySelectorAll('.captions span'));
 
