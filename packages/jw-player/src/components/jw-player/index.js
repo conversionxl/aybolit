@@ -65,7 +65,7 @@ export class JWPlayerElement extends LitElement {
     });
   }
 
-  __onTimeListener({ position }) {}
+  __onTimeListener(e) {}
 
   __registerListeners() {
     this.__boundOnTimeListener = this.__onTimeListener.bind(this);

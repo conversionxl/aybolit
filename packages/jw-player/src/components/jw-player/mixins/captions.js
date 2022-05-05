@@ -66,10 +66,10 @@ export function CaptionsMixin(Base) {
       this.__jwPlayer.seek(this.__tracks[index].data.start / 1000);
     }
 
-    __onTimeListener(e) {
-      super.__onTimeListener(e);
+    __onTimeListener(event) {
+      super.__onTimeListener(event);
 
-      const position = e.position * 1000; // Convert to milliseconds
+      const position = event.position * 1000; // Convert to milliseconds
 
       this.__tracks.forEach(({ data: { end, start } }, index) => {
         if (start <= position && end >= position) {

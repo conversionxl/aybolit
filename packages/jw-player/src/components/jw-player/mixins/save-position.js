@@ -11,13 +11,16 @@ export function SavePositionMixin(Base) {
       this.__jwPlayer.pause();
     }
 
-    __onTimeListener({ position }) {
-      super.__onTimeListener({ position });
+    /**
+     * The listener is registered in the base class (../index.js).
+     */
+    __onTimeListener(event) {
+      super.__onTimeListener(event);
 
-      this.__savePosition(position);
+      this.__savePosition(event);
     }
 
-    __savePosition(position) {
+    __savePosition({ position }) {
       localStorage.setItem(`jw-player-${this.mediaId}-position`, position);
     }
   }
