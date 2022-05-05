@@ -1,9 +1,7 @@
 import { LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import Mark from 'mark.js';
-import { parseSync } from 'subtitle';
 import { template } from './index.html';
-import { SavePositionMixin } from './mixins/save-position';
+import { CaptionsMixin, SavePositionMixin } from './mixins';
 
 export class JWPlayerElement extends LitElement {
   config = {
@@ -13,21 +11,11 @@ export class JWPlayerElement extends LitElement {
 
   __boundOnTimeListener;
   __jwPlayer;
-  __mark;
-  __searchIndex;
+  __position;
 
-  @state() __captions = [];
-  @state() __chapters = [];
-  @state() __currentChapter = 0;
-  @state() __currentCue = 0;
-  @state() __currentTrack = 0;
-  @state() __matches = 0;
-  @property({ type: Boolean }) captions = false;
   @property() mediaId;
   @property() playerId;
   @property() playlistId;
-  @property({ type: Boolean }) shouldScroll = true;
-  @state() __tracks = [];
 
   render() {
     return template.bind(this)();
@@ -36,11 +24,7 @@ export class JWPlayerElement extends LitElement {
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
 
-    this.__ready = new Promise(async (resolve) => {
-      await this.__setup();
-
-      resolve();
-    });
+    this.__setup();
   }
 
   updated(_changedProperties) {
@@ -54,40 +38,10 @@ export class JWPlayerElement extends LitElement {
     return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
   }
 
-  async __getCaptions() {
-    const playlistItem = this.__jwPlayer.getPlaylistItem();
-    const file = playlistItem.tracks.filter((track) => track.kind === 'captions')[0].file;
-    const response = await (await fetch(file)).text();
-
-    return parseSync(response);
-  }
-
-  __getCaptionsInChapter(index) {
-    return this.__captions.filter((caption) => {
-      if (caption.data.start >= this.__chapters[index].data.start) {
-        if (this.__chapters[index + 1]) {
-          if (caption.data.start <= this.__chapters[index + 1].data.start) {
-            return caption;
-          }
-        } else {
-          return caption;
-        }
-      }
-    });
-  }
-
   __getChapterByPosition(position) {
     return this.__chapters.find(
       (chapter) => chapter.data.start <= position && chapter.data.end >= position
     );
-  }
-
-  async __getChapters() {
-    const playlistItem = this.__jwPlayer.getPlaylistItem();
-    const file = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0].file;
-    const response = await (await fetch(file)).text();
-
-    return [...[{ data: { start: 0, text: '' } }], ...parseSync(response)];
   }
 
   async __getMedia() {
@@ -101,20 +55,6 @@ export class JWPlayerElement extends LitElement {
     );
   }
 
-  async __getTracks() {
-    const tracks = [];
-
-    this.__captions = await this.__getCaptions();
-    this.__chapters = await this.__getChapters();
-
-    this.__chapters.forEach((chapter, index) => {
-      tracks.push({ ...chapter, ...{ isChapter: true } });
-      tracks.push(...this.__getCaptionsInChapter(index));
-    });
-
-    return tracks;
-  }
-
   async __loadScript() {
     return new Promise((resolve) => {
       const el = document.createElement('script');
@@ -126,33 +66,11 @@ export class JWPlayerElement extends LitElement {
     });
   }
 
-  __onTimeListener({ position }) {
-    const _position = position * 1000; // Convert to milliseconds
-
-    this.__tracks.forEach(({ data: { end, start } }, index) => {
-      if (start <= _position && end >= _position) {
-        if (this.shouldScroll) {
-          this.renderRoot.querySelector(`[data-index="${index}"]`).scrollIntoView(true);
-        }
-
-        this.__currentTrack = index;
-      }
-    });
-  }
+  __onTimeListener({ position }) {}
 
   __registerListeners() {
     this.__boundOnTimeListener = this.__onTimeListener.bind(this);
     this.__jwPlayer.on('time', this.__boundOnTimeListener);
-  }
-
-  __search(e) {
-    this.__mark.unmark();
-    this.__mark.mark(e.target.value, { done: (total) => (this.__matches = total) });
-  }
-
-  __seek(e) {
-    const index = Number(e.currentTarget.dataset.index);
-    this.__jwPlayer.seek(this.__tracks[index].data.start / 1000);
   }
 
   async __setup() {
@@ -171,21 +89,8 @@ export class JWPlayerElement extends LitElement {
       this.__jwPlayer.on('ready', resolve);
     });
 
-    if (this.captions) {
-      this.__tracks = await this.__getTracks();
-
-      // Make sure the DOM is up to date
-      await this.updateComplete;
-
-      this.__mark = new Mark(this.renderRoot.querySelectorAll('.captions span'));
-
-      this.__registerListeners();
-    }
-  }
-
-  __toggleShouldScroll() {
-    this.shouldScroll = !this.shouldScroll;
+    this.__registerListeners();
   }
 }
 
-customElements.define('jw-player', SavePositionMixin(JWPlayerElement));
+customElements.define('jw-player', SavePositionMixin(CaptionsMixin(JWPlayerElement)));

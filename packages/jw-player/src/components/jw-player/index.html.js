@@ -30,7 +30,7 @@ export const template = function () {
                         <span
                           ?active=${this.__currentTrack === index}
                           data-index=${index}
-                          @click=${this.__seek}
+                          @click=${this.__onCaptionClick}
                         >
                           ${track.data.text}
                         </span>
