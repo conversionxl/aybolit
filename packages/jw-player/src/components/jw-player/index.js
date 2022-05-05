@@ -1,11 +1,10 @@
 import { LitElement } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
+import Mark from 'mark.js';
 import { parseSync } from 'subtitle';
 import { template } from './index.html';
-import lunr from 'lunr';
-import Mark from 'mark.js';
+import { SavePositionMixin } from './mixins/save-position';
 
-@customElement('jw-player')
 export class JWPlayerElement extends LitElement {
   config = {
     width: '100%',
@@ -37,7 +36,11 @@ export class JWPlayerElement extends LitElement {
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
 
-    this.__setup();
+    this.__ready = new Promise(async (resolve) => {
+      await this.__setup();
+
+      resolve();
+    });
   }
 
   updated(_changedProperties) {
@@ -45,12 +48,6 @@ export class JWPlayerElement extends LitElement {
     if (_changedProperties.has('captions') || _changedProperties.has('mediaId')) {
       // this.__setup();
     }
-  }
-
-  get __ready() {
-    return new Promise((resolve) => {
-      this.__jwPlayer.on('ready', resolve);
-    });
   }
 
   get __scriptUrl() {
@@ -104,17 +101,6 @@ export class JWPlayerElement extends LitElement {
     );
   }
 
-  async __loadScript() {
-    return new Promise((resolve) => {
-      const el = document.createElement('script');
-      el.src = this.__scriptUrl;
-      el.onload = () => {
-        resolve(self['jwplayer']);
-      };
-      document.head.appendChild(el);
-    });
-  }
-
   async __getTracks() {
     const tracks = [];
 
@@ -129,11 +115,22 @@ export class JWPlayerElement extends LitElement {
     return tracks;
   }
 
-  __onTimeListener({ position: _position }) {
-    const position = _position * 1000; // Convert to milliseconds
+  async __loadScript() {
+    return new Promise((resolve) => {
+      const el = document.createElement('script');
+      el.src = this.__scriptUrl;
+      el.onload = () => {
+        resolve(self['jwplayer']);
+      };
+      document.head.appendChild(el);
+    });
+  }
+
+  __onTimeListener({ position }) {
+    const _position = position * 1000; // Convert to milliseconds
 
     this.__tracks.forEach(({ data: { end, start } }, index) => {
-      if (start <= position && end >= position) {
+      if (start <= _position && end >= _position) {
         if (this.shouldScroll) {
           this.renderRoot.querySelector(`[data-index="${index}"]`).scrollIntoView(true);
         }
@@ -170,7 +167,9 @@ export class JWPlayerElement extends LitElement {
       ...(await this.__getPlaylist()),
     });
 
-    await this.__ready;
+    await new Promise((resolve) => {
+      this.__jwPlayer.on('ready', resolve);
+    });
 
     if (this.captions) {
       this.__tracks = await this.__getTracks();
@@ -188,3 +187,5 @@ export class JWPlayerElement extends LitElement {
     this.shouldScroll = !this.shouldScroll;
   }
 }
+
+customElements.define('jw-player', SavePositionMixin(JWPlayerElement));
