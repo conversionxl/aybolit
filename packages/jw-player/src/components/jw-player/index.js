@@ -1,5 +1,6 @@
 import { LitElement } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
+import { style } from './index.css';
 import { template } from './index.html';
 import { CaptionsMixin, SavePositionMixin } from './mixins';
 
@@ -16,6 +17,10 @@ export class JWPlayerElement extends LitElement {
   @property() mediaId;
   @property() playerId;
   @property() playlistId;
+
+  static get styles() {
+    return [style];
+  }
 
   render() {
     return template.bind(this)();
@@ -36,12 +41,6 @@ export class JWPlayerElement extends LitElement {
 
   get __scriptUrl() {
     return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
-  }
-
-  __getChapterByPosition(position) {
-    return this.__chapters.find(
-      (chapter) => chapter.data.start <= position && chapter.data.end >= position
-    );
   }
 
   async __getMedia() {

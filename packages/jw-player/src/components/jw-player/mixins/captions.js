@@ -13,6 +13,10 @@ export function CaptionsMixin(Base) {
     @property({ type: Boolean }) shouldScroll = true;
     @state() __tracks = [];
 
+    /**
+     *
+     * @returns {Promise<void>}
+     */
     async __getCaptions() {
       const playlistItem = this.__jwPlayer.getPlaylistItem();
       const file = playlistItem.tracks.filter((track) => track.kind === 'captions')[0].file;
@@ -93,8 +97,6 @@ export function CaptionsMixin(Base) {
         await this.updateComplete;
 
         this.__mark = new Mark(this.renderRoot.querySelectorAll('.captions span'));
-
-        this.__registerListeners();
       }
     }
 

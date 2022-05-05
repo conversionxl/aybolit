@@ -1,11 +1,7 @@
 import { html, nothing } from 'lit';
-import { style } from './index.css';
 
 export const template = function () {
   return html`
-    <style>
-      ${style}
-    </style>
     <div class="grid height-100" id="container">
       <slot></slot>
       ${this.captions
