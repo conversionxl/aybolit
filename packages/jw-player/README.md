@@ -17,4 +17,4 @@ TODO:
 * [X] Captions click and seek
 * [X] Captions search and highlight
 * [X] Save position
-* [] Theater mode
+* [ ] Theater mode
