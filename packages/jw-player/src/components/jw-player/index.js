@@ -2,7 +2,7 @@ import { LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { style } from './index.css';
 import { template } from './index.html';
-import { CaptionsMixin, SavePositionMixin } from './mixins';
+import { CaptionMixin, SavePositionMixin } from './mixins';
 
 export class JWPlayerElement extends LitElement {
   config = {
@@ -65,6 +65,9 @@ export class JWPlayerElement extends LitElement {
     });
   }
 
+  /**
+   * Each mixin has the ability to hook onto this method.
+   */
   __onTimeListener(e) {}
 
   __registerListeners() {
@@ -72,6 +75,9 @@ export class JWPlayerElement extends LitElement {
     this.__jwPlayer.on('time', this.__boundOnTimeListener);
   }
 
+  /**
+   * Each mixin has the ability to hook onto this method.
+   */
   async __setup() {
     const jwPlayer = await this.__loadScript();
 
@@ -92,4 +98,4 @@ export class JWPlayerElement extends LitElement {
   }
 }
 
-customElements.define('jw-player', SavePositionMixin(CaptionsMixin(JWPlayerElement)));
+customElements.define('jw-player', SavePositionMixin(CaptionMixin(JWPlayerElement)));

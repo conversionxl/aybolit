@@ -2,7 +2,7 @@ import { property, state } from 'lit/decorators.js';
 import Mark from 'mark.js';
 import { parseSync } from 'subtitle';
 
-export function CaptionsMixin(Base) {
+export function CaptionMixin(Base) {
   class Mixin extends Base {
     __mark;
 

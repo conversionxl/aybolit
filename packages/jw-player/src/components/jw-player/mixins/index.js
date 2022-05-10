@@ -1,2 +1,3 @@
-export { SavePositionMixin } from './save-position';
-export { CaptionsMixin } from './captions';
+export { CaptionMixin } from './CaptionMixin';
+export { SavePositionMixin } from './SavePositionMixin';
+
