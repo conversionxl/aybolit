@@ -2,8 +2,8 @@ import { property, state } from 'lit/decorators.js';
 import Mark from 'mark.js';
 import { parseSync } from 'subtitle';
 
-export function CaptionMixin(Base) {
-  class Mixin extends Base {
+export function CaptionMixin(BaseClass) {
+  class Mixin extends BaseClass {
     __mark;
 
     @property({ type: Boolean }) captions = false;

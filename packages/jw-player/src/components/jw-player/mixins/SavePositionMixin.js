@@ -1,5 +1,5 @@
-export function SavePositionMixin(Base) {
-  class Mixin extends Base {
+export function SavePositionMixin(BaseClass) {
+  class Mixin extends BaseClass {
     async __setup() {
       await super.__setup();
 
