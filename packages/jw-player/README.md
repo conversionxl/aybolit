@@ -34,7 +34,8 @@ I've abstracted this to:
 ```
 const mixin = (baseClass, mixins) =>
   mixins.reduce((parentClass, mixin) => mixin(parentClass), baseClass);
-
+```
+```
 class MyClass extends mixin(BaseClass, [MixinOne, MixinTwo, MixinThree]) {}
 ```
 
