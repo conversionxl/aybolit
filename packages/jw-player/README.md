@@ -39,6 +39,8 @@ const mixin = (baseClass, mixins) =>
 
 ```
 // my-class.js
+import { mixin } from '../../utility';
+
 class MyClass extends mixin(BaseClass, [MixinOne, MixinTwo, MixinThree]) {}
 ```
 
