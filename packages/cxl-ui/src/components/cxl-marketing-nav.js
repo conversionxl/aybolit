@@ -132,9 +132,8 @@ export class CXLMarketingNavElement extends LitElement {
     /**
      * Configure `.menu-item-search`.
      */
-    const menuItemSearchContextMenu = this.menuItemSearchElement.querySelector(
-      'vaadin-context-menu'
-    );
+    const menuItemSearchContextMenu =
+      this.menuItemSearchElement.querySelector('vaadin-context-menu');
 
     /**
      * `<vaadin-context-menu-item>` interferes with form input.
@@ -185,6 +184,8 @@ export class CXLMarketingNavElement extends LitElement {
      * Decide `<vaadin-tabs>` initial orientation.
      */
     this._updatedWide();
+
+    this._repositionMenuItems();
 
     /**
      * Highlight current menu item.
@@ -252,6 +253,71 @@ export class CXLMarketingNavElement extends LitElement {
 
         menuItemsEl.setAttribute('selected', idx);
       }
+    });
+  }
+
+  /**
+   * Patch for dropdown menu position.
+   * Ideally dropdown menu should be shown below the clicked menu.
+   *
+   * @since 2022.05.11
+   * @private
+   */
+  _repositionMenuItems() {
+    this.menuItemsElements.forEach((menuItemsEl) => {
+      const dropdownMenuItems = menuItemsEl.querySelectorAll('.menu-item-has-children');
+
+      dropdownMenuItems.forEach((dropdownMenuItem) => {
+        const contextMenuItem = dropdownMenuItem.querySelector('vaadin-context-menu');
+        const contextMenuOverlay = contextMenuItem ? contextMenuItem.$.overlay : null;
+
+        if (contextMenuOverlay) {
+          contextMenuOverlay.addEventListener('vaadin-overlay-open', () => {
+            // If menu overlay is bottom aligned, no need to do optimizations.
+            if (contextMenuOverlay.hasAttribute('bottom-aligned')) {
+              return;
+            }
+
+            // Reset properties.
+            ['right', 'left'].forEach((prop) => contextMenuOverlay.style?.removeProperty(prop));
+
+            const wdthVport = document.documentElement.clientWidth;
+            const dropdownMenuItemBox = dropdownMenuItem.getBoundingClientRect();
+            const contextMenuOverlayBox = contextMenuOverlay.getBoundingClientRect();
+
+            // Set menu top position, so it shows just below the menu, doesn't overlap the menu item.
+            contextMenuOverlay.style.top = `${dropdownMenuItemBox.bottom}px`;
+
+            // If menu overlay is end-aligned, set right property.
+            // if viewport width is greater than overlay width + horizontal position on screen, set right property.
+            if (
+              contextMenuOverlay.hasAttribute('right-aligned') ||
+              contextMenuOverlay.hasAttribute('end-aligned') ||
+              wdthVport > contextMenuOverlayBox.width + contextMenuOverlayBox.width.x
+            ) {
+              contextMenuOverlay.style.right = `${parseInt(
+                Math.max(0, wdthVport - dropdownMenuItemBox.x - dropdownMenuItemBox.width / 2),
+                10
+              )}px`;
+
+              // by default set left property.
+            } else {
+              contextMenuOverlay.style.left = `${parseInt(
+                dropdownMenuItemBox.x + dropdownMenuItemBox.width / 2,
+                10
+              )}px`;
+            }
+
+            // Show menu overlay when menu top / right / left property is set.
+            contextMenuOverlay.style.opacity = '1';
+          });
+
+          contextMenuOverlay.addEventListener('opened-changed', () => {
+            // Set menu overlay to hidden, so it doesn't jump / shift position, when menu top / right / left property is set.
+            contextMenuOverlay.style.opacity = '0';
+          });
+        }
+      });
     });
   }
 
