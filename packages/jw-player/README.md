@@ -44,7 +44,7 @@ import { mixin } from '../../utility';
 class MyClass extends mixin(BaseClass, [MixinOne, MixinTwo, MixinThree]) {}
 ```
 
-Order is important as each mixin extends the previous one. In this case, `MixinThree` extends `MixinTwo` which extends `MixinOne`. Mixins are loaded and executed in order.
+Order is important as each mixin extends the previous one. In this case, `MixinThree` extends `MixinTwo` which extends `MixinOne`. Mixins are loaded and executed in the order that they are defined, in this case they are loaded in this order: `MixinOne`, `MixinTwo`, `MixinThree`.
 
 There are currently two methods which are important to the lifecycle of the component:
 
