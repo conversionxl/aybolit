@@ -46,6 +46,11 @@ This method is async and called when the component is first created. By first ca
 `__onTimeListener()`
 This method is async and called when the player's time changes. As with `__setup()` make sure to call `await super.__onTimeListener()` to make sure the parent class has finished executing.
 
+Current mixins available for use:
+* BaseMixin (Required) - Responsible for setting up the player, loading the media.
+* CaptionMixin - Responsible for loading the captions, adding caption sync, click to seek and search.
+* SavePositionMixin - Responsible for saving the position of the player.
+
 ## Templating
 
 For a quick overview of lit's templating capabilities, see the [lit-html](https://lit.dev/docs/templates/overview/) documentation.
