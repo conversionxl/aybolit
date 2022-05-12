@@ -29,7 +29,7 @@ The syntax for mixins is:
 class MyClass extends MixinThree(MixinTwo(MixinOne(MyClass))) {}
 ```
 
-I've abstracted this to:
+This has been abstracted to:
 
 ```
 const mixin = (baseClass, mixins) =>
