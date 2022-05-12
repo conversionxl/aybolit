@@ -3,7 +3,7 @@ import { customElement } from 'lit/decorators.js';
 import { mixin } from '../../utility';
 import { style } from './index.css';
 import { template } from './index.html';
-import { BaseMixin, CaptionMixin, SavePositionMixin } from './mixins';
+import { BaseMixin, CaptionMixin, SavePositionMixin } from '../../mixins';
 
 @customElement('jw-player')
 export class JWPlayerElement extends mixin(LitElement, [
