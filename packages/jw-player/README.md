@@ -44,6 +44,7 @@ There are currently two methods which are important to the lifecycle of the comp
 This method is async and called when the component is first created. By first calling `await super.__setup()` in our mixins, we ensure that the parent mixin has finished setting up before we begin setting up our own.
 
 `__onTimeListener()`
+
 This method is async and called when the player's time changes. As with `__setup()` make sure to call `await super.__onTimeListener()` to make sure the parent class has finished executing.
 
 Current mixins available for use:
