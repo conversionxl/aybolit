@@ -19,7 +19,7 @@
 
 ## Mixins
 
-This component uses mixins as opposed to the JW Player plugin system. This allows us to leverage lit's declarative capabilities such as as conditional attributes/properties as well as event listeners. It also allows us to better diagnose errors as JW Player's plugin system fails with a generic error message.
+This component uses mixins as opposed to the JW Player plugin system. This allows us to leverage lit's declarative capabilities such as conditional attributes/properties as well as event listeners. It also allows us to better diagnose errors as JW Player's plugin system fails with a generic error message.
 
 Mixins are a form of multiple inheritance and allow the consumer to extend multiple classes.
 
