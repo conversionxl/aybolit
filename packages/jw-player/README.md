@@ -32,11 +32,13 @@ class MyClass extends MixinThree(MixinTwo(MixinOne(MyClass))) {}
 This has been abstracted to:
 
 ```
+// utility.js
 const mixin = (baseClass, mixins) =>
   mixins.reduce((parentClass, mixin) => mixin(parentClass), baseClass);
 ```
 
 ```
+// my-class.js
 class MyClass extends mixin(BaseClass, [MixinOne, MixinTwo, MixinThree]) {}
 ```
 
@@ -54,7 +56,7 @@ This method is async and called when the player's time changes. As with `__setup
 
 Current mixins available for use:
 * BaseMixin (Required) - Responsible for setting up the player, loading the media.
-* CaptionMixin - Responsible for loading the captions, adding caption sync, click to seek and search.
+* CaptionMixin - Responsible for loading the captions, auto-scrolling, click to seek, search.
 * SavePositionMixin - Responsible for saving the position of the player.
 
 ## Templating
