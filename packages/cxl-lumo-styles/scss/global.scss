@@ -44,6 +44,12 @@ a {
   }
 }
 
+a[target="_blank"]:any-link::after {
+  padding-left: 0.25rem;
+  font-family: vaadin-icons;
+  content: var(--vaadin-icons-external-link);
+}
+
 // Heading highlights w/ formatting (strikethrough etc) support.
 b,
 strong {
