@@ -1,17 +1,19 @@
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { html } from 'lit-html';
-import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
-import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
-import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
-import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
-import '@vaadin/vaadin-button';
+import '../../../cxl-ui/src/components/cxl-paywall';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
-import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion.stories';
+import { CXLStarRating } from '../cxl-star-rating.stories';
+import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion/cxl-playbook-accordion.story';
 
 export default {
-  title: 'CXL UI/cxl-app-layout',
+  component: 'cxl-paywall',
+  decorators: [withKnobs],
+  title: 'CXL UI/Paywall',
 };
 
-const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => html`
+const hasWidgetBackground = boolean('Has widget background?', false);
+
+const Template = ({ _count, _limit, delay, opacity, subscribed }) => html`
   <style>
     .widget.has-background {
       background-color: var(--lumo-shade-5pct);
@@ -41,16 +43,7 @@ const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => htm
 
     <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
       <label>Actions</label>
-
-      <p>
-        <cxl-like-or-dislike
-          postType="playbook"
-          postId="1234"
-          userId="3"
-          upVotes="400"
-        ></cxl-like-or-dislike>
-      </p>
-
+      <p>Rate this playbook ${CXLStarRating()}</p>
       <p>
         <vaadin-button theme="tertiary contrast"
           >Share <iron-icon icon="lumo:cog" slot="prefix"></iron-icon
@@ -59,15 +52,6 @@ const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => htm
         <vaadin-button theme="tertiary contrast"
           >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
         ></vaadin-button>
-      </p>
-      <p>
-        <cxl-save-favorite
-          apiUrl="https://jsonplaceholder.typicode.com/users"
-          postType="playbook"
-          postId="${postId}"
-          userId="${userId}"
-          ?selected=${playbookSaved}
-        ></cxl-save-favorite>
       </p>
     </section>
 
@@ -115,17 +99,18 @@ const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => htm
       </h5>
     </section>
 
-    <article id="post-${postId}" class="entry post-${postId} playbook type-playbook">
+    <article class="entry">
       <header class="entry-header">
         <label>Playbook</label>
         <h1 class="entry-title">Choose a traditional SaaS go-to-market strategy</h1>
         <div class="entry-byline">
-          <label for="cxl-playbook-progress-bar-${postId}"></label>
-          <cxl-playbook-progress-bar
-            id="cxl-playbook-progress-bar-${postId}"
-            listen-on-closest="article"
-          ></cxl-playbook-progress-bar>
-          <!-- [listen-on-closest] fixes race condition vs article classes computation -->
+          <span class="progress statement playbook-completion-rate"
+            >Completed 4 steps of 8 in total</span
+          >
+          <vaadin-progress-bar value="0.50">Completed 4 steps of 8 in total</vaadin-progress-bar>
+          <section class="course-meta course-enrolment">
+            <div class="status in-progress">In Progress</div>
+          </section>
         </div>
       </header>
 
@@ -136,19 +121,45 @@ const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => htm
           marketing-led) will help your company acquire customers in the most capital-efficient way.
         </p>
       </div>
-
-      <footer class="entry-footer">${CXLPlaybookAccordion(CXLPlaybookAccordion.args)}</footer>
+      <cxl-paywall
+        ._count=${_count}
+        ._limit=${_limit}
+        delay=${delay}
+        opacity=${opacity}
+        ?subscribed=${subscribed}
+      >
+        <footer class="entry-footer">${CXLPlaybookAccordion()}</footer>
+      </cxl-paywall>
     </article>
   </cxl-app-layout>
 `;
 
-export const CXLAppLayout2cl = Template.bind({});
+export const Layout = (args) => Template(args);
 
-CXLAppLayout2cl.storyName = '[layout=2c-l]';
+Layout.args = {
+  _count: 0,
+  _limit: 10,
+  delay: 1000,
+  opacity: 0.1,
+  subscribed: false,
+};
 
-CXLAppLayout2cl.args = {
-  postId: 1234,
-  userId: 5678,
-  playbookSaved: false,
-  hasWidgetBackground: false,
+Layout.argTypes = {
+  _count: {
+    name: 'Count',
+    control: { type: 'range', min: 0, max: 100 },
+  },
+  _limit: {
+    name: 'Limit',
+  },
+  delay: {
+    name: 'Delay',
+  },
+  opacity: {
+    name: 'Opacity',
+    control: { type: 'range', min: 0, max: 1, step: 0.1 },
+  },
+  subscribed: {
+    name: 'Subscribed',
+  },
 };

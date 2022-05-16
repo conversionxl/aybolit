@@ -1,3 +1,5 @@
+@use "../mq";
+
 [part="content"] {
   padding-left: var(--lumo-space-m);
 }
@@ -140,5 +142,27 @@
         color: var(--lumo-shade);
       }
     }
+  }
+}
+
+/**
+ * Theme "cxl-playbook-accordion".
+ */
+:host([theme~="cxl-playbook-accordion"]) {
+  [part="content"] {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--lumo-space-l);
+    margin-bottom: var(--lumo-space-l);
+
+    @media #{mq.$small} {
+      margin-left: calc(var(--lumo-space-l) + var(--lumo-space-xs));
+      box-shadow: -1px 0 0 0 var(--lumo-contrast-10pct); // Match vaadin-tabs[orientation="vertical"].
+    }
+  }
+
+  [part="summary"] {
+    padding-top: var(--lumo-space-m);
+    padding-bottom: var(--lumo-space-m);
   }
 }

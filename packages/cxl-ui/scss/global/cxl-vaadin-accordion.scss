@@ -16,8 +16,10 @@ cxl-vaadin-accordion {
     }
 
     .entry {
+      //mixin affects: .entry-header > label
       @include mixins.label-contrast("> .entry-header") {
         flex-basis: 100%;
+        text-transform: uppercase;
       }
     }
 
@@ -137,6 +139,129 @@ cxl-vaadin-accordion {
     .thumbnail {
       --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
       background-color: var(--lumo-contrast-5pct);
+    }
+  }
+
+  /**
+   * Theme "cxl-accordion-playbook-card"
+   */
+  &[theme~="cxl-accordion-playbook-card"] {
+    column-gap: calc(var(--lumo-space-m) * 2);
+    column-rule: 1px solid var(--lumo-shade-10pct);
+    column-width: calc(var(--cxl-wrap-width) / 4);
+
+    iron-icon {
+      --iron-icon-height: var(--lumo-icon-size-s);
+      --iron-icon-width: var(--iron-icon-height);
+    }
+
+    p {
+      font-family: inherit;
+    }
+
+    .entry {
+      @include mixins.label-contrast("> .entry-header") {
+        flex-basis: 100%;
+      }
+    }
+
+    .entry-header {
+      position: relative;
+      height: calc(var(--lumo-size-xl) * 3.2); //230px;
+      padding: 0;
+      overflow-y: hidden;
+
+      label {
+        margin-bottom: var(--lumo-space-s);
+      }
+    }
+
+    .entry-byline {
+      display: flex; // iron-icon vs text alignment
+      flex-basis: 100%;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin: var(--lumo-space-s) 0;
+      overflow: hidden;
+      font-weight: 300;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      // @see https://stackoverflow.com/questions/29732575/how-to-specify-line-breaks-in-a-multi-line-flexbox-layout
+      hr {
+        width: 100%;
+        margin: 0;
+        visibility: hidden;
+      }
+    }
+
+    cxl-save-favorite {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    h2 {
+      @include mixins.ellipsis-for-lines(3);
+    }
+
+    .plural {
+      .entry-title {
+        margin: 0;
+      }
+    }
+
+    .entry-title {
+      flex: 1;
+      flex-basis: auto;
+      /* stylelint-disable-next-line declaration-no-important */
+      height: calc(var(--lumo-line-height-xs) * 3em) !important;
+      margin-top: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+      font-size: var(--lumo-font-size-xl);
+      word-break: break-word;
+
+      a {
+        color: inherit;
+      }
+    }
+
+    .entry-summary,
+    .entry-content {
+      padding: 0;
+      font-size: var(--lumo-font-size-xs);
+      word-wrap: normal;
+    }
+
+    &[theme~="dark"] {
+      .entry-summary,
+      .entry-content {
+        color: var(--lumo-contrast-50pct);
+      }
+    }
+
+    label {
+      .entry-summary {
+        width: 85%;
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+
+      > a {
+        display: block;
+        padding: 0 var(--lumo-space-s);
+        margin: var(--lumo-space-xs) calc(var(--lumo-space-xs) * 2) var(--lumo-space-xs) 0;
+        background: var(--lumo-contrast-10pct);
+        border-radius: 10px;
+      }
+
+      > a:hover {
+        cursor: pointer;
+      }
     }
   }
 }

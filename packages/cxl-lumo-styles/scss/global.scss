@@ -79,7 +79,6 @@ ul {
  * headroom.js
  */
 .headroom {
-  will-change: transform;
   transition: transform 200ms linear;
 
   &--pinned {

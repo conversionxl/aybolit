@@ -1,16 +1,16 @@
 import '@conversionxl/cxl-lumo-styles';
+import '@vaadin/vaadin-button';
+import { withKnobs } from '@storybook/addon-knobs';
 import { html } from 'lit-html';
+import './icons-preview';
 
 export default {
+  decorators: [withKnobs],
   title: 'CXL Lumo Styles/Icons',
 };
 
-// eslint-disable-next-line no-empty-pattern
-export const ExternalLink = ({}) => html`
-  This is an example of a
-  <a href="https://example.com" target="_blank" rel="noopener noreferrer">External Link</a>
-`;
+export const CXL = () => html` <cxl-icons-preview name="cxl"></cxl-icons-preview> `;
 
-Object.assign(ExternalLink, {
-  storyName: 'External Link',
-});
+export const Lumo = () => html` <cxl-icons-preview name="lumo"></cxl-icons-preview> `;
+
+export const Vaadin = () => html` <cxl-icons-preview name="vaadin"></cxl-icons-preview> `;
