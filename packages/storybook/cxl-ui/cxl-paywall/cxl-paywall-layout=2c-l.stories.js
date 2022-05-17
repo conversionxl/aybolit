@@ -128,7 +128,9 @@ const Template = ({ _count, _limit, delay, opacity, subscribed }) => html`
         opacity=${opacity}
         ?subscribed=${subscribed}
       >
-        <footer class="entry-footer">${CXLPlaybookAccordion()}</footer>
+        <footer class="entry-footer">
+          ${CXLPlaybookAccordion({ FeedbackButtonLabel: 'Leave feedback', PlaybookId: '1234' })}
+        </footer>
       </cxl-paywall>
     </article>
   </cxl-app-layout>

@@ -16,6 +16,7 @@ Object.assign(CXLPlaybookAccordion, {
   },
   storyName: 'cxl-playbook-accordion',
 });
+
 CXLVaadinAccordionThemeArchive.storyName = 'cxl-accordion-card';
 CXLVaadinAccordionThemeFaq.storyName = '[theme=cxl-faq]';
 CXLVaadinAccordionThemeMinidegreeTrack.storyName = '[theme=cxl-minidegree-track]';
