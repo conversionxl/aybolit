@@ -2,11 +2,6 @@ import { property } from 'lit/decorators.js';
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
-    config = {
-      width: '100%',
-      height: '100%',
-    };
-
     __boundOnTimeListener;
     __jwPlayer;
     __position;
