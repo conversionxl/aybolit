@@ -49,12 +49,18 @@ export function BaseMixin(BaseClass) {
       });
     }
 
+    async __onFirstFrame() {
+      console.log("1");
+    }
+
     /**
      * Each mixin has the ability to hook onto this method.
      */
-    __onTimeListener(e) {}
+    async __onTimeListener(e) {}
 
     __registerListeners() {
+      this.__boundOnFirstFrame = this.__onFirstFrame.bind(this);
+      this.__jwPlayer.on('firstFrame', this.__boundOnFirstFrame);
       this.__boundOnTimeListener = this.__onTimeListener.bind(this);
       this.__jwPlayer.on('time', this.__boundOnTimeListener);
     }
