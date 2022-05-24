@@ -23,6 +23,7 @@ const Template = ({ captions, mediaId, playlistId }) =>
     </style>
     <jw-player
       ?captions=${captions}
+      class="cxl-jwplayer-container"
       mediaId=${mediaId}
       playerId="5CFJNXKb"
       playlist=${playlistId}
