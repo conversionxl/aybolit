@@ -1,5 +1,5 @@
 import { render } from 'lit';
-import { cxlJWPlayerStyles } from '../styles/cxl-jwplayer-styles';
+import { cxlJWPlayerStyles } from "../lib/cxl-jwplayer-styles"
 
 export function StyleMixin(BaseClass) {
   class Mixin extends BaseClass {
