@@ -5,8 +5,7 @@ export function ChapterMixin(BaseClass) {
   class Mixin extends BaseClass {
     __path = 'https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/';
 
-    async __onFirstFrame() {
-      await super.__onFirstFrame();
+    async __createChapterNavigation() {
 
       const chapters = await this.__getChapters();
 
@@ -104,6 +103,7 @@ export function ChapterMixin(BaseClass) {
       await super.__setup();
 
       this.__addStyle();
+      this.__createChapterNavigation();
     }
 
     __toggleShowChapters() {
