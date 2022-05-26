@@ -1,4 +1,4 @@
-import { LitElement, render } from 'lit';
+import { LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { BaseMixin, CaptionMixin, ChapterMixin, SavePositionMixin, StyleMixin } from '../../mixins';
 import { mixin } from '../../utility';
@@ -32,11 +32,5 @@ export class JWPlayerElement extends mixin(LitElement, [
 
   render() {
     return template.bind(this)();
-  }
-
-  firstUpdated() {
-    super.firstUpdated();
-
-    const style = document.createElement('style');
   }
 }

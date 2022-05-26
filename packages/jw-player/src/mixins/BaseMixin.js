@@ -4,6 +4,7 @@ export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
     __boundOnTimeListener;
     __jwPlayer;
+    __jwPlayerContainer;
     __position;
 
     @property() mediaId;
@@ -49,9 +50,7 @@ export function BaseMixin(BaseClass) {
       });
     }
 
-    async __onFirstFrame() {
-      console.log("1");
-    }
+    async __onFirstFrame() {}
 
     /**
      * Each mixin has the ability to hook onto this method.
@@ -83,6 +82,8 @@ export function BaseMixin(BaseClass) {
       await new Promise((resolve) => {
         this.__jwPlayer.on('ready', resolve);
       });
+
+      this.__jwPlayerContainer = this.__jwPlayer.getContainer();
 
       this.__registerListeners();
     }

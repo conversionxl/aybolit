@@ -1,3 +1,6 @@
+import { css, html, nothing, render } from 'lit';
+import { property } from 'lit/decorators.js';
+
 export function ChapterMixin(BaseClass) {
   class Mixin extends BaseClass {
     __path = 'https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/';
@@ -5,17 +8,17 @@ export function ChapterMixin(BaseClass) {
     async __onFirstFrame() {
       await super.__onFirstFrame();
 
-      console.log('Hi');
+      const chapters = await this.__getChapters();
+
+      this.__chapterNavigation = document.createElement('div');
+      this.__chapterNavigation.classList.add('chapter-navigation');
+      this.__chapterNavigation.hidden = true;
+
+      render(chapterNavigationTemplate.bind(this)(chapters), this.__chapterNavigation);
+
+      this.__jwPlayerContainer.appendChild(this.__chapterNavigation);
 
       const chapters_overlay = document.createElement('div');
-
-      // chapters_overlay = document.getElementById(`${player.id}_cxlJWChapters`);
-
-      const chapters = this.__jwPlayer.getCues();
-
-      if (!chapters.length) {
-        return;
-      }
 
       /**
        * Build the close button and append to overlay.
@@ -38,7 +41,7 @@ export function ChapterMixin(BaseClass) {
       chapter_nav.setAttribute('id', 'chapterNav');
       chapter_nav.setAttribute('class', 'chapters');
 
-      chapter_nav.innerHTML = `${buildChapterNav(chapters)}`;
+      chapter_nav.innerHTML = this.__chapterNavigation;
 
       chapters_overlay.appendChild(chapter_nav);
       chapters_overlay.setAttribute('class', 'chapters-overlay jw-plugin jw-reset hidden');
@@ -59,7 +62,7 @@ export function ChapterMixin(BaseClass) {
       this.__jwPlayer.addButton(
         `${this.__path}images/chapter-bookmark-icon.svg`,
         'Show Chapters',
-        toggleChapterOverlay,
+        this.__toggleShowChapters.bind(this),
         'toggle-chapters'
       );
 
@@ -67,21 +70,54 @@ export function ChapterMixin(BaseClass) {
         chapters_overlay.classList.toggle('hidden');
       }
     }
+
+    __addStyle() {
+      const style = document.createElement('style');
+      render(
+        css`
+          .chapter-navigation {
+            background: #000;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            overflow: auto;
+            top: 0;
+            z-index: 100;
+          }
+
+          .chapter-navigation ul {
+            list-style-type: none;
+          }
+
+          .chapter-navigation li {
+            padding: 0.5rem;
+          }
+        `,
+        style
+      );
+
+      this.appendChild(style);
+    }
+
+    async __setup() {
+      await super.__setup();
+
+      this.__addStyle();
+    }
+
+    __toggleShowChapters() {
+      this.__chapterNavigation.hidden = !this.__chapterNavigation.hidden;
+    }
   }
 
   return Mixin;
 }
 
-/**
- * Build chapter nav UL element
- *
- * @param chapters
- * @returns {string}
- */
-function buildChapterNav(chapters) {
-  let list = '';
-  chapters.forEach((chapter, i) => {
-    list += `<li id="chapter${i}" class="chapterItem">${chapter.text}</li>`;
-  });
-  return `<ul>${list}</ul>`;
-}
+const chapterNavigationTemplate = function (chapters) {
+  return html`
+    <ul>
+      ${chapters.map((chapter) => html`<li>${chapter.data.text}</li>`)}
+    </ul>
+  `;
+};

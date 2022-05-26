@@ -10,11 +10,10 @@ export function StyleMixin(BaseClass) {
     }
 
     __setStyles() {
-      console.log('2');
       const style = document.createElement('style');
       render(cxlJWPlayerStyles, style);
 
-      this.appendChild(style);
+      document.head.appendChild(style);
     }
   }
 
