@@ -1,8 +1,10 @@
 import { property } from 'lit/decorators.js';
+import { parseSync } from 'subtitle';
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
     __boundOnTimeListener;
+    __chapters;
     __jwPlayer;
     __jwPlayerContainer;
     __position;
@@ -26,6 +28,16 @@ export function BaseMixin(BaseClass) {
 
     get __scriptUrl() {
       return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
+    }
+
+    async __getChapters() {
+      const playlistItem = this.__jwPlayer.getPlaylistItem();
+      const file = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0].file;
+      const response = await (await fetch(file)).text();
+
+      // return [...[{ data: { start: 0, text: '' } }], ...parseSync(response)];
+
+      return parseSync(response);
     }
 
     async __getMedia() {
@@ -86,6 +98,8 @@ export function BaseMixin(BaseClass) {
       this.__jwPlayerContainer = this.__jwPlayer.getContainer();
 
       this.__registerListeners();
+
+      this.__chapters = await this.__getChapters();
     }
   }
 

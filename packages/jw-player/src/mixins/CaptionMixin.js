@@ -21,13 +21,13 @@ export function CaptionMixin(BaseClass) {
       return parseSync(response);
     }
 
-    async __getChapters() {
-      const playlistItem = this.__jwPlayer.getPlaylistItem();
-      const file = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0].file;
-      const response = await (await fetch(file)).text();
+    // async __getChapters() {
+    //   const playlistItem = this.__jwPlayer.getPlaylistItem();
+    //   const file = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0].file;
+    //   const response = await (await fetch(file)).text();
 
-      return [...[{ data: { start: 0, text: '' } }], ...parseSync(response)];
-    }
+    //   return [...[{ data: { start: 0, text: '' } }], ...parseSync(response)];
+    // }
 
     __getCaptionsInChapter(chapters, captions, index) {
       return captions.filter((caption) => {
@@ -47,7 +47,7 @@ export function CaptionMixin(BaseClass) {
       const tracks = [];
 
       const captions = await this.__getCaptions();
-      const chapters = await this.__getChapters();
+      const chapters = [...[{ data: { start: 0, text: '' } }], ...(await this.__getChapters())];
 
       chapters.forEach((chapter, index) => {
         tracks.push({ ...chapter, ...{ isChapter: true } });

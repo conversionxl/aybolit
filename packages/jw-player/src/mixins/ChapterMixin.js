@@ -6,7 +6,6 @@ export function ChapterMixin(BaseClass) {
     __path = 'https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/';
 
     async __createChapterNavigation() {
-
       const chapters = await this.__getChapters();
 
       this.__chapterNavigation = document.createElement('div');
@@ -75,14 +74,26 @@ export function ChapterMixin(BaseClass) {
       render(
         css`
           .chapter-navigation {
-            background: #000;
-            color: #fff;
-            position: absolute;
+            background: var(--lumo-shade);
             bottom: 0;
-            right: 0;
+            color: var(--lumo-tint);
+            max-width: 50%;
             overflow: auto;
+            padding: var(--lumo-space-s) var(--lumo-space-m);
+            position: absolute;
+            right: 0;
             top: 0;
             z-index: 100;
+          }
+
+          .chapter-navigation .close {
+            background: inherit;
+            color: var(--lumo-primary-color);
+            cursor: pointer;
+          }
+
+          .chapter-navigation a {
+            color: var(--lumo-tint);
           }
 
           .chapter-navigation ul {
@@ -90,13 +101,26 @@ export function ChapterMixin(BaseClass) {
           }
 
           .chapter-navigation li {
-            padding: 0.5rem;
+            cursor: pointer;
+            font-size: var(--lumo-font-size-s);
+            line-height: var(--lumo-line-height-xs);
+            margin-bottom: var(--lumo-space-s);
+            padding: var(--lumo-space-s) 0;
+          }
+
+          .chapter-navigation li:hover a {
+            text-decoration: underline;
           }
         `,
         style
       );
 
       this.appendChild(style);
+    }
+
+    __chapterSeek(e) {
+      const index = Number(e.currentTarget.dataset.index);
+      this.__jwPlayer.seek(this.__chapters[index].data.start / 1000);
     }
 
     async __setup() {
@@ -116,8 +140,16 @@ export function ChapterMixin(BaseClass) {
 
 const chapterNavigationTemplate = function (chapters) {
   return html`
+    <button class="close" @click=${this.__customNavigationClose}>&#10005;</button>
     <ul>
-      ${chapters.map((chapter) => html`<li>${chapter.data.text}</li>`)}
+      ${chapters.map(
+        (chapter, index) =>
+          html`
+            <li data-index=${index} @click=${this.__chapterSeek.bind(this)}>
+              <a>${chapter.data.text}</a>
+            </li>
+          `
+      )}
     </ul>
   `;
 };
