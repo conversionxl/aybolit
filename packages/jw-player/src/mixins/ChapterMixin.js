@@ -79,6 +79,8 @@ export function ChapterMixin(BaseClass) {
 
           .chapter-navigation ul {
             list-style-type: none;
+            margin-block-end: 0;
+            margin-block-start: 0;
             padding-inline-start: 0;
           }
         `,
