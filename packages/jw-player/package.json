@@ -10,9 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vaadin/list-box": "^23.0.6",
     "lit": "^2.2.3",
-    "lunr": "^2.3.9",
     "mark.js": "^8.11.1",
     "subtitle": "^4.1.2"
   }
