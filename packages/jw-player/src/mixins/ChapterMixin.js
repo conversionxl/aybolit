@@ -16,57 +16,12 @@ export function ChapterMixin(BaseClass) {
 
       this.__jwPlayerContainer.appendChild(this.__chapterNavigation);
 
-      const chapters_overlay = document.createElement('div');
-
-      /**
-       * Build the close button and append to overlay.
-       *
-       * @type {HTMLAnchorElement}
-       */
-      const close_chapter_nav = document.createElement('a');
-      close_chapter_nav.setAttribute('id', 'close_chapter_nav');
-      close_chapter_nav.setAttribute('class', 'hidden');
-      close_chapter_nav.innerHTML = `&#10005;`;
-      chapters_overlay.appendChild(close_chapter_nav);
-
-      /**
-       * Build chapter nav container, links, and setup event listeners.
-       * Add the toggle button to JW Player UI.
-       *
-       * @type {HTMLDivElement}
-       */
-      const chapter_nav = document.createElement('div');
-      chapter_nav.setAttribute('id', 'chapterNav');
-      chapter_nav.setAttribute('class', 'chapters');
-
-      chapter_nav.innerHTML = this.__chapterNavigation;
-
-      chapters_overlay.appendChild(chapter_nav);
-      chapters_overlay.setAttribute('class', 'chapters-overlay jw-plugin jw-reset hidden');
-      close_chapter_nav.classList.toggle('hidden');
-
-      close_chapter_nav.addEventListener('click', (e) => {
-        toggleChapterOverlay();
-      });
-
-      chapter_nav.addEventListener('click', (e) => {
-        if (e.target.id.startsWith('chapter')) {
-          let i = Number(e.target.id.replace('chapter', ''));
-          toggleChapterOverlay();
-          player.seek(chapters[i].begin).play();
-        }
-      });
-
       this.__jwPlayer.addButton(
         `${this.__path}images/chapter-bookmark-icon.svg`,
         'Show Chapters',
-        this.__toggleShowChapters.bind(this),
+        this.__toggleChapterNavigation.bind(this),
         'toggle-chapters'
       );
-
-      function toggleChapterOverlay() {
-        chapters_overlay.classList.toggle('hidden');
-      }
     }
 
     __addStyle() {
@@ -77,8 +32,9 @@ export function ChapterMixin(BaseClass) {
             background: var(--lumo-shade);
             bottom: 0;
             color: var(--lumo-tint);
+            display: flex;
+            flex-direction: column;
             max-width: 50%;
-            overflow: auto;
             padding: var(--lumo-space-s) var(--lumo-space-m);
             position: absolute;
             right: 0;
@@ -90,14 +46,23 @@ export function ChapterMixin(BaseClass) {
             background: inherit;
             color: var(--lumo-primary-color);
             cursor: pointer;
+            padding: var(--lumo-space-s) var(--lumo-space-s) var(--lumo-space-s) 0;
+          }
+
+          .chapter-navigation .close:hover {
+            text-decoration: none;
+          }
+
+          .chapter-navigation-list {
+            overflow: auto;
           }
 
           .chapter-navigation a {
             color: var(--lumo-tint);
           }
 
-          .chapter-navigation ul {
-            list-style-type: none;
+          .chapter-navigation input[type=checkted]:checked {
+            background-color: var(--lumo-primary-color);
           }
 
           .chapter-navigation li {
@@ -110,6 +75,11 @@ export function ChapterMixin(BaseClass) {
 
           .chapter-navigation li:hover a {
             text-decoration: underline;
+          }
+
+          .chapter-navigation ul {
+            list-style-type: none;
+            padding-inline-start: 0;
           }
         `,
         style
@@ -130,7 +100,7 @@ export function ChapterMixin(BaseClass) {
       this.__createChapterNavigation();
     }
 
-    __toggleShowChapters() {
+    __toggleChapterNavigation() {
       this.__chapterNavigation.hidden = !this.__chapterNavigation.hidden;
     }
   }
@@ -140,8 +110,8 @@ export function ChapterMixin(BaseClass) {
 
 const chapterNavigationTemplate = function (chapters) {
   return html`
-    <button class="close" @click=${this.__customNavigationClose}>&#10005;</button>
-    <ul>
+    <a class="close" @click=${this.__toggleChapterNavigation.bind(this)}>&#10005;</a>
+    <ul class="chapter-navigation-list">
       ${chapters.map(
         (chapter, index) =>
           html`

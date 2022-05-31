@@ -13,7 +13,8 @@ export function StyleMixin(BaseClass) {
       const style = document.createElement('style');
       render(cxlJWPlayerStyles, style);
 
-      document.head.appendChild(style);
+      // this.appendChild(style);
+      this.insertBefore(style, this.firstChild);
     }
   }
 
