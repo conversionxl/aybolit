@@ -1,5 +1,9 @@
 export function SavePositionMixin(BaseClass) {
   class Mixin extends BaseClass {
+    __endpoint = '';
+    __nonce;
+    __userId;
+
     async __setup() {
       await super.__setup();
 
@@ -22,6 +26,15 @@ export function SavePositionMixin(BaseClass) {
 
     __savePosition({ position }) {
       localStorage.setItem(`jw-player-${this.mediaId}-position`, position);
+
+      fetch(this.__endpoint, {
+        _ajax_nonce: this.__nonce,
+        body: JSON.stringify({ mediaId: this.mediaId, position }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      });
     }
   }
 
