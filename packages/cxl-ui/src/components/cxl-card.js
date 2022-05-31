@@ -1,5 +1,4 @@
-import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators';
+import { customElement, LitElement, html } from 'lit-element';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlCardGlobalStyles from '../styles/global/cxl-card-css.js';

@@ -1,6 +1,6 @@
 import '@conversionxl/cxl-ui/src/components/cxl-card';
 import '@conversionxl/cxl-ui/src/components/cxl-tabs-slider';
-import { html } from 'lit';
+import { html } from 'lit-html';
 import { CXLTestimonial } from '../cxl-card/[theme=cxl-testimonial].stories';
 import archiveData from '../cxl-vaadin-accordion/theme=cxl-archive.data.json';
 

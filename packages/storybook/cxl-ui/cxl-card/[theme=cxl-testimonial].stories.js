@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-card.js';
 import '@conversionxl/cxl-lumo-styles';
 

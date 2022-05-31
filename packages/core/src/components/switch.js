@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html } from 'lit-element';
 import { DelegateFocusMixin } from '../mixins/delegate-focus-mixin.js';
 import switchBaseStyles from '../styles/switch-base-css.js';
 

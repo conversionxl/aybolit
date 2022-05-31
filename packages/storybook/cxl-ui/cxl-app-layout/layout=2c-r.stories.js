@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html } from 'lit-html';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';

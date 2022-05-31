@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 
 export const CXLVaadinAccordionThemeMinidegreeTrack = () => html`

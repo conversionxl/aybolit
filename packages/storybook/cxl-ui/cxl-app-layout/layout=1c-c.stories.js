@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html } from 'lit-html';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';

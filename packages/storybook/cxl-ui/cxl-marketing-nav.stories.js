@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html } from 'lit-html';
 import { useEffect } from '@storybook/client-api';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { Headroom } from '@conversionxl/cxl-ui';
