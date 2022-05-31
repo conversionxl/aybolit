@@ -21,7 +21,7 @@ export const template = function () {
               ${this.__tracks.map(
                 (track, index) =>
                   html`${track.isChapter
-                    ? html`<h2>${track.data.text}</h2>`
+                    ? html`<h2 data-index=${index}>${track.data.text}</h2>`
                     : html`
                         <span
                           ?active=${this.__currentTrack === index}

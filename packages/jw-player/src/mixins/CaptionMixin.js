@@ -21,14 +21,6 @@ export function CaptionMixin(BaseClass) {
       return parseSync(response);
     }
 
-    // async __getChapters() {
-    //   const playlistItem = this.__jwPlayer.getPlaylistItem();
-    //   const file = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0].file;
-    //   const response = await (await fetch(file)).text();
-
-    //   return [...[{ data: { start: 0, text: '' } }], ...parseSync(response)];
-    // }
-
     __getCaptionsInChapter(chapters, captions, index) {
       return captions.filter((caption) => {
         if (caption.data.start >= chapters[index].data.start) {
@@ -70,7 +62,10 @@ export function CaptionMixin(BaseClass) {
       this.__tracks.forEach(({ data: { end, start } }, index) => {
         if (start <= position && end >= position) {
           if (this.shouldScroll) {
-            this.renderRoot.querySelector(`[data-index="${index}"]`).scrollIntoView(true);
+            const el = this.renderRoot.querySelector(`[data-index="${index}"]`);
+            if(el) {
+              el.scrollIntoView(true);
+            }
           }
 
           this.__currentTrack = index;
