@@ -1,5 +1,5 @@
 import '@conversionxl/cxl-lumo-styles';
-import { TabsElement } from '@vaadin/vaadin-tabs';
+import { TabsElement } from '@vaadin/tabs';
 import { customElement } from 'lit-element';
 
 @customElement('cxl-tabs-slider')

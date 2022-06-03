@@ -3,9 +3,9 @@ import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
-import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-tabs';
-import '@vaadin/vaadin-context-menu';
+import '@vaadin/button';
+import '@vaadin/tabs';
+import '@vaadin/context-menu';
 
 @customElement('cxl-marketing-nav')
 export class CXLMarketingNavElement extends LitElement {
