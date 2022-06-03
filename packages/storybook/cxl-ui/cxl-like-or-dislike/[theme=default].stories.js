@@ -1,9 +1,9 @@
-import { CXLLikeOrDislikeElement } from '@conversionxl/cxl-ui';
+import '@conversionxl/cxl-ui/src/components/cxl-like-or-dislike.js';
 import { html } from 'lit-html';
 
 export default {
   title: 'CXL UI/cxl-like-or-dislike',
-  component: CXLLikeOrDislikeElement,
+  component: 'cxl-like-or-dislike',
 };
 
 const Template = ({ apiUrl, postType, postId, userId, upVotes }) => html`

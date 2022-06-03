@@ -1,9 +1,9 @@
-import { CXLSaveFavoriteElement } from '@conversionxl/cxl-ui';
+import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
 import { html } from 'lit-html';
 
 export default {
   title: 'CXL UI/cxl-save-favorite',
-  component: CXLSaveFavoriteElement,
+  component: 'cxl-save-favorite',
 };
 
 const Template = ({ apiUrl, postType, postId, userId, isCardVersion, selected }) => html`
