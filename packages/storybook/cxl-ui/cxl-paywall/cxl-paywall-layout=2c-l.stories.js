@@ -1,5 +1,5 @@
 import { boolean, withKnobs } from '@storybook/addon-knobs';
-import { html } from 'lit-html';
+import { html } from 'lit';
 import '../../../cxl-ui/src/components/cxl-paywall';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLStarRating } from '../cxl-star-rating.stories';

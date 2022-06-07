@@ -1,7 +1,7 @@
-import { html } from 'lit-html';
+import { html } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html';
 import '../../cxl-ui/src/components/cxl-paywall';
 import { loremIpsum } from 'lorem-ipsum';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
 const content = loremIpsum({ count: 10, format: 'html', units: 'paragraphs' });
 

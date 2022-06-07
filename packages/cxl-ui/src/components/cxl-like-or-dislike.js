@@ -1,4 +1,5 @@
-import { customElement, LitElement, html, property, query, queryAll } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, property, query, queryAll } from 'lit/decorators';
 import '@conversionxl/cxl-lumo-styles';
 import cxlLikeOrDislikeStyles from '../styles/cxl-like-or-dislike-css.js';
 

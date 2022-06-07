@@ -1,4 +1,4 @@
-import { html } from 'lit-html';
+import { html } from 'lit';
 import '@conversionxl/cxl-ui/src/components/cxl-star-rating.js';
 
 /**

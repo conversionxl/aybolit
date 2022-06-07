@@ -1,4 +1,4 @@
-import { html, nothing } from 'lit-html';
+import { html, nothing } from 'lit';
 
 // reason for the helper: https://github.com/lit/lit.dev/issues/452
 export const join = (values, joiner) =>
