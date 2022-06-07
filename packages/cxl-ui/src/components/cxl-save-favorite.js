@@ -1,6 +1,6 @@
 import '@conversionxl/cxl-lumo-styles';
 import { html, LitElement } from 'lit';
-import { customElement, property, query } from 'lit/decorators';
+import { customElement, property, query } from 'lit/decorators.js';
 
 import cxlSaveFavoriteStyles from '../styles/cxl-save-favorite-css';
 

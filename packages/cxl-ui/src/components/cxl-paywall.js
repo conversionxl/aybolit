@@ -1,6 +1,6 @@
 import '@vaadin/vaadin-dialog';
 import { css, html, LitElement, render } from 'lit';
-import { customElement, property, query } from 'lit/decorators';
+import { customElement, property, query } from 'lit/decorators.js';
 
 @customElement('cxl-paywall')
 export class CXLPaywallElement extends LitElement {

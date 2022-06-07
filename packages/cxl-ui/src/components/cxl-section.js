@@ -1,5 +1,5 @@
 import { LitElement, html, svg } from 'lit';
-import { customElement } from 'lit/decorators';
+import { customElement } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 import cxlSectionStyles from '../styles/cxl-section-css';
 
