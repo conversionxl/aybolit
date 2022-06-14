@@ -1,5 +1,5 @@
-import { html } from 'lit-html';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { html } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html';
 import playbookStepData from './cxl-playbook-accordion.data.json';
 
 export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => html`

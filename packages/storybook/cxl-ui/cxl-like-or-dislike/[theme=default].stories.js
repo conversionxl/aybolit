@@ -1,5 +1,5 @@
 import '@conversionxl/cxl-ui/src/components/cxl-like-or-dislike.js';
-import { html } from 'lit-html';
+import { html } from 'lit';
 
 export default {
   title: 'CXL UI/cxl-like-or-dislike',

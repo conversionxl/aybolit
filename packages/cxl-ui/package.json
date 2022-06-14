@@ -30,8 +30,7 @@
     "headroom.js": "^0.12.0",
     "imports-loader": "^2.0.0",
     "laravel-mix": "^6.0.39",
-    "lit-element": "^2.2.1",
-    "lit-html": "^2.0.0-rc.3",
+    "lit": "^2.2.5",
     "postcss-preset-env": "^6.7.0"
   },
   "devDependencies": {
@@ -52,7 +51,9 @@
   },
   "size-limit": [
     {
-      "path": ["pkg/dist-web/cxl-ui*.js"]
+      "path": [
+        "pkg/dist-web/cxl-ui*.js"
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
-import { html } from 'lit-html';
+import { html } from 'lit';
 
 export default {
   title: 'CXL UI/cxl-save-favorite',

@@ -1,4 +1,4 @@
-import { customElement } from 'lit-element';
+import { customElement } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 // import '@vaadin/vaadin-progress-bar';
 import { ProgressBarElement } from '@vaadin/vaadin-progress-bar/src/vaadin-progress-bar';

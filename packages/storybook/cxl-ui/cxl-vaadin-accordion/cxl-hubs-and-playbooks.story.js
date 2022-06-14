@@ -1,4 +1,4 @@
-import { html } from 'lit-html';
+import { html } from 'lit';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { registerStyles, css } from '@vaadin/vaadin-themable-mixin/register-styles';
