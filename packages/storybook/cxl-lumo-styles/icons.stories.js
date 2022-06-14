@@ -1,5 +1,5 @@
 import '@conversionxl/cxl-lumo-styles';
-import '@vaadin/vaadin-button';
+import '@vaadin/button';
 import { withKnobs } from '@storybook/addon-knobs';
 import { html } from 'lit';
 import './icons-preview';

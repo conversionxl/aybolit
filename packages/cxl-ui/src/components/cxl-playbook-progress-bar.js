@@ -1,10 +1,10 @@
 import { customElement } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 // import '@vaadin/vaadin-progress-bar';
-import { ProgressBarElement } from '@vaadin/vaadin-progress-bar/src/vaadin-progress-bar';
+import { ProgressBar } from '@vaadin/progress-bar/src/vaadin-progress-bar';
 
 @customElement('cxl-playbook-progress-bar')
-export class CXLPlaybookProgressBarElement extends ProgressBarElement {
+export class CXLPlaybookProgressBarElement extends ProgressBar {
   static get properties() {
     return {
       labelElement: {
