@@ -244,7 +244,7 @@ export class CXLMarketingNavElement extends LitElement {
     this.menuItemsElements.forEach((menuItemsEl) => {
       const currentMenuItemEl = menuItemsEl.querySelector('.current-menu-item');
 
-      if (currentMenuItemEl && currentMenuItemEl.id) {
+      if (currentMenuItemEl && currentMenuItemEl.id && menuItemsEl.items) {
         const idx = menuItemsEl.items.findIndex((i) => i.id === currentMenuItemEl.id);
 
         menuItemsEl.setAttribute('selected', idx);
