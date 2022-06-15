@@ -71,18 +71,25 @@ export class CXLPlaybookAccordionElement extends CXLVaadinAccordionElement {
     this._dispatchUpdateEvent();
   }
 
-  _saveCheckboxesState() {
+  async _saveCheckboxesState() {
     const stateCheckboxes = [];
     const checkboxes = this.panelSummarySlotCheckboxes;
+
+    // Fix race condition where the checked property is not available yet.
+    await new Promise((resolve) => {
+      requestAnimationFrame(resolve);
+    });
 
     checkboxes.forEach((value, key) => {
       const checkbox = checkboxes[key];
 
-      stateCheckboxes[key] =
-        checkbox.hasAttribute('aria-checked') && checkbox.getAttribute('aria-checked') === 'true';
+      stateCheckboxes[key] = !!checkbox.checked;
     });
 
     localStorage.setItem(this.checkboxesStorageId, JSON.stringify(stateCheckboxes));
+
+    // Trigger checkbox change event.
+    this._dispatchUpdateEvent();
   }
 
   _updateCheckboxesStates() {
