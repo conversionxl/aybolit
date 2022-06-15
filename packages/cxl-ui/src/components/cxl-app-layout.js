@@ -6,10 +6,10 @@ import { customElement, property, query } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import normalizeWheel from '@conversionxl/normalize-wheel';
+import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
 import cxlAppLayoutStyles from '../styles/cxl-app-layout-css.js';
 import cxlAppLayoutGlobalStyles from '../styles/global/cxl-app-layout-css.js';
 import '@vaadin/button';
-import '@vaadin/vaadin-context-menu/src/vaadin-device-detector.js';
 
 const ASIDE_LOCAL_STORAGE_KEY = 'cxl-app-layout-aside-opened';
 
@@ -54,9 +54,12 @@ export class CXLAppLayoutElement extends LitElement {
   @property()
   layout = '1c';
 
-  // vaadin-device-detector.
+  // Device Detector property.
   @property({ type: Boolean, reflect: true })
   wide;
+
+  // Device Detector media query.
+  _wideMediaQuery = '(min-width: 750px)';
 
   // Event listener for the wheel event to allow scrolling from outside of the main pane.
   _boundWheelEventListener;
@@ -107,22 +110,18 @@ export class CXLAppLayoutElement extends LitElement {
       <footer role="contentinfo" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
         <slot name="footer"></slot>
       </footer>
-
-      <vaadin-device-detector
-        @wide-changed="${(e) => {
-          const { wide } = e.target;
-
-          Promise.resolve().then(() => {
-            this.wide = wide;
-          });
-        }}"
-      ></vaadin-device-detector>
     `;
   }
 
   constructor() {
     super();
     this._boundWheelEventListener = this._onWheel.bind(this);
+
+    this.addController(
+      new MediaQueryController(this._wideMediaQuery, (matches) => {
+        this.wide = matches;
+      })
+    );
   }
 
   updated(changedProperties) {
