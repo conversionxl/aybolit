@@ -54,7 +54,7 @@ export class CXLAppLayoutElement extends LitElement {
   @property()
   layout = '1c';
 
-  // Device Detector property.
+  // MediaQueryController.
   @property({ type: Boolean, reflect: true })
   wide;
 
