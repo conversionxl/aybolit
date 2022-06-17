@@ -1,4 +1,7 @@
-// @see https://github.com/vaadin/vaadin-themable-mixin/blob/v1.5.2/register-styles.html
+/**
+ * @see https://github.com/vaadin/web-components/blob/23.1/packages/vaadin-themable-mixin/vaadin-themable-mixin.js#L36-L58
+ * @todo Align with Vaadin v23.1+.
+ */
 import '@vaadin/polymer-legacy-adapter';
 
 let moduleIdIndex = 0;
