@@ -20,7 +20,7 @@
     "@storybook/web-components": "^6.3.12",
     "@vaadin/button": "^23.1.1",
     "@vaadin/notification": "^23.1.1",
-    "@vaadin/vaadin-themable-mixin": "^1.6.2",
+    "@vaadin/vaadin-themable-mixin": "^23.1.1",
     "lit": "^2.2.5",
     "lorem-ipsum": "^2.0.3"
   },
