@@ -37,7 +37,7 @@ export class CXLMarketingNavElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   minimal = false;
 
-  // Device Detector property.
+  // MediaQueryController.
   @property({ type: Boolean, reflect: true })
   wide;
 
