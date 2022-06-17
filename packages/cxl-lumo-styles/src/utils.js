@@ -1,5 +1,8 @@
-// @see https://github.com/vaadin/vaadin-themable-mixin/blob/v1.5.2/register-styles.html
-import { CSSResult } from 'lit-element';
+/**
+ * @see https://github.com/vaadin/web-components/blob/23.1/packages/vaadin-themable-mixin/vaadin-themable-mixin.js#L36-L58
+ * @todo Align with Vaadin v23.1+.
+ */
+import '@vaadin/polymer-legacy-adapter';
 
 let moduleIdIndex = 0;
 const styleMap = {};
@@ -14,10 +17,6 @@ export const registerGlobalStyles = (styles, options) => {
   }
 
   styles.forEach((cssResult) => {
-    if (!(cssResult instanceof CSSResult)) {
-      throw new Error('An item in styles is not of type CSSResult. Use `unsafeCSS` or `css`.');
-    }
-
     if (!styleMap[cssResult]) {
       const templateElement = document.createElement('template');
       templateElement.innerHTML = `

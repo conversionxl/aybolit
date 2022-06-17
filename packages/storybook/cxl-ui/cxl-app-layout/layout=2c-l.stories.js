@@ -3,7 +3,7 @@ import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
-import '@vaadin/vaadin-button';
+import '@vaadin/button';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion.stories';
 

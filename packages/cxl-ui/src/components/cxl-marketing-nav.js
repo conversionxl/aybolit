@@ -2,11 +2,12 @@ import { LitElement, html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
-import '@vaadin/vaadin-button';
-import '@vaadin/vaadin-tabs';
-import '@vaadin/vaadin-context-menu';
+import '@vaadin/button';
+import '@vaadin/tabs';
+import '@vaadin/context-menu';
 
 @customElement('cxl-marketing-nav')
 export class CXLMarketingNavElement extends LitElement {
@@ -36,9 +37,12 @@ export class CXLMarketingNavElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   minimal = false;
 
-  // vaadin-device-detector.
+  // MediaQueryController.
   @property({ type: Boolean, reflect: true })
   wide;
+
+  // Device Detector media query.
+  _wideMediaQuery = '(min-width: 750px)';
 
   static get styles() {
     return [cxlMarketingNavStyles];
@@ -91,24 +95,17 @@ export class CXLMarketingNavElement extends LitElement {
       <nav>
         <slot></slot>
       </nav>
-
-      <vaadin-device-detector
-        @wide-changed="${(e) => {
-          /**
-           * Initial page load doesn't seem to trigger `wide` attribute reflection.
-           *
-           * @see https://github.com/Polymer/lit-element/issues/549
-           * @see https://polymer.slack.com/archives/C03PF4L4L/p1581109849195000
-           * @see https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask
-           */
-          const { wide } = e.target;
-
-          Promise.resolve().then(() => {
-            this.wide = wide;
-          });
-        }}"
-      ></vaadin-device-detector>
     `;
+  }
+
+  constructor() {
+    super();
+
+    this.addController(
+      new MediaQueryController(this._wideMediaQuery, (matches) => {
+        this.wide = matches;
+      })
+    );
   }
 
   firstUpdated(changedProperties) {
@@ -247,7 +244,7 @@ export class CXLMarketingNavElement extends LitElement {
     this.menuItemsElements.forEach((menuItemsEl) => {
       const currentMenuItemEl = menuItemsEl.querySelector('.current-menu-item');
 
-      if (currentMenuItemEl && currentMenuItemEl.id) {
+      if (currentMenuItemEl && currentMenuItemEl.id && menuItemsEl.items) {
         const idx = menuItemsEl.items.findIndex((i) => i.id === currentMenuItemEl.id);
 
         menuItemsEl.setAttribute('selected', idx);

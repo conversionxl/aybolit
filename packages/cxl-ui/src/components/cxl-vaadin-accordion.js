@@ -1,7 +1,7 @@
 import { customElement } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
-import '@vaadin/vaadin-accordion';
-import { AccordionElement } from '@vaadin/vaadin-accordion/src/vaadin-accordion';
+import '@vaadin/accordion';
+import { Accordion } from '@vaadin/accordion/src/vaadin-accordion';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlVaadinAccordionGlobalStyles from '../styles/global/cxl-vaadin-accordion-css.js';
 
@@ -10,7 +10,7 @@ import cxlVaadinAccordionGlobalStyles from '../styles/global/cxl-vaadin-accordio
  * Saves panel state, restores on page load.
  */
 @customElement('cxl-vaadin-accordion')
-export class CXLVaadinAccordionElement extends AccordionElement {
+export class CXLVaadinAccordionElement extends Accordion {
   /**
    * Global styles.
    */

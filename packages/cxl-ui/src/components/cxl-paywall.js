@@ -1,4 +1,4 @@
-import '@vaadin/vaadin-dialog';
+import '@vaadin/dialog';
 import { css, html, LitElement, render } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 
