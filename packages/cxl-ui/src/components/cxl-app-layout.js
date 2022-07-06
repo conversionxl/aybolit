@@ -61,9 +61,6 @@ export class CXLAppLayoutElement extends LitElement {
   // Device Detector media query.
   _wideMediaQuery = '(min-width: 750px)';
 
-  // Event listener for the wheel event to allow scrolling from outside of the main pane.
-  _boundWheelEventListener;
-
   static get styles() {
     return [cxlAppLayoutStyles];
   }
@@ -115,7 +112,6 @@ export class CXLAppLayoutElement extends LitElement {
 
   constructor() {
     super();
-    this._boundWheelEventListener = this._onWheel.bind(this);
 
     this.addController(
       new MediaQueryController(this._wideMediaQuery, (matches) => {
@@ -129,9 +125,9 @@ export class CXLAppLayoutElement extends LitElement {
 
     if (changedProperties.has('wide')) {
       if (this.wide && this.scroll === 'panels') {
-        this.addEventListener('wheel', this._boundWheelEventListener, { passive: true });
+        this.addEventListener('wheel', this._onWheel, { passive: true });
       } else {
-        this.removeEventListener('wheel', this._boundWheelEventListener);
+        this.removeEventListener('wheel', this._onWheel);
       }
     }
   }
@@ -145,6 +141,7 @@ export class CXLAppLayoutElement extends LitElement {
     });
   }
 
+  // Event listener for the wheel event to allow scrolling from outside of the main pane.
   _onWheel(event) {
     if (event.target.tagName === 'CXL-APP-LAYOUT') {
       this.mainElement.scrollTop += normalizeWheel(event).pixelY;
