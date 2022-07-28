@@ -81,7 +81,8 @@ mix.version();
 
 mix
   .js(`${devPath}/index-core.js`, `${distPath}/cxl-ui.js`)
-  .js(`${devPath}/index-playbooks.js`, `${distPath}/cxl-ui-playbooks.js`);
+  .js(`${devPath}/index-playbooks.js`, `${distPath}/cxl-ui-playbooks.js`)
+  .js(`${devPath}/index-jwplayer.js`, `${distPath}/cxl-ui-jwplayer.js`);
 
 /*
  * Extract vendors etc.
@@ -117,5 +118,10 @@ mix.webpackConfig(() => ({
         ],
       },
     ],
+  },
+  resolve: {
+    fallback: {
+      stream: false,
+    },
   },
 }));

@@ -23,16 +23,21 @@
     "@vaadin/component-base": "^23.1.1",
     "@vaadin/context-menu": "^23.1.1",
     "@vaadin/dialog": "^23.1.1",
+    "@vaadin/icon": "^23.1.1",
     "@vaadin/notification": "^23.1.1",
     "@vaadin/progress-bar": "^23.1.1",
     "@vaadin/tabs": "^23.1.1",
+    "@vaadin/text-field": "^23.1.1",
     "@vaadin/vaadin-themable-mixin": "^23.1.1",
     "cross-env": "~7.0.2",
     "headroom.js": "^0.12.0",
     "imports-loader": "^2.0.0",
     "laravel-mix": "^6.0.39",
     "lit": "^2.2.5",
-    "postcss-preset-env": "^6.7.0"
+    "lodash-es": "^4.17.21",
+    "mark.js": "^8.11.1",
+    "postcss-preset-env": "^6.7.0",
+    "subtitle": "^4.2.1"
   },
   "devDependencies": {
     "postcss": "^8.2.4"

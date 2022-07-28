@@ -1,0 +1,77 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+
+.chapter-navigation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  padding: var(--lumo-space-s) var(--lumo-space-m);
+  color: var(--lumo-tint);
+  background: var(--lumo-shade);
+  gap: var(--lumo-space-s);
+
+  .close {
+    font-size: var(--lumo-font-size-xs);
+    cursor: pointer;
+  }
+
+  .close-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: var(--lumo-space-xs);
+    border-bottom: 1px solid var(--lumo-tint-5pct);
+
+    .title {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.chapter-navigation .close:hover {
+  text-decoration: none;
+}
+
+.chapter-navigation-list {
+  @include mixins.better-webkit-scrollbars();
+
+  --scrollbar-color: var(--lumo-primary-color);
+  padding-right: var(--lumo-space-m);
+
+  overflow: auto;
+}
+
+.chapter-navigation a {
+  color: var(--lumo-tint);
+}
+
+.chapter-navigation input[type="checkted"]:checked {
+  background-color: var(--lumo-primary-color);
+}
+
+.chapter-navigation li {
+  padding: var(--lumo-space-s) 0;
+  margin-bottom: var(--lumo-space-s);
+  font-size: var(--lumo-font-size-s);
+  line-height: var(--lumo-line-height-xs);
+  cursor: pointer;
+}
+
+.chapter-navigation li:hover a {
+  text-decoration: underline;
+}
+
+.chapter-navigation ul {
+  list-style-type: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
