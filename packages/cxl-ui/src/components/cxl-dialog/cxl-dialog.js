@@ -4,6 +4,7 @@ import './cxl-dialog-overlay.js';
 
 export class CXLDialog extends Dialog {
   static get template() {
+    /* eslint-disable lit/no-legacy-template-syntax */
     return html`
       <style>
         :host(:not[opened]) {
@@ -24,10 +25,11 @@ export class CXLDialog extends Dialog {
         focus-trap
       ></cxl-dialog-overlay>
     `;
+    /* eslint-enable lit/no-legacy-template-syntax */
   }
 
   static get is() {
-    return 'cxl-dialog-vaadin';
+    return 'cxl-dialog';
   }
 
   static get properties() {
@@ -49,13 +51,13 @@ export class CXLDialog extends Dialog {
     super.ready();
 
     if (this.contained) {
-      document.addEventListener('click', this.onClick.bind(this));
-      document.addEventListener('keydown', this.onKeyDown.bind(this));
+      this.addEventListener('click', this.onClick.bind(this));
+      this.addEventListener('keydown', this.onKeyDown.bind(this));
     }
   }
 
   onClick(event) {
-    const overlay = this.$.overlay;
+    const { overlay } = this.$;
     const overlayPart = overlay.shadowRoot.querySelector('[part="overlay"]');
     const composedPath = event.composedPath();
 
