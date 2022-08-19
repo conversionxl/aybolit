@@ -6,7 +6,7 @@ export class CXLDialog extends Dialog {
   static get template() {
     return html`
       <style>
-        :host {
+        :host(:not[opened]) {
           display: none !important;
         }
       </style>
@@ -27,13 +27,47 @@ export class CXLDialog extends Dialog {
   }
 
   static get is() {
-    return 'cxl-dialog';
+    return 'cxl-dialog-vaadin';
   }
 
   static get properties() {
     return {
+      contained: Boolean,
       container: Object,
     };
+  }
+
+  constructor() {
+    super();
+
+    if (this.hasAttribute('contained')) {
+      this.container = this.parentNode;
+    }
+  }
+
+  ready() {
+    super.ready();
+
+    if (this.contained) {
+      document.addEventListener('click', this.onClick.bind(this));
+      document.addEventListener('keydown', this.onKeyDown.bind(this));
+    }
+  }
+
+  onClick(event) {
+    const overlay = this.$.overlay;
+    const overlayPart = overlay.shadowRoot.querySelector('[part="overlay"]');
+    const composedPath = event.composedPath();
+
+    if (!composedPath.includes(overlayPart)) {
+      this.opened = false;
+    }
+  }
+
+  onKeyDown(e) {
+    if (e.key === 'Escape') {
+      this.opened = false;
+    }
   }
 }
 
