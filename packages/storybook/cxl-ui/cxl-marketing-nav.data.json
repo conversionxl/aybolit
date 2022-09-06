@@ -436,60 +436,60 @@
       "children": [
         {
           "depth": 1,
-          "text": "Account details",
+          "text": "Go to My Account",
+          "component": "a",
+          "href": "http:\/\/localhost:8080\/my-account\/",
+          "id": 87,
+          "parent": 41
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "Subscriptions",
+          "component": "a",
+          "href": "http:\/\/localhost:8080\/my-account\/subscriptions\/",
           "id": 88,
-          "parent": 41,
-          "children": [
-            {
-              "depth": 2,
-              "text": "Account hello!",
-              "component": "a",
-              "href": "http:\/\/localhost:8080\/hello-world\/",
-              "id": 92,
-              "parent": 88
-            },
-            {
-              "depth": 2,
-              "text": "Addresses",
-              "component": "a",
-              "href": "http:\/\/localhost:8080\/edit-address\/",
-              "id": 89,
-              "parent": 88,
-              "children": [
-                {
-                  "depth": 3,
-                  "text": "<span data-post-status=\"publish\"><\/span>Hello world!",
-                  "component": "a",
-                  "href": "http:\/\/localhost:8080\/hello-world\/",
-                  "id": 93,
-                  "parent": 89
-                },
-                {
-                  "depth": 3,
-                  "text": "Downloads",
-                  "component": "a",
-                  "href": "http:\/\/localhost:8080\/downloads\/",
-                  "id": 90,
-                  "parent": 89
-                }
-              ]
-            },
-            {
-              "depth": 2,
-              "text": "<span data-post-status=\"publish\"><\/span>Hello world!",
-              "component": "a",
-              "href": "http:\/\/localhost:8080\/hello-world\/",
-              "id": 91,
-              "parent": 88
-            }
-          ]
+          "parent": 41
         },
         {
           "depth": 1,
           "text": "Orders",
           "component": "a",
-          "href": "http:\/\/localhost:8080\/orders\/",
-          "id": 87,
+          "href": "http:\/\/localhost:8080\/my-account\/orders\/",
+          "id": 89,
+          "parent": 41
+        },
+        {
+          "depth": 1,
+          "text": "Account details",
+          "component": "a",
+          "href": "http:\/\/localhost:8080\/my-account\/edit-account\/",
+          "id": 90,
+          "parent": 41
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "Skip Trial Period",
+          "description": "Gain unlimited instant access to all CXL features.",
+          "component": "a",
+          "href": "http:\/\/localhost:8080\/my-account\/skip-trial-period\/",
+          "id": 90,
+          "parent": 41
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "Logout",
+          "component": "a",
+          "href": "http:\/\/localhost:8080\/my-account\/logout\/",
+          "id": 91,
           "parent": 41
         }
       ]

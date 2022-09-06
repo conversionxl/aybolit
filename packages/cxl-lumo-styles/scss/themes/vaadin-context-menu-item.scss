@@ -8,3 +8,7 @@
 ::slotted(a:not(:hover)) {
   text-decoration: none !important; /* stylelint-disable-line declaration-no-important */
 }
+
+::slotted(.vaadin-context-menu-item--description) {
+  font-family: var(--lumo-font-family);
+}

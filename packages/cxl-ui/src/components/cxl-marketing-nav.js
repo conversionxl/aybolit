@@ -1,5 +1,6 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, render } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
@@ -224,6 +225,16 @@ export class CXLMarketingNavElement extends LitElement {
         link.text = item.text;
 
         menuItem.appendChild(link);
+
+        // Add `description` element, if WordPress Menu Item has `description` field set.
+        if (item.description) {
+          const descriptionItem = document.createElement('div');
+
+          descriptionItem.classList.add('vaadin-context-menu-item--description');
+          render(html`${unsafeHTML(item.description)}`, descriptionItem);
+
+          menuItem.appendChild(descriptionItem);
+        }
 
         // eslint-disable-next-line no-param-reassign
         self[i] = { component: menuItem };
