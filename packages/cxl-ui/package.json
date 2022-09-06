@@ -23,6 +23,7 @@
     "@vaadin/component-base": "^23.1.1",
     "@vaadin/context-menu": "^23.1.1",
     "@vaadin/dialog": "^23.1.1",
+    "@vaadin/horizontal-layout": "^23.1.1",
     "@vaadin/icon": "^23.1.1",
     "@vaadin/notification": "^23.1.1",
     "@vaadin/progress-bar": "^23.1.1",
