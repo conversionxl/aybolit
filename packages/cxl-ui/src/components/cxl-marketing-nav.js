@@ -126,6 +126,24 @@ export class CXLMarketingNavElement extends LitElement {
     this.querySelectorAll('.menu-item > vaadin-context-menu').forEach((contextMenu) => {
       // eslint-disable-next-line no-param-reassign
       contextMenu.listenOn = contextMenu.parentElement;
+
+      contextMenu.addEventListener('opened-changed', ({ detail: { value } }) => {
+        const listBox = document.querySelector('vaadin-context-menu-list-box');
+        let listBoxWidth = parseFloat(getComputedStyle(listBox).getPropertyValue('width'));
+
+        const vaadinMenuItemComputedStyle = getComputedStyle(
+          listBox.querySelector('.vaadin-menu-item')
+        );
+
+        listBoxWidth -=
+          parseFloat(vaadinMenuItemComputedStyle.paddingLeft) +
+          parseFloat(vaadinMenuItemComputedStyle.paddingRight) * 2;
+
+        listBox.style.setProperty('--cxl-vaadin-context-menu-item-max-width', `${listBoxWidth}px`);
+
+        const descriptionItem = listBox.querySelector('.vaadin-context-menu-item--description');
+        descriptionItem.hidden = !value;
+      });
     });
 
     /**
@@ -231,6 +249,10 @@ export class CXLMarketingNavElement extends LitElement {
           const descriptionItem = document.createElement('div');
 
           descriptionItem.classList.add('vaadin-context-menu-item--description');
+
+          // Set to hidden, to calculate currently opened menu width and use it for description.
+          descriptionItem.hidden = true;
+
           render(html`${unsafeHTML(item.description)}`, descriptionItem);
 
           menuItem.appendChild(descriptionItem);
