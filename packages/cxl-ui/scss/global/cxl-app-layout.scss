@@ -79,8 +79,6 @@ cxl-app-layout {
   }
 
   &[layout^="2c"][wide] {
-    --cxl-wrap-padding: var(--lumo-space-l);
-
     iframe {
       height: $iframe-height * 2;
     }
@@ -93,6 +91,10 @@ cxl-app-layout {
         margin-left: auto;
       }
     }
+  }
+
+  &[wide] {
+    --cxl-wrap-padding: var(--lumo-space-l);
   }
 
   /**
