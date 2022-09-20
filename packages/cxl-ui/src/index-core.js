@@ -1,3 +1,4 @@
+import '@vaadin/horizontal-layout';
 import '@vaadin/notification';
 import '@vaadin/progress-bar';
 import * as Headroom from 'headroom.js';
