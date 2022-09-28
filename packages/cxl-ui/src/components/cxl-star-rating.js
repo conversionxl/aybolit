@@ -1,5 +1,7 @@
 import '@conversionxl/cxl-lumo-styles';
 import { IronStarRating } from '@cwmr/iron-star-rating';
+import { MwcStarRating } from '@cwmr/mwc-star-rating';
+import { html } from "lit";
 
 /**
  * With ability to persist star rating.
@@ -7,7 +9,7 @@ import { IronStarRating } from '@cwmr/iron-star-rating';
  * Notice: If you don't provide `id` attribute for the component,
  * it won't store the state in the `localStorage`
  */
-export class CXLStarRatingElement extends IronStarRating {
+export class CXLStarRatingElement extends MwcStarRating {
   constructor() {
     super();
     this.icon = 'vaadin:star';
@@ -15,6 +17,23 @@ export class CXLStarRatingElement extends IronStarRating {
 
   static get is() {
     return 'cxl-star-rating';
+  }
+
+  render() {
+    return html`
+      ${this._ratings.map(
+        item =>
+          html`
+          <vaadin-icon icon=${this.icon}></vaadin-icon>
+          <mwc-icon
+            class="${item.class}"
+            value="${item.value}"
+            ?selected="${item.selected}"
+            @click="${(e) => this._starClicked(e, item.value)}"
+            >${this.icon}</mwc-icon
+          >`
+      )}
+    `;
   }
 
   _getUniqueId() {
