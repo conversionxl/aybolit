@@ -1,5 +1,12 @@
 :host([slot^="middle"]),
 [part="overlay"] {
-  width: 100%;
   max-width: var(--cxl-content-width);
+}
+
+:host([theme~="max-w-full"]) [part="overlay"] {
+  max-width: 100%;
+}
+
+:host([theme~="justify-center"]) [part="content"] {
+  justify-content: center;
 }
