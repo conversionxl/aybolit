@@ -1,3 +1,4 @@
+import '@vaadin/horizontal-layout';
 import '@vaadin/notification';
 import '@vaadin/progress-bar';
 import * as Headroom from 'headroom.js';
@@ -7,6 +8,7 @@ export { CXLCardElement } from './components/cxl-card.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLSectionElement } from './components/cxl-section.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
+export { CXLNotification } from './components/cxl-notification.js';
 
 /**
  * Order matters.

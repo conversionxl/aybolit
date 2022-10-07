@@ -110,3 +110,8 @@ ul {
 .wrap {
   @include mixins.wrap();
 }
+
+// Center align the `<iron-icon>` wrapped in `<vaadin-button>`
+vaadin-notification-card vaadin-button[theme~="icon"]:not([theme~="tertiary-inline"]) {
+  flex: none;
+}
