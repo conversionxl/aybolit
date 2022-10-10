@@ -1,6 +1,6 @@
 {
   "name": "@conversionxl/cxl-ui",
-  "version": "1.1.0-alpha.10",
+  "version": "1.2.0",
   "author": "CXL <leho@cxl.com>",
   "license": "SEE LICENSE IN LICENSE",
   "main": "src/index.js",
@@ -10,7 +10,7 @@
     "directory": "packages/cxl-ui"
   },
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.1.0-alpha.2",
+    "@conversionxl/cxl-lumo-styles": "^1.2.0",
     "@conversionxl/normalize-wheel": "^1.0.1",
     "@cwmr/iron-star-rating": "github:conversionxl/iron-star-rating",
     "@pika/pack": "^0.5.0",
