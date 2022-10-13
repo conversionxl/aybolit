@@ -65,14 +65,18 @@ $menu-item-menu-toggle-index: 2;
 /**
  * headroom.js
  */
-:host(.headroom--pinned.headroom--not-top) {
-  position: fixed;
+:host(.headroom) {
+  position: static;
   top: 0;
   right: 0;
   left: 0;
   z-index: 2; // @see `cxl-app-layout[layout=2c-l]`.
 }
 
-:host(.headroom--pinned.headroom--not-top[wide]) ::slotted(#menu-global-items) {
+:host(.headroom--not-top) {
+  position: fixed;
+}
+
+:host(.headroom--not-top[wide]) ::slotted(#menu-global-items) {
   display: none;
 }
