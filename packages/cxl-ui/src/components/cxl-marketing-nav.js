@@ -142,7 +142,9 @@ export class CXLMarketingNavElement extends LitElement {
         listBox.style.setProperty('--cxl-vaadin-context-menu-item-max-width', `${listBoxWidth}px`);
 
         const descriptionItem = listBox.querySelector('.vaadin-context-menu-item--description');
-        descriptionItem.hidden = !value;
+        if (descriptionItem) {
+          descriptionItem.hidden = !value;
+        }
       });
     });
 
