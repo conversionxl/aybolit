@@ -108,6 +108,19 @@ ul {
 }
 
 /**
+ * As WP Admin Bar is hidden at this breakpoint,
+ * so no need to adjust top.
+ *
+ * @since 2022.10.14
+ * @see https://github.com/conversionxl/wp-theme-lib/blob/74e2231e39ded2e65eddabfb70615b2696ca2510/scss/legacy/_15-mixins.scss#L81
+ */
+@media screen and (max-width: 782px) {
+  .headroom {
+    --wp-admin--admin-bar--height: 0;
+  }
+}
+
+/**
  * Classes.
  */
 // @see https://tailwindcss.com/docs/font-weight/
