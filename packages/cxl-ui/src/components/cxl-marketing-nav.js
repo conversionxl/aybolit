@@ -370,5 +370,33 @@ export class CXLMarketingNavElement extends LitElement {
         e.stopImmediatePropagation();
       }
     }
+
+    /**
+     * Mobile menu toggle.
+     *
+     * @see https://app.clickup.com/t/3phu3bv
+     * @since 2022.10.18
+     */
+    const path = e.composedPath ? e.composedPath() : e.path || [];
+
+    const toggleBtn = Array.from(path).filter((node) => {
+      if (!node || !node.nodeName || !node.classList) {
+        return false;
+      }
+
+      return (
+        node.nodeName.toLowerCase() === 'vaadin-tab' &&
+        node.classList.contains('menu-item-menu-toggle')
+      );
+    });
+
+    if (!toggleBtn || !toggleBtn.length) {
+      return;
+    }
+
+    const bodyElement = document.querySelector('body');
+    if (bodyElement) {
+      bodyElement.classList.toggle('cxl-mobile-menu-opened');
+    }
   }
 }

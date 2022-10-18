@@ -47,6 +47,23 @@ body {
   padding-top: var(--cxl-marketing-nav-height);
 }
 
+/**
+ * Mobile menu toggle, disables page scroll.
+ *
+ * @see https://app.clickup.com/t/3phu3bv
+ * @since 2022.10.18
+ */
+.cxl-mobile-menu-opened {
+  backface-visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
 a {
   color: var(--lumo-primary-color);
 
