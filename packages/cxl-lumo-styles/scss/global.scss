@@ -20,11 +20,31 @@ html {
     #{$cxl-box-shadow-width} #{$cxl-box-shadow-width} 0 0 #{$cxl-box-shadow-color},
     #{$cxl-box-shadow-width} 0 0 0 #{$cxl-box-shadow-color} inset,
     0 #{$cxl-box-shadow-width} 0 0 #{$cxl-box-shadow-color} inset;
+
+  // cxl-marketing-nav height on desktop
+  --cxl-marketing-nav-height: 88px;
+}
+
+// @see https://github.com/conversionxl/aybolit/blob/490e58e71f13c2e8a398959f91b938f9309b41f8/packages/cxl-ui/src/components/cxl-marketing-nav.js#L46
+@media (max-width: 749px) {
+  html {
+    --cxl-marketing-nav-height: 44px;
+  }
 }
 
 // @see https://github.com/necolas/normalize.css/blob/8.0.1/normalize.css#L20
 body {
   margin: 0;
+}
+
+/**
+ * Add some top padding to the page content (body element) to prevent sudden quick movement.
+ *
+ * @see https://web.dev/optimize-cls/
+ */
+.cxl-marketing-nav-sticky {
+  min-height: calc(100vh - var(--cxl-marketing-nav-height));
+  padding-top: var(--cxl-marketing-nav-height);
 }
 
 a {
