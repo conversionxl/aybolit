@@ -1,0 +1,123 @@
+.loading-container {
+  position: relative;
+
+  &:not([isPending]) {
+    .loading-overlay {
+      display: none;
+    }
+  }
+
+  .loading-overlay {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.75);
+    inset: 0;
+  }
+
+  .loading-spinner {
+    content: var(--cxl-loading-spinner-url);
+  }
+}
+
+/* Legacy code */
+$padding-wrap: var(--lumo-font-size-m);
+
+.gform_wrapper {
+  label {
+    .top_label & {
+      display: block;
+    }
+  }
+
+  textarea {
+    max-height: 6em;
+    width: 100%;
+  }
+
+  .gfield_checkbox {
+    > li {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  .gfield_description {
+    font-size: var(--lumo-font-size-s);
+  }
+
+  .gfield_error {
+    margin-bottom: var(--lumo-space-m) !important;
+    margin-top: var(--lumo-space-m) !important;
+    outline: solid 2px var(--lumo-error-color);
+    padding: var(--lumo-space-m);
+  }
+
+  .gfield_required {
+    display: none;
+  }
+
+  .gfield_visibility_hidden {
+    display: none !important;
+  }
+
+  .gfield_visibility_visible.hidden_label > label {
+    display: none;
+  }
+
+  .gform_ajax_spinner {
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    right: calc(0 - $padding-wrap);
+    top: 0;
+  }
+
+  .gform_body {
+    ul {
+      /* @see `.cxl-section-block ul` */
+      font-family: inherit;
+      &.gform_fields {
+        /* @see `.entry-content ul li` */
+        &,
+        & ul[class^='gfield'] {
+          list-style: none;
+          padding: 0;
+          > li {
+            margin: 0;
+            padding-left: 0;
+            &::before {
+              content: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .gform_hidden {
+    display: none;
+  }
+
+  .gform_validation_container {
+    display: none;
+  }
+
+  .ginput_container {
+    margin: var(--lumo-space-s) 0;
+    &_number {
+      .instruction {
+        display: none;
+      }
+    }
+  }
+
+  .error,
+  .validation_message,
+  .validation_error {
+    color: var(--lumo-error-color);
+    font-weight: bold;
+  }
+
+  .validation_message:after {
+    content: '\2191';
+  }
+}
