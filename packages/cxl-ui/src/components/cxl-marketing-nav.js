@@ -4,6 +4,7 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
+import { throttle } from 'lodash-es';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
 import '@vaadin/button';
@@ -44,6 +45,12 @@ export class CXLMarketingNavElement extends LitElement {
 
   // Device Detector media query.
   _wideMediaQuery = '(min-width: 750px)';
+
+  @property({ type: Boolean, reflect: true })
+  _phone;
+
+  // @see https://github.com/vaadin/web-components/blob/de3db720ec8448a26d2f84d00965a9e369a1c3fb/packages/select/src/vaadin-select.js#L297
+  _phoneMediaQuery = '(max-width: 420px), (max-height: 420px)';
 
   static get styles() {
     return [cxlMarketingNavStyles];
@@ -105,6 +112,12 @@ export class CXLMarketingNavElement extends LitElement {
     this.addController(
       new MediaQueryController(this._wideMediaQuery, (matches) => {
         this.wide = matches;
+      })
+    );
+
+    this.addController(
+      new MediaQueryController(this._phoneMediaQuery, (matches) => {
+        this._phone = matches;
       })
     );
   }
@@ -208,6 +221,17 @@ export class CXLMarketingNavElement extends LitElement {
      * Highlight current menu item.
      */
     this._highlightCurrentMenuItem();
+
+    /**
+     * Handle `<vaadin-context-menu-overlay>`.
+     * Check every 1000ms the scroll position.
+     */
+    window.addEventListener(
+      'scroll',
+      throttle(() => {
+        this._maybeCloseContextMenuOverlay();
+      }, 1000)
+    );
 
     super.firstUpdated(changedProperties);
   }
@@ -369,6 +393,49 @@ export class CXLMarketingNavElement extends LitElement {
         e.currentTarget.selected = -1;
         e.stopImmediatePropagation();
       }
+    }
+
+    /**
+     * Mobile menu toggle.
+     *
+     * @see https://app.clickup.com/t/3phu3bv
+     * @since 2022.10.18
+     */
+    const path = e.composedPath ? e.composedPath() : e.path || [];
+
+    const toggleBtn = Array.from(path).filter((node) => {
+      if (!node || !node.nodeName || !node.classList) {
+        return false;
+      }
+
+      return (
+        node.nodeName.toLowerCase() === 'vaadin-tab' &&
+        node.classList.contains('menu-item-menu-toggle')
+      );
+    });
+
+    if (!toggleBtn || !toggleBtn.length) {
+      return;
+    }
+
+    const bodyElement = document.querySelector('body');
+    if (bodyElement) {
+      bodyElement.classList.toggle('cxl-mobile-menu-opened');
+    }
+  }
+
+  /**
+   * Maybe close context menu overlay on scroll?
+   * Only applicable if it's shown as dropdown.
+   *
+   * @see https://app.clickup.com/t/3q2z1a3
+   * @since 2022.10.19
+   */
+  _maybeCloseContextMenuOverlay() {
+    const el = document.querySelector('vaadin-context-menu-overlay');
+
+    if (el && !this._phone) {
+      el.close();
     }
   }
 }

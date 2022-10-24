@@ -20,11 +20,48 @@ html {
     #{$cxl-box-shadow-width} #{$cxl-box-shadow-width} 0 0 #{$cxl-box-shadow-color},
     #{$cxl-box-shadow-width} 0 0 0 #{$cxl-box-shadow-color} inset,
     0 #{$cxl-box-shadow-width} 0 0 #{$cxl-box-shadow-color} inset;
+
+  // cxl-marketing-nav height on desktop
+  --cxl-marketing-nav-height: 88px;
+}
+
+// @see https://github.com/conversionxl/aybolit/blob/490e58e71f13c2e8a398959f91b938f9309b41f8/packages/cxl-ui/src/components/cxl-marketing-nav.js#L46
+@media (max-width: 749px) {
+  html {
+    --cxl-marketing-nav-height: 44px;
+  }
 }
 
 // @see https://github.com/necolas/normalize.css/blob/8.0.1/normalize.css#L20
 body {
   margin: 0;
+}
+
+/**
+ * Add some top padding to the page content (body element) to prevent sudden quick movement.
+ *
+ * @see https://web.dev/optimize-cls/
+ */
+.cxl-marketing-nav-sticky {
+  min-height: calc(100vh - var(--cxl-marketing-nav-height));
+  padding-top: var(--cxl-marketing-nav-height);
+}
+
+/**
+ * Mobile menu toggle, disables page scroll.
+ *
+ * @see https://app.clickup.com/t/3phu3bv
+ * @since 2022.10.18
+ */
+.cxl-mobile-menu-opened {
+  backface-visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  overflow-y: scroll;
 }
 
 a {
@@ -85,9 +122,18 @@ ul {
   &--pinned {
     transform: translateY(0%);
   }
+}
 
-  &--unpinned {
-    transform: translateY(-100%);
+/**
+ * As WP Admin Bar is hidden at this breakpoint,
+ * so no need to adjust top.
+ *
+ * @since 2022.10.14
+ * @see https://github.com/conversionxl/wp-theme-lib/blob/74e2231e39ded2e65eddabfb70615b2696ca2510/scss/legacy/_15-mixins.scss#L81
+ */
+@media screen and (max-width: 782px) {
+  .headroom {
+    --wp-admin--admin-bar--height: 0;
   }
 }
 
