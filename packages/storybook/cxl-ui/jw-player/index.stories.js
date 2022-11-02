@@ -5,7 +5,15 @@ export default {
   title: 'JW Player/JW Player',
 };
 
-const Template = ({ captions, mediaId, minimumSearchLength, playerId, playlistId, pluginPath }) =>
+const Template = ({
+  apiSecret,
+  captions,
+  mediaId,
+  minimumSearchLength,
+  playerId,
+  playlistId,
+  pluginPath,
+}) =>
   html`
     <style>
       #root-inner {
@@ -22,6 +30,7 @@ const Template = ({ captions, mediaId, minimumSearchLength, playerId, playlistId
       }
     </style>
     <jw-player
+      api-secret=${apiSecret}
       ?captions=${captions}
       media-id=${mediaId}
       minimum-search-length=${minimumSearchLength}
@@ -35,6 +44,7 @@ export const Default = Template.bind({});
 
 Object.assign(Default, {
   args: {
+    apiSecret: 'API_SECRET',
     captions: true,
     mediaId: 'fZ0XiGdb',
     minimumSearchLength: 3,

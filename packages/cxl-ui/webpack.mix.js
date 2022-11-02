@@ -121,6 +121,7 @@ mix.webpackConfig(() => ({
   },
   resolve: {
     fallback: {
+      crypto: require.resolve('crypto-browserify'),
       stream: false,
     },
   },

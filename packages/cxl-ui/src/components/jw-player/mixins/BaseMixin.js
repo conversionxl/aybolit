@@ -1,6 +1,7 @@
 import { property } from 'lit/decorators.js';
 import { throttle } from 'lodash-es';
 import { parseSync } from 'subtitle';
+import jwt from 'jsonwebtoken';
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
@@ -13,6 +14,8 @@ export function BaseMixin(BaseClass) {
     __jwPlayerContainer;
 
     __position;
+
+    @property({ attribute: 'api-secret', type: String }) apiSecret = 'test';
 
     @property({ attribute: 'media-id', type: String }) mediaId;
 
@@ -37,6 +40,18 @@ export function BaseMixin(BaseClass) {
       return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
     }
 
+    __generateURL(path) {
+      const token = jwt.sign(
+        {
+          exp: Math.ceil((new Date().getTime() + 3600) / 300) * 300,
+          resource: path,
+        },
+        this.apiSecret
+      );
+
+      return `https://cdn.jwplayer.com${path}?token=${token}`;
+    }
+
     async __getChapters() {
       const playlistItem = this.__jwPlayer.getPlaylistItem();
       const { file } = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0];
@@ -48,7 +63,7 @@ export function BaseMixin(BaseClass) {
     async __getMedia() {
       if (!this.mediaId) return false;
 
-      const response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
+      const response = await fetch(this.__generateURL(`/v2/media/${this.mediaId}`));
       const result = await response.json();
 
       return result;
@@ -57,7 +72,7 @@ export function BaseMixin(BaseClass) {
     async __getPlaylist() {
       if (!this.playlistId) return false;
 
-      const response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+      const response = await fetch(this.__generateURL(`/v2/playlists/${this.playlistId}`));
       const result = await response.json();
 
       return result;
