@@ -5,7 +5,17 @@ export default {
   title: 'JW Player/JW Player',
 };
 
-const Template = ({ captions, mediaId, minimumSearchLength, playerId, playlistId, pluginPath }) =>
+const Template = ({
+  captions,
+  mediaId,
+  mediaSource,
+  minimumSearchLength,
+  playerId,
+  playerSource,
+  playlistId,
+  playlistSource,
+  pluginPath,
+}) =>
   html`
     <style>
       #root-inner {
@@ -24,9 +34,12 @@ const Template = ({ captions, mediaId, minimumSearchLength, playerId, playlistId
     <jw-player
       ?captions=${captions}
       media-id=${mediaId}
+      media-source=${mediaSource}
       minimum-search-length=${minimumSearchLength}
       player-id=${playerId}
+      player-source=${playerSource}
       playlist-id=${playlistId}
+      playlist-source=${playlistSource}
       plugin-path="${pluginPath}"
     ></jw-player>
   `;
@@ -37,9 +50,12 @@ Object.assign(Default, {
   args: {
     captions: true,
     mediaId: 'fZ0XiGdb',
+    mediaSource: '',
     minimumSearchLength: 3,
     playerId: '5CFJNXKb',
+    playerSource: '',
     playlistId: '',
+    playlistSource: '',
     pluginPath: 'https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/',
   },
 });

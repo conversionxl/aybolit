@@ -16,9 +16,15 @@ export function BaseMixin(BaseClass) {
 
     @property({ attribute: 'media-id', type: String }) mediaId;
 
+    @property({ attribute: 'media-source', type: String }) mediaSource;
+
     @property({ attribute: 'player-id', type: String }) playerId;
 
+    @property({ attribute: 'player-source', type: String }) playerSource;
+
     @property({ attribute: 'playlist-id', type: String }) playlistId;
+
+    @property({ attribute: 'playlist-source', type: String }) playlistSource;
 
     firstUpdated(_changedProperties) {
       super.firstUpdated(_changedProperties);
@@ -34,7 +40,17 @@ export function BaseMixin(BaseClass) {
     }
 
     get __scriptUrl() {
-      return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
+      let scriptUrl;
+
+      if (this.playerId) {
+        scriptUrl = `https://content.jwplatform.com/libraries/${this.playerId}.js`;
+      } else if (this.playerSource) {
+        scriptUrl = this.playerSource;
+      } else {
+        return false;
+      }
+
+      return scriptUrl;
     }
 
     async __getChapters() {
@@ -46,21 +62,31 @@ export function BaseMixin(BaseClass) {
     }
 
     async __getMedia() {
-      if (!this.mediaId) return false;
+      let response;
 
-      const response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
-      const result = await response.json();
+      if (this.mediaId) {
+        response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
+      } else if (this.mediaSource) {
+        response = await fetch(this.mediaSource);
+      } else {
+        return false;
+      }
 
-      return result;
+      return response.json();
     }
 
     async __getPlaylist() {
-      if (!this.playlistId) return false;
+      let response;
 
-      const response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
-      const result = await response.json();
+      if (this.playlistId) {
+        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+      } else if (this.playlistSource) {
+        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+      } else {
+        return false;
+      }
 
-      return result;
+      return response.json();
     }
 
     async __loadScript() {
