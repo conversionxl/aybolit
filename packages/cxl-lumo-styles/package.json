@@ -10,7 +10,6 @@
     "directory": "packages/cxl-lumo-styles"
   },
   "dependencies": {
-    "@polymer/iron-iconset-svg": "^3.0.1",
     "@vaadin/polymer-legacy-adapter": "^23.3.0",
     "@vaadin/vaadin-lumo-styles": "^23.3.0",
     "@vaadin/vaadin-themable-mixin": "^23.3.0"

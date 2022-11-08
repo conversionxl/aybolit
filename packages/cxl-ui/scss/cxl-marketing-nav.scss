@@ -28,8 +28,8 @@
   }
 
   .menu-item-menu-toggle {
-    &[selected] iron-icon:first-child,
-    &:not([selected]) iron-icon + iron-icon {
+    &[selected] vaadin-icon:first-child,
+    &:not([selected]) vaadin-icon + vaadin-icon {
       display: none;
     }
   }

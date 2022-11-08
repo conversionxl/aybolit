@@ -177,10 +177,10 @@ export class CXLLikeOrDislikeElement extends LitElement {
     return html`<div>
       <div counter>${this.upVotes} Vote${plural}</div>
       <div class="vote" @click="${this._upVote}" up>
-        <iron-icon icon="vaadin:thumbs-up-o"></iron-icon><span>Upvote${d1}</span>
+        <vaadin-icon icon="vaadin:thumbs-up-o"></vaadin-icon><span>Upvote${d1}</span>
       </div>
       <div class="vote" @click="${this._downVote}" down>
-        <iron-icon icon="vaadin:thumbs-down-o"></iron-icon><span>Downvote${d2}</span>
+        <vaadin-icon icon="vaadin:thumbs-down-o"></vaadin-icon><span>Downvote${d2}</span>
       </div>
     </div>`;
   }

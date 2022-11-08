@@ -85,7 +85,7 @@ export const CXLVaadinAccordionThemeArchive = () => {
                 />
               </a>
               <div class="entry-byline">
-                <iron-icon icon="lumo:clock"></iron-icon>${el.conversionxl_live_course_duration}
+                <vaadin-icon icon="lumo:clock"></vaadin-icon>${el.conversionxl_live_course_duration}
                 <hr />
                 Instructors: ${el.conversionxl_certificate_instructor}
               </div>
@@ -95,7 +95,7 @@ export const CXLVaadinAccordionThemeArchive = () => {
             </div>
             <div class="entry-footer" style="text-align: right;">
               <a href="${el.conversionxl_certificate_sales_page}"
-                >View training<iron-icon icon="lumo:angle-right"></iron-icon
+                >View training<vaadin-icon icon="lumo:angle-right"></vaadin-icon
               ></a>
             </div>
           </cxl-accordion-card>

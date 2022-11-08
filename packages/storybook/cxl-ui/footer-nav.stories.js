@@ -34,7 +34,10 @@ export const CXLFooterNav = () => html`
         <ul class="menu-items">
           <li class="menu-item" style="color: var(--lumo-tint)">
             <a href="https://cxl.com"
-              ><iron-icon icon="cxl:logo" style="width: var(--lumo-icon-size-xl, 48px);"></iron-icon
+              ><vaadin-icon
+                icon="cxl:logo"
+                style="width: var(--lumo-icon-size-xl, 48px);"
+              ></vaadin-icon
             ></a>
             ©2011-2021
           </li>

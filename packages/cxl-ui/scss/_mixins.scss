@@ -3,8 +3,8 @@
   align-items: flex-start;
 
   [icon] {
-    --iron-icon-width: var(--lumo-icon-size-s);
-    --iron-icon-height: var(--iron-icon-width);
+    --vaadin-icon-width: var(--lumo-icon-size-s);
+    --vaadin-icon-height: var(--vaadin-icon-width);
 
     flex-shrink: 0;
     margin-right: var(--lumo-space-s);

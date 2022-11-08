@@ -30,7 +30,7 @@
   "primary": [
     {
       "depth": 0,
-      "text": "My dashboard <iron-icon icon=\"lumo:dropdown\"><\/iron-icon>",
+      "text": "My dashboard <vaadin-icon icon=\"lumo:dropdown\"><\/vaadin-icon>",
       "component": "a",
       "href": "https:\/\/conversionxl.com\/institute\/dashboard\/",
       "id": 35,
@@ -72,7 +72,7 @@
     },
     {
       "depth": 0,
-      "text": "Minidegrees <iron-icon icon=\"lumo:dropdown\"><\/iron-icon>",
+      "text": "Minidegrees <vaadin-icon icon=\"lumo:dropdown\"><\/vaadin-icon>",
       "component": "a",
       "href": "https:\/\/conversionxl.com\/institute\/online-courses\/?_categories=minidegree-programs",
       "id": 36,
@@ -114,7 +114,7 @@
     },
     {
       "depth": 0,
-      "text": "Online courses <iron-icon icon=\"lumo:dropdown\"><\/iron-icon>",
+      "text": "Online courses <vaadin-icon icon=\"lumo:dropdown\"><\/vaadin-icon>",
       "component": "a",
       "href": "https:\/\/conversionxl.com\/institute\/online-courses\/",
       "id": 37,
@@ -420,7 +420,7 @@
     },
     {
       "depth": 0,
-      "text": "<iron-icon icon=\"lumo:plus\"><\/iron-icon> Invite team",
+      "text": "<vaadin-icon icon=\"lumo:plus\"><\/vaadin-icon> Invite team",
       "component": "a",
       "href": "https:\/\/conversionxl.com\/institute\/my-account\/teams\/",
       "id": 40,
@@ -428,7 +428,7 @@
     },
     {
       "depth": 0,
-      "text": "<iron-icon icon=\"lumo:user\"><\/iron-icon> My account <iron-icon icon=\"lumo:dropdown\"><\/iron-icon>",
+      "text": "<vaadin-icon icon=\"lumo:user\"><\/vaadin-icon> My account <vaadin-icon icon=\"lumo:dropdown\"><\/vaadin-icon>",
       "component": "a",
       "href": "https:\/\/conversionxl.com\/institute\/my-account\/",
       "id": 41,

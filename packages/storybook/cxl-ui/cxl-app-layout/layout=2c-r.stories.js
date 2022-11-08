@@ -51,7 +51,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="vaadin:play-circle-o"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="vaadin:play-circle-o"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/persuasion-slide-introduction/"
                 rel="bookmark"
@@ -72,7 +72,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="lumo:angle-right"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="lumo:angle-right"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/2-persuasion-psychology-brief-introduction/"
                 rel="bookmark"
@@ -94,7 +94,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="vaadin:play-circle-o"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="vaadin:play-circle-o"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/3-persuasion-slide/"
                 rel="bookmark"
@@ -115,7 +115,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="lumo:angle-right"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="lumo:angle-right"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/4-gravity/"
                 rel="bookmark"
@@ -136,7 +136,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="vaadin:play-circle-o"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="vaadin:play-circle-o"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/5-nudge/"
                 rel="bookmark"
@@ -157,7 +157,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="vaadin:check-circle"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="vaadin:check-circle"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/6-angle-conscious-motivation/"
                 rel="bookmark"
@@ -178,7 +178,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="vaadin:check-circle"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="vaadin:check-circle"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/7-angle-unconscious-motivation/"
                 rel="bookmark"
@@ -199,7 +199,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="vaadin:check-circle"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="vaadin:check-circle"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/8-friction-real-difficulty/"
                 rel="bookmark"
@@ -220,7 +220,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="vaadin:check-circle"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="vaadin:check-circle"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/9-friction-imaginary-friction-cognitive-fluency/"
                 rel="bookmark"
@@ -242,7 +242,7 @@ export const CXLAppLayout2cr = () => {
         >
           <header class="entry-header">
             <h4 class="entry-title no-anchor" itemprop="headline">
-              <iron-icon class="iron-icon" icon="lumo:angle-right"></iron-icon>
+              <vaadin-icon class="vaadin-icon" icon="lumo:angle-right"></vaadin-icon>
               <a
                 href="https://conversionxli.warmpress.com/lesson/10-build-slide/"
                 rel="bookmark"
@@ -356,17 +356,17 @@ export const CXLAppLayout2cr = () => {
 
       <div slot="action-bar">
         <vaadin-button theme="primary"
-          >Complete lesson <iron-icon icon="vaadin:check-circle" slot="suffix"></iron-icon
+          >Complete lesson <vaadin-icon icon="vaadin:check-circle" slot="suffix"></vaadin-icon
         ></vaadin-button>
         <vaadin-button>Secondary action</vaadin-button>
         <vaadin-context-menu selector="vaadin-button" open-on="click" theme="cxl-marketing-nav">
           <template>
             <vaadin-context-menu-list-box theme="cxl-marketing-nav">
               <vaadin-context-menu-item class="vaadin-menu-item" theme="cxl-marketing-nav"
-                >Next lesson <iron-icon icon="lumo:arrow-right"></iron-icon
+                >Next lesson <vaadin-icon icon="lumo:arrow-right"></vaadin-icon
               ></vaadin-context-menu-item>
               <vaadin-context-menu-item class="vaadin-menu-item" theme="cxl-marketing-nav"
-                ><iron-icon icon="lumo:arrow-left"></iron-icon> Previous
+                ><vaadin-icon icon="lumo:arrow-left"></vaadin-icon> Previous
                 lesson</vaadin-context-menu-item
               >
               <hr />
@@ -376,7 +376,7 @@ export const CXLAppLayout2cr = () => {
             </vaadin-context-menu-list-box>
           </template>
           <vaadin-button theme="icon contrast" aria-label="More actions"
-            ><iron-icon icon="vaadin:ellipsis-dots-v"></iron-icon
+            ><vaadin-icon icon="vaadin:ellipsis-dots-v"></vaadin-icon
           ></vaadin-button>
         </vaadin-context-menu>
       </div>

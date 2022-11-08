@@ -1,7 +1,7 @@
 $star-active-color: #fdd835;
 $star-inactive-color: #eee;
 
-:host([selected]) iron-icon {
+:host([selected]) vaadin-icon {
   color: $star-active-color;
 }
 
@@ -9,7 +9,7 @@ $star-inactive-color: #eee;
   margin-left: var(--lumo-space-xs);
 }
 
-iron-icon {
+vaadin-icon {
   color: $star-inactive-color;
 
   &:hover {
@@ -26,7 +26,7 @@ a {
     cursor: pointer;
   }
 
-  &:hover iron-icon {
+  &:hover vaadin-icon {
     color: $star-active-color;
   }
 }

@@ -9,8 +9,8 @@ export class CXLSaveFavoriteElement extends LitElement {
   @query('a')
   anchor;
 
-  @query('a > iron-icon')
-  ironIcon;
+  @query('a > vaadin-icon')
+  vaadinIcon;
 
   /**
    * Is post currently in the "saved" state
@@ -75,7 +75,7 @@ export class CXLSaveFavoriteElement extends LitElement {
   async _anchorClicked(event) {
     event.stopPropagation();
 
-    this.ironIcon.classList.toggle('selected');
+    this.vaadinIcon.classList.toggle('selected');
     this.selected = !this.selected;
 
     await this.sendToApi();
@@ -89,7 +89,7 @@ export class CXLSaveFavoriteElement extends LitElement {
     return html`
       <div>
         <a @click=${this._anchorClicked} title="${text}">
-          <iron-icon icon="vaadin:star"></iron-icon>
+          <vaadin-icon icon="vaadin:star"></vaadin-icon>
           ${afterStar}
         </a>
       </div>

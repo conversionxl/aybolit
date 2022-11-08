@@ -1,7 +1,8 @@
 /**
  * @see https://github.com/vaadin/docs/blob/838707b08368ca4a225e2e12840ff980b5ecc7ea/frontend/demo/foundation/icons-preview.ts
  */
-import { LitElement, html, customElement, property } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { css } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 
@@ -39,7 +40,7 @@ const iconsPreviewStyles = css`
   }
 
   .cxl-icon-preview svg,
-  .cxl-icon-preview iron-icon {
+  .cxl-icon-preview vaadin-icon {
     display: inline-block !important;
     width: 48px !important;
     height: 48px !important;
@@ -96,7 +97,7 @@ export class IconsPreview extends LitElement {
 
   _getIcons() {
     const iconSetName = this.name;
-    const iconSets = document.querySelectorAll('iron-iconset-svg');
+    const iconSets = document.querySelectorAll('vaadin-iconset');
 
     const iconSetFiltered = [...iconSets].filter(
       (iconSet) => iconSet.getAttribute('name') === iconSetName
@@ -106,7 +107,15 @@ export class IconsPreview extends LitElement {
       return null;
     }
 
-    return iconSetFiltered[0].getIconNames();
+    const icons = iconSetFiltered[0].__createIconMap();
+
+    /* eslint-disable func-names */
+    const names = Object.keys(icons).map(function (n) {
+      return `${this.name}:${n}`;
+    }, this);
+    /* eslint-enable func-names */
+
+    return names;
   }
 
   _searchInput(e) {
@@ -151,14 +160,13 @@ export class IconsPreview extends LitElement {
         title = `Since Vaadin 21, '${name}' is deprecated. Please use '${DEPRECATED_ICONS[name]}' instead.`;
       }
 
-      iconTemplate = html`
-        <div
-          class="cxl-icon-preview icon-${name} ${isDeprecated ? 'deprecated' : ''}"
-          title="${title}"
-        >
-          <iron-icon icon="${iconsetName}:${name}"></iron-icon>
-          <span class="cxl-icon-preview-name">${name}</div>
-        </div>`;
+      iconTemplate = html` <div
+        class="cxl-icon-preview icon-${name} ${isDeprecated ? 'deprecated' : ''}"
+        title="${title}"
+      >
+        <vaadin-icon icon="${iconsetName}:${name}"></vaadin-icon>
+        <span class="cxl-icon-preview-name">${name}</span>
+      </div>`;
 
       iconsTemplate.push(iconTemplate);
     });

@@ -18,16 +18,16 @@ export class CXLStarRatingElement extends LitElement {
       --mdc-icon-size: var(--mwc-star-rating-size, 24px);
     }
 
-    :host iron-icon:hover,
-    :host iron-icon:hover ~ iron-icon {
+    :host vaadin-icon:hover,
+    :host vaadin-icon:hover ~ vaadin-icon {
       color: var(--mwc-star-rating-text-hover-color, #ffeb3b) !important;
     }
 
-    iron-icon {
+    vaadin-icon {
       float: right;
     }
 
-    iron-icon.whole {
+    vaadin-icon.whole {
       -webkit-clip-path: inset(0 0 0 50%);
       -moz-clip-path: inset(0 0 0 50%);
       -ms-clip-path: inset(0 0 0 50%);
@@ -38,7 +38,7 @@ export class CXLStarRatingElement extends LitElement {
       margin-right: calc(var(--mdc-icon-size) * -1);
     }
 
-    iron-icon.half {
+    vaadin-icon.half {
       -webkit-clip-path: inset(0 50% 0 0);
       -moz-clip-path: inset(0 50% 0 0);
       -ms-clip-path: inset(0 50% 0 0);
@@ -47,8 +47,8 @@ export class CXLStarRatingElement extends LitElement {
       position: relative;
     }
 
-    iron-icon[selected],
-    iron-icon[selected] ~ iron-icon {
+    vaadin-icon[selected],
+    vaadin-icon[selected] ~ vaadin-icon {
       color: var(--mwc-star-rating-text-selected-color, #fdd835);
     }
   `;
@@ -86,13 +86,13 @@ export class CXLStarRatingElement extends LitElement {
       ${this._ratings.map(
         (item) =>
           html`
-            <iron-icon
+            <vaadin-icon
               class="${item.class}"
               icon=${this.icon}
               value="${item.value}"
               ?selected="${item.selected}"
               @click="${(e) => this._starClicked(e, item.value)}"
-            ></iron-icon>
+            ></vaadin-icon>
           `
       )}
     `;

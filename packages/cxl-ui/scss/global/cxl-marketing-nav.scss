@@ -108,7 +108,7 @@ vaadin-context-menu-list-box {
   background-color: transparent;
 }
 
-.context-menu-item-back-button iron-icon {
+.context-menu-item-back-button vaadin-icon {
   margin-left: calc(var(--lumo-icon-size-m) / 4 * -1);
 }
 

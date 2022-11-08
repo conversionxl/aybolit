@@ -6,9 +6,9 @@ cxl-vaadin-accordion {
    * Theme "cxl-accordion-card".
    */
   &[theme~="cxl-accordion-card"] {
-    iron-icon {
-      --iron-icon-height: var(--lumo-icon-size-s);
-      --iron-icon-width: var(--iron-icon-height);
+    vaadin-icon {
+      --vaadin-icon-height: var(--lumo-icon-size-s);
+      --vaadin-icon-width: var(--vaadin-icon-height);
     }
 
     p {
@@ -24,7 +24,7 @@ cxl-vaadin-accordion {
     }
 
     .entry-byline {
-      display: flex; // iron-icon vs text alignment
+      display: flex; // vaadin-icon vs text alignment
       flex-basis: 100%;
       flex-wrap: wrap;
       margin: var(--lumo-space-s) 0;
@@ -150,9 +150,9 @@ cxl-vaadin-accordion {
     column-rule: 1px solid var(--lumo-shade-10pct);
     column-width: calc(var(--cxl-wrap-width) / 4);
 
-    iron-icon {
-      --iron-icon-height: var(--lumo-icon-size-s);
-      --iron-icon-width: var(--iron-icon-height);
+    vaadin-icon {
+      --vaadin-icon-height: var(--lumo-icon-size-s);
+      --vaadin-icon-width: var(--vaadin-icon-height);
     }
 
     p {
@@ -177,7 +177,7 @@ cxl-vaadin-accordion {
     }
 
     .entry-byline {
-      display: flex; // iron-icon vs text alignment
+      display: flex; // vaadin-icon vs text alignment
       flex-basis: 100%;
       flex-direction: column;
       flex-wrap: wrap;
