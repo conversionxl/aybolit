@@ -10,31 +10,12 @@ export default {
 
 export const CXLMarketingNav = () => {
   useEffect(() => {
-    const bodyElement = document.querySelector('body');
-
     // Populate `<cxl-marketing-nav>` context menus.
     const cxlMarketingNavElement = document.querySelector('cxl-marketing-nav');
 
     cxlMarketingNavElement.contextMenuItems = contextMenuItems;
 
-    // headroom.js
-    const headroom = new Headroom(cxlMarketingNavElement, {
-      tolerance: {
-        up: 30,
-        down: 30,
-      },
-      offset: cxlMarketingNavElement.hasAttribute('wide')
-        ? Math.max(cxlMarketingNavElement.offsetHeight, cxlMarketingNavElement.clientHeight) / 2
-        : 0,
-      onNotTop: () => {
-        bodyElement.classList.add('cxl-marketing-nav-sticky');
-      },
-      onTop: () => {
-        bodyElement.classList.remove('cxl-marketing-nav-sticky');
-      },
-    });
-
-    headroom.init();
+    cxlMarketingNavElement.initHeadroom(Headroom);
   }, []);
 
   return html`

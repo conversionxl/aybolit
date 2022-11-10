@@ -525,4 +525,47 @@ export class CXLMarketingNavElement extends LitElement {
       el.close();
     }
   }
+
+  /**
+   * Initialize Headroom.
+   *
+   * @since 2022.11.10
+   *
+   * @param contextMenuItems
+   * @param Headroom
+   */
+  async initHeadroom(Headroom) {
+    /**
+     * Fix race condition where the css properties are not available yet.
+     *
+     * @since 2022.11.11
+     * @see https://cxlworld.slack.com/archives/C01JABH8AHX/p1667298030545399?thread_ts=1667211996.651629&cid=C01JABH8AHX
+     * @see https://stackoverflow.com/a/63062857
+     * @see https://lit.dev/docs/components/lifecycle/#updatecomplete
+     */
+    await this.updateComplete;
+
+    const bodyElement = document.querySelector('body');
+
+    /**
+     * Headroom.
+     *
+     * @see https://github.com/WickyNilliams/headroom.js
+     */
+    const headroom = new Headroom(this, {
+      tolerance: {
+        up: 30,
+        down: 30,
+      },
+      offset: this.hasAttribute('wide') ? Math.max(this.offsetHeight, this.clientHeight) / 2 : 0,
+      onNotTop() {
+        bodyElement.classList.add('cxl-marketing-nav-sticky');
+      },
+      onTop() {
+        bodyElement.classList.remove('cxl-marketing-nav-sticky');
+      },
+    });
+
+    headroom.init();
+  }
 }
