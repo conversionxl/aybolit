@@ -32,6 +32,11 @@ vaadin-context-menu-item[theme~="cxl-marketing-nav"] {
     &[focus-ring] {
       box-shadow: none;
     }
+
+    // @see https://app.clickup.com/t/3v0u4ua
+    &::part(checkmark) {
+      display: none;
+    }
   }
 
   .search-form {
