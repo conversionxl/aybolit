@@ -96,6 +96,7 @@ export class CXLMarketingNavElement extends LitElement {
           class="menu-item menu-item-menu-toggle"
           theme="cxl-marketing-nav"
           ?hidden="${this.minimal}"
+          @click=${this._toggleMobileMenu}
         >
           <a
             >Menu <iron-icon icon="lumo:menu"></iron-icon><iron-icon icon="lumo:cross"></iron-icon
@@ -474,40 +475,27 @@ export class CXLMarketingNavElement extends LitElement {
     this._rotateMenuItemSearchListenOn();
   }
 
+  /**
+   * Mobile menu toggle.
+   *
+   * @see https://app.clickup.com/t/3phu3bv
+   * @since 2022.10.18
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _toggleMobileMenu() {
+    const bodyElement = document.querySelector('body');
+
+    if (bodyElement) {
+      bodyElement.classList.toggle('cxl-mobile-menu-opened');
+    }
+  }
+
   _menuShadowItemsClick(e) {
     if (this.menuShadowItemsSelectedIdx !== -1) {
       if (this.menuShadowItemsSelectedIdx === e.currentTarget.selected) {
         e.currentTarget.selected = -1;
         e.stopImmediatePropagation();
       }
-    }
-
-    /**
-     * Mobile menu toggle.
-     *
-     * @see https://app.clickup.com/t/3phu3bv
-     * @since 2022.10.18
-     */
-    const path = e.composedPath ? e.composedPath() : e.path || [];
-
-    const toggleBtn = Array.from(path).filter((node) => {
-      if (!node || !node.nodeName || !node.classList) {
-        return false;
-      }
-
-      return (
-        node.nodeName.toLowerCase() === 'vaadin-tab' &&
-        node.classList.contains('menu-item-menu-toggle')
-      );
-    });
-
-    if (!toggleBtn || !toggleBtn.length) {
-      return;
-    }
-
-    const bodyElement = document.querySelector('body');
-    if (bodyElement) {
-      bodyElement.classList.toggle('cxl-mobile-menu-opened');
     }
   }
 
