@@ -52,6 +52,9 @@ export class CXLMarketingNavElement extends LitElement {
   // @see https://github.com/vaadin/web-components/blob/de3db720ec8448a26d2f84d00965a9e369a1c3fb/packages/select/src/vaadin-select.js#L297
   _phoneMediaQuery = '(max-width: 420px), (max-height: 420px)';
 
+  @property({ type: HTMLElement })
+  submenuOverlay = null;
+
   static get styles() {
     return [cxlMarketingNavStyles];
   }
@@ -93,6 +96,7 @@ export class CXLMarketingNavElement extends LitElement {
           class="menu-item menu-item-menu-toggle"
           theme="cxl-marketing-nav"
           ?hidden="${this.minimal}"
+          @click=${this._toggleMobileMenu}
         >
           <a
             >Menu <iron-icon icon="lumo:menu"></iron-icon><iron-icon icon="lumo:cross"></iron-icon
@@ -139,6 +143,16 @@ export class CXLMarketingNavElement extends LitElement {
     this.querySelectorAll('.menu-item > vaadin-context-menu').forEach((contextMenu) => {
       // eslint-disable-next-line no-param-reassign
       contextMenu.listenOn = contextMenu.parentElement;
+
+      /**
+       * Back button custom event.
+       *
+       * @since 2022.11.14
+       * @see https://app.clickup.com/t/3rgnekt
+       * @type {string}
+       */
+      // eslint-disable-next-line no-param-reassign
+      contextMenu.closeOn = 'backBtnClose';
 
       contextMenu.addEventListener('opened-changed', ({ detail: { value } }) => {
         const listBox = document.querySelector('vaadin-context-menu-list-box');
@@ -233,7 +247,48 @@ export class CXLMarketingNavElement extends LitElement {
       }, 1000)
     );
 
+    document.body.addEventListener('vaadin-overlay-open', this._onOverlayOpen.bind(this));
+
     super.firstUpdated(changedProperties);
+  }
+
+  /**
+   * Store overlay when triggered for `vaadin-context-menu-item` sub menu.
+   *
+   * @since 2022.11.14
+   * @see https://app.clickup.com/t/3rgnekt
+   * @private
+   */
+  _onOverlayOpen(oe) {
+    const overlay = oe.target;
+
+    if (!overlay) {
+      return;
+    }
+
+    const backBtn = overlay.querySelector('.context-menu-item-back-button');
+
+    if (!backBtn) {
+      return;
+    }
+
+    this.submenuOverlay = overlay;
+  }
+
+  /**
+   * Listen to back button click event,
+   * close the relevant overlay.
+   *
+   * @since 2022.11.14
+   * @see https://app.clickup.com/t/3rgnekt
+   * @private
+   */
+  _onBackBtnClick() {
+    if (!this.submenuOverlay) {
+      return;
+    }
+
+    this.submenuOverlay.dispatchEvent(new CustomEvent('backBtnClose', { bubbles: true }));
   }
 
   updated(changedProps) {
@@ -249,6 +304,21 @@ export class CXLMarketingNavElement extends LitElement {
   }
 
   /**
+   * Add `<vaadin-context-menu>` element for back button.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _addBackButtonItem(contextMenuItems) {
+    const backBtn = {
+      component: 'back',
+    };
+
+    // eslint-disable-next-line no-param-reassign
+    contextMenuItems = [backBtn, ...contextMenuItems];
+
+    return contextMenuItems;
+  }
+
+  /**
    * Create `<vaadin-context-menu>` elements, with children nesting support.
    * Support `{ component: a }`.
    *
@@ -258,6 +328,8 @@ export class CXLMarketingNavElement extends LitElement {
   _createContextMenuItems(contextMenuItems) {
     contextMenuItems.forEach((item, i, self) => {
       if (item.children) {
+        // eslint-disable-next-line no-param-reassign
+        item.children = this._addBackButtonItem(item.children);
         this._createContextMenuItems(item.children);
       }
 
@@ -286,6 +358,22 @@ export class CXLMarketingNavElement extends LitElement {
 
         // eslint-disable-next-line no-param-reassign
         self[i] = { component: menuItem };
+      }
+
+      if (item.component === 'back') {
+        const menuItemBack = document.createElement('vaadin-context-menu-item');
+        const backBtn = document.createElement('vaadin-button');
+
+        backBtn.classList.add('context-menu-item-back-button');
+        backBtn.innerHTML = '<iron-icon icon="lumo:angle-left"></iron-icon> Back';
+
+        menuItemBack.classList.add('back-button-menu-item');
+        menuItemBack.appendChild(backBtn);
+
+        menuItemBack.addEventListener('click', this._onBackBtnClick.bind(this));
+
+        // eslint-disable-next-line no-param-reassign
+        self[i] = { component: menuItemBack };
       }
     });
 
@@ -387,40 +475,27 @@ export class CXLMarketingNavElement extends LitElement {
     this._rotateMenuItemSearchListenOn();
   }
 
+  /**
+   * Mobile menu toggle.
+   *
+   * @see https://app.clickup.com/t/3phu3bv
+   * @since 2022.10.18
+   */
+  // eslint-disable-next-line class-methods-use-this
+  _toggleMobileMenu() {
+    const bodyElement = document.querySelector('body');
+
+    if (bodyElement) {
+      bodyElement.classList.toggle('cxl-mobile-menu-opened');
+    }
+  }
+
   _menuShadowItemsClick(e) {
     if (this.menuShadowItemsSelectedIdx !== -1) {
       if (this.menuShadowItemsSelectedIdx === e.currentTarget.selected) {
         e.currentTarget.selected = -1;
         e.stopImmediatePropagation();
       }
-    }
-
-    /**
-     * Mobile menu toggle.
-     *
-     * @see https://app.clickup.com/t/3phu3bv
-     * @since 2022.10.18
-     */
-    const path = e.composedPath ? e.composedPath() : e.path || [];
-
-    const toggleBtn = Array.from(path).filter((node) => {
-      if (!node || !node.nodeName || !node.classList) {
-        return false;
-      }
-
-      return (
-        node.nodeName.toLowerCase() === 'vaadin-tab' &&
-        node.classList.contains('menu-item-menu-toggle')
-      );
-    });
-
-    if (!toggleBtn || !toggleBtn.length) {
-      return;
-    }
-
-    const bodyElement = document.querySelector('body');
-    if (bodyElement) {
-      bodyElement.classList.toggle('cxl-mobile-menu-opened');
     }
   }
 
@@ -437,5 +512,48 @@ export class CXLMarketingNavElement extends LitElement {
     if (el && !this._phone) {
       el.close();
     }
+  }
+
+  /**
+   * Initialize Headroom.
+   *
+   * @since 2022.11.10
+   *
+   * @param contextMenuItems
+   * @param Headroom
+   */
+  async initHeadroom(Headroom) {
+    /**
+     * Fix race condition where the css properties are not available yet.
+     *
+     * @since 2022.11.11
+     * @see https://cxlworld.slack.com/archives/C01JABH8AHX/p1667298030545399?thread_ts=1667211996.651629&cid=C01JABH8AHX
+     * @see https://stackoverflow.com/a/63062857
+     * @see https://lit.dev/docs/components/lifecycle/#updatecomplete
+     */
+    await this.updateComplete;
+
+    const bodyElement = document.querySelector('body');
+
+    /**
+     * Headroom.
+     *
+     * @see https://github.com/WickyNilliams/headroom.js
+     */
+    const headroom = new Headroom(this, {
+      tolerance: {
+        up: 30,
+        down: 30,
+      },
+      offset: this.hasAttribute('wide') ? Math.max(this.offsetHeight, this.clientHeight) / 2 : 0,
+      onNotTop() {
+        bodyElement.classList.add('cxl-marketing-nav-sticky');
+      },
+      onTop() {
+        bodyElement.classList.remove('cxl-marketing-nav-sticky');
+      },
+    });
+
+    headroom.init();
   }
 }

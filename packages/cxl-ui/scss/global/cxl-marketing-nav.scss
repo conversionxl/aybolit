@@ -32,6 +32,11 @@ vaadin-context-menu-item[theme~="cxl-marketing-nav"] {
     &[focus-ring] {
       box-shadow: none;
     }
+
+    // @see https://app.clickup.com/t/3v0u4ua
+    &::part(checkmark) {
+      display: none;
+    }
   }
 
   .search-form {
@@ -84,5 +89,31 @@ vaadin-context-menu-list-box {
 @media (min-width: 420px) and (min-height: 420px) {
   .vaadin-context-menu-item--description {
     max-width: var(--cxl-vaadin-context-menu-item-max-width);
+  }
+}
+
+/**
+ * Mobile view `vaadin-context-menu-item` sub menu back button.
+ *
+ * @since 2022.11.10
+ * @see https://app.clickup.com/t/3rgnekt
+ */
+/* stylelint-disable-next-line selector-no-qualifying-type */
+.context-menu-item-back-button {
+  min-width: auto;
+  height: calc(var(--lumo-button-size) / 2);
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  background-color: transparent;
+}
+
+.context-menu-item-back-button iron-icon {
+  margin-left: calc(var(--lumo-icon-size-m) / 4 * -1);
+}
+
+@media (min-width: 420px) and (min-height: 420px) {
+  .back-button-menu-item {
+    display: none;
   }
 }
