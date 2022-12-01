@@ -17,7 +17,7 @@ export { CXLSaveFavoriteElement } from './components/cxl-save-favorite.js';
 export { CXLStarRatingElement } from './components/cxl-star-rating.js';
 export { CXLLikeOrDislikeElement } from './components/cxl-like-or-dislike.js';
 export { CXLPaywallElement } from './components/cxl-paywall.js';
-export { JWPlayerElement } from './components/jw-player/index.js';
+export { CXLJWPlayerElement } from './components/cxl-jw-player/index.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from
 export { Headroom };

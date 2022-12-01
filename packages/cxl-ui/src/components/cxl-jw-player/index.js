@@ -1,12 +1,12 @@
 import { LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { BaseMixin, CaptionMixin, ChapterMixin, SavePositionMixin } from './mixins';
-import style from '../../styles/jw-player/jw-player-css';
+import style from '../../styles/cxl-jw-player/cxl-jw-player-css';
 import { mixin } from './utility';
 import { template } from './index.html';
 
-@customElement('jw-player')
-export class JWPlayerElement extends mixin(LitElement, [
+@customElement('cxl-jw-player')
+export class CXLJWPlayerElement extends mixin(LitElement, [
   BaseMixin,
   CaptionMixin,
   ChapterMixin,
