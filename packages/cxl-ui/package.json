@@ -17,6 +17,7 @@
     "@pika/plugin-build-web": "^0.9.2",
     "@pika/plugin-bundle-web": "^0.9.2",
     "@pika/plugin-standard-pkg": "^0.9.2",
+    "@polymer/polymer": "^3.5.1",
     "@vaadin/accordion": "^23.2.0",
     "@vaadin/button": "^23.2.0",
     "@vaadin/checkbox": "^23.2.0",

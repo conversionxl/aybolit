@@ -1,8 +1,9 @@
 import { html } from 'lit';
-import '@conversionxl/cxl-ui/src/components/jw-player/index.js';
+import '@conversionxl/cxl-ui/src/components/cxl-jw-player/index.js';
+import '@conversionxl/cxl-ui/src/components/cxl-jw-player/cxl-jw-player-feedback/index.js';
 
 export default {
-  title: 'JW Player/JW Player',
+  title: 'CXL UI/cxl-jw-player',
 };
 
 const Template = ({ captions, mediaId, playerId, playlistId, pluginPath }) =>
@@ -12,16 +13,16 @@ const Template = ({ captions, mediaId, playerId, playlistId, pluginPath }) =>
         height: 100vh;
       }
 
-      jw-player {
+      cxl-jw-player {
         display: block;
         height: 100%;
       }
 
-      jw-player * {
+      cxl-jw-player * {
         box-sizing: border-box;
       }
     </style>
-    <jw-player
+    <cxl-jw-player
       ?captions=${captions}
       class="cxl-jwplayer-container"
       media-id=${mediaId}
@@ -29,14 +30,16 @@ const Template = ({ captions, mediaId, playerId, playlistId, pluginPath }) =>
       playlist-id=${playlistId}
       plugin-path="${pluginPath}"
       type="playlist"
-    ></jw-player>
+    >
+      <cxl-jw-player-feedback>This is a feedback form</cxl-jw-player-feedback>
+    </cxl-jw-player>
   `;
 
 export const Playlist = Template.bind({});
 
 Object.assign(Playlist, {
   args: {
-    captions: true,
+    captions: false,
     mediaId: '',
     playerId: '5CFJNXKb',
     playlistId: 'tAxwbNsA',

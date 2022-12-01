@@ -1,15 +1,17 @@
-# JW Player
+# CXL JW Player
 
 ## Usage
 
 ```
-    <jw-player
+    <cxl-jw-player
       captions
       media-id="fZ0XiGdb"
       minimum-search-length="3"
       player-id="5CFJNXKb"
       plugin-path="https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/"
-    ></jw-player>
+    >
+    <cxl-jw-player-feedback>...PHP</cxl-jw-player-feedback>
+    </cxl-jw-player>
 ```
 
 ## Features:
@@ -22,6 +24,7 @@
 - [x] Captions search and highlight
 - [x] Save position
 - [ ] Theater mode
+- [X] Feedback form
 
 ## Dependencies:
 

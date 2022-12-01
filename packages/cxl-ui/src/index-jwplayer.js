@@ -1,1 +1,1 @@
-export { JWPlayerElement } from './components/jw-player/index.js';
+export { CXLJWPlayerElement } from './components/cxl-jw-player/index.js';
