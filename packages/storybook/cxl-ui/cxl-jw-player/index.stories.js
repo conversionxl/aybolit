@@ -35,7 +35,7 @@ export const Default = Template.bind({});
 
 Object.assign(Default, {
   args: {
-    captions: true,
+    captions: false,
     mediaId: 'fZ0XiGdb',
     minimumSearchLength: 3,
     playerId: '5CFJNXKb',

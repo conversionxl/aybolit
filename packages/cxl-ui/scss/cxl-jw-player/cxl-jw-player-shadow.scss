@@ -1,0 +1,107 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+
+:host {
+  box-sizing: border-box;
+
+  [active] {
+    background-color: var(--lumo-shade-10pct);
+  }
+}
+
+:host([captions]) #container {
+  grid-template-rows: 1fr max-content 1fr;
+}
+
+.captions {
+  h2,
+  span {
+    &:hover {
+      color: var(--lumo-primary-color);
+    }
+
+    cursor: var(--captions-cursor, pointer);
+  }
+
+  mark {
+    color: #fff;
+    background-color: var(--lumo-primary-color);
+  }
+
+  span {
+    padding: var(--lumo-space-xs) calc(var(--lumo-space-xs) / 2);
+    border-radius: var(--lumo-space-xs);
+  }
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+  height: 100%;
+}
+
+.flex.column {
+  flex-direction: column;
+}
+
+.flex.grow {
+  flex-grow: 1;
+}
+
+.gap {
+  gap: var(--lumo-space-m);
+}
+
+.grid {
+  display: grid;
+}
+
+.height-50 {
+  height: 50%;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.padding {
+  padding: var(--lumo-space-s);
+}
+
+.scroll {
+  @include mixins.better-webkit-scrollbars();
+
+  overflow: auto;
+}
+
+.search {
+  color: #fff;
+  background-color: #000;
+
+  vaadin-checkbox {
+    --lumo-body-text-color: #fff;
+  }
+
+  vaadin-checkbox:not([checked])::part(checkbox) {
+    background-color: #fff;
+  }
+
+  vaadin-text-field {
+    width: 50%;
+    padding: 0;
+    background-color: #fff;
+    border-radius: var(--lumo-space-xs);
+
+    &::part(input-field) {
+      background-color: initial;
+    }
+  }
+}

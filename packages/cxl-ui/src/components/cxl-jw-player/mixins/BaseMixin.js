@@ -1,3 +1,4 @@
+import { render } from 'lit';
 import { property } from 'lit/decorators.js';
 import { throttle } from 'lodash-es';
 import { parseSync } from 'subtitle';
@@ -37,6 +38,12 @@ export function BaseMixin(BaseClass) {
       return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
     }
 
+    __addStyle(style) {
+      const el = document.createElement('style');
+      render(style, el);
+      this.appendChild(el);
+    }
+    
     async __getChapters() {
       const playlistItem = this.__jwPlayer.getPlaylistItem();
       const { file } = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0];
