@@ -1,9 +1,9 @@
 import { render } from 'lit';
 import { property } from 'lit/decorators.js';
-import style from '../../../../styles/cxl-jw-player/chapter-css';
+import style from '../../../../styles/cxl-jw-player/cxl-jw-player-chapter-navigation-css';
 import { chapterNavigationTemplate } from './index.html';
 
-export function ChapterMixin(BaseClass) {
+export function ChapterNavigationMixin(BaseClass) {
   class Mixin extends BaseClass {
     @property({ attribute: 'plugin-path', type: String }) pluginPath;
 
