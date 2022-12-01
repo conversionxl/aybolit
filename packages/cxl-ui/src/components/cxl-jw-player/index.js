@@ -1,6 +1,6 @@
 import { LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { BaseMixin, TranscriptMixin, ChapterNavigationMixin, SavePositionMixin } from './mixins';
+import { BaseMixin, TranscriptMixin, ChapterNavigationMixin, FeedbackMixin, SavePositionMixin } from './mixins';
 import style from '../../styles/cxl-jw-player/cxl-jw-player-css';
 import shadowStyle from '../../styles/cxl-jw-player/cxl-jw-player-shadow-css';
 import { mixin } from './utility';
@@ -11,6 +11,7 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
   BaseMixin,
   TranscriptMixin,
   ChapterNavigationMixin,
+  FeedbackMixin,
   SavePositionMixin,
 ]) {
   config = {
