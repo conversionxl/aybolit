@@ -5,7 +5,7 @@ import '@vaadin/text-field';
 // eslint-disable-next-line func-names
 export const template = function () {
   return html`
-    <div class="grid height-100" id="container">
+    <div class="cxl-jw-player-container" id="cxl-jw-player-container">
       <slot></slot>
       ${this.captions
         ? html`

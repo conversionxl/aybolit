@@ -1,15 +1,16 @@
-# JW Player
+# CXL JW Player
 
 ## Usage
 
 ```
-    <jw-player
+    <cxl-jw-player
+      is-public
       captions
       media-id="fZ0XiGdb"
       minimum-search-length="3"
-      player-id="5CFJNXKb"
+      library-id="5CFJNXKb"
       plugin-path="https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/"
-    ></jw-player>
+    ></cxl-jw-player>
 ```
 
 ## Features:

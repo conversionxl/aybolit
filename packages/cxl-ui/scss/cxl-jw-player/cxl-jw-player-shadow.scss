@@ -8,10 +8,6 @@
   }
 }
 
-:host([captions]) #container {
-  grid-template-rows: 1fr max-content 1fr;
-}
-
 .captions {
   h2,
   span {
