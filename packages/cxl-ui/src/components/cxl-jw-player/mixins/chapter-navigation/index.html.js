@@ -13,8 +13,7 @@ export const chapterNavigationTemplate = function (chapters) {
         theme="icon small primary"
         aria-label="Close"
       >
-        <!-- <vaadin-icon icon="lumo:close-small"></vaadin-icon> -->
-        &#10005;
+        <vaadin-icon icon="lumo:cross"></vaadin-icon>
       </vaadin-button>
     </div>
     <ul class="chapter-navigation-list">
