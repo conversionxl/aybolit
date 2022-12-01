@@ -2,6 +2,7 @@ import { LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { BaseMixin, CaptionMixin, ChapterMixin, SavePositionMixin } from './mixins';
 import style from '../../styles/cxl-jw-player/cxl-jw-player-css';
+import shadowStyle from '../../styles/cxl-jw-player/cxl-jw-player-shadow-css';
 import { mixin } from './utility';
 import { template } from './index.html';
 
@@ -25,10 +26,16 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
   };
 
   static get styles() {
-    return [style];
+    return [shadowStyle];
   }
 
   render() {
     return template.bind(this)();
+  }
+
+  async __setup() {
+    await super.__setup();
+
+    this.__addStyle(style);
   }
 }

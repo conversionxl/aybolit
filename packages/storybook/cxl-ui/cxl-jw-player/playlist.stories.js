@@ -36,7 +36,7 @@ export const Playlist = Template.bind({});
 
 Object.assign(Playlist, {
   args: {
-    captions: true,
+    captions: false,
     mediaId: '',
     playerId: '5CFJNXKb',
     playlistId: 'tAxwbNsA',
