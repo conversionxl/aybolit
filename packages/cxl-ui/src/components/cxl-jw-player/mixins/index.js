@@ -1,4 +1,4 @@
 export { BaseMixin } from './BaseMixin';
-export { CaptionMixin } from './CaptionMixin';
+export { TranscriptMixin } from './TranscriptMixin';
 export { ChapterMixin } from './chapter';
 export { SavePositionMixin } from './SavePositionMixin';
