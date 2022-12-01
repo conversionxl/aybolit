@@ -1,6 +1,6 @@
 export function SavePositionMixin(BaseClass) {
   class Mixin extends BaseClass {
-    __endpoint = '';
+    __endpoint;
 
     __nonce;
 
@@ -8,6 +8,12 @@ export function SavePositionMixin(BaseClass) {
 
     async __setup() {
       await super.__setup();
+
+      this.__endpoint = `${window.ajaxurl}?action=jwplayer_save_position`;
+
+      if ( typeof window.cxl_pum_vars !== 'undefined' ) {
+        this.__nonce = window.cxl_pum_vars.nonce;
+      }
 
       this.__loadPosition();
     }

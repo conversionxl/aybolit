@@ -15,7 +15,6 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
 ]) {
   config = {
     width: '100%',
-    height: '100%',
     playbackRateControls: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
     plugins: {
       // 'http://192.168.0.101:8080/telemetry-8.20.0.js': {},
@@ -23,6 +22,7 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
     skin: {
       name: 'cxl-institute',
     },
+    stretching: 'uniform',
   };
 
   static get styles() {

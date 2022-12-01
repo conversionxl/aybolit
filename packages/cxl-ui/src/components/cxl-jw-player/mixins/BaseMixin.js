@@ -17,9 +17,17 @@ export function BaseMixin(BaseClass) {
 
     @property({ attribute: 'media-id', type: String }) mediaId;
 
-    @property({ attribute: 'player-id', type: String }) playerId;
+    @property({ attribute: 'media-source', type: String }) mediaSource;
+
+    @property({ attribute: 'is-public', type: String }) isPublic;
+
+    @property({ attribute: 'library-id', type: String }) libraryId;
+
+    @property({ attribute: 'library-source', type: String }) librarySource;
 
     @property({ attribute: 'playlist-id', type: String }) playlistId;
+
+    @property({ attribute: 'playlist-source', type: String }) playlistSource;
 
     firstUpdated(_changedProperties) {
       super.firstUpdated(_changedProperties);
@@ -35,7 +43,17 @@ export function BaseMixin(BaseClass) {
     }
 
     get __scriptUrl() {
-      return `https://content.jwplatform.com/libraries/${this.playerId}.js`;
+      let scriptUrl;
+
+      if (this.libraryId && this.isPublic) {
+        scriptUrl = `https://content.jwplatform.com/libraries/${this.libraryId}.js`;
+      } else if (this.librarySource) {
+        scriptUrl = this.librarySource;
+      } else {
+        return false;
+      }
+
+      return scriptUrl;
     }
 
     __addStyle(style) {
@@ -43,31 +61,42 @@ export function BaseMixin(BaseClass) {
       render(style, el);
       this.appendChild(el);
     }
-    
+
     async __getChapters() {
       const playlistItem = this.__jwPlayer.getPlaylistItem();
-      const { file } = playlistItem.tracks.filter((track) => track.kind === 'chapters')[0];
+      const chapters = playlistItem.tracks.filter((track) => track.kind === 'chapters');
+      const { file } = chapters.length > 0 ? chapters[0] : '';
       const response = await (await fetch(file)).text();
 
       return parseSync(response);
     }
 
     async __getMedia() {
-      if (!this.mediaId) return false;
+      let response;
 
-      const response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
-      const result = await response.json();
+      if (this.mediaId && this.isPublic) {
+        response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
+      } else if (this.mediaSource) {
+        response = await fetch(this.mediaSource);
+      } else {
+        return false;
+      }
 
-      return result;
+      return response.json();
     }
 
     async __getPlaylist() {
-      if (!this.playlistId) return false;
+      let response;
 
-      const response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
-      const result = await response.json();
+      if (this.playlistId) {
+        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+      } else if (this.playlistSource) {
+        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+      } else {
+        return false;
+      }
 
-      return result;
+      return response.json();
     }
 
     async __loadScript() {
@@ -97,6 +126,15 @@ export function BaseMixin(BaseClass) {
      * Each mixin has the ability to hook onto this method.
      */
     async __setup() {
+
+      // Merge configs from `cxlJWPlayerData`.
+      if (typeof window.cxlJWPlayerData !== 'undefined') {
+        // eslint-disable-next-line camelcase
+        const { media_config } = window.cxlJWPlayerData[this.mediaId];
+        // eslint-disable-next-line camelcase
+        this.config = { ...this.config, ...media_config };
+      }
+
       const jwPlayer = await this.__loadScript();
 
       const el = document.createElement('div');
