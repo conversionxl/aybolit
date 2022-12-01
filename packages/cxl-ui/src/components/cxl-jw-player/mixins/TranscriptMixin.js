@@ -9,7 +9,7 @@ export function TranscriptMixin(BaseClass) {
 
     __mark;
 
-    @property({ type: Boolean }) captions = false;
+    @property({ reflect: true, type: Boolean }) captions = false;
 
     @state() __currentCue = 0;
 
@@ -117,11 +117,18 @@ export function TranscriptMixin(BaseClass) {
     async __setup() {
       await super.__setup();
 
-      this.__setupCaptions();
+      this.__setupTranscript();
     }
 
-    async __setupCaptions() {
+    async __setupTranscript() {
       if (!this.__jwPlayer) return;
+
+      this.__jwPlayer.addButton(
+        `<svg class="jw-player-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" aria-hidden="true" viewBox="0 0 1000 1000"><g><path d="M662 603l131 131c16 16 16 42 0 59-16 16-43 16-59 0l-131-131C562 691 512 708 458 708c-138 0-250-112-250-250 0-138 112-250 250-250 138 0 250 112 250 250 0 54-17 104-46 145zM458 646c104 0 188-84 188-188S562 271 458 271 271 355 271 458s84 188 187 188z"></path></g></svg>`,
+        'Transcript',
+        this.__toggleTranscript.bind(this),
+        'toggle-transcript'
+      );
 
       if (this.captions) {
         this.__tracks = await this.__getTracks();
@@ -138,15 +145,25 @@ export function TranscriptMixin(BaseClass) {
 
       if (changedProperties.has('captions')) {
         if (this.captions) {
-          this.__setupCaptions();
+          this.__setupTranscript();
         } else if (this.mark) {
           this.__mark.unmark();
         }
       }
     }
 
+    __attachListeners() {
+      super.__attachListeners();
+    }
+
     __toggleShouldScroll() {
       this.shouldScroll = !this.shouldScroll;
+    }
+
+    __toggleTranscript() {
+      // this.dispatchEvent(new CustomEvent('toggle-transcript'));
+
+      this.captions = !this.captions;
     }
   }
 
