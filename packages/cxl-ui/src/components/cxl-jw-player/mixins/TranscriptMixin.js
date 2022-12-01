@@ -3,7 +3,7 @@ import { debounce } from 'lodash-es';
 import Mark from 'mark.js';
 import { parseSync } from 'subtitle';
 
-export function CaptionMixin(BaseClass) {
+export function TranscriptMixin(BaseClass) {
   class Mixin extends BaseClass {
     __debouncedSearch;
 
