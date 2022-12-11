@@ -154,6 +154,9 @@ export class CXLMarketingNavElement extends LitElement {
       // eslint-disable-next-line no-param-reassign
       contextMenu.closeOn = 'backBtnClose';
 
+      /**
+       * @todo Needs docblock.
+       */
       contextMenu.addEventListener('opened-changed', ({ detail: { value } }) => {
         const listBox = document.querySelector('vaadin-context-menu-list-box');
         let listBoxWidth = parseFloat(getComputedStyle(listBox).getPropertyValue('width'));
@@ -176,55 +179,9 @@ export class CXLMarketingNavElement extends LitElement {
     });
 
     /**
-     * Configure `.menu-item-search`.
+     * Search form integration.
      */
-    const menuItemSearchContextMenu =
-      this.menuItemSearchElement.querySelector('vaadin-context-menu');
-
-    /**
-     * `<vaadin-context-menu-item>` interferes with form input.
-     *
-     * @see https://github.com/vaadin/vaadin-item/blob/v2.1.1/src/vaadin-item-mixin.html#L136
-     */
-    menuItemSearchContextMenu.addEventListener(
-      'opened-changed',
-      (ee) => {
-        const searchForm = ee.target.$.overlay.querySelector('.search-form');
-
-        searchForm.addEventListener('keydown', (ef) => {
-          // Allow Esc.
-          if (ef.key !== 'Escape') {
-            ef.stopPropagation();
-          }
-        });
-      },
-      { once: true }
-    );
-
-    /**
-     * Avoid upstream default immediate close behavior.
-     */
-    menuItemSearchContextMenu.addEventListener('item-selected', (e) => {
-      e.stopImmediatePropagation();
-    });
-
-    /**
-     * Attach search form template.
-     */
-    const searchFormTemplate = this.querySelector('#cxl-marketing-nav-search-form-template') || '';
-
-    if (searchFormTemplate && 'content' in searchFormTemplate) {
-      menuItemSearchContextMenu.items = [
-        { component: searchFormTemplate.content.firstElementChild },
-      ];
-    }
-
-    /**
-     * Enable instant typing, avoid focus click.
-     */
-    menuItemSearchContextMenu.$.overlay.addEventListener('vaadin-overlay-open', (e) =>
-      e.target.querySelector('#search-input').focus()
-    );
+    this._setupSearchForm();
 
     /**
      * Decide `<vaadin-tabs>` initial orientation.
@@ -465,6 +422,62 @@ export class CXLMarketingNavElement extends LitElement {
     if (searchElement) {
       this.menuItemSearchElement.querySelector('vaadin-context-menu').listenOn = searchElement;
     }
+  }
+
+  /**
+   * @private
+   */
+  _setupSearchForm() {
+    /**
+     * Configure `.menu-item-search`.
+     */
+    const menuItemSearchContextMenu =
+      this.menuItemSearchElement.querySelector('vaadin-context-menu');
+
+    /**
+     * `<vaadin-context-menu-item>` interferes with form input.
+     *
+     * @see https://github.com/vaadin/vaadin-item/blob/v2.1.1/src/vaadin-item-mixin.html#L136
+     */
+    menuItemSearchContextMenu.addEventListener(
+      'opened-changed',
+      (ee) => {
+        const searchForm = ee.target.$.overlay.querySelector('.search-form');
+
+        searchForm.addEventListener('keydown', (ef) => {
+          // Allow Esc.
+          if (ef.key !== 'Escape') {
+            ef.stopPropagation();
+          }
+        });
+      },
+      { once: true }
+    );
+
+    /**
+     * Avoid upstream default immediate close behavior.
+     */
+    menuItemSearchContextMenu.addEventListener('item-selected', (e) => {
+      e.stopImmediatePropagation();
+    });
+
+    /**
+     * Attach search form template.
+     */
+    const searchFormTemplate = this.querySelector('#cxl-marketing-nav-search-form-template') || '';
+
+    if (searchFormTemplate && 'content' in searchFormTemplate) {
+      menuItemSearchContextMenu.items = [
+        { component: searchFormTemplate.content.firstElementChild },
+      ];
+    }
+
+    /**
+     * Enable instant typing, avoid focus click.
+     */
+    menuItemSearchContextMenu.$.overlay.addEventListener('vaadin-overlay-open', (e) =>
+      e.target.querySelector('#search-input').focus()
+    );
   }
 
   /**
