@@ -1,4 +1,8 @@
+const path = require('path');
 const transpilePackages = ['lit-html', 'lit-element', '@aybolit'];
+const getAliases = require("../../../scripts/get-aliases");
+
+const aliases = getAliases( { "currentPath": '../' } );
 
 module.exports = ({ config }) => {
   // tweak babel-loader to transpile dependencies
@@ -33,6 +37,14 @@ module.exports = ({ config }) => {
       },
     },
   });
+
+  config.resolve = {
+    ...config.resolve,
+    alias: {
+      ...config.resolve?.alias,
+      ...aliases,
+    }
+  }
 
   return config;
 };

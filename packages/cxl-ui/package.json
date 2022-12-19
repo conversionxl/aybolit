@@ -53,8 +53,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "pika build && npm run prod && size-limit",
-    "dev": "npx mix --mix-config=./webpack.mix.js watch",
-    "prod": "npx mix --mix-config=./webpack.mix.js --production"
+    "dev": "npx mix --mix-config=./webpack-login.mix.js && npx mix --mix-config=./webpack.mix.js",
+    "prod": "npx mix --mix-config=./webpack-login.mix.js -p && npx mix --mix-config=./webpack.mix.js -p"
   },
   "size-limit": [
     {

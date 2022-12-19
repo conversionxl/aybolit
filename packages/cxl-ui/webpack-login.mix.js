@@ -55,7 +55,7 @@ mix.options({
     },
     extractComments: false,
   },
-  manifest: 'cxl-ui-manifest.json',
+  // manifest: 'cxl-ui-manifest.json',
 });
 
 /*
@@ -80,17 +80,16 @@ mix.version(`${distPath}`);
  * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/mixjs.md#basic-usage
  */
 
-mix
-  .js(`${devPath}/index-core.js`, `${distPath}/cxl-ui.js`)
-  .js(`${devPath}/index-playbooks.js`, `${distPath}/cxl-ui-playbooks.js`)
-  .js(`${devPath}/index-jwplayer.js`, `${distPath}/cxl-ui-jwplayer.js`);
+mix.js(`${devPath}/index-login.js`, `${distPath}/cxl-ui-login.js`);
 
 /*
  * Extract vendors etc.
  *
  * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/extract.md#L14
  */
-mix.extract();
+mix.extract({
+  to: `${distPath}/vendor-login.js`
+});
 
 mix.alias(getAliases( { "currentPath": '../' } ));
 
@@ -104,24 +103,6 @@ mix.alias(getAliases( { "currentPath": '../' } ));
 mix.webpackConfig(() => ({
   stats: 'minimal',
   performance: { hints: false },
-  module: {
-    rules: [
-      {
-        test: require.resolve('headroom.js'),
-        // use: 'imports-loader?this=>window,define=>false,exports=>false'
-        use: [
-          {
-            loader: 'imports-loader',
-            options: {
-              wrapper: 'window',
-              additionalCode:
-                '/* Disable AMD for misbehaving libraries */var define = false;var exports = false;',
-            },
-          },
-        ],
-      },
-    ],
-  },
   resolve: {
     fallback: {
       stream: false,

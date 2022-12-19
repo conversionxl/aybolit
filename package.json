@@ -104,5 +104,9 @@
         "packages/cxl-ui/pkg/dist-web/cxl-ui*.js"
       ]
     }
-  ]
+  ],
+  "aliases": {
+    "@cxl-lumo-styles": "./packages/cxl-lumo-styles",
+    "@cxl-ui": "./packages/cxl-ui"
+  }
 }
