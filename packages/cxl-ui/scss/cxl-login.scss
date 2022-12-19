@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,900,900i");
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  justify-content: center;
+}
+
+.login h1 {
+  margin-top: 2em;
+  text-align: left;
+}
+
+.login h1 a {
+  margin: unset;
+  width: unset;
+}
+
+.login p {
+  margin: 1em 0;
+}
+
+.login form .forgetmenot {
+  float: none;
+  margin: 1em 0 !important;
+}
+
+.login form .input {
+  padding: 0.25em 0.5em;
+}
+
+.login .button-primary {
+  background-color: #cd282f !important;
+  border-color: transparent !important;
+  float: none;
+  height: 3em !important;
+  line-height: 3em !important;
+  text-shadow: none !important;
+  text-transform: uppercase;
+  width: 100% !important;
+}
+
+.login .button-primary:hover {
+  border-color: red !important;
+}
+
+.login .entry-title {
+  color: #111;
+  font-size: 2.25rem;
+  font-weight: bold;
+  line-height: 1.1997;
+  margin: 1.125rem 0;
+  text-align: left;
+}
+
+.login #backtoblog {
+  display: none;
+}
+
+body.login-action-rp p#nav a,
+body.login-action-resetpass p#nav a {
+  display: none;
+}
+
+.login .post-edit-link {
+  display: none;
+}
+
+.login .privacy-policy-page-link {
+  margin: 1em 0;
+  text-align: left;
+}
+
+.login .privacy-policy-page-link,
+.login .view .wrap,
+.login #nav {
+  padding: 0 1em;
+}
+
+#login {
+  margin: unset;
+  padding-top: unset;
+}
+
+#peep-promo-2021-08-17 {
+  order: -1;
+}
+
+.itsec-pwls-login__link,
+.itsec-pwls-login__submit {
+  background-color: #d61f2c !important;
+}
+
+/**
+ * Lost password link tweak.
+ *
+ * @since 2022.12.21
+ * @see https://app.clickup.com/t/3ccnz6j
+ */
+.login #backtoblog a,
+.login #nav a {
+  color: #2271b1;
+  text-decoration: underline;
+}
+
+.login #backtoblog a:hover,
+.login #nav a:hover,
+.login h1 a:hover {
+  color: #135e96;
+}

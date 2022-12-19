@@ -30,6 +30,7 @@ const mix = require('laravel-mix');
 
 const devPath = 'src';
 const distPath = 'pkg/dist-web';
+const scssPath = 'scss';
 
 /*
  * Sets the path to the generated assets. By default, this is the `/pkg/dist-web` folder
@@ -83,6 +84,8 @@ mix
   .js(`${devPath}/index-core.js`, `${distPath}/cxl-ui.js`)
   .js(`${devPath}/index-playbooks.js`, `${distPath}/cxl-ui-playbooks.js`)
   .js(`${devPath}/index-jwplayer.js`, `${distPath}/cxl-ui-jwplayer.js`);
+
+mix.sass(`${scssPath}/cxl-login.scss`, `${distPath}/styles/cxl-login.css`);
 
 /*
  * Extract vendors etc.
