@@ -2,7 +2,7 @@ name: Github Pages - Deploy Storybook
 on:
   push:
     branches:
-      - main
+      - master
 permissions:
   contents: write
 jobs:
