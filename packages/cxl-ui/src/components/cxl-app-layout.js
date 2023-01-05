@@ -81,7 +81,7 @@ export class CXLAppLayoutElement extends LitElement {
             this.asideOpened = !this.asideOpened;
           }}"
         >
-          <iron-icon icon="lumo:angle-right"></iron-icon>
+          <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
         </vaadin-button>
         <slot name="sidebar"></slot>
       </aside>

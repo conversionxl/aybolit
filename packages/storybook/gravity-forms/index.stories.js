@@ -161,7 +161,7 @@ const formTemplate = html`
           theme="primary"
           tabindex="0"
           role="button"
-          >Get launch updates<iron-icon icon="lumo:angle-right" slot="suffix"></iron-icon
+          >Get launch updates<vaadin-icon icon="lumo:angle-right" slot="suffix"></vaadin-icon
         ></vaadin-button>
         <input
           type="hidden"

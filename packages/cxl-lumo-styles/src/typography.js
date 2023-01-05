@@ -1,10 +1,6 @@
-import '@vaadin/vaadin-lumo-styles/typography.js';
-import styles from './styles/typography-css.js';
+import { typography } from '@vaadin/vaadin-lumo-styles';
+import { registerGlobalStyles } from './utils.js';
+import typographyStyles from './styles/typography-css.js';
 
-const $template = document.createElement('template');
-$template.innerHTML = `
-  <custom-style>
-    <style id="cxl-lumo-styles-typography" include="lumo-typography">${styles}</style>
-  </custom-style>
-`;
-document.head.appendChild($template.content);
+registerGlobalStyles(typography, { moduleId: 'vaadin-lumo-styles-typography' });
+registerGlobalStyles(typographyStyles, { moduleId: 'cxl-lumo-styles-typography' });

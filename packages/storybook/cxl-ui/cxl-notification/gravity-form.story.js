@@ -23,7 +23,7 @@ export const GravityFormStory = ({}) => html`
           theme="primary icon"
           onclick="document.getElementById('gform_83_vaadin_notification_1').close()"
         >
-          <iron-icon icon="lumo:cross"></iron-icon>
+          <vaadin-icon icon="lumo:cross"></vaadin-icon>
         </vaadin-button>
       </vaadin-horizontal-layout>
     </cxl-notification>
@@ -56,7 +56,7 @@ export const GravityFormStory = ({}) => html`
           theme="primary icon"
           onclick="document.getElementById('gform_20_vaadin_notification_1').close()"
         >
-          <iron-icon icon="lumo:cross"></iron-icon>
+          <vaadin-icon icon="lumo:cross"></vaadin-icon>
         </vaadin-button>
       </vaadin-horizontal-layout>
     </cxl-notification>

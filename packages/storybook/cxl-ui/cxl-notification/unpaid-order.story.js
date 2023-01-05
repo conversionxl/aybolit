@@ -23,7 +23,7 @@ export const UnPaidOrderStory = ({}) => html`
           theme="primary icon"
           onclick="document.getElementById('6351798_vaadin_notification_1').close()"
         >
-          <iron-icon icon="lumo:cross"></iron-icon>
+          <vaadin-icon icon="lumo:cross"></vaadin-icon>
         </vaadin-button>
       </vaadin-horizontal-layout>
     </cxl-notification>

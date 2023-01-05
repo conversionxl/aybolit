@@ -46,10 +46,10 @@ export const CXLAppLayout = () => {
             </ul>
             <p>
               <vaadin-button theme="primary large"
-                >Marketing training <iron-icon icon="lumo:angle-right" slot="suffix"></iron-icon
+                >Marketing training <vaadin-icon icon="lumo:angle-right" slot="suffix"></vaadin-icon
               ></vaadin-button>
               <vaadin-button theme="primary large contrast"
-                >Managed services <iron-icon icon="lumo:angle-right" slot="suffix"></iron-icon
+                >Managed services <vaadin-icon icon="lumo:angle-right" slot="suffix"></vaadin-icon
               ></vaadin-button>
             </p>
           </cxl-section>

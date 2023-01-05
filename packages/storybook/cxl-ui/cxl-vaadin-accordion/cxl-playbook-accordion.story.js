@@ -18,7 +18,7 @@ export const CXLPlaybookAccordion = ({ FeedbackButtonLabel, PlaybookId }) => htm
             <vaadin-button
               onclick="alert('Step ID: ' + this.closest('vaadin-accordion-panel').dataset.stepId)"
             >
-              <iron-icon icon="vaadin:comment" slot="prefix"></iron-icon>
+              <vaadin-icon icon="vaadin:comment" slot="prefix"></vaadin-icon>
               ${FeedbackButtonLabel}
             </vaadin-button>
           </div>

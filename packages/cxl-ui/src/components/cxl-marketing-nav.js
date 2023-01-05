@@ -74,7 +74,10 @@ export class CXLMarketingNavElement extends LitElement {
       >
         <vaadin-tab class="menu-item menu-item-logo" theme="cxl-marketing-nav">
           <a href="https://conversionxl.com"
-            ><iron-icon icon="cxl:logo" style="width: var(--lumo-icon-size-xl, 48px);"></iron-icon
+            ><vaadin-icon
+              icon="cxl:logo"
+              style="width: var(--lumo-icon-size-xl, 48px);"
+            ></vaadin-icon
           ></a>
         </vaadin-tab>
         <vaadin-tab
@@ -83,8 +86,8 @@ export class CXLMarketingNavElement extends LitElement {
           ?hidden="${this.minimal}"
         >
           <a
-            ><iron-icon icon="lumo:search"></iron-icon> Search
-            <iron-icon icon="lumo:dropdown"></iron-icon
+            ><vaadin-icon icon="lumo:search"></vaadin-icon> Search
+            <vaadin-icon icon="lumo:dropdown"></vaadin-icon
           ></a>
           <vaadin-context-menu
             close-on="outside-click"
@@ -99,7 +102,8 @@ export class CXLMarketingNavElement extends LitElement {
           @click=${this._toggleMobileMenu}
         >
           <a
-            >Menu <iron-icon icon="lumo:menu"></iron-icon><iron-icon icon="lumo:cross"></iron-icon
+            >Menu <vaadin-icon icon="lumo:menu"></vaadin-icon
+            ><vaadin-icon icon="lumo:cross"></vaadin-icon
           ></a>
         </vaadin-tab>
       </vaadin-tabs>
@@ -322,7 +326,7 @@ export class CXLMarketingNavElement extends LitElement {
         const backBtn = document.createElement('vaadin-button');
 
         backBtn.classList.add('context-menu-item-back-button');
-        backBtn.innerHTML = '<iron-icon icon="lumo:angle-left"></iron-icon> Back';
+        backBtn.innerHTML = '<vaadin-icon icon="lumo:angle-left"></vaadin-icon> Back';
 
         menuItemBack.classList.add('back-button-menu-item');
         menuItemBack.appendChild(backBtn);

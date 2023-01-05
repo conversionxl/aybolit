@@ -51,7 +51,7 @@ const CxlSingleversionCardDisplay = (el, userId, selected) => {
         </ol>
         <div class="entry-footer" style="text-align: right;">
           <a href="https://cxl.com/institute/online-course/ab-testing-mastery/" title="Open"
-            >Open<iron-icon icon="lumo:angle-right"></iron-icon
+            >Open<vaadin-icon icon="lumo:angle-right"></vaadin-icon
           ></a>
         </div>
       </div>

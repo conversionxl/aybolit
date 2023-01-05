@@ -53,11 +53,11 @@ const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => htm
 
       <p>
         <vaadin-button theme="tertiary contrast"
-          >Share <iron-icon icon="lumo:cog" slot="prefix"></iron-icon
+          >Share <vaadin-icon icon="lumo:cog" slot="prefix"></vaadin-icon
         ></vaadin-button>
         <br />
         <vaadin-button theme="tertiary contrast"
-          >Report <iron-icon icon="lumo:error" slot="prefix"></iron-icon
+          >Report <vaadin-icon icon="lumo:error" slot="prefix"></vaadin-icon
         ></vaadin-button>
       </p>
       <p>

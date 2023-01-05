@@ -39,7 +39,7 @@ export const CXLMarketingNav = () => {
               theme="icon"
               onclick="document.getElementById('search-form').submit();"
             >
-              <iron-icon icon="lumo:angle-right"></iron-icon>
+              <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
             </vaadin-button>
           </form>
         </vaadin-context-menu-item>
@@ -54,7 +54,10 @@ export const CXLMarketingNav = () => {
       >
         <vaadin-tab class="menu-item menu-item-logo menu-item-wide" theme="cxl-marketing-nav">
           <a href="https://conversionxl.com"
-            ><iron-icon icon="cxl:logo" style="width: var(--lumo-icon-size-xl, 48px);"></iron-icon
+            ><vaadin-icon
+              icon="cxl:logo"
+              style="width: var(--lumo-icon-size-xl, 48px);"
+            ></vaadin-icon
           ></a>
         </vaadin-tab>
         <vaadin-tab
@@ -69,7 +72,7 @@ export const CXLMarketingNav = () => {
           theme="cxl-marketing-nav"
         >
           <a href="https://conversionxl.com/agency/"
-            >Conversion optimization services <iron-icon icon="lumo:dropdown"></iron-icon
+            >Conversion optimization services <vaadin-icon icon="lumo:dropdown"></vaadin-icon
           ></a>
           <vaadin-context-menu
             open-on="click"
@@ -88,15 +91,15 @@ export const CXLMarketingNav = () => {
         <vaadin-tab class="menu-item" theme="cxl-marketing-nav"
           ><a href="https://conversionxl.com/live/"
             >CXL Live 2020
-            <iron-icon icon="cxl:live" style="color: var(--lumo-primary-color)"></iron-icon></a
+            <vaadin-icon icon="cxl:live" style="color: var(--lumo-primary-color)"></vaadin-icon></a
         ></vaadin-tab>
         <vaadin-tab
           class="menu-item menu-item-split-nav menu-item-has-children menu-item-wide menu-item-search"
           theme="cxl-marketing-nav"
         >
           <a
-            ><iron-icon icon="lumo:search"></iron-icon> Search
-            <iron-icon icon="lumo:dropdown"></iron-icon
+            ><vaadin-icon icon="lumo:search"></vaadin-icon> Search
+            <vaadin-icon icon="lumo:dropdown"></vaadin-icon
           ></a>
         </vaadin-tab>
       </vaadin-tabs>
@@ -114,7 +117,7 @@ export const CXLMarketingNav = () => {
           theme="cxl-marketing-nav"
         >
           <a href="https://conversionxl.com/institute/dashboard/"
-            >My dashboard <iron-icon icon="lumo:dropdown"></iron-icon
+            >My dashboard <vaadin-icon icon="lumo:dropdown"></vaadin-icon
           ></a>
           <vaadin-context-menu
             open-on="click"
@@ -129,7 +132,7 @@ export const CXLMarketingNav = () => {
         >
           <a
             href="https://conversionxl.com/institute/online-courses/?_categories=minidegree-programs"
-            >Minidegrees <iron-icon icon="lumo:dropdown"></iron-icon
+            >Minidegrees <vaadin-icon icon="lumo:dropdown"></vaadin-icon
           ></a>
           <vaadin-context-menu
             open-on="click"
@@ -143,7 +146,7 @@ export const CXLMarketingNav = () => {
           theme="cxl-marketing-nav"
         >
           <a href="https://conversionxl.com/institute/online-courses/"
-            >Online courses <iron-icon icon="lumo:dropdown"></iron-icon
+            >Online courses <vaadin-icon icon="lumo:dropdown"></vaadin-icon
           ></a>
           <vaadin-context-menu
             open-on="click"
@@ -161,7 +164,7 @@ export const CXLMarketingNav = () => {
         >
         <vaadin-tab class="menu-item menu-item-split-nav" theme="cxl-marketing-nav"
           ><a href="https://conversionxl.com/institute/my-account/teams/"
-            ><iron-icon icon="lumo:plus"></iron-icon> Invite team</a
+            ><vaadin-icon icon="lumo:plus"></vaadin-icon> Invite team</a
           ></vaadin-tab
         >
         <vaadin-tab
@@ -169,8 +172,8 @@ export const CXLMarketingNav = () => {
           class="menu-item menu-item-has-children"
           theme="cxl-marketing-nav"
           ><a href="https://conversionxl.com/institute/my-account/"
-            ><iron-icon icon="lumo:user"></iron-icon> My account
-            <iron-icon icon="lumo:dropdown"></iron-icon
+            ><vaadin-icon icon="lumo:user"></vaadin-icon> My account
+            <vaadin-icon icon="lumo:dropdown"></vaadin-icon
           ></a>
           <vaadin-context-menu
             open-on="click"
