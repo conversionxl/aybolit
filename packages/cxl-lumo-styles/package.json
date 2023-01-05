@@ -10,6 +10,7 @@
     "directory": "packages/cxl-lumo-styles"
   },
   "dependencies": {
+    "@vaadin/icon": "^23.3.0",
     "@vaadin/polymer-legacy-adapter": "^23.3.0",
     "@vaadin/vaadin-lumo-styles": "^23.3.0",
     "@vaadin/vaadin-themable-mixin": "^23.3.0"

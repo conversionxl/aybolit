@@ -3,7 +3,8 @@ import { registerGlobalStyles } from './utils.js';
 import '@vaadin/vaadin-lumo-styles/font-icons.js';
 import '@vaadin/vaadin-lumo-styles/sizing.js';
 
-// @todo Vaadin 24: `import '@vaadin/vaadin-lumo-styles/vaadin-icons.js'`.
+// @todo Vaadin 24: back to `import '@vaadin/vaadin-lumo-styles/icons.js'`.
+import '@vaadin/icon/vaadin-icon.js';
 import '@vaadin/vaadin-lumo-styles/vaadin-iconset.js';
 
 registerGlobalStyles(
