@@ -92,6 +92,11 @@ mix
 mix.extract();
 
 /*
+ * Copy assets.
+ */
+mix.copy('../../node_modules/@polymer/polymer/lib/utils/unresolved.js', distPath);
+
+/*
  * Add custom Webpack configuration.
  *
  *
