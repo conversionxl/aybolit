@@ -1,10 +1,6 @@
-import '@vaadin/vaadin-lumo-styles/color.js';
-import styles from './styles/color-css.js';
+import { color } from '@vaadin/vaadin-lumo-styles';
+import { registerGlobalStyles } from './utils.js';
+import colorStyles from './styles/color-css.js';
 
-const $template = document.createElement('template');
-$template.innerHTML = `
-  <custom-style>
-    <style id="cxl-lumo-styles-color" include="lumo-color">${styles}</style>
-  </custom-style>
-`;
-document.head.appendChild($template.content);
+registerGlobalStyles(color, { moduleId: 'vaadin-lumo-styles-color' });
+registerGlobalStyles(colorStyles, { moduleId: 'cxl-lumo-styles-color' });
