@@ -29,8 +29,8 @@ const Template = ({ el }) => html`
         experience.
       </p>
       <p>
-        CXL Institute is constantly putting out new material and also updating existing material to
-        be up to date with the current best practises.
+        CXL is constantly putting out new material and also updating existing material to be
+        up-to-date with the current best practises.
       </p>
     </div>
   </cxl-card>

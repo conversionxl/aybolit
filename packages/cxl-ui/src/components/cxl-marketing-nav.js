@@ -73,7 +73,7 @@ export class CXLMarketingNavElement extends LitElement {
         @click="${this._menuShadowItemsClick}"
       >
         <vaadin-tab class="menu-item menu-item-logo" theme="cxl-marketing-nav">
-          <a href="https://conversionxl.com"
+          <a href="https://cxl.com"
             ><vaadin-icon
               icon="cxl:logo"
               style="width: var(--lumo-icon-size-xl, 48px);"
