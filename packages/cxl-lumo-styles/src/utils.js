@@ -26,11 +26,11 @@ export const registerGlobalStyles = (styles, options) => {
 
   styles.forEach((cssResult) => {
     if (!styleMap[cssResult]) {
-      const templateElement = document.createElement('template');
-      templateElement.innerHTML = `
-        <style id="${themeId}">${cssResult.toString()}</style>
-      `;
-      document.head.append(templateElement.content);
+      const styleElement = document.createElement('style');
+
+      styleElement.id = themeId;
+      styleElement.innerHTML = `${cssResult.toString()}`;
+      document.head.appendChild(styleElement);
 
       styleMap[cssResult] = themeId;
     }
