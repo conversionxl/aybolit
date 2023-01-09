@@ -142,18 +142,3 @@ Object.assign(VaadinNotification, {
   },
   storyName: '<vaadin-notification>',
 });
-
-/**
- * General elements.
- *
- * @returns {TemplateResult}
- * @constructor
- */
-export const GeneralElements = () => html`
-  This is an example of a
-  <a href="https://example.com" target="_blank" rel="noopener noreferrer">External Link</a>
-`;
-
-Object.assign(GeneralElements, {
-  storyName: 'General elements',
-});

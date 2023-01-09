@@ -19,13 +19,15 @@ export const Base = () => html`
   <h5>Heading 5</h5>
   <h6>Heading 6</h6>
   <p>Paragraph text.</p>
-  <p><a href>Paragraph link</a></p>
+  <p><a href="https://cxl.com">Paragraph link</a></p>
+  <p><a href="https://cxl.com" target="_blank">Paragraph link external.</a></p>
   <p><strong>Paragraph strong text.</strong></p>
   <p><em>Paragraph italic text.</em></p>
   <p><small>Paragraph small text.</small></p>
   <div><span>Element text.</span></div>
   <div class="font-light"><span>Light element text.</span></div>
   <div><a href>Element link</a></div>
+  <div><a href="https://cxl.com" target="_blank">Element link external.</a></div>
   <div><em>Element italic text.</em></div>
   <div><small>Element small text.</small></div>
   <blockquote><p>I am a simple blockquote.</p></blockquote>
