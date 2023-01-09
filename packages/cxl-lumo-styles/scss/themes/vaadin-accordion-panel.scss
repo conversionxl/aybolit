@@ -1,7 +1,10 @@
 @use "../mq";
 
-[part="content"] {
-  padding-left: var(--lumo-space-m);
+// @todo Maybe kill. Upstream only pads with `[theme="filled"]`?
+:host(:not([theme~="reverse"])) {
+  [part="content"] {
+    padding-left: var(--lumo-space-m);
+  }
 }
 
 [part="summary"] {
@@ -9,16 +12,31 @@
 }
 
 /**
- * Improve toggle visibility.
+ * We want form elements in panel summary to catch all space.
+ * It's unexpected if panel opens, but input element doesn't change.
+ */
+[part="summary-content"] {
+  flex-basis: 100%;
+}
+
+/**
+ * Modify toggle visibility.
  */
 [part="toggle"] {
   padding: var(--lumo-space-xs);
-  background-color: var(--lumo-shade-10pct);
-  border-radius: 50%;
 
-  :host([opened]) & {
+  :host(:not([theme~="vaadin"])) & {
+    background-color: var(--lumo-shade-10pct);
+    border-radius: 50%;
+  }
+
+  :host(:not([theme~="vaadin"])[opened]) & {
     color: var(--lumo-primary-color);
     background-color: var(--lumo-primary-color-10pct);
+  }
+
+  :host([disabled]) & {
+    display: none;
   }
 }
 
