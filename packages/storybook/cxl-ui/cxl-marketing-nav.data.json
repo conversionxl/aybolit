@@ -127,6 +127,7 @@
           "parent": 37,
           "children": [
             {
+              "description": "This is a sample description",
               "depth": 2,
               "text": "A\/B testing",
               "component": "a",

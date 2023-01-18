@@ -174,12 +174,25 @@ export class CXLMarketingNavElement extends LitElement {
           parseFloat(vaadinMenuItemComputedStyle.paddingRight) * 2;
 
         listBox.style.setProperty('--cxl-vaadin-context-menu-item-max-width', `${listBoxWidth}px`);
-
-        const descriptionItem = listBox.querySelector('.vaadin-context-menu-item--description');
-        if (descriptionItem) {
-          descriptionItem.hidden = !value;
-        }
       });
+    });
+
+    /**
+     * Listen for `vaadin-overlay-open` and remove the `hidden` attribute from description elements.
+     */
+    document.addEventListener('vaadin-overlay-open', (e) => {
+      if (e.target.tagName.toLowerCase() === 'vaadin-context-menu-overlay') {
+        const contextMenuListBox = e.target.getFirstChild();
+        const listItems = contextMenuListBox.items;
+
+        listItems.forEach((listItem) => {
+          const description = listItem.querySelector('.vaadin-context-menu-item--description');
+
+          if (description) {
+            description.hidden = false;
+          }
+        });
+      }
     });
 
     /**
