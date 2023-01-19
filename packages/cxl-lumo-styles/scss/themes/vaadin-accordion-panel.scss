@@ -1,9 +1,5 @@
 @use "../mq";
 
-[part="content"] {
-  padding-left: var(--lumo-space-m);
-}
-
 [part="summary"] {
   border-radius: unset;
 }
@@ -68,6 +64,7 @@
 :host([theme~="cxl-minidegree-course"]) {
   [part="content"] {
     padding-right: var(--lumo-space-m);
+    padding-left: var(--lumo-space-m);
   }
 
   [part="summary"] {
