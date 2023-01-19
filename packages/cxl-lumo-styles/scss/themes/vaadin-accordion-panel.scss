@@ -5,14 +5,33 @@
 }
 
 /**
- * Improve toggle visibility.
+ * Form elements like `<label>` in panel summary should auto-expand.
+ * Then `label > input` elements can change state on panel summary click.
+ * Example: checkout payment gateways.
+ *
+ * @see `vaadin-accordion-panel[theme=vaadin].story.js`
+ */
+[part="summary-content"] {
+  flex-basis: 100%;
+}
+
+/**
+ * Modify toggle visibility.
  */
 [part="toggle"] {
+  /**
+   * Align nested cross-theme accordions panel toggles, usually for non-wide screens.
+   *
+   * @see `vaadin-accordion-panel[theme=vaadin].story.js`
+   */
   padding: var(--lumo-space-xs);
-  background-color: var(--lumo-shade-10pct);
-  border-radius: 50%;
 
-  :host([opened]) & {
+  :host(:not([theme~="vaadin"])) & {
+    background-color: var(--lumo-shade-10pct);
+    border-radius: 50%;
+  }
+
+  :host(:not([theme~="vaadin"])[opened]) & {
     color: var(--lumo-primary-color);
     background-color: var(--lumo-primary-color-10pct);
   }
