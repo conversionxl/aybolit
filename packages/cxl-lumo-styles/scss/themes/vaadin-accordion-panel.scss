@@ -16,6 +16,10 @@
     color: var(--lumo-primary-color);
     background-color: var(--lumo-primary-color-10pct);
   }
+
+  :host([disabled]) & {
+    display: none;
+  }
 }
 
 // @see https://github.com/vaadin/vaadin-details/blob/v1.0.1/theme/lumo/vaadin-details-styles.html#L57
