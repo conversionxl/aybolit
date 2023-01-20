@@ -9,7 +9,7 @@
     "url": "https://github.com/conversionxl/aybolit",
     "directory": "packages/cxl-lumo-styles"
   },
-  "dependencies": {
+  "devDependencies": {
     "@vaadin/icon": "^23.3.0",
     "@vaadin/polymer-legacy-adapter": "^23.3.0",
     "@vaadin/vaadin-lumo-styles": "^23.3.0",

@@ -9,13 +9,9 @@
     "url": "https://github.com/conversionxl/aybolit",
     "directory": "packages/cxl-ui"
   },
-  "dependencies": {
+  "devDependencies": {
     "@conversionxl/cxl-lumo-styles": "^1.4.0",
     "@conversionxl/normalize-wheel": "^1.0.1",
-    "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-web": "^0.9.2",
-    "@pika/plugin-bundle-web": "^0.9.2",
-    "@pika/plugin-standard-pkg": "^0.9.2",
     "@vaadin/accordion": "^23.3.0",
     "@vaadin/button": "^23.3.0",
     "@vaadin/checkbox": "^23.3.0",
@@ -36,22 +32,13 @@
     "lit": "^2.2.5",
     "lodash-es": "^4.17.21",
     "mark.js": "^8.11.1",
+    "postcss": "^8.2.4",
     "postcss-preset-env": "^6.7.0",
     "subtitle": "^4.2.1"
   },
-  "devDependencies": {
-    "postcss": "^8.2.4"
-  },
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-standard-pkg"
-      ]
-    ]
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "pika build && npm run prod && size-limit",
+    "dist": "npm run prod && size-limit",
     "dev": "npx mix --mix-config=./webpack.mix.js watch",
     "prod": "npx mix --mix-config=./webpack.mix.js --production"
   },
