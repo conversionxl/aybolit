@@ -9,8 +9,10 @@
     "url": "https://github.com/conversionxl/aybolit",
     "directory": "packages/cxl-ui"
   },
+  "dependencies": {
+    "@conversionxl/cxl-lumo-styles": "^1.4.1"
+  },
   "devDependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.4.0",
     "@conversionxl/normalize-wheel": "^1.0.1",
     "@vaadin/accordion": "^23.3.0",
     "@vaadin/button": "^23.3.0",
