@@ -56,10 +56,10 @@
     "prod": "npx mix --mix-config=./webpack.mix.js --production"
   },
   "size-limit": [
-    {
-      "path": [
-        "pkg/dist-web/cxl-ui*.js"
-      ]
-    }
+    { "path": "pkg/dist-web/cxl-ui.js" },
+    { "path": "pkg/dist-web/cxl-ui-jwplayer.js" },
+    { "path": "pkg/dist-web/cxl-ui-playbooks.js" },
+    { "path": "pkg/dist-web/vendor.js" },
+    { "path": "pkg/dist-web/*.js" }
   ]
 }
