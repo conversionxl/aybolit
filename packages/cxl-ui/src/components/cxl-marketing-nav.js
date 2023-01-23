@@ -233,11 +233,27 @@ export class CXLMarketingNavElement extends LitElement {
    * @see https://app.clickup.com/t/3rgnekt
    * @private
    */
-  _onOverlayOpen(oe) {
-    const overlay = oe.target;
+  _onOverlayOpen(e) {
+    const overlay = e.target;
 
+    // Is this needed?
     if (!overlay) {
       return;
+    }
+
+    // Check if the child overlay is larger than the top level overlay.
+    const overlays = document.querySelectorAll('vaadin-context-menu-overlay');
+    if (overlays.length > 1) {
+      const topLevelOverlay = overlays[0];
+      const listbox = overlay.querySelector('vaadin-context-menu-list-box');
+      const previousOverlay = overlays[overlays.length - 2];
+      const previousListbox = previousOverlay.querySelector('vaadin-context-menu-list-box');
+
+      requestAnimationFrame(() => {
+        if (listbox.offsetHeight > previousListbox.offsetHeight) {
+          overlay.style.top = topLevelOverlay.style.top;
+        }
+      });
     }
 
     const backBtn = overlay.querySelector('.context-menu-item-back-button');

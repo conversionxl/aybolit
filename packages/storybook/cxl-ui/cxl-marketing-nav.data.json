@@ -400,6 +400,96 @@
               "parent": 53
             }
           ]
+        },
+        {
+          "depth": 1,
+          "text": "Parent length > Child length",
+          "href": "#",
+          "id": 0,
+          "parent": 0,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Item #1",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #2",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #3",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Child length > Parent length",
+          "href": "#",
+          "id": 0,
+          "parent": 0,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Item #1",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #2",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #3",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #4",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #5",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #6",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            }
+          ]
         }
       ]
     },
