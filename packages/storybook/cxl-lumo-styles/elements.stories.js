@@ -142,3 +142,17 @@ Object.assign(VaadinNotification, {
   },
   storyName: '<vaadin-notification>',
 });
+
+export const VaadinBadge = () => html`
+  <span theme="badge">Badge</span>
+  <span theme="badge success">Success</span>
+  <span theme="badge error">Error</span>
+  <span theme="badge contrast">Contrast</span>
+`;
+
+Object.assign(VaadinBadge, {
+  args: {
+    Label: 'Badge',
+  },
+  storyName: 'Badge'
+});
