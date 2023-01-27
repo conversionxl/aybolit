@@ -317,7 +317,9 @@ export class CXLMarketingNavElement extends LitElement {
         menuItem.appendChild(link);
 
         // Add `description` element, if WordPress Menu Item has `description` field set.
-        if (item.description) {
+        const description = item.description;
+
+        if (description && description.trim()) {
           const descriptionItem = document.createElement('div');
 
           descriptionItem.classList.add('vaadin-context-menu-item--description');
@@ -325,7 +327,7 @@ export class CXLMarketingNavElement extends LitElement {
           // Set to hidden, to calculate currently opened menu width and use it for description.
           descriptionItem.hidden = true;
 
-          render(html`${unsafeHTML(item.description)}`, descriptionItem);
+          render(html`${unsafeHTML(description)}`, descriptionItem);
 
           menuItem.appendChild(descriptionItem);
         }
