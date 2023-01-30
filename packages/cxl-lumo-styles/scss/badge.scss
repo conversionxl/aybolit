@@ -1,0 +1,13 @@
+[theme~="badge"] {
+  color: var(--lumo-contrast-80pct);
+  background-color: var(--lumo-contrast-5pct);
+}
+
+[theme~="badge"][theme~="contrast"] {
+  color: var(--lumo-primary-text-color);
+}
+
+.course-skills [theme~="badge"] {
+  margin-right: var(--lumo-space-s);
+  margin-bottom: var(--lumo-space-s);
+}

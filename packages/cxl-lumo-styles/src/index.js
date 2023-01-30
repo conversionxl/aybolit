@@ -1,3 +1,4 @@
+import './badge.js';
 import './color.js';
 import './typography.js';
 import './icons.js';
