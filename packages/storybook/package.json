@@ -1,7 +1,7 @@
 {
   "name": "@conversionxl/storybook",
   "private": true,
-  "version": "1.4.2",
+  "version": "1.4.3",
   "author": "CXL <leho@cxl.com>",
   "contributors": [
     "Serhii Kulykov <serguey.kulikov@gmail.com>"
@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@conversionxl/cxl-lumo-styles": "^1.4.4",
-    "@conversionxl/cxl-ui": "^1.4.4",
+    "@conversionxl/cxl-ui": "^1.4.6",
     "@storybook/addon-controls": "^6.5.12",
     "@storybook/addon-knobs": "^6.4.0",
     "@storybook/addon-viewport": "^6.5.12",
