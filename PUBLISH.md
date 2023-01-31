@@ -90,3 +90,23 @@ More:
 
 * every package has to be published separately (`cxl-ui`, `cxl-lumo-styles`, ...),
 * we keep versions of the packages in sync, even if changes are introduced to only one of them.
+
+## Unpublish package
+
+This operation is not recommended. Be careful before publishing packages. In case of making a mistake (we're all humans) it's easier to publish a new version then unpublishing.
+
+### `yarn`
+
+> Once a package is published, you can never modify that specific version, so take care before publishing.
+
+
+### `npm unpublish`
+
+> If you want to remove a single version of a package, you can unpublish one version without affecting the others. This will delete only that version from the registry and it will be unable to be installed. This option is only available via the npm CLI.
+
+> Once a package is unpublished, republishing under the same name is blocked for 24 hours.
+
+### Documentation
+
+* [yarn](https://classic.yarnpkg.com/lang/en/docs/cli/publish/)
+* [npm](https://docs.npmjs.com/unpublishing-packages-from-the-registry)
