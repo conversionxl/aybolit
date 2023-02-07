@@ -26,6 +26,11 @@
     "lorem-ipsum": "^2.0.3"
   },
   "scripts": {
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --exit-zero-on-changes",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "chromatic": "^6.5.3"
   }
 }
