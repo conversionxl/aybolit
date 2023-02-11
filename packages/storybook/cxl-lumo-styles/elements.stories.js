@@ -44,7 +44,25 @@ Object.assign(VaadinButton, {
   args: {
     Label: 'Button',
   },
-  storyName: '<vaadin-button>',
+  storyName: 'vaadin-button',
+});
+
+/**
+ * VaadinHorizontalLayout.
+ *
+ * @returns {TemplateResult}
+ * @constructor
+ */
+export const VaadinHorizontalLayout = () => html`
+  <vaadin-horizontal-layout theme="padding spacing" style="justify-content: center;">
+    <vaadin-button>Button One</vaadin-button>
+    <vaadin-button>Button Two</vaadin-button>
+    <vaadin-button>Button Three</vaadin-button>
+  </vaadin-horizontal-layout>
+`;
+
+Object.assign(VaadinHorizontalLayout, {
+  storyName: 'vaadin-horizontal-layout',
 });
 
 /**
@@ -109,7 +127,7 @@ Object.assign(VaadinNotification, {
       },
     },
   },
-  storyName: '<vaadin-notification>',
+  storyName: 'vaadin-notification',
 });
 
 /**
@@ -140,7 +158,7 @@ Object.assign(VaadinTooltip, {
   args: {
     Text: 'Status: publish',
   },
-  storyName: '<vaadin-tooltip>',
+  storyName: 'vaadin-tooltip',
 });
 
 export const VaadinBadge = () => html`
