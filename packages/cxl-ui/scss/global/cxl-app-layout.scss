@@ -94,6 +94,9 @@ cxl-app-layout {
   }
 
   &[wide] {
+    --cxl-lumo-space-xxl: calc(var(--lumo-space-xl) + var(--lumo-space-l));
+    --cxl-section-wrap-margin-bottom: var(--cxl-lumo-space-xxl);
+    --cxl-section-wrap-margin-top: var(--cxl-lumo-space-xxl);
     --cxl-wrap-padding: var(--lumo-space-l);
   }
 
