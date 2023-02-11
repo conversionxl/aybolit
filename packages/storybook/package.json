@@ -10,20 +10,24 @@
   "dependencies": {
     "@conversionxl/cxl-lumo-styles": "^1.4.4",
     "@conversionxl/cxl-ui": "^1.4.6",
-    "@storybook/addon-controls": "^6.5.12",
+    "@storybook/addon-controls": "^6.5.16",
+    "@storybook/addon-docs": "^6.5.16",
     "@storybook/addon-knobs": "^6.4.0",
-    "@storybook/addon-viewport": "^6.5.12",
-    "@storybook/addons": "^6.5.12",
-    "@storybook/client-api": "^6.5.12",
-    "@storybook/core": "^6.5.12",
-    "@storybook/storybook-deployer": "^2.8.12",
-    "@storybook/web-components": "^6.5.12",
+    "@storybook/addon-storysource": "^6.5.16",
+    "@storybook/addon-viewport": "^6.5.16",
+    "@storybook/addons": "^6.5.16",
+    "@storybook/client-api": "^6.5.16",
+    "@storybook/core": "^6.5.16",
+    "@storybook/storybook-deployer": "^2.8.16",
+    "@storybook/web-components": "^6.5.16",
     "@vaadin/button": "^23.3.6",
     "@vaadin/horizontal-layout": "^23.3.6",
     "@vaadin/notification": "^23.3.6",
     "@vaadin/vaadin-themable-mixin": "^23.3.6",
-    "lit": "^2.2.5",
     "lorem-ipsum": "^2.0.3"
+  },
+  "peerDependencies": {
+    "lit": "^2.2.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
