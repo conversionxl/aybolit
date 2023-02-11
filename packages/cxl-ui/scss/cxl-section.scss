@@ -40,10 +40,8 @@
   /**
    * Spacious section spacing.
    */
-  --lumo-space-xxl: calc(var(--lumo-space-xl) + var(--lumo-space-l));
-
-  margin-top: var(--lumo-space-xxl);
-  margin-bottom: var(--lumo-space-xxl);
+  margin-top: var(--cxl-section-wrap-margin-top, var(--lumo-space-xl));
+  margin-bottom: var(--cxl-section-wrap-margin-bottom, var(--lumo-space-xl));
 
   /**
    * Block editor integration.
