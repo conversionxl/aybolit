@@ -161,7 +161,7 @@ export class CXLMarketingNavElement extends LitElement {
       /**
        * @todo Needs docblock.
        */
-      contextMenu.addEventListener('opened-changed', ({ detail: { value } }) => {
+      contextMenu.addEventListener('opened-changed', () => {
         const listBox = document.querySelector('vaadin-context-menu-list-box');
         let listBoxWidth = parseFloat(getComputedStyle(listBox).getPropertyValue('width'));
 
@@ -233,13 +233,35 @@ export class CXLMarketingNavElement extends LitElement {
    * @see https://app.clickup.com/t/3rgnekt
    * @private
    */
-  _onOverlayOpen(oe) {
-    const overlay = oe.target;
+  _onOverlayOpen(e) {
+    const overlay = e.target;
 
-    if (!overlay) {
-      return;
+    /**
+     * Vertically align context menu panels.
+     * Check if the child overlay is larger than the top level overlay.
+     *
+     * @since 2023.02.11
+     */
+    const overlays = document.querySelectorAll(
+      'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
+    );
+
+    if (overlays.length > 1) {
+      const topLevelOverlay = overlays[0];
+      const listBox = overlay.querySelector('vaadin-context-menu-list-box');
+      const previousOverlay = overlays[overlays.length - 2];
+      const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
+
+      requestAnimationFrame(() => {
+        if (listBox.offsetHeight > previousListBox.offsetHeight) {
+          overlay.style.top = topLevelOverlay.style.top;
+        }
+      });
     }
 
+    /**
+     * Non-wide context menu "Back" button.
+     */
     const backBtn = overlay.querySelector('.context-menu-item-back-button');
 
     if (!backBtn) {
