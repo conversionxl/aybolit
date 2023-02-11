@@ -3,8 +3,10 @@ import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import '@conversionxl/cxl-ui/src/components/cxl-section.js';
+import '@vaadin/tooltip';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../footer-nav.stories';
+import { VaadinTooltip } from '../../cxl-lumo-styles/elements.stories';
 
 export default {
   decorators: [withKnobs],
@@ -31,7 +33,7 @@ export const CXLAppLayout = () => {
             class="alignwide has-background ${hasWave ? 'has-wave' : ''}"
             style="${backgroundColor ? `background-color: ${backgroundColor}` : ''}"
           >
-            <h1 class="entry-title">Grow faster.</h1>
+            ${VaadinTooltip(VaadinTooltip.args)}
             <h2>
               The difference between high-growth and slow-growth companies is the skill sets they
               have to make it happen.

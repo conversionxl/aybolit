@@ -1,44 +1,13 @@
+import { html } from 'lit';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/button';
 import '@vaadin/notification';
-import { html } from 'lit';
-import cxlLoadingStyles from '@conversionxl/cxl-lumo-styles/src/styles/loading-css.js';
-import { CXLAppLayout } from '../cxl-ui/cxl-app-layout/layout=1c.stories';
 
 export default {
+  decorators: [withKnobs],
   title: 'CXL Lumo Styles/Elements',
 };
-
-/**
- * CXLLoadingSpinner.
- *
- * @param Loading
- * @returns {TemplateResult}
- * @constructor
- */
-export const CXLLoadingSpinner = ({ Loading }) => {
-  setTimeout(() => {
-    if (Loading) {
-      document.body.setAttribute('unresolved', '');
-    } else {
-      document.body.removeAttribute('unresolved');
-    }
-  }, 1000);
-
-  return html`
-    <style>
-      ${cxlLoadingStyles}
-    </style>
-    ${CXLAppLayout()}
-  `;
-};
-
-Object.assign(CXLLoadingSpinner, {
-  args: {
-    Loading: true,
-  },
-  storyName: 'body[unresolved] loading',
-});
 
 /**
  * VaadinButton.
@@ -143,6 +112,37 @@ Object.assign(VaadinNotification, {
   storyName: '<vaadin-notification>',
 });
 
+/**
+ * VaadinTooltip.
+ *
+ * @param Text
+ * @returns {TemplateResult}
+ * @constructor
+ */
+export const VaadinTooltip = ({ Text }) => {
+  const manualTrigger = boolean('Manual trigger', false);
+
+  return html`
+    <h1 id="h1-entry-title" class="entry-title" style="margin-top: 0.75em;">
+      <vaadin-tooltip
+        for="h1-entry-title"
+        ?opened=${manualTrigger}
+        ?manual=${manualTrigger}
+        position="top-start"
+        text="${Text}"
+      ></vaadin-tooltip>
+      Grow faster.
+    </h1>
+  `;
+};
+
+Object.assign(VaadinTooltip, {
+  args: {
+    Text: 'Status: publish',
+  },
+  storyName: '<vaadin-tooltip>',
+});
+
 export const VaadinBadge = () => html`
   <span theme="badge">Badge</span>
   <span theme="badge success">Success</span>
@@ -154,5 +154,5 @@ Object.assign(VaadinBadge, {
   args: {
     Label: 'Badge',
   },
-  storyName: 'Badge'
+  storyName: 'Badge',
 });
