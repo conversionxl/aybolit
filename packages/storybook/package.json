@@ -24,10 +24,8 @@
     "@vaadin/horizontal-layout": "^23.3.6",
     "@vaadin/notification": "^23.3.6",
     "@vaadin/vaadin-themable-mixin": "^23.3.6",
+    "lit": "^2.2.5",
     "lorem-ipsum": "^2.0.3"
-  },
-  "peerDependencies": {
-    "lit": "^2.2.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
