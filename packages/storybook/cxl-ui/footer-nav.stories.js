@@ -16,6 +16,7 @@ export const CXLFooterNav = () => html`
     }
 
     .site-footer .menu > .wrap {
+      max-width: unset;
       padding-bottom: var(--lumo-space-xl);
       padding-top: var(--lumo-space-xl);
     }

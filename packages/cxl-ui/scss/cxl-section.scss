@@ -35,7 +35,7 @@
 .wrap {
   @include mixins.wrap();
 
-  max-width: var(--cxl-content-width);
+  max-width: var(--cxl-content-max-width);
 
   /**
    * Spacious section spacing.
@@ -51,6 +51,6 @@
   }
 
   :host(.alignwide) > & {
-    max-width: var(--cxl-wrap-width);
+    max-width: var(--cxl-content-max-width-wide);
   }
 }

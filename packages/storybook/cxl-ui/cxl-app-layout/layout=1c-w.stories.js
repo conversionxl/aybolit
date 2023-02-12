@@ -37,4 +37,4 @@ export const CXLAppLayout1cw = () => html`
   </cxl-app-layout>
 `;
 
-CXLAppLayout1cw.storyName = '[layout=1c-w]';
+CXLAppLayout1cw.storyName = '[layout=1c-w] wide';

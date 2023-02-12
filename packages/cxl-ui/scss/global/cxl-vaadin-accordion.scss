@@ -149,7 +149,7 @@ cxl-vaadin-accordion {
   &[theme~="cxl-accordion-playbook-card"] {
     column-gap: calc(var(--lumo-space-m) * 2);
     column-rule: 1px solid var(--lumo-shade-10pct);
-    column-width: calc(var(--cxl-wrap-width) / 4);
+    column-width: calc(var(--cxl-content-max-width) / 2);
 
     vaadin-icon {
       --vaadin-icon-height: var(--lumo-icon-size-s);

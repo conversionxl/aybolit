@@ -3,8 +3,8 @@
 
 html {
   // Variables.
-  --cxl-content-width: 36em;
-  --cxl-wrap-width: 72rem;
+  --cxl-content-max-width: 36em;
+  --cxl-content-max-width-wide: calc(var(--cxl-content-max-width) * 2);
   --cxl-wrap-padding: var(--lumo-space-m);
 
   /**
