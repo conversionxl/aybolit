@@ -19,6 +19,7 @@
     "@vaadin/checkbox": "^23.3.7",
     "@vaadin/component-base": "^23.3.7",
     "@vaadin/context-menu": "^23.3.7",
+    "@vaadin/details": "^23.3.7",
     "@vaadin/dialog": "^23.3.7",
     "@vaadin/horizontal-layout": "^23.3.7",
     "@vaadin/icon": "^23.3.7",

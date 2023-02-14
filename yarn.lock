@@ -3995,7 +3995,7 @@
     "@vaadin/vaadin-material-styles" "~23.3.7"
     "@vaadin/vaadin-themable-mixin" "~23.3.7"
 
-"@vaadin/details@~23.3.7":
+"@vaadin/details@^23.3.7", "@vaadin/details@~23.3.7":
   version "23.3.7"
   resolved "https://registry.yarnpkg.com/@vaadin/details/-/details-23.3.7.tgz#c9926bc4ea38b97d71033f2c3b012467773a326e"
   integrity sha512-+9GOVErnxjlZn4dMNIbY44QKijmHifRbuNVn/y41jP7e13Dowr7XkGn4F8S79HLSgTSQ6Lmlq24+t8ECYnOtOg==
