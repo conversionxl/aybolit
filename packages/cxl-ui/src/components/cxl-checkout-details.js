@@ -40,12 +40,19 @@ export class CXLCheckoutDetailsElement extends Details {
     const values = [];
 
     fields.forEach((field) => {
+      const isRequired = ( field.indexOf('*') !== -1 );
+
+      field = field.replace('*', '');
+
       const el = this.querySelector(`#${field}`) || this.querySelector(`[name=${field}]`);
 
       if (el && el.value) {
         values.push(el.value);
       } else {
-        values.push('<vaadin-icon icon="lumo:cross"></vaadin-icon>')
+        // Avoid alerts for non-required fields.
+        if (isRequired) {
+          values.push('<vaadin-icon icon="lumo:cross"></vaadin-icon>')
+        }
       }
     });
 
