@@ -2,17 +2,17 @@ import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import { Details } from '@vaadin/details/src/vaadin-details';
 import { customElement } from 'lit/decorators.js';
-import cxlDetailsCheckoutGlobalStyles from '../styles/global/cxl-details-checkout-css.js';
+import cxlCheckoutDetailsGlobalStyles from '../styles/global/cxl-checkout-details-css.js';
 
-@customElement('cxl-details-checkout')
-export class CXLDetailsCheckoutElement extends Details {
+@customElement('cxl-checkout-details')
+export class CXLCheckoutDetailsElement extends Details {
   __fieldValues = {};
 
   ready() {
     super.ready();
 
-    registerGlobalStyles(cxlDetailsCheckoutGlobalStyles, {
-      moduleId: 'cxl-details-checkoutch-global',
+    registerGlobalStyles(cxlCheckoutDetailsGlobalStyles, {
+      moduleId: 'cxl-checkout-details-global',
     });
 
     this.addEventListener('opened-changed', (e) => {
