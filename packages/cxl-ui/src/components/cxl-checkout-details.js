@@ -1,81 +1,66 @@
 import '@conversionxl/cxl-lumo-styles';
-import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import { Details } from '@vaadin/details/src/vaadin-details';
 import { customElement } from 'lit/decorators.js';
-import cxlCheckoutDetailsGlobalStyles from '../styles/global/cxl-checkout-details-css.js';
 
 @customElement('cxl-checkout-details')
 export class CXLCheckoutDetailsElement extends Details {
-  __fieldValues = {};
+  get _checkoutFieldsSummaryElement() {
+    return this.querySelector('[theme="cxl-checkout-fields-summary"]');
+  }
 
   ready() {
     super.ready();
 
-    registerGlobalStyles(cxlCheckoutDetailsGlobalStyles, {
-      moduleId: 'cxl-checkout-details-global',
-    });
+    // First render.
+    this._onSummaryClosed();
 
+    // Panel toggles.
     this.addEventListener('opened-changed', (e) => {
+      let isOpened = e.detail.value;
+
       // Fire only when closing.
-      if (!e.detail.value) {
-        this.__onOpenedChanged(e);
+      if (! isOpened) {
+        this._onSummaryClosed();
       }
+
+      this._checkoutFieldsSummaryElement.hidden = isOpened;
     });
   }
 
-  __getFieldValues() {
-    const values = {};
-    const fields = this.getAttribute('fields').split(' ');
-    let hasValues = false;
+  _getCheckoutFieldsSummary() {
+    const fieldsAttr = this.getAttribute('fields');
 
-    // Get the values from the fields
+    // Sanity check.
+    if (! fieldsAttr) {
+      return '';
+    }
+
+    // Engage.
+    const fields = fieldsAttr.split(' ');
+    const values = [];
+
     fields.forEach((field) => {
       const el = this.querySelector(`#${field}`) || this.querySelector(`[name=${field}]`);
 
       if (el && el.value) {
-        values[field] = el.value;
-        hasValues = true;
+        values.push(el.value);
       } else {
-        values[field] = '';
+        values.push('<vaadin-icon icon="lumo:cross"></vaadin-icon>')
       }
     });
 
-    // Check if the values object is populated
-    if (!hasValues) {
-      values = false;
-    }
-
-    return values;
+    return values.join(' &mdash; ');
   }
 
-  __onOpenedChanged(e) {
-    const values = this.__getFieldValues();
+  _onSummaryClosed() {
+    const checkoutFieldsSummary = this._getCheckoutFieldsSummary();
 
-    if (!values) {
-      this.querySelector('.summary-field').hidden = true;
-      return;
+    if (checkoutFieldsSummary && this._checkoutFieldsSummaryElement ) {
+      this._checkoutFieldsSummaryElement.innerHTML = checkoutFieldsSummary;
     }
+  }
 
-    let summaryFieldValue;
-
-    switch (this.getAttribute('step')) {
-      case 'billing-details': {
-        summaryFieldValue = `${values['billing_first_name']} ${values['billing_last_name']}, ${values['billing_email']}`;
-        break;
-      }
-
-      case 'billing-information': {
-        summaryFieldValue = `${values['billing_address_1']}, ${values['billing_address_2']}, ${values['billing_city']}, ${values['billing_state']}, ${values['billing_postcode']}`;
-        break;
-      }
-
-      case 'payment': {
-        summaryFieldValue = `Card ending in ${values['cardnumber'].slice(-4)}`;
-        break;
-      }
-    }
-
-    this.querySelector('.summary-field-value').innerText = summaryFieldValue;
-    this.querySelector('.summary-field').hidden = false;
+  static get is() {
+    return 'cxl-checkout-details';
   }
 }

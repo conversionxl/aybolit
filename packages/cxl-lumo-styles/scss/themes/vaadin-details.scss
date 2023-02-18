@@ -1,0 +1,36 @@
+/**
+ * Modify toggle visibility.
+ */
+[part="toggle"] {
+  /**
+   * Align nested cross-theme accordions panel toggles, usually for non-wide screens.
+   *
+   * @see `vaadin-accordion-panel[theme=vaadin].story.js`
+   */
+  padding: var(--lumo-space-xs);
+
+  :host(:not([theme~="vaadin"])) & {
+    background-color: var(--lumo-shade-10pct);
+    border-radius: 50%;
+  }
+
+  :host(:not([theme~="vaadin"])[opened]) & {
+    color: var(--lumo-primary-color);
+    background-color: var(--lumo-primary-color-10pct);
+  }
+
+  :host([disabled]) & {
+    display: none;
+  }
+}
+
+// @see https://github.com/vaadin/vaadin-details/blob/v1.0.1/theme/lumo/vaadin-details-styles.html#L57
+@media (hover: hover) {
+  :host(:not([disabled])) {
+    [part="summary"]:hover {
+      [part="toggle"] {
+        color: var(--lumo-primary-color);
+      }
+    }
+  }
+}

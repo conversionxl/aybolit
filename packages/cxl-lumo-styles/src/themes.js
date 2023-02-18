@@ -1,10 +1,13 @@
 import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import cxlAccordionCardStyles from './styles/themes/cxl-accordion-card-css.js';
+import cxlCheckoutDetailsStyles from './styles/themes/cxl-checkout-details-css.js';
 import cxlTabsSliderStyles from './styles/themes/cxl-tabs-slider-css.js';
 import cxlVaadinAccordionStyles from './styles/themes/vaadin-accordion-css.js';
 import cxlVaadinAccordionPanelStyles from './styles/themes/vaadin-accordion-panel-css.js';
 import cxlVaadinContextMenuItemStyles from './styles/themes/vaadin-context-menu-item-css.js';
 import cxlVaadinContextMenuListBoxStyles from './styles/themes/vaadin-context-menu-list-box-css.js';
+import cxlVaadinDetailsStyles from './styles/themes/vaadin-details-css.js';
+import cxlVaadinHorizontalLayoutStyles from './styles/themes/vaadin-horizontal-layout-css.js';
 import cxlVaadinNotificationCardStyles from './styles/themes/vaadin-notification-card-css.js';
 import cxlVaadinNotificationContainerStyles from './styles/themes/vaadin-notification-container-css.js';
 import cxlVaadinOverlayStyles from './styles/themes/vaadin-overlay-css.js';
@@ -14,6 +17,9 @@ import cxlVaadinTabsStyles from './styles/themes/vaadin-tabs-css.js';
 /* Mixins, alphabetic order. */
 registerStyles('cxl-accordion-card', cxlAccordionCardStyles, {
   moduleId: 'cxl-accordion-card-styles',
+});
+registerStyles('cxl-checkout-details', cxlCheckoutDetailsStyles, {
+  moduleId: 'cxl-checkout-details-styles',
 });
 registerStyles('cxl-tabs-slider', cxlTabsSliderStyles, {
   moduleId: 'cxl-tabs-slider-styles',
@@ -29,6 +35,12 @@ registerStyles('vaadin-context-menu-item', cxlVaadinContextMenuItemStyles, {
 });
 registerStyles('vaadin-context-menu-list-box', cxlVaadinContextMenuListBoxStyles, {
   moduleId: 'cxl-vaadin-context-menu-list-box-styles',
+});
+registerStyles('vaadin-details', cxlVaadinDetailsStyles, {
+  moduleId: 'cxl-vaadin-details-styles',
+});
+registerStyles('vaadin-horizontal-layout', cxlVaadinHorizontalLayoutStyles, {
+  moduleId: 'cxl-vaadin-horizontal-layout-styles',
 });
 registerStyles('vaadin-notification-card', cxlVaadinNotificationCardStyles, {
   moduleId: 'cxl-vaadin-notification-card-styles',
