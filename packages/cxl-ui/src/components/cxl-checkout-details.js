@@ -12,6 +12,12 @@ export class CXLCheckoutDetailsElement extends Details {
   ready() {
     super.ready();
 
+    // Sanity check.
+    if (! this._checkoutFieldsSummaryElement) {
+      console.warn( 'Checkout fields summary element not found.');
+      return;
+    }
+
     // First render.
     this._onSummaryClosed();
 
@@ -63,7 +69,7 @@ export class CXLCheckoutDetailsElement extends Details {
   _onSummaryClosed() {
     const checkoutFieldsSummary = this._getCheckoutFieldsSummary();
 
-    if (checkoutFieldsSummary && this._checkoutFieldsSummaryElement ) {
+    if (checkoutFieldsSummary) {
       this._checkoutFieldsSummaryElement.innerHTML = checkoutFieldsSummary;
     }
   }
