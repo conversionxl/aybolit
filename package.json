@@ -14,7 +14,6 @@
     "deploy-storybook": "yarn --cwd packages/storybook storybook-to-ghpages",
     "dist": "yarn build && lerna run dist",
     "lint": "npm-run-all --parallel lint:*",
-    "lint:eclint": "eclint check packages scripts test . !.*/* !**/node_modules/** !**/pkg/**",
     "lint:js": "eslint *.js packages --ignore-path .gitignore",
     "lint:scss": "stylelint packages/**/*.scss",
     "storybook": "yarn --cwd packages/storybook start-storybook -p 6006",
@@ -41,7 +40,6 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
-    "eclint": "^2.8.1",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^7.2.0",
@@ -86,9 +84,6 @@
     }
   },
   "lint-staged": {
-    "*": [
-      "eclint fix"
-    ],
     "*.js": [
       "eslint --fix",
       "prettier --write"
