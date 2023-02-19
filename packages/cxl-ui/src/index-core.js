@@ -1,11 +1,20 @@
+// Theme style modules must be imported before elements.
+import '@conversionxl/cxl-lumo-styles';
+
+// Vaadin.
+import '@vaadin/details';
 import '@vaadin/horizontal-layout';
 import '@vaadin/notification';
 import '@vaadin/progress-bar';
 import '@vaadin/tooltip';
+
+// Utilities.
 import * as Headroom from 'headroom.js';
 
+// CXL.
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
 export { CXLCardElement } from './components/cxl-card.js';
+export { CXLCheckoutDetailsElement } from './components/cxl-checkout-details.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLSectionElement } from './components/cxl-section.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';

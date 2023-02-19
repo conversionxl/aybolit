@@ -1,0 +1,7 @@
+:host([theme~="cxl-checkout-fields-summary"]) {
+  align-items: center;
+
+  ::slotted(vaadin-icon[icon="lumo:cross"]) {
+    color: var(--lumo-primary-color);
+  }
+}
