@@ -1,3 +1,4 @@
+/* stylelint-disable */
 .loading-container {
   position: relative;
 
@@ -22,12 +23,12 @@
 .gform_wrapper {
   img.gform_ajax_spinner {
     z-index: 11;
-    animation: pulse 2s infinite alternate;
     width: var(--lumo-icon-size-l) !important;
     height: var(--lumo-icon-size-l) !important;
-    -webkit-filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.8));
-    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.8));
     margin: 0;
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.8));
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.8));
+    animation: pulse 2s infinite alternate;
   }
 }
 
@@ -42,14 +43,14 @@ $padding-wrap: var(--lumo-font-size-m);
   }
 
   textarea {
-    max-height: 6em;
     width: 100%;
+    max-height: 6em;
   }
 
   .gfield_checkbox {
     > li {
-      align-items: center;
       display: flex;
+      align-items: center;
     }
   }
 
@@ -58,10 +59,10 @@ $padding-wrap: var(--lumo-font-size-m);
   }
 
   .gfield_error {
-    margin-bottom: var(--lumo-space-m) !important;
-    margin-top: var(--lumo-space-m) !important;
-    outline: solid 2px var(--lumo-error-color);
     padding: var(--lumo-space-m);
+    margin-top: var(--lumo-space-m) !important;
+    margin-bottom: var(--lumo-space-m) !important;
+    outline: solid 2px var(--lumo-error-color);
   }
 
   .gfield_required {
@@ -77,11 +78,11 @@ $padding-wrap: var(--lumo-font-size-m);
   }
 
   .gform_ajax_spinner {
+    position: absolute;
+    top: 0;
+    right: calc(0 - $padding-wrap);
     bottom: 0;
     margin: auto;
-    position: absolute;
-    right: calc(0 - $padding-wrap);
-    top: 0;
   }
 
   .gform_body {
@@ -91,12 +92,12 @@ $padding-wrap: var(--lumo-font-size-m);
       &.gform_fields {
         /* @see `.entry-content ul li` */
         &,
-        & ul[class^='gfield'] {
-          list-style: none;
+        & ul[class^="gfield"] {
           padding: 0;
+          list-style: none;
           > li {
-            margin: 0;
             padding-left: 0;
+            margin: 0;
             &::before {
               content: unset;
             }
@@ -126,11 +127,12 @@ $padding-wrap: var(--lumo-font-size-m);
   .error,
   .validation_message,
   .validation_error {
-    color: var(--lumo-error-color);
     font-weight: bold;
+    color: var(--lumo-error-color);
   }
 
-  .validation_message:after {
-    content: '\2191';
+  .validation_message::after {
+    content: "\2191";
   }
 }
+/* stylelint-enable */

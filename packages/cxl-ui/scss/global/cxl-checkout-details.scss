@@ -1,9 +1,9 @@
 cxl-checkout-details,
 vaadin-details[theme~="cxl-checkout-details"] {
   [id$="heading"] {
+    margin: 0;
     font-size: var(--lumo-font-size-xl) /* h3 */;
     font-weight: 900;
-    margin: 0;
     text-transform: uppercase;
   }
 }
