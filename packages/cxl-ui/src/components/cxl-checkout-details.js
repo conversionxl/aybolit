@@ -1,7 +1,9 @@
 import '@conversionxl/cxl-lumo-styles';
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import '@vaadin/details';
 import { Details } from '@vaadin/details/src/vaadin-details';
 import { customElement } from 'lit/decorators.js';
+import cxlCheckoutDetailsGlobalStyles from "../styles/global/cxl-checkout-details-css.js";
 
 @customElement('cxl-checkout-details')
 export class CXLCheckoutDetailsElement extends Details {
@@ -12,6 +14,10 @@ export class CXLCheckoutDetailsElement extends Details {
   ready() {
     super.ready();
 
+    registerGlobalStyles(cxlCheckoutDetailsGlobalStyles, {
+      moduleId: 'cxl-checkout-details-global',
+    });
+
     // Sanity check.
     if (! this._checkoutFieldsSummaryElement) {
       console.warn( 'Checkout fields summary element not found.');
@@ -19,18 +25,18 @@ export class CXLCheckoutDetailsElement extends Details {
     }
 
     // First render.
-    this._onSummaryClosed();
+    if (! this.opened) {
+      this._onSummaryClosed();
+    }
 
     // Panel toggles.
-    this.addEventListener('opened-changed', (e) => {
-      let isOpened = e.detail.value;
-
+    this.addEventListener('opened-changed', () => {
       // Fire only when closing.
-      if (! isOpened) {
+      if (! this.opened) {
         this._onSummaryClosed();
       }
 
-      this._checkoutFieldsSummaryElement.hidden = isOpened;
+      this._checkoutFieldsSummaryElement.hidden = this.opened;
     });
   }
 
