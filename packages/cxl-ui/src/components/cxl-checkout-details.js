@@ -1,4 +1,5 @@
 import '@conversionxl/cxl-lumo-styles';
+import '@vaadin/details';
 import { Details } from '@vaadin/details/src/vaadin-details';
 import { customElement } from 'lit/decorators.js';
 
