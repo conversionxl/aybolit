@@ -88,16 +88,29 @@
       "eslint --fix",
       "prettier --write"
     ],
+    "*.json": [
+      "prettier --write"
+    ],
     "*.scss": [
       "stylelint --syntax=scss",
       "prettier --single-quote=false --write"
     ]
   },
   "size-limit": [
-    { "path": "packages/cxl-ui/pkg/dist-web/cxl-ui.js" },
-    { "path": "packages/cxl-ui/pkg/dist-web/cxl-ui-jwplayer.js" },
-    { "path": "packages/cxl-ui/pkg/dist-web/cxl-ui-playbooks.js" },
-    { "path": "packages/cxl-ui/pkg/dist-web/vendor.js" },
-    { "path": "packages/cxl-ui/pkg/dist-web/*.js" }
+    {
+      "path": "packages/cxl-ui/pkg/dist-web/cxl-ui.js"
+    },
+    {
+      "path": "packages/cxl-ui/pkg/dist-web/cxl-ui-jwplayer.js"
+    },
+    {
+      "path": "packages/cxl-ui/pkg/dist-web/cxl-ui-playbooks.js"
+    },
+    {
+      "path": "packages/cxl-ui/pkg/dist-web/vendor.js"
+    },
+    {
+      "path": "packages/cxl-ui/pkg/dist-web/*.js"
+    }
   ]
 }

@@ -1,7 +1,7 @@
 import '@conversionxl/cxl-lumo-styles';
 import '@conversionxl/cxl-ui/src/components/cxl-checkout-details.js';
 import { html } from 'lit';
-import { CXLVaadinAccordionThemeVaadin} from "./cxl-vaadin-accordion/vaadin-accordion-panel[theme=vaadin].story";
+import { CXLVaadinAccordionThemeVaadin } from './cxl-vaadin-accordion/vaadin-accordion-panel[theme=vaadin].story';
 
 export default {
   title: 'CXL UI/cxl-checkout-details',
@@ -14,8 +14,23 @@ const Template = () => html`
       <h3 id="coupons_heading">Coupons</h3>
     </div>
     <p class="form-row form-row-first form-row-last">
-      <input type="text" name="coupon_code" class="input-text" placeholder="Enter your coupon code here" id="coupon_code" value="">
-      <button type="submit" class="button wp-element-button" name="apply_coupon" theme="primary" value="Apply">Apply</button>
+      <input
+        type="text"
+        name="coupon_code"
+        class="input-text"
+        placeholder="Enter your coupon code here"
+        id="coupon_code"
+        value=""
+      />
+      <button
+        type="submit"
+        class="button wp-element-button"
+        name="apply_coupon"
+        theme="primary"
+        value="Apply"
+      >
+        Apply
+      </button>
     </p>
   </vaadin-details>
   <cxl-checkout-details
@@ -75,7 +90,12 @@ const Template = () => html`
       <p class="form-row">
         <label>
           Street address
-          <input id="billing_address_1" type="text" placeholder="Address 1" value="901 S Mopac Expy" />
+          <input
+            id="billing_address_1"
+            type="text"
+            placeholder="Address 1"
+            value="901 S Mopac Expy"
+          />
           <input id="billing_address_2" type="text" placeholder="Address 2" value="Suite 150" />
         </label>
       </p>

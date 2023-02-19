@@ -3,8 +3,8 @@ import { addParameters } from '@storybook/web-components';
 addParameters({
   docs: {
     source: {
-      state: 'open'
-    }
+      state: 'open',
+    },
   },
   layout: 'none', // disable default 'padded'
 });

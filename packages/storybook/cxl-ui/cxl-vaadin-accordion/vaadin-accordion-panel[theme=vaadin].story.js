@@ -1,7 +1,7 @@
 import { html, nothing } from 'lit';
 import '@conversionxl/cxl-ui/src/components/cxl-checkout-details.js';
 
-export const CXLVaadinAccordionThemeVaadin = ({opened}) => html`
+export const CXLVaadinAccordionThemeVaadin = ({ opened }) => html`
   <style>
     h3 {
       font-size: var(--lumo-font-size-xl);
@@ -48,16 +48,13 @@ export const CXLVaadinAccordionThemeVaadin = ({opened}) => html`
             TEST MODE ENABLED. In test mode, you can use the card number 4242424242424242 with any
             CVC and a valid expiration date or check the
             <a href="https://stripe.com/docs/testing" target="_blank"
-            >Testing Stripe documentation</a
+              >Testing Stripe documentation</a
             >
             for more card numbers.
           </p>
         </div>
       </vaadin-accordion-panel>
-      <vaadin-accordion-panel
-        class="wc_payment_method payment_method_bacs"
-        theme="reverse vaadin"
-      >
+      <vaadin-accordion-panel class="wc_payment_method payment_method_bacs" theme="reverse vaadin">
         <div slot="summary">
           <label for="payment_method_bacs">
             <input
@@ -73,13 +70,12 @@ export const CXLVaadinAccordionThemeVaadin = ({opened}) => html`
         </div>
         <div class="payment_box payment_method_bacs">
           <p>
-            Make your payment directly into our bank account. You will receive an order
-            confirmation with payment info in your e-mail.
+            Make your payment directly into our bank account. You will receive an order confirmation
+            with payment info in your e-mail.
           </p>
           <p>Please use your Order ID as the payment reference.</p>
           <p>
-            Your subscription(s) and/or membership(s) will be activated when the funds have
-            cleared.
+            Your subscription(s) and/or membership(s) will be activated when the funds have cleared.
           </p>
         </div>
       </vaadin-accordion-panel>
