@@ -60,7 +60,14 @@ export class CXLCheckoutDetailsElement extends Details {
       const el = this.querySelector(`#${field}`) || this.querySelector(`[name=${field}]`);
 
       if (el && el.value) {
-        values.push(el.value);
+        let value = el.value;
+
+        // @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement#get_information_about_the_selected_option
+        if ('select' ===  el.localName) {
+          value = el.options[el.selectedIndex].label;
+        }
+
+        values.push(value);
       } else {
         // Avoid alerts for non-required fields.
         if (isRequired) {
