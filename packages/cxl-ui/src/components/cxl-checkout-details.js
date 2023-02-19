@@ -60,14 +60,27 @@ export class CXLCheckoutDetailsElement extends Details {
       const el = this.querySelector(`#${field}`) || this.querySelector(`[name=${field}]`);
 
       if (el && el.value) {
-        let value = el.value;
+        let value;
+
+        // @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/labels
+        if ('input' === el.localName && 'radio' === el.type) {
+          // Skip to next field?
+          if (! el.checked) {
+            return;
+          }
+
+          // Summarize label.
+          for (const label of el.labels) {
+            value = label.textContent;
+          }
+        }
 
         // @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement#get_information_about_the_selected_option
         if ('select' ===  el.localName) {
           value = el.options[el.selectedIndex].label;
         }
 
-        values.push(value);
+        values.push(value || el.value);
       } else {
         // Avoid alerts for non-required fields.
         if (isRequired) {

@@ -1,6 +1,7 @@
 import '@conversionxl/cxl-lumo-styles';
 import '@conversionxl/cxl-ui/src/components/cxl-checkout-details.js';
 import { html } from 'lit';
+import { CXLVaadinAccordionThemeVaadin} from "./cxl-vaadin-accordion/vaadin-accordion-panel[theme=vaadin].story";
 
 export default {
   title: 'CXL UI/cxl-checkout-details',
@@ -98,20 +99,7 @@ const Template = () => html`
       </p>
     </div>
   </cxl-checkout-details>
-  <cxl-checkout-details fields="cardnumber*" theme="reverse">
-    <div slot="summary">
-      <h3 id="payment_heading">Payment</h3>
-      <vaadin-horizontal-layout theme="cxl-checkout-fields-summary"></vaadin-horizontal-layout>
-    </div>
-    <div>
-      <p class="form-row form-row-first form-row-last">
-        <label>
-          Credit card
-          <input name="cardnumber" type="text" placeholder="Card Number" />
-        </label>
-      </p>
-    </div>
-  </cxl-checkout-details>
+  ${CXLVaadinAccordionThemeVaadin(true)}
 `;
 
 export const Checkout = Template.bind({});
