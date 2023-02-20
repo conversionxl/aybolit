@@ -38,6 +38,7 @@
     "mark.js": "^8.11.1",
     "postcss": "^8.2.4",
     "postcss-preset-env": "^6.7.0",
+    "stream-browserify": "^3.0.0",
     "subtitle": "^4.2.1"
   },
   "scripts": {

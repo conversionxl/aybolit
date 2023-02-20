@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '../../cxl-ui/src/components/cxl-paywall';
 import { loremIpsum } from 'lorem-ipsum';
 

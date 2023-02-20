@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 const CxlSingleversionCardDisplay = (el, userId, selected) => {
   const postType = el.cxl_hybrid_attr_post['@attributes'].class.includes(
