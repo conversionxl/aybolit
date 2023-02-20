@@ -5,7 +5,19 @@ export default {
   title: 'CXL UI/cxl-jw-player',
 };
 
-const Template = ({ captions, mediaId, mediaSource, minimumSearchLength, libraryId, librarySource, playlistId, playlistSource, pluginPath }) =>
+const Template = ({
+  apiSecret,
+  captions,
+  isPublic,
+  libraryId,
+  librarySource,
+  mediaId,
+  mediaSource,
+  minimumSearchLength,
+  playlistId,
+  playlistSource,
+  pluginPath,
+}) =>
   html`
     <style>
       #root-inner {
@@ -21,14 +33,16 @@ const Template = ({ captions, mediaId, mediaSource, minimumSearchLength, library
         box-sizing: border-box;
       }
     </style>
+
     <cxl-jw-player
-      is-public="true"
+      api-secret=${apiSecret}
       ?captions=${captions}
+      ?is-public=${isPublic}
+      library-id=${libraryId}
+      library-source=${librarySource}
       media-id=${mediaId}
       media-source=${mediaSource}
       minimum-search-length=${minimumSearchLength}
-      library-id=${playerId}
-      library-source=${playerSource}
       playlist-id=${playlistId}
       playlist-source=${playlistSource}
       plugin-path="${pluginPath}"
@@ -39,12 +53,14 @@ export const Default = Template.bind({});
 
 Object.assign(Default, {
   args: {
+    apiSecret: '',
     captions: true,
+    isPublic: true,
+    libraryId: '5CFJNXKb',
+    librarySource: '',
     mediaId: 'fZ0XiGdb',
     mediaSource: '',
     minimumSearchLength: 3,
-    playerId: '5CFJNXKb',
-    playerSource: '',
     playlistId: '',
     playlistSource: '',
     pluginPath: 'https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/',

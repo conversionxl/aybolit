@@ -5,7 +5,19 @@ export default {
   title: 'CXL UI/cxl-jw-player',
 };
 
-const Template = ({ captions, mediaId, playerId, playlistId, pluginPath }) =>
+const Template = ({
+  apiSecret,
+  captions,
+  isPublic,
+  libraryId,
+  librarySource,
+  mediaId,
+  mediaSource,
+  minimumSearchLength,
+  playlistId,
+  playlistSource,
+  pluginPath,
+}) =>
   html`
     <style>
       #root-inner {
@@ -21,14 +33,19 @@ const Template = ({ captions, mediaId, playerId, playlistId, pluginPath }) =>
         box-sizing: border-box;
       }
     </style>
+
     <cxl-jw-player
+      api-secret=${apiSecret}
       ?captions=${captions}
-      class="cxl-jwplayer-container"
+      ?is-public=${isPublic}
+      library-id=${libraryId}
+      library-source=${librarySource}
       media-id=${mediaId}
-      player-id=${playerId}
+      media-source=${mediaSource}
+      minimum-search-length=${minimumSearchLength}
       playlist-id=${playlistId}
+      playlist-source=${playlistSource}
       plugin-path="${pluginPath}"
-      type="playlist"
     ></cxl-jw-player>
   `;
 
@@ -36,10 +53,16 @@ export const Playlist = Template.bind({});
 
 Object.assign(Playlist, {
   args: {
-    captions: false,
+    apiSecret: '',
+    captions: true,
+    isPublic: true,
+    libraryId: '5CFJNXKb',
+    librarySource: '',
     mediaId: '',
-    playerId: '5CFJNXKb',
+    mediaSource: '',
+    minimumSearchLength: 3,
     playlistId: 'tAxwbNsA',
+    playlistSource: '',
     pluginPath: 'https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/',
   },
 });

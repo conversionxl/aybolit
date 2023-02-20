@@ -1,29 +1,31 @@
+import * as jose from 'jose';
 import { render } from 'lit';
 import { property } from 'lit/decorators.js';
 import { throttle } from 'lodash-es';
 import { parseSync } from 'subtitle';
+import { MD5 } from 'crypto-js';
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
-    __boundOnTimeListener;
+    _boundOnTimeListener;
 
-    __chapters;
+    _chapters;
 
-    __jwPlayer;
+    _jwPlayer;
 
-    __jwPlayerContainer;
+    _jwPlayerContainer;
 
-    __position;
+    @property({ attribute: 'api-secret', type: String }) apiSecret = '';
 
-    @property({ attribute: 'media-id', type: String }) mediaId;
-
-    @property({ attribute: 'media-source', type: String }) mediaSource;
-
-    @property({ attribute: 'is-public', type: String }) isPublic;
+    @property({ attribute: 'is-public', type: Boolean }) isPublic;
 
     @property({ attribute: 'library-id', type: String }) libraryId;
 
     @property({ attribute: 'library-source', type: String }) librarySource;
+
+    @property({ attribute: 'media-id', type: String }) mediaId;
+
+    @property({ attribute: 'media-source', type: String }) mediaSource;
 
     @property({ attribute: 'playlist-id', type: String }) playlistId;
 
@@ -32,77 +34,100 @@ export function BaseMixin(BaseClass) {
     firstUpdated(_changedProperties) {
       super.firstUpdated(_changedProperties);
 
-      this.__setup();
+      this._setup();
     }
 
     updated(_changedProperties) {
       super.updated(_changedProperties);
       if (_changedProperties.has('captions') || _changedProperties.has('mediaId')) {
-        // this.__setup();
+        // this._setup();
       }
     }
 
-    get __scriptUrl() {
+    get _scriptUrl() {
+      if (!this.libraryId && !this.librarySource) return false;
+
       let scriptUrl;
 
-      if (this.libraryId && this.isPublic) {
-        scriptUrl = `https://content.jwplatform.com/libraries/${this.libraryId}.js`;
-      } else if (this.librarySource) {
+      if (this.libraryId) {
+        if (this.isPublic) {
+          scriptUrl = `https://content.jwplatform.com/libraries/${this.libraryId}.js`;
+        } else {
+          scriptUrl = this.__signedURL(`libraries/${this.libraryId}.js`);
+        }
+      }
+
+      if (this.librarySource) {
         scriptUrl = this.librarySource;
-      } else {
-        return false;
       }
 
       return scriptUrl;
     }
 
-    __addStyle(style) {
+    _addStyle(style) {
       const el = document.createElement('style');
       render(style, el);
       this.appendChild(el);
     }
 
-    async __getChapters() {
-      const playlistItem = this.__jwPlayer.getPlaylistItem();
+    async _getChapters() {
+      const playlistItem = this._jwPlayer.getPlaylistItem();
       const chapters = playlistItem.tracks.filter((track) => track.kind === 'chapters');
+
+      if (chapters.length === 0) {
+        return [];
+      }
+
       const { file } = chapters.length > 0 ? chapters[0] : '';
       const response = await (await fetch(file)).text();
 
       return parseSync(response);
     }
 
-    async __getMedia() {
+    async _getMedia() {
+      if (!this.mediaId && !this.mediaSource) return false;
+
       let response;
 
-      if (this.mediaId && this.isPublic) {
-        response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
-      } else if (this.mediaSource) {
+      if (this.mediaId) {
+        if (this.isPublic) {
+          response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
+        } else {
+          response = await fetch(await this._signedJWTURL(`/v2/media/${this.mediaId}`));
+        }
+      }
+
+      if (this.mediaSource) {
         response = await fetch(this.mediaSource);
-      } else {
-        return false;
       }
 
       return response.json();
     }
 
-    async __getPlaylist() {
+    async _getPlaylist() {
+      if (!this.playlistId && !this.playlistSource) return false;
+
       let response;
 
       if (this.playlistId) {
-        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
-      } else if (this.playlistSource) {
-        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
-      } else {
-        return false;
+        if (this.isPublic) {
+          response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+        } else {
+          response = await fetch(await this._signedJWTURL(`/v2/playlists/${this.playlistId}`));
+        }
+      }
+
+      if (this.playlistSource) {
+        response = await fetch(this.playlistSource);
       }
 
       return response.json();
     }
 
-    async __loadScript() {
-      return new Promise((resolve) => {
+    async _loadScript() {
+      return new Promise(async (resolve) => {
         const el = document.createElement('script');
-        el.src = this.__scriptUrl;
+        el.src = this._scriptUrl;
         el.onload = () => {
           resolve(self.jwplayer);
         };
@@ -115,18 +140,17 @@ export function BaseMixin(BaseClass) {
      */
 
     // eslint-disable-next-line class-methods-use-this, no-unused-vars, no-empty-function
-    async __onTimeListener(event) {}
+    async _onTimeListener(event) {}
 
-    __registerListeners() {
-      this.__boundOnTimeListener = throttle(this.__onTimeListener.bind(this), 1000);
-      this.__jwPlayer.on('time', this.__boundOnTimeListener);
+    _registerListeners() {
+      this._boundOnTimeListener = throttle(this._onTimeListener.bind(this), 1000);
+      this._jwPlayer.on('time', this._boundOnTimeListener);
     }
 
     /**
      * Each mixin has the ability to hook onto this method.
      */
-    async __setup() {
-
+    async _setup() {
       // Merge configs from `cxlJWPlayerData`.
       if (typeof window.cxlJWPlayerData !== 'undefined') {
         // eslint-disable-next-line camelcase
@@ -135,26 +159,46 @@ export function BaseMixin(BaseClass) {
         this.config = { ...this.config, ...media_config };
       }
 
-      const jwPlayer = await this.__loadScript();
+      const jwPlayer = await this._loadScript();
 
       const el = document.createElement('div');
       this.appendChild(el);
 
-      this.__jwPlayer = jwPlayer(el).setup({
+      this._jwPlayer = jwPlayer(el).setup({
         ...this.config,
-        ...(await this.__getMedia()),
-        ...(await this.__getPlaylist()),
+        ...(await this._getMedia()),
+        ...(await this._getPlaylist()),
       });
 
       await new Promise((resolve) => {
-        this.__jwPlayer.on('ready', resolve);
+        this._jwPlayer.on('ready', resolve);
       });
 
-      this.__jwPlayerContainer = this.__jwPlayer.getContainer();
+      this._jwPlayerContainer = this._jwPlayer.getContainer();
 
-      this.__registerListeners();
+      this._registerListeners();
 
-      this.__chapters = await this.__getChapters();
+      this._chapters = await this._getChapters();
+    }
+
+    async _signedJWTURL(path) {
+      const secret = new TextEncoder().encode(this.apiSecret);
+      const alg = 'HS256';
+      const typ = 'JWT';
+
+      const token = await new jose.SignJWT({ resource: path })
+        .setProtectedHeader({ alg, typ })
+        .setExpirationTime('2h')
+        .sign(secret);
+
+      return `https://cdn.jwplayer.com${path}?token=${token}`;
+    }
+
+    __signedURL(path) {
+      const expires = Math.ceil((new Date().getTime() + 3600) / 300) * 300;
+      const signature = MD5(`${path}:${expires}:${this.apiSecret}`);
+
+      return `https://cdn.jwplayer.com/${path}?exp=${expires}&sig=${signature}`;
     }
   }
 

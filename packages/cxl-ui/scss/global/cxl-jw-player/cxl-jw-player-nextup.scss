@@ -1,0 +1,20 @@
+cxl-jw-player {
+  .jw-nextup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .jw-nextup-cta {
+      max-width: 400px;
+      width: 64%;
+
+      a {
+        pointer-events: all;
+
+        vaadin-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
