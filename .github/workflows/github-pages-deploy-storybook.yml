@@ -16,7 +16,7 @@ jobs:
         run: |
           yarn install --immutable --immutable-cache --check-cache
           yarn build
-          yarn --cwd packages/storybook build-storybook
+          yarn --cwd packages/storybook build-storybook --modern
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
