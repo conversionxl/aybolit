@@ -1,0 +1,50 @@
+/*!
+ * headroom.js v0.12.0 - Give your page some headroom. Hide your header until you need it
+ * Copyright (c) 2020 Nick Williams - http://wicky.nillia.ms/headroom.js
+ * License: MIT
+ */
+
+/**
+ * @license
+ * Copyright (c) 2016 - 2022 Vaadin Ltd.
+ * This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+ */
+
+/**
+ * @license
+ * Copyright (c) 2017 - 2022 Vaadin Ltd.
+ * This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+ */
+
+/**
+ * @license
+ * Copyright (c) 2019 - 2022 Vaadin Ltd.
+ * This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+ */
+
+/**
+ * @license
+ * Copyright (c) 2021 - 2022 Vaadin Ltd.
+ * This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+ */
+
+/**
+ * @license
+ * Copyright (c) 2022 Vaadin Ltd.
+ * This program is available under Apache License Version 2.0, available at https://vaadin.com/license/
+ */
+
+/**
+ * Checks if an event is supported in the current execution environment.
+ *
+ * NOTE: This will not work correctly for non-generic events such as `change`,
+ * `reset`, `load`, `error`, and `select`.
+ *
+ * Borrows from Modernizr.
+ *
+ * @param {string} eventNameSuffix Event name, e.g. "click".
+ * @param {?boolean} capture Check if the capture phase is supported.
+ * @return {boolean} True if the event is supported.
+ * @internal
+ * @license Modernizr 3.0.0pre (Custom Build) | MIT
+ */
