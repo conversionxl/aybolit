@@ -1,8 +1,25 @@
-.jw-player-button {
-  width: 32px;
-  fill: rgba(255, 255, 255, 0.8);
+cxl-jw-player {
+  .jw-player-button {
+    width: 32px;
+    fill: rgba(255, 255, 255, 0.8);
 
-  &:hover {
-    fill: rgba(255, 255, 255, 1);
+    &:hover {
+      fill: rgba(255, 255, 255, 1);
+    }
+  }
+
+  .jw-related-item {
+    height: 100% !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  .jwplayer:not(.jw-flag-small-player) .jw-related-item-next-up {
+    .jw-related-item-poster {
+      height: 100%;
+    }
+
+    .jw-related-item-title {
+      position: absolute;
+      bottom: 0;
+    }
   }
 }
