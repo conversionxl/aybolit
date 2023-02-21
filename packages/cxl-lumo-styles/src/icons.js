@@ -23,12 +23,13 @@ const $documentContainer = document.createElement('template');
 /**
  * Vaadin iconset and font build process. They ship 600 icons, we only need some.
  *
- * 1. `conversionxl/vaadin-icons` fork has a custom `gulpfile.js`, clone, install deps.
+ * 1. `conversionxl/vaadin-icons` fork has a custom `gulpfile.js`, clone, switch to `cxl` branch, install deps.
  * 2. vaadin-icons/gulpfile.js: modify `const cxlVaadinIconset`
  * 3. vaadin-icons: run `npx gulp icons iconfont`
  * 4. vaadin-iconset[name="vaadin"]: copy-paste vaadin-icons/iconset.html `<g>` elements
- * 5. vaadin-iconset[name="vaadin"]: copy-paste vaadin-icons/vaadin-icons.woff2 base64 encoding
+ * 5. vaadin-iconset[name="vaadin"]: copy-paste vaadin-icons/vaadin-icons.woff2 base64 encoding (eg. using `base64` command)
  * 6. style#cxl-lumo-styles-vaadin-icons: add / change CSS custom properties, get unicode values from `gulp iconfont` task output
+ * 7. Check in Storybook if it works
  */
 $documentContainer.innerHTML = `
   <vaadin-iconset size="25" name="cxl">
