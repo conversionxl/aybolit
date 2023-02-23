@@ -1,4 +1,5 @@
 export { BaseMixin } from './BaseMixin';
-export { TranscriptMixin } from './TranscriptMixin';
-export { ChapterNavigationMixin } from './chapter-navigation';
+export { ChapterNavigationMixin } from './chapter-navigation/index.js';
+export { NextUpMixin } from './NextUpMixin';
 export { SavePositionMixin } from './SavePositionMixin';
+export { TranscriptMixin } from './TranscriptMixin';
