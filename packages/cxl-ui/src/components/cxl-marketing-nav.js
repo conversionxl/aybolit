@@ -252,10 +252,18 @@ export class CXLMarketingNavElement extends LitElement {
       const previousOverlay = overlays[overlays.length - 2];
       const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
 
+      // Reset list box height.
+      listBox.style.height = null;
+
       requestAnimationFrame(() => {
-        if (listBox.offsetHeight > previousListBox.offsetHeight) {
-          overlay.style.top = topLevelOverlay.style.top;
+        // Check if the child list box is shorter then the parent list box.
+        if (listBox.offsetHeight < previousListBox.offsetHeight) {
+          // Set the child list box height to the parent list box height.
+          listBox.style.height = `${previousListBox.offsetHeight}px`;
         }
+
+        // Align the child overlay to the top of the top level overlay.
+        overlay.style.top = topLevelOverlay.style.top;
       });
     }
 
