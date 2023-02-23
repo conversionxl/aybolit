@@ -7,7 +7,9 @@
   color: var(--lumo-primary-text-color);
 }
 
-.course-skills [theme~="badge"] {
-  margin-right: var(--lumo-space-s);
-  margin-bottom: var(--lumo-space-s);
+.course-skills {
+  [theme~="badge"] {
+    margin-right: var(--lumo-space-s);
+    margin-bottom: var(--lumo-space-s);
+  }
 }

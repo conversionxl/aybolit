@@ -1,7 +1,22 @@
+@use "../mq";
+
 :host([theme~="cxl-checkout-fields-summary"]) {
   align-items: center;
 
   ::slotted(vaadin-icon[icon="lumo:cross"]) {
     color: var(--lumo-primary-color);
+  }
+}
+
+:host([theme~="cxl-marketing-hero-details"]) {
+  flex-direction: column;
+  font-size: var(--lumo-font-size-s);
+
+  @media #{mq.$small} {
+    flex-direction: row;
+  }
+
+  ::slotted(span) {
+    display: inline-flex;
   }
 }
