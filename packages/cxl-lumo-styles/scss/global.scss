@@ -7,6 +7,13 @@ html {
   --cxl-wrap-padding: var(--lumo-space-m);
 
   /**
+   * Lumo Icons have a documented 4px "safe area" around them. Vaadin Icons don't, for unknown reasons.
+   *
+   * @see https://vaadin.com/docs/latest/components/icons
+   */
+  --cxl-vaadin-icon-safe-area: 4px;
+
+  /**
    * Shadow.
    *
    * @see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/styles.html#shadow
