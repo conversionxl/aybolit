@@ -1,6 +1,6 @@
 {
   "name": "@conversionxl/cxl-ui",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "author": "CXL <leho@cxl.com>",
   "license": "SEE LICENSE IN LICENSE",
   "main": "src/index.js",
