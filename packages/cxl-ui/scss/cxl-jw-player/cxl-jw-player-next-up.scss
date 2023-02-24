@@ -1,3 +1,9 @@
-.jw-next-up-cta {
-  pointer-events: all;
+cxl-jw-player {
+  .jw-nextup {
+    display: none;
+  }
+
+  .jw-next-up-cta {
+    pointer-events: all;
+  }
 }
