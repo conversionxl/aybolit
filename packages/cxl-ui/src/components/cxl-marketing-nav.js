@@ -242,21 +242,33 @@ export class CXLMarketingNavElement extends LitElement {
      *
      * @since 2023.02.11
      */
-    const overlays = document.querySelectorAll(
-      'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
-    );
 
-    if (overlays.length > 1) {
-      const topLevelOverlay = overlays[0];
-      const listBox = overlay.querySelector('vaadin-context-menu-list-box');
-      const previousOverlay = overlays[overlays.length - 2];
-      const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
+    // Check if we are on a wide screen.
+    if (this.wide) {
+      const overlays = document.querySelectorAll(
+        'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
+      );
 
-      requestAnimationFrame(() => {
-        if (listBox.offsetHeight > previousListBox.offsetHeight) {
+      if (overlays.length > 1) {
+        const topLevelOverlay = overlays[0];
+        const listBox = overlay.querySelector('vaadin-context-menu-list-box');
+        const previousOverlay = overlays[overlays.length - 2];
+        const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
+
+        // Reset list box height.
+        listBox.style.height = null;
+
+        requestAnimationFrame(() => {
+          // Check if the child list box is shorter then the parent list box.
+          if (listBox.offsetHeight < previousListBox.offsetHeight) {
+            // Set the child list box height to the parent list box height.
+            listBox.style.height = `${previousListBox.offsetHeight}px`;
+          }
+
+          // Align the child overlay to the top of the top level overlay.
           overlay.style.top = topLevelOverlay.style.top;
-        }
-      });
+        });
+      }
     }
 
     /**
