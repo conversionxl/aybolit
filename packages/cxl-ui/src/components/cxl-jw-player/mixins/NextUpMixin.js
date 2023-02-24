@@ -1,5 +1,5 @@
 import { html, render } from 'lit';
-import style from '../../../styles/cxl-jw-player/cxl-jw-player-next-up-css';
+import style from '../../../styles/global/cxl-jw-player/cxl-jw-player-next-up-css';
 export function NextUpMixin(BaseClass) {
   class Mixin extends BaseClass {
     __nextUpCTA;
