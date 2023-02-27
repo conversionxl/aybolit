@@ -2,34 +2,34 @@ import { html, render } from 'lit';
 import style from '../../../styles/global/cxl-jw-player/cxl-jw-player-next-up-css';
 export function NextUpMixin(BaseClass) {
   class Mixin extends BaseClass {
-    __nextUpCTA;
+    _nextUpCTA;
 
-    async __setup() {
-      await super.__setup();
+    async _setup() {
+      await super._setup();
 
-      this.__addStyle(style);
+      this._addStyle(style);
 
-      this.__nextUpCTA = document.createElement('div');
-      this.__nextUpCTA.classList.add('jw-next-up-cta');
+      this._nextUpCTA = document.createElement('div');
+      this._nextUpCTA.classList.add('jw-next-up-cta');
 
       const container = this.querySelector('.jw-nextup-container');
-      container.insertBefore(this.__nextUpCTA, container.firstChild);
+      container.insertBefore(this._nextUpCTA, container.firstChild);
 
-      this.__updateNextUp();
-      this.__jwPlayer.on('playlistItem', this.__updateNextUp.bind(this));
+      this._updateNextUp();
+      this._jwPlayer.on('playlistItem', this._updateNextUp.bind(this));
     }
 
-    __updateNextUp() {
-      const index = this.__jwPlayer.getPlaylistIndex();
-      const playlistItem = this.__jwPlayer.getPlaylistItem(index + 1);
+    _updateNextUp() {
+      const index = this._jwPlayer.getPlaylistIndex();
+      const playlistItem = this._jwPlayer.getPlaylistItem(index + 1);
 
       if (playlistItem && playlistItem.coursePage) {
-        render(this.__getTemplate(playlistItem), this.__nextUpCTA);
+        render(this._getTemplate(playlistItem), this._nextUpCTA);
       }
     }
 
     // eslint-disable-next-line class-methods-use-this
-    __getTemplate(playlistItem) {
+    _getTemplate(playlistItem) {
       return html`
         <a href=${playlistItem.coursePage}>
           <vaadin-button role="link" theme="primary">Go to the course page</vaadin-button>

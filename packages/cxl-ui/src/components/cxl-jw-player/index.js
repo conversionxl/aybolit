@@ -40,9 +40,9 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
     return template.bind(this)();
   }
 
-  async __setup() {
-    await super.__setup();
+  async _setup() {
+    await super._setup();
 
-    this.__addStyle(style);
+    this._addStyle(style);
   }
 }

@@ -8,7 +8,7 @@ export const chapterNavigationTemplate = function (chapters) {
     <div class="close-container">
       <span class="title">Chapters</span>
       <vaadin-button
-        @click=${this.__toggleChapterNavigation.bind(this)}
+        @click=${this._toggleChapterNavigation.bind(this)}
         class="close"
         theme="icon small primary"
         aria-label="Close"
@@ -20,7 +20,7 @@ export const chapterNavigationTemplate = function (chapters) {
       ${chapters.map(
         (chapter, index) =>
           html`
-            <li data-index=${index} @click=${this.__chapterSeek.bind(this)}>
+            <li data-index=${index} @click=${this._chapterSeek.bind(this)}>
               <a>${chapter.data.text}</a>
             </li>
           `

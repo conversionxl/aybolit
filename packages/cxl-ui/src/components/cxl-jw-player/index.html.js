@@ -11,7 +11,7 @@ export const template = function () {
         ? html`
             <div class="center gap search padding">
               <vaadin-text-field
-                @input=${this.__debouncedSearch}
+                @input=${this._debouncedSearch}
                 clear-button-visible
                 id="search"
                 placeholder="Type and press enter to search"
@@ -19,26 +19,26 @@ export const template = function () {
               >
                 <vaadin-icon slot="prefix" icon="lumo:search"></vaadin-icon>
               </vaadin-text-field>
-              ${this.__isSearchMinimumLength
-                ? html`<span>(${this.__matches} matches)</span>`
+              ${this._isSearchMinimumLength
+                ? html`<span>(${this._matches} matches)</span>`
                 : nothing}
               <vaadin-checkbox
-                @change=${this.__toggleShouldScroll}
-                ?checked=${this.__shouldScroll}
+                @change=${this._toggleShouldScroll}
+                ?checked=${this._shouldScroll}
                 label="Scroll"
               ></vaadin-checkbox>
             </div>
             <div class="captions padding scroll">
-              ${this.__tracks.map(
+              ${this._tracks.map(
                 (track, index) =>
                   html`${track.isChapter
-                    ? html`<h2 @click=${this.__onCaptionClick} data-index=${index}>
+                    ? html`<h2 @click=${this._onCaptionClick} data-index=${index}>
                         ${track.data.text}
                       </h2>`
                     : html`
                         <span
-                          @click=${this.__onCaptionClick}
-                          ?active=${this.__currentTrack === index}
+                          @click=${this._onCaptionClick}
+                          ?active=${this._currentTrack === index}
                           data-index=${index}
                         >
                           ${track.data.text}

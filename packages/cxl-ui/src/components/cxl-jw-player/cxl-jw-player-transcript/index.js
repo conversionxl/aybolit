@@ -13,9 +13,9 @@ export class CXLJWPlayerTranscriptElement extends LitElement {
     return html`<slot></slot>`;
   }
 
-  async __setup() {
-    await super.__setup();
+  async _setup() {
+    await super._setup();
 
-    this.__addStyle(style);
+    this._addStyle(style);
   }
 }

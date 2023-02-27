@@ -5,15 +5,15 @@ import { parseSync } from 'subtitle';
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
-    __boundOnTimeListener;
+    _boundOnTimeListener;
 
-    __chapters;
+    _chapters;
 
-    __jwPlayer;
+    _jwPlayer;
 
-    __jwPlayerContainer;
+    _jwPlayerContainer;
 
-    __position;
+    _position;
 
     @property({ attribute: 'media-id', type: String }) mediaId;
 
@@ -32,17 +32,17 @@ export function BaseMixin(BaseClass) {
     firstUpdated(_changedProperties) {
       super.firstUpdated(_changedProperties);
 
-      this.__setup();
+      this._setup();
     }
 
     updated(_changedProperties) {
       super.updated(_changedProperties);
       if (_changedProperties.has('captions') || _changedProperties.has('mediaId')) {
-        // this.__setup();
+        // this._setup();
       }
     }
 
-    get __scriptUrl() {
+    get _scriptUrl() {
       let scriptUrl;
 
       if (this.libraryId && this.isPublic) {
@@ -56,14 +56,14 @@ export function BaseMixin(BaseClass) {
       return scriptUrl;
     }
 
-    __addStyle(style) {
+    _addStyle(style) {
       const el = document.createElement('style');
       render(style, el);
       this.appendChild(el);
     }
 
-    async __getChapters() {
-      const playlistItem = this.__jwPlayer.getPlaylistItem();
+    async _getChapters() {
+      const playlistItem = this._jwPlayer.getPlaylistItem();
       const chapters = playlistItem.tracks.filter((track) => track.kind === 'chapters');
       const { file } = chapters.length > 0 ? chapters[0] : '';
       const response = await (await fetch(file)).text();
@@ -71,7 +71,7 @@ export function BaseMixin(BaseClass) {
       return parseSync(response);
     }
 
-    async __getMedia() {
+    async _getMedia() {
       let response;
 
       if (this.mediaId && this.isPublic) {
@@ -85,7 +85,7 @@ export function BaseMixin(BaseClass) {
       return response.json();
     }
 
-    async __getPlaylist() {
+    async _getPlaylist() {
       let response;
 
       if (this.playlistId) {
@@ -99,10 +99,10 @@ export function BaseMixin(BaseClass) {
       return response.json();
     }
 
-    async __loadScript() {
+    async _loadScript() {
       return new Promise((resolve) => {
         const el = document.createElement('script');
-        el.src = this.__scriptUrl;
+        el.src = this._scriptUrl;
         el.onload = () => {
           resolve(self.jwplayer);
         };
@@ -115,17 +115,17 @@ export function BaseMixin(BaseClass) {
      */
 
     // eslint-disable-next-line class-methods-use-this, no-unused-vars, no-empty-function
-    async __onTimeListener(event) {}
+    async _onTimeListener(event) {}
 
-    __registerListeners() {
-      this.__boundOnTimeListener = throttle(this.__onTimeListener.bind(this), 1000);
-      this.__jwPlayer.on('time', this.__boundOnTimeListener);
+    _registerListeners() {
+      this._boundOnTimeListener = throttle(this._onTimeListener.bind(this), 1000);
+      this._jwPlayer.on('time', this._boundOnTimeListener);
     }
 
     /**
      * Each mixin has the ability to hook onto this method.
      */
-    async __setup() {
+    async _setup() {
 
       // Merge configs from `cxlJWPlayerData`.
       if (typeof window.cxlJWPlayerData !== 'undefined') {
@@ -135,26 +135,26 @@ export function BaseMixin(BaseClass) {
         this.config = { ...this.config, ...media_config };
       }
 
-      const jwPlayer = await this.__loadScript();
+      const jwPlayer = await this._loadScript();
 
       const el = document.createElement('div');
       this.appendChild(el);
 
-      this.__jwPlayer = jwPlayer(el).setup({
+      this._jwPlayer = jwPlayer(el).setup({
         ...this.config,
-        ...(await this.__getMedia()),
-        ...(await this.__getPlaylist()),
+        ...(await this._getMedia()),
+        ...(await this._getPlaylist()),
       });
 
       await new Promise((resolve) => {
-        this.__jwPlayer.on('ready', resolve);
+        this._jwPlayer.on('ready', resolve);
       });
 
-      this.__jwPlayerContainer = this.__jwPlayer.getContainer();
+      this._jwPlayerContainer = this._jwPlayer.getContainer();
 
-      this.__registerListeners();
+      this._registerListeners();
 
-      this.__chapters = await this.__getChapters();
+      this._chapters = await this._getChapters();
     }
   }
 

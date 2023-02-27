@@ -1,42 +1,42 @@
 export function SavePositionMixin(BaseClass) {
   class Mixin extends BaseClass {
-    __endpoint;
+    _endpoint;
 
-    __nonce;
+    _nonce;
 
-    __userId;
+    _userId;
 
-    async __setup() {
-      await super.__setup();
+    async _setup() {
+      await super._setup();
 
-      this.__endpoint = `${window.ajaxurl}?action=jwplayer_save_position`;
+      this._endpoint = `${window.ajaxurl}?action=jwplayer_save_position`;
 
       if ( typeof window.cxl_pum_vars !== 'undefined' ) {
-        this.__nonce = window.cxl_pum_vars.nonce;
+        this._nonce = window.cxl_pum_vars.nonce;
       }
 
-      this.__loadPosition();
+      this._loadPosition();
     }
 
-    async __loadPosition() {
-      this.__jwPlayer.seek(Number(localStorage.getItem(`jw-player-${this.mediaId}-position`)));
-      this.__jwPlayer.pause();
+    async _loadPosition() {
+      this._jwPlayer.seek(Number(localStorage.getItem(`jw-player-${this.mediaId}-position`)));
+      this._jwPlayer.pause();
     }
 
     /**
      * The listener is registered in the base class (../index.js).
      */
-    __onTimeListener(event) {
-      super.__onTimeListener(event);
+    _onTimeListener(event) {
+      super._onTimeListener(event);
 
-      this.__savePosition(event);
+      this._savePosition(event);
     }
 
-    __savePosition({ position }) {
+    _savePosition({ position }) {
       localStorage.setItem(`jw-player-${this.mediaId}-position`, position);
 
-      fetch(this.__endpoint, {
-        _ajax_nonce: this.__nonce,
+      fetch(this._endpoint, {
+        _ajax_nonce: this._nonce,
         body: JSON.stringify({ mediaId: this.mediaId, position }),
         headers: {
           'Content-Type': 'application/json',
