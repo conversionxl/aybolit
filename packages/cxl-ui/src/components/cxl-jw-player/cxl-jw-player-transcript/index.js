@@ -1,6 +1,6 @@
 import { html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import style from '../../../styles/cxl-jw-player/cxl-jw-player-transcript-css';
+import style from '../../../styles/global/cxl-jw-player/cxl-jw-player-transcript-css';
 import shadowStyle from '../../../styles/cxl-jw-player/cxl-jw-player-transcript-shadow-css';
 
 @customElement('cxl-jw-player-transcript')

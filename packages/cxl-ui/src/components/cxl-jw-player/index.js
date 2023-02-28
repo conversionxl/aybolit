@@ -1,6 +1,6 @@
 import { LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import style from '../../styles/cxl-jw-player/cxl-jw-player-css';
+import style from '../../styles/global/cxl-jw-player/cxl-jw-player-css';
 import shadowStyle from '../../styles/cxl-jw-player/cxl-jw-player-shadow-css';
 import { template } from './index.html';
 import {

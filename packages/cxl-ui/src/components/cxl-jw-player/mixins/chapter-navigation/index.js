@@ -1,6 +1,6 @@
 import { render } from 'lit';
 import { property } from 'lit/decorators.js';
-import style from '../../../../styles/cxl-jw-player/cxl-jw-player-chapter-navigation-css';
+import style from '../../../../styles/global/cxl-jw-player/cxl-jw-player-chapter-navigation-css';
 import { chapterNavigationTemplate } from './index.html';
 
 export function ChapterNavigationMixin(BaseClass) {
