@@ -10,6 +10,12 @@ export function ChapterNavigationMixin(BaseClass) {
     async _setupChapterNavigation() {
       const chapters = await this._getChapters();
 
+      if (!chapters.length) {
+        this._jwPlayer.removeButton('chapter-navigation');
+
+        return;
+      }
+
       this._chapterNavigation = document.createElement('div');
       this._chapterNavigation.classList.add('chapter-navigation');
       this._chapterNavigation.hidden = true;

@@ -10,6 +10,7 @@ export function TranscriptMixin(BaseClass) {
     _mark;
 
     @property({ reflect: true, type: Boolean }) captions = false;
+    @property({ attribute: 'has-captions', reflect: true, type: Boolean }) hasCaptions = false;
 
     @state() _currentCue = 0;
 
@@ -37,8 +38,13 @@ export function TranscriptMixin(BaseClass) {
 
     async _getCaptions() {
       const playlistItem = this._jwPlayer.getPlaylistItem();
-      const { file } = playlistItem.tracks.filter((track) => track.kind === 'captions')[0];
-      const response = await (await fetch(file)).text();
+      const track = playlistItem.tracks.filter((track) => track.kind === 'captions')[0];
+
+      if (!track) {
+        return [];
+      }
+
+      const response = await (await fetch(track.file)).text();
 
       return parseSync(response);
     }
@@ -63,12 +69,15 @@ export function TranscriptMixin(BaseClass) {
       const tracks = [];
 
       const captions = await this._getCaptions();
-      const chapters = [...[{ data: { start: 0, text: '' } }], ...(await this._getChapters())];
 
-      chapters.forEach((chapter, index) => {
-        tracks.push({ ...chapter, ...{ isChapter: true } });
-        tracks.push(...this._getCaptionsInChapter(chapters, captions, index));
-      });
+      if (captions.length) {
+        const chapters = [...[{ data: { start: 0, text: '' } }], ...(await this._getChapters())];
+
+        chapters.forEach((chapter, index) => {
+          tracks.push({ ...chapter, ...{ isChapter: true } });
+          tracks.push(...this._getCaptionsInChapter(chapters, captions, index));
+        });
+      }
 
       return tracks;
     }
@@ -118,25 +127,36 @@ export function TranscriptMixin(BaseClass) {
       await super._setup();
 
       this._setupTranscript();
+
+      this._jwPlayer.on('playlistItem', this._setupTranscript.bind(this));
     }
 
     async _setupTranscript() {
       if (!this._jwPlayer) return;
 
-      this._jwPlayer.addButton(
-        `<svg class="jw-player-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" aria-hidden="true" viewBox="0 0 1000 1000"><g><path d="M662 603l131 131c16 16 16 42 0 59-16 16-43 16-59 0l-131-131C562 691 512 708 458 708c-138 0-250-112-250-250 0-138 112-250 250-250 138 0 250 112 250 250 0 54-17 104-46 145zM458 646c104 0 188-84 188-188S562 271 458 271 271 355 271 458s84 188 187 188z"></path></g></svg>`,
-        'Transcript',
-        this._toggleTranscript.bind(this),
-        'toggle-transcript'
-      );
+      this._tracks = [];
 
       if (this.captions) {
         this._tracks = await this._getTracks();
+      }
+
+      if (this._tracks.length) {
+        this.hasCaptions = true;
 
         // Make sure the DOM is up to date
         await this.updateComplete;
 
         this._mark = new Mark(this.renderRoot.querySelectorAll('.captions h2, .captions span'));
+
+        this._jwPlayer.addButton(
+          `<svg class="jw-player-button" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" aria-hidden="true" viewBox="0 0 1000 1000"><g><path d="M662 603l131 131c16 16 16 42 0 59-16 16-43 16-59 0l-131-131C562 691 512 708 458 708c-138 0-250-112-250-250 0-138 112-250 250-250 138 0 250 112 250 250 0 54-17 104-46 145zM458 646c104 0 188-84 188-188S562 271 458 271 271 355 271 458s84 188 187 188z"></path></g></svg>`,
+          'Transcript',
+          this._toggleTranscript.bind(this),
+          'toggle-transcript'
+        );
+      } else {
+        this.hasCaptions = false;
+        this._jwPlayer.removeButton('toggle-transcript');
       }
     }
 

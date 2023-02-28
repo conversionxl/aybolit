@@ -65,6 +65,11 @@ export function BaseMixin(BaseClass) {
     async _getChapters() {
       const playlistItem = this._jwPlayer.getPlaylistItem();
       const chapters = playlistItem.tracks.filter((track) => track.kind === 'chapters');
+
+      if (chapters.length === 0) {
+        return [];
+      }
+
       const { file } = chapters.length > 0 ? chapters[0] : '';
       const response = await (await fetch(file)).text();
 
@@ -126,7 +131,6 @@ export function BaseMixin(BaseClass) {
      * Each mixin has the ability to hook onto this method.
      */
     async _setup() {
-
       // Merge configs from `cxlJWPlayerData`.
       if (typeof window.cxlJWPlayerData !== 'undefined') {
         // eslint-disable-next-line camelcase
