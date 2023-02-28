@@ -11,7 +11,7 @@ export function SavePositionMixin(BaseClass) {
 
       this._endpoint = `${window.ajaxurl}?action=jwplayer_save_position`;
 
-      if ( typeof window.cxl_pum_vars !== 'undefined' ) {
+      if (typeof window.cxl_pum_vars !== 'undefined') {
         this._nonce = window.cxl_pum_vars.nonce;
       }
 
@@ -34,15 +34,6 @@ export function SavePositionMixin(BaseClass) {
 
     _savePosition({ position }) {
       localStorage.setItem(`jw-player-${this.mediaId}-position`, position);
-
-      fetch(this._endpoint, {
-        _ajax_nonce: this._nonce,
-        body: JSON.stringify({ mediaId: this.mediaId, position }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      });
     }
   }
 
