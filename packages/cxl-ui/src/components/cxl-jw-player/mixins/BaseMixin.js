@@ -13,8 +13,6 @@ export function BaseMixin(BaseClass) {
 
     _jwPlayerContainer;
 
-    _position;
-
     @property({ attribute: 'media-id', type: String }) mediaId;
 
     @property({ attribute: 'media-source', type: String }) mediaSource;

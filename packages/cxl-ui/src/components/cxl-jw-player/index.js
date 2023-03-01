@@ -7,7 +7,7 @@ import {
   BaseMixin,
   ChapterNavigationMixin,
   NextUpMixin,
-  SavePositionMixin,
+  StateMixin,
   TranscriptMixin,
 } from './mixins';
 import { mixin } from './utility';
@@ -18,7 +18,7 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
   TranscriptMixin,
   ChapterNavigationMixin,
   NextUpMixin,
-  SavePositionMixin,
+  StateMixin,
 ]) {
   config = {
     width: '100%',
