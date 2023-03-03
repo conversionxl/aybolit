@@ -1,7 +1,9 @@
+import * as jose from 'jose';
 import { render } from 'lit';
 import { property } from 'lit/decorators.js';
 import { throttle } from 'lodash-es';
 import { parseSync } from 'subtitle';
+import { MD5 } from 'crypto-js';
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
@@ -13,15 +15,17 @@ export function BaseMixin(BaseClass) {
 
     _jwPlayerContainer;
 
-    @property({ attribute: 'media-id', type: String }) mediaId;
+    @property({ attribute: 'api-secret', type: String }) apiSecret = '';
 
-    @property({ attribute: 'media-source', type: String }) mediaSource;
-
-    @property({ attribute: 'is-public', type: String }) isPublic;
+    @property({ attribute: 'is-public', type: Boolean }) isPublic;
 
     @property({ attribute: 'library-id', type: String }) libraryId;
 
     @property({ attribute: 'library-source', type: String }) librarySource;
+
+    @property({ attribute: 'media-id', type: String }) mediaId;
+
+    @property({ attribute: 'media-source', type: String }) mediaSource;
 
     @property({ attribute: 'playlist-id', type: String }) playlistId;
 
@@ -41,14 +45,20 @@ export function BaseMixin(BaseClass) {
     }
 
     get _scriptUrl() {
+      if (!this.libraryId && !this.librarySource) return false;
+
       let scriptUrl;
 
-      if (this.libraryId && this.isPublic) {
-        scriptUrl = `https://content.jwplatform.com/libraries/${this.libraryId}.js`;
-      } else if (this.librarySource) {
+      if (this.libraryId) {
+        if (this.isPublic) {
+          scriptUrl = `https://content.jwplatform.com/libraries/${this.libraryId}.js`;
+        } else {
+          scriptUrl = this.__signedURL(`libraries/${this.libraryId}.js`);
+        }
+      }
+
+      if (this.librarySource) {
         scriptUrl = this.librarySource;
-      } else {
-        return false;
       }
 
       return scriptUrl;
@@ -78,7 +88,7 @@ export function BaseMixin(BaseClass) {
       let response;
 
       if (this.mediaId && this.isPublic) {
-        response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
+        response = await fetch(await this._signedJWTURL(`/v2/media/${this.mediaId}`));
       } else if (this.mediaSource) {
         response = await fetch(this.mediaSource);
       } else {
@@ -92,7 +102,7 @@ export function BaseMixin(BaseClass) {
       let response;
 
       if (this.playlistId) {
-        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+        response = await fetch(await this._signedJWTURL(`/v2/playlists/${this.playlistId}`));
       } else if (this.playlistSource) {
         response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
       } else {
@@ -103,7 +113,7 @@ export function BaseMixin(BaseClass) {
     }
 
     async _loadScript() {
-      return new Promise((resolve) => {
+      return new Promise(async (resolve) => {
         const el = document.createElement('script');
         el.src = this._scriptUrl;
         el.onload = () => {
@@ -157,6 +167,26 @@ export function BaseMixin(BaseClass) {
       this._registerListeners();
 
       this._chapters = await this._getChapters();
+    }
+
+    async _signedJWTURL(path) {
+      const secret = new TextEncoder().encode(this.apiSecret);
+      const alg = 'HS256';
+      const typ = 'JWT';
+
+      const token = await new jose.SignJWT({ resource: path })
+        .setProtectedHeader({ alg, typ })
+        .setExpirationTime('2h')
+        .sign(secret);
+
+      return `https://cdn.jwplayer.com${path}?token=${token}`;
+    }
+
+    __signedURL(path) {
+      const expires = Math.ceil((new Date().getTime() + 3600) / 300) * 300;
+      const signature = MD5(`${path}:${expires}:${this.apiSecret}`);
+
+      return `https://cdn.jwplayer.com/${path}?exp=${expires}&sig=${signature}`;
     }
   }
 

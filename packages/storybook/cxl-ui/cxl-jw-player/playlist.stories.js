@@ -6,12 +6,14 @@ export default {
 };
 
 const Template = ({
+  apiSecret,
   captions,
+  isPublic,
+  libraryId,
+  librarySource,
   mediaId,
   mediaSource,
   minimumSearchLength,
-  libraryId,
-  librarySource,
   playlistId,
   playlistSource,
   pluginPath,
@@ -33,13 +35,14 @@ const Template = ({
     </style>
 
     <cxl-jw-player
-      is-public="true"
+      api-secret=${apiSecret}
       ?captions=${captions}
+      ?is-public=${isPublic}
+      library-id=${libraryId}
+      library-source=${librarySource}
       media-id=${mediaId}
       media-source=${mediaSource}
       minimum-search-length=${minimumSearchLength}
-      library-id=${libraryId}
-      library-source=${librarySource}
       playlist-id=${playlistId}
       playlist-source=${playlistSource}
       plugin-path="${pluginPath}"
@@ -50,7 +53,9 @@ export const Playlist = Template.bind({});
 
 Object.assign(Playlist, {
   args: {
+    apiSecret: 'API_SECRET',
     captions: true,
+    isPublic: true,
     libraryId: '5CFJNXKb',
     librarySource: '',
     mediaId: '',
