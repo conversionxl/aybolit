@@ -85,28 +85,40 @@ export function BaseMixin(BaseClass) {
     }
 
     async _getMedia() {
+      if (!this.mediaId && !this.mediaSource) return false;
+
       let response;
 
-      if (this.mediaId && this.isPublic) {
-        response = await fetch(await this._signedJWTURL(`/v2/media/${this.mediaId}`));
-      } else if (this.mediaSource) {
+      if (this.mediaId) {
+        if (this.isPublic) {
+          response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
+        } else {
+          response = await fetch(await this._signedJWTURL(`/v2/media/${this.mediaId}`));
+        }
+      }
+
+      if (this.mediaSource) {
         response = await fetch(this.mediaSource);
-      } else {
-        return false;
       }
 
       return response.json();
     }
 
     async _getPlaylist() {
+      if (!this.playlistId && !this.playlistSource) return false;
+
       let response;
 
       if (this.playlistId) {
-        response = await fetch(await this._signedJWTURL(`/v2/playlists/${this.playlistId}`));
-      } else if (this.playlistSource) {
-        response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
-      } else {
-        return false;
+        if (this.isPublic) {
+          response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+        } else {
+          response = await fetch(await this._signedJWTURL(`/v2/playlists/${this.playlistId}`));
+        }
+      }
+
+      if (this.playlistSource) {
+        response = await fetch(this.playlistSource);
       }
 
       return response.json();
