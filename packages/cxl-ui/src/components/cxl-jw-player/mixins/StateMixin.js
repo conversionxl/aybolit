@@ -32,16 +32,30 @@ export function StateMixin(BaseClass) {
     }
 
     _position() {
-      const position = localStorage.getItem(`jw-player-${this.mediaId}-position`);
+      const mediaId = this.mediaId || this._jwPlayer.getPlaylistItem().mediaId;
+
+      const position = localStorage.getItem(`jw-player-${mediaId}-position`);
 
       if (position) {
-        this._jwPlayer.seek(Number(position));
-        this._jwPlayer.pause();
+        if (this.mediaId) {
+          this._setPosition(position);
+        } else {
+          this._jwPlayer.on('playlistItem', () => {
+            this._setPosition(position);
+          });
+
+          this._jwPlayer.playlistItem(this._jwPlayer.getPlaylistIndex());
+        }
       }
 
-      this._jwPlayer.on('time', ({ position }) => {
-        localStorage.setItem(`jw-player-${this.mediaId}-position`, position);
+      this._jwPlayer.on('seek time', ({ position }) => {
+        localStorage.setItem(`jw-player-${mediaId}-position`, position);
       });
+    }
+
+    _setPosition(position) {
+      this._jwPlayer.seek(Number(position));
+      this._jwPlayer.pause();
     }
   }
 
