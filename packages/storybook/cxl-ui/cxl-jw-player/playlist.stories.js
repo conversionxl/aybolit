@@ -53,7 +53,7 @@ export const Playlist = Template.bind({});
 
 Object.assign(Playlist, {
   args: {
-    apiSecret: 'API_SECRET',
+    apiSecret: '',
     captions: true,
     isPublic: true,
     libraryId: '5CFJNXKb',
