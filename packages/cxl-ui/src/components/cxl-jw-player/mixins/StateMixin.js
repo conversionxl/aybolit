@@ -20,36 +20,45 @@ export function StateMixin(BaseClass) {
     }
 
     _playbackRate() {
-      const playbackRate = localStorage.getItem(`jw-player-playback-rate`);
+      const playbackRate = localStorage.getItem(`cxl-jw-player-playback-rate`);
 
       if (playbackRate) {
         this._jwPlayer.setPlaybackRate(Number(playbackRate));
       }
 
       this._jwPlayer.on('playbackRateChanged', ({ playbackRate }) => {
-        localStorage.setItem(`jw-player-playback-rate`, playbackRate);
+        localStorage.setItem(`cxl-jw-player-playback-rate`, playbackRate);
       });
     }
 
     _position() {
       const mediaId = this.mediaId || this._jwPlayer.getPlaylistItem().mediaId;
 
-      const position = localStorage.getItem(`jw-player-${mediaId}-position`);
+      const position = localStorage.getItem(`cxl-jw-player-${mediaId}-position`);
 
       if (position) {
         if (this.mediaId) {
           this._setPosition(position);
         } else {
-          this._jwPlayer.on('playlistItem', () => {
-            this._setPosition(position);
+          this._jwPlayer.on('playlistItem', ({ index }) => {
+            localStorage.setItem(`cxl-jw-player-${this.playlistId}-index`, index);
+
+            // Wait for the player to load the new playlist item
+            setTimeout(() => {
+              this._setPosition(position);
+            }, 1000);
           });
 
-          this._jwPlayer.playlistItem(this._jwPlayer.getPlaylistIndex());
+          const index =
+            localStorage.getItem(`cxl-jw-player-${this.playlistId}-index`) ||
+            this._jwPlayer.getPlaylistIndex();
+
+          this._jwPlayer.playlistItem(index);
         }
       }
 
       this._jwPlayer.on('seek time', ({ position }) => {
-        localStorage.setItem(`jw-player-${mediaId}-position`, position);
+        localStorage.setItem(`cxl-jw-player-${mediaId}-position`, position);
       });
     }
 
