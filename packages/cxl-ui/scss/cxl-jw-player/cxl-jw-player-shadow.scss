@@ -2,11 +2,16 @@
 
 :host {
   box-sizing: border-box;
+
+  [active] {
+    background-color: var(--lumo-shade-10pct);
+  }
 }
 
-:host([has-captions]) {
-  .cxl-jw-player-container {
+:host([captions]) {
+  #container {
     display: grid;
+    grid-template-rows: 1fr max-content 1fr;
   }
 }
 
