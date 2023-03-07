@@ -1,8 +1,17 @@
 import { html, render } from 'lit';
+import { property } from 'lit/decorators.js';
 import style from '../../../styles/global/cxl-jw-player/cxl-jw-player-nextup-css';
 export function NextUpMixin(BaseClass) {
   class Mixin extends BaseClass {
     _nextUpCTA;
+
+    @property({ attribute: 'nextupoffset', type: String }) nextupoffset = '-100%`';
+
+    async _beforeSetup() {
+      await super._beforeSetup();
+
+      this.config.nextupoffset = this.nextupoffset;
+    }
 
     async _setup() {
       await super._setup();
@@ -31,7 +40,9 @@ export function NextUpMixin(BaseClass) {
     _getTemplate(playlistItem) {
       return html`
         <a href=${playlistItem.coursePage}>
-          <vaadin-button role="link" theme="primary">Click here to continue this course</vaadin-button>
+          <vaadin-button role="link" theme="primary"
+            >Click here to continue this course</vaadin-button
+          >
         </a>
       `;
     }

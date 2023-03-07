@@ -31,9 +31,10 @@ export function BaseMixin(BaseClass) {
 
     @property({ attribute: 'playlist-source', type: String }) playlistSource;
 
-    firstUpdated(_changedProperties) {
-      super.firstUpdated(_changedProperties);
+    async firstUpdated(_changedProperties) {
+      await super.firstUpdated(_changedProperties);
 
+      await this._beforeSetup();
       this._setup();
     }
 
@@ -69,6 +70,9 @@ export function BaseMixin(BaseClass) {
       render(style, el);
       this.appendChild(el);
     }
+
+    // eslint-disable-next-line class-methods-use-this, no-empty-function
+    _beforeSetup() {}
 
     async _getChapters() {
       const playlistItem = this._jwPlayer.getPlaylistItem();
