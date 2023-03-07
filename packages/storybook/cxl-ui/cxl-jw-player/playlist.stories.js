@@ -14,6 +14,7 @@ const Template = ({
   mediaId,
   mediaSource,
   minimumSearchLength,
+  nextupoffset,
   playlistId,
   playlistSource,
   pluginPath,
@@ -43,6 +44,7 @@ const Template = ({
       media-id=${mediaId}
       media-source=${mediaSource}
       minimum-search-length=${minimumSearchLength}
+      nextupoffset=${nextupoffset}
       playlist-id=${playlistId}
       playlist-source=${playlistSource}
       plugin-path="${pluginPath}"
@@ -61,6 +63,7 @@ Object.assign(Playlist, {
     mediaId: '',
     mediaSource: '',
     minimumSearchLength: 3,
+    nextupoffset: '-100%',
     playlistId: 'tAxwbNsA',
     playlistSource: '',
     pluginPath: 'https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/',
