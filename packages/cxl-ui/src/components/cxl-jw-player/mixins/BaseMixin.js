@@ -4,6 +4,7 @@ import { property } from 'lit/decorators.js';
 import { throttle } from 'lodash-es';
 import { parseSync } from 'subtitle';
 import { MD5 } from 'crypto-js';
+import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
@@ -14,6 +15,9 @@ export function BaseMixin(BaseClass) {
     _jwPlayer;
 
     _jwPlayerContainer;
+
+    // Device Detector media query.
+    _wideMediaQuery = '(min-width: 750px)';
 
     @property({ attribute: 'api-secret', type: String }) apiSecret = '';
 
@@ -30,6 +34,20 @@ export function BaseMixin(BaseClass) {
     @property({ attribute: 'playlist-id', type: String }) playlistId;
 
     @property({ attribute: 'playlist-source', type: String }) playlistSource;
+
+    // MediaQueryController.
+    @property({ type: Boolean, reflect: true })
+    wide;
+
+    constructor() {
+      super();
+
+      this.addController(
+        new MediaQueryController(this._wideMediaQuery, (matches) => {
+          this.wide = matches;
+        })
+      );
+    }
 
     async firstUpdated(_changedProperties) {
       await super.firstUpdated(_changedProperties);

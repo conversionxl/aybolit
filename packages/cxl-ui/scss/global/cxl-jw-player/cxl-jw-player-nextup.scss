@@ -1,4 +1,16 @@
 cxl-jw-player {
+  &[wide] {
+    .jw-nextup-cta-mobile {
+      display: none;
+    }
+  }
+
+  &:not([wide]) {
+    .jw-nextup-cta {
+      display: none;
+    }
+  }
+
   .jw-nextup-container {
     display: flex;
     flex-direction: column;
