@@ -6,6 +6,26 @@ export function StateMixin(BaseClass) {
 
     _userId;
 
+    async _index() {
+      if (this.playlistId) {
+        const index =
+          localStorage.getItem(`cxl-jw-player-${this.playlistId}-index`) ||
+          this._jwPlayer.getPlaylistIndex();
+
+        this._jwPlayer.playlistItem(index);
+
+        this._jwPlayer.on('playlistItem', async ({ index }) => {
+          localStorage.setItem(`cxl-jw-player-${this.playlistId}-index`, index);
+        });
+      }
+    }
+
+    async _onReadyListener() {
+      await this._index();
+      this._position();
+      this._playbackRate();
+    }
+
     async _setup() {
       await super._setup();
 
@@ -14,9 +34,6 @@ export function StateMixin(BaseClass) {
       if (typeof window.cxl_pum_vars !== 'undefined') {
         this._nonce = window.cxl_pum_vars.nonce;
       }
-
-      this._playbackRate();
-      this._position();
     }
 
     _playbackRate() {
@@ -32,39 +49,28 @@ export function StateMixin(BaseClass) {
     }
 
     _position() {
-      const mediaId = this.mediaId || this._jwPlayer.getPlaylistItem().mediaId;
+      if (this.mediaId) {
+        this._setPosition();
+      }
 
-      const position = localStorage.getItem(`cxl-jw-player-${mediaId}-position`);
-
-      if (position) {
-        if (this.mediaId) {
-          this._setPosition(position);
-        } else {
-          this._jwPlayer.on('playlistItem', ({ index }) => {
-            localStorage.setItem(`cxl-jw-player-${this.playlistId}-index`, index);
-
-            // Wait for the player to load the new playlist item
-            setTimeout(() => {
-              this._setPosition(position);
-            }, 1000);
-          });
-
-          const index =
-            localStorage.getItem(`cxl-jw-player-${this.playlistId}-index`) ||
-            this._jwPlayer.getPlaylistIndex();
-
-          this._jwPlayer.playlistItem(index);
-        }
+      if (this.playlistId) {
+        this._jwPlayer.on('playlistItem', async ({ index }) => {
+          await jwplayer().getPlaylistItemPromise(index);
+          this._setPosition();
+        });
       }
 
       this._jwPlayer.on('seek time', ({ position }) => {
+        const mediaId = this.mediaId || this._jwPlayer.getPlaylistItem().mediaid;
         localStorage.setItem(`cxl-jw-player-${mediaId}-position`, position);
       });
     }
 
-    _setPosition(position) {
+    _setPosition() {
+      const mediaId = this.mediaId || this._jwPlayer.getPlaylistItem().mediaid;
+      const position = localStorage.getItem(`cxl-jw-player-${mediaId}-position`);
+
       this._jwPlayer.seek(Number(position));
-      this._jwPlayer.pause();
     }
   }
 
