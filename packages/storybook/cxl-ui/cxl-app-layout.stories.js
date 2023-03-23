@@ -31,7 +31,6 @@ Object.assign(CXLAppLayout2cl, {
 
 Object.assign(CXLAppLayout2cr, {
   args: {
-    hasPanelsScroll: true,
     hasWidgetBackground: false,
   },
   storyName: '[layout=2c-r]',
