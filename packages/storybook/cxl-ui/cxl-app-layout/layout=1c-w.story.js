@@ -5,10 +5,6 @@ import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../footer-nav.stories';
 import { CXLVaadinAccordionThemeArchive } from '../cxl-vaadin-accordion.stories';
 
-export default {
-  title: 'CXL UI/cxl-app-layout',
-};
-
 export const CXLAppLayout1cw = () => html`
   <cxl-app-layout id="container" layout="1c-w">
     ${CXLMarketingNav()}
@@ -36,5 +32,3 @@ export const CXLAppLayout1cw = () => html`
     ${CXLFooterNav()}
   </cxl-app-layout>
 `;
-
-CXLAppLayout1cw.storyName = '[layout=1c-w]';

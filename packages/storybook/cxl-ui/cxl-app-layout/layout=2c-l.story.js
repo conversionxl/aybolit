@@ -7,11 +7,7 @@ import '@vaadin/button';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLPlaybookAccordion } from '../cxl-vaadin-accordion.stories';
 
-export default {
-  title: 'CXL UI/cxl-app-layout',
-};
-
-const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => html`
+export const CXLAppLayout2cl = ({ hasWidgetBackground, postId, userId, playbookSaved }) => html`
   <style>
     .widget.has-background {
       background-color: var(--lumo-shade-5pct);
@@ -141,14 +137,3 @@ const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => htm
     </article>
   </cxl-app-layout>
 `;
-
-export const CXLAppLayout2cl = Template.bind({});
-
-CXLAppLayout2cl.storyName = '[layout=2c-l]';
-
-CXLAppLayout2cl.args = {
-  postId: 1234,
-  userId: 5678,
-  playbookSaved: false,
-  hasWidgetBackground: false,
-};

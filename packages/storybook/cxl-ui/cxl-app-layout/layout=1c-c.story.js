@@ -4,10 +4,6 @@ import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../footer-nav.stories';
 
-export default {
-  title: 'CXL UI/cxl-app-layout',
-};
-
 export const CXLAppLayout1cc = () => html`
   <cxl-app-layout id="container" layout="1c-c">
     ${CXLMarketingNav()}
@@ -52,5 +48,3 @@ export const CXLAppLayout1cc = () => html`
     ${CXLFooterNav()}
   </cxl-app-layout>
 `;
-
-CXLAppLayout1cc.storyName = '[layout=1c-c]';
