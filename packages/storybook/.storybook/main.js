@@ -17,6 +17,10 @@ module.exports = {
     },
   },
   features: {
+    /**
+     * @see https://github.com/storybookjs/storybook/pull/18464
+     * @todo Update stories to CSF3 `name` property.
+     */
     storyStoreV7: true,
   },
   // @see https://github.com/storybookjs/storybook/issues/12307

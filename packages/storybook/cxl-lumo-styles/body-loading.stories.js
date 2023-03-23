@@ -25,7 +25,7 @@ export const CXLLoadingSpinner = ({ Loading }) => {
     <style>
       ${cxlLoadingStyles}
     </style>
-    ${CXLAppLayout1c(CXLAppLayout1c.args)}
+    ${CXLAppLayout1c.render(CXLAppLayout1c.args)}
   `;
 };
 
