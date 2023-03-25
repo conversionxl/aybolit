@@ -1,11 +1,10 @@
 import { html } from 'lit';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/button';
 import '@vaadin/notification';
+import '@vaadin/tooltip';
 
 export default {
-  decorators: [withKnobs],
   title: 'CXL Lumo Styles/Elements',
 };
 
@@ -13,7 +12,6 @@ export default {
  * VaadinButton.
  *
  * @param Label
- * @returns {TemplateResult}
  * @constructor
  */
 export const VaadinButton = ({ Label }) => html`
@@ -50,7 +48,6 @@ Object.assign(VaadinButton, {
 /**
  * VaadinHorizontalLayout.
  *
- * @returns {TemplateResult}
  * @constructor
  */
 export const VaadinHorizontalLayout = () => html`
@@ -71,7 +68,6 @@ Object.assign(VaadinHorizontalLayout, {
  * @param Duration
  * @param Position
  * @param Theme
- * @returns {TemplateResult}
  * @constructor
  */
 export const VaadinNotification = ({ Duration, Position, Theme }) => html`
@@ -132,34 +128,26 @@ Object.assign(VaadinNotification, {
 
 /**
  * VaadinTooltip.
- *
- * @param Text
- * @returns {TemplateResult}
- * @constructor
  */
-export const VaadinTooltip = ({ Text }) => {
-  const manualTrigger = boolean('Manual trigger', false);
-
-  return html`
+export const VaadinTooltip = {
+  args: {
+    manualTrigger: false,
+    text: 'Status: publish',
+  },
+  name: 'vaadin-tooltip',
+  render: ({ text, manualTrigger }) => html`
     <h1 id="h1-entry-title" class="entry-title" style="margin-top: 0.75em;">
       <vaadin-tooltip
         for="h1-entry-title"
         ?opened=${manualTrigger}
         ?manual=${manualTrigger}
         position="top-start"
-        text="${Text}"
+        text="${text}"
       ></vaadin-tooltip>
       Grow faster.
     </h1>
-  `;
+  `,
 };
-
-Object.assign(VaadinTooltip, {
-  args: {
-    Text: 'Status: publish',
-  },
-  storyName: 'vaadin-tooltip',
-});
 
 export const VaadinBadge = () => html`
   <span theme="badge">Badge</span>

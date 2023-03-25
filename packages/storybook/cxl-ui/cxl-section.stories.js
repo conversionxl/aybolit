@@ -1,23 +1,32 @@
 import { html } from 'lit';
-import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
-import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
-import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
-import { CXLFooterNav } from '../footer-nav.stories';
+import '@conversionxl/cxl-ui/src/components/cxl-section.js';
+import '@vaadin/tooltip';
+import { VaadinTooltip } from '../cxl-lumo-styles/elements.stories';
+import '@vaadin/button';
+import '@vaadin/icon';
+import '@vaadin/horizontal-layout';
 
-export default {
-  title: 'CXL UI/cxl-app-layout',
+const meta = {
+  component: 'cxl-section',
+  title: 'CXL UI/cxl-section',
 };
 
-export const CXLAppLayout1cc = () => html`
-  <cxl-app-layout id="container" layout="1c-c">
-    ${CXLMarketingNav()}
+export default meta;
 
-    <article class="entry">
-      <header class="entry-header">
-        <label>Page</label>
-        <h1 class="entry-title">Grow faster.</h1>
-      </header>
-      <div class="entry-content">
+export const CXLSection = {
+  args: {
+    backgroundColor: 'var(--lumo-shade-5pct)',
+    hasWave: true,
+  },
+  name: 'cxl-section',
+  render: ({ backgroundColor, hasWave, content }) => html`
+    <cxl-section
+      class="alignwide has-background ${hasWave ? 'has-wave' : ''}"
+      style="${backgroundColor ? `background-color: ${backgroundColor}` : ''}"
+    >
+      ${content ||
+      html`
+        ${VaadinTooltip.render(VaadinTooltip.args)}
         <h2>
           The difference between high-growth and slow-growth companies is the skill sets they have
           to make it happen.
@@ -46,11 +55,7 @@ export const CXLAppLayout1cc = () => html`
           >
           <span><vaadin-icon icon="lumo:checkmark"></vaadin-icon>Certificate included</span>
         </vaadin-horizontal-layout>
-      </div>
-    </article>
-
-    ${CXLFooterNav()}
-  </cxl-app-layout>
-`;
-
-CXLAppLayout1cc.storyName = '[layout=1c-c]';
+      `}
+    </cxl-section>
+  `,
+};

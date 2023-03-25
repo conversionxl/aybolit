@@ -1,10 +1,8 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { html } from 'lit';
 import cxlLoadingStyles from '@conversionxl/cxl-lumo-styles/src/styles/loading-css';
-import { CXLAppLayout } from '../cxl-ui/cxl-app-layout/layout=1c.stories';
+import { CXLAppLayout1c } from '../cxl-ui/cxl-app-layout.stories';
 
 export default {
-  decorators: [withKnobs],
   title: 'CXL Lumo Styles/Body',
 };
 
@@ -12,7 +10,6 @@ export default {
  * CXLLoadingSpinner.
  *
  * @param Loading
- * @returns {TemplateResult}
  * @constructor
  */
 export const CXLLoadingSpinner = ({ Loading }) => {
@@ -28,7 +25,7 @@ export const CXLLoadingSpinner = ({ Loading }) => {
     <style>
       ${cxlLoadingStyles}
     </style>
-    ${CXLAppLayout()}
+    ${CXLAppLayout1c.render(CXLAppLayout1c.args)}
   `;
 };
 
