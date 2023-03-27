@@ -1,5 +1,6 @@
 import { html, nothing } from 'lit';
 import { CXLAppLayout1cContent } from './cxl-app-layout/layout=1c.story';
+import { CXLAppLayout1cHPContent } from './cxl-app-layout/layout=1c-hp.story';
 import { CXLAppLayout1cwContent } from './cxl-app-layout/layout=1c-w.story';
 import { CXLAppLayout2clContent } from './cxl-app-layout/layout=2c-l.story';
 import { CXLAppLayout2crContent } from './cxl-app-layout/layout=2c-r.story';
@@ -32,6 +33,15 @@ export const CXLAppLayout1c = {
     layout: '1c',
   },
   name: '[layout=1c] (default)',
+};
+
+export const CXLAppLayout1cHP = {
+  ...CXLAppLayout,
+  args: {
+    content: CXLAppLayout1cHPContent,
+    layout: '1c',
+  },
+  name: '[layout=1c] (HP)',
 };
 
 export const CXLAppLayout1cc = {
