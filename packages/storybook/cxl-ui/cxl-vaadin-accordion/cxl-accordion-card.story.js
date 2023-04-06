@@ -5,7 +5,7 @@ import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
 import '@conversionxl/cxl-ui/src/components/cxl-save-favorite.js';
 import archiveData from './theme=cxl-archive.data.json';
 
-export const CXLVaadinAccordionThemeArchive = () => {
+export const CXLVaadinAccordionThemeArchive = ({ simple }) => {
   let lastEntryTitle1stLetter = 'Z';
 
   const firstLetterHeading = (el) => {
@@ -43,6 +43,7 @@ export const CXLVaadinAccordionThemeArchive = () => {
     <cxl-vaadin-accordion
       id="cxl-vaadin-accordion-26107"
       class="archive archive-certificate plural"
+      ?simple=${simple}
       theme="cxl-accordion-card"
     >
       ${archiveData.map(
@@ -103,4 +104,8 @@ export const CXLVaadinAccordionThemeArchive = () => {
       )}
     </cxl-vaadin-accordion>
   `;
+};
+
+CXLVaadinAccordionThemeArchive.args = {
+  simple: false,
 };

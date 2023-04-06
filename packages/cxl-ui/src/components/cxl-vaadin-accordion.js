@@ -11,6 +11,13 @@ import cxlVaadinAccordionGlobalStyles from '../styles/global/cxl-vaadin-accordio
  */
 @customElement('cxl-vaadin-accordion')
 export class CXLVaadinAccordionElement extends Accordion {
+  static get properties() {
+    return {
+      ...super.properties,
+      simple: { observer: '_simpleChanged', type: Boolean },
+    };
+  }
+
   /**
    * Global styles.
    */
@@ -22,8 +29,20 @@ export class CXLVaadinAccordionElement extends Accordion {
     });
   }
 
+  // Observe the the `simple` attribute and close or restore accordion panels.
+  _simpleChanged(newValue) {
+    if (newValue) {
+      this.opened = null;
+    } else {
+      this.hasAppliedState = false;
+      this._updateItems(this.items, this.opened);
+    }
+  }
+
   // Keep track of accordion panels state.
   _updateOpened(e) {
+    if (this.simple) return;
+
     const target = this._filterItems(e.composedPath())[0];
     const idx = this.items.indexOf(target);
 
@@ -43,6 +62,9 @@ export class CXLVaadinAccordionElement extends Accordion {
   // Restore accordion panel state.
   _updateItems(items, opened) {
     if (!items) {
+      return;
+    } else if (this.simple) {
+      super._updateItems(items, opened);
       return;
     }
 
