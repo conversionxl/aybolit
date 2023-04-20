@@ -29,7 +29,10 @@
   }
 }
 
-@mixin wrap($max-width: false, $padding: var(--cxl-wrap-padding, none)) {
+@mixin wrap(
+  $max-width: var(--cxl-content-max-width-wide, none),
+  $padding: var(--cxl-wrap-padding, none)
+) {
   position: relative;
   padding-right: $padding;
   padding-left: $padding;
