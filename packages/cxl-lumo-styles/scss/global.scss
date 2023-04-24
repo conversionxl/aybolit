@@ -168,3 +168,9 @@ ul {
 vaadin-notification-card vaadin-button[theme~="icon"]:not([theme~="tertiary-inline"]) {
   flex: none;
 }
+
+vaadin-context-menu-overlay {
+  &::part(overlay) {
+    @include mixins.better-webkit-scrollbars();
+  }
+}
