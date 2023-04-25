@@ -24,6 +24,13 @@ $toggle-icon: "lumo:angle-right";
   main {
     > slot:not([name]) {
       /**
+       * Force Action Bar to bottom on short content.
+       *
+       * @todo Same problem on all non-wide 1c layouts.
+       */
+      min-height: 100%;
+
+      /**
        * Wrap layout, space edges.
        */
       @include mixins.wrap();
@@ -57,6 +64,7 @@ $toggle-icon: "lumo:angle-right";
 
 /**
  * Sticky footer.
+ * @todo Short content on non-wide also wants `100vh`.
  */
 :host([wide]) {
   display: flex;
