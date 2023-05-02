@@ -117,3 +117,13 @@ vaadin-context-menu-list-box {
     display: none;
   }
 }
+
+/* stylelint-disable order/properties-order */
+.can-scroll {
+  background-color: var(--lumo-shade-10pct);
+  bottom: 0;
+  position: sticky;
+  text-align:center;
+  width: 100%;
+}
+/* stylelint-enable order/properties-order */
