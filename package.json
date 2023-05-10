@@ -9,17 +9,48 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "argos": "argos upload test/visual/screenshots/chrome --token $ARGOS_TOKEN || true",
-    "build": "rimraf packages/**/styles/**/*.js && yarn build-styling",
-    "build-styling": "node packages/sass-render/bin/sass-render.js -s \"packages/*/scss/**/*.scss\"",
+    "build": "yarn styles:build",
+    "dev": "wireit",
     "deploy-storybook": "yarn --cwd packages/storybook storybook-to-ghpages",
     "dist": "yarn build && lerna run dist",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint *.js packages --ignore-path .gitignore",
     "lint:scss": "stylelint packages/**/*.scss",
-    "storybook": "yarn --cwd packages/storybook start-storybook -p 6006 --modern",
+    "storybook": "wireit",
+    "styles:build": "wireit",
     "test": "karma start",
     "test:visual": "rimraf tmp && BABEL_ENV=visual webpack --config test/visual/webpack.config.js && rimraf test/visual/screenshots/chrome/* && vrtest run --config test/visual/vrtest.config.js --record",
     "watch": "node scripts/watcher.js"
+  },
+  "wireit": {
+    "dev": {
+      "dependencies": [
+        "storybook"
+      ]
+    },
+    "storybook": {
+      "command": "yarn --cwd packages/storybook start-storybook -p 6006 --modern",
+      "dependencies": [
+        "styles:watch"
+      ],
+      "service": true
+    },
+    "styles:build": {
+      "command": "node packages/sass-render/bin/sass-render.js -s \"packages/*/scss/**/*.scss\"",
+      "dependencies": [
+        "styles:clean"
+      ],
+      "files": [
+        "packages/*/scss/**/*.scss"
+      ]
+    },
+    "styles:clean": {
+      "command": "rimraf packages/**/styles/**/*.js"
+    },
+    "styles:watch": {
+      "command": "yarn run styles:build --watch",
+      "service": true
+    }
   },
   "workspaces": [
     "packages/*"
@@ -75,7 +106,8 @@
     "stylelint-config-twbs-bootstrap": "^2.1.0",
     "vrtest": "^0.2.0",
     "webpack": "^5.63.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "wireit": "^0.9.5"
   },
   "husky": {
     "hooks": {

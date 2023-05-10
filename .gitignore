@@ -1,3 +1,4 @@
+.wireit
 node_modules
 lerna-debug.log
 packages/**/src/**/styles/**/*-css.js
