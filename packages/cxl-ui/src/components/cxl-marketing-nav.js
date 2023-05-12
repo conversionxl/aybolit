@@ -255,6 +255,7 @@ export class CXLMarketingNavElement extends LitElement {
       requestAnimationFrame(() => {
         if (listBox.offsetHeight > previousListBox.offsetHeight) {
           overlay.style.top = topLevelOverlay.style.top;
+          overlay.style.bottom = "var(--lumo-space-m)";
         }
       });
     }
