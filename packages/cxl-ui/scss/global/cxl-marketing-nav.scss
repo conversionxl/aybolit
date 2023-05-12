@@ -120,10 +120,10 @@ vaadin-context-menu-list-box {
 
 /* stylelint-disable order/properties-order */
 .can-scroll {
-  background-color: var(--lumo-shade-10pct);
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
   bottom: 0;
   position: sticky;
-  text-align:center;
+  text-align: center;
   width: 100%;
 }
 /* stylelint-enable order/properties-order */
