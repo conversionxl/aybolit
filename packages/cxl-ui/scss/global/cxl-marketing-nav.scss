@@ -122,6 +122,7 @@ vaadin-context-menu-list-box {
 .can-scroll {
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
   bottom: 0;
+  cursor: pointer;
   position: sticky;
   text-align: center;
   width: 100%;

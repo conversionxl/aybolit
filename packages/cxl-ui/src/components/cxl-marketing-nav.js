@@ -286,8 +286,12 @@ export class CXLMarketingNavElement extends LitElement {
 
       if (listBox.offsetHeight > overlay.offsetHeight) {
         const menuItem = document.createElement('vaadin-context-menu-item');
-        
         menuItem.classList.add('can-scroll');
+
+        menuItem.addEventListener('click', () => {
+          overlay.shadowRoot.querySelector('[part="overlay"]').scrollTop += 100;
+        });
+
         render(html`<vaadin-icon icon="lumo:angle-down"></vaadin-icon>`, menuItem);
         overlay.appendChild(menuItem);
 
