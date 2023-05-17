@@ -24,6 +24,15 @@ $toggle-icon: "lumo:angle-right";
   main {
     > slot:not([name]) {
       /**
+      * Force container height.
+      *
+      * border-box is used to avoid overflow caused by padding.
+      * 60px is action bar height
+      */
+      box-sizing: border-box;
+      min-height: calc(100% - 60px);
+
+      /**
        * Wrap layout, space edges.
        */
       @include mixins.wrap();
