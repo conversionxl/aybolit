@@ -24,4 +24,50 @@ cxl-card {
       display: block;
     }
   }
+
+  &[theme~="cxl-explore-courses"] {
+    margin: 0;
+
+    & + & {
+      margin-top: 2px;
+    }
+
+    &:hover {
+      .entry-title {
+        text-decoration: underline;
+      }
+    }
+
+    .entry-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .thumbnail {
+      margin: 0 16px 0 0;
+    }
+
+    .entry-header {
+      display: flex;
+      align-items: center;
+    }
+
+    .entry-content {
+      display: flex;
+      flex-direction: column;
+      color: var(--lumo-secondary-text-color);
+
+      span {
+        display: block;
+      }
+    }
+
+    .entry-icon {
+      margin-top: -2px;
+      color: var(--lumo-secondary-text-color);
+    }
+  }
 }

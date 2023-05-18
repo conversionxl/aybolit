@@ -4,6 +4,7 @@ import * as Headroom from 'headroom.js';
 
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
 export { CXLCardElement } from './components/cxl-card.js';
+export { CXLExploreCoursesElement } from './components/cxl-explore-courses.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLSectionElement } from './components/cxl-section.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
