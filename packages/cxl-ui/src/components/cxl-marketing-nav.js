@@ -294,17 +294,6 @@ export class CXLMarketingNavElement extends LitElement {
 
         render(html`<vaadin-icon icon="lumo:angle-down"></vaadin-icon>`, menuItem);
         overlay.appendChild(menuItem);
-
-        // Check if we have scrolled to the bottom
-        overlay.shadowRoot
-          .querySelector("[part='overlay']")
-          .addEventListener('scroll', ({ target }) => {
-            if (Math.ceil(target.scrollTop) === target.scrollHeight - target.offsetHeight) {
-              menuItem.hidden = true;
-            } else {
-              menuItem.hidden = false;
-            }
-          });
       }
     }
   }
