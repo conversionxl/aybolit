@@ -168,3 +168,91 @@ ul {
 vaadin-notification-card vaadin-button[theme~="icon"]:not([theme~="tertiary-inline"]) {
   flex: none;
 }
+
+/* stylelint-disable order/properties-order */
+/* stylelint-disable-next-line selector-no-qualifying-type */
+ol.ordered-list-heavy {
+  $item-height: 96px;
+
+  counter-reset: li;
+  display: grid;
+  gap: var(--lumo-space-m);
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    border: 1px solid var(--lumo-shade-20pct);
+    border-radius: 9999px /* This is needed to create the pill shape */;
+    height: $item-height;
+    position: relative;
+
+    &::before {
+      align-items: center;
+      background-color: #000;
+      border-radius: 50%;
+      color: #fff;
+      content: counter(li);
+      counter-increment: li;
+      display: flex;
+      font-size: var(--lumo-font-size-xxxl);
+      font-weight: 800;
+      height: $item-height;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      width: $item-height;
+    }
+
+    /* stylelint-disable-next-line selector-max-type */
+    p {
+      font-size: var(--lumo-font-size-xs);
+      margin: 0;
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding: 0 calc($item-height * 0.5) 0 calc($item-height * 1.25);
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    .title {
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 400px) {
+    $item-height: 64px;
+
+    li {
+      height: $item-height;
+
+      &::before {
+        height: $item-height;
+        width: $item-height;
+      }
+
+      /* stylelint-disable-next-line selector-max-type */
+      p {
+        font-size: var(--lumo-font-size-xxs);
+        line-height: 1em;
+      }
+
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      .content {
+        padding: 0 calc($item-height * 0.5) 0 calc($item-height * 1.25);
+      }
+
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      .title {
+        line-height: initial;
+      }
+    }
+  }
+}
+/* stylelint-enable order/properties-order */
