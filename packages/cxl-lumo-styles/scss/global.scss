@@ -256,3 +256,37 @@ ol.ordered-list-heavy {
   }
 }
 /* stylelint-enable order/properties-order */
+
+ul.courses-list {
+  list-style: none;
+  padding-left: 0;
+
+  cxl-card {
+    align-items: center;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    margin: 0;
+    padding: var(--lumo-space-m) var(--lumo-space-s);
+
+    .entry-header {
+      margin-left: var(--lumo-space-l);
+    }
+
+    .entry-title {
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  li + li {
+    border-top: 1px solid var(--lumo-contrast-10pct);
+  }
+
+  .thumbnail {
+    --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
+  }
+
+}
