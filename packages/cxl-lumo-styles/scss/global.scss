@@ -1,4 +1,5 @@
 @use "mixins";
+@use "mq";
 
 html {
   // Variables.
@@ -258,6 +259,7 @@ ol.ordered-list-heavy {
 /* stylelint-enable order/properties-order */
 
 ul.courses-list {
+  font-family: inherit;
   list-style: none;
   padding-left: 0;
 
@@ -270,6 +272,10 @@ ul.courses-list {
     margin: 0;
     padding: var(--lumo-space-m) var(--lumo-space-s);
 
+    .entry-byline {
+      margin-bottom: 0;
+    }
+
     .entry-header {
       margin-left: var(--lumo-space-l);
     }
@@ -281,12 +287,20 @@ ul.courses-list {
     }
   }
 
-  li + li {
-    border-top: 1px solid var(--lumo-contrast-10pct);
+  li  {
+    margin: 0;
+
+    + li {
+      border-top: 1px solid var(--lumo-contrast-10pct);
+    }
   }
 
   .thumbnail {
     --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
+
+    @media #{mq.$small} {
+      --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 3);
+    }
   }
 
 }
