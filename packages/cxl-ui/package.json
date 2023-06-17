@@ -10,7 +10,8 @@
     "directory": "packages/cxl-ui"
   },
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.6.4"
+    "@conversionxl/cxl-lumo-styles": "^1.6.4",
+    "qrcode": "^1.5.3"
   },
   "devDependencies": {
     "@conversionxl/normalize-wheel": "^1.0.1",
