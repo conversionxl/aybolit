@@ -5,3 +5,7 @@
 :host([theme~="cxl-marketing-nav"][hidden]) {
   visibility: hidden;
 }
+
+:host([theme~="cxl-featured-course-slider"]) {
+  padding: 0;
+}

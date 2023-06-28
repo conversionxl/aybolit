@@ -1,0 +1,122 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  .container {
+    position: relative;
+    display: block;
+    background-color: var(--cxl-color-light-gray);
+
+    @media #{mq.$medium} {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  .instructor-img {
+    max-height: calc(var(--lumo-space-xl) * 6);
+    object-fit: contain;
+
+    @media #{mq.$medium} {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      max-height: none;
+    }
+  }
+
+  .info {
+    position: relative;
+    z-index: 0;
+    grid-column: span 7 / span 7;
+    padding: 0 var(--lumo-space-m);
+    font-size: var(--lumo-font-size-s);
+
+    @media #{mq.$medium} {
+      padding: var(--lumo-space-l) 0 0 var(--lumo-space-l);
+    }
+
+    .swoosh {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      max-height: 100%;
+      margin-top: calc(var(--lumo-space-m) * -2);
+
+      @media #{mq.$medium} {
+        display: none;
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 100%;
+      overflow: hidden;
+      column-gap: var(--lumo-space-s);
+      line-height: 1.2;
+
+      > span:first-child {
+        color: var(--lumo-primary-color);
+      }
+    }
+
+    .title {
+      margin: var(--lumo-space-s) 0;
+      font-size: var(--lumo-font-size-xl);
+      font-weight: 700;
+      line-height: normal;
+
+      strong {
+        color: var(--lumo-primary-color);
+      }
+    }
+
+    .attributes {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: var(--lumo-space-m);
+      gap: var(--lumo-space-s);
+      line-height: 1;
+      color: var(--lumo-shade-60pct);
+    }
+
+    .time {
+      display: flex;
+      align-items: center;
+    }
+
+    .content {
+      line-height: var(--lumo-line-height-m);
+    }
+
+    .cta {
+      display: block;
+      padding-bottom: var(--lumo-space-l);
+      margin-top: var(--lumo-space-m);
+      font-size: var(--lumo-font-size-m);
+      font-weight: 700;
+      line-height: var(--lumo-line-height-m);
+      color: var(--lumo-primary-color);
+      text-decoration: none;
+
+      vaadin-icon {
+        width: var(--lumo-icon-size-s);
+        height: var(--lumo-icon-size-s);
+        padding: calc(var(--lumo-space-xs) / 2);
+        margin-left: var(--lumo-space-s);
+        color: var(--lumo-primary-color);
+        background-color: var(--lumo-primary-color-10pct);
+        border-radius: 100%;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
