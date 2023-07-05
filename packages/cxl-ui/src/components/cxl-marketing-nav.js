@@ -111,6 +111,8 @@ export class CXLMarketingNavElement extends LitElement {
       <nav>
         <slot></slot>
       </nav>
+
+      <div id="overlays-wrapper"></div>
     `;
   }
 
@@ -157,24 +159,6 @@ export class CXLMarketingNavElement extends LitElement {
        */
       // eslint-disable-next-line no-param-reassign
       contextMenu.closeOn = 'backBtnClose';
-
-      /**
-       * @todo Needs docblock.
-       */
-      contextMenu.addEventListener('opened-changed', () => {
-        const listBox = document.querySelector('vaadin-context-menu-list-box');
-        let listBoxWidth = parseFloat(getComputedStyle(listBox).getPropertyValue('width'));
-
-        const vaadinMenuItemComputedStyle = getComputedStyle(
-          listBox.querySelector('.vaadin-menu-item')
-        );
-
-        listBoxWidth -=
-          parseFloat(vaadinMenuItemComputedStyle.paddingLeft) +
-          parseFloat(vaadinMenuItemComputedStyle.paddingRight) * 2;
-
-        listBox.style.setProperty('--cxl-vaadin-context-menu-item-max-width', `${listBoxWidth}px`);
-      });
     });
 
     /**
@@ -236,27 +220,23 @@ export class CXLMarketingNavElement extends LitElement {
   _onOverlayOpen(e) {
     const overlay = e.target;
 
-    /**
-     * Vertically align context menu panels.
-     * Check if the child overlay is larger than the top level overlay.
-     *
-     * @since 2023.02.11
-     */
-    const overlays = document.querySelectorAll(
-      'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
-    );
+    if (window.matchMedia(this._wideMediaQuery).matches) {
+      const target = this.shadowRoot.querySelector('#overlays-wrapper');
+      const firstOverlay = document.querySelector(
+        'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
+      );
 
-    if (overlays.length > 1) {
-      const topLevelOverlay = overlays[0];
-      const listBox = overlay.querySelector('vaadin-context-menu-list-box');
-      const previousOverlay = overlays[overlays.length - 2];
-      const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
+      if (target) {
+        target.style.top = target?.style?.top ? target.style.top : firstOverlay.style.top;
+        target.style.left = target?.style?.left ? target.style.left : firstOverlay.style.left;
+        target.style.maxHeight = `${window.innerHeight - (target?.style?.maxHeight ? target.style.maxHeight : firstOverlay.offsetTop)}px`;
 
-      requestAnimationFrame(() => {
-        if (listBox.offsetHeight > previousListBox.offsetHeight) {
-          overlay.style.top = topLevelOverlay.style.top;
-        }
-      });
+        target.appendChild(overlay);
+
+        // to fix wrong overlay error after changing the parent
+        overlay._placeholder = null;
+        overlay._exitModalState();
+      }
     }
 
     /**
@@ -334,7 +314,7 @@ export class CXLMarketingNavElement extends LitElement {
         const link = document.createElement('a');
 
         link.href = item.href;
-        link.text = item.text;
+        link.innerHTML = item.text;
 
         menuItem.appendChild(link);
 
@@ -350,6 +330,7 @@ export class CXLMarketingNavElement extends LitElement {
           render(html`${unsafeHTML(item.description)}`, descriptionItem);
 
           menuItem.appendChild(descriptionItem);
+          menuItem.classList.add('has-description');
         }
 
         // eslint-disable-next-line no-param-reassign

@@ -12,3 +12,20 @@
     box-shadow: inset 0 0 0 ($vaadin-focus-ring-thickness * 0.5) var(--lumo-primary-color);
   }
 }
+
+:host([theme~="cxl-marketing-nav"].vaadin-menu-list-box) [part='items'] ::slotted(.vaadin-menu-item) {
+  padding-right: var(--lumo-space-m);
+  padding-left: var(--lumo-space-m);
+}
+
+@media screen and (min-width: 783px) {
+  :host([theme~="cxl-marketing-nav"]) {
+    display: block;
+    width: var(--cxl-vaadin-context-menu-item-max-width);
+    padding: 0 8px;
+  }
+}
+
+:host([theme~="cxl-marketing-nav"]) [part='items'] ::slotted(.vaadin-menu-item) {
+  border-radius: 0;
+}
