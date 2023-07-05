@@ -149,3 +149,42 @@
     padding-bottom: var(--lumo-space-m);
   }
 }
+
+/**
+ * Theme "cxl-dashboard-category".
+ */
+:host([theme~="cxl-dashboard-category"]) {
+  border-bottom: solid 1px var(--cxl-color-light-gray);
+
+  [part="summary"] {
+    padding: var(--lumo-space-l) 0;
+  }
+
+  [part="content"] {
+    padding: 0;
+    margin-bottom: var(--lumo-space-l);
+  }
+
+  [part="toggle"] {
+    margin-right: var(--lumo-space-l);
+  }
+}
+
+:host([theme~="cxl-dashboard-category"][opened]) {
+  [part="summary"] {
+    padding-bottom: 0;
+  }
+}
+
+@media (hover: hover) {
+  :host([theme~="cxl-dashboard-category"]:not([opened])) {
+    [part="summary"]:hover {
+      cursor: pointer;
+      background-color: var(--cxl-color-light-gray);
+
+      [part="toggle"] {
+        color: var(--lumo-shade);
+      }
+    }
+  }
+}

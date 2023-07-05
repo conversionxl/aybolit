@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "title": "Deep skills",
+    "completion": "10% complete",
+    "sections": [
+      {
+        "title": "Growth",
+        "progress": "0.50",
+        "action": "View all",
+        "items": [
+          {
+            "title": "Demand capture",
+            "cards": []
+          },
+          {
+            "title": "Sub category",
+            "cards": []
+          }
+        ]
+      },
+      {
+        "title": "Category",
+        "progress": "0.50",
+        "action": "View all",
+        "items": [
+          {
+            "title": "Demand capture",
+            "cards": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Broad skills",
+    "completion": "10% complete",
+    "sections": [
+      {
+        "title": "Growth",
+        "progress": "0.50",
+        "action": "View all",
+        "items": [
+          {
+            "title": "Demand capture",
+            "cards": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Fast skills",
+    "completion": "0% complete",
+    "sections": [
+      {
+        "title": "Growth",
+        "items": [
+          {
+            "title": "Demand capture",
+            "cards": []
+          },
+          {
+            "title": "Sub category",
+            "cards": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Learning history",
+    "sections": [
+      {
+        "title": "Growth",
+        "items": [
+          {
+            "title": "Demand capture",
+            "cards": []
+          }
+        ]
+      }
+    ]
+  }
+]
