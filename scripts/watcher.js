@@ -24,7 +24,7 @@ async function addToQueue(fileName) {
   console.log(`saw change to ${fileName}`);
   updating = true;
   console.log('building styles');
-  const execPromise = exec(`node packages/sass-render/bin/sass-render.js -s "${fileName}"`);
+  const execPromise = exec(`yarn build`);
   try {
     const { stdout } = await execPromise;
     console.log(stdout);

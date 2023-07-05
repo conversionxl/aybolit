@@ -1,6 +1,24 @@
 cxl-marketing-nav {
+  #menu-global-items {
+    min-height: 0;
+  }
+
+  #menu-global-items .menu-item {
+    color: var(--lumo-shade);
+  }
+
   #menu-primary-items .menu-item {
-    color: var(--lumo-tint);
+    color: var(--lumo-shade);
+  }
+
+  &[wide] {
+    #menu-global-items .menu-item {
+      color: var(--lumo-base-color);
+    }
+
+    #menu-global-items .menu-item a {
+      opacity: 0.6;
+    }
   }
 
   &:not([wide]) {
@@ -71,13 +89,13 @@ vaadin-context-menu-item[theme~="cxl-marketing-nav"] {
 .vaadin-context-menu-item--description {
   margin-top: var(--lumo-space-s);
   font-family: var(--lumo-font-family);
-  font-size: var(--lumo-font-size-s);
+  font-size: var(--lumo-font-size-xxs);
   color: var(--lumo-secondary-text-color);
 }
 
 // Restricts menu item description width to max of parent width.
 vaadin-context-menu-list-box {
-  --cxl-vaadin-context-menu-item-max-width: fit-content;
+  --cxl-vaadin-context-menu-item-max-width: 360px;
 }
 
 /**

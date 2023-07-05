@@ -1,10 +1,40 @@
+:host([theme~="cxl-marketing-nav"]:not(.has-description)) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+:host([theme~="cxl-marketing-nav"]:hover),
+:host([theme~="cxl-marketing-nav"][expanded]) {
+  color: var(--lumo-primary-color);
+
+  &::after {
+    color: var(--lumo-primary-color);
+  }
+}
+
+:host([theme~="cxl-marketing-nav"].vaadin-menu-item.vaadin-context-menu-parent-item)::after {
+  margin-right: 0;
+  font-size: var(--lumo-icon-size);
+}
+
+@media screen and (min-width: 750px) {
+  :host([theme~="cxl-marketing-nav"].vaadin-menu-item.back-button-menu-item) {
+    display: none;
+  }
+}
+
+:host([theme~="cxl-marketing-nav"]) [part='checkmark'][aria-hidden='true'] {
+  display: none;
+}
+
 ::slotted(a) {
   // Increase link click surface.
   display: block;
 
   color: inherit !important; /* stylelint-disable-line declaration-no-important */
+  text-decoration: none !important; /* stylelint-disable-line declaration-no-important */
 }
 
-::slotted(a:not(:hover)) {
-  text-decoration: none !important; /* stylelint-disable-line declaration-no-important */
+::slotted(a:hover) {
+  color: var(--lumo-primary-color) !important; /* stylelint-disable-line declaration-no-important */
 }

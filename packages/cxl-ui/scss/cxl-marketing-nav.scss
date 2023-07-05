@@ -15,7 +15,19 @@
   bottom: 0;
   position: fixed;
 }
- */
+*/
+
+#overlays-wrapper {
+  position: fixed;
+  display: flex;
+  border: 1px solid #d2d5da;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.25);
+
+  vaadin-context-menu-overlay + vaadin-context-menu-overlay {
+    border-left: 1px solid var(--lumo-shade-20pct);
+  }
+}
 
 /**
  * Menu bar containers configuration.
@@ -39,12 +51,17 @@
 #menu-shadow-items,
 ::slotted(#menu-global-items) {
   background-color: var(--lumo-base-color);
+
+  :host([wide]) & {
+    height: 32px;
+    background-color: var(--lumo-shade);
+  }
 }
 
 // Light on dark.
 ::slotted(#menu-primary-items) {
   --lumo-tertiary-text-color: var(--lumo-base-color);
-  background-color: var(--lumo-shade);
+  background-color: var(--lumo-base-color);
 }
 
 /**
@@ -60,6 +77,13 @@ $menu-item-menu-toggle-index: 2;
   + nav
   > ::slotted(.menu-items) {
   display: none;
+}
+
+.vaadin-context-menu-item--description {
+  margin-top: var(--lumo-space-s);
+  font-family: var(--lumo-font-family);
+  font-size: var(--lumo-font-size-s);
+  color: var(--lumo-secondary-text-color);
 }
 
 /**
