@@ -1,0 +1,16 @@
+cxl-stats {
+  .stats-title {
+    margin-top: 0;
+    font-size: var(--lumo-font-size-xs);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--cxl-color-black-50pct);
+    text-transform: uppercase;
+  }
+
+  .stats-count {
+    margin: 0;
+    font-size: var(--lumo-font-size-xxl);
+    font-weight: 700;
+  }
+}

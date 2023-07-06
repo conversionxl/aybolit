@@ -19,6 +19,7 @@ export { CXLCredentialElement } from './components/cxl-credential.js'
 export { CXLCheckoutDetailsElement } from './components/cxl-checkout-details.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLSectionElement } from './components/cxl-section.js';
+export { CXLStatsElement } from './components/cxl-stats.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 export { CXLNotification } from './components/cxl-notification.js';
 
