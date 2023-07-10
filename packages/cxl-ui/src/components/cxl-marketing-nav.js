@@ -235,6 +235,13 @@ export class CXLMarketingNavElement extends LitElement {
    */
   _onOverlayOpen(e) {
     const overlay = e.target;
+    const overlays = document.querySelectorAll(
+      'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
+    );
+    const topLevelOverlay = overlays[0];
+    const listBox = overlay.querySelector('vaadin-context-menu-list-box');
+    const previousOverlay = overlays[overlays.length - 2];
+    const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
 
     /**
      * Vertically align context menu panels.
@@ -242,16 +249,7 @@ export class CXLMarketingNavElement extends LitElement {
      *
      * @since 2023.02.11
      */
-    const overlays = document.querySelectorAll(
-      'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
-    );
-
     if (overlays.length > 1) {
-      const topLevelOverlay = overlays[0];
-      const listBox = overlay.querySelector('vaadin-context-menu-list-box');
-      const previousOverlay = overlays[overlays.length - 2];
-      const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
-
       requestAnimationFrame(() => {
         if (listBox.offsetHeight > previousListBox.offsetHeight) {
           overlay.style.top = topLevelOverlay.style.top;
@@ -269,6 +267,35 @@ export class CXLMarketingNavElement extends LitElement {
     }
 
     this.submenuOverlay = overlay;
+
+    /**
+     * Add a scroll indicator to let the user know that there are more items in the list.
+     *
+     * @since 2023.05.01
+     * @see https://app.clickup.com/t/861mkj72q
+     */
+
+    // Make sure we are on a desktop
+    if (this.wide) {
+      const canScroll = overlay.querySelector('.can-scroll');
+
+      // Remove the scroll indicator if it exists
+      if (canScroll) {
+        overlay.removeChild(canScroll);
+      }
+
+      if (listBox.offsetHeight > overlay.offsetHeight) {
+        const menuItem = document.createElement('vaadin-context-menu-item');
+        menuItem.classList.add('can-scroll');
+
+        menuItem.addEventListener('click', () => {
+          overlay.shadowRoot.querySelector('[part="overlay"]').scrollTop += 100;
+        });
+
+        render(html`<vaadin-icon icon="lumo:angle-down"></vaadin-icon>`, menuItem);
+        overlay.appendChild(menuItem);
+      }
+    }
   }
 
   /**
