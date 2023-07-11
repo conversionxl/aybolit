@@ -6,6 +6,8 @@ html {
   --cxl-content-width: 36em;
   --cxl-wrap-width: 72rem;
   --cxl-wrap-padding: var(--lumo-space-m);
+  --cxl-color-light-gray: hsla(0, 0%, 96%, 1);
+  --cxl-color-black-50pct: hsla(0, 0%, 0%, 0.5);
 
   /**
    * Lumo Icons have a documented 4px "safe area" around them. Vaadin Icons don't, for unknown reasons.
