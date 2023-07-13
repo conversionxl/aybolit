@@ -15,3 +15,16 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+:host([theme~="cxl-stats-dashboard-header"]) {
+  padding: var(--lumo-space-m);
+  border: 0;
+
+  @media #{mq.$medium} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{mq.$large} {
+    background-color: var(--cxl-color-dark-gray);
+  }
+}

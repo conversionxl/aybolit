@@ -1,0 +1,20 @@
+cxl-dashboard-header {
+  .edit-roadmap {
+    display: flex;
+    align-items: center;
+    align-self: end;
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    padding: 0 var(--lumo-space-s);
+    color: var(--lumo-primary-color);
+    cursor: pointer;
+    background-color: var(--lumo-primary-contrast-color);
+    border-radius: var(--lumo-border-radius-s);
+
+    vaadin-icon {
+      flex-shrink: 0;
+      margin-right: var(--lumo-space-s);
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@use "../mq";
+
 /**
  * Modify toggle visibility.
  */
@@ -35,8 +37,7 @@
   }
 }
 
-// Dashboard notification
-
+// Dashboard notification component
 :host([theme~="cxl-dashboard-notification"]) {
   margin: 0;
 
@@ -44,12 +45,51 @@
     display: none;
   }
 
+  [part="content"] {
+    padding: 0;
+  }
+
   [part="summary"] {
     justify-content: flex-end;
     padding: 0;
+
+  }
+}
+
+// Dashboard header
+:host([theme~="cxl-dashboard-header"]) {
+  margin: var(--lumo-space-s) 0 0;
+  border: 1px solid var(--cxl-color-dark-gray);
+
+  [part="summary"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--lumo-space-m);
+    line-height: 1.3;
+    color: var(--lumo-primary-contrast-color);
+
+    &:hover {
+      color: var(--lumo-primary-contrast-color);
+    }
+  }
+
+  [part="toggle"] {
+    flex-shrink: 0;
+    margin-left: var(--lumo-space-s);
+    font-size: var(--lumo-font-size-m);
+    color: var(--lumo-primary-contrast-color);
+    background-color: var(--lumo-tint-5pct);
+    border-radius: 100%;
   }
 
   [part="content"] {
     padding: 0;
+  }
+}
+
+:host([theme~="cxl-dashboard-header"][opened]) {
+  [part="toggle"] {
+    background-color: var(--lumo-tint-5pct);
   }
 }
