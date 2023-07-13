@@ -23,8 +23,8 @@ export const CXLStats = ({ statsCount }) => {
       ${statsData.slice(0, statsCount).map(
         (el) => html`
           <div>
-            <h4 class="stats-title">${unsafeHTML(el.title)}</h4>
-            <p class="stats-count">${el.count}</p>
+            <h4 class="stat-title">${unsafeHTML(el.title)}</h4>
+            <p class="stat-count">${el.count}</p>
           </div>
         `
       )}
