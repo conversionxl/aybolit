@@ -16,6 +16,7 @@ import * as Headroom from 'headroom.js';
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
 export { CXLCardElement } from './components/cxl-card.js';
 export { CXLCredentialElement } from './components/cxl-credential.js'
+export { CXLCourseCardElement } from './components/cxl-course-card.js';
 export { CXLCheckoutDetailsElement } from './components/cxl-checkout-details.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLSectionElement } from './components/cxl-section.js';
