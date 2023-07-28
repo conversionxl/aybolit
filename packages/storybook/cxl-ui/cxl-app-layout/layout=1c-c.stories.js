@@ -53,4 +53,4 @@ export const CXLAppLayout1cc = () => html`
   </cxl-app-layout>
 `;
 
-CXLAppLayout1cc.storyName = '[layout=1c-c]';
+CXLAppLayout1cc.storyName = '[layout=1c-c] compact';

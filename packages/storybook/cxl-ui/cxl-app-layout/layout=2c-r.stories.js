@@ -384,4 +384,4 @@ export const CXLAppLayout2cr = () => {
   `;
 };
 
-CXLAppLayout2cr.storyName = '[layout=2c-r]';
+CXLAppLayout2cr.storyName = '[layout=2c-r] content right';

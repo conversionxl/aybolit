@@ -144,7 +144,7 @@ const Template = ({ hasWidgetBackground, postId, userId, playbookSaved }) => htm
 
 export const CXLAppLayout2cl = Template.bind({});
 
-CXLAppLayout2cl.storyName = '[layout=2c-l]';
+CXLAppLayout2cl.storyName = '[layout=2c-l] content left';
 
 CXLAppLayout2cl.args = {
   postId: 1234,

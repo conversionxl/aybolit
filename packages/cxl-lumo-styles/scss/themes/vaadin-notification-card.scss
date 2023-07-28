@@ -1,6 +1,6 @@
 :host([slot^="middle"]),
 [part="overlay"] {
-  max-width: var(--cxl-content-width);
+  max-width: var(--cxl-content-max-width);
 }
 
 :host([theme~="max-w-full"]) [part="overlay"] {

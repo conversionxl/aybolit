@@ -11,7 +11,7 @@ export default {
 export const CXLTabsSlider = ({ Cards }) => html`
   <style>
     vaadin-tab {
-      max-width: calc(var(--cxl-content-width) / 2);
+      max-width: calc(var(--cxl-content-max-width) / 2);
     }
   </style>
 

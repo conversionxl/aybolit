@@ -86,7 +86,7 @@ cxl-app-layout {
     > .entry {
       .entry-content,
       .entry-footer {
-        max-width: var(--cxl-content-width);
+        max-width: var(--cxl-content-max-width);
         margin-right: auto;
         margin-left: auto;
       }
