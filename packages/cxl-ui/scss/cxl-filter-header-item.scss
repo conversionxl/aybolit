@@ -1,0 +1,29 @@
+:host {
+  font-weight: 400;
+
+  vaadin-button {
+    background-color: transparent;
+    border-radius: var(--lumo-border-radius-s) var(--lumo-border-radius-s) 0 0 ;
+    margin-bottom: 0;
+
+    &::part(label) {
+      color: var(--lumo-shade);
+    }
+  }
+
+  .label {
+    font-weight: 600;
+  }
+}
+
+:host(.checked) {
+  color: var(--lumo-contrast);
+
+  vaadin-button, vaadin-button {
+    background-color: var(--lumo-primary-color);
+
+    &::part(label) {
+      color: var(--lumo-base-color);
+    }
+  }
+}
