@@ -15,7 +15,8 @@ const renderTags = (tags, slot) =>
 const FeaturedCourseCardTemplate = (course) => html`
   <cxl-featured-course-card
     id=${course.id}
-    title=${course.title}
+    theme=${course.theme}
+    name=${course.name}
     time=${course.time}
     instructor=${course.instructor}
     avatar=${course.avatar}
@@ -31,13 +32,14 @@ export const CXLFeatureadCourseCard = FeaturedCourseCardTemplate.bind({});
 
 CXLFeatureadCourseCard.args = {
   id: 'cxl-featured-course-1',
-  title: 'Get ahead with <strong>Google Analytics 4</strong>',
+  theme: 'Featured course',
+  name: 'Get ahead with <strong>Google Analytics 4</strong>',
   time: '5h 04min',
   instructor: 'Fred Pike',
   description:
     "<p>GA4 is packed with new capabilities that help you improve acquisition, engagement, revenue, and retention for your website.</p><p>In five hours, we'll have you confident, capable, and armed with new insights into your business and your website. <strong>This course pays back for you real quick.</strong></p>",
   tags: ['Marketing', 'Analytics'],
-  ctaUrl: 'https://google.com',
+  ctaUrl: 'https://cxl.com',
   avatar:
     'https://cxl.com/institute/wp-content/uploads/2020/04/fred-pike-instructor-headshot-1x1-color-bw-min-1024x1024.png',
 };
