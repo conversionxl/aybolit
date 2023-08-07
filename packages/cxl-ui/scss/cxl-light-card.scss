@@ -1,46 +1,32 @@
 :host {
-  display: block;
+  max-width: 300px;
+  height: auto;
+  min-height: auto;
   padding: var(--lumo-space-m);
-  border: 1px solid var(--lumo-contrast-10pct);
-  border-radius: var(--lumo-border-radius-l);
-  box-shadow: var(--lumo-box-shadow-xs);
 
-  .entry-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-
-    .thumbnail {
-      width: calc(var(--lumo-icon-size-s) * 4);
-      height: calc(var(--lumo-icon-size-s) * 4);
-      margin: 0 0 0 var(--lumo-space-s);
-      border-radius: 100%;
-    }
+  .container > .attributes {
+    display: none;
   }
 
-  .entry-title {
-    margin-bottom: var(--lumo-space-s);
-    font-weight: 600;
-  }
+  header {
+    .info {
+      .name {
+        font-size: var(--lumo-font-size-m);
+        font-weight: 600;
+      }
 
-  .entry-byline {
-    font-size: var(--lumo-font-size-s);
-    color: var(--lumo-contrast-70pct);
-    row-gap: calc(var(--lumo-space-s) / 2);
-
-    > div {
-      display: flex;
-      align-items: center;
+      .attributes {
+        display: flex;
+        flex-direction: column;
+        padding-top: var(--lumo-space-xs);
+        padding-bottom: 0;
+        gap: var(--lumo-space-xs);
+      }
     }
 
-    vaadin-icon {
-      margin-right: var(--lumo-space-xs);
-      font-size: var(--lumo-font-size-m);
+    .instructor-image {
+      height: 80px;
     }
-  }
-
-  ::slotted(.entry-footer) {
-    margin-top: var(--lumo-space-l);
   }
 }
 
@@ -54,20 +40,8 @@
   }
 }
 
-:host([new]) {
-  position: relative;
-  overflow: initial;
-
-  [icon="cxl:new"] {
-    position: absolute;
-    top: calc(var(--lumo-space-m) * -1);
-    right: 0;
-    display: block;
-    width: calc(var(--lumo-space-m) * 2);
-    height: calc(var(--lumo-space-m) * 2);
-    padding: 6px;
-    color: var(--lumo-primary-contrast-color);
-    background-color: var(--lumo-primary-color);
-    border-radius: 100%;
-  }
+::slotted(footer) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lumo-space-xs);
 }

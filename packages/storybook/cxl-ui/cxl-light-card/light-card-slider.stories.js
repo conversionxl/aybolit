@@ -9,12 +9,6 @@ export default {
 };
 
 const Template = ({ numberOfCards }) => html`
-  <style>
-    vaadin-tab {
-      max-width: calc(var(--cxl-content-width) / 2);
-    }
-  </style>
-
   <cxl-tabs-slider theme="cxl-course-slider minimal">
     ${Array.from(
       { length: numberOfCards },
@@ -37,8 +31,7 @@ LightCardSlider.args = {
 
 CXLLightCard.args = {
   theme: 'light-card',
-  hasBadges: false,
-  title: 'Account based marketing',
+  name: 'Account based marketing',
   time: '3h 00min',
   instructor: 'Ton Wesseling',
   avatar:

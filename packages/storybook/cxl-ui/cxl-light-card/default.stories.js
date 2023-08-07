@@ -13,17 +13,14 @@ export default {
 const Template = (card) => html`
   <cxl-light-card
     theme="${card.theme}"
-    title="${card.title}"
+    name="${card.name}"
     time="${card.time}"
     instructor="${card.instructor}"
     avatar="${card.avatar}"
     .new="${card.new}"
     .completed="${card.completed}"
   >
-    ${card.footer
-      ? html`card.
-          <footer slot="footer" class="entry-footer">${unsafeHTML(card.footer)}</footer>`
-      : nothing}
+    ${card.footer ? html` <footer slot="footer">${unsafeHTML(card.footer)}</footer>` : nothing}
   </cxl-light-card>
 `;
 
@@ -31,18 +28,15 @@ export const CXLLightCard = Template.bind({});
 export const CXLLightCardFooter = Template.bind({});
 
 CXLLightCard.args = {
+  theme: 'light-card',
   new: false,
   completed: false,
-  title: 'Account based marketing',
+  name: 'Account based marketing',
   time: '3h 00min',
   instructor: 'Ton Wesseling',
   avatar:
     'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
   footer: '',
-};
-
-CXLLightCard.story = {
-  name: '[theme=light-card]',
 };
 
 CXLLightCardFooter.args = {
