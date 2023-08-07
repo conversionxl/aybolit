@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { LitElement, html } from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import '@vaadin/details';
 import '@vaadin/button';
@@ -31,6 +31,10 @@ export class CXLBaseCardElement extends LitElement {
 
   @property({ type: Boolean, reflect: true }) new = false;
 
+  @property({ type: Boolean, reflect: true }) completed = false;
+
+  @property({ type: Boolean, reflect: true, attribute: 'show-time-icon' }) showTimeIcon = false;
+
   _slotHasChildren(e) {
     const slot = e.target;
     const { name } = slot;
@@ -50,16 +54,19 @@ export class CXLBaseCardElement extends LitElement {
   }
 
   _renderHeaderName() {
-    return html` <div class="name">${this.name}</div> `;
+    return html`
+      <div class="name">
+        ${this.name}${this.completed
+          ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>`
+          : nothing}
+      </div>
+    `;
   }
 
   _renderHeaderAttributes() {
     return html`
       <div class="attributes">
-        <cxl-time
-          time=${this.time}
-          ?show-icon=${!!(this.theme.toLowerCase() === 'course')}
-        ></cxl-time>
+        <cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>
         <div class="instructor">By: ${this.instructor}</div>
       </div>
     `;
