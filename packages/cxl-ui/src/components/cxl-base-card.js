@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html, nothing } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { property, state } from 'lit/decorators.js';
 import '@vaadin/details';
 import '@vaadin/button';
@@ -56,7 +57,7 @@ export class CXLBaseCardElement extends LitElement {
   _renderHeaderName() {
     return html`
       <div class="name">
-        ${this.name}${this.completed
+        ${unsafeHTML(this.name)}${this.completed
           ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>`
           : nothing}
       </div>
