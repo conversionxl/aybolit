@@ -1,0 +1,47 @@
+:host {
+  max-width: 300px;
+  height: auto;
+  min-height: auto;
+  padding: var(--lumo-space-m);
+
+  .container > .attributes {
+    display: none;
+  }
+
+  header {
+    .info {
+      .name {
+        font-size: var(--lumo-font-size-m);
+        font-weight: 600;
+      }
+
+      .attributes {
+        display: flex;
+        flex-direction: column;
+        padding-top: var(--lumo-space-xs);
+        padding-bottom: 0;
+        gap: var(--lumo-space-xs);
+      }
+    }
+
+    .instructor-image {
+      height: 80px;
+    }
+  }
+}
+
+:host([completed]) {
+  opacity: 0.6;
+
+  [icon="lumo:checkmark"] {
+    display: inline-block;
+    margin-top: calc(var(--lumo-space-xs) * -1);
+    color: var(--lumo-primary-color);
+  }
+}
+
+::slotted(footer) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--lumo-space-xs);
+}

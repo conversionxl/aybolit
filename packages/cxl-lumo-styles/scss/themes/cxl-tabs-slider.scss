@@ -1,4 +1,5 @@
 @use "../mixins";
+@use "../mq";
 
 ::slotted(vaadin-tab) {
   align-items: stretch; // Equal height elements.
@@ -29,5 +30,82 @@
   // Show horizontal scrollbar.
   &::-webkit-scrollbar {
     display: initial;
+  }
+}
+
+/**
+  * Theme "cxl-course-slider"
+*/
+
+:host([theme~="cxl-course-slider"][theme~="minimal"]) {
+  ::slotted(vaadin-tab) {
+    padding: 0 calc(var(--lumo-space-s) / 2) calc(var(--lumo-space-s) / 2);
+  }
+
+  ::slotted(vaadin-tab:first-of-type) {
+    margin-inline-start: calc(var(--lumo-space-m) - var(--lumo-space-xs));
+
+    @media #{mq.$small} {
+      margin-inline-start: calc(var(--lumo-space-l) - var(--lumo-space-xs));
+    }
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: calc(var(--lumo-space-m) * -1);
+    bottom: calc(var(--lumo-space-m) * -1);
+    width: 68px;
+    content: "";
+    background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0%;
+  }
+
+  [part="tabs"] {
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  [part="back-button"],
+  [part="forward-button"] {
+    width: var(--lumo-space-xl);
+    height: var(--lumo-space-xl);
+    color: var(--lumo-primary-color);
+    border-radius: 100%;
+
+    &::after {
+      font-size: var(--lumo-font-size-xxl);
+    }
+  }
+
+  [part="back-button"] {
+    margin-left: var(--lumo-space-s);
+  }
+
+  [part="forward-button"] {
+    margin-right: var(--lumo-space-s);
+  }
+}
+
+:host([theme~="cxl-course-slider"][overflow="start end"]) {
+  &::before {
+    left: 0;
+    z-index: 1;
+    rotate: 180deg;
+    opacity: 100%;
+  }
+}
+
+:host([theme~="cxl-course-slider"][overflow="end"]),
+:host([theme~="cxl-course-slider"][overflow="start end"]) {
+  &::after {
+    right: 0;
+    opacity: 100%;
   }
 }
