@@ -10,7 +10,8 @@
     "directory": "packages/cxl-ui"
   },
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.6.4"
+    "@conversionxl/cxl-lumo-styles": "^1.6.4",
+    "@lit-labs/observers": "^2.0.0"
   },
   "devDependencies": {
     "@conversionxl/normalize-wheel": "^1.0.1",
