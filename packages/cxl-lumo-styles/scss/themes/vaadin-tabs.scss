@@ -128,3 +128,8 @@ $vaadin-tab-horizontal-padding: 0.75rem;
     }
   }
 }
+
+// Dashboard notifications
+:host([theme~="cxl-dashboard-notification"]) [part="tabs"] {
+  margin: 0;
+}
