@@ -3,6 +3,7 @@ import { CXLPlaybookAccordion } from './cxl-vaadin-accordion/cxl-playbook-accord
 import { CXLVaadinAccordionThemeVaadin } from './cxl-vaadin-accordion/vaadin-accordion-panel[theme=vaadin].story';
 import { CXLVaadinAccordionThemeFaq } from './cxl-vaadin-accordion/theme=cxl-faq.story';
 import { CXLVaadinAccordionThemeMinidegreeTrack } from './cxl-vaadin-accordion/theme=cxl-minidegree-track.story';
+import { CXLVaadinAccordionThemeCategory } from './cxl-vaadin-accordion/theme=cxl-dashboard-category.story';
 import { CXLHubsAndPlaybooks } from './cxl-vaadin-accordion/cxl-hubs-and-playbooks.story';
 
 export default {
@@ -22,6 +23,7 @@ CXLVaadinAccordionThemeArchive.storyName = 'cxl-accordion-card';
 CXLVaadinAccordionThemeFaq.storyName = '[theme=cxl-faq]';
 CXLVaadinAccordionThemeMinidegreeTrack.storyName = '[theme=cxl-minidegree-track]';
 CXLVaadinAccordionThemeVaadin.storyName = 'vaadin-accordion-panel[theme=vaadin]';
+CXLVaadinAccordionThemeCategory.storyName = '[theme=cxl-dashboard-category]';
 CXLHubsAndPlaybooks.storyName = 'cxl-hubs-and-playbooks';
 
 export {
@@ -30,5 +32,6 @@ export {
   CXLVaadinAccordionThemeFaq,
   CXLVaadinAccordionThemeMinidegreeTrack,
   CXLVaadinAccordionThemeVaadin,
+  CXLVaadinAccordionThemeCategory,
   CXLHubsAndPlaybooks,
 };

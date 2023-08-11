@@ -93,7 +93,8 @@
   }
 }
 
-:host([theme~="cxl-course-slider"][overflow="start end"]) {
+:host([theme~="cxl-course-slider"][overflow="start end"]),
+:host([theme~="cxl-course-slider"][overflow="start"]) {
   &::before {
     left: 0;
     z-index: 1;
@@ -107,5 +108,17 @@
   &::after {
     right: 0;
     opacity: 100%;
+  }
+}
+
+/**
+  * Theme "cxl-course-slider" and "cxl-category-accordion"
+*/
+
+:host([theme~="cxl-course-slider"][theme~="cxl-category-accordion"][theme~="minimal"]) {
+  margin-left: calc(-1 * var(--lumo-space-m));
+
+  @media #{mq.$small} {
+    margin-left: calc(-1 * var(--lumo-space-l));
   }
 }

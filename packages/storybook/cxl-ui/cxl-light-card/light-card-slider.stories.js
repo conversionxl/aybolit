@@ -8,8 +8,8 @@ export default {
   title: 'CXL UI/cxl-light-card',
 };
 
-const Template = ({ numberOfCards }) => html`
-  <cxl-tabs-slider theme="cxl-course-slider minimal">
+export const CXLLightCardSlider = ({ numberOfCards, theme }) => html`
+  <cxl-tabs-slider theme="cxl-course-slider minimal ${theme}">
     ${Array.from(
       { length: numberOfCards },
       () => html`
@@ -23,9 +23,7 @@ const Template = ({ numberOfCards }) => html`
   </cxl-tabs-slider>
 `;
 
-export const LightCardSlider = Template.bind({});
-
-LightCardSlider.args = {
+CXLLightCardSlider.args = {
   numberOfCards: 3,
 };
 
