@@ -1,0 +1,88 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  position: relative;
+  display: block;
+  padding: var(--cxl-space-sm) var(--lumo-space-l) var(--cxl-space-sm) var(--lumo-space-m);
+  border: 1px solid var(--lumo-contrast-10pct);
+  border-radius: var(--lumo-border-radius-s);
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lumo-space-s);
+    line-height: normal;
+
+    @media #{mq.$small} {
+      flex-direction: row;
+    }
+  }
+
+  .instructor-image {
+    width: var(--lumo-size-l);
+    height: var(--lumo-size-l);
+    border-radius: 100%;
+  }
+
+  .info {
+    flex-grow: 1;
+
+    @media #{mq.$small} {
+      align-self: center;
+    }
+  }
+
+  .tag {
+    margin-bottom: var(--lumo-space-xs);
+    font-size: var(--lumo-font-size-xs);
+    color: var(--lumo-shade-60pct);
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-weight: 600;
+  }
+
+  .description {
+    margin-top: var(--lumo-space-xs);
+  }
+
+  .time {
+    flex-shrink: 0;
+    font-size: var(--lumo-font-size-xs);
+    color: var(--lumo-shade-60pct);
+
+    @media #{mq.$small} {
+      align-self: center;
+    }
+  }
+}
+
+:host(:hover) {
+  cursor: pointer;
+  border: 1px solid var(--lumo-primary-color);
+  transition: all 0.3s ease;
+}
+
+:host([new]) {
+  &::after {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    content: '';
+    background-color: var(--lumo-primary-color);
+    border-radius: 100px;
+  }
+}
+
+:host([theme~="category"]) {
+  color: var(--lumo-primary-contrast-color);
+  background-color: var(--lumo-shade);
+
+  .tag,
+  .time {
+    color: var(--lumo-tint-50pct);
+  }
+}

@@ -34,3 +34,22 @@
     }
   }
 }
+
+// Dashboard notification
+
+:host([theme~="cxl-dashboard-notification"]) {
+  margin: 0;
+
+  [part="toggle"] {
+    display: none;
+  }
+
+  [part="summary"] {
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  [part="content"] {
+    padding: 0;
+  }
+}
