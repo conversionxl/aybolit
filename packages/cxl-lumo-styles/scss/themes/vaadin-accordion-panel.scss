@@ -154,7 +154,8 @@
  * Theme "cxl-dashboard-category".
  */
 :host([theme~="cxl-dashboard-category"]) {
-  border-bottom: solid 1px var(--cxl-color-light-gray);
+  border-top: solid 1px var(--cxl-color-light-gray);
+  border-bottom: none;
 
   [part="summary"] {
     padding: var(--lumo-space-l) 0;

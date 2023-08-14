@@ -50,9 +50,8 @@
   }
 
   [part="summary"] {
-    justify-content: flex-end;
+    display: block;
     padding: 0;
-
   }
 }
 
@@ -60,6 +59,7 @@
 :host([theme~="cxl-dashboard-header"]) {
   margin: var(--lumo-space-s) 0 0;
   border: 1px solid var(--cxl-color-dark-gray);
+  border-radius: var(--lumo-border-radius-s);
 
   [part="summary"] {
     display: flex;

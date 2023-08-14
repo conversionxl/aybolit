@@ -5,7 +5,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--lumo-space-m);
   padding: var(--lumo-space-xl) var(--lumo-space-m) var(--lumo-space-m);
-  border-bottom: 1px solid var(--cxl-color-light-gray);
 
   @media #{mq.$small} {
     padding: var(--lumo-space-xl) var(--lumo-space-l) var(--lumo-space-l);
