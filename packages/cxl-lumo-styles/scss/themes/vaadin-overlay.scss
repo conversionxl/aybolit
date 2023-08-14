@@ -1,3 +1,5 @@
+@use "../mq";
+
 // Perfectly align modal in the center of the screen.
 :host([theme~="cxl-marketing-nav"][phone]) [part="overlay"] {
   top: 0;
@@ -11,4 +13,36 @@
   $vaadin-overlay-shade-pct: 20;
 
   background-color: var(--lumo-shade-#{$vaadin-overlay-shade-pct * 3.5}#{"pct"});
+}
+
+// Theme: cxl-course-dialog
+:host([theme="cxl-course-dialog"]) {
+  [part='backdrop'] {
+    background-color: var(--cxl-color-black-50pct);
+  }
+
+  [part='overlay'] {
+    --cxl-app-layout-drawer-width: calc(22 * var(--lumo-space-m));
+
+    width: 100%;
+    max-width: calc(var(--cxl-wrap-width) - var(--cxl-app-layout-drawer-width));
+  }
+
+  [part='content'] {
+    padding: var(--lumo-space-m) var(--lumo-space-m) 0 var(--lumo-space-m);
+
+    @media #{mq.$small} {
+      padding: var(--lumo-space-l) var(--lumo-space-l) 0 var(--lumo-space-l);
+    }
+  }
+
+  [part='footer'] {
+    background-color: unset;
+    box-shadow: var(--lumo-box-shadow-m);
+
+    @media #{mq.$small} {
+      gap: var(--lumo-space-m);
+      padding-right: var(--lumo-space-l);
+    }
+  }
 }
