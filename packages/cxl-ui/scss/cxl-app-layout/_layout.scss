@@ -86,3 +86,14 @@ slot[name="action-bar"]::slotted(div) {
   justify-content: flex-end;
   box-shadow: var(--lumo-box-shadow-m);
 }
+
+/**
+ * Dashboard layout
+ */
+:host([layout^="1c"]:not([layout="1c"][theme~="cxl-dashboard"])){
+  main {
+    > slot {
+      padding: 0;
+    }
+  }
+}
