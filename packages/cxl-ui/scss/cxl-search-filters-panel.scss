@@ -1,0 +1,23 @@
+
+:host {
+  display: block;
+  min-width: 240px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  vaadin-accordion-panel {
+    font-size: var(--lumo-font-size-s);
+
+    &::part(summary-content) {
+      font-weight: 600;
+      font-size: var(--lumo-font-size-s);
+      color: var(--lumo-contrast);
+    }
+
+    &::part(toggle) {
+      background-color: unset;
+    }
+  }
+}

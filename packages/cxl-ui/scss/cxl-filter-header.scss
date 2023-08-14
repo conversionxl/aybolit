@@ -1,0 +1,114 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  display: block;
+  font-weight: 400;
+
+  .container {
+    width: 100%;
+  }
+
+  .tabs {
+    display: flex;
+    position: relative;
+    width: 100%;
+
+    .scroll-control {
+      position: absolute;
+
+      &:first-child {
+        left: -2px;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0), var(--lumo-base-color));
+        z-index: 1;
+      }
+
+      &:last-child {
+        right: -2px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--lumo-base-color));
+        z-index: 1;
+      }
+    }
+  }
+
+  .filters {
+    display: flex;
+    border-bottom: 1px solid var(--lumo-shade-20pct);
+    max-width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* This seems more future-proof than \`overflow: -moz-scrollbars-none\` which is marked obsolete
+      and is no longer guaranteed to work:
+      https://developer.mozilla.org/en-US/docs/Web/CSS/overflow#Mozilla_Extensions
+    */
+    @-moz-document url-prefix() {
+      overflow: hidden;
+    }
+
+    ::slotted(*) {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    justify-content: stretch;
+    padding-top: var(--lumo-space-l);
+    gap: var(--lumo-space-m);
+
+    .flex-group {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: stretch;
+      width: 100%;
+      gap: var(--lumo-space-m);
+
+      > ::slotted(*)  {
+        flex: 1;
+        width: auto !important;
+      }
+
+      #show-filters {
+        --lumo-button-size: var(--lumo-size-l);
+        display: block;
+        margin: 0;
+        text-align: start;
+        flex-basis: 50%;
+      }
+    }
+
+    ::slotted([slot="search"]) {
+      width: 100%;
+      line-height: var(--lumo-size-l);
+    }
+  }
+
+  @media #{mq.$small} {
+    .controls {
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+      .flex-group {
+        width: auto;
+
+        #show-filters {
+          display: none;
+        }
+      }
+
+      .search {
+        line-height: normal;
+      }
+    }
+  }
+}

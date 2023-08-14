@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--lumo-font-size-s);
+  gap: var(--lumo-space-s);
+
+  .count {
+    color: var(--lumo-shade-60pct);
+  }
+
+  vaadin-checkbox {
+    font-size: var(--lumo-font-size-s);
+
+    --vaadin-checkbox-size: var(--lumo-font-size-s);
+
+    // Checkbox style can't be matched with current design tokens
+    &::part(checkbox) {
+      // border-radius: calc(var(--lumo-border-radius-s) / 2);
+      // background-color: transparent;
+      // border: 1px solid var(--lumo-shade-60pct);
+      margin-right: var(--lumo-space-s);
+    }
+  }
+
+}
