@@ -270,6 +270,8 @@ cxl-vaadin-accordion {
    * Theme "cxl-dashboard-category"
    */
   &[theme~="cxl-dashboard-category"] {
+    padding-bottom: var(--lumo-space-xl);
+
     .header {
       display: flex;
       align-items: baseline;

@@ -6,6 +6,8 @@ import '@vaadin/progress-bar';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlDashboardHeaderGlobalStyles from '../styles/global/cxl-dashboard-header-css.js';
 import cxlDashboardHeaderStyles from '../styles/cxl-dashboard-header-css.js';
+import { CXLDashboardNotification } from '../../../storybook/cxl-ui/cxl-dashboard-notification/default.stories.js';
+import notificationData from '../../../storybook/cxl-ui/cxl-dashboard-notification/cxl-dashboard-notification.data.json';
 
 @customElement('cxl-dashboard-header')
 export class CXLDashboardHeaderElement extends LitElement {
@@ -22,6 +24,8 @@ export class CXLDashboardHeaderElement extends LitElement {
   @property({ type: Number, attribute: 'notification-count' }) notificationCount = 0;
 
   @property({ type: String }) notificationTitle = "What's new in CXL";
+
+  @property({ type: Object }) notificationData = null;
 
   @property({ type: String, attribute: 'last-course-title' }) lastCourseTitle = '';
 
@@ -85,17 +89,12 @@ export class CXLDashboardHeaderElement extends LitElement {
     return html`
       <div class="container">
         <header>
-          <vaadin-button class="updates">
-            ${this.notificationCount > 0
-              ? html` <vaadin-icon
-                  class="icon-bell"
-                  count="${this.notificationCount}"
-                  icon="lumo:bell"
-                ></vaadin-icon>`
-              : nothing}
-            ${this.notificationTitle}
-            <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
-          </vaadin-button>
+          <div class="updates">
+            ${CXLDashboardNotification(CXLDashboardNotification.args = {
+              count: this.notificationCount,
+              tabs: this.notificationData || notificationData
+            })}
+          </div>
           <div>
             <span class="subtitle">${this.subtitle}</span>
             <h1 class="title">${this.title} ${this.name}!</h1>
