@@ -3,16 +3,19 @@
 
 :host {
   .container {
-    @include mixins.wrap();
-    z-index: 2;
+    padding: 0 var(--lumo-space-m);
     color: var(--lumo-primary-contrast-color);
     background-color: var(--lumo-shade);
+
+    @media #{mq.$medium} {
+      padding: 0;
+    }
   }
 
   header {
     margin-bottom: var(--lumo-space-l);
 
-    @media #{mq.$large} {
+    @media #{mq.$medium} {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -29,7 +32,7 @@
     .updates {
       padding-bottom: var(--lumo-size-s);
 
-      @media #{mq.$large} {
+      @media #{mq.$medium} {
         order: 2;
         padding-bottom: 0;
       }
@@ -69,7 +72,7 @@
     padding-bottom: var(--lumo-space-l);
 
     @media #{mq.$large} {
-          padding-bottom: var(--lumo-space-xl);
+      padding-bottom: var(--lumo-space-xl);
     }
   }
 

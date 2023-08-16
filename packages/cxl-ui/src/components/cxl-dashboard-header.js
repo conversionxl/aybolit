@@ -89,12 +89,14 @@ export class CXLDashboardHeaderElement extends LitElement {
     return html`
       <div class="container">
         <header>
-          <div class="updates">
-            ${CXLDashboardNotification(CXLDashboardNotification.args = {
-              count: this.notificationCount,
-              tabs: this.notificationData || notificationData
-            })}
-          </div>
+          ${this.notificationCount > 0
+            ? html`<div class="updates">
+                ${CXLDashboardNotification(CXLDashboardNotification.args = {
+                  count: this.notificationCount,
+                  tabs: this.notificationData || notificationData
+                })}
+              </div>`
+            : ''}
           <div>
             <span class="subtitle">${this.subtitle}</span>
             <h1 class="title">${this.title} ${this.name}!</h1>

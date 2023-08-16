@@ -55,10 +55,8 @@ export const CXLDashboard = () => {
     theme="cxl-dashboard"
   >
     ${CXLMarketingNav()}
-    <div slot="header">
-    ${CXLDashboardHeader(CXLDashboardHeader.args)}
-    </div>
     <div style="${boxShadow ? `box-shadow: ${boxShadow}` : ''}">
+      ${CXLDashboardHeader(CXLDashboardHeader.args)}
       ${CXLFeatureadCourseCard(CXLFeatureadCourseCard.args)}
       ${CXLStats(statsCount)}
       ${CXLVaadinAccordionThemeCategory()}

@@ -42,7 +42,7 @@ const Template = (header) => html`
             `
           )}
           <vaadin-button class="edit-roadmap" onclick="window.location.href='https://cxl.com'">
-            <vaadin-icon icon="lumo:edit"></vaadin-icon>
+            <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
             Edit roadmap
           </vaadin-button>
         </cxl-stats>
@@ -61,7 +61,7 @@ const Template = (header) => html`
           `
         )}
         <vaadin-button class="edit-roadmap" onclick="window.location.href='https://cxl.com'">
-          <vaadin-icon icon="lumo:edit"></vaadin-icon>
+          <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
           Edit roadmap
         </vaadin-button>
       </cxl-stats>

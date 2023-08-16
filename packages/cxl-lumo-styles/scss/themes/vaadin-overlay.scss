@@ -22,10 +22,8 @@
   }
 
   [part='overlay'] {
-    --cxl-app-layout-drawer-width: calc(22 * var(--lumo-space-m));
-
     width: 100%;
-    max-width: calc(var(--cxl-wrap-width) - var(--cxl-app-layout-drawer-width));
+    max-width: var(--cxl-content-max-width);
   }
 
   [part='content'] {

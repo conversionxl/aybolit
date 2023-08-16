@@ -1,16 +1,15 @@
 cxl-dashboard-header {
   position: relative;
+  z-index: 1;
   display: block;
 
   &::before {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -200%; // @todo Find saner method
     bottom: 0;
-    left: 0;
+    left: -200%; // @todo Find saner method
     z-index: -1;
-    width: 100%;
-    height: 100%;
     content: '';
     background-color: var(--lumo-shade);
   }
@@ -19,7 +18,7 @@ cxl-dashboard-header {
     display: flex;
     align-items: center;
     align-self: end;
-    width: fit-content;
+    max-width: fit-content;
     height: fit-content;
     padding: 0 var(--lumo-space-s);
     margin: 0;
@@ -29,12 +28,7 @@ cxl-dashboard-header {
     border-radius: var(--lumo-border-radius-s);
 
     &::part(label) {
-      padding: calc(var(--lumo-button-size) / 6) 0;
-    }
-
-    vaadin-icon {
-      flex-shrink: 0;
-      margin-right: var(--lumo-space-s);
+      line-height: 1.5;
     }
   }
 }
