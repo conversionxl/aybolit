@@ -3,6 +3,13 @@
   padding-bottom: 0;
 }
 
+:host([theme~="cxl-marketing-nav"]:not(.has-description).section-header) {
+  color: var(--lumo-body-text-color);
+  background: var(--lumo-shade-10pct);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
 :host([theme~="cxl-marketing-nav"]:hover),
 :host([theme~="cxl-marketing-nav"][expanded]) {
   color: var(--lumo-primary-color);

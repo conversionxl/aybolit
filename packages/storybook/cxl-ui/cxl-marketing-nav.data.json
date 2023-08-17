@@ -83,7 +83,8 @@
           "component": "a",
           "href": "#",
           "id": 361,
-          "parent": 36
+          "parent": 36,
+          "sectionHeader": true
         },
         {
           "depth": 1,
@@ -170,7 +171,8 @@
           "href": "#",
           "description": "Supporting knowledge base for wider success",
           "id": 365,
-          "parent": 36
+          "parent": 36,
+          "sectionHeader": true
         },
         {
           "depth": 1,
@@ -234,18 +236,6 @@
           "id": 372,
           "parent": 36,
           "children": []
-        },
-        {
-          "component": "hr"
-        },
-        {
-          "depth": 1,
-          "text": "<b>Fast marketing</b>",
-          "description": "Marketing experimentation - new hot tactics every week, crazy enough they just might work!",
-          "component": "a",
-          "href": "#",
-          "id": 373,
-          "parent": 36
         }
       ]
     },
