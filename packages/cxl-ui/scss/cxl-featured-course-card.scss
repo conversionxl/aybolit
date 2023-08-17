@@ -1,0 +1,150 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  position: relative;
+  max-width: unset;
+  height: auto;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+
+  .container {
+    position: relative;
+    display: block;
+    height: 100%;
+    padding: 0 var(--lumo-space-m);
+    background-color: var(--cxl-color-light-gray);
+
+    @media #{mq.$medium} {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0;
+      padding: var(--lumo-space-l) 0 0 var(--lumo-space-l);
+    }
+
+    > .attributes {
+      display: none;
+      padding: 0;
+    }
+
+    .name strong {
+      color: var(--lumo-primary-color);
+    }
+
+    .info {
+      max-width: unset;
+      gap: var(--lumo-space-s);
+
+      .tags {
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        white-space: nowrap;
+      }
+
+      .attributes {
+        display: flex;
+        align-items: center;
+        padding: 0;
+      }
+    }
+  }
+
+  .content-before {
+    position: relative;
+    z-index: 0;
+
+    .instructor-image {
+      max-height: calc(var(--lumo-space-xl) * 6);
+      object-fit: contain;
+
+      @media #{mq.$medium} {
+        display: none;
+      }
+    }
+
+    .swoosh {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      max-height: 100%;
+      margin-top: calc(var(--lumo-space-m) * -2);
+    }
+
+    @media #{mq.$medium} {
+      display: none;
+    }
+  }
+
+  header {
+    position: relative;
+    z-index: 0;
+    display: block;
+
+    @media #{mq.$medium} {
+      position: initial;
+      grid-column: span 7 / span 7;
+    }
+
+    .instructor-image {
+      display: none;
+
+      img {
+        height: 100%;
+        border-radius: 0;
+      }
+
+      @media #{mq.$medium} {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+        max-width: 100%;
+        height: 100%;
+        max-height: none;
+      }
+    }
+  }
+
+  .content-after {
+    position: relative;
+    z-index: 0;
+    padding-top: var(--lumo-space-s);
+
+    .cta {
+      display: block;
+      padding-bottom: var(--lumo-space-l);
+      margin-top: var(--lumo-space-m);
+      font-size: var(--lumo-font-size-m);
+      font-weight: 700;
+      line-height: var(--lumo-line-height-m);
+      color: var(--lumo-primary-color);
+      text-decoration: none;
+
+      vaadin-icon {
+        width: var(--lumo-icon-size-s);
+        height: var(--lumo-icon-size-s);
+        padding: calc(var(--lumo-space-xs) / 2);
+        margin-left: var(--lumo-space-s);
+        color: var(--lumo-primary-color);
+        background-color: var(--lumo-primary-color-10pct);
+        border-radius: 100%;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @media #{mq.$medium} {
+      grid-column: span 7 / span 7;
+      padding-top: 0;
+    }
+  }
+}

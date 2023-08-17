@@ -5,3 +5,26 @@
 :host([theme~="cxl-marketing-nav"][hidden]) {
   visibility: hidden;
 }
+
+:host([theme~="cxl-featured-course-slider"]) {
+  padding: 0;
+}
+
+// Dashboard notifications
+:host([theme~="cxl-dashboard-notification"]) {
+  padding: 6px 16px;
+  font-weight: 500;
+  color: var(--lumo-body-text-color);
+  border-top-left-radius: var(--lumo-border-radius-s);
+  border-top-right-radius: var(--lumo-border-radius-s);
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+:host([theme~="cxl-dashboard-notification"][selected]) {
+  color: var(--lumo-primary-contrast-color);
+  background-color: var(--lumo-primary-color);
+}

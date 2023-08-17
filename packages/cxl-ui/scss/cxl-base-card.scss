@@ -1,0 +1,170 @@
+/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  max-width: calc(100% - 2 * var(--lumo-space-l));
+  height: max-content;
+  min-height: 270px;
+  padding: var(--lumo-space-m) var(--lumo-space-l);
+  font-size: var(--lumo-font-size-s);
+  background: var(--lumo-tint);
+  border: 1px solid var(--lumo-contrast-10pct);
+  border-radius: var(--lumo-border-radius-l);
+  box-shadow: var(--lumo-box-shadow-xs);
+  break-inside: avoid;
+  transform: translateZ(0); // CSS columns @see https://stackoverflow.com/a/55110789/35946
+
+  // @see https://github.com/conversionxl/aybolit/pull/293
+  --video-background: hsla(355.8, 74.7%, 48%, 0.03); // --lumo-primary-color-3pct does not exist
+  --training-background: hsla(0, 0%, 10%, 0.03); // --lumo-shade-3pct does not exist
+  --playbook-background: hsla(213, 100%, 62%, 0.03); // No similar base color exists
+
+  // Container / Media queries
+  @media #{mq.$small} {
+    max-width: unset;
+    margin: unset;
+
+    .container > .attributes {
+      display: none;
+    }
+
+    header .info .attributes {
+      display: flex;
+    }
+  }
+
+  [empty] {
+    visibility: hidden;
+    user-select: none;
+  }
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+:host(:first-child) {
+  margin-top: unset;
+}
+
+:host(:last-child) {
+  margin-bottom: unset;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lumo-space-s);
+  width: 100%;
+  transition: all 0.3s ease;
+
+  > .attributes {
+    padding-top: 0;
+  }
+
+  footer {
+    margin-top: var(--lumo-space-s);
+  }
+}
+
+.tags {
+  display: flex;
+  gap: var(--lumo-space-s);
+  max-width: 100%;
+  min-height: 1.6em;
+}
+
+.attributes {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: var(--lumo-space-s) 0;
+  gap: var(--lumo-space-m);
+  color: var(--lumo-shade-60pct);
+}
+
+header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--lumo-space-m);
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--lumo-space-xs);
+    align-self: stretch;
+    max-width: calc(100% - var(--lumo-space-m) - 80px);
+    overflow: hidden;
+
+    .name {
+      font-family: var(--lumo-font-family);
+      font-size: var(--lumo-font-size-xl);
+      font-style: normal;
+      font-weight: 700;
+      line-height: var(--lumo-line-height-xs);
+      color: #1a1a1a;
+    }
+
+    .attributes {
+      display: none;
+    }
+
+    .tags {
+      flex-wrap: nowrap;
+
+      ::slotted(.tag),
+      .tag:not(:first-child):not(.new) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .tag {
+        &:first-child,
+        &.new {
+          color: var(--lumo-primary-color);
+        }
+
+        &:first-child {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  .instructor-image {
+    width: 80px;
+    height: 92px;
+
+    img {
+      height: 80px;
+      overflow: hidden;
+      border-radius: 100px;
+    }
+  }
+}
+
+.badge-new {
+  display: none;
+}
+
+:host([new]) {
+  .badge-new {
+    position: absolute;
+    top: calc(-1 * var(--lumo-space-s));
+    right: calc(-1 * var(--lumo-space-s));
+    display: block;
+    width: calc(2 * var(--lumo-space-m));
+    height: calc(2 * var(--lumo-space-m));
+    padding: 6px;
+    color: var(--lumo-primary-contrast-color);
+    background: var(--lumo-primary-color);
+    border-radius: 100%;
+  }
+}

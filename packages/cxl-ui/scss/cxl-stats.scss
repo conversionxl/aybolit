@@ -1,0 +1,29 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--lumo-space-m);
+  padding: var(--lumo-space-xl) var(--lumo-space-m) var(--lumo-space-m);
+
+  @media #{mq.$small} {
+    padding: var(--lumo-space-xl) var(--lumo-space-l) var(--lumo-space-l);
+  }
+
+  @media #{mq.$medium} {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+:host([theme~="cxl-stats-dashboard-header"]) {
+  padding: var(--lumo-space-m);
+  border: 0;
+
+  @media #{mq.$medium} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{mq.$large} {
+    background-color: var(--cxl-color-dark-gray);
+  }
+}

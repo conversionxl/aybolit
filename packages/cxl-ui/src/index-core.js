@@ -14,13 +14,22 @@ import * as Headroom from 'headroom.js';
 
 // CXL.
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
+export { CXLBaseCardElement } from './components/cxl-base-card.js';
 export { CXLCardElement } from './components/cxl-card.js';
 export { CXLCredentialElement } from './components/cxl-credential.js'
+export { CXLCourseCardElement } from './components/cxl-course-card.js';
+export { CXLCourseDialogElement } from './components/cxl-course-dialog.js';
 export { CXLCheckoutDetailsElement } from './components/cxl-checkout-details.js';
+export { CXLDashboardHeaderElement } from './components/cxl-dashboard-header.js';
+export { CXLDashboardNotificationElement } from './components/cxl-dashboard-notification.js';
+export { CXLFeaturedCourseCardElement } from './components/cxl-featured-course-card.js';
+export { CXLLightCardElement } from './components/cxl-light-card.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
-export { CXLSectionElement } from './components/cxl-section.js';
-export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 export { CXLNotification } from './components/cxl-notification.js';
+export { CXLNotificationCardElement } from './components/cxl-notification-card.js';
+export { CXLSectionElement } from './components/cxl-section.js';
+export { CXLStatsElement } from './components/cxl-stats.js';
+export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 
 /**
  * Order matters.

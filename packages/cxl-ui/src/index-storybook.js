@@ -4,8 +4,10 @@ import * as Headroom from 'headroom.js';
 
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
 export { CXLCardElement } from './components/cxl-card.js';
+export { CXLCourseCardElement } from './components/cxl-course-card.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLSectionElement } from './components/cxl-section.js';
+export { CXLStatsElement } from './components/cxl-stats.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 
 // Order matters.

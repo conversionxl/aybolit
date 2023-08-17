@@ -1,0 +1,89 @@
+/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
+
+:host([theme~="dark"]) {
+  background-color: var(--lumo-contrast);
+}
+
+:host([theme~="video"]) {
+  background-color: var(--video-background);
+}
+
+:host([theme~="training"]) {
+  background-color: var(--training-background);
+}
+
+:host([theme~="playbook"]) {
+  background-color: var(--playbook-background);
+}
+
+.content-wrapper {
+  min-height: calc(var(--lumo-line-height-s) * 6); // Six standard line-heights
+  line-height: var(--lumo-line-height-s);
+
+  .content {
+    min-height: calc(
+      var(--lumo-line-height-s) * 3 + 1.25em
+    ); // Four standard line-heights plus global inherited <p> block margins
+  }
+
+  .tags {
+    flex-wrap: wrap;
+    margin-top: var(--lumo-space-s);
+    transition: height 0.3s ease-in-out;
+
+    ::slotted(span) {
+      font-style: italic;
+      line-height: 1;
+    }
+  }
+}
+
+footer {
+  position: relative;
+
+  vaadin-details[theme="reverse"] {
+    &::part(summary) {
+      justify-content: flex-start;
+      gap: var(--lumo-space-s);
+      font-size: var(--lumo-font-size-s);
+    }
+
+    &::part(toggle) {
+      padding: calc(var(--lumo-space-xs) / 4);
+      margin-left: initial;
+      font-size: var(--lumo-font-size-m);
+      transform: rotate(90deg);
+    }
+
+    &[opened]::part(toggle) {
+      transform: rotate(-90deg);
+    }
+
+    &::part(summary-content) {
+      font-weight: 600;
+      color: var(--lumo-contrast);
+    }
+
+    &::part(content) {
+      padding-bottom: 0;
+      font-size: var(--lumo-font-size-s);
+      line-height: var(--lumo-line-height-s);
+    }
+  }
+
+  .cta {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 600;
+
+    vaadin-icon {
+      width: var(--lumo-icon-size-s);
+      height: var(--lumo-icon-size-s);
+      padding: calc(var(--lumo-space-xs) / 2);
+      margin-left: var(--lumo-space-xs);
+      background: var(--lumo-primary-color-10pct);
+      border-radius: 100%;
+    }
+  }
+}

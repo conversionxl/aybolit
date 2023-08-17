@@ -1,0 +1,104 @@
+[
+  {
+    "title": "My roadmap updates",
+    "id": "tab-1",
+    "groups": [
+      {
+        "title": "Unread",
+        "count": 2,
+        "cards": [
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 1,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com",
+            "new": true
+          },
+          {
+            "theme": "category",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 2,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com",
+            "new": true,
+            "edited": true
+          }
+        ]
+      },
+      {
+        "title": "Other",
+        "cards": [
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 2,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com"
+          },
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 2,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com"
+          },
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 2,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com"
+          },
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 2,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com"
+          },
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 2,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "All CXL updates",
+    "id": "tab-2",
+    "groups": [
+      {
+        "title": "Unread",
+        "count": 1,
+        "cards": [
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 2,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com",
+            "new": true
+          }
+        ]
+      },
+      {
+        "title": "Other",
+        "cards": [
+          {
+            "theme": "course",
+            "title": "Email marketing: from basics to best-in-class",
+            "time": 3,
+            "avatar": "https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg",
+            "link": "https://cxl.com",
+            "new": false
+          }
+        ]
+      }
+    ]
+  }
+]

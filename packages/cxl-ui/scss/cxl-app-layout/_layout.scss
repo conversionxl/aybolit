@@ -2,6 +2,7 @@
  * Layout commons.
  */
 @use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 $toggle-icon: "lumo:angle-right";
 
@@ -85,4 +86,23 @@ slot[name="action-bar"]::slotted(div) {
   align-items: center;
   justify-content: flex-end;
   box-shadow: var(--lumo-box-shadow-m);
+}
+
+/**
+ * Dashboard layout
+ */
+:host([layout^="1c"][theme~="cxl-dashboard"]:not([layout="1c"])) {
+  main {
+    overflow: hidden;
+
+    > slot {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 0 calc(-1 * var(--lumo-space-m));
+
+      @media #{mq.$medium} {
+        margin: 0 auto;
+      }
+    }
+  }
 }

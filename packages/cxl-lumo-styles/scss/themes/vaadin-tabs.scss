@@ -1,4 +1,5 @@
 @use "../mixins";
+@use "../mq";
 
 // Collapse margins.
 :host([orientation="vertical"][theme~="cxl-marketing-nav"]) {
@@ -64,4 +65,71 @@ $vaadin-tab-horizontal-padding: 0.75rem;
 :host([theme~="cxl-marketing-nav"]#menu-shadow-items) ::slotted(.menu-item-search) {
   margin-right: auto;
   margin-left: auto;
+}
+
+// Featured course slider
+:host([theme~="cxl-featured-course-slider"][orientation="horizontal"]) {
+  background-color: var(--cxl-color-light-gray);
+
+  [part="tabs"] {
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  [part="back-button"],
+  [part="forward-button"] {
+    width: var(--lumo-size-s);
+    height: var(--lumo-size-s);
+    color: var(--lumo-primary-color);
+    border-radius: 100%;
+
+    &::after {
+      font-size: var(--lumo-font-size-xl);
+    }
+
+    @media #{mq.$medium} {
+      width: var(--lumo-space-xl);
+      height: var(--lumo-space-xl);
+
+      &::after {
+        font-size: var(--lumo-font-size-xxl);
+      }
+    }
+  }
+
+  @media #{mq.$medium} {
+    [part="back-button"] {
+      margin-left: var(--lumo-space-s);
+    }
+
+    [part="forward-button"] {
+      margin-right: var(--lumo-space-s);
+    }
+  }
+
+  ::slotted(vaadin-tab) {
+    padding: 0 var(--lumo-space-m);
+
+    @media #{mq.$medium} {
+      padding: 0;
+    }
+  }
+
+  ::slotted(vaadin-tab:not(:first-child)) {
+    @media #{mq.$medium} {
+      padding-left: var(--lumo-size-xl);
+    }
+  }
+}
+
+// Dashboard notifications
+:host([theme~="cxl-dashboard-notification"]) [part="tabs"] {
+  margin: 0;
 }
