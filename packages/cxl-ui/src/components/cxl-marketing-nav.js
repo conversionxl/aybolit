@@ -22,6 +22,9 @@ export class CXLMarketingNavElement extends LitElement {
   @query('.menu-items')
   menuShadowItemsElement;
 
+  @query('#overlays-wrapper')
+  overlaysWrapperElement;
+
   @property({ type: HTMLElement })
   get menuItemSearchElement() {
     return this.shadowRoot.querySelector('.menu-item-search');
@@ -109,7 +112,7 @@ export class CXLMarketingNavElement extends LitElement {
       </vaadin-tabs>
 
       <nav>
-        <slot></slot>
+        <slot @slotchange=${this._setupSlottedMenuItems} ></slot>
       </nav>
 
       <div id="overlays-wrapper"></div>
@@ -130,6 +133,16 @@ export class CXLMarketingNavElement extends LitElement {
         this._phone = matches;
       })
     );
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._boundOnOverlayOpen = this._onOverlayOpen.bind(this);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    document.body.removeEventListener('vaadin-overlay-open', this._boundOnOverlayOpen);
   }
 
   firstUpdated(changedProperties) {
@@ -205,9 +218,41 @@ export class CXLMarketingNavElement extends LitElement {
       }, 1000)
     );
 
-    document.body.addEventListener('vaadin-overlay-open', this._onOverlayOpen.bind(this));
+    document.body.addEventListener('vaadin-overlay-open', this._boundOnOverlayOpen);
 
     super.firstUpdated(changedProperties);
+  }
+
+  /*
+  * Setup listeners on nav items to handle overlays events.
+  */
+  _setupSlottedMenuItems () {
+    const navItems = this.querySelectorAll('vaadin-tab');
+    navItems.forEach(tab => tab.addEventListener('click', (e) => {
+      const overlays = document
+        .querySelector("cxl-marketing-nav")
+        .shadowRoot.querySelectorAll(
+          'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
+        );
+
+      this.overlaysWrapperElement.style.top = `${tab.parentElement.offsetTop + (0.75 * tab.clientHeight)}px`;
+      this.overlaysWrapperElement.style.left = `${e.clientX}px`;
+
+      [...overlays].forEach((overlay) => {
+        overlay.close();
+      });
+    }))
+  }
+
+  _onOverlayClose (e) {
+    const overlay = e.target;
+    if (!overlay.opened) {
+      this.overlaysWrapperElement.removeChild(overlay);
+      document.body.appendChild(overlay);
+      if (!this.overlaysWrapperElement.children.length) {
+        this.overlaysWrapperElement.toggleAttribute('hidden', true);
+      }
+    }
   }
 
   /**
@@ -219,19 +264,18 @@ export class CXLMarketingNavElement extends LitElement {
    */
   _onOverlayOpen(e) {
     const overlay = e.target;
+    overlay.addEventListener('opened-changed', this._onOverlayClose.bind(this));
 
     if (window.matchMedia(this._wideMediaQuery).matches) {
       const target = this.shadowRoot.querySelector('#overlays-wrapper');
-      const firstOverlay = document.querySelector(
-        'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
-      );
+      const overlays = document.querySelectorAll('vaadin-context-menu-overlay[theme="cxl-marketing-nav"]')
+      const firstOverlay = overlays[0];
 
       if (target) {
-        target.style.top = target?.style?.top ? target.style.top : firstOverlay.style.top;
-        target.style.left = target?.style?.left ? target.style.left : firstOverlay.style.left;
-        target.style.maxHeight = `${window.innerHeight - (target?.style?.maxHeight ? target.style.maxHeight : firstOverlay.offsetTop)}px`;
+        target.style.maxHeight = `${window.innerHeight - (target.style?.maxHeight || firstOverlay.offsetTop)}px`;
 
         target.appendChild(overlay);
+        target.toggleAttribute('hidden', false);
 
         // to fix wrong overlay error after changing the parent
         overlay._placeholder = null;
@@ -318,7 +362,11 @@ export class CXLMarketingNavElement extends LitElement {
 
         menuItem.appendChild(link);
 
+        // If item is at depth 1 and had no children, assume it's a section header, do not show description
+        if (item.sectionHeader && !item.children) {
+          menuItem.classList.add('section-header');
         // Add `description` element, if WordPress Menu Item has `description` field set.
+        } else
         if (item.description) {
           const descriptionItem = document.createElement('div');
 
@@ -398,7 +446,7 @@ export class CXLMarketingNavElement extends LitElement {
 
         // Prevent close on upstream events: clicks, keydown, etc
         contextMenu.addEventListener('item-selected', (e) => {
-          e.stopImmediatePropagation();
+          // e.stopImmediatePropagation();
         });
       });
     });

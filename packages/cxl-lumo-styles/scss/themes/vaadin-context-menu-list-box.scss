@@ -22,7 +22,7 @@
   :host([theme~="cxl-marketing-nav"]) {
     display: block;
     width: var(--cxl-vaadin-context-menu-item-max-width);
-    padding: 0 8px;
+    padding: 0 var(--lumo-space-s);
   }
 }
 
