@@ -1,15 +1,13 @@
-@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@use '~@conversionxl/cxl-lumo-styles/scss/mixins';
 
 :host {
   box-sizing: border-box;
-
-  [active] {
-    background-color: var(--lumo-shade-10pct);
-  }
 }
 
-:host([captions]) #container {
-  grid-template-rows: 1fr max-content 1fr;
+:host([has-captions]) {
+  .cxl-jw-player-container {
+    display: grid;
+  }
 }
 
 .captions {
@@ -37,6 +35,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.cxl-jw-player-container {
+  height: 100%;
 }
 
 .flex {
