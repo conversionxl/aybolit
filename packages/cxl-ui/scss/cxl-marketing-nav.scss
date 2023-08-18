@@ -17,36 +17,6 @@
 }
 */
 
-#overlays-wrapper {
-  position: fixed;
-  display: flex;
-  border: 1px solid var(--lumo-base-color);
-  // Use top and bottom border prevent panel divider from reaching full height.
-  border-top-width: var(--lumo-space-m);
-  border-bottom-width: var(--lumo-space-m);
-  border-radius: 6px;
-  // Second shadow set to emulate border
-  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.25), 0 0 1px 1px #D2D5DA;
-  opacity: 1;
-  transition: opacity 0.2s, left 0.1s;
-
-  vaadin-context-menu-overlay {
-    display: flex;
-    opacity: 1; // show after being moved to the overlays-wrapper element
-    transition: all 0.25s;
-
-    &+ vaadin-context-menu-overlay {
-      border-left: 1px solid var(--lumo-shade-20pct);
-    }
-  }
-
-  &[hidden] {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.1s;
-  }
-}
-
 /**
  * Menu bar containers configuration.
  */

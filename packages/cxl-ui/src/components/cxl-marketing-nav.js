@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html, render } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
@@ -21,9 +22,6 @@ export class CXLMarketingNavElement extends LitElement {
 
   @query('.menu-items')
   menuShadowItemsElement;
-
-  @query('#overlays-wrapper')
-  overlaysWrapperElement;
 
   @property({ type: HTMLElement })
   get menuItemSearchElement() {
@@ -60,6 +58,11 @@ export class CXLMarketingNavElement extends LitElement {
 
   static get styles() {
     return [cxlMarketingNavStyles];
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  get overlaysWrapperElement() {
+    return document.body.querySelector('#overlays-wrapper');
   }
 
   render() {
@@ -112,10 +115,8 @@ export class CXLMarketingNavElement extends LitElement {
       </vaadin-tabs>
 
       <nav>
-        <slot @slotchange=${this._setupSlottedMenuItems} ></slot>
+        <slot @slotchange=${this._setupSlottedMenuItems}></slot>
       </nav>
-
-      <div id="overlays-wrapper"></div>
     `;
   }
 
@@ -142,11 +143,15 @@ export class CXLMarketingNavElement extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this._boundOnOverlayOpen = this._onOverlayOpen.bind(this);
+    const overlaysWrapper = document.createElement('div');
+    overlaysWrapper.id = 'overlays-wrapper';
+    document.body.appendChild(overlaysWrapper);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     document.body.removeEventListener('vaadin-overlay-open', this._boundOnOverlayOpen);
+    document.body.removeChild(this.overlaysWrapperElement);
   }
 
   firstUpdated(changedProperties) {
@@ -227,35 +232,53 @@ export class CXLMarketingNavElement extends LitElement {
     super.firstUpdated(changedProperties);
   }
 
+  /**
+   * Adjusts the target element's position to fit within the available width.
+   *
+   * @param {HTMLElement} target - The target element to adjust.
+   * @return {string|boolean} The adjusted position value in pixels or `false` if no adjustment is needed.
+   */
+  static _adjustToWidth(target) {
+    if (target.clientWidth + target.offsetLeft > visualViewport.width) {
+      return `${
+        target.offsetLeft - (target.clientWidth + target.offsetLeft - visualViewport.width)
+      }px`;
+    }
+    return false;
+  }
+
   /*
-  * Setup listeners on nav items to handle overlays events.
-  */
-  _setupSlottedMenuItems () {
+   * Setup listeners on nav items to handle overlays events.
+   */
+  _setupSlottedMenuItems() {
     const navItems = this.querySelectorAll('vaadin-tab');
-    navItems.forEach(tab => tab.addEventListener('click', (e) => {
-      const overlays = document
-        .querySelector("cxl-marketing-nav")
-        .shadowRoot.querySelectorAll(
+
+    navItems.forEach((tab) =>
+      tab.addEventListener('click', (e) => {
+        const overlays = this.overlaysWrapperElement.querySelectorAll(
           'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
         );
 
-      this.overlaysWrapperElement.style.top = `${tab.parentElement.offsetTop + (0.75 * tab.clientHeight)}px`;
-      this.overlaysWrapperElement.style.left = `${e.clientX}px`;
+        this.overlaysWrapperElement.style.top = `${
+          tab.parentElement.offsetTop + 0.75 * tab.clientHeight
+        }px`;
+        this.overlaysWrapperElement.style.left = `${e.clientX}px`;
 
-      [...overlays].forEach((overlay) => {
-        overlay.close();
-      });
-    }))
+        [...overlays].forEach((overlay) => {
+          overlay.close();
+        });
+      })
+    );
   }
 
-  _onOverlayClose (e) {
+  _onOverlayClose(e) {
     const overlay = e.target;
-    if (!overlay.opened) {
-      this.overlaysWrapperElement.removeChild(overlay);
-      document.body.appendChild(overlay);
-      if (!this.overlaysWrapperElement.children.length) {
-        this.overlaysWrapperElement.toggleAttribute('hidden', true);
-      }
+    if (overlay.parentElement !== this.overlaysWrapperElement) return;
+
+    this.overlaysWrapperElement.removeChild(overlay);
+    document.body.appendChild(overlay);
+    if (!this.overlaysWrapperElement.children.length) {
+      this.overlaysWrapperElement.toggleAttribute('hidden', true);
     }
   }
 
@@ -271,20 +294,25 @@ export class CXLMarketingNavElement extends LitElement {
     overlay.addEventListener('opened-changed', this._onOverlayClose.bind(this));
 
     if (window.matchMedia(this._wideMediaQuery).matches) {
-      const target = this.shadowRoot.querySelector('#overlays-wrapper');
-      const overlays = document.querySelectorAll('vaadin-context-menu-overlay[theme="cxl-marketing-nav"]')
+      const overlays = document.querySelectorAll(
+        'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
+      );
       const firstOverlay = overlays[0];
 
-      if (target) {
-        target.style.maxHeight = `${window.innerHeight - (target.style?.maxHeight || firstOverlay.offsetTop)}px`;
+      if (this.overlaysWrapperElement) {
+        this.overlaysWrapperElement.style.maxHeight = `${
+          window.innerHeight -
+          (this.overlaysWrapperElement.style?.maxHeight || firstOverlay.offsetTop)
+        }px`;
 
-        target.appendChild(overlay);
-        target.toggleAttribute('hidden', false);
-
-        // to fix wrong overlay error after changing the parent
-        overlay._placeholder = null;
-        overlay._exitModalState();
+        this.overlaysWrapperElement.appendChild(overlay);
+        this.overlaysWrapperElement.toggleAttribute('hidden', false);
       }
+
+      // check if position needs adjusting
+      this.overlaysWrapperElement.style.left =
+        this.constructor._adjustToWidth(this.overlaysWrapperElement) ||
+        this.overlaysWrapperElement.style.left;
     }
 
     /**
@@ -369,9 +397,8 @@ export class CXLMarketingNavElement extends LitElement {
         // If item is at depth 1 and had no children, assume it's a section header, do not show description
         if (item.sectionHeader && !item.children) {
           menuItem.classList.add('section-header');
-        // Add `description` element, if WordPress Menu Item has `description` field set.
-        } else
-        if (item.description) {
+          // Add `description` element, if WordPress Menu Item has `description` field set.
+        } else if (item.description) {
           const descriptionItem = document.createElement('div');
 
           descriptionItem.classList.add('vaadin-context-menu-item--description');
@@ -450,7 +477,7 @@ export class CXLMarketingNavElement extends LitElement {
 
         // Prevent close on upstream events: clicks, keydown, etc
         contextMenu.addEventListener('item-selected', (e) => {
-          // e.stopImmediatePropagation();
+          e.stopImmediatePropagation();
         });
       });
     });
