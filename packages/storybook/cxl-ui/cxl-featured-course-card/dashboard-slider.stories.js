@@ -9,12 +9,6 @@ export default {
 };
 
 const Template = () => html`
-  <style>
-    vaadin-tab {
-      max-width: 100%;
-    }
-  </style>
-
   <cxl-tabs-slider theme="minimal cxl-featured-course-slider">
     <vaadin-tab theme="cxl-featured-course-slider"
       >${CXLFeatureadCourseCard(CXLFeatureadCourseCard.args)}</vaadin-tab

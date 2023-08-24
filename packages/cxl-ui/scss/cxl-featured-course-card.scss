@@ -18,6 +18,7 @@
     @media #{mq.$medium} {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: min-content auto;
       gap: 0;
       padding: var(--lumo-space-l) 0 0 var(--lumo-space-l);
     }
@@ -37,6 +38,8 @@
 
       .tags {
         flex-wrap: wrap;
+        column-gap: var(--lumo-space-s);
+        row-gap: 0;
       }
 
       .tag {
@@ -45,7 +48,9 @@
 
       .attributes {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
+        grid-row-gap: var(--lumo-space-xs);
         padding: 0;
       }
     }
@@ -144,7 +149,7 @@
 
     @media #{mq.$medium} {
       grid-column: span 7 / span 7;
-      padding-top: 0;
+      padding-top: var(--lumo-space-s);
     }
   }
 }
