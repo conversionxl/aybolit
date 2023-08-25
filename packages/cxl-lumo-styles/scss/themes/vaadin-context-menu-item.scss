@@ -6,8 +6,14 @@
 :host([theme~="cxl-marketing-nav"]:not(.has-description).section-header) {
   color: var(--lumo-body-text-color);
   background: var(--lumo-shade-10pct);
-  font-weight: 300;
+  font-weight: 600;
   text-transform: uppercase;
+}
+
+:host([theme~="cxl-marketing-nav"].has-description) {
+  [part="content"] ::slotted(*:first-child) {
+    font-weight: 600;
+  }
 }
 
 :host([theme~="cxl-marketing-nav"]:hover),

@@ -395,7 +395,7 @@ export class CXLMarketingNavElement extends LitElement {
         menuItem.appendChild(link);
 
         // If item is at depth 1 and had no children, assume it's a section header, do not show description
-        if (item.sectionHeader && !item.children) {
+        if (item.sectionheader && !item.children) {
           menuItem.classList.add('section-header');
           // Add `description` element, if WordPress Menu Item has `description` field set.
         } else if (item.description) {
