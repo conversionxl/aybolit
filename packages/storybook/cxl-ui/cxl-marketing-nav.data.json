@@ -78,13 +78,13 @@
       "children": [
         {
           "depth": 1,
-          "text": "<b>Deep skills<b>",
+          "text": "Deep skills",
           "description": "Core fundamentals of marketing",
           "component": "a",
           "href": "#",
           "id": 361,
           "parent": 36,
-          "sectionHeader": true
+          "sectionheader": true
         },
         {
           "depth": 1,
@@ -94,7 +94,7 @@
           "children": [
             {
               "depth": 2,
-              "text": "<b>Brands marketing certificate</b>",
+              "text": "Brands marketing certificate",
               "description": "Lorem ipsum dolor sit amet",
               "component": "a",
               "href": "#",
@@ -127,7 +127,7 @@
           "children": [
             {
               "depth": 2,
-              "text": "<b>Lorem ipsum</b>",
+              "text": "Lorem ipsum",
               "description": "Lorem ipsum dolor sit amet",
               "component": "a",
               "href": "#",
@@ -166,13 +166,13 @@
         },
         {
           "depth": 1,
-          "text": "<b>Broad skills</b>",
+          "text": "Broad skills",
           "component": "a",
           "href": "#",
           "description": "Supporting knowledge base for wider success",
           "id": 365,
           "parent": 36,
-          "sectionHeader": true
+          "sectionheader": true
         },
         {
           "depth": 1,
