@@ -3,11 +3,15 @@
   padding-bottom: 0;
 }
 
-:host([theme~="cxl-marketing-nav"]:not(.has-description).section-header) {
+:host([theme~="cxl-marketing-nav"].section-header) {
   color: var(--lumo-body-text-color);
   background: var(--lumo-shade-10pct);
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
+
+  ::slotted(.vaadin-context-menu-item--description) {
+    text-transform: none;
+  }
 }
 
 :host([theme~="cxl-marketing-nav"].has-description) {
