@@ -383,18 +383,17 @@ export class CXLMarketingNavElement extends LitElement {
 
       if (item.component === 'a') {
         const menuItem = document.createElement('vaadin-context-menu-item');
+        if (item.sectionheader && !item.children) {
+          menuItem.classList.add('section-header');
+        }
         const link = document.createElement('a');
 
         link.href = item.href;
         link.innerHTML = item.text;
 
         menuItem.appendChild(link);
-
-        // If item is at depth 1 and had no children, assume it's a section header, do not show description
-        if (item.sectionheader && !item.children) {
-          menuItem.classList.add('section-header');
-          // Add `description` element, if WordPress Menu Item has `description` field set.
-        } else if (item.description) {
+        
+        if (item.description) {
           const descriptionItem = document.createElement('div');
 
           descriptionItem.classList.add('vaadin-context-menu-item--description');
@@ -410,9 +409,7 @@ export class CXLMarketingNavElement extends LitElement {
 
         // eslint-disable-next-line no-param-reassign
         self[i] = { component: menuItem };
-      }
-
-      if (item.component === 'back') {
+      } else if (item.component === 'back') {
         const menuItemBack = document.createElement('vaadin-context-menu-item');
         const backBtn = document.createElement('vaadin-button');
 
