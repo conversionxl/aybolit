@@ -46,7 +46,8 @@
 }
 
 :host([theme~="cxl-marketing-nav"]) [part="content"] {
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media screen and (min-width: 750px) {
@@ -64,6 +65,10 @@
     visibility: hidden;
     opacity: 0; // hide while in the body, to avoid flickering render, show after being moved to the overlays-wrapper element
     transition: opacity 0.1s;
+  }
+
+  :host([theme~="cxl-marketing-nav"]) [part="content"] {
+    padding: 0;
   }
 
   :host([theme~="cxl-marketing-nav"]) [part="overlay"] {
