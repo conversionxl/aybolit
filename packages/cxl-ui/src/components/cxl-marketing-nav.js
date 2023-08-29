@@ -115,7 +115,7 @@ export class CXLMarketingNavElement extends LitElement {
       </vaadin-tabs>
 
       <nav>
-        <slot @slotchange=${this._setupSlottedMenuItems}></slot>
+        <slot @slotchange=${this._boundSetupSlottedMenuItems}></slot>
       </nav>
     `;
   }
@@ -142,6 +142,7 @@ export class CXLMarketingNavElement extends LitElement {
     const overlaysWrapper = document.createElement('div');
     overlaysWrapper.id = 'overlays-wrapper';
     document.body.appendChild(overlaysWrapper);
+    this._boundSetupSlottedMenuItems = this._setupSlottedMenuItems.bind(this);
   }
 
   disconnectedCallback() {
@@ -248,17 +249,18 @@ export class CXLMarketingNavElement extends LitElement {
    */
   _setupSlottedMenuItems() {
     const navItems = this.querySelectorAll('vaadin-tab');
+    const overlaysWrapper = this.overlaysWrapperElement;
 
     navItems.forEach((tab) =>
       tab.addEventListener('click', (e) => {
-        const overlays = this.overlaysWrapperElement.querySelectorAll(
+        const overlays = overlaysWrapper.querySelectorAll(
           'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
         );
-
-        this.overlaysWrapperElement.style.top = `${
-          tab.parentElement.offsetTop + 0.75 * tab.clientHeight
+        const parentOffset = tab.parentElement.getBoundingClientRect();
+        overlaysWrapper.style.top = `${
+          parentOffset.y + 0.75 * tab.clientHeight
         }px`;
-        this.overlaysWrapperElement.style.left = `${e.clientX}px`;
+        overlaysWrapper.style.left = `${e.clientX}px`;
 
         [...overlays].forEach((overlay) => {
           overlay.close();
@@ -381,48 +383,56 @@ export class CXLMarketingNavElement extends LitElement {
         this._createContextMenuItems(item.children);
       }
 
-      if (item.component === 'a') {
-        const menuItem = document.createElement('vaadin-context-menu-item');
-        if (item.sectionheader && !item.children) {
-          menuItem.classList.add('section-header');
-        }
-        const link = document.createElement('a');
-
-        link.href = item.href;
-        link.innerHTML = item.text;
-
-        menuItem.appendChild(link);
+      const menuItem = document.createElement('vaadin-context-menu-item');
+      
+      if (item.sectionheader) {
+        menuItem.classList.add('section-header');
         
-        if (item.description) {
-          const descriptionItem = document.createElement('div');
-
-          descriptionItem.classList.add('vaadin-context-menu-item--description');
-
-          // Set to hidden, to calculate currently opened menu width and use it for description.
-          descriptionItem.hidden = true;
-
-          render(html`${unsafeHTML(item.description)}`, descriptionItem);
-
-          menuItem.appendChild(descriptionItem);
-          menuItem.classList.add('has-description');
-        }
+        const label = document.createTextNode(item.text);
+        menuItem.appendChild(label);
 
         // eslint-disable-next-line no-param-reassign
         self[i] = { component: menuItem };
-      } else if (item.component === 'back') {
-        const menuItemBack = document.createElement('vaadin-context-menu-item');
+      } else if (item.component === 'a') {
+        const link = document.createElement('a');
+
+        if (item.href) {
+          link.href = item.href;
+          link.innerHTML = item.text;
+        }
+
+        menuItem.appendChild(link);
+        // eslint-disable-next-line no-param-reassign
+        self[i] = { component: menuItem };
+      } 
+       
+      if (item.description) {
+        const descriptionItem = document.createElement('div');
+
+        descriptionItem.classList.add('vaadin-context-menu-item--description');
+
+        // Set to hidden, to calculate currently opened menu width and use it for description.
+        descriptionItem.hidden = true;
+
+        render(html`${unsafeHTML(item.description)}`, descriptionItem);
+
+        menuItem.appendChild(descriptionItem);
+        menuItem.classList.add('has-description');
+      }
+      
+      if (item.component === 'back') {
         const backBtn = document.createElement('vaadin-button');
 
         backBtn.classList.add('context-menu-item-back-button');
         backBtn.innerHTML = '<vaadin-icon icon="lumo:angle-left"></vaadin-icon> Back';
 
-        menuItemBack.classList.add('back-button-menu-item');
-        menuItemBack.appendChild(backBtn);
+        menuItem.classList.add('back-button-menu-item');
+        menuItem.appendChild(backBtn);
 
-        menuItemBack.addEventListener('click', this._onBackBtnClick.bind(this));
+        menuItem.addEventListener('click', this._onBackBtnClick.bind(this));
 
         // eslint-disable-next-line no-param-reassign
-        self[i] = { component: menuItemBack };
+        self[i] = { component: menuItem };
       }
     });
 

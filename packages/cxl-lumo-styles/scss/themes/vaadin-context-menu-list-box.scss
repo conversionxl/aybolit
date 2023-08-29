@@ -13,9 +13,16 @@
   }
 }
 
-:host([theme~="cxl-marketing-nav"].vaadin-menu-list-box) [part='items'] ::slotted(.vaadin-menu-item) {
-  padding-right: var(--lumo-space-m);
-  padding-left: var(--lumo-space-m);
+:host([theme~="cxl-marketing-nav"].vaadin-menu-list-box) {
+  [part='items'] ::slotted(.vaadin-menu-item) {
+    padding-right: var(--lumo-space-m);
+    padding-left: var(--lumo-space-m);
+  }
+
+  [part="items"] ::slotted(.section-header.vaadin-menu-item:hover:not([disabled])) {
+    /* revert default vaadin-context-menu-list-box hovering style, without losing other styles styles applied */
+    background-color: revert-layer;
+  }
 }
 
 @media screen and (min-width: 783px) {
