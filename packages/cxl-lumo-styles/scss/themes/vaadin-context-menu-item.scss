@@ -6,7 +6,7 @@
 :host([theme~="cxl-marketing-nav"].section-header) {
   color: var(--lumo-body-text-color);
   background: var(--lumo-shade-10pct);
-  font-weight: 400;
+  font-weight: 600;
   text-transform: uppercase;
 
   ::slotted(.vaadin-context-menu-item--description) {
@@ -15,13 +15,13 @@
 }
 
 :host([theme~="cxl-marketing-nav"].has-description) {
-  [part="content"] ::slotted(*:first-child) {
-    font-weight: 600;
+  [part="content"] ::slotted(.vaadin-context-menu-item--description) {
+    font-weight: 400;
   }
 }
 
-:host([theme~="cxl-marketing-nav"]:hover),
-:host([theme~="cxl-marketing-nav"][expanded]) {
+:host([theme~="cxl-marketing-nav"]:not(.section-header):hover),
+:host([theme~="cxl-marketing-nav"]:not(.section-header)[expanded]) {
   color: var(--lumo-primary-color);
 
   &::after {

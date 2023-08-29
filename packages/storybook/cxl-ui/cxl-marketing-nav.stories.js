@@ -8,7 +8,7 @@ export default {
   title: 'CXL UI/cxl-marketing-nav',
 };
 
-export const CXLMarketingNav = () => {
+export const CXLMarketingNav = (args) => {
   useEffect(() => {
     // Populate `<cxl-marketing-nav>` context menus.
     const cxlMarketingNavElement = document.querySelector('cxl-marketing-nav');
@@ -16,9 +16,32 @@ export const CXLMarketingNav = () => {
     cxlMarketingNavElement.contextMenuItems = contextMenuItems;
 
     cxlMarketingNavElement.initHeadroom(Headroom);
-  }, []);
+
+    const htmlEl = document.querySelector('html');
+    if (args?.loggedIn) {
+      htmlEl.classList.add('loggedIn');
+    } else {
+      htmlEl.classList.remove('loggedIn');
+    }
+  }, [args?.loggedIn]);
 
   return html`
+    <style>
+      html.loggedIn {
+        margin-top: 32px;
+      }
+
+      #wp-admin-bar {
+        position: fixed;
+        width: 100%;
+        height: 32px;
+        background-color: gray;
+        top: 0;
+        color: white;
+        padding: 0 1em;
+      }
+    </style>
+
     <cxl-marketing-nav id="menu-primary" class="menu menu-primary" role="navigation" slot="header">
       <template id="cxl-marketing-nav-search-form-template">
         <vaadin-context-menu-item class="menu-item-search">
@@ -172,7 +195,14 @@ export const CXLMarketingNav = () => {
         </vaadin-tab>
       </vaadin-tabs>
     </cxl-marketing-nav>
+    <div id="wp-admin-bar" ?hidden=${!args?.loggedIn}>
+      wp-admin bar: test nav menu placement
+    </div>
   `;
 };
 
 CXLMarketingNav.storyName = 'menu-primary';
+CXLMarketingNav.args = {
+  loggedIn: true
+}
+
