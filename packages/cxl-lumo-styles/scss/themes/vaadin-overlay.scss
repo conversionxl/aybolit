@@ -17,16 +17,16 @@
 
 // Theme: cxl-course-dialog
 :host([theme="cxl-course-dialog"]) {
-  [part='backdrop'] {
+  [part="backdrop"] {
     background-color: var(--cxl-color-black-50pct);
   }
 
-  [part='overlay'] {
+  [part="overlay"] {
     width: 100%;
     max-width: var(--cxl-content-max-width);
   }
 
-  [part='content'] {
+  [part="content"] {
     padding: var(--lumo-space-m) var(--lumo-space-m) 0 var(--lumo-space-m);
 
     @media #{mq.$small} {
@@ -34,7 +34,7 @@
     }
   }
 
-  [part='footer'] {
+  [part="footer"] {
     background-color: unset;
     box-shadow: var(--lumo-box-shadow-m);
 
@@ -42,5 +42,36 @@
       gap: var(--lumo-space-m);
       padding-right: var(--lumo-space-l);
     }
+  }
+}
+
+:host([theme~="cxl-marketing-nav"]) [part="content"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media screen and (min-width: 750px) {
+  :host([theme~="cxl-marketing-nav"]) {
+    position: relative;
+    top: 0 !important; /* stylelint-disable-line declaration-no-important */
+    right: 0;
+    bottom: 0;
+    left: 0 !important; /* stylelint-disable-line declaration-no-important */
+    align-items: unset !important; /* stylelint-disable-line declaration-no-important */
+    justify-content: unset !important; /* stylelint-disable-line declaration-no-important */
+    width: 376px;
+    margin: 0;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0; // hide while in the body, to avoid flickering render, show after being moved to the overlays-wrapper element
+    transition: opacity 0.1s;
+  }
+
+  :host([theme~="cxl-marketing-nav"]) [part="content"] {
+    padding: 0;
+  }
+
+  :host([theme~="cxl-marketing-nav"]) [part="overlay"] {
+    box-shadow: none;
   }
 }
