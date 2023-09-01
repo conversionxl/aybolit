@@ -15,10 +15,7 @@ CXLCourseCardTraining.args = {
   ...args,
   theme: 'training',
   name: 'A/B testing mastery',
-  description:
-    'Understand testing approaches that work (and pitfalls that don’t) to get more wins and insights from optimization efforts.',
+  description: 'Understand testing approaches that work (and pitfalls that don’t) to get more wins and insights from optimization efforts.',
   tags: ['CRO', 'Branding'],
-  contentTags: [],
-  more: '',
   showTimeIcon: false,
 };

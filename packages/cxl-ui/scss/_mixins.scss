@@ -42,6 +42,7 @@
   display: -moz-box;
   display: -webkit-box;
   text-overflow: ellipsis;
+  overflow: hidden;
   -webkit-line-clamp: $max-lines;
   -webkit-box-orient: vertical;
   -moz-line-clamp: $max-lines;

@@ -33,9 +33,6 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
           <div class="content">
             <slot name="content"></slot>
           </div>
-          <div class="tags">
-            <slot name="content-tags"></slot>
-          </div>
         </section>
         <footer>
           <vaadin-details theme="reverse" ?empty=${!this._moreHasChildren}>

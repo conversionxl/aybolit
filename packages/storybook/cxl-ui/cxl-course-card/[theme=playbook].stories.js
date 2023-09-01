@@ -18,7 +18,6 @@ CXLCourseCardPlaybook.args = {
   time: '12 days ago',
   description:
     'Master the strategies, tactics, metrics, and wisdom you need to become an ABM leader and accelerate the growth of your company and of your career.',
-  contentTags: [],
   tags: ['Growth Marketing'],
   showTimeIcon: false,
 };
