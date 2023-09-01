@@ -66,15 +66,16 @@ export class CXLBaseCardElement extends LitElement {
 
   _renderHeaderAttributes() {
     return html`
-      <div class="attributes">
-        <cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>
-        <div class="instructor">By: ${this.instructor}</div>
-      </div>
+      ${this.time || this.instructor ?
+        html`<div class="attributes">
+          ${this.time ? html`<cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>` : nothing }
+          ${this.instructor ? html`<div class="instructor">By: ${this.instructor}</div>` : nothing }
+        </div>` : nothing }
     `;
   }
 
   _renderAvatar() {
-    return html` <img src=${this.avatar} alt="${this.instructor}" /> `;
+    return html`<img src=${this.avatar} alt="${this.instructor}" />`;
   }
 
   /**
@@ -90,7 +91,7 @@ export class CXLBaseCardElement extends LitElement {
           ${this.showTags ? this._renderHeaderTags() : ''} ${this._renderHeaderName()}
           ${this._renderHeaderAttributes()}
         </div>
-        <div class="instructor-image">${this._renderAvatar()}</div>
+        ${this.avatar ? html`<div class="instructor-image">${this._renderAvatar()}</div>` : nothing }
       </header>
       ${this._renderHeaderAttributes()}
     `;
