@@ -59,7 +59,7 @@ export class CXLAppLayoutElement extends LitElement {
   wide;
 
   // Device Detector media query.
-  _wideMediaQuery = '(min-width: 750px)';
+  _wideMediaQuery = '(min-width: 420px)';
 
   static get styles() {
     return [cxlAppLayoutStyles];
