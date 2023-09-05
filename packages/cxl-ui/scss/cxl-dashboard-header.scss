@@ -155,10 +155,9 @@
       border-radius: var(--lumo-border-radius-s);
 
       &::part(label) {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         width: 100%;
+        padding-right: var(--lumo-space-l);
+        text-align: left;
       }
 
       @media #{mq.$large} {
@@ -166,8 +165,8 @@
       }
 
       vaadin-icon {
-        flex-shrink: 0;
-        margin-left: var(--lumo-space-s);
+        position: absolute;
+        right: var(--lumo-space-m);
         color: var(--lumo-primary-color);
         background-color: var(--lumo-tint-5pct);
         border-radius: 100%;
