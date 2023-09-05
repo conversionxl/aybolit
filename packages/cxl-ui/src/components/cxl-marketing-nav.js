@@ -44,7 +44,7 @@ export class CXLMarketingNavElement extends LitElement {
   wide;
 
   // Device Detector media query.
-  _wideMediaQuery = '(min-width: 750px)';
+  _wideMediaQuery = '(min-width: 420px)';
 
   @property({ type: Boolean, reflect: true })
   _phone;
@@ -114,11 +114,15 @@ export class CXLMarketingNavElement extends LitElement {
     `;
   }
 
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
 
     this.addController(
       new MediaQueryController(this._wideMediaQuery, (matches) => {
+        if(this.wide !== undefined && this.wide !== matches) {
+          window.location.reload();
+        }
+        
         this.wide = matches;
       })
     );
