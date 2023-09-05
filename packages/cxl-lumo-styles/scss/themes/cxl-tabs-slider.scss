@@ -38,8 +38,11 @@
 */
 
 :host([theme~="cxl-course-slider"][theme~="minimal"]) {
+  margin-top: calc(var(--lumo-space-s) * -1);
+
   ::slotted(vaadin-tab) {
     padding: 0 calc(var(--lumo-space-s) / 2) calc(var(--lumo-space-s) / 2);
+    overflow: visible;
   }
 
   ::slotted(vaadin-tab:first-of-type) {
@@ -62,7 +65,9 @@
   }
 
   [part="tabs"] {
+    padding-top: var(--cxl-space-sm);
     margin: 0;
+    overflow-y: hidden;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
