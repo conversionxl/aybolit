@@ -13,8 +13,11 @@ export default {
 
 const ExtraCardVideoArgs = {
   ...CXLCourseCardVideo.args,
-  contentTags: [...CXLCourseCardVideo.args.contentTags, 'Another tag', 'Much longer content tag' ],
-  description: `${CXLCourseCardVideo.args.description} One more line to test the layout behavior on longer descriptions, with at least four line of text.`
+  name: 'Minidegree final exam – Online Psychology & Persuasion Certification Program',
+  description: `Master the strategies, tactics, metrics, and wisdom you need to become
+  an ABM leader and accelerate the growth of your company and of your career.
+  One more line to test the layout behavior on longer descriptions, with at least four line of text.`,
+  contentTags: 'B2B | campaigns | pilot planning'
 }
 
 const ExtraCardTrainingArgs = {

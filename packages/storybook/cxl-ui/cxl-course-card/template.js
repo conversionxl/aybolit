@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 import { html } from 'lit';
 
 const renderTags = (tags, slot) =>
@@ -24,8 +25,13 @@ export const CourseCardTemplate = (course) => html`
     .showTimeIcon=${course.showTimeIcon}
   >
     ${course.tags ? renderTags(course.tags, 'tags') : ''}
-    <p slot="content">${course.description}</p>
-    ${course.contentTags ? renderTags(course.contentTags, 'content-tags') : ''}
+    <p slot="content" title=${course.description + '\n\n' + (course.contentTags || '')} >
+      ${course.description}
+      ${course.contentTags
+        ? html`<br/><br/> <em>${course.contentTags}</em>` 
+        : ''
+      }
+    </p>
     ${course.more ? html`<p slot="more">${course.more}</p>` : ''}
   </cxl-course-card>
 `;
@@ -35,14 +41,12 @@ export const args = {
   name: 'Account based marketing',
   time: '3h 00min',
   instructor: 'Tom Wesseling',
-  description:
-    'Master the strategies, tactics, metrics, and wisdom you need to become an ABM leader and accelerate the growth of your company and of your career.',
-  contentTags: ['B2B', 'campaigns', 'pilot planning'],
+  description:'Master the strategies, tactics, metrics, and wisdom you need to become an ABM leader and accelerate the growth of your company and of your career.',
+  contentTags: "B2B | campaigns | pilot planning",
   theme: 'course',
   tags: ['Marketing', 'Analytics'],
   avatar:
     'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
-  more: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   new: false,
   showTimeIcon: true,
 };

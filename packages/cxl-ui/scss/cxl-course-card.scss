@@ -1,4 +1,9 @@
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
+@use "~@conversionxl/cxl-ui/scss/mixins";
+
+:host {
+  height: 345px;
+}
 
 :host([theme~="dark"]) {
   background-color: var(--lumo-contrast);
@@ -16,14 +21,22 @@
   background-color: var(--playbook-background);
 }
 
+header .name {
+  @include mixins.ellipsis-for-lines(3);
+}
+
 .content-wrapper {
   min-height: calc(var(--lumo-line-height-s) * 6); // Six standard line-heights
   line-height: var(--lumo-line-height-s);
+  height: 100%;
 
   .content {
-    min-height: calc(
-      var(--lumo-line-height-s) * 3 + 1.25em
-    ); // Four standard line-heights plus global inherited <p> block margins
+    @include mixins.ellipsis-for-lines(5);
+
+    ::slotted(p) {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
   }
 
   .tags {
@@ -39,9 +52,12 @@
 }
 
 footer {
+  display: flex;
   position: relative;
+  justify-content: end;
 
   vaadin-details[theme="reverse"] {
+    display: none;
     &::part(summary) {
       justify-content: flex-start;
       gap: var(--lumo-space-s);
@@ -72,8 +88,6 @@ footer {
   }
 
   .cta {
-    position: absolute;
-    top: 0;
     right: 0;
     font-weight: 600;
 

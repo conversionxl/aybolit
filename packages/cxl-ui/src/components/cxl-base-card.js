@@ -56,7 +56,7 @@ export class CXLBaseCardElement extends LitElement {
 
   _renderHeaderName() {
     return html`
-      <div class="name">
+      <div class="name" title=${this.name}>
         ${unsafeHTML(this.name)}${this.completed
           ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>`
           : nothing}
