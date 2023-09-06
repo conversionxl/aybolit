@@ -7,15 +7,30 @@
       {
         "title": "Growth",
         "progress": "0.50",
-        "action": "View all",
-        "items": [
+        "action": "https://cxl.com",
+        "sections": [
           {
-            "title": "Demand capture",
-            "cards": []
+            "title": "Demand creation and Brand",
+            "sections": [
+              {
+                "title": "Growth strategy",
+                "cards": []
+              }
+            ]
           },
           {
-            "title": "Sub category",
-            "cards": []
+            "title": "Demand capture",
+            "cards": [],
+            "sections": [
+              {
+                "title": "SEO",
+                "cards": []
+              },
+              {
+                "title": "SEO 2",
+                "cards": []
+              }
+            ]
           }
         ]
       },
@@ -23,10 +38,20 @@
         "title": "Category",
         "progress": "0.50",
         "action": "View all",
-        "items": [
+        "sections": [
           {
-            "title": "Demand capture",
-            "cards": []
+            "title": "Sub",
+            "cards": [],
+            "sections": [
+              {
+                "title": "SEO",
+                "cards": []
+              },
+              {
+                "title": "SEO 2",
+                "cards": []
+              }
+            ]
           }
         ]
       }
@@ -36,53 +61,6 @@
     "id": 2,
     "title": "Broad skills",
     "completion": "10% complete",
-    "sections": [
-      {
-        "title": "Growth",
-        "progress": "0.50",
-        "action": "View all",
-        "items": [
-          {
-            "title": "Demand capture",
-            "cards": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Fast skills",
-    "completion": "0% complete",
-    "sections": [
-      {
-        "title": "Growth",
-        "items": [
-          {
-            "title": "Demand capture",
-            "cards": []
-          },
-          {
-            "title": "Sub category",
-            "cards": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "title": "Learning history",
-    "sections": [
-      {
-        "title": "Growth",
-        "items": [
-          {
-            "title": "Demand capture",
-            "cards": []
-          }
-        ]
-      }
-    ]
+    "sections": []
   }
 ]
