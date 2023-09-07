@@ -131,6 +131,7 @@
       line-height: var(--lumo-line-height-m);
       color: var(--lumo-primary-color);
       text-decoration: none;
+      pointer-events: all;
 
       vaadin-icon {
         width: var(--lumo-icon-size-s);
