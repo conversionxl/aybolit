@@ -16,6 +16,7 @@
   "devDependencies": {
     "@conversionxl/normalize-wheel": "^1.0.1",
     "@vaadin/accordion": "^23.3.7",
+    "@vaadin/avatar": "23.3.7",
     "@vaadin/button": "^23.3.7",
     "@vaadin/checkbox": "^23.3.7",
     "@vaadin/component-base": "^23.3.7",

@@ -1,0 +1,29 @@
+:host {
+  .comment-body {
+    display: flex;
+    gap: var(--lumo-space-m);
+    align-items: start;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+
+    .author {
+      display: flex;
+      gap: var(--lumo-space-s);
+
+      .username {
+        font-weight: 600;
+      }
+
+      .name {
+        color: var(--lumo-shade-70pct);
+      }
+    }
+
+    cxl-time {
+      color: var(--lumo-shade-70pct);
+    }
+  }
+}

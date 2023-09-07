@@ -1,0 +1,16 @@
+:host {
+  h1 {
+    margin-block: 0;
+    line-height: 1.25;
+  }
+
+  vaadin-details {
+    &::part(summary) {
+      padding: 0;
+    }
+
+    &::part(content) {
+      padding: var(--lumo-space-l) 0 var(--lumo-space-s);
+    }
+  }
+}
