@@ -1,4 +1,5 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "~@conversionxl/cxl-ui/scss/mixins";
 
 :host {
   position: relative;
@@ -121,6 +122,10 @@
     position: relative;
     z-index: 0;
     padding-top: var(--lumo-space-s);
+
+    .content {
+      @include mixins.ellipsis-for-lines(5);
+    }
 
     .cta {
       display: inline-block;
