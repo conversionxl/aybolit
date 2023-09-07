@@ -24,7 +24,7 @@ const FeaturedCourseCardTemplate = (course) => html`
     .new=${course.new}
   >
     ${course.tags ? renderTags(course.tags, 'tags') : ''}
-    <div slot="content">${unsafeHTML(course.description)}</div>
+    <div slot="content" title=${course.description}>${unsafeHTML(course.description)}</div>
   </cxl-featured-course-card>
 `;
 
@@ -37,7 +37,7 @@ CXLFeatureadCourseCard.args = {
   time: '5h 04min',
   instructor: 'Fred Pike',
   description:
-    "<p>GA4 is packed with new capabilities that help you improve acquisition, engagement, revenue, and retention for your website.</p><p>In five hours, we'll have you confident, capable, and armed with new insights into your business and your website. <strong>This course pays back for you real quick.</strong></p>",
+    "GA4 is packed with new capabilities that help you improve acquisition, engagement, revenue, and retention for your website.<br>In five hours, we'll have you confident, capable, and armed with new insights into your business and your website. <strong>This course pays back for you real quick.</strong>",
   tags: ['Marketing', 'Analytics'],
   ctaUrl: 'https://cxl.com',
   avatar:
