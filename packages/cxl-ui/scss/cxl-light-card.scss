@@ -1,7 +1,8 @@
 :host {
+  min-width: 267px; // 3col widths on 1400px
   max-width: 300px;
   height: auto;
-  min-height: auto;
+  min-height: calc(3 * var(--lumo-space-xl));
   padding: var(--lumo-space-m);
 
   .container > .attributes {
@@ -44,4 +45,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--lumo-space-xs);
+}
+
+:host([theme~="minidegree"]) {
+  background-color: var(--lumo-contrast);
+
+  .name {
+    color: var(--lumo-primary-contrast-color);
+  }
+
+  cxl-time,
+  .attributes {
+    color: var(--lumo-tint-40pct);
+  }
 }
