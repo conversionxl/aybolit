@@ -98,6 +98,15 @@ header {
     max-width: calc(100% - var(--lumo-space-m) - 80px);
     overflow: hidden;
 
+    .label {
+      display: block;
+      margin-bottom: var(--lumo-space-s);
+      font-size: var(--lumo-font-size-s);
+      font-weight: 400;
+      color: var(--lumo-primary-color);
+      text-transform: capitalize;
+    }
+
     .name {
       font-family: var(--lumo-font-family);
       font-size: var(--lumo-font-size-xl);

@@ -25,6 +25,7 @@ const Template = (card) => html`
 `;
 
 export const CXLLightCard = Template.bind({});
+export const CXLLightCardMinidegree = Template.bind({});
 export const CXLLightCardFooter = Template.bind({});
 
 CXLLightCard.args = {
@@ -38,6 +39,15 @@ CXLLightCard.args = {
     'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
   footer: '',
 };
+
+CXLLightCardMinidegree.args = {
+  theme: 'minidegree',
+  new: false,
+  completed: false,
+  name: 'Digital analytics',
+  time: '43h 00min',
+};
+
 
 CXLLightCardFooter.args = {
   ...CXLLightCard.args,
