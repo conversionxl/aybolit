@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import '@conversionxl/cxl-lumo-styles';
 import { Tabs } from '@vaadin/tabs';
 import { customElement } from 'lit/decorators.js';
@@ -7,6 +8,17 @@ export class CXLTabsSliderElement extends Tabs {
   _updateOverflow() {
     this.centeredContainerWidthCheck();
     super._updateOverflow();
+  }
+
+  _onResize() {
+    super._onResize();
+    // Only for `featured-course-slider`: induce scrolling to snap to next
+    // one in case resizing lands between two cards
+    if (this.getAttribute('theme').split(' ').includes('cxl-featured-course-slider')) {
+      requestAnimationFrame(() => {
+        this._scroll(1);
+      });
+    }
   }
 
   /**

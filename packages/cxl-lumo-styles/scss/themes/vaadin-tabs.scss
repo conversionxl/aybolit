@@ -79,6 +79,15 @@ $vaadin-tab-horizontal-padding: 0.75rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
 
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    ::slotted(*) {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
     &::-webkit-scrollbar {
       display: none;
     }
