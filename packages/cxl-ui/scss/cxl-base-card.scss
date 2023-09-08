@@ -173,3 +173,7 @@ header {
     border-radius: 100%;
   }
 }
+
+:host(:hover) {
+  border-color: var(--lumo-primary-color);
+} 
