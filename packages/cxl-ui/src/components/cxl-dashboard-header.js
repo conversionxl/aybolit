@@ -3,11 +3,10 @@ import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/progress-bar';
+import './cxl-dashboard-notification';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import cxlDashboardHeaderGlobalStyles from '../styles/global/cxl-dashboard-header-css.js';
 import cxlDashboardHeaderStyles from '../styles/cxl-dashboard-header-css.js';
-import { CXLDashboardNotification } from '../../../storybook/cxl-ui/cxl-dashboard-notification/default.stories.js';
-import notificationData from '../../../storybook/cxl-ui/cxl-dashboard-notification/cxl-dashboard-notification.data.json';
 
 @customElement('cxl-dashboard-header')
 export class CXLDashboardHeaderElement extends LitElement {
@@ -91,10 +90,10 @@ export class CXLDashboardHeaderElement extends LitElement {
         <header>
           ${this.notificationCount > 0
             ? html`<div class="updates">
-                ${CXLDashboardNotification(CXLDashboardNotification.args = {
-                  count: this.notificationCount,
-                  tabs: this.notificationData || notificationData
-                })}
+                <cxl-dashboard-notification
+                  count="${this.notificationCount}"
+                  .tabs=${this.notificationData}
+                ></cxl-dashboard-notification>
               </div>`
             : ''}
           <div>
@@ -115,8 +114,10 @@ export class CXLDashboardHeaderElement extends LitElement {
                 <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
               </vaadin-button>
               ${!this.hasRoadmap
-                ? html`
-                  <vaadin-button class="roadmap" onclick="window.location.href='${this.cta3Link}'">
+                ? html` <vaadin-button
+                    class="roadmap"
+                    onclick="window.location.href='${this.cta3Link}'"
+                  >
                     ${this.cta3}
                     <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
                   </vaadin-button>`
