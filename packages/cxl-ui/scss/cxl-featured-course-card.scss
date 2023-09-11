@@ -107,7 +107,7 @@
       @media #{mq.$medium} {
         position: absolute;
         top: 0;
-        right: 0;
+        right: var(--lumo-space-l);
         display: flex;
         justify-content: flex-end;
         width: auto;
