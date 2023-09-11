@@ -138,10 +138,7 @@ export class CXLMarketingNavElement extends LitElement {
         this._phone = matches;
       })
     );
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
+    
     this._boundOnOverlayOpen = this._onOverlayOpen.bind(this);
     const overlaysWrapper = document.createElement('div');
     overlaysWrapper.id = 'overlays-wrapper';
