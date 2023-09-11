@@ -5,6 +5,7 @@ import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { CXLMarketingNav } from './cxl-marketing-nav.stories';
 import { CXLDashboardHeader } from './cxl-dashboard-header/template.stories';
 import { CXLFeatureadCourseCard } from './cxl-featured-course-card/default.stories';
+import { DashboardSlider } from './cxl-featured-course-card/dashboard-slider.stories';
 import { CXLStats } from './cxl-stats/default.stories';
 import { CXLVaadinAccordionThemeCategory } from './cxl-vaadin-accordion.stories';
 import { CXLFooterNav } from './footer-nav.stories';
@@ -49,20 +50,15 @@ export const CXLDashboard = () => {
   };
 
   return html`
-  <cxl-app-layout
-    id="container"
-    layout="1c-w"
-    theme="cxl-dashboard"
-  >
-    ${CXLMarketingNav()}
-    <div style="${boxShadow ? `box-shadow: ${boxShadow}` : ''}">
-      ${CXLDashboardHeader(CXLDashboardHeader.args)}
-      ${CXLFeatureadCourseCard(CXLFeatureadCourseCard.args)}
-      ${CXLStats(statsCount)}
-      ${CXLVaadinAccordionThemeCategory()}
-    </div>
-    ${CXLFooterNav()}
-  </cxl-app-layout>
-`};
+    <cxl-app-layout id="container" layout="1c-w" theme="cxl-dashboard">
+      ${CXLMarketingNav()}
+      <div style="${boxShadow ? `box-shadow: ${boxShadow}` : ''}">
+        ${CXLDashboardHeader(CXLDashboardHeader.args)} ${DashboardSlider()} ${CXLStats(statsCount)}
+        ${CXLVaadinAccordionThemeCategory()}
+      </div>
+      ${CXLFooterNav()}
+    </cxl-app-layout>
+  `;
+};
 
 CXLDashboard.storyName = 'cxl-dashboard';
