@@ -34,9 +34,16 @@ export class CXLFeaturedCourseCardElement extends CXLBaseCardElement {
           <div class="content">
             <slot name="content"></slot>
           </div>
-          <a class="cta" href="${this.ctaUrl}"
-            >${this.ctaLabel}<vaadin-icon icon="lumo:angle-right"></vaadin-icon
-          ></a>
+          <vaadin-button
+            class="cta"
+            theme="tertiary"
+            @click=${() => {
+              location.assign(this.ctaUrl);
+            }}
+          >
+            ${this.ctaLabel}
+            <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
+          </vaadin-button>
         </section>
       </div>
     `;

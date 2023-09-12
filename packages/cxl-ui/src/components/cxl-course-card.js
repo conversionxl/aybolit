@@ -40,7 +40,13 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
             <slot name="more" @slotchange=${this._slotHasChildren}></slot>
           </vaadin-details>
           <a href=${this.ctaUrl}>
-            <vaadin-button class="cta" theme="tertiary" @click=${this.callToAction}>
+            <vaadin-button
+              class="cta"
+              theme="tertiary"
+              @click=${() => {
+                location.assign(this.ctaUrl);
+              }}
+            >
               ${this.ctaLabel} ${this.theme}
               <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
             </vaadin-button>
