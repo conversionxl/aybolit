@@ -13,11 +13,7 @@ cxl-marketing-nav {
 
   &[wide] {
     #menu-global-items .menu-item {
-      color: var(--lumo-base-color);
-    }
-
-    #menu-global-items .menu-item a {
-      opacity: 0.6;
+      color: var(--cxl-color-light-gray);
     }
   }
 
