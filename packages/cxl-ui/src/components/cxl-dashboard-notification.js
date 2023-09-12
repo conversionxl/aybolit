@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
@@ -39,7 +40,7 @@ export class CXLDashboardNotificationElement extends LitElement {
   _onTabSelected(e) {
     const selectedTabIndex = e.detail.value;
     const selectedTabId = `tab-${selectedTabIndex + 1}`;
-    this.shadowRoot.querySelectorAll('[data-tab]').forEach(tabContent => {
+    this.shadowRoot.querySelectorAll('[data-tab]').forEach((tabContent) => {
       tabContent.hidden = tabContent.getAttribute('data-tab') !== selectedTabId;
     });
   }
@@ -59,35 +60,51 @@ export class CXLDashboardNotificationElement extends LitElement {
           <vaadin-icon icon="lumo:angle-right" class="icon-arrow"></vaadin-icon>
         </vaadin-button>
         <div class="tabs-wrapper">
-          <vaadin-tabs slot="tabs" theme="cxl-dashboard-notification" @selected-changed="${this._onTabSelected}">
-            ${this.tabs.map(tab => html`
-              <vaadin-tab id="${tab.id}" theme="cxl-dashboard-notification">
-                ${tab.title}
-              </vaadin-tab>
-            `)}
+          <vaadin-tabs
+            slot="tabs"
+            theme="cxl-dashboard-notification"
+            @selected-changed="${this._onTabSelected}"
+          >
+            ${this.tabs?.map(
+              (tab) => html`
+                <vaadin-tab id="${tab.id}" theme="cxl-dashboard-notification">
+                  ${tab.title}
+                </vaadin-tab>
+              `
+            )}
           </vaadin-tabs>
-          ${this.tabs.map(tab => html`
-            <div data-tab="${tab.id}" hidden>
-              ${tab.groups ? tab.groups.map(group => html`
-                <div class="tab-title">${group.title} ${group.count ? `(${group.count})` : ''}</div>
-                <div class="tab-items">
-                  ${group.cards.map(card => html`
-                    <cxl-notification-card
-                      id="${card.id}"
-                      theme="${card.theme}"
-                      title="${card.title}"
-                      time="${card.time}"
-                      avatar="${card.avatar}"
-                      link="${card.link}"
-                      .new="${card.new}"
-                      .edited="${card.edited}"
-                    >
-                    </cxl-notification-card>
-                  `)}
-                </div>
-              `) : html`<div class="no-updates">${this.noUpdates}</div>`}
-            </div>
-          `)}
+          ${this.tabs?.map(
+            (tab) => html`
+              <div data-tab="${tab.id}" hidden>
+                ${tab.groups
+                  ? tab.groups.map(
+                      (group) => html`
+                        <div class="tab-title">
+                          ${group.title} ${group.count ? `(${group.count})` : ''}
+                        </div>
+                        <div class="tab-items">
+                          ${group.cards.map(
+                            (card) => html`
+                              <cxl-notification-card
+                                id="${card.id}"
+                                theme="${card.theme}"
+                                title="${card.title}"
+                                time="${card.time}"
+                                avatar="${card.avatar}"
+                                link="${card.link}"
+                                .new="${card.new}"
+                                .edited="${card.edited}"
+                              >
+                              </cxl-notification-card>
+                            `
+                          )}
+                        </div>
+                      `
+                    )
+                  : html`<div class="no-updates">${this.noUpdates}</div>`}
+              </div>
+            `
+          )}
         </div>
       </vaadin-details>
     `;

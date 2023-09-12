@@ -4,6 +4,7 @@ import '@conversionxl/cxl-lumo-styles';
 import '@conversionxl/cxl-ui/src/components/cxl-dashboard-header.js';
 import statsData from '../cxl-stats/theme=cxl-dashboard-header.data.json';
 import '../../../cxl-ui/src/components/cxl-stats';
+import notificationData from '../cxl-dashboard-notification/cxl-dashboard-notification.data.json';
 
 export default {
   title: 'CXL UI/cxl-dashboard-header',
@@ -14,6 +15,7 @@ const Template = (header) => html`
     theme="cxl-dashboard-header"
     name=${header.name}
     notification-count=${header.notificationCount}
+    .notificationData=${notificationData}
     last-course-title=${header.lastCourseTitle}
     last-course-link=${header.lastCourseLink}
     progress=${header.progress}
