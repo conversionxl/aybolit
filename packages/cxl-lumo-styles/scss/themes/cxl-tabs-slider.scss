@@ -15,9 +15,14 @@
   font-size: var(--lumo-icon-size-l);
   background-color: var(--lumo-tint);
   box-shadow: var(--lumo-box-shadow-s);
+  transition: box-shadow 0.3s;
 
   &:hover {
     color: var(--lumo-primary-color);
+    cursor: pointer;
+    box-shadow: var(--lumo-box-shadow-m);
+    transition: box-shadow 0.3s;
+    transform: scale(1.05);
   }
 }
 
@@ -67,8 +72,8 @@
   [part="tabs"] {
     padding-top: var(--cxl-space-sm);
     margin: 0;
-    overflow-y: hidden;
     overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
 

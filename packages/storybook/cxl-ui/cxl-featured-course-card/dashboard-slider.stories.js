@@ -29,11 +29,15 @@ const args3 = {
 
 const Template = () => html`
   <cxl-tabs-slider theme="minimal cxl-featured-course-slider">
-    <vaadin-tab theme="cxl-featured-course-slider"
+    <vaadin-tab disabled theme="cxl-featured-course-slider"
       >${CXLFeatureadCourseCard(CXLFeatureadCourseCard.args)}</vaadin-tab
     >
-    <vaadin-tab theme="cxl-featured-course-slider">${CXLFeatureadCourseCard(args2)}</vaadin-tab>
-    <vaadin-tab theme="cxl-featured-course-slider">${CXLFeatureadCourseCard(args3)}</vaadin-tab>
+    <vaadin-tab disabled theme="cxl-featured-course-slider"
+      >${CXLFeatureadCourseCard(args2)}</vaadin-tab
+    >
+    <vaadin-tab disabled theme="cxl-featured-course-slider"
+      >${CXLFeatureadCourseCard(args3)}</vaadin-tab
+    >
   </cxl-tabs-slider>
 `;
 
