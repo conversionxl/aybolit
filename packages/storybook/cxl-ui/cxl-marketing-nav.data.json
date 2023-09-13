@@ -34,22 +34,20 @@
       "component": "a",
       "href": "https:\/\/conversionxl.com\/institute\/dashboard\/",
       "id": 35,
-      "parent": 0,
       "children": [
         {
           "depth": 1,
           "text": "See my roadmap",
           "component": "a",
           "href": "https:\/\/conversionxl.com\/institute\/dashboard\/roadmap\/",
-          "id": 43,
-          "parent": 35
+          "id": 351
         },
         {
           "depth": 1,
           "text": "Edit my roadmap",
           "component": "a",
           "href": "https:\/\/conversionxl.com\/institute\/roadmap\/individual\/",
-          "id": 44,
+          "id": 352,
           "parent": 35
         },
         {
@@ -57,7 +55,7 @@
           "text": "Edit team roadmap",
           "component": "a",
           "href": "https:\/\/conversionxl.com\/institute\/roadmap\/team\/",
-          "id": 45,
+          "id": 353,
           "parent": 35
         },
         {
@@ -65,50 +63,177 @@
           "text": "See team progress",
           "component": "a",
           "href": "https:\/\/conversionxl.com\/institute\/dashboard\/team\/",
-          "id": 46,
+          "id": 354,
           "parent": 35
         }
       ]
     },
     {
       "depth": 0,
-      "text": "Minidegrees <vaadin-icon icon=\"lumo:dropdown\"><\/vaadin-icon>",
+      "text": "Training <vaadin-icon icon=\"lumo:dropdown\"><\/vaadin-icon>",
       "component": "a",
-      "href": "https:\/\/conversionxl.com\/institute\/online-courses\/?_categories=minidegree-programs",
+      "href": "#",
       "id": 36,
       "parent": 0,
       "children": [
         {
           "depth": 1,
-          "text": "Conversion optimization",
-          "component": "a",
-          "href": "https:\/\/conversionxl.com\/institute\/certificate\/cxl-conversion-optimization\/",
-          "id": 47,
-          "parent": 36
+          "text": "Deep skills",
+          "description": "Core fundamentals of marketing",
+          "id": 361,
+          "parent": 36,
+          "sectionheader": true
         },
         {
           "depth": 1,
-          "text": "Digital psychology and persuasion",
-          "component": "a",
-          "href": "https:\/\/conversionxl.com\/institute\/certificate\/cxl-psychology-persuasion\/",
-          "id": 48,
-          "parent": 36
+          "text": "Conversion optimization",
+          "id": 362,
+          "parent": 36,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Brands marketing certificate",
+              "description": "Lorem ipsum dolor sit amet",
+              "component": "a",
+              "href": "#",
+              "parent": 362
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Audience building",
+              "component": "a",
+              "href": "#",
+              "parent": 362
+            },
+            {
+              "depth": 2,
+              "text": "Brand strategy",
+              "component": "a",
+              "href": "#",
+              "parent": 362
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Digital analytics",
+          "id": 363,
+          "parent": 36,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Lorem ipsum",
+              "description": "Lorem ipsum dolor sit amet",
+              "component": "a",
+              "href": "#",
+              "parent": 363
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Digital Audience building",
+              "component": "a",
+              "href": "#",
+              "parent": 363
+            },
+            {
+              "depth": 2,
+              "text": "Digital Brand strategy",
+              "component": "a",
+              "href": "#",
+              "parent": 363
+            }
+          ]
         },
         {
           "depth": 1,
           "text": "Growth marketing",
           "component": "a",
-          "href": "https:\/\/conversionxl.com\/institute\/certificate\/cxl-growth-marketing\/",
-          "id": 49,
-          "parent": 36
+          "href": "#",
+          "id": 364,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "component": "hr"
         },
         {
           "depth": 1,
-          "text": "Digital analytics",
+          "text": "Broad skills",
           "component": "a",
-          "href": "https:\/\/conversionxl.com\/institute\/certificate\/cxl-digital-analytics\/",
-          "id": 50,
-          "parent": 36
+          "href": "#",
+          "description": "Supporting knowledge base for wider success",
+          "id": 365,
+          "parent": 36,
+          "sectionheader": true
+        },
+        {
+          "depth": 1,
+          "text": "Brand marketing",
+          "component": "a",
+          "href": "#",
+          "id": 366,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Digital marketing",
+          "component": "a",
+          "href": "#",
+          "id": 367,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Digital psychology and persuasion",
+          "component": "a",
+          "href": "#",
+          "id": 368,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Ecommerce marketing",
+          "component": "a",
+          "href": "#",
+          "id": 369,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Product marketing",
+          "component": "a",
+          "href": "#",
+          "id": 370,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Technical content marketing",
+          "component": "a",
+          "href": "#",
+          "id": 371,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Technical marketing",
+          "component": "a",
+          "href": "#",
+          "id": 372,
+          "parent": 36,
+          "children": []
         }
       ]
     },

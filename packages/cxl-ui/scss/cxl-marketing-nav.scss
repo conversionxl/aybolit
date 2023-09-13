@@ -15,7 +15,7 @@
   bottom: 0;
   position: fixed;
 }
- */
+*/
 
 /**
  * Menu bar containers configuration.
@@ -39,12 +39,17 @@
 #menu-shadow-items,
 ::slotted(#menu-global-items) {
   background-color: var(--lumo-base-color);
+
+  :host([wide]) & {
+    height: 44px;
+    background-color: var(--lumo-shade);
+  }
 }
 
 // Light on dark.
 ::slotted(#menu-primary-items) {
   --lumo-tertiary-text-color: var(--lumo-base-color);
-  background-color: var(--lumo-shade);
+  background-color: var(--lumo-base-color);
 }
 
 /**
