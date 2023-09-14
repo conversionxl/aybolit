@@ -340,10 +340,6 @@ cxl-vaadin-accordion {
       color: var(--cxl-color-black-50pct);
     }
 
-    .section-4 {
-      padding-left: var(--lumo-space-xl);
-    }
-
     cxl-tabs-slider {
       padding: var(--lumo-space-s) 0;
     }
@@ -366,6 +362,12 @@ cxl-vaadin-accordion {
       padding-top: var(--lumo-space-m);
       margin-top: var(--lumo-space-m);
       border-top: solid 1px var(--cxl-color-light-gray);
+    }
+
+    @media #{mq.$medium} {
+      .section-4 {
+        padding-left: var(--lumo-space-xl);
+      }
     }
   }
 }
