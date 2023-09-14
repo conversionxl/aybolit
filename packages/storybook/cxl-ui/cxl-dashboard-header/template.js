@@ -3,14 +3,10 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@conversionxl/cxl-lumo-styles';
 import '@conversionxl/cxl-ui/src/components/cxl-dashboard-header.js';
 import statsData from '../cxl-stats/theme=cxl-dashboard-header.data.json';
-import '../../../cxl-ui/src/components/cxl-stats';
+import '@conversionxl/cxl-ui/src/components/cxl-stats';
 import notificationData from '../cxl-dashboard-notification/cxl-dashboard-notification.data.json';
 
-export default {
-  title: 'CXL UI/cxl-dashboard-header',
-};
-
-const Template = (header) => html`
+export const DashboardHeaderTemplate = (header) => html`
   <cxl-dashboard-header
     theme="cxl-dashboard-header"
     name=${header.name}
@@ -71,9 +67,7 @@ const Template = (header) => html`
   </cxl-dashboard-header>
 `;
 
-export const CXLDashboardHeader = Template.bind({});
-
-CXLDashboardHeader.argTypes = {
+export const ArgTypes = {
   name: { control: 'text' },
   lastCourseTitle: { control: 'text' },
   lastCourseLink: { control: 'text' },
@@ -88,21 +82,4 @@ CXLDashboardHeader.argTypes = {
   cta1Link: { control: 'text' },
   cta2Link: { control: 'text' },
   cta3Link: { control: 'text' },
-};
-
-CXLDashboardHeader.args = {
-  name: 'Mathias Z',
-  lastCourseTitle: 'Advanced experimentation analysis',
-  lastCourseLink: 'https://cxl.com',
-  hasRoadmap: true,
-  notificationCount: '6',
-  progress: '0.34',
-  lessonsCompleted: '2',
-  lessonsTotal: '6',
-  cta1: 'Browse all courses',
-  cta2: 'Browse fast skills',
-  cta3: 'Create your personal learning roadmap',
-  cta1Link: 'https://cxl.com',
-  cta2Link: 'https://cxl.com',
-  cta3Link: 'https://cxl.com',
 };
