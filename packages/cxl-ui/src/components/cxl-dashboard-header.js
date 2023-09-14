@@ -53,25 +53,27 @@ export class CXLDashboardHeaderElement extends LitElement {
   @property({ type: Boolean }) hasRoadmap = false;
 
   renderLastCourse() {
-    return this.hasRoadmap
-      ? html` <div class="last-course">
-          <a href="${this.lastCourseLink}">
-            <div>
-              <span class="subtitle">${this.lastCourseSubtitle}</span>
-              <span class="title">${this.lastCourseTitle}</span>
+    return this.hasRoadmap && this.lastCourseTitle
+      ? html`
+          <div class="last-course">
+            <a href="${this.lastCourseLink}">
+              <div>
+                <span class="subtitle">${this.lastCourseSubtitle}</span>
+                <span class="title">${this.lastCourseTitle}</span>
+              </div>
+              <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
+            </a>
+            <div class="progress">
+              <span class="progress-title"
+                >Completed ${this.lessonsCompleted} of ${this.lessonsTotal} lessons</span
+              >
+              <vaadin-progress-bar value="${this.progress}"
+                >Completed ${this.lessonsCompleted} of ${this.lessonsTotal}
+                lessons</vaadin-progress-bar
+              >
             </div>
-            <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-          </a>
-          <div class="progress">
-            <span class="progress-title"
-              >Completed ${this.lessonsCompleted} of ${this.lessonsTotal} lessons</span
-            >
-            <vaadin-progress-bar value="${this.progress}"
-              >Completed ${this.lessonsCompleted} of ${this.lessonsTotal}
-              lessons</vaadin-progress-bar
-            >
           </div>
-        </div>`
+        `
       : nothing;
   }
 

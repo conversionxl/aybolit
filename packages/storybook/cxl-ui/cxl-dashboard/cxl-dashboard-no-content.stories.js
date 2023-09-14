@@ -3,7 +3,7 @@ import { text } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
-import { CXLDashboardHeader } from '../cxl-dashboard-header/template.stories';
+import { CXLDashboardHeader } from '../cxl-dashboard-header/dashboard-header.stories';
 import { CXLFeatureadCourseCard } from '../cxl-featured-course-card/default.stories';
 import { DashboardSlider } from '../cxl-featured-course-card/dashboard-slider.stories';
 import { CXLStats } from '../cxl-stats/default.stories';
