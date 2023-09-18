@@ -5,20 +5,8 @@
   height: 345px;
 }
 
-:host([theme~="dark"]) {
-  background-color: var(--lumo-contrast);
-}
-
-:host([theme~="video"]) {
-  background-color: var(--video-background);
-}
-
-:host([theme~="training"]) {
-  background-color: var(--training-background);
-}
-
-:host([theme~="playbook"]) {
-  background-color: var(--playbook-background);
+:host(:hover) {
+  box-shadow: var(--lumo-box-shadow-s);
 }
 
 header .name {
