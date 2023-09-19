@@ -20,19 +20,28 @@ export const CXLVaadinAccordionThemeCategory = () => html`
           <div class="entry-summary summary" itemprop="description">
             ${el.sections.map(
               (section) => html`
-                <div class="summary-header">
-                  <h5>${section.title}</h5>
-                  <vaadin-progress-bar value="${section.progress}"></vaadin-progress-bar>
-                  <a href="">${section.action}</a>
+                <div class="section-2">
+                  <div class="header-2">
+                    <h5 class="title-2">${section.title}</h5>
+                    <vaadin-progress-bar value="${section.progress}"></vaadin-progress-bar>
+                    <a href="${section.action}">View all</a>
+                  </div>
+                  ${section.sections.map(
+                    (item) => html`
+                      <div class="section-3">
+                        <h6 class="title-3">${item.title}</h6>
+                        ${item.sections.map(
+                          (section) => html`
+                          <div class="section-4">
+                            <h6 class="title-4">${section.title}</h6>
+                            ${CXLLightCardSlider(CXLLightCardSlider.args)}
+                          </div>
+                          `
+                        )}
+                      </div>
+                    `
+                  )}
                 </div>
-                ${section.items.map(
-                  (item) => html`
-                    <div class="summary-cards">
-                      <h6>${item.title}</h6>
-                      ${CXLLightCardSlider(CXLLightCardSlider.args)}
-                    </div>
-                  `
-                )}
               `
             )}
           </div>

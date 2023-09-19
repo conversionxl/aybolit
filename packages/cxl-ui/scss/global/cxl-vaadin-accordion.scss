@@ -302,38 +302,71 @@ cxl-vaadin-accordion {
       }
     }
 
-    .summary-header {
+    .header-2 {
       display: flex;
       align-items: center;
+      padding: var(--lumo-space-s) 0;
 
-      &:not(:first-of-type) {
-        padding-top: var(--lumo-space-l);
-        margin-top: var(--lumo-space-l);
-        border-top: 1px solid var(--cxl-color-light-gray);
-      }
-
-      h5 {
-        margin: 0;
-        font-size: var(--lumo-font-size-m);
+      a {
+        margin-left: auto;
       }
 
       vaadin-progress-bar {
         width: 100px;
         margin-left: var(--lumo-space-m);
       }
-
-      a {
-        margin-left: auto;
-      }
     }
 
-    .summary-cards {
-      h6 {
-        margin-bottom: var(--lumo-space-s);
-        font-size: var(--lumo-font-size-xs);
-        font-weight: 400;
-        line-height: 2;
-        opacity: 50%;
+    .title-2,
+    .title-3,
+    .title-4 {
+      margin: 0;
+    }
+
+    .title-2 {
+      font-size: var(--lumo-font-size-m);
+    }
+
+    .title-3 {
+      padding: var(--lumo-space-s) 0;
+      font-size: var(--lumo-font-size-xs);
+      font-weight: 600;
+    }
+
+    .title-4 {
+      padding: var(--lumo-space-s) 0;
+      font-size: var(--lumo-font-size-xs);
+      font-weight: 400;
+      color: var(--cxl-color-black-50pct);
+    }
+
+    cxl-tabs-slider {
+      padding: var(--lumo-space-s) 0;
+    }
+
+    .section-2:not(.has-cards):not(:first-of-type) {
+      padding-top: var(--lumo-space-m);
+      margin-top: var(--lumo-space-m);
+      border-top: 1px solid var(--cxl-color-light-gray);
+    }
+
+    .section-2.has-cards:not(:last-of-type),
+    .section-3:not(:last-of-type) {
+      padding-bottom: var(--lumo-space-m);
+      margin-bottom: var(--lumo-space-m);
+      border-bottom: solid 1px var(--cxl-color-light-gray);
+    }
+
+    .section-2.has-cards > .section-3:not(.section-3 ~ .section-3),
+    .section-3.has-cards .section-4:first-of-type {
+      padding-top: var(--lumo-space-m);
+      margin-top: var(--lumo-space-m);
+      border-top: solid 1px var(--cxl-color-light-gray);
+    }
+
+    @media #{mq.$medium} {
+      .section-4 {
+        padding-left: var(--lumo-space-xl);
       }
     }
   }

@@ -61,8 +61,8 @@
   &::before,
   &::after {
     position: absolute;
-    top: calc(var(--lumo-space-m) * -1);
-    bottom: calc(var(--lumo-space-m) * -1);
+    top: 0;
+    bottom: 0;
     width: 68px;
     content: "";
     background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
