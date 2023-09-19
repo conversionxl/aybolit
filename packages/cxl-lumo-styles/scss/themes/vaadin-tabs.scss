@@ -96,6 +96,7 @@ $vaadin-tab-horizontal-padding: 0.75rem;
 
   [part="back-button"],
   [part="forward-button"] {
+    top: calc(50% - 2 * var(--lumo-space-xl));
     width: var(--lumo-size-s);
     height: var(--lumo-size-s);
     color: var(--lumo-primary-color);
@@ -106,6 +107,7 @@ $vaadin-tab-horizontal-padding: 0.75rem;
     }
 
     @media #{mq.$medium} {
+      top: unset;
       width: var(--lumo-space-xl);
       height: var(--lumo-space-xl);
 
@@ -115,14 +117,12 @@ $vaadin-tab-horizontal-padding: 0.75rem;
     }
   }
 
-  @media #{mq.$medium} {
-    [part="back-button"] {
-      margin-left: var(--lumo-space-s);
-    }
+  [part="back-button"] {
+    margin-left: var(--lumo-space-s);
+  }
 
-    [part="forward-button"] {
-      margin-right: var(--lumo-space-s);
-    }
+  [part="forward-button"] {
+    margin-right: var(--lumo-space-s);
   }
 
   ::slotted(vaadin-tab) {

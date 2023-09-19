@@ -126,7 +126,7 @@
 
     .content {
       @include mixins.ellipsis-for-lines(5);
-      padding-bottom: var(--lumo-space-s);
+      margin-bottom: var(--lumo-space-s);
     }
 
     .cta {
