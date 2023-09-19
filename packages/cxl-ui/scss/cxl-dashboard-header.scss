@@ -22,6 +22,14 @@
       padding-top: var(--lumo-size-s);
     }
 
+    .titles {
+      padding-top: var(--lumo-size-s);
+
+      @media #{mq.$medium} {
+        padding-top: 0;
+      }
+    }
+
     .subtitle {
       font-size: var(--lumo-font-size-xs);
       line-height: 1;
@@ -30,8 +38,6 @@
     }
 
     .updates {
-      padding-bottom: var(--lumo-size-s);
-
       @media #{mq.$medium} {
         order: 2;
         padding-bottom: 0;
