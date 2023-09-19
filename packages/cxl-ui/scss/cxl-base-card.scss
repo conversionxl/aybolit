@@ -54,6 +54,38 @@
   margin-bottom: unset;
 }
 
+:host([theme~="video"]) {
+  background-color: var(--video-background);
+}
+
+:host([theme~="training"]) {
+  background-color: var(--training-background);
+}
+
+:host([theme~="playbook"]) {
+  background-color: var(--playbook-background);
+}
+
+:host([theme~="minidegree"]),
+:host([theme~="category"]) {
+  color: var(--lumo-tint);
+  background-color: var(--lumo-contrast);
+
+  .attributes {
+    color: var(--lumo-tint);
+  }
+}
+
+:host([theme~="lesson"]),
+:host([theme~="course"]) {
+  background-color: var(--lumo-tint);
+}
+
+:host([theme~="exam"]) {
+  background-color: var(--lumo-primary-color-10pct);
+  border-color: var(--lumo-primary-color);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -80,7 +112,8 @@
   align-self: stretch;
   padding: var(--lumo-space-s) 0;
   gap: var(--lumo-space-m);
-  color: var(--lumo-shade-60pct);
+  color: var(--lumo-shade);
+  opacity: 0.6;
 }
 
 header {
@@ -113,7 +146,6 @@ header {
       font-style: normal;
       font-weight: 700;
       line-height: var(--lumo-line-height-xs);
-      color: #1a1a1a;
     }
 
     .attributes {

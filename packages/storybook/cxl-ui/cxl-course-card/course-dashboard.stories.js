@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import '@conversionxl/cxl-ui/src/components/cxl-course-card.js';
 import '@conversionxl/cxl-lumo-styles';
-import { CXLCourseCard } from './[theme=course].stories.js';
+import { CXLCourseCard } from './[theme=course|lesson].stories.js';
 import { CXLCourseCardVideo } from './[theme=video].stories.js';
 import { CXLCourseCardPlaybook } from './[theme=playbook].stories.js';
 import { CXLCourseCardTraining } from './[theme=training].stories.js';
@@ -15,8 +15,7 @@ const Template = () => html`
   ${sectionStyles}
 
   <section>
-    ${CXLCourseCard(CXLCourseCard.args)}
-    ${CXLCourseCardPlaybook(CXLCourseCardPlaybook.args)}
+    ${CXLCourseCard(CXLCourseCard.args)} ${CXLCourseCardPlaybook(CXLCourseCardPlaybook.args)}
     ${CXLCourseCardTraining(CXLCourseCardTraining.args)}
     ${CXLCourseCardVideo(CXLCourseCardVideo.args)}
   </section>

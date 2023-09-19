@@ -48,8 +48,6 @@
 }
 
 :host([theme~="minidegree"]) {
-  background-color: var(--lumo-contrast);
-
   .name {
     color: var(--lumo-primary-contrast-color);
   }

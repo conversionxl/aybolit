@@ -55,25 +55,21 @@ export class CXLBaseCardElement extends LitElement {
   }
 
   _renderHeaderName() {
-    return html`
-      <div class="name" title=${this.name}>
-        ${this.theme === 'minidegree'
-          ? html`<span class="label">${this.theme}</span>`
-          : nothing}
-          <span>${unsafeHTML(this.name)}${this.completed
-          ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>`
-          : nothing}
-      </div>
-    `;
+    return html`<div class="name">${unsafeHTML(this.name)}</div>`;
   }
 
   _renderHeaderAttributes() {
     return html`
-      ${this.time || this.instructor ?
-        html`<div class="attributes">
-          ${this.time ? html`<cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>` : nothing }
-          ${this.instructor ? html`<div class="instructor">By: ${this.instructor}</div>` : nothing }
-        </div>` : nothing }
+      ${this.time || this.instructor
+        ? html`<div class="attributes">
+            ${this.time
+              ? html`<cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>`
+              : nothing}
+            ${this.instructor
+              ? html`<div class="instructor">By: ${this.instructor}</div>`
+              : nothing}
+          </div>`
+        : nothing}
     `;
   }
 
@@ -94,7 +90,7 @@ export class CXLBaseCardElement extends LitElement {
           ${this.showTags ? this._renderHeaderTags() : ''} ${this._renderHeaderName()}
           ${this._renderHeaderAttributes()}
         </div>
-        ${this.avatar ? html`<div class="instructor-image">${this._renderAvatar()}</div>` : nothing }
+        ${this.avatar ? html`<div class="instructor-image">${this._renderAvatar()}</div>` : nothing}
       </header>
       ${this._renderHeaderAttributes()}
     `;
