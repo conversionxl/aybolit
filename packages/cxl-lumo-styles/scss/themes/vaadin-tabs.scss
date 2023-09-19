@@ -85,8 +85,6 @@ $vaadin-tab-horizontal-padding: 0.75rem;
     ::slotted(*) {
       scroll-snap-align: start;
       scroll-snap-stop: always;
-      /* stylelint-disable-next-line declaration-no-important */
-      pointer-events: all !important;
     }
 
     &::-webkit-scrollbar {

@@ -37,8 +37,9 @@ export class CXLFeaturedCourseCardElement extends CXLBaseCardElement {
           <vaadin-button
             class="cta"
             theme="tertiary"
-            @click=${() => {
-              location.assign(this.ctaUrl);
+            @click=${(e) => {
+              e.stopImmediatePropagation();
+              this._goToLink(this.ctaUrl);
             }}
           >
             ${this.ctaLabel}
