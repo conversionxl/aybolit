@@ -95,4 +95,11 @@ export class CXLBaseCardElement extends LitElement {
       ${this._renderHeaderAttributes()}
     `;
   }
+
+  // eslint-disable-next-line class-methods-use-this
+  _goToLink(href) {
+    if (href) {
+      location.assign(href);
+    }
+  }
 }

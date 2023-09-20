@@ -39,7 +39,7 @@ CXLFeatureadCourseCard.args = {
   description:
     "GA4 is packed with new capabilities that help you improve acquisition, engagement, revenue, and retention for your website.<br>In five hours, we'll have you confident, capable, and armed with new insights into your business and your website. <strong>This course pays back for you real quick.</strong>",
   tags: ['Marketing', 'Analytics'],
-  ctaUrl: 'https://cxl.com',
+  ctaUrl: '',
   avatar:
     'https://cxl.com/institute/wp-content/uploads/2020/04/fred-pike-instructor-headshot-1x1-color-bw-min-1024x1024.png',
 };
