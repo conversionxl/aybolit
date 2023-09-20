@@ -177,12 +177,12 @@ header {
 
   .instructor-image {
     width: 80px;
-    height: 92px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 100px;
 
     img {
       height: 80px;
-      overflow: hidden;
-      border-radius: 100px;
     }
   }
 }
