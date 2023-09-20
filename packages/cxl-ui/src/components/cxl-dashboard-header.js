@@ -98,7 +98,7 @@ export class CXLDashboardHeaderElement extends LitElement {
                 ></cxl-dashboard-notification>
               </div>`
             : ''}
-          <div>
+          <div class="titles">
             <span class="subtitle">${this.subtitle}</span>
             <h1 class="title">${this.title} ${this.name}.</h1>
           </div>
