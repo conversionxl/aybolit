@@ -12,16 +12,50 @@
  */
 :host([orientation="horizontal"][theme~="cxl-marketing-nav"]) {
   justify-content: center;
+
+  [part="forward-button"],
+  [part="back-button"] {
+    color: var(--lumo-primary-color);
+  }
+
+  // Allow scrolling and snap to tabs one by one
+  [part="tabs"] {
+    @include mixins.wrap();
+
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    ::slotted(*) {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  ::slotted(vaadin-tab:first-of-type) {
+    margin-inline-start: calc(var(--lumo-space-m) - var(--lumo-space-xs));
+
+    @media #{mq.$small} {
+      margin-inline-start: calc(var(--lumo-space-l) - var(--lumo-space-xs));
+      scroll-margin-inline-start: calc(var(--lumo-space-xl) + var(--lumo-space-l));
+    }
+  }
 }
 
 // Override `justify-content: center`.
 // @todo upstream `forward-button` has `right: 0`, but nothing for this. Bug?
 :host([orientation="horizontal"][theme~="cxl-marketing-nav"]) [part="back-button"] {
   left: 0;
-}
-
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) [part="tabs"] {
-  @include mixins.wrap();
 }
 
 /**
@@ -65,77 +99,6 @@ $vaadin-tab-horizontal-padding: 0.75rem;
 :host([theme~="cxl-marketing-nav"]#menu-shadow-items) ::slotted(.menu-item-search) {
   margin-right: auto;
   margin-left: auto;
-}
-
-// Featured course slider
-:host([theme~="cxl-featured-course-slider"][orientation="horizontal"]) {
-  background-color: var(--cxl-color-light-gray);
-
-  [part="tabs"] {
-    padding: 0;
-    margin: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-
-    ::slotted(*) {
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-    }
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  [part="back-button"],
-  [part="forward-button"] {
-    top: calc(50% - 2 * var(--lumo-space-xl));
-    width: var(--lumo-size-s);
-    height: var(--lumo-size-s);
-    color: var(--lumo-primary-color);
-    border-radius: 100%;
-
-    &::after {
-      font-size: var(--lumo-font-size-xl);
-    }
-
-    @media #{mq.$medium} {
-      top: unset;
-      width: var(--lumo-space-xl);
-      height: var(--lumo-space-xl);
-
-      &::after {
-        font-size: var(--lumo-font-size-xxl);
-      }
-    }
-  }
-
-  [part="back-button"] {
-    margin-left: var(--lumo-space-s);
-  }
-
-  [part="forward-button"] {
-    margin-right: var(--lumo-space-s);
-  }
-
-  ::slotted(vaadin-tab) {
-    padding: 0 var(--lumo-space-m);
-
-    @media #{mq.$medium} {
-      padding: 0;
-    }
-  }
-
-  ::slotted(vaadin-tab:not(:first-child)) {
-    @media #{mq.$medium} {
-      padding-left: var(--lumo-size-xl);
-    }
-  }
 }
 
 // Dashboard notifications

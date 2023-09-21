@@ -46,11 +46,11 @@
 }
 
 :host([theme~="cxl-marketing-nav"]) [part="content"] {
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) and (min-height: 768px) {
   :host([theme~="cxl-marketing-nav"]) {
     position: relative;
     top: 0 !important; /* stylelint-disable-line declaration-no-important */
@@ -73,5 +73,9 @@
 
   :host([theme~="cxl-marketing-nav"]) [part="overlay"] {
     box-shadow: none;
+  }
+
+  :host([theme~="cxl-marketing-nav"]) [part="backdrop"] {
+    display: none;
   }
 }

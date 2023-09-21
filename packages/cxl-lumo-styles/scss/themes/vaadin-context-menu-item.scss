@@ -2,6 +2,7 @@
   font-weight: 600;
   color: var(--lumo-body-text-color);
   text-transform: uppercase;
+  background: var(--lumo-shade-10pct);
 
   ::slotted(.vaadin-context-menu-item--description) {
     text-transform: none;
@@ -32,7 +33,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) and (min-height: 768px) {
   :host([theme~="cxl-marketing-nav"].vaadin-menu-item.back-button-menu-item) {
     display: none;
   }
