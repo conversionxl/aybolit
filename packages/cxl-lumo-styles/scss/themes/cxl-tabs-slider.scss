@@ -38,6 +38,85 @@
   }
 }
 
+// Featured course slider and course-slider themes should always snap scroll
+// between cards. can also be set with new attribute "snap-scroll"
+:host([theme~="cxl-featured-course-slider"]),
+:host([theme~="cxl-course-slider"]),
+:host([snap-scroll]) {
+  [part="tabs"] {
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    ::slotted(*) {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      /* stylelint-disable-next-line declaration-no-important */
+      pointer-events: all !important;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// Featured course slider
+:host([theme~="cxl-featured-course-slider"][orientation="horizontal"]) {
+  background-color: var(--cxl-color-light-gray);
+
+  [part="back-button"],
+  [part="forward-button"] {
+    top: calc(50% - 2 * var(--lumo-space-xl));
+    width: var(--lumo-size-s);
+    height: var(--lumo-size-s);
+    color: var(--lumo-primary-color);
+    border-radius: 100%;
+
+    &::after {
+      font-size: var(--lumo-font-size-xl);
+    }
+
+    @media #{mq.$medium} {
+      top: unset;
+      width: var(--lumo-space-xl);
+      height: var(--lumo-space-xl);
+
+      &::after {
+        font-size: var(--lumo-font-size-xxl);
+      }
+    }
+  }
+
+  [part="back-button"] {
+    margin-left: var(--lumo-space-s);
+  }
+
+  [part="forward-button"] {
+    margin-right: var(--lumo-space-s);
+  }
+
+  ::slotted(vaadin-tab) {
+    padding: 0 var(--lumo-space-m);
+
+    @media #{mq.$medium} {
+      padding: 0;
+    }
+  }
+
+  ::slotted(vaadin-tab:not(:first-child)) {
+    @media #{mq.$medium} {
+      padding-left: var(--lumo-size-xl);
+    }
+  }
+}
+
 /**
   * Theme "cxl-course-slider"
 */
@@ -48,6 +127,7 @@
   ::slotted(vaadin-tab) {
     padding: 0 calc(var(--lumo-space-s) / 2) calc(var(--lumo-space-s) / 2);
     overflow: visible;
+    scroll-margin-inline-start: var(--lumo-space-xl);
   }
 
   ::slotted(vaadin-tab:first-of-type) {
@@ -55,6 +135,7 @@
 
     @media #{mq.$small} {
       margin-inline-start: calc(var(--lumo-space-l) - var(--lumo-space-xs));
+      scroll-margin-inline-start: var(--lumo-space-l);
     }
   }
 
@@ -71,15 +152,7 @@
 
   [part="tabs"] {
     padding-top: var(--cxl-space-sm);
-    margin: 0;
-    overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 
   [part="back-button"],
