@@ -528,6 +528,39 @@
         },
         {
           "depth": 1,
+          "text": "Long item names ",
+          "href": "#",
+          "id": 0,
+          "parent": 0,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Ut enim aeque doleamus animo, cum corpore dolemus",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Ullus investigandi veri, nisi inveneris, et quaerendi defatigatio turpis est",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            }
+          ]
+        },
+        {
+          "depth": 1,
           "text": "Parent length > Child length",
           "href": "#",
           "id": 0,
