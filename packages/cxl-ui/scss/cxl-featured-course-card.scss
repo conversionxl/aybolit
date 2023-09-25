@@ -2,153 +2,112 @@
 @use "~@conversionxl/cxl-ui/scss/mixins";
 
 :host {
-  position: relative;
+  display: none;
   max-width: unset;
-  height: auto;
-  padding: 0;
-  border: 0;
-  box-shadow: none;
+  height: unset;
+  max-height: 100vh;
+  overflow: hidden;
+  background-color: var(--cxl-color-light-gray);
+  border: none;
+  border-radius: 0;
+  /* stylelint-disable declaration-no-important */
+  box-shadow: none !important;
 
-  .container {
-    position: relative;
-    display: block;
-    height: 100%;
-    padding: 0 var(--lumo-space-m);
-    background-color: var(--cxl-color-light-gray);
-
-    @media #{mq.$medium} {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: min-content auto;
-      gap: 0;
-      padding: var(--lumo-space-l) 0 0 var(--lumo-space-l);
-    }
-
-    > .attributes {
-      display: none;
-      padding: 0;
-    }
-
-    .name strong {
-      color: var(--lumo-primary-color);
-    }
-
-    .info {
-      max-width: unset;
-      gap: var(--lumo-space-s);
-
-      .tags {
-        flex-wrap: wrap;
-        column-gap: var(--lumo-space-s);
-        row-gap: 0;
-      }
-
-      .tag {
-        white-space: nowrap;
-      }
-
-      .attributes {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        grid-row-gap: var(--lumo-space-xs);
-        padding: 0;
-      }
-    }
+  @media #{mq.$small} {
+    display: flex;
+    height: 400px;
   }
 
-  .content-before {
-    position: relative;
-    z-index: 0;
+  @media #{mq.$large} {
+    padding-inline: 124px;
+  }
 
-    .instructor-image {
-      max-height: calc(var(--lumo-space-xl) * 6);
-      object-fit: contain;
+  .container {
+    justify-content: center;
 
-      @media #{mq.$medium} {
-        display: none;
+    .content-wrapper {
+      min-width: 250px;
+      max-width: 600px;
+      height: auto;
+
+      @media #{mq.$small} {
+        width: 50%;
       }
-    }
-
-    .swoosh {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 0;
-      max-height: 100%;
-      margin-top: calc(var(--lumo-space-m) * -2);
-    }
-
-    @media #{mq.$medium} {
-      display: none;
     }
   }
 
   header {
-    position: relative;
-    z-index: 0;
-    display: block;
+    flex-direction: column-reverse;
 
-    @media #{mq.$medium} {
-      position: initial;
-      grid-column: span 7 / span 7;
+    @media #{mq.$small} {
+      flex-direction: row;
+    }
+
+    .info {
+      max-width: unset;
+
+      @media #{mq.$small} {
+        max-width: calc(100% - var(--lumo-space-m) - 80px);
+      }
+    }
+
+    .name {
+      @include mixins.ellipsis-for-lines(3);
     }
 
     .instructor-image {
-      display: none;
+      position: relative;
+      width: auto;
+      height: auto;
+      border-radius: 0;
 
       img {
-        height: 100%;
-        border-radius: 0;
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+      }
+
+      @media #{mq.$small} {
+        position: absolute;
+        top: calc(-1 * var(--lumo-space-m));
+        right: 0;
+        width: auto;
+        max-width: 45%;
+        height: calc(100% + var(--lumo-space-m));
+        overflow: visible;
+        border-radius: unset;
       }
 
       @media #{mq.$medium} {
+        right: var(--lumo-space-m);
+      }
+
+      @media #{mq.$large} {
+        right: 124px;
+      }
+
+      .swoosh {
         position: absolute;
-        top: 0;
-        right: var(--lumo-space-l);
-        display: flex;
-        justify-content: flex-end;
-        width: auto;
-        max-width: 100%;
-        height: 100%;
-        max-height: none;
+        top: 100%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        max-height: 100%;
+        margin-top: calc(var(--lumo-space-m) * -2);
+
+        @media #{mq.$small} {
+          top: 80%;
+        }
+
+        @media #{mq.$medium} {
+          display: none;
+        }
       }
     }
   }
 
-  .content-after {
-    position: relative;
-    z-index: 0;
-    padding-top: var(--lumo-space-s);
-    padding-bottom: var(--lumo-space-m);
-
-    .content {
-      @include mixins.ellipsis-for-lines(5);
-      margin-bottom: var(--lumo-space-s);
-    }
-
-    .cta {
-      font-weight: 600;
-
-      vaadin-icon {
-        width: var(--lumo-icon-size-s);
-        height: var(--lumo-icon-size-s);
-        padding: calc(var(--lumo-space-xs) / 2);
-        margin-left: var(--lumo-space-xs);
-        background: var(--lumo-primary-color-10pct);
-        border-radius: 100%;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    @media #{mq.$medium} {
-      grid-column: span 7 / span 7;
-      padding-top: var(--lumo-space-s);
-    }
+  footer {
+    justify-content: start;
   }
 }

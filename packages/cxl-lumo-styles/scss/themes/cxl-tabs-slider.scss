@@ -68,8 +68,13 @@
 }
 
 // Featured course slider
-:host([theme~="cxl-featured-course-slider"][orientation="horizontal"]) {
+:host([theme~="cxl-featured-course-slider"]) {
+  display: none;
   background-color: var(--cxl-color-light-gray);
+
+  @media (min-width: 568px) and (min-height: 568px) {
+    display: flex;
+  }
 
   [part="back-button"],
   [part="forward-button"] {

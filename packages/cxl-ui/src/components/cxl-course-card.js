@@ -25,6 +25,17 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
     this[`_${name}HasChildren`] = !!children.length;
   }
 
+  _renderCta() {
+    return html`
+      <a href=${this.ctaUrl}>
+        <vaadin-button class="cta" theme="tertiary">
+          ${this.ctaLabel} ${this.theme}
+          <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
+        </vaadin-button>
+      </a>
+    `;
+  }
+
   render() {
     return html`
       <div class="container">
@@ -39,17 +50,7 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
             <div slot="summary">Read more</div>
             <slot name="more" @slotchange=${this._slotHasChildren}></slot>
           </vaadin-details>
-          <vaadin-button
-            class="cta"
-            theme="tertiary"
-            @click=${(e) => {
-              e.stopImmediatePropagation();
-              this._goToLink(this.ctaUrl);
-            }}
-          >
-            ${this.ctaLabel} ${this.theme}
-            <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
-          </vaadin-button>
+          ${this._renderCta()}
         </footer>
         <vaadin-icon class="badge-new" icon="cxl:new"></vaadin-icon>
       </div>

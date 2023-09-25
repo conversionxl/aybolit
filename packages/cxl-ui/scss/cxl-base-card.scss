@@ -10,7 +10,6 @@
   height: max-content;
   padding: var(--lumo-space-m) var(--lumo-space-l);
   font-size: var(--lumo-font-size-s);
-  background: var(--lumo-tint);
   border: 1px solid var(--lumo-contrast-10pct);
   border-radius: var(--lumo-border-radius-l);
   box-shadow: var(--lumo-box-shadow-xs);
@@ -54,20 +53,20 @@
   margin-bottom: unset;
 }
 
-:host([theme~="video"]) {
+:host([theme="video"]) {
   background-color: var(--video-background);
 }
 
-:host([theme~="training"]) {
+:host([theme="training"]) {
   background-color: var(--training-background);
 }
 
-:host([theme~="playbook"]) {
+:host([theme="playbook"]) {
   background-color: var(--playbook-background);
 }
 
-:host([theme~="minidegree"]),
-:host([theme~="category"]) {
+:host([theme="minidegree"]),
+:host([theme="category"]) {
   color: var(--lumo-tint);
   background-color: var(--lumo-contrast);
 
@@ -76,12 +75,12 @@
   }
 }
 
-:host([theme~="lesson"]),
-:host([theme~="course"]) {
+:host([theme="lesson"]),
+:host([theme="course"]) {
   background-color: var(--lumo-tint);
 }
 
-:host([theme~="exam"]) {
+:host([theme="exam"]) {
   background-color: var(--lumo-primary-color-10pct);
   border-color: var(--lumo-primary-color);
 }
