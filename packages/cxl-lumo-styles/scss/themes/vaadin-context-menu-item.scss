@@ -2,7 +2,6 @@
   font-weight: 600;
   color: var(--lumo-body-text-color);
   text-transform: uppercase;
-  background: var(--lumo-shade-10pct);
 
   ::slotted(.vaadin-context-menu-item--description) {
     text-transform: none;
