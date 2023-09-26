@@ -45,13 +45,13 @@ export class CXLMarketingNavElement extends LitElement {
   wide;
 
   // Device Detector media query.
-  _wideMediaQuery = '(min-width: 420px)';
+  _wideMediaQuery = '(min-width: 568px)';
 
   @property({ type: Boolean, reflect: true })
   _phone;
 
   // @see https://github.com/vaadin/web-components/blob/de3db720ec8448a26d2f84d00965a9e369a1c3fb/packages/select/src/vaadin-select.js#L297
-  _phoneMediaQuery = '(max-width: 420px), (max-height: 420px)';
+  _phoneMediaQuery = '(max-width: 568px), (max-height: 568px)';
 
   @property({ type: HTMLElement })
   submenuOverlay = null;
