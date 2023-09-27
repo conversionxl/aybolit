@@ -1,4 +1,6 @@
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
+/* stylelint-disable declaration-no-important  */
+
 @use "~@conversionxl/cxl-ui/scss/mixins";
 
 :host {
@@ -9,14 +11,25 @@
   box-shadow: var(--lumo-box-shadow-s);
 }
 
-header .name {
-  @include mixins.ellipsis-for-lines(3);
+header {
+  .name {
+    @include mixins.ellipsis-for-lines(3);
+  }
+
+  .info {
+    overflow: visible;
+
+    cxl-time,
+    .instructor {
+      white-space: nowrap;
+    }
+  }
 }
 
 .content-wrapper {
+  height: 100%;
   min-height: calc(var(--lumo-line-height-s) * 6); // Six standard line-heights
   line-height: var(--lumo-line-height-s);
-  height: 100%;
 
   .content {
     @include mixins.ellipsis-for-lines(5);
@@ -40,8 +53,8 @@ header .name {
 }
 
 footer {
-  display: flex;
   position: relative;
+  display: flex;
   justify-content: end;
 
   vaadin-details[theme="reverse"] {
