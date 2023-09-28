@@ -67,17 +67,40 @@
   }
 }
 
-// Featured course slider
+/**
+  * Theme "featured-course-slider"
+*/
+
 :host([theme~="cxl-featured-course-slider"][orientation="horizontal"]) {
-  background-color: var(--cxl-color-light-gray);
+  position: relative;
+  background-color: var(--cxl-color-black);
+
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 0;
+    width: 100vw;
+    content: "";
+    background-color: var(--cxl-color-black);
+    transform: translateX(-50%);
+  }
 
   [part="back-button"],
   [part="forward-button"] {
+    display: none;
     top: calc(50% - 2 * var(--lumo-space-xl));
     width: var(--lumo-size-s);
     height: var(--lumo-size-s);
     color: var(--lumo-primary-color);
     border-radius: 100%;
+    border: 1px solid transparent;
+    background-color: var(--lumo-primary-color-20pct);
+
+    &:hover {
+      border-color: var(--lumo-primary-color);
+    }
 
     &::after {
       font-size: var(--lumo-font-size-xl);
@@ -85,6 +108,7 @@
 
     @media #{mq.$medium} {
       top: unset;
+      display: flex;
       width: var(--lumo-space-xl);
       height: var(--lumo-space-xl);
 
@@ -100,14 +124,6 @@
 
   [part="forward-button"] {
     margin-right: var(--lumo-space-s);
-  }
-
-  ::slotted(vaadin-tab) {
-    padding: 0 var(--lumo-space-m);
-
-    @media #{mq.$medium} {
-      padding: 0;
-    }
   }
 
   ::slotted(vaadin-tab:not(:first-child)) {

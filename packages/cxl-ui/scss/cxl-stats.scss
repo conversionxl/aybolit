@@ -22,8 +22,4 @@
   @media #{mq.$medium} {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media #{mq.$large} {
-    background-color: var(--cxl-color-dark-gray);
-  }
 }
