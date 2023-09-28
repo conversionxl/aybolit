@@ -64,7 +64,7 @@ export const sectionStyles = html`
   <style>
     section {
       display: grid;
-      grid: auto-flow / repeat(2, 1fr);
+      grid: auto-flow / repeat(2, calc(50% - var(--lumo-space-l) / 2));
       margin: 60px auto;
       justify-items: center;
       max-width: 900px;
@@ -74,7 +74,7 @@ export const sectionStyles = html`
 
     @media (max-width: 800px) {
       section {
-        grid: auto / 1fr;
+        grid: auto / 100%;
         max-width: 100vw;
         padding: var(--lumo-space-xs);
       }
@@ -85,7 +85,7 @@ export const sectionStyles = html`
         padding: 0;
       }
 
-      section > * {
+      section > cxl-course-card {
         max-width: calc(100vw - 2 * var(--lumo-space-xs) - var(--lumo-space-m));
       }
     }
