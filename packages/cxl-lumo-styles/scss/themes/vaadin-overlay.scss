@@ -50,7 +50,7 @@
   padding-left: 0;
 }
 
-@media screen and (min-width: 768px) and (min-height: 768px) {
+@media (min-width: 768px), (min-height: 768px) {
   :host([theme~="cxl-marketing-nav"]) {
     position: relative;
     top: 0 !important; /* stylelint-disable-line declaration-no-important */
