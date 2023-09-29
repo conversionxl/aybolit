@@ -125,7 +125,8 @@
   margin-top: calc(var(--lumo-space-s) * -1);
 
   ::slotted(vaadin-tab) {
-    padding: 0 calc(var(--lumo-space-s) / 2) calc(var(--lumo-space-s) / 2);
+    width: 267px;
+    padding: 0;
     overflow: visible;
     scroll-margin-inline-start: var(--lumo-space-xl);
   }
@@ -134,7 +135,6 @@
     margin-inline-start: calc(var(--lumo-space-m) - var(--lumo-space-xs));
 
     @media #{mq.$small} {
-      margin-inline-start: calc(var(--lumo-space-l) - var(--lumo-space-xs));
       scroll-margin-inline-start: var(--lumo-space-l);
     }
   }
@@ -151,8 +151,9 @@
   }
 
   [part="tabs"] {
-    padding-top: var(--cxl-space-sm);
+    padding: var(--lumo-space-s);
     overflow-y: hidden;
+    gap: var(--lumo-space-s);
   }
 
   [part="back-button"],

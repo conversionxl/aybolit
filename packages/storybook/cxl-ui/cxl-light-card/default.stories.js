@@ -1,7 +1,6 @@
-import { html, nothing } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@conversionxl/cxl-ui/src/components/cxl-light-card.js';
 import '@conversionxl/cxl-lumo-styles';
+import { Template } from './template.js';
 
 export default {
   title: 'CXL UI/cxl-light-card',
@@ -9,20 +8,6 @@ export default {
     layout: 'centered',
   },
 };
-
-const Template = (card) => html`
-  <cxl-light-card
-    theme="${card.theme}"
-    name="${card.name}"
-    time="${card.time}"
-    instructor="${card.instructor}"
-    avatar="${card.avatar}"
-    .new="${card.new}"
-    .completed="${card.completed}"
-  >
-    ${card.footer ? html` <footer slot="footer">${unsafeHTML(card.footer)}</footer>` : nothing}
-  </cxl-light-card>
-`;
 
 export const CXLLightCard = Template.bind({});
 export const CXLLightCardMinidegree = Template.bind({});
@@ -47,7 +32,6 @@ CXLLightCardMinidegree.args = {
   name: 'Digital analytics',
   time: '43h 00min',
 };
-
 
 CXLLightCardFooter.args = {
   ...CXLLightCard.args,
