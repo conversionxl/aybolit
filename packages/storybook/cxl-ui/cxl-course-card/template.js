@@ -2,15 +2,7 @@
 import { html } from 'lit';
 
 const renderTags = (tags, slot) =>
-  tags.map(
-    (tag, i) =>
-      html`${i > 0 ? html`<span slot=${slot}> | </span>` : ''}<span
-          class="tag"
-          slot=${slot}
-          title="${tag}"
-          >${tag}</span
-        >`
-  );
+  html`<span class="tag" slot=${slot} title="${tags}">${tags}</span>`;
 
 export const CourseCardTemplate = (course) => html`
   <cxl-course-card
@@ -45,7 +37,7 @@ export const args = {
     'Master the strategies, tactics, metrics, and wisdom you need to become an ABM leader and accelerate the growth of your company and of your career.',
   contentTags: 'B2B | campaigns | pilot planning',
   theme: 'course',
-  tags: ['Marketing', 'Analytics'],
+  tags: 'Marketing, Analytics, Growth, Demand Capture',
   avatar:
     'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
   new: false,
@@ -72,7 +64,7 @@ export const sectionStyles = html`
   <style>
     section {
       display: grid;
-      grid: auto-flow / repeat(2, 1fr);
+      grid: auto-flow / repeat(2, calc(50% - var(--lumo-space-l) / 2));
       margin: 60px auto;
       justify-items: center;
       max-width: 900px;
@@ -82,7 +74,7 @@ export const sectionStyles = html`
 
     @media (max-width: 800px) {
       section {
-        grid: auto / 1fr;
+        grid: auto / 100%;
         max-width: 100vw;
         padding: var(--lumo-space-xs);
       }
@@ -93,7 +85,7 @@ export const sectionStyles = html`
         padding: 0;
       }
 
-      section > * {
+      section > cxl-course-card {
         max-width: calc(100vw - 2 * var(--lumo-space-xs) - var(--lumo-space-m));
       }
     }

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { html } from 'lit';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@vaadin/progress-bar';
@@ -31,11 +32,11 @@ export const CXLVaadinAccordionThemeCategory = () => html`
                       <div class="section-3">
                         <h6 class="title-3">${item.title}</h6>
                         ${item.sections.map(
-                          (section) => html`
-                          <div class="section-4">
-                            <h6 class="title-4">${section.title}</h6>
-                            ${CXLLightCardSlider(CXLLightCardSlider.args)}
-                          </div>
+                          (itemSection) => html`
+                            <div class="section-4">
+                              <h6 class="title-4">${itemSection.title}</h6>
+                              ${CXLLightCardSlider(CXLLightCardSlider.args)}
+                            </div>
                           `
                         )}
                       </div>
@@ -51,10 +52,9 @@ export const CXLVaadinAccordionThemeCategory = () => html`
   </cxl-vaadin-accordion>
 `;
 
-
 Object.assign(CXLLightCardSlider, {
   args: {
     numberOfCards: 8,
-    theme: 'cxl-category-accordion'
+    theme: 'cxl-category-accordion',
   },
 });

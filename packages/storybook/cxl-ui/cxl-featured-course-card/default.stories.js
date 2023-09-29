@@ -6,11 +6,7 @@ export default {
   title: 'CXL UI/cxl-featured-course-card',
 };
 
-const renderTags = (tags, slot) =>
-  tags.map(
-    (tag, i) =>
-      html`${i > 0 ? html`<span slot=${slot}> | </span>` : ''}<span slot=${slot}>${tag}</span>`
-  );
+const renderTags = (tags, slot) => tags.map((tag) => html`<span slot=${slot}>${tag}</span>`);
 
 const FeaturedCourseCardTemplate = (course) => html`
   <cxl-featured-course-card
