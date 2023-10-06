@@ -16,6 +16,7 @@
   box-shadow: none;
   border-radius: 0;
   background-color: var(--cxl-color-black);
+  overflow: hidden;
 
   @media #{mq.$large} {
     width: 100%;
@@ -81,7 +82,7 @@
 
     .instructor-image {
       display: block;
-      margin: 0 auto;
+      margin: var(--lumo-space-m) auto 0;
       max-height: calc(var(--lumo-space-xl) * 4);
       object-fit: contain;
 

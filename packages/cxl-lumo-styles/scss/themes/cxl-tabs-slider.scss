@@ -73,7 +73,12 @@
 
 :host([theme~="cxl-featured-course-slider"][orientation="horizontal"]) {
   position: relative;
+  display: none;
   background-color: var(--cxl-color-black);
+
+  @media #{mq.$large} {
+    display: flex;
+  }
 
   &::before {
     position: absolute;
