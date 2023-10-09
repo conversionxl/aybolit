@@ -27,9 +27,3 @@ cxl-stats {
     }
   }
 }
-
-cxl-stats[theme~="cxl-stats-dashboard-header"] {
-  .stat-title {
-    color: var(--lumo-tint-30pct);
-  }
-}

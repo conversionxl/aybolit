@@ -3,18 +3,6 @@ cxl-dashboard-header {
   z-index: 1;
   display: block;
 
-  &::before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    z-index: -1;
-    width: 100vw;
-    content: "";
-    background-color: var(--lumo-shade);
-    transform: translateX(-50%);
-  }
-
   .edit-roadmap {
     display: flex;
     align-items: center;

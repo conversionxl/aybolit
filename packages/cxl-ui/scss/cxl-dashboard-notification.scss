@@ -7,9 +7,9 @@
     justify-content: center;
     height: var(--lumo-space-xl);
     padding: var(--lumo-space-s);
-    margin: 0 calc(-1 * var(--lumo-space-xl));
-    color: var(--lumo-primary-contrast-color);
-    background-color: var(--cxl-color-dark-gray);
+    margin: 0 calc(-1 * var(--lumo-space-m));
+    color: var(--cxl-color-dark-gray);
+    background-color: var(--lumo-primary-contrast-color);
     border-radius: 0;
 
     &::part(label) {

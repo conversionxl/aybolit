@@ -18,12 +18,9 @@
 :host([theme~="cxl-stats-dashboard-header"]) {
   padding: var(--lumo-space-m);
   border: 0;
+  background-color: var(--lumo-primary-contrast-color);
 
   @media #{mq.$medium} {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media #{mq.$large} {
-    background-color: var(--cxl-color-dark-gray);
   }
 }
