@@ -100,7 +100,7 @@ export class CXLDashboardHeaderElement extends LitElement {
             : ''}
           <div class="titles">
             <span class="subtitle">${this.subtitle}</span>
-            <h1 class="title">${this.title} ${this.name}.</h1>
+            <h1 class="title">${this.title}, ${this.name}.</h1>
           </div>
         </header>
         <section class="content">
