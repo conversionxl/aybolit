@@ -19,9 +19,14 @@
       .attributes {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         padding-top: var(--lumo-space-xs);
         padding-bottom: 0;
         gap: var(--lumo-space-xs);
+      }
+
+      cxl-time {
+        margin-left: -3px; // to align with the instructor text
       }
     }
 
@@ -52,8 +57,12 @@
     color: var(--lumo-primary-contrast-color);
   }
 
-  cxl-time,
   .attributes {
+    color: var(--lumo-tint-40pct);
+  }
+
+  cxl-time {
+    margin-left: -3px; // to align with the instructor text
     color: var(--lumo-tint-40pct);
   }
 }
