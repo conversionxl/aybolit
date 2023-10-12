@@ -34,15 +34,16 @@ export class CXLCourseDialogElement extends LitElement {
     });
   }
 
-  renderTags = (tags) => tags.map((tag) => html`<span> | </span><span class="tag" title="${tag}">${tag}</span>`);
-
-  renderContentTags = (tags) => tags.map((tag, i) => html`${i > 0 ? html`<span> | </span>` : ''}<span class="content-tag" title="${tag}">${tag}</span>`);
+  renderTags = (tags) =>
+    tags.map((tag) => html`<span> | </span><span class="tag" title="${tag}">${tag}</span>`);
 
   renderContent = () => html`
     <div class="header">
       <div class="info">
         <div class="tags">
-          <span class="tag">${this.course.theme}</span>${this.course.tags ? this.renderTags(this.course.tags): ''}
+          <span class="tag">${this.course.theme}</span>${this.course.tags
+            ? this.renderTags(this.course.tags)
+            : ''}
           ${this.course.new ? html`<span> | </span><span class="tag new">NEW</span>` : ''}
         </div>
         <vaadin-icon @click="${this.close}" class="icon-close" icon="lumo:cross"></vaadin-icon>
@@ -62,21 +63,19 @@ export class CXLCourseDialogElement extends LitElement {
       </div>
     </div>
     <section>
-      ${this.video ? html`
-        <jw-player
-          ?captions=${this.video.captions}
-          media-id=${this.video.mediaId}
-          minimum-search-length=${this.video.minimumSearchLength}
-          player-id=${this.video.playerId}
-          playlist-id=${this.video.playlistId}
-          plugin-path="${this.video.pluginPath}"
-        ></jw-player>` : ''
-      }
+      ${this.video
+        ? html` <jw-player
+            ?captions=${this.video.captions}
+            media-id=${this.video.mediaId}
+            minimum-search-length=${this.video.minimumSearchLength}
+            player-id=${this.video.playerId}
+            playlist-id=${this.video.playlistId}
+            plugin-path="${this.video.pluginPath}"
+          ></jw-player>`
+        : ''}
       <div class="content">
         <p>${this.course.description}</p>
-        <div class="content-tags">
-          ${this.course.contentTags ? this.renderContentTags(this.course.contentTags): ''}
-        </div>
+        <div class="content-tags"></div>
         <p>${this.course.more}</p>
       </div>
     </section>
@@ -95,7 +94,9 @@ export class CXLCourseDialogElement extends LitElement {
         ${dialogFooterRenderer(
           () => html`
             <vaadin-button theme="secondary" @click="${this.close}">Close</vaadin-button>
-            <vaadin-button theme="primary" @click="${this.close}">Add to training<vaadin-icon class="icon-plus" icon="lumo:plus"></vaadin-icon></vaadin-button>
+            <vaadin-button theme="primary" @click="${this.close}"
+              >Add to training<vaadin-icon class="icon-plus" icon="lumo:plus"></vaadin-icon
+            ></vaadin-button>
           `,
           []
         )}

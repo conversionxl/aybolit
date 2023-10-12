@@ -75,6 +75,20 @@
   .attributes {
     color: var(--lumo-tint);
   }
+
+  .name a {
+    color: var(--lumo-tint);
+  }
+
+  vaadin-button {
+    &:hover {
+      cursor: pointer;
+
+      &::before {
+        opacity: 0.2;
+      }
+    }
+  }
 }
 
 :host([theme~="lesson"]),
@@ -148,6 +162,15 @@ header {
       font-style: normal;
       font-weight: 700;
       line-height: var(--lumo-line-height-xs);
+
+      a {
+        color: var(--lumo-body-text-color);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     .attributes {
@@ -193,6 +216,12 @@ header {
   display: none;
 }
 
+:host([theme~="minidegree"]) {
+  .name a {
+    color: var(--lumo-tint);
+  }
+}
+
 :host([new]) {
   .badge-new {
     position: absolute;
@@ -215,5 +244,14 @@ header {
 vaadin-button {
   &:hover {
     cursor: pointer;
+
+    &::before {
+      opacity: 0.05;
+      transition: opacity 0.3s ease;
+    }
+
+    &::part(label) {
+      text-decoration: underline;
+    }
   }
 }

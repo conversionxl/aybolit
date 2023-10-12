@@ -17,7 +17,6 @@ CXLCourseCardVideo.args = {
   name: 'A/B testing mastery',
   description:
     'Understand testing approaches that work (and pitfalls that don’t) to get more wins and insights from optimization efforts.',
-  contentTags: 'running experiments | customer base studies | prioritization',
   tags: 'CRO',
   time: '4 days ago',
   new: true,

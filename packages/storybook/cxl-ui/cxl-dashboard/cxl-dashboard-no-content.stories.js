@@ -36,7 +36,7 @@ export const CXLDashboardNoContent = () => {
 
   CXLFeatureadCourseCard.args = {
     id: 'cxl-featured-course-1',
-    theme: 'Featured course',
+    theme: 'Featured',
     name: 'Get ahead with <strong>Google Analytics 4</strong>',
     time: '5h 04min',
     instructor: 'Fred Pike',

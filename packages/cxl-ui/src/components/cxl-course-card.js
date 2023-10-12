@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { html } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { customElement, property, state } from 'lit/decorators.js';
 import '@vaadin/details';
 import '@vaadin/button';
@@ -23,6 +24,10 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
     const { name } = slot;
     const children = slot.assignedNodes();
     this[`_${name}HasChildren`] = !!children.length;
+  }
+
+  _renderHeaderName() {
+    return html`<div class="name"><a href=${this.ctaUrl}>${unsafeHTML(this.name)}</a></div>`;
   }
 
   render() {

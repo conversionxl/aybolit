@@ -17,13 +17,7 @@ export const CourseCardTemplate = (course) => html`
     .showTimeIcon=${course.showTimeIcon}
   >
     ${course.tags ? renderTags(course.tags, 'tags') : ''}
-    <p slot="content" title=${course.description + '\n\n' + (course.contentTags || '')}>
-      ${course.description}
-      ${course.contentTags
-        ? html`<br /><br />
-            <em>${course.contentTags}</em>`
-        : ''}
-    </p>
+    <p slot="content" title=${course.description}>${course.description}</p>
     ${course.more ? html`<p slot="more">${course.more}</p>` : ''}
   </cxl-course-card>
 `;
@@ -35,7 +29,6 @@ export const args = {
   instructor: 'Tom Wesseling',
   description:
     'Master the strategies, tactics, metrics, and wisdom you need to become an ABM leader and accelerate the growth of your company and of your career.',
-  contentTags: 'B2B | campaigns | pilot planning',
   theme: 'course',
   tags: 'Marketing, Analytics, Growth, Demand Capture',
   avatar:
