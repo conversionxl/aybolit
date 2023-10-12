@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import cxlAccordionCardStyles from './styles/themes/cxl-accordion-card-css.js';
 import cxlCheckoutDetailsStyles from './styles/themes/cxl-checkout-details-css.js';
@@ -6,6 +7,7 @@ import cxlVaadinAccordionStyles from './styles/themes/vaadin-accordion-css.js';
 import cxlVaadinAccordionPanelStyles from './styles/themes/vaadin-accordion-panel-css.js';
 import cxlVaadinContextMenuItemStyles from './styles/themes/vaadin-context-menu-item-css.js';
 import cxlVaadinContextMenuListBoxStyles from './styles/themes/vaadin-context-menu-list-box-css.js';
+import cxlVaadinMenuBarStyles from './styles/themes/vaadin-menu-bar-css.js';
 import cxlVaadinDetailsStyles from './styles/themes/vaadin-details-css.js';
 import cxlVaadinIconStyles from './styles/themes/vaadin-icon-css.js';
 import cxlVaadinHorizontalLayoutStyles from './styles/themes/vaadin-horizontal-layout-css.js';
@@ -37,6 +39,9 @@ registerStyles('vaadin-context-menu-item', cxlVaadinContextMenuItemStyles, {
 });
 registerStyles('vaadin-context-menu-list-box', cxlVaadinContextMenuListBoxStyles, {
   moduleId: 'cxl-vaadin-context-menu-list-box-styles',
+});
+registerStyles('vaadin-menu-bar', cxlVaadinMenuBarStyles, {
+  moduleId: 'cxl-vaadin-menu-bar-styles',
 });
 registerStyles('vaadin-details', cxlVaadinDetailsStyles, {
   moduleId: 'cxl-vaadin-details-styles',

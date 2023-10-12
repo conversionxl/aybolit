@@ -35,6 +35,7 @@ export { CXLNotificationCardElement } from './components/cxl-notification-card.j
 export { CXLSectionElement } from './components/cxl-section.js';
 export { CXLStatsElement } from './components/cxl-stats.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
+export { CXLNavigationElement } from './components/cxl-navigation.js';
 
 /**
  * Order matters.

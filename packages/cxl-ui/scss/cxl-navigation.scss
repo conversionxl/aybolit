@@ -1,0 +1,75 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  --lumo-clickable-cursor: pointer;
+
+  ::part(menu-bar-button) {
+    color: var(--lumo-shade);
+    margin-inline: var(--lumo-space-s);
+  }
+
+  ::part(overflow-button) {
+    margin-left: auto;
+  }
+
+  nav {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 var(--lumo-space-m);
+
+    &[minimal] {
+      vaadin-menu-bar {
+        max-width: 64px;
+      }
+
+      .container {
+        justify-content: space-between;
+
+        .search-button {
+          width: 140px;
+          color: var(--lumo-shade);
+        }
+      }
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: var(--cxl-content-max-width-wide, none);
+    }
+
+    vaadin-menu-bar {
+      width: 100%;
+    }
+
+    ::part(menu-bar-button),
+    ::slotted(.menu-item),
+    .menu-item {
+      min-width: min-content;
+      white-space: nowrap;
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &#menu-global-items {
+      background-color: var(--lumo-shade);
+
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      ::part(menu-bar-button),
+      ::slotted(.menu-item) {
+        color: var(--lumo-tint);
+      }
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &#menu-primary-items {
+      background-color: var(--lumo-base-color);
+      border-bottom: 1px solid var(--lumo-shade-10pct);
+    }
+  }
+}

@@ -1,0 +1,35 @@
+[part="container"] {
+
+  .menu-item-split-nav {
+    /* stylelint-disable-next-line declaration-no-important */
+    margin-left: auto !important;
+  }
+
+  [part="overflow-button"] {
+    ::before {
+      content: none;
+    }
+
+    vaadin-icon {
+      height: var(--lumo-icon-size-s);
+
+      svg {
+        fill: var(--lumo-shade);
+      }
+
+      &.close-icon {
+        display: none;
+      }
+    }
+
+    &[expanded] {
+      vaadin-icon.close-icon {
+        display: block;
+      } 
+
+      vaadin-icon.menu-icon {
+        display: none;
+      }
+    }
+  }
+}

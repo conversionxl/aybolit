@@ -26,6 +26,7 @@
     "@vaadin/icon": "^23.3.7",
     "@vaadin/notification": "^23.3.7",
     "@vaadin/progress-bar": "^23.3.7",
+    "@vaadin/menu-bar": "^23.3.7",
     "@vaadin/tabs": "^23.3.7",
     "@vaadin/text-field": "^23.3.7",
     "@vaadin/tooltip": "^23.3.7",

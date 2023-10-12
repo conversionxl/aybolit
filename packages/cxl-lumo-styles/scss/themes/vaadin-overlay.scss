@@ -79,3 +79,28 @@
     display: none;
   }
 }
+
+:host([theme~="cxl-navigation"]) {
+  &::part(overlay),
+  &::part(content) {
+    height: calc(100vh - 40px);
+    max-height: calc(100vh - 40px);
+  }
+
+  &::part(backdrop) {
+    display: none;
+  }
+
+  @media (min-width: 568px) and (min-height: 568px) {
+    &::part(overlay),
+    &::part(content) {
+      height: initial;
+      max-height: initial;
+    }
+  }
+
+  &::part(overlay) {
+    box-shadow: 0 0 0 1px var(--lumo-shade-5pct), 0 2px 6px -1px var(--lumo-shade-5pct),
+      0 8px 24px -4px var(--lumo-shade-5pct);
+  }
+}

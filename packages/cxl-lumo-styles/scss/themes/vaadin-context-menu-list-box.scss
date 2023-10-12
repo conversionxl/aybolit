@@ -13,31 +13,26 @@
   }
 }
 
-:host([theme~="cxl-marketing-nav"].vaadin-menu-list-box) {
-  [part="items"] ::slotted(.vaadin-menu-item) {
-    padding-right: var(--lumo-space-m);
-    padding-left: var(--lumo-space-m);
-  }
-
-  [part="items"] ::slotted(.section-header.vaadin-menu-item:not(.section-header):hover:not([disabled])) {
+:host([theme~="cxl-navigation"].vaadin-menu-list-box) {
+  [part="items"]
+    ::slotted(.section-header.vaadin-menu-item:not(.section-header):hover:not([disabled])) {
     /* revert default vaadin-context-menu-list-box hovering style, without losing other styles styles applied */
     background-color: revert-layer;
   }
 
-  [part='items'] ::slotted(.vaadin-menu-item.section-header:hover) {
+  [part="items"] ::slotted(.vaadin-menu-item.section-header:hover) {
     background-color: unset;
   }
-   
 }
 
 @media screen and (min-width: 768px) and (min-height: 768px) {
-  :host([theme~="cxl-marketing-nav"]) {
+  :host([theme~="cxl-markting-nav"]) {
     display: block;
     width: var(--cxl-vaadin-context-menu-item-max-width);
     padding: 0 var(--lumo-space-s);
   }
 }
 
-:host([theme~="cxl-marketing-nav"]) [part="items"] ::slotted(.vaadin-menu-item) {
+:host([theme~="cxl-navigation"]) [part="items"] ::slotted(.vaadin-menu-item) {
   border-radius: 0;
 }
