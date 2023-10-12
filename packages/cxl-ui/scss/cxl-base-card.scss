@@ -156,7 +156,7 @@ header {
     }
 
     .name {
-      @include mixins.ellipsis-for-lines(3);
+      @include mixins.ellipsis-for-lines(2);
       font-family: var(--lumo-font-family);
       font-size: var(--lumo-font-size-xl);
       font-style: normal;
@@ -216,12 +216,6 @@ header {
   display: none;
 }
 
-:host([theme~="minidegree"]) {
-  .name a {
-    color: var(--lumo-tint);
-  }
-}
-
 :host([new]) {
   .badge-new {
     position: absolute;
@@ -248,10 +242,6 @@ vaadin-button {
     &::before {
       opacity: 0.05;
       transition: opacity 0.3s ease;
-    }
-
-    &::part(label) {
-      text-decoration: underline;
     }
   }
 }

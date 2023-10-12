@@ -60,7 +60,7 @@ export const sectionStyles = html`
       grid: auto-flow / repeat(2, calc(50% - var(--lumo-space-l) / 2));
       margin: 60px auto;
       justify-items: center;
-      max-width: 900px;
+      max-width: 843px;
       grid-gap: var(--lumo-space-l);
       padding: var(--lumo-space-l);
     }

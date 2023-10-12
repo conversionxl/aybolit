@@ -4,7 +4,7 @@
 @use "~@conversionxl/cxl-ui/scss/mixins";
 
 :host {
-  height: 345px;
+  height: 280px;
 }
 
 :host(:hover) {
@@ -28,11 +28,12 @@ header {
 
 .content-wrapper {
   height: 100%;
-  min-height: calc(var(--lumo-line-height-s) * 6); // Six standard line-heights
+  min-height: calc(var(--lumo-line-height-s) * 3); // three standard line-heights
   line-height: var(--lumo-line-height-s);
 
   .content {
-    @include mixins.ellipsis-for-lines(5);
+    @include mixins.ellipsis-for-lines(3);
+    min-height: calc(var(--lumo-line-height-s) * 3); // three standard line-heights
 
     ::slotted(p) {
       margin-top: 0 !important;
