@@ -1,70 +1,77 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
 :host {
-  display: flex;
+  --lumo-clickable-cursor: pointer;
 
-  // Stretch children horizontally.
-  flex-direction: column;
-}
-
-:host([hidden]) {
-  display: none;
-}
-
-/**
- * @see https://www.smashingmagazine.com/2019/08/bottom-navigation-pattern-mobile-web-pages/
-:host(:not([wide])) {
-  bottom: 0;
-  position: fixed;
-}
-*/
-
-/**
- * Menu bar containers configuration.
- */
-#menu-shadow-items {
-  box-shadow: var(--lumo-box-shadow-xs);
-
-  :host([wide]) & {
-    display: none;
+  ::part(menu-bar-button) {
+    color: var(--lumo-shade);
+    margin-inline: var(--lumo-space-s);
   }
 
-  .menu-item-menu-toggle {
-    &[selected] vaadin-icon:first-child,
-    &:not([selected]) vaadin-icon + vaadin-icon {
-      display: none;
+  ::part(overflow-button) {
+    margin-left: auto;
+  }
+
+  nav {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 var(--lumo-space-m);
+
+    &[minimal] {
+      vaadin-menu-bar {
+        max-width: 64px;
+      }
+
+      .container {
+        justify-content: space-between;
+
+        .search-button {
+          width: 140px;
+          color: var(--lumo-shade);
+        }
+      }
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: var(--cxl-content-max-width-wide, none);
+    }
+
+    vaadin-menu-bar {
+      width: 100%;
+    }
+
+    ::part(menu-bar-button),
+    ::slotted(.menu-item),
+    .menu-item {
+      min-width: min-content;
+      white-space: nowrap;
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &#menu-global-items {
+      background-color: var(--lumo-shade);
+
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      ::part(menu-bar-button),
+      ::slotted(.menu-item) {
+        color: var(--lumo-tint);
+      }
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    &#menu-primary-items {
+      background-color: var(--lumo-base-color);
+      border-bottom: 1px solid var(--lumo-shade-10pct);
     }
   }
-}
-
-// Dark on light.
-#menu-shadow-items,
-::slotted(#menu-global-items) {
-  background-color: var(--lumo-base-color);
-
-  :host([wide]) & {
-    height: 44px;
-    background-color: var(--lumo-shade);
-  }
-}
-
-// Light on dark.
-::slotted(#menu-primary-items) {
-  --lumo-tertiary-text-color: var(--lumo-base-color);
-  background-color: var(--lumo-base-color);
-}
-
-/**
- * Shadow menu toggle logic.
- *
- * @todo Magic "selected" number is fragile, depends on menu item count.
- *       But might survive living in controlled shadow.
- */
-$menu-item-menu-toggle-index: 2;
-
-:host(:not([wide]))
-  #menu-shadow-items:not([selected="#{$menu-item-menu-toggle-index}"])
-  + nav
-  > ::slotted(.menu-items) {
-  display: none;
 }
 
 /**
@@ -82,6 +89,8 @@ $menu-item-menu-toggle-index: 2;
   position: fixed;
 }
 
-:host(.headroom--not-top[wide]) ::slotted(#menu-global-items) {
-  display: none;
+:host(.headroom--not-top[wide]) {
+  #menu-global-items {
+    display: none;
+  }
 }

@@ -29,13 +29,12 @@ export { CxlDashboardTeamHeaderElement } from './components/cxl-dashboard-team-h
 export { CxlDashboardTeamStatsElement } from './components/cxl-dashboard-team-stats.js';
 export { CXLFeaturedCourseCardElement } from './components/cxl-featured-course-card.js';
 export { CXLLightCardElement } from './components/cxl-light-card.js';
-export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLNotification } from './components/cxl-notification.js';
 export { CXLNotificationCardElement } from './components/cxl-notification-card.js';
 export { CXLSectionElement } from './components/cxl-section.js';
 export { CXLStatsElement } from './components/cxl-stats.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
-export { CXLNavigationElement } from './components/cxl-navigation.js';
+export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 
 /**
  * Order matters.

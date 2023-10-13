@@ -1,20 +1,5 @@
 @use "../mq";
 
-// Perfectly align modal in the center of the screen.
-:host([theme~="cxl-marketing-nav"][phone]) [part="overlay"] {
-  top: 0;
-  bottom: 0;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-// Reduce visual noise below overlay.
-:host([theme~="cxl-marketing-nav"]) [part="backdrop"] {
-  $vaadin-overlay-shade-pct: 20;
-
-  background-color: var(--lumo-shade-#{$vaadin-overlay-shade-pct * 3.5}#{"pct"});
-}
-
 // Theme: cxl-course-dialog
 :host([theme="cxl-course-dialog"]) {
   [part="backdrop"] {
@@ -45,42 +30,7 @@
   }
 }
 
-:host([theme~="cxl-marketing-nav"]) [part="content"] {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-@media (min-width: 768px), (min-height: 768px) and (orientation: landscape) {
-  :host([theme~="cxl-marketing-nav"]) {
-    position: relative;
-    top: 0 !important; /* stylelint-disable-line declaration-no-important */
-    right: 0;
-    bottom: 0;
-    left: 0 !important; /* stylelint-disable-line declaration-no-important */
-    align-items: unset !important; /* stylelint-disable-line declaration-no-important */
-    justify-content: unset !important; /* stylelint-disable-line declaration-no-important */
-    width: 376px;
-    margin: 0;
-    overflow: auto;
-    visibility: hidden;
-    opacity: 0; // hide while in the body, to avoid flickering render, show after being moved to the overlays-wrapper element
-    transition: opacity 0.1s;
-  }
-
-  :host([theme~="cxl-marketing-nav"]) [part="content"] {
-    padding: 0;
-  }
-
-  :host([theme~="cxl-marketing-nav"]) [part="overlay"] {
-    box-shadow: none;
-  }
-
-  :host([theme~="cxl-marketing-nav"]) [part="backdrop"] {
-    display: none;
-  }
-}
-
-:host([theme~="cxl-navigation"]) {
+:host([theme~="cxl-marketing-nav"]) {
   &::part(overlay),
   &::part(content) {
     height: calc(100vh - 40px);

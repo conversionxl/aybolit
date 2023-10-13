@@ -1,105 +1,10 @@
 @use "../mixins";
 @use "../mq";
 
-// Collapse margins.
-:host([orientation="vertical"][theme~="cxl-marketing-nav"]) {
-  display: flex;
-  flex-direction: column;
-}
-
-/**
- * Wrap.
- */
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) {
-  justify-content: center;
-
-  [part="forward-button"],
-  [part="back-button"] {
-    color: var(--lumo-primary-color);
-  }
-
-  // Allow scrolling and snap to tabs one by one
-  [part="tabs"] {
-    @include mixins.wrap();
-
-    padding: 0;
-    margin: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-
-    ::slotted(*) {
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-    }
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  ::slotted(vaadin-tab:first-of-type) {
-    margin-inline-start: calc(var(--lumo-space-m) - var(--lumo-space-xs));
-
-    @media #{mq.$small} {
-      margin-inline-start: calc(var(--lumo-space-l) - var(--lumo-space-xs));
-      scroll-margin-inline-start: calc(var(--lumo-space-xl) + var(--lumo-space-l));
-    }
-  }
-}
-
-// Override `justify-content: center`.
-// @todo upstream `forward-button` has `right: 0`, but nothing for this. Bug?
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) [part="back-button"] {
-  left: 0;
-}
-
 /**
  * Unify orientations side margins and padding
  */
 $vaadin-tab-horizontal-padding: 0.75rem;
-
-// Reduce spacing between tabs. Vertical is noop, upstream padding already matches our wrap.
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) ::slotted(.menu-item) {
-  padding-right: $vaadin-tab-horizontal-padding;
-  padding-left: $vaadin-tab-horizontal-padding;
-}
-
-// Match container wrap.
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) ::slotted(.menu-item:first-child) {
-  padding-left: 0;
-}
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) ::slotted(.menu-item:last-child) {
-  padding-right: 0;
-}
-
-/**
- * User configurable menu item display for [non-]wide states.
- */
-/* stylelint-disable-next-line selector-class-pattern */
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) ::slotted(.menu-item-not-wide) {
-  display: none;
-}
-
-/* stylelint-disable-next-line selector-class-pattern */
-:host([orientation="vertical"][theme~="cxl-marketing-nav"]) ::slotted(.menu-item-wide) {
-  display: none;
-}
-
-// Split navigation pattern.
-:host([orientation="horizontal"][theme~="cxl-marketing-nav"]) ::slotted(.menu-item-split-nav) {
-  margin-left: auto;
-}
-
-// Search menu item.
-:host([theme~="cxl-marketing-nav"]#menu-shadow-items) ::slotted(.menu-item-search) {
-  margin-right: auto;
-  margin-left: auto;
-}
 
 // Dashboard notifications
 :host([theme~="cxl-dashboard-notification"]) [part="tabs"] {
