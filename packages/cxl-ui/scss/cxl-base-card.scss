@@ -75,6 +75,20 @@
   .attributes {
     color: var(--lumo-tint);
   }
+
+  .name a {
+    color: var(--lumo-tint);
+  }
+
+  vaadin-button {
+    &:hover {
+      cursor: pointer;
+
+      &::before {
+        opacity: 0.2;
+      }
+    }
+  }
 }
 
 :host([theme~="lesson"]),
@@ -142,12 +156,21 @@ header {
     }
 
     .name {
-      @include mixins.ellipsis-for-lines(3);
+      @include mixins.ellipsis-for-lines(2);
       font-family: var(--lumo-font-family);
       font-size: var(--lumo-font-size-xl);
       font-style: normal;
       font-weight: 700;
       line-height: var(--lumo-line-height-xs);
+
+      a {
+        color: var(--lumo-body-text-color);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     .attributes {
@@ -215,5 +238,10 @@ header {
 vaadin-button {
   &:hover {
     cursor: pointer;
+
+    &::before {
+      opacity: 0.05;
+      transition: opacity 0.3s ease;
+    }
   }
 }
