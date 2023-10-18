@@ -10,19 +10,40 @@ export default {
 };
 
 export const CXLLightCard = Template.bind({});
+export const CXLLightCardProgress = Template.bind({});
+export const CXLLightCardPortrait = Template.bind({});
 export const CXLLightCardMinidegree = Template.bind({});
-export const CXLLightCardFooter = Template.bind({});
+export const CXLLightCardBadges = Template.bind({});
 
 CXLLightCard.args = {
-  theme: 'light-card',
-  new: false,
-  completed: false,
+  theme: 'new-card',
   name: 'Account based marketing',
-  time: '3h 00min',
+  time: '43h 00min',
   instructor: 'Ton Wesseling',
-  avatar:
-    'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
-  footer: '',
+  avatar: 'https://cxl.com/institute/wp-content/uploads/2020/07/ben-labay_team_headshot-1x1-bw-min-150x150.png',
+  completed: false,
+  portrait: false,
+  new: false,
+};
+
+CXLLightCardProgress.args = {
+  theme: 'new-card',
+  name: 'Account based marketing',
+  progress: 2,
+  lessons: 6,
+  avatar: 'https://cxl.com/institute/wp-content/uploads/2020/07/ben-labay_team_headshot-1x1-bw-min-150x150.png',
+  completed: false,
+  portrait: false,
+  new: false,
+};
+
+CXLLightCardPortrait.args = {
+  theme: 'new-card',
+  name: 'Account based marketing',
+  avatar: 'https://cxl.com/institute/wp-content/uploads/2020/07/ben-labay_team_headshot-1x1-bw-min-150x150.png',
+  completed: false,
+  portrait: true,
+  new: false,
 };
 
 CXLLightCardMinidegree.args = {
@@ -33,8 +54,13 @@ CXLLightCardMinidegree.args = {
   time: '43h 00min',
 };
 
-CXLLightCardFooter.args = {
-  ...CXLLightCard.args,
-  footer:
-    '<span theme="badge primary pill">Team Roadmap</span> <span theme="badge secondary pill">Personal Roadmap</span>',
+CXLLightCardBadges.args = {
+  theme: 'new-card',
+  name: 'Account based marketing',
+  instructor: 'Ton Wesseling',
+  avatar: 'https://cxl.com/institute/wp-content/uploads/2020/07/ben-labay_team_headshot-1x1-bw-min-150x150.png',
+  completed: false,
+  new: false,
+  badges:
+    '<span theme="badge tertiary pill">Team</span> <span theme="badge secondary pill">Personal</span>',
 };

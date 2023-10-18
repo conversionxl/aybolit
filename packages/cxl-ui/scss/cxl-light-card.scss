@@ -1,68 +1,174 @@
+/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "~@conversionxl/cxl-ui/scss/mixins";
+
 :host {
-  min-width: 267px; // 3col widths on 1400px
-  max-width: 300px;
-  height: auto;
-  min-height: calc(3 * var(--lumo-space-xl));
-  padding: var(--lumo-space-m);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  min-height: 122px;
+  min-width: 267px;
+  padding: var(--lumo-space-m) var(--lumo-space-s) var(--lumo-space-s) var(--lumo-space-m);
+  font-size: var(--lumo-font-size-s);
+  background: var(--lumo-tint);
+  border: 1px solid var(--lumo-contrast-10pct);
+  border-radius: var(--lumo-border-radius-l);
+  box-shadow: var(--lumo-box-shadow-xs);
+  break-inside: avoid;
+  transform: translateZ(0); // CSS columns @see https://stackoverflow.com/a/55110789/35946
+  overflow: hidden;
+}
 
-  .container > .attributes {
-    display: none;
-  }
+:host([hidden]) {
+  display: none;
+}
 
-  header {
-    .info {
-      .name {
-        font-size: var(--lumo-font-size-m);
-        font-weight: 600;
-      }
+:host(:hover) {
+  border-color: var(--lumo-primary-color);
+}
 
-      .attributes {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: var(--lumo-space-xs);
-        padding-bottom: 0;
-        gap: var(--lumo-space-xs);
-      }
-
-      cxl-time {
-        margin-left: -3px; // to align with the instructor text
-      }
-    }
-
-    .instructor-image {
-      height: 80px;
-    }
-  }
+:host([portrait]) {
+  display: block;
+  width: 175px;
+  min-width: 0;
+  padding: 0;
 }
 
 :host([completed]) {
   opacity: 0.6;
+}
+
+:host([theme~="minidegree"]) {
+  background-color: var(--lumo-contrast);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge-new {
+  position: absolute;
+  right: var(--lumo-space-s);
+  bottom: var(--lumo-space-s);
+  display: none;
+  padding: calc(var(--lumo-space-xs) / 2) var(--lumo-space-s);
+  font-size: var(--lumo-font-size-s);
+  font-weight: 700;
+  line-height: var(--lumo-line-height-s);
+  color: var(--lumo-primary-contrast-color);
+  border-radius: calc(var(--lumo-border-radius-l) * 6);
+  background: var(--lumo-primary-color);
+  z-index: 2;
+
+  :host([new]) & {
+    display: block;
+  }
+}
+
+header {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-right: 112px; // avatar width
+
+  :host([portrait]) & {
+    padding: var(--lumo-space-m) calc(var(--lumo-space-xs) * 3) 0 calc(var(--lumo-space-xs) * 3);
+  }
+
+  :host([theme~="minidegree"]) & {
+    justify-content: flex-start;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lumo-space-xs);
+  }
+
+  .tag {
+    text-transform: capitalize;
+
+    &:first-child {
+      color: var(--lumo-primary-color);
+    }
+  }
+
+  .name {
+    font-family: var(--lumo-font-family);
+    font-size: var(--lumo-font-size-m);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--lumo-line-height-xs);
+    @include mixins.ellipsis-for-lines(2);
+
+    :host([theme~="minidegree"]) & {
+      color: var(--lumo-tint);
+    }
+
+    a {
+      color: var(--lumo-body-text-color);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  cxl-time {
+    margin-left: -3px; // to align with the instructor text
+    color: var(--lumo-shade);
+    opacity: .6;
+
+    :host([theme~="minidegree"]) & {
+      color: var(--lumo-tint-40pct);
+      opacity: 1;
+    }
+  }
 
   [icon="lumo:checkmark"] {
     display: inline-block;
     margin-top: calc(var(--lumo-space-xs) * -1);
     color: var(--lumo-primary-color);
   }
-}
 
-::slotted(footer) {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--lumo-space-xs);
-}
-
-:host([theme~="minidegree"]) {
-  .name {
-    color: var(--lumo-primary-contrast-color);
+  .progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: var(--lumo-font-size-xs);
+    line-height: var(--lumo-line-height-s);
+    color: var(--lumo-body-text-color);
   }
 
-  .attributes {
-    color: var(--lumo-tint-40pct);
+  .instructor {
+    color: var(--lumo-shade);
+    opacity: .6;
   }
+}
 
-  cxl-time {
-    margin-left: -3px; // to align with the instructor text
-    color: var(--lumo-tint-40pct);
+::slotted([slot="badges"]) {
+  position: relative;
+  z-index: 1;
+}
+
+.avatar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 112px;
+
+  :host([portrait]) & {
+    position: relative;
+    width: 100%;
+    margin-top: var(--lumo-space-s);
   }
 }

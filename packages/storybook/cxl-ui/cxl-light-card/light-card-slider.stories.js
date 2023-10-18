@@ -12,28 +12,25 @@ const CXLLightCard = Template.bind({});
 CXLLightCard.args = {
   theme: 'light-card',
   name: 'Account based marketing',
-  time: '3h 00min',
-  instructor: 'Ton Wesseling',
-  avatar:
-    'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
+  avatar: 'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
+  progress: 3,
+  lessons: 12
 };
 
 const CXLLightCard2 = Template.bind({});
 CXLLightCard2.args = {
   ...CXLLightCard.args,
   name: 'Basics of Casual Inference',
-  time: '',
-  instructor: 'Georgi Georgiev',
   avatar: '',
+  progress: 7,
+  lessons: 9
 };
 
 const CXLLightCard3 = Template.bind({});
 CXLLightCard3.args = {
   ...CXLLightCard.args,
   name: 'Best Practices',
-  time: '1h 30min',
-  instructor: 'Peep Laja',
-  avatar: 'https://cxl.com/institute/wp-content/uploads/2019/09/peep-1x1-transparent-150x150.png',
+  avatar: 'https://cxl.com/institute/wp-content/uploads/2019/09/peep-1x1-transparent-150x150.png'
 };
 
 export const CXLLightCardSlider = ({ numberOfCards, theme }) => html`

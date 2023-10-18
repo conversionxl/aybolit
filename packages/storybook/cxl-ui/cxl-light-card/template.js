@@ -6,11 +6,14 @@ export const Template = (card) => html`
     theme="${card.theme}"
     name="${card.name}"
     time="${card.time}"
+    progress="${card.progress}"
+    lessons="${card.lessons}"
     instructor="${card.instructor}"
     avatar="${card.avatar}"
     .new="${card.new}"
     .completed="${card.completed}"
+    .portrait="${card.portrait}"
   >
-    ${card.footer ? html` <footer slot="footer">${unsafeHTML(card.footer)}</footer>` : nothing}
+    ${card.badges ? html` <div slot="badges">${unsafeHTML(card.badges)}</div>` : nothing}
   </cxl-light-card>
 `;
