@@ -1,37 +1,44 @@
-[part="container"] {
+:host([theme~="cxl-marketing-nav"]) {
+  
+  [part="container"] {
 
-  .menu-item-split-nav {
-    /* stylelint-disable-next-line declaration-no-important */
-    margin-left: auto !important;
-  }
-
-  [part="overflow-button"] {
-
-    @media (max-width: 768px), (max-height: 768px) {
-      ::before {
-        content: none;
-      }
+    .menu-item-split-nav {
+      /* stylelint-disable-next-line declaration-no-important */
+      margin-left: auto !important;
     }
 
-    vaadin-icon {
-      height: var(--lumo-icon-size-s);
+    [part="overflow-button"] {
 
-      svg {
-        fill: var(--lumo-shade);
+      vaadin-icon {
+        &.close-icon {
+          display: none;
+        }
       }
 
-      &.close-icon {
-        display: none;
-      }
-    }
-
-    &[expanded] {
-      vaadin-icon.close-icon {
+      @media (max-width: 768px), (max-height: 768px) {
         display: block;
-      } 
+        
+        ::before {
+          content: none;
+        }
 
-      vaadin-icon.menu-icon {
-        display: none;
+        vaadin-icon {
+          height: var(--lumo-icon-size-s);
+    
+          svg {
+            fill: var(--lumo-shade);
+          }
+        }
+    
+        &[expanded] {
+          vaadin-icon.close-icon {
+            display: block;
+          } 
+    
+          vaadin-icon.menu-icon {
+            display: none;
+          }
+        }
       }
     }
   }

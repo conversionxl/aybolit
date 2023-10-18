@@ -1,12 +1,14 @@
 import { html } from 'lit';
 import { useEffect } from '@storybook/client-api';
-import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { Headroom } from '@conversionxl/cxl-ui';
+import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import contextMenuItems from './cxl-marketing-nav.data.json';
 
 export default {
   title: 'CXL UI/cxl-marketing-nav',
 };
+
+window.Headroom = Headroom;
 
 export const CXLMarketingNav = (args) => {
   useEffect(() => {
@@ -14,8 +16,6 @@ export const CXLMarketingNav = (args) => {
     const cxlMarketingNavElement = document.querySelector('cxl-marketing-nav');
 
     cxlMarketingNavElement.contextMenuItems = contextMenuItems;
-
-    cxlMarketingNavElement.initHeadroom(Headroom);
 
     const htmlEl = document.querySelector('html');
     if (args?.loggedIn) {

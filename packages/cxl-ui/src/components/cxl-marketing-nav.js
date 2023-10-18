@@ -17,7 +17,7 @@ export class CXLMarketingNavElement extends LitElement {
 
   _contextMenuItems = { global: [], primary: [] };
 
-  _phoneMediaQuery = '(max-width: 768px), (max-height: 768px)';
+  _phoneMediaQuery = '(max-width: 420px), (max-height: 420px)';
 
   @queryAll('vaadin-menu-bar')
   menuBars;
@@ -59,14 +59,18 @@ export class CXLMarketingNavElement extends LitElement {
     this.requestUpdate('groups');
   }
 
+  @property({ type: Array })
+  get mobileGroups() {
+    return [
+      { name: 'primary', items: this.groups.map((group) => group.items).flat(1) },
+    ];
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this.addController(
       new MediaQueryController(this._phoneMediaQuery, (matches) => {
         this.wide = !matches;
-        this.mobileGroups = [
-          { name: 'primary', items: this.groups.map((group) => group.items).flat(1) },
-        ];
       })
     );
   }
@@ -81,8 +85,11 @@ export class CXLMarketingNavElement extends LitElement {
     });
 
     requestAnimationFrame(() => {
+      this._updateContextMenuItems();
       this._replaceMenuIcon();
+      this.initHeadroom();
     });
+
   }
 
   updated(changes) {
@@ -93,6 +100,7 @@ export class CXLMarketingNavElement extends LitElement {
   }
 
   render() {
+    // collapse all navs into one if in 
     const groups = this.wide ? this.groups : this.mobileGroups;
 
     return html`
@@ -198,7 +206,6 @@ export class CXLMarketingNavElement extends LitElement {
     if (children?.length && depth === 0) {
       const suffixIconElement = document.createElement('vaadin-icon');
       suffixIconElement.setAttribute('icon', 'lumo:dropdown');
-      suffixIconElement.setAttribute('slot', 'suffix');
       suffixIconElement.classList.add('vaadin-context-menu-item--icon');
       menuItemElement.appendChild(suffixIconElement);
     }
@@ -241,6 +248,7 @@ export class CXLMarketingNavElement extends LitElement {
       const overflowMenuButton = menu.shadowRoot.querySelector(
         'vaadin-menu-bar-button[part="overflow-button"]'
       );
+      overflowMenuButton.toggleAttribute('hidden', false);
       if (overflowMenuButton && !overflowMenuButton.iconFixed) {
         const dots = overflowMenuButton.querySelector('.dots');
         if (dots) {
@@ -267,7 +275,7 @@ export class CXLMarketingNavElement extends LitElement {
    * @param contextMenuItems
    * @param Headroom
    */
-  async initHeadroom(Headroom) {
+  async initHeadroom() {
     /**
      * Fix race condition where the css properties are not available yet.
      *
@@ -285,7 +293,7 @@ export class CXLMarketingNavElement extends LitElement {
      *
      * @see https://github.com/WickyNilliams/headroom.js
      */
-    const headroom = new Headroom(this, {
+    const headroom = new window.Headroom(this, {
       tolerance: {
         up: 30,
         down: 30,

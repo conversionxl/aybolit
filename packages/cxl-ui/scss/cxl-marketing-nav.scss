@@ -74,6 +74,12 @@
   }
 }
 
+// :host(:not([wide])) {
+//   .vaadin-context-menu-item--icon {
+//     display: none;
+//   }
+// }
+
 /**
  * headroom.js
  */

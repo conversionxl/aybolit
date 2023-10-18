@@ -1,0 +1,28 @@
+:host {
+  position: relative;
+  
+  ::after {
+    content: "";
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}
+
+:host([active]:not([part="overflow-button"])) {
+  position: relative;
+  
+  ::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 1;
+    width: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    border-radius: 2px 2px 0 0;
+    border: 1px solid var(--lumo-primary-color);
+    box-shadow: 0px -1px 3px 0px rgba(214, 31, 44, 0.05);
+  }
+}
