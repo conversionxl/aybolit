@@ -17,12 +17,14 @@ export class CXLMarketingNavElement extends LitElement {
 
   _contextMenuItems = { global: [], primary: [] };
 
-  _phoneMediaQuery = '(max-width: 568px), (max-height: 568px)';
+  _phoneMediaQuery = '(max-width: 768px), (max-height: 768px)';
 
   @queryAll('vaadin-menu-bar')
   menuBars;
 
   @property({ reflect: true, attribute: 'wide' }) wide = false;
+
+  @property({ attribute: 'home-url' }) homeUrl = '';
 
   @state()
   groups = [];
@@ -102,7 +104,7 @@ export class CXLMarketingNavElement extends LitElement {
               ${name === 'global' || !this.wide
                 ? html`
                     <vaadin-menu-bar-button theme="tertiary cxl-marketing-nav">
-                      <a href="https://cxl.com">
+                      <a href=${this.homeUrl || 'https://cxl.com'}>
                         <vaadin-icon
                           icon="cxl:logo"
                           style="width: var(--lumo-icon-size-xl, 48px);"
@@ -143,67 +145,78 @@ export class CXLMarketingNavElement extends LitElement {
     [...document.body.querySelectorAll('vaadin-context-menu-overlay')].at(-1).close();
   }
 
+  // Creates and returns a custom menu item component for use in vaadin-menu-bar
   createItem({ text, description, sectionheader, component, icon, href, children, depth, split }) {
-    const item = document.createElement('vaadin-context-menu-item');
-    if (sectionheader) {
-      item.classList.add('section-header');
-    }
-
-    if (split) {
-      item.classList.add('menu-item-split-nav');
-    }
-
+    // If divider, return an <hr> element, nothing else
     if (component === 'hr') {
       return document.createElement('hr');
     }
 
-    if (icon) {
-      const vaadinIcon = document.createElement('vaadin-icon');
-      vaadinIcon.setAttribute('icon', `lumo:${icon}`);
-      item.appendChild(vaadinIcon);
+    // create menu item
+    const menuItemElement = document.createElement('vaadin-context-menu-item');
+
+    // Add relevant classes conditionally
+    if (sectionheader) {
+      menuItemElement.classList.add('section-header');
+    }
+    if (split) {
+      menuItemElement.classList.add('menu-item-split-nav');
     }
 
+    // Add prefix icon, if applicable
+    if (icon) {
+      const prefixIconElement = document.createElement('vaadin-icon');
+      prefixIconElement.setAttribute('icon', `lumo:${icon}`);
+      menuItemElement.appendChild(prefixIconElement);
+    }
+
+    // Add regular link or text label
     if (href && !children && !sectionheader) {
       const link = document.createElement('a');
       link.href = href;
       link.innerText = text;
-      item.appendChild(link);
+      menuItemElement.appendChild(link);
     } else if (text) {
+      // Use h6 for section headers, otherwise use span
       const labelElement = sectionheader
         ? document.createElement('h6')
         : document.createElement('span');
       labelElement.classList.add('vaadin-context-menu-item--label');
       labelElement.appendChild(document.createTextNode(text));
-      item.appendChild(labelElement);
+      menuItemElement.appendChild(labelElement);
     }
 
+    // Add description, if applicable
     if (description) {
-      const descriptiondiv = document.createElement('div');
-      descriptiondiv.classList.add('vaadin-context-menu-item--description');
-      descriptiondiv.appendChild(document.createTextNode(description));
-      item.appendChild(descriptiondiv);
+      const descriptionElement = document.createElement('div');
+      descriptionElement.classList.add('vaadin-context-menu-item--description');
+      descriptionElement.appendChild(document.createTextNode(description));
+      menuItemElement.appendChild(descriptionElement);
     }
 
+    // Add suffix dropdown icon, if it's a top level item with children
     if (children?.length && depth === 0) {
-      const vaadinIcon = document.createElement('vaadin-icon');
-      vaadinIcon.setAttribute('icon', 'lumo:dropdown');
-      vaadinIcon.classList.add('vaadin-context-menu-item--icon');
-      item.appendChild(vaadinIcon);
+      const suffixIconElement = document.createElement('vaadin-icon');
+      suffixIconElement.setAttribute('icon', 'lumo:dropdown');
+      suffixIconElement.setAttribute('slot', 'suffix');
+      suffixIconElement.classList.add('vaadin-context-menu-item--icon');
+      menuItemElement.appendChild(suffixIconElement);
     }
 
+    // Back button, used in mobile layout only
     if (component === 'back') {
-      const backBtn = document.createElement('vaadin-button');
+      const backButtonElement = document.createElement('vaadin-button');
 
-      backBtn.classList.add('context-menu-item-back-button');
-      backBtn.innerHTML = '<vaadin-icon icon="lumo:angle-left"></vaadin-icon> Back';
+      backButtonElement.classList.add('context-menu-item-back-button');
+      backButtonElement.innerHTML = '<vaadin-icon icon="lumo:angle-left"></vaadin-icon> Back';
 
-      item.classList.add('back-button-menu-item');
-      item.appendChild(backBtn);
+      menuItemElement.classList.add('back-button-menu-item');
+      menuItemElement.appendChild(backButtonElement);
 
-      item.addEventListener('click', this._onBackBtnClick.bind(this));
+      menuItemElement.addEventListener('click', this._onBackBtnClick.bind(this));
     }
 
-    return item;
+    return menuItemElement;
   }
 
   _updateContextMenuItems() {
@@ -222,7 +235,7 @@ export class CXLMarketingNavElement extends LitElement {
   }
 
   _replaceMenuIcon() {
-    if (!this.menuBars) return;
+    if (!this.menuBars || this.wide) return;
 
     [...this.menuBars].forEach((menu) => {
       const overflowMenuButton = menu.shadowRoot.querySelector(
@@ -231,7 +244,7 @@ export class CXLMarketingNavElement extends LitElement {
       if (overflowMenuButton && !overflowMenuButton.iconFixed) {
         const dots = overflowMenuButton.querySelector('.dots');
         if (dots) {
-          dots.remove();
+          dots.style.display = 'none';
         }
         const menuIcon = document.createElement('vaadin-icon');
         const closeIcon = document.createElement('vaadin-icon');

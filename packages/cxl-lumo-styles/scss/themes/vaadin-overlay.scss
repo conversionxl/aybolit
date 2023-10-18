@@ -40,17 +40,58 @@
   &::part(backdrop) {
     display: none;
   }
-
-  @media (min-width: 568px) and (min-height: 568px) {
-    &::part(overlay),
-    &::part(content) {
-      height: initial;
-      max-height: initial;
-    }
-  }
-
+  
   &::part(overlay) {
     box-shadow: 0 0 0 1px var(--lumo-shade-5pct), 0 2px 6px -1px var(--lumo-shade-5pct),
       0 8px 24px -4px var(--lumo-shade-5pct);
+  }
+
+  &::part(overlay),
+  &::part(content) {
+    height: initial;
+    max-height: initial;
+  }
+
+  @media (max-width: 768px), (max-height: 768px) {
+    :host {
+      top: 0 !important;
+      right: 0 !important;
+      bottom: var(--vaadin-overlay-viewport-bottom, 0) !important;
+      left: 0 !important;
+      align-items: stretch !important;
+      justify-content: flex-end !important;
+    }
+
+    [part='overlay'] {
+      height: calc(100vh - 40px);
+      max-height: calc(100vh - 40px);
+      width: 100vw;
+      border-radius: 0;
+    }
+
+    /* The content part scrolls instead of the overlay part, because of the gradient fade-out */
+    [part='content'] {
+      max-height: inherit;
+      box-sizing: border-box;
+      -webkit-overflow-scrolling: touch;
+      overflow: auto;
+      -webkit-mask-image: linear-gradient(transparent, #000 40px, #000 calc(100% - 40px), transparent);
+      mask-image: linear-gradient(transparent, #000 40px, #000 calc(100% - 40px), transparent);
+    }
+
+    /* Animations */
+
+    :host([opening]) [part='overlay'] {
+      animation: 0.2s lumo-mobile-menu-overlay-enter cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    }
+
+    :host([closing]),
+    :host([closing]) [part='backdrop'] {
+      animation-delay: 0.14s;
+    }
+
+    :host([closing]) [part='overlay'] {
+      animation: 0.14s 0.14s lumo-mobile-menu-overlay-exit cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    }
   }
 }

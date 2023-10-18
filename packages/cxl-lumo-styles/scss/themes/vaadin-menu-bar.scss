@@ -6,8 +6,11 @@
   }
 
   [part="overflow-button"] {
-    ::before {
-      content: none;
+
+    @media (max-width: 768px), (max-height: 768px) {
+      ::before {
+        content: none;
+      }
     }
 
     vaadin-icon {

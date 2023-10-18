@@ -32,7 +32,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (min-height: 768px) {
+@media (min-width: 768px), (min-height: 768px) {
   :host([theme~="cxl-marketing-nav"].vaadin-menu-item.back-button-menu-item) {
     display: none;
   }
@@ -67,7 +67,7 @@
     visibility: hidden;
   }
 
-  @media (min-width: 568px) and (min-height: 568px) {
+  @media (max-width: 768px), (max-height: 768px) {
     ::slotted(.vaadin-context-menu-item--icon) {
       visibility: visible;
     }
