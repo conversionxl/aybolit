@@ -1,5 +1,6 @@
 /* eslint-disable prefer-template */
 import { html } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 const renderTags = (tags, slot) =>
   html`<span class="tag" slot=${slot} title="${tags}">${tags}</span>`;
@@ -7,6 +8,7 @@ const renderTags = (tags, slot) =>
 export const CourseCardTemplate = (course) => html`
   <cxl-course-card
     id=${course.id}
+    class=${course.classes || ''}
     theme=${course.theme}
     name=${course.name}
     time=${course.time}
@@ -17,7 +19,7 @@ export const CourseCardTemplate = (course) => html`
     .showTimeIcon=${course.showTimeIcon}
   >
     ${course.tags ? renderTags(course.tags, 'tags') : ''}
-    <p slot="content" title=${course.description}>${course.description}</p>
+    <p slot="content" title=${course.description || ''}>${unsafeHTML(course.description)}</p>
     ${course.more ? html`<p slot="more">${course.more}</p>` : ''}
   </cxl-course-card>
 `;

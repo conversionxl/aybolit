@@ -8,7 +8,7 @@
   display: flex;
   width: 100%;
   height: max-content;
-  padding: var(--lumo-space-m) var(--lumo-space-l);
+  padding: var(--lumo-space-m);
   font-size: var(--lumo-font-size-s);
   background: var(--lumo-tint);
   border: 1px solid var(--lumo-contrast-10pct);
@@ -25,6 +25,7 @@
   // Container / Media queries
   @media #{mq.$small} {
     max-width: unset;
+    padding: var(--lumo-space-m) var(--lumo-space-l);
     margin: unset;
 
     .container > .attributes {

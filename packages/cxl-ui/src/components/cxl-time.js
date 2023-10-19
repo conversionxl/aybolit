@@ -11,7 +11,7 @@ export class CxlTime extends LitElement {
 
   @property({ type: String }) time = '';
 
-  @property({ type: Boolean, attribute: 'show-icon' }) showIcon = false;
+  @property({ type: Boolean, attribute: 'show-icon' }) showIcon = true;
 
   render() {
     return html`

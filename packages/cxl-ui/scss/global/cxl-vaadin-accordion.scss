@@ -6,6 +6,10 @@ cxl-vaadin-accordion {
    * Theme "cxl-accordion-card".
    */
   &[theme~="cxl-accordion-card"] {
+    cxl-course-card {
+      max-width: calc(100vw - 2 * var(--cxl-wrap-padding));
+    }
+
     vaadin-icon {
       --vaadin-icon-height: var(--lumo-icon-size-s);
       --vaadin-icon-width: var(--vaadin-icon-height);

@@ -1,4 +1,5 @@
 import { CXLVaadinAccordionThemeArchive } from './cxl-vaadin-accordion/cxl-accordion-card.story';
+import { CXLVaadinAccordionThemeCourses } from './cxl-vaadin-accordion/cxl-accordion-card-course.story';
 import { CXLPlaybookAccordion } from './cxl-vaadin-accordion/cxl-playbook-accordion.story';
 import { CXLVaadinAccordionThemeVaadin } from './cxl-vaadin-accordion/vaadin-accordion-panel[theme=vaadin].story';
 import { CXLVaadinAccordionThemeFaq } from './cxl-vaadin-accordion/theme=cxl-faq.story';
@@ -20,6 +21,7 @@ Object.assign(CXLPlaybookAccordion, {
 });
 
 CXLVaadinAccordionThemeArchive.storyName = 'cxl-accordion-card';
+CXLVaadinAccordionThemeCourses.storyName = 'cxl-accordion-course-card';
 CXLVaadinAccordionThemeFaq.storyName = '[theme=cxl-faq]';
 CXLVaadinAccordionThemeMinidegreeTrack.storyName = '[theme=cxl-minidegree-track]';
 CXLVaadinAccordionThemeVaadin.storyName = 'vaadin-accordion-panel[theme=vaadin]';
@@ -29,6 +31,7 @@ CXLHubsAndPlaybooks.storyName = 'cxl-hubs-and-playbooks';
 export {
   CXLPlaybookAccordion,
   CXLVaadinAccordionThemeArchive,
+  CXLVaadinAccordionThemeCourses,
   CXLVaadinAccordionThemeFaq,
   CXLVaadinAccordionThemeMinidegreeTrack,
   CXLVaadinAccordionThemeVaadin,
