@@ -32,7 +32,7 @@
   }
 }
 
-@media (min-width: 768px) and (min-height: 768px) {
+@media (min-width: 568px) and (min-height: 568px) {
   :host([theme~="cxl-marketing-nav"].vaadin-menu-item.back-button-menu-item) {
     display: none;
   }
@@ -62,16 +62,10 @@
   ::slotted(.vaadin-context-menu-item--label) {
     margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
   }
-
-  @media (max-width: 768px), (max-height: 768px) {
-    ::slotted(.vaadin-context-menu-item--icon) {
-      visibility: visible;
-    }
-  }
 }
 
-:host(.vaadin-context-menu-parent-item) {
-  ::slotted(.vaadin-context-menu-item--icon) {
+:host([theme~="menu-bar-item"].vaadin-context-menu-parent-item) {
+  ::slotted(.vaadin-context-menu-item--dropdown-icon) {
     visibility: hidden;
   }
 }

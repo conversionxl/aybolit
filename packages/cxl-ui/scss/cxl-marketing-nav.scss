@@ -39,14 +39,19 @@
     .container {
       display: flex;
       align-items: center;
-      justify-content: center;
       width: 100%;
       max-width: var(--cxl-content-max-width-wide, none);
+
+      vaadin-menu-bar-button.cxl-logo  {
+        min-width: auto;
+      }
     }
 
     vaadin-menu-bar {
       width: 100%;
+
     }
+    
 
     ::part(menu-bar-button),
     ::slotted(.menu-item),
@@ -71,14 +76,28 @@
       background-color: var(--lumo-base-color);
       border-bottom: 1px solid var(--lumo-shade-10pct);
     }
+
+    .vaadin-context-menu-item--dropdown-icon {
+      display: none;
+    }
   }
 }
 
-// :host(:not([wide])) {
-//   .vaadin-context-menu-item--icon {
-//     display: none;
-//   }
-// }
+:host([wide]) {
+  .vaadin-context-menu-item--dropdown-icon {
+    display: inline-block;
+  }
+  .vaadin-menu-bar-button--icon {
+    display: none;
+  }
+
+  nav {
+    .cxl-logo ~ vaadin-menu-bar {
+      max-width: calc(100% - 60px);
+    }
+  }
+
+}
 
 /**
  * headroom.js

@@ -100,7 +100,7 @@ vaadin-context-menu-list-box {
  * @see https://github.com/vaadin/component-mixins/issues/36#issuecomment-576582648
  * @see https://github.com/vaadin/web-components/blob/68d93ffbe63f7d7370123ae23a2febfb175f1de7/packages/vaadin-lumo-styles/mixins/menu-overlay.js#L47
  */
-@media (min-width: 420px) and (min-height: 420px) {
+@media (min-width: 568px) and (min-height: 568px) {
   .vaadin-context-menu-item--description {
     max-width: var(--cxl-vaadin-context-menu-item-max-width);
   }
@@ -126,7 +126,7 @@ vaadin-context-menu-list-box {
   margin-left: calc(var(--lumo-icon-size-m) / 4 * -1);
 }
 
-@media (min-width: 420px) and (min-height: 420px) {
+@media (min-width: 568px) and (min-height: 568px) {
   .back-button-menu-item {
     display: none;
   }
