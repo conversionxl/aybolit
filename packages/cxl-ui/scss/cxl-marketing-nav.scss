@@ -3,7 +3,9 @@
 :host {
   --lumo-clickable-cursor: pointer;
 
-  ::part(menu-bar-button) {
+  ::part(menu-bar-button),
+  vaadin-menu-bar-button[theme~="cxl-marketing-nav"] {
+    min-width: auto;
     color: var(--lumo-shade);
     margin-inline: var(--lumo-space-s);
   }
@@ -42,16 +44,15 @@
       width: 100%;
       max-width: var(--cxl-content-max-width-wide, none);
 
-      vaadin-menu-bar-button.cxl-logo  {
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      vaadin-menu-bar-button.cxl-logo {
         min-width: auto;
       }
     }
 
     vaadin-menu-bar {
       width: 100%;
-
     }
-    
 
     ::part(menu-bar-button),
     ::slotted(.menu-item),
@@ -96,7 +97,11 @@
       max-width: calc(100% - 60px);
     }
   }
+}
 
+/** Search form */
+::slotted(#search-form) {
+  display: none;
 }
 
 /**

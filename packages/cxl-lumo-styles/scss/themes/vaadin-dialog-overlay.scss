@@ -1,0 +1,7 @@
+:host([theme~="cxl-marketing-nav-search"]) {
+  @media (min-width: 568px) {
+    top: var(--cxl-marketing-nav-height);
+    bottom: unset;
+    left: unset;
+  }
+}

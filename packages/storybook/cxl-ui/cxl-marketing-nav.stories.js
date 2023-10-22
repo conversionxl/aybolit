@@ -43,30 +43,23 @@ export const CXLMarketingNav = (args) => {
     </style>
 
     <cxl-marketing-nav class="menu" role="navigation" slot="header">
-      <template id="cxl-marketing-nav-search-form-template">
-        <vaadin-context-menu-item class="menu-item-search">
-          <form
-            role="search"
-            method="get"
-            class="search-form"
-            action="https://cxl.com/institute/?s="
+      <div id="search-form">
+        <form role="search" method="get" class="search-form" action="https://cxl.com/institute/?s=">
+          <label for="search-input">
+            Search <em style="color: var(--lumo-primary-color);">C</em>XL:
+          </label>
+          <input id="search-input" type="search" class="search-field" value="" name="s" />
+          <vaadin-button
+            type="submit"
+            class="search-submit"
+            aria-label="Search"
+            theme="icon"
+            onclick="document.getElementById('search-form').submit();"
           >
-            <label for="search-input">
-              Search <em style="color: var(--lumo-primary-color);">C</em>XL:
-            </label>
-            <input id="search-input" type="search" class="search-field" value="" name="s" />
-            <vaadin-button
-              type="submit"
-              class="search-submit"
-              aria-label="Search"
-              theme="icon"
-              onclick="document.getElementById('search-form').submit();"
-            >
-              <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
-            </vaadin-button>
-          </form>
-        </vaadin-context-menu-item>
-      </template>
+            <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
+          </vaadin-button>
+        </form>
+      </div>
     </cxl-marketing-nav>
     <div id="wp-admin-bar" ?hidden=${!args?.loggedIn}>wp-admin bar: test nav menu placement</div>
   `;

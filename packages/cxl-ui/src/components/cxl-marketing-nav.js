@@ -1,13 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html } from 'lit';
-import { customElement, property, state, queryAll } from 'lit/decorators.js';
+import { customElement, property, state, query, queryAll } from 'lit/decorators.js';
 import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import { dialogRenderer } from '@vaadin/dialog/lit.js';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
 import '@vaadin/icon';
 import '@vaadin/menu-bar';
+import '@vaadin/dialog';
 
 @customElement('cxl-marketing-nav')
 export class CXLMarketingNavElement extends LitElement {
@@ -22,12 +24,21 @@ export class CXLMarketingNavElement extends LitElement {
   @queryAll('vaadin-menu-bar')
   menuBars;
 
-  @property({ type: Boolean, reflect: true, attribute: 'wide' }) wide = false;
+  @query('#search-dialog')
+  searchDialog;
 
-  @property({ type: String, attribute: 'home-url' }) homeUrl = '';
+  @query('slot#search-form-slot')
+  searchFormSlot;
 
   @state()
   groups = [];
+
+  @state()
+  searchDialogOpened = false;
+
+  @property({ type: Boolean, reflect: true, attribute: 'wide' }) wide = false;
+
+  @property({ type: String, attribute: 'home-url' }) homeUrl = '';
 
   @property({ type: Boolean, attribute: 'minimal' }) minimal = false;
 
@@ -52,7 +63,7 @@ export class CXLMarketingNavElement extends LitElement {
       const items = data[group];
       groups.push({
         name: group,
-        items: [...items?.map(item => parseItem(item, group))],
+        items: [...items?.map((item) => parseItem(item, group))],
       });
     });
     this.groups = groups;
@@ -60,21 +71,27 @@ export class CXLMarketingNavElement extends LitElement {
   }
 
   /**
- * Concatenate nav groups into a single nav list for mobile layout. Keeps global
- * menu items last in the list by sorting the original this.groups array before
- * flat map operation.
- */
+   * Concatenate nav groups into a single nav list for mobile layout. Keeps global
+   * menu items last in the list by sorting the original this.groups array before
+   * flat map operation.
+   */
   @property({ type: Array })
   get mobileGroups() {
     // eslint-disable-next-line no-nested-ternary
-    const sorter = (a, b) => (a.name === 'global') ? 1 : (b.name === 'global') ? -1 : 0;
+    const sorter = (a, b) => (a.name === 'global' ? 1 : b.name === 'global' ? -1 : 0);
     return [
-      { name: 'primary', items: this.groups.sort(sorter).map((group) => group.items).flat(1) },
+      {
+        name: 'primary',
+        items: this.groups
+          .sort(sorter)
+          .map((group) => group.items)
+          .flat(1),
+      },
     ];
   }
 
   get menuItemSearchElement() {
-    return this.querySelector('#cxl-marketing-nav-search-form-template');
+    return this.querySelector('.search-button');
   }
 
   connectedCallback() {
@@ -84,6 +101,7 @@ export class CXLMarketingNavElement extends LitElement {
         this.wide = !matches;
       })
     );
+    this._boundSearchDialog = this._setupSearchDialog.bind(this);
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -99,8 +117,8 @@ export class CXLMarketingNavElement extends LitElement {
       this._updateContextMenuItems();
       this._replaceMenuIcon();
       this.initHeadroom();
+      this.searchDialog.$.overlay.setAttribute('theme', 'cxl-marketing-nav-search');
     });
-
   }
 
   updated(changes) {
@@ -111,7 +129,7 @@ export class CXLMarketingNavElement extends LitElement {
   }
 
   render() {
-    // collapse all navs into one if in 
+    // collapse all navs into one if in mobile layout
     const groups = this.wide ? this.groups : this.mobileGroups;
 
     return html`
@@ -122,42 +140,78 @@ export class CXLMarketingNavElement extends LitElement {
             <div class="container">
               ${name === 'global' || !this.wide
                 ? html`
-                    <vaadin-menu-bar-button class="cxl-logo" theme="tertiary cxl-marketing-nav">
+                    <vaadin-context-menu-item class="cxl-logo" theme="tertiary cxl-marketing-nav">
                       <a href=${this.homeUrl || 'https://cxl.com'}>
                         <vaadin-icon
                           icon="cxl:logo"
                           style="width: var(--lumo-icon-size-xl, 48px);"
                         ></vaadin-icon>
                       </a>
-                    </vaadin-menu-bar-button>
+                    </vaadin-context-menu-item>
                   `
                 : ''}
-              ${!this.wide ? this._renderSearch() : ''}
-              <slot></slot>
+              ${!this.wide ? this._renderSearch(group) : ''}
               <vaadin-menu-bar theme="tertiary cxl-marketing-nav" .items=${items}></vaadin-menu-bar>
               <slot name="${name}-after"></slot>
               <slot name="${name}-end"></slot>
+              ${this.wide ? this._renderSearch(group) : ''}
             </div>
           </nav>
         `;
       })}
+      <vaadin-dialog
+        id="search-dialog"
+        class="search-form-dialog"
+        ?modeless=${this.wide}
+        .opened="${this.searchDialogOpened}"
+        @opened-changed=${this._boundSearchDialog}
+        ${dialogRenderer(this._searchDialogRenderer, [])}
+      >
+      </vaadin-dialog>
+      <slot id="search-form-slot"></slot>
     `;
   }
 
+  _setupSearchDialog(e) {
+    this.searchDialogOpened = e.detail.value;
+    if (!e.detail.value) return;
+    const contents = this.searchFormSlot.assignedElements();
+    if (contents.length) {
+      this.searchDialog.$.overlay
+        .querySelector('div.search-form-container')
+        .appendChild(contents[0]);
+    }
+    this.searchDialog.$.overlay
+      .querySelector('div.search-form-container')
+      .querySelector('#search-input')
+      .focus();
+  }
+
   // eslint-disable-next-line class-methods-use-this
-  _renderSearch() {
-    if (this.minimal) return '';
+  _renderSearch(group) {
+    if (this.minimal || group.name !== 'primary') return '';
 
     return html`
-      <vaadin-menu-bar-button theme="tertiary cxl-marketing-nav" class="search-button">
+      <vaadin-menu-bar-button
+        theme="tertiary cxl-marketing-nav"
+        class="search-button"
+        @click=${this.toogleSearch}
+      >
         <a>
           <vaadin-icon icon="lumo:search"></vaadin-icon> Search
           <vaadin-icon icon="lumo:dropdown"></vaadin-icon>
         </a>
-        <vaadin-context-menu close-on="outside-click" open-on="click" theme="cxl-marketing-nav">
-        </vaadin-context-menu>
       </vaadin-menu-bar-button>
     `;
+  }
+
+  toogleSearch() {
+    this.searchDialogOpened = !this.searchDialogOpened;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _searchDialogRenderer() {
+    return html` <div class="search-form-container"></div> `;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -167,7 +221,10 @@ export class CXLMarketingNavElement extends LitElement {
   }
 
   // Creates and returns a custom menu item component for use in vaadin-menu-bar
-  createItem({ text, description, sectionheader, component, icon, href, children, depth, split }, group) {
+  createItem(
+    { text, description, sectionheader, component, icon, href, children, depth, split },
+    group
+  ) {
     // If divider, return an <hr> element, nothing else
     if (component === 'hr') {
       return document.createElement('hr');
@@ -320,61 +377,5 @@ export class CXLMarketingNavElement extends LitElement {
     });
 
     headroom.init();
-  }
-
-  /**
-   * @private
-   */
-  _setupSearchForm() {
-    /**
-     * Configure `.menu-item-search`.
-     */
-    const menuItemSearchContextMenu =
-      this.menuItemSearchElement.querySelector('vaadin-context-menu');
-
-    /**
-     * `<vaadin-context-menu-item>` interferes with form input.
-     *
-     * @see https://github.com/vaadin/vaadin-item/blob/v2.1.1/src/vaadin-item-mixin.html#L136
-     */
-    menuItemSearchContextMenu.addEventListener(
-      'opened-changed',
-      (ee) => {
-        const searchForm = ee.target.$.overlay.querySelector('.search-form');
-
-        searchForm.addEventListener('keydown', (ef) => {
-          // Allow Esc.
-          if (ef.key !== 'Escape') {
-            ef.stopPropagation();
-          }
-        });
-      },
-      { once: true }
-    );
-
-    /**
-     * Avoid upstream default immediate close behavior.
-     */
-    menuItemSearchContextMenu.addEventListener('item-selected', (e) => {
-      e.stopImmediatePropagation();
-    });
-
-    /**
-     * Attach search form template.
-     */
-    const searchFormTemplate = this.querySelector('#cxl-marketing-nav-search-form-template') || '';
-
-    if (searchFormTemplate && 'content' in searchFormTemplate) {
-      menuItemSearchContextMenu.items = [
-        { component: searchFormTemplate.content.firstElementChild },
-      ];
-    }
-
-    /**
-     * Enable instant typing, avoid focus click.
-     */
-    menuItemSearchContextMenu.$.overlay.addEventListener('vaadin-overlay-open', (e) =>
-      e.target.querySelector('#search-input').focus()
-    );
   }
 }
