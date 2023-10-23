@@ -297,10 +297,13 @@ export class CXLMarketingNavElement extends LitElement {
       const firstOverlay = overlays[0];
 
       if (this.overlaysWrapperElement) {
-        this.overlaysWrapperElement.style.maxHeight = `${
-          window.innerHeight -
-          (this.overlaysWrapperElement.style?.maxHeight || firstOverlay.offsetTop)
-        }px`;
+        if (overlays.length > 1) {
+          const heightOffset =
+            this.overlaysWrapperElement.style?.maxHeight || firstOverlay.offsetTop;
+          this.overlaysWrapperElement.style.maxHeight = `${
+            window.innerHeight - (heightOffset || 0)
+          }px`;
+        }
 
         this.overlaysWrapperElement.appendChild(overlay);
         this.overlaysWrapperElement.toggleAttribute('hidden', false);
