@@ -233,7 +233,7 @@ export class CXLMarketingNavElement extends LitElement {
 
   // Creates and returns a custom menu item component for use in vaadin-menu-bar
   createItem(
-    { text, description, sectionheader, component, icon, href, children, depth, split },
+    { text, description, sectionheader, component, icon, href, children, depth, classes },
     group
   ) {
     // If divider, return an <hr> element, nothing else.
@@ -253,8 +253,8 @@ export class CXLMarketingNavElement extends LitElement {
       menuItemElement.classList.add('section-header');
     }
 
-    if (split) {
-      menuItemElement.classList.add('menu-item-split-nav');
+    if (classes) {
+      classes.forEach((className) => menuItemElement.classList.add(className));
     }
 
     // Add prefix icon.
