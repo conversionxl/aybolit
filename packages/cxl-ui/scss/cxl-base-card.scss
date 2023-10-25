@@ -189,13 +189,13 @@ header {
       }
 
       .tag {
-        &:first-child,
-        &.new {
-          color: var(--lumo-primary-color);
+        &:first-child {
+          font-weight: 900;
+          text-transform: capitalize;
         }
 
-        &:first-child {
-          text-transform: capitalize;
+        &.new {
+          color: var(--lumo-primary-color);
         }
       }
     }
