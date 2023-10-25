@@ -34,7 +34,7 @@ export class CXLMarketingNavElement extends LitElement {
   groups = [];
 
   @state()
-  searchDialogOpened = false;
+  searchDialogOpen = false;
 
   @property({ type: Boolean, reflect: true, attribute: 'wide' }) wide = false;
 
@@ -50,15 +50,17 @@ export class CXLMarketingNavElement extends LitElement {
   set contextMenuItems(data) {
     this._contextMenuItems = { ...data };
     const parseItem = (item, group) => {
-      const newItem = {
-        component: this.createItem(item, group),
-      };
+      const newItem = { component: this.createItem(item, group) };
+
       if (item.children?.length) {
         newItem.children = [{ component: 'back' }, ...item.children].map(parseItem);
-      }
+      };
+
       return newItem;
     };
+
     const groups = [];
+
     Object.keys(data).forEach((group) => {
       const items = data[group];
       groups.push({
@@ -66,6 +68,7 @@ export class CXLMarketingNavElement extends LitElement {
         items: [...items?.map((item) => parseItem(item, group))],
       });
     });
+
     this.groups = groups;
     this.requestUpdate('groups');
   }
@@ -79,6 +82,7 @@ export class CXLMarketingNavElement extends LitElement {
   get mobileGroups() {
     // eslint-disable-next-line no-nested-ternary
     const sorter = (a, b) => (a.name === 'global' ? 1 : b.name === 'global' ? -1 : 0);
+
     return [
       {
         name: 'primary',
@@ -135,6 +139,7 @@ export class CXLMarketingNavElement extends LitElement {
     return html`
       ${groups.map((group) => {
         const { name, items } = group;
+
         return html`
           <nav id="menu-${name}-items" ?minimal=${!this.wide}>
             <div class="container">
@@ -150,6 +155,7 @@ export class CXLMarketingNavElement extends LitElement {
                     </vaadin-context-menu-item>
                   `
                 : ''}
+                
               ${!this.wide ? this._renderSearch(group) : ''}
               <vaadin-menu-bar theme="tertiary cxl-marketing-nav" .items=${items}></vaadin-menu-bar>
               <slot name="${name}-after"></slot>
@@ -159,11 +165,13 @@ export class CXLMarketingNavElement extends LitElement {
           </nav>
         `;
       })}
+
       <vaadin-dialog
         id="search-dialog"
         class="search-form-dialog"
-        ?modeless=${this.wide}
-        .opened="${this.searchDialogOpened}"
+        click
+        ?wide=${this.wide}
+        .opened="${this.searchDialogOpen}"
         @opened-changed=${this._boundSearchDialog}
         ${dialogRenderer(this._searchDialogRenderer, [])}
       >
@@ -173,16 +181,19 @@ export class CXLMarketingNavElement extends LitElement {
   }
 
   _setupSearchDialog(e) {
-    this.searchDialogOpened = e.detail.value;
+    this.searchDialogOpen = e.detail.value;
     if (!e.detail.value) return;
+
     const contents = this.searchFormSlot.assignedElements();
+
     if (contents.length) {
       this.searchDialog.$.overlay
-        .querySelector('div.search-form-container')
+        .querySelector('div.search-form-wrapper')
         .appendChild(contents[0]);
     }
+
     this.searchDialog.$.overlay
-      .querySelector('div.search-form-container')
+      .querySelector('div.search-form-wrapper')
       .querySelector('#search-input')
       .focus();
   }
@@ -195,7 +206,7 @@ export class CXLMarketingNavElement extends LitElement {
       <vaadin-menu-bar-button
         theme="tertiary cxl-marketing-nav"
         class="search-button"
-        @click=${this.toogleSearch}
+        @click=${this.toogleSearchDialog}
       >
         <a>
           <vaadin-icon icon="lumo:search"></vaadin-icon> Search
@@ -205,13 +216,13 @@ export class CXLMarketingNavElement extends LitElement {
     `;
   }
 
-  toogleSearch() {
-    this.searchDialogOpened = !this.searchDialogOpened;
+  toogleSearchDialog() {
+    this.searchDialogOpen = !this.searchDialogOpen;
   }
 
   // eslint-disable-next-line class-methods-use-this
   _searchDialogRenderer() {
-    return html` <div class="search-form-container"></div> `;
+    return html` <div class="search-form-wrapper"></div> `;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -225,38 +236,42 @@ export class CXLMarketingNavElement extends LitElement {
     { text, description, sectionheader, component, icon, href, children, depth, split },
     group
   ) {
-    // If divider, return an <hr> element, nothing else
+    // If divider, return an <hr> element, nothing else.
     if (component === 'hr') {
       return document.createElement('hr');
     }
 
-    // create menu item
+    // Create menu item.
     const menuItemElement = document.createElement('vaadin-context-menu-item');
-    if (group) menuItemElement.classList.add(`${group}-menu-item`);
-
-    // Add relevant classes conditionally
+      
+    // Add relevant classes conditionally.
+    if (group) {
+      menuItemElement.classList.add(`${group}-menu-item`);
+    }
+    
     if (sectionheader) {
       menuItemElement.classList.add('section-header');
     }
+
     if (split) {
       menuItemElement.classList.add('menu-item-split-nav');
     }
 
-    // Add prefix icon, if applicable
+    // Add prefix icon.
     if (icon) {
       const prefixIconElement = document.createElement('vaadin-icon');
       prefixIconElement.setAttribute('icon', `lumo:${icon}`);
+      prefixIconElement.classList.add('vaadin-context-menu-item--icon');
       menuItemElement.appendChild(prefixIconElement);
     }
 
-    // Add regular link or text label
+    // Add regular link or text label.
     if (href && !children && !sectionheader) {
       const link = document.createElement('a');
       link.href = href;
       link.innerText = text;
       menuItemElement.appendChild(link);
     } else if (text) {
-      // Use h6 for section headers, otherwise use span
       const labelElement = sectionheader
         ? document.createElement('h6')
         : document.createElement('span');
@@ -265,7 +280,7 @@ export class CXLMarketingNavElement extends LitElement {
       menuItemElement.appendChild(labelElement);
     }
 
-    // Add description, if applicable
+    // Add description.
     if (description) {
       const descriptionElement = document.createElement('div');
       descriptionElement.classList.add('vaadin-context-menu-item--description');
@@ -273,7 +288,7 @@ export class CXLMarketingNavElement extends LitElement {
       menuItemElement.appendChild(descriptionElement);
     }
 
-    // Add suffix dropdown icon, if it's a top level item with children
+    // Add suffix dropdown icon, for a top level item with children.
     if (children?.length && depth === 0) {
       const suffixIconElement = document.createElement('vaadin-icon');
       suffixIconElement.setAttribute('icon', 'lumo:dropdown');
@@ -281,7 +296,7 @@ export class CXLMarketingNavElement extends LitElement {
       menuItemElement.appendChild(suffixIconElement);
     }
 
-    // Back button, used in mobile layout only
+    // /Add back button. Used in mobile layout only.
     if (component === 'back') {
       const backButtonElement = document.createElement('vaadin-button');
 
@@ -301,9 +316,7 @@ export class CXLMarketingNavElement extends LitElement {
     if (!this.menuBars) return;
 
     [...this.menuBars].forEach((menu) => {
-      const splitItems = menu.shadowRoot.querySelectorAll(
-        'vaadin-context-menu-item.menu-item-split-nav'
-      );
+      const splitItems = menu.shadowRoot.querySelectorAll('vaadin-context-menu-item.menu-item-split-nav');
       [...splitItems].forEach((item) => {
         if (!item.parentElement.classList.contains('menu-item-split-nav')) {
           item.parentElement.classList.add('menu-item-split-nav');
@@ -320,15 +333,19 @@ export class CXLMarketingNavElement extends LitElement {
         'vaadin-menu-bar-button[part="overflow-button"]'
       );
       overflowMenuButton.toggleAttribute('hidden', false);
+      
       if (overflowMenuButton && !overflowMenuButton.iconFixed) {
+
         const menuIcon = document.createElement('vaadin-icon');
-        const closeIcon = document.createElement('vaadin-icon');
         menuIcon.setAttribute('icon', 'lumo:menu');
-        closeIcon.setAttribute('icon', 'lumo:cross');
         menuIcon.classList.add('vaadin-menu-bar-button--icon');
         menuIcon.classList.add('menu-icon');
+
+        const closeIcon = document.createElement('vaadin-icon');
+        closeIcon.setAttribute('icon', 'lumo:cross');
         closeIcon.classList.add('vaadin-menu-bar-button--icon');
         closeIcon.classList.add('close-icon');
+        
         overflowMenuButton.appendChild(closeIcon);
         overflowMenuButton.appendChild(menuIcon);
         overflowMenuButton.iconFixed = true;

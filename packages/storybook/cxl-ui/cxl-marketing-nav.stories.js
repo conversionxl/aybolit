@@ -43,8 +43,8 @@ export const CXLMarketingNav = (args) => {
     </style>
 
     <cxl-marketing-nav class="menu" role="navigation" slot="header">
-      <div id="search-form">
-        <form role="search" method="get" class="search-form" action="https://cxl.com/institute/?s=">
+      <div id="search-form-container">
+        <form id="search-form" role="search" method="get" class="search-form" action="https://cxl.com/institute/?s=">
           <label for="search-input">
             Search <em style="color: var(--lumo-primary-color);">C</em>XL:
           </label>

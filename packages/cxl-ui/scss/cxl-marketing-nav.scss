@@ -100,7 +100,7 @@
 }
 
 /** Search form */
-::slotted(#search-form) {
+::slotted(#search-form-container) {
   display: none;
 }
 

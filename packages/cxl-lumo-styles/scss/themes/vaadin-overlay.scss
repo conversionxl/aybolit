@@ -31,6 +31,7 @@
 }
 
 :host([theme~="cxl-marketing-nav"]) {
+
   &::part(overlay),
   &::part(content) {
     height: calc(100vh - 40px);
@@ -52,7 +53,18 @@
     max-height: initial;
   }
 
+  &::part(content) {
+    padding: var(--lumo-space-s) var(--lumo-space-m);
+  }
+
   @media (max-width: 568px), (max-height: 568px) {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: var(--vaadin-overlay-viewport-bottom, 0) !important;
+    left: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-end !important;
+
     
     [part='overlay'] {
       top: 0 !important;
@@ -61,23 +73,24 @@
       left: 0 !important;
       align-items: stretch !important;
       justify-content: flex-end !important;
+      width: 100vw;
       height: calc(100vh - 40px) !important;
       max-height: calc(100vh - 40px) !important;
-      width: 100vw;
-      border-radius: 0;
       border-top: 1px solid var(--lumo-shade-5pct);
+      border-radius: 0;
       box-shadow: none;
     }
 
     /* The content part scrolls instead of the overlay part, because of the gradient fade-out */
     [part='content'] {
-      max-height: inherit;
       box-sizing: border-box;
-      -webkit-overflow-scrolling: touch;
+      max-height: inherit;
       overflow: auto;
-      -webkit-mask-image: unset;
       mask-image: unset;
       padding: 0;
+
+      -webkit-overflow-scrolling: touch;
+      -webkit-mask-image: unset;
     }
 
     /* Animations */

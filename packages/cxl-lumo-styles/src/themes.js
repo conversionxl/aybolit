@@ -9,6 +9,7 @@ import cxlVaadinContextMenuItemStyles from './styles/themes/vaadin-context-menu-
 import cxlVaadinContextMenuListBoxStyles from './styles/themes/vaadin-context-menu-list-box-css.js';
 import cxlVaadinMenuBarStyles from './styles/themes/vaadin-menu-bar-css.js';
 import cxlVaadinMenuBarButtonStyles from './styles/themes/vaadin-menu-bar-button-css.js';
+import cxlVaadinContextMenuOverlayStyles from './styles/themes/vaadin-context-menu-overlay-css.js';
 import cxlVaadinDetailsStyles from './styles/themes/vaadin-details-css.js';
 import cxlVaadinIconStyles from './styles/themes/vaadin-icon-css.js';
 import cxlVaadinHorizontalLayoutStyles from './styles/themes/vaadin-horizontal-layout-css.js';
@@ -41,6 +42,9 @@ registerStyles('vaadin-context-menu-item', cxlVaadinContextMenuItemStyles, {
 });
 registerStyles('vaadin-context-menu-list-box', cxlVaadinContextMenuListBoxStyles, {
   moduleId: 'cxl-vaadin-context-menu-list-box-styles',
+});
+registerStyles('vaadin-context-menu-overlay', cxlVaadinContextMenuOverlayStyles, {
+  moduleId: 'cxl-vaadin-context-menu-overlay-styles',
 });
 registerStyles('vaadin-menu-bar', cxlVaadinMenuBarStyles, {
   moduleId: 'cxl-vaadin-menu-bar-styles',
