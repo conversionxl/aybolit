@@ -1,15 +1,16 @@
 [
   {
-    "title": "Roadmapped",
-    "count": "1 <small>trainings</small>",
-    "link": "View"
+    "title": "Lessons<br>completed",
+    "count": "30"
   },
   {
-    "title": "Completed",
-    "count": "2 <small>trainings</small>"
+    "title": "Courses<br>completed",
+    "count": "1",
+    "link": "https://cxl.com"
   },
   {
-    "title": "Study commitment",
-    "count": "2h <small>/week</small>"
+    "title": "Certificates<br>completed",
+    "count": "95",
+    "link": "https://cxl.com"
   }
 ]

@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { LitElement, html, nothing } from 'lit';
+import {LitElement, html, nothing} from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
-import '@vaadin/progress-bar';
 import './cxl-dashboard-notification';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import cxlDashboardHeaderGlobalStyles from '../styles/global/cxl-dashboard-header-css.js';
+
 import cxlDashboardHeaderStyles from '../styles/cxl-dashboard-header-css.js';
+import cxlDashboardHeaderGlobalStyles from '../styles/global/cxl-dashboard-header-css.js';
 
 @customElement('cxl-dashboard-header')
 export class CXLDashboardHeaderElement extends LitElement {
@@ -14,119 +14,77 @@ export class CXLDashboardHeaderElement extends LitElement {
     return [cxlDashboardHeaderStyles];
   }
 
-  @property({ type: String }) title = 'Hello';
-
-  @property({ type: String }) subtitle = 'My dashboard';
-
-  @property({ type: String }) name = '';
-
   @property({ type: Number, attribute: 'notification-count' }) notificationCount = 0;
 
   @property({ type: String }) notificationTitle = "What's new in CXL";
 
   @property({ type: Object }) notificationData = null;
 
-  @property({ type: String, attribute: 'last-course-title' }) lastCourseTitle = '';
+  @property({ type: String }) subtitle = 'My dashboard';
 
-  @property({ type: String, attribute: 'last-course-link' }) lastCourseLink = '';
+  @property({ type: String }) title = 'Hello';
 
-  @property({ type: String }) lastCourseSubtitle = 'Continue where you left off';
+  @property({ type: String }) name = '';
 
-  @property({ type: Number, attribute: 'progress' }) progress = 0;
+  @property({ type: Boolean }) showCompletedStats = false;
 
-  @property({ type: Number, attribute: 'lessons-completed' }) lessonsCompleted = 0;
+  @property({ type: Boolean }) showContinueSlider = false;
 
-  @property({ type: Number, attribute: 'lessons-total' }) lessonsTotal = 0;
+  _renderNotifications() {
+    if (this.notificationCount > 0) {
+      return html`
+        <div class="updates">
+          <cxl-dashboard-notification
+            count="${this.notificationCount}"
+            .tabs=${this.notificationData}
+          ></cxl-dashboard-notification>
+        </div>
+      `;
+    }
 
-  @property({ type: String }) cta1 = '';
-
-  @property({ type: String }) cta1Link = '';
-
-  @property({ type: String }) cta2 = '';
-
-  @property({ type: String }) cta2Link = '';
-
-  @property({ type: String }) cta3 = '';
-
-  @property({ type: String }) cta3Link = '';
-
-  @property({ type: Boolean }) hasRoadmap = false;
-
-  renderLastCourse() {
-    return this.hasRoadmap && this.lastCourseTitle
-      ? html`
-          <div class="last-course">
-            <a href="${this.lastCourseLink}">
-              <div>
-                <span class="subtitle">${this.lastCourseSubtitle}</span>
-                <span class="title">${this.lastCourseTitle}</span>
-              </div>
-              <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-            </a>
-            <div class="progress">
-              <span class="progress-title"
-                >Completed ${this.lessonsCompleted} of ${this.lessonsTotal} lessons</span
-              >
-              <vaadin-progress-bar value="${this.progress}"
-                >Completed ${this.lessonsCompleted} of ${this.lessonsTotal}
-                lessons</vaadin-progress-bar
-              >
-            </div>
-          </div>
-        `
-      : nothing;
+    return nothing;
   }
 
-  renderStats() {
-    return this.hasRoadmap
-      ? html` <div class="stats">
-          <slot name="stats-desktop"></slot>
-          <slot name="stats-mobile"></slot>
-        </div>`
-      : nothing;
+  // eslint-disable-next-line class-methods-use-this
+  _renderStats() {
+    if (this.showCompletedStats) {
+      return html`
+        <div class="stats">
+          <slot name="stats"></slot>
+        </div>
+      `;
+    }
+
+    return nothing;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _renderContinue() {
+    if (this.showContinueSlider) {
+      return html`
+        <div class="slider">
+          <span class="slider-title">Continue where you left off</span>
+          <slot name="slider"></slot>
+        </div>
+      `;
+    }
+
+    return nothing;
   }
 
   render() {
     return html`
       <div class="container">
         <header>
-          ${this.notificationCount > 0
-            ? html`<div class="updates">
-                <cxl-dashboard-notification
-                  count="${this.notificationCount}"
-                  .tabs=${this.notificationData}
-                ></cxl-dashboard-notification>
-              </div>`
-            : ''}
+          ${this._renderNotifications()}
           <div class="titles">
             <span class="subtitle">${this.subtitle}</span>
             <h1 class="title">${this.title}, ${this.name}.</h1>
           </div>
+          ${this._renderStats()}
         </header>
         <section class="content">
-          <div>
-            ${this.renderLastCourse()}
-            <div class="courses">
-              <vaadin-button onclick="window.location.href='${this.cta1Link}'">
-                ${this.cta1}
-                <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-              </vaadin-button>
-              <vaadin-button onclick="window.location.href='${this.cta2Link}'">
-                ${this.cta2}
-                <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-              </vaadin-button>
-              ${!this.hasRoadmap
-                ? html` <vaadin-button
-                    class="roadmap"
-                    onclick="window.location.href='${this.cta3Link}'"
-                  >
-                    ${this.cta3}
-                    <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-                  </vaadin-button>`
-                : nothing}
-            </div>
-          </div>
-          ${this.renderStats()}
+          ${this._renderContinue()}
         </section>
       </div>
     `;

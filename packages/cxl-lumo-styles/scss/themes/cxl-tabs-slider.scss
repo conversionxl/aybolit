@@ -68,8 +68,8 @@
 }
 
 /**
-  * Theme "featured-course-slider"
-*/
+ * Theme "featured-course-slider"
+ */
 
 :host([theme~="cxl-featured-course-slider"][orientation="horizontal"]) {
   position: relative;
@@ -139,8 +139,8 @@
 }
 
 /**
-  * Theme "cxl-course-slider"
-*/
+ * Theme "cxl-course-slider"
+ */
 
 :host([theme~="cxl-course-slider"][theme~="minimal"]) {
   margin-top: calc(var(--lumo-space-s) * -1);
@@ -217,13 +217,30 @@
 }
 
 /**
-  * Theme "cxl-course-slider" and "cxl-category-accordion"
-*/
+ * Theme "cxl-course-slider" and "cxl-category-accordion"
+ */
 
 :host([theme~="cxl-course-slider"][theme~="cxl-category-accordion"][theme~="minimal"]) {
   margin-left: calc(-1 * var(--lumo-space-m));
 
   @media #{mq.$small} {
     margin-left: calc(-1 * var(--lumo-space-l));
+  }
+}
+
+/**
+ * Theme "cxl-course-slider" and "cxl-slider-dashboard-header"
+ */
+
+:host([theme~="cxl-course-slider"][theme~="cxl-slider-dashboard-header"][theme~="minimal"]) {
+  margin-left: calc(-1 * var(--lumo-space-m));
+
+  @media #{mq.$small} {
+    margin-left: calc(-1 * var(--lumo-space-l));
+  }
+
+  &::before,
+  &::after {
+    background: linear-gradient(270deg, var(--cxl-color-athens-gray) 0%, rgba(255, 255, 255, 0) 100%);
   }
 }
