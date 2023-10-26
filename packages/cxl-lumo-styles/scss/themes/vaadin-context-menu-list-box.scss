@@ -14,20 +14,15 @@
 }
 
 :host([theme~="cxl-marketing-nav"].vaadin-menu-list-box) {
-  padding: var(--lumo-space-m);
+  padding: var(--lumo-space-m) 0;
 
   @media (min-width: 568px) {
     padding: 0;
-
-    [part="items"] ::slotted(.vaadin-menu-item) {
-      padding-right: var(--lumo-space-s);
-      padding-left: var(--lumo-space-s);
-    }
   }
   
   [part="items"] ::slotted(.vaadin-menu-item) {
-    padding-right: var(--lumo-space-s);
-    padding-left: var(--lumo-space-s);
+    padding-right: var(--lumo-space-m);
+    padding-left: var(--lumo-space-m);
   }
 
   [part="items"]

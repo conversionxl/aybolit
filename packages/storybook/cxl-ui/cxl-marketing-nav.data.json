@@ -49,6 +49,14 @@
       "href": "https://cxl.com/live",
       "id": 96,
       "parent": 0
+    },
+    {
+      "depth": 0,
+      "id": 51595,
+      "parent": 0,
+      "href": "https://cxl.com/institute/pricing/",
+      "classes": ["menu-item-cta", "menu-item-split-nav", "menu-item-start-free-trial"],
+      "text": "Sign up now"
     }
   ],
   "primary": [

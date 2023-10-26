@@ -1,3 +1,4 @@
+/* eslint-disable yoda */
 /* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html } from 'lit';
 import { customElement, property, state, query, queryAll } from 'lit/decorators.js';
@@ -9,6 +10,8 @@ import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
 import '@vaadin/icon';
 import '@vaadin/menu-bar';
+import '@vaadin/context-menu';
+import '@vaadin/button';
 import '@vaadin/dialog';
 
 @customElement('cxl-marketing-nav')
@@ -56,6 +59,10 @@ export class CXLMarketingNavElement extends LitElement {
         newItem.children = [{ component: 'back' }, ...item.children].map(parseItem);
       };
 
+      if ('primary' === group) {
+        newItem.separator = true;
+      }
+
       return newItem;
     };
 
@@ -63,10 +70,14 @@ export class CXLMarketingNavElement extends LitElement {
 
     Object.keys(data).forEach((group) => {
       const items = data[group];
-      groups.push({
+      const newGroup = {
         name: group,
         items: [...items?.map((item) => parseItem(item, group))],
-      });
+      };
+      if ('primary' === group) {
+        newGroup.items.push({ component: this._createSearchButton(), isSearch: true });
+      }
+      groups.push(newGroup);
     });
 
     this.groups = groups;
@@ -81,14 +92,15 @@ export class CXLMarketingNavElement extends LitElement {
   @property({ type: Array })
   get mobileGroups() {
     // eslint-disable-next-line no-nested-ternary
-    const sorter = (a, b) => (a.name === 'global' ? 1 : b.name === 'global' ? -1 : 0);
+    const sorter = (a, b) => ('global' === a.name ? 1 : 'global' === b.name ? -1 : 0);
+    const groups = [...this.groups];
 
     return [
       {
         name: 'primary',
-        items: this.groups
+        items: groups
           .sort(sorter)
-          .map((group) => group.items)
+          .map((group) => group.items.filter((item) => !item.isSearch))
           .flat(1),
       },
     ];
@@ -135,32 +147,31 @@ export class CXLMarketingNavElement extends LitElement {
   render() {
     // collapse all navs into one if in mobile layout
     const groups = this.wide ? this.groups : this.mobileGroups;
-
+    
     return html`
       ${groups.map((group) => {
         const { name, items } = group;
 
         return html`
-          <nav id="menu-${name}-items" ?minimal=${!this.wide}>
+          <nav id="menu-${name}-items" ?minimal=${this.minimal} ?wide=${this.wide}>
             <div class="container">
-              ${name === 'global' || !this.wide
+              ${'global' === name || !this.wide
                 ? html`
-                    <vaadin-context-menu-item class="cxl-logo" theme="tertiary cxl-marketing-nav">
+                    <vaadin-menu-bar-button class="cxl-logo" theme="tertiary cxl-marketing-nav">
                       <a href=${this.homeUrl || 'https://cxl.com'}>
                         <vaadin-icon
                           icon="cxl:logo"
                           style="width: var(--lumo-icon-size-xl, 48px);"
                         ></vaadin-icon>
                       </a>
-                    </vaadin-context-menu-item>
+                    </vaadin-menu-bar-button>
                   `
                 : ''}
                 
               ${!this.wide ? this._renderSearch(group) : ''}
-              <vaadin-menu-bar theme="tertiary cxl-marketing-nav" .items=${items}></vaadin-menu-bar>
+              <vaadin-menu-bar id="${name}-menu-bar" theme="tertiary cxl-marketing-nav" .items=${items}></vaadin-menu-bar>
               <slot name="${name}-after"></slot>
               <slot name="${name}-end"></slot>
-              ${this.wide ? this._renderSearch(group) : ''}
             </div>
           </nav>
         `;
@@ -200,23 +211,30 @@ export class CXLMarketingNavElement extends LitElement {
 
   // eslint-disable-next-line class-methods-use-this
   _renderSearch(group) {
-    if (this.minimal || group.name !== 'primary') return '';
+    if (this.minimal || 'primary' !== group.name) return '';
 
     return html`
       <vaadin-menu-bar-button
         theme="tertiary cxl-marketing-nav"
         class="search-button"
-        @click=${this.toogleSearchDialog}
+        @click=${this.toggleSearchDialog}
       >
-        <a>
+        <span>
           <vaadin-icon icon="lumo:search"></vaadin-icon> Search
           <vaadin-icon icon="lumo:dropdown"></vaadin-icon>
-        </a>
+        </span>
       </vaadin-menu-bar-button>
     `;
   }
 
-  toogleSearchDialog() {
+  _createSearchButton() {
+    const searchMenuItemElement = this.createItem({ text: 'Search', icon: 'search' }, 'primary');
+    searchMenuItemElement.addEventListener('click', this.toggleSearchDialog.bind(this));
+
+    return searchMenuItemElement;
+  }
+
+  toggleSearchDialog() {
     this.searchDialogOpen = !this.searchDialogOpen;
   }
 
@@ -231,20 +249,26 @@ export class CXLMarketingNavElement extends LitElement {
     [...document.body.querySelectorAll('vaadin-context-menu-overlay')].at(-1).close();
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  _redirectMenuItemClick(e)  {
+    const { currentTarget } = e;
+    const anchorElement = currentTarget.querySelector('a');
+    anchorElement.click();
+  }
+
   // Creates and returns a custom menu item component for use in vaadin-menu-bar
   createItem(
     { text, description, sectionheader, component, icon, href, children, depth, classes },
     group
   ) {
     // If divider, return an <hr> element, nothing else.
-    if (component === 'hr') {
+    if ('hr' === component) {
       return document.createElement('hr');
     }
-
     // Create menu item.
     const menuItemElement = document.createElement('vaadin-context-menu-item');
       
-    // Add relevant classes conditionally.
+    // Add relevant classes and attributes conditionally.
     if (group) {
       menuItemElement.classList.add(`${group}-menu-item`);
     }
@@ -264,13 +288,23 @@ export class CXLMarketingNavElement extends LitElement {
       prefixIconElement.classList.add('vaadin-context-menu-item--icon');
       menuItemElement.appendChild(prefixIconElement);
     }
-
-    // Add regular link or text label.
+    
+    // Add regular link, text label or CTA.
     if (href && !children && !sectionheader) {
       const link = document.createElement('a');
+      const isCTA = classes?.includes('menu-item-cta')
       link.href = href;
-      link.innerText = text;
+      if (isCTA) {
+        const ctaElement = document.createElement('vaadin-button');
+        ctaElement.setAttribute('theme', 'primary');
+        ctaElement.innerText = text;
+        link.appendChild(ctaElement);
+      } else {
+        link.innerText = text;
+      }
       menuItemElement.appendChild(link);
+      menuItemElement.addEventListener('click', this._redirectMenuItemClick);
+      menuItemElement.classList.add('has-link');
     } else if (text) {
       const labelElement = sectionheader
         ? document.createElement('h6')
@@ -289,15 +323,15 @@ export class CXLMarketingNavElement extends LitElement {
     }
 
     // Add suffix dropdown icon, for a top level item with children.
-    if (children?.length && depth === 0) {
+    if (children?.length && 0 === depth) {
       const suffixIconElement = document.createElement('vaadin-icon');
       suffixIconElement.setAttribute('icon', 'lumo:dropdown');
       suffixIconElement.classList.add('vaadin-context-menu-item--dropdown-icon');
       menuItemElement.appendChild(suffixIconElement);
     }
 
-    // /Add back button. Used in mobile layout only.
-    if (component === 'back') {
+    // Add back button. Used in mobile layout only.
+    if ('back' === component) {
       const backButtonElement = document.createElement('vaadin-button');
 
       backButtonElement.classList.add('context-menu-item-back-button');
@@ -335,7 +369,6 @@ export class CXLMarketingNavElement extends LitElement {
       overflowMenuButton.toggleAttribute('hidden', false);
       
       if (overflowMenuButton && !overflowMenuButton.iconFixed) {
-
         const menuIcon = document.createElement('vaadin-icon');
         menuIcon.setAttribute('icon', 'lumo:menu');
         menuIcon.classList.add('vaadin-menu-bar-button--icon');

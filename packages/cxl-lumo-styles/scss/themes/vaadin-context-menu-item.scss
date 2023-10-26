@@ -7,6 +7,10 @@
   }
 }
 
+:host([theme~="cxl-marketing-nav"].vaadin-menu-item.has-link) {
+  cursor: pointer !important;
+}
+
 :host([theme~="cxl-marketing-nav"].section-header) {
   font-weight: 600;
   color: var(--lumo-body-text-color);

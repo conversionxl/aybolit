@@ -10,38 +10,15 @@ export default {
 
 window.Headroom = Headroom;
 
-export const CXLMarketingNav = (args) => {
+export const CXLMarketingNav = () => {
   useEffect(() => {
     // Populate `<cxl-marketing-nav>` context menus.
     const cxlMarketingNavElement = document.querySelector('cxl-marketing-nav');
 
     cxlMarketingNavElement.contextMenuItems = contextMenuItems;
-
-    const htmlEl = document.querySelector('html');
-    if (args?.loggedIn) {
-      htmlEl.classList.add('loggedIn');
-    } else {
-      htmlEl.classList.remove('loggedIn');
-    }
-  }, [args?.loggedIn]);
+  }, []);
 
   return html`
-    <style>
-      html.loggedIn {
-        margin-top: 32px;
-      }
-
-      #wp-admin-bar {
-        position: fixed;
-        width: 100%;
-        height: 32px;
-        background-color: gray;
-        top: 0;
-        color: white;
-        padding: 0 1em;
-      }
-    </style>
-
     <cxl-marketing-nav class="menu" role="navigation" slot="header">
       <div id="search-form-container">
         <form id="search-form" role="search" method="get" class="search-form" action="https://cxl.com/institute/?s=">
@@ -61,10 +38,5 @@ export const CXLMarketingNav = (args) => {
         </form>
       </div>
     </cxl-marketing-nav>
-    <div id="wp-admin-bar" ?hidden=${!args?.loggedIn}>wp-admin bar: test nav menu placement</div>
   `;
-};
-
-CXLMarketingNav.args = {
-  loggedIn: true,
 };

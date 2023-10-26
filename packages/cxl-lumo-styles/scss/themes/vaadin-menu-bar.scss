@@ -10,7 +10,7 @@
     [part="overflow-button"] {
 
       vaadin-icon {
-        &.close-icon {
+        &.vaadin-menu-bar-button--icon {
           display: none;
         }
       }
@@ -24,6 +24,14 @@
 
         vaadin-icon {
           height: var(--lumo-icon-size-s);
+
+          &.vaadin-menu-bar-button--icon {
+            display: block;
+
+            &.close-icon {
+              display: none;
+            } 
+          }
     
           svg {
             fill: var(--lumo-shade);

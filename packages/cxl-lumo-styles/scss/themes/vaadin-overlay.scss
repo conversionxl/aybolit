@@ -54,7 +54,7 @@
   }
 
   &::part(content) {
-    padding: var(--lumo-space-s) var(--lumo-space-m);
+    padding: var(--lumo-space-s);
   }
 
   @media (max-width: 568px), (max-height: 568px) {
