@@ -4048,7 +4048,7 @@
     "@vaadin/vaadin-material-styles" "~23.3.25"
     "@vaadin/vaadin-themable-mixin" "~23.3.25"
 
-"@vaadin/button@^23.3.7", "@vaadin/button@~23.3.7":
+"@vaadin/button@^23.3.7", "@vaadin/button@~23.3.25":
   version "23.3.25"
   resolved "https://registry.yarnpkg.com/@vaadin/button/-/button-23.3.25.tgz#6822ddb2ccb57629b21812c15d11a0bbf85792f2"
   integrity sha512-9DyAwuaaa2Rnp91DkMIcBV/IqC/TQvk3kRU3Ec4swvDFYQDi71l2Q6JOkPZ/Ofj86tfpEDonLM6luzpisOfQ9A==
@@ -4072,7 +4072,7 @@
     "@vaadin/vaadin-material-styles" "~23.3.25"
     "@vaadin/vaadin-themable-mixin" "~23.3.25"
 
-"@vaadin/component-base@^23.3.7", "@vaadin/component-base@~23.3.25", "@vaadin/component-base@~23.3.7":
+"@vaadin/component-base@^23.3.7", "@vaadin/component-base@~23.3.25":
   version "23.3.25"
   resolved "https://registry.yarnpkg.com/@vaadin/component-base/-/component-base-23.3.25.tgz#4aa842df0943a288d8c0c6748b8619caea15dcd6"
   integrity sha512-7AbZkZvyl2ZQlG/Tgl5Dc0DV6d0w83ghQ5kG2KzcspOIqlYNlqfVf0lTD3NTgEpkkiz5bVF8YdUWRsZpESORGA==
@@ -4083,7 +4083,7 @@
     "@vaadin/vaadin-usage-statistics" "^2.1.0"
     lit "^2.0.0"
 
-"@vaadin/context-menu@^23.3.7", "@vaadin/context-menu@~23.3.7":
+"@vaadin/context-menu@^23.3.7", "@vaadin/context-menu@~23.3.25":
   version "23.3.25"
   resolved "https://registry.yarnpkg.com/@vaadin/context-menu/-/context-menu-23.3.25.tgz#e8ce098c8d78e3b2a000cea342f6bafb2d7168c8"
   integrity sha512-zHAKvbChax1LTanPBwO2rEf/gE5LqYh28UZk69Kj6NHGfuWeQR1lY+gEDxV+WoIEFzrYJLVswakxPUxok8CPlw==
@@ -4200,19 +4200,19 @@
   dependencies:
     lit "^2.0.0"
 
-"@vaadin/menu-bar@^3.3.7":
-  version "23.3.7"
-  resolved "https://registry.yarnpkg.com/@vaadin/menu-bar/-/menu-bar-23.3.7.tgz#467f64dd2c3ffa59659902672630f89ca56e8394"
-  integrity sha512-i96zo1/W+bHAovbG3mwireApyPEhY1VvAyNDwI+OH9QOGi0yhkaiX60KWHn7smh98x2UFGbchlOBI/PrJwXXQQ==
+"@vaadin/menu-bar@^23.3.7":
+  version "23.3.25"
+  resolved "https://registry.yarnpkg.com/@vaadin/menu-bar/-/menu-bar-23.3.25.tgz#8c2a64a50e69459a52c4988bf73e609c9020e758"
+  integrity sha512-O1XxWie5tJzkgfAVNvey7x4eaSc2b9gbTwWwUNL26KyeXEKH3YDDIOMZNcfBlkNWrNJDy6B3XeRw8Qaui3rv6A==
   dependencies:
     "@open-wc/dedupe-mixin" "^1.3.0"
     "@polymer/polymer" "^3.0.0"
-    "@vaadin/button" "~23.3.7"
-    "@vaadin/component-base" "~23.3.7"
-    "@vaadin/context-menu" "~23.3.7"
-    "@vaadin/vaadin-lumo-styles" "~23.3.7"
-    "@vaadin/vaadin-material-styles" "~23.3.7"
-    "@vaadin/vaadin-themable-mixin" "~23.3.7"
+    "@vaadin/button" "~23.3.25"
+    "@vaadin/component-base" "~23.3.25"
+    "@vaadin/context-menu" "~23.3.25"
+    "@vaadin/vaadin-lumo-styles" "~23.3.25"
+    "@vaadin/vaadin-material-styles" "~23.3.25"
+    "@vaadin/vaadin-themable-mixin" "~23.3.25"
 
 "@vaadin/notification@^23.3.7":
   version "23.3.25"
@@ -4312,7 +4312,7 @@
     "@polymer/polymer" "^3.0.0"
     "@vaadin/component-base" "~23.3.25"
 
-"@vaadin/vaadin-lumo-styles@^23.3.7", "@vaadin/vaadin-lumo-styles@~23.3.25", "@vaadin/vaadin-lumo-styles@~23.3.7":
+"@vaadin/vaadin-lumo-styles@^23.3.7", "@vaadin/vaadin-lumo-styles@~23.3.25":
   version "23.3.25"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-lumo-styles/-/vaadin-lumo-styles-23.3.25.tgz#77418f15914e5ec857f10a9a6178794f779618bc"
   integrity sha512-XNQijt5DZ6omSiapsNbiDwtQQ/I+QLcHNpcweY71r7m7mjsip+ZfPBswhKdF72qYAZV+5i+F6C5pS8AL0QdFng==
@@ -4323,7 +4323,7 @@
     "@vaadin/icon" "~23.3.25"
     "@vaadin/vaadin-themable-mixin" "~23.3.25"
 
-"@vaadin/vaadin-material-styles@~23.3.25", "@vaadin/vaadin-material-styles@~23.3.7":
+"@vaadin/vaadin-material-styles@~23.3.25":
   version "23.3.25"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-material-styles/-/vaadin-material-styles-23.3.25.tgz#4d5b4f57e67a8e66011bb84f5aaaa0e9ef6adb60"
   integrity sha512-GJZ7DAiOppIuonGISSSwNuRDoQEP8BNkvQH59izLwsCIHXUwsjqBWtTwtKE8H519d9208z5L7jo0Xsx258NfFA==
@@ -4331,7 +4331,7 @@
     "@polymer/polymer" "^3.0.0"
     "@vaadin/vaadin-themable-mixin" "~23.3.25"
 
-"@vaadin/vaadin-themable-mixin@^23.3.7", "@vaadin/vaadin-themable-mixin@~23.3.25", "@vaadin/vaadin-themable-mixin@~23.3.7":
+"@vaadin/vaadin-themable-mixin@^23.3.7", "@vaadin/vaadin-themable-mixin@~23.3.25":
   version "23.3.25"
   resolved "https://registry.yarnpkg.com/@vaadin/vaadin-themable-mixin/-/vaadin-themable-mixin-23.3.25.tgz#ddeb6612b197e93db87006cbfdf36f0555069a4a"
   integrity sha512-MwVFo5i1eEFf7jOr6yew2uvaT5X4dHsr7vwyhLhUdegUnu/MjWk1hH8lkHGoAj0X9pQVAt12966iTxuuMueSdg==
