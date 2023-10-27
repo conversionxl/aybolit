@@ -1,756 +1,911 @@
 {
   "global": [
     {
-      "classes": [
-        "menu-item-wide",
-        "menu-item",
-        "menu-item-type-custom",
-        "menu-item-object-custom",
-        "current-menu-item",
-        "current_page_item"
-      ],
       "depth": 0,
-      "text": "",
-      "selected": true,
+      "text": "Conversion optimization services",
       "component": "a",
-      "href": "/",
-      "description": "",
-      "id": 100,
-      "parent": 0
-    },
-    {
-      "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-      "depth": 0,
-      "text": "CX Optimization Agency",
-      "component": "a",
-      "href": "https://speero.com/",
-      "description": "",
+      "href": "https://conversionxl.com/agency/",
       "id": 95,
-      "parent": 0
+      "parent": 0,
+      "children": [
+        {
+          "depth": 1,
+          "text": "See Agency services",
+          "component": "a",
+          "href": "https://conversionxl.com/agency/",
+          "id": 101,
+          "parent": 95
+        },
+        {
+          "depth": 1,
+          "text": "Talk to a CRO expert +1 855 429-5295",
+          "component": "a",
+          "href": "tel:+1%20855%20429-5295",
+          "id": 102,
+          "parent": 95
+        }
+      ]
     },
     {
-      "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
       "depth": 0,
-      "text": "Message Testing",
+      "text": "Experimentation Agency",
       "component": "a",
-      "href": "https://wynter.com/",
-      "description": "",
+      "href": "https://speero.com",
       "id": 96,
       "parent": 0
     },
     {
-      "classes": [
-        "",
-        "menu-item",
-        "menu-item-type-custom",
-        "menu-item-object-custom",
-        "menu-item-has-children"
-      ],
       "depth": 0,
-      "text": "Blog",
+      "text": "Message Testing",
       "component": "a",
-      "href": "https://cxl.com/blog/",
-      "description": "",
-      "id": 97,
+      "href": "https://wynter.com/",
+      "id": 96,
+      "parent": 0
+    },
+    {
+      "depth": 0,
+      "text": "CXL Live 2023",
+      "component": "a",
+      "href": "https://cxl.com/live",
+      "id": 96,
+      "parent": 0
+    },
+    {
+      "depth": 0,
+      "id": 51595,
       "parent": 0,
-      "children": [
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Acquisition",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/acquisition/",
-          "description": "",
-          "id": 6351531,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Business building",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/business-building/",
-          "description": "",
-          "id": 6351532,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Copywriting",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/copywriting/",
-          "description": "",
-          "id": 6351533,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "CRO & testing",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/cro-testing/",
-          "description": "",
-          "id": 6351534,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Digital analytics",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/digital-analytics/",
-          "description": "",
-          "id": 6351535,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Original research",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/research/",
-          "description": "",
-          "id": 6351536,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Psychology",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/psychology/",
-          "description": "",
-          "id": 6351537,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "The Pe:p Show",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/the-pep-show/",
-          "description": "",
-          "id": 6351538,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "User experience & persuasive design",
-          "component": "a",
-          "href": "https://cxl.com/blog/category/ux-and-design/",
-          "description": "",
-          "id": 6351539,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "",
-          "component": "hr",
-          "id": 6351540,
-          "parent": 97
-        },
-        {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Go to blog",
-          "component": "a",
-          "href": "https://cxl.com/blog/",
-          "description": "",
-          "id": 6351541,
-          "parent": 97
-        }
-      ]
-    },
-    {
-      "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-      "depth": 0,
-      "text": "CXL Live 2022",
-      "component": "a",
-      "href": "https://cxl.com/live/",
-      "description": "",
-      "id": 98,
-      "parent": 0
-    },
-    {
-      "classes": [
-        "menu-item-split-nav",
-        "menu-item-wide",
-        "menu-item-search",
-        "menu-item",
-        "menu-item-type-custom",
-        "menu-item-object-custom"
-      ],
-      "depth": 0,
-      "text": "Search",
-      "id": 99,
-      "parent": 0
-    },
-    {
-      "classes": [
-        "menu-item-start-free-trial",
-        "nmr-logged-out",
-        "menu-item",
-        "menu-item-cta",
-        "menu-item-type-custom",
-        "menu-item-object-custom"
-      ],
-      "depth": 0,
-      "text": "Start 7-day trial for $1",
       "href": "https://cxl.com/institute/pricing/",
-      "id": 6351542,
-      "parent": 0
+      "classes": ["menu-item-cta", "menu-item-split-nav", "menu-item-start-free-trial"],
+      "text": "Sign up now"
     }
   ],
   "primary": [
     {
-      "classes": [
-        "",
-        "menu-item",
-        "menu-item-type-custom",
-        "menu-item-object-custom",
-        "current-menu-ancestor",
-        "current-menu-parent",
-        "menu-item-has-children"
-      ],
       "depth": 0,
-      "text": "Training",
-      "id": 6351475,
+      "text": "My dashboard ",
+      "component": "a",
+      "href": "https://conversionxl.com/institute/dashboard/",
+      "id": 35,
+      "children": [
+        {
+          "depth": 1,
+          "text": "See my roadmap",
+          "component": "a",
+          "href": "https://conversionxl.com/institute/dashboard/roadmap/",
+          "id": 351
+        },
+        {
+          "depth": 1,
+          "text": "Edit my roadmap",
+          "component": "a",
+          "href": "https://conversionxl.com/institute/roadmap/individual/",
+          "id": 352,
+          "parent": 35
+        },
+        {
+          "depth": 1,
+          "text": "Edit team roadmap",
+          "component": "a",
+          "href": "https://conversionxl.com/institute/roadmap/team/",
+          "id": 353,
+          "parent": 35
+        },
+        {
+          "depth": 1,
+          "text": "See team progress",
+          "component": "a",
+          "href": "https://conversionxl.com/institute/dashboard/team/",
+          "id": 354,
+          "parent": 35
+        }
+      ]
+    },
+    {
+      "depth": 0,
+      "text": "Training ",
+      "component": "a",
+      "href": "#",
+      "id": 36,
       "parent": 0,
       "children": [
         {
-          "classes": [
-            "",
-            "menu-item",
-            "menu-item-type-custom",
-            "menu-item-object-custom",
-            "menu-item-has-children"
-          ],
           "depth": 1,
-          "text": "Minidegrees",
-          "id": 6351476,
-          "parent": 6351475,
+          "text": "Deep skills",
+          "description": "Core fundamentals of marketing",
+          "id": 361,
+          "parent": 36,
+          "sectionheader": true
+        },
+        {
+          "depth": 1,
+          "text": "Conversion optimization",
+          "id": 362,
+          "parent": 36,
           "children": [
             {
-              "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
               "depth": 2,
-              "text": "See all minidegrees",
+              "text": "Brands marketing certificate",
+              "description": "Lorem ipsum dolor sit amet",
               "component": "a",
-              "href": "/online-courses/?_categories=minidegree-programs",
-              "description": "",
-              "id": 6351481,
-              "parent": 6351476
-            },
-            {
-              "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-              "depth": 2,
-              "text": "",
-              "component": "hr",
               "href": "#",
-              "description": "",
-              "id": 6351482,
-              "parent": 6351476
+              "parent": 362
             },
             {
-              "classes": [
-                "",
-                "menu-item",
-                "menu-item-type-post_type",
-                "menu-item-object-certificate"
-              ],
+              "component": "hr"
+            },
+            {
               "depth": 2,
-              "text": "Conversion optimization",
+              "text": "Audience building",
               "component": "a",
-              "href": "http://localhost:8080/certificate/cxl-conversion-optimization/",
-              "description": "",
-              "id": 6351483,
-              "parent": 6351476
+              "href": "#",
+              "parent": 362
+            },
+            {
+              "depth": 2,
+              "text": "Brand strategy",
+              "component": "a",
+              "href": "#",
+              "parent": 362
             }
           ]
         },
         {
-          "classes": [
-            "",
-            "menu-item",
-            "menu-item-type-custom",
-            "menu-item-object-custom",
-            "menu-item-has-children"
-          ],
           "depth": 1,
-          "text": "Marketing courses",
-          "id": 6351477,
-          "parent": 6351475,
+          "text": "Digital analytics",
+          "id": 363,
+          "parent": 36,
           "children": [
             {
-              "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
               "depth": 2,
-              "text": "",
-              "component": "hr",
-              "id": 6351484,
-              "parent": 6351477
+              "text": "Lorem ipsum",
+              "description": "Lorem ipsum dolor sit amet",
+              "component": "a",
+              "href": "#",
+              "parent": 363
             },
             {
-              "classes": [
-                "",
-                "menu-item",
-                "menu-item-type-custom",
-                "menu-item-object-custom",
-                "menu-item-has-children"
-              ],
-              "depth": 2,
-              "text": "CRO & UX",
-              "id": 6351485,
-              "parent": 6351477,
-              "children": [
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "A/B testing foundations",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/a-b-testing-foundations/",
-                  "description": "",
-                  "id": 6351490,
-                  "parent": 6351485
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "CRO Agency masterclass",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/cro-agency/",
-                  "description": "",
-                  "id": 6351491,
-                  "parent": 6351485
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Statistics for A/B testing",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/statistics-for-a-b-testing/",
-                  "description": "",
-                  "id": 6351492,
-                  "parent": 6351485
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "User research",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/user-research/",
-                  "description": "",
-                  "id": 6351493,
-                  "parent": 6351485
-                }
-              ]
+              "component": "hr"
             },
             {
-              "classes": [
-                "",
-                "menu-item",
-                "menu-item-type-custom",
-                "menu-item-object-custom",
-                "menu-item-has-children"
-              ],
               "depth": 2,
-              "text": "Analytics",
-              "id": 6351486,
-              "parent": 6351477,
-              "children": [
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Google Analytics - beginner",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/google-analytics-beginners/",
-                  "description": "",
-                  "id": 6351494,
-                  "parent": 6351486
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Google Tag Manager - beginner",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/google-tag-manager-for-beginners/",
-                  "description": "",
-                  "id": 6351495,
-                  "parent": 6351486
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Product analytics",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/product-analytics/",
-                  "description": "",
-                  "id": 6351496,
-                  "parent": 6351486
-                }
-              ]
+              "text": "Digital Audience building",
+              "component": "a",
+              "href": "#",
+              "parent": 363
             },
             {
-              "classes": [
-                "",
-                "menu-item",
-                "menu-item-type-custom",
-                "menu-item-object-custom",
-                "menu-item-has-children"
-              ],
               "depth": 2,
-              "text": "Marketing",
-              "id": 6351487,
-              "parent": 6351477,
+              "text": "Digital Brand strategy",
+              "component": "a",
+              "href": "#",
+              "parent": 363
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Growth marketing",
+          "href": "#",
+          "id": 364,
+          "parent": 36,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Demand Creation and Brand",
+              "component": "a",
+              "parent": 364,
+              "description": "Build mental availability. Marketing to the 95% who are not in-market today.",
+              "sectionheader": true
+            },
+            {
+              "depth": 2,
+              "text": "Organic Content",
+              "parent": 364,
               "children": [
                 {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
                   "depth": 3,
-                  "text": "Attribution",
+                  "text": "Content marketing research",
                   "component": "a",
-                  "href": "http://localhost:8080/course/attribution/",
-                  "description": "",
-                  "id": 6351497,
-                  "parent": 6351487
+                  "href": "#"
                 },
                 {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
                   "depth": 3,
-                  "text": "Branding",
+                  "text": "Content recycling",
                   "component": "a",
-                  "href": "http://localhost:8080/course/branding/",
-                  "description": "",
-                  "id": 6351498,
-                  "parent": 6351487
+                  "href": "#"
                 },
                 {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
                   "depth": 3,
-                  "text": "Building a marketing agency",
+                  "text": "Content strategy and SEO for lead generation",
                   "component": "a",
-                  "href": "http://localhost:8080/course/building-a-marketing-agency/",
-                  "description": "",
-                  "id": 6351499,
-                  "parent": 6351487
+                  "href": "#"
                 },
                 {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
                   "depth": 3,
                   "text": "Data-driven influencer marketing",
                   "component": "a",
-                  "href": "http://localhost:8080/course/influencer-marketing/",
-                  "description": "",
-                  "id": 6351500,
-                  "parent": 6351487
+                  "href": "#"
                 },
                 {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
                   "depth": 3,
-                  "text": "Email marketing: Master the fundamentals",
+                  "text": "Ecommerce Content Marketing",
                   "component": "a",
-                  "href": "http://localhost:8080/course/email-marketing-from-basics-to-best-in-class/",
-                  "description": "",
-                  "id": 6351501,
-                  "parent": 6351487
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Marketing Management",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/marketing-management/",
-                  "description": "",
-                  "id": 6351502,
-                  "parent": 6351487
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Marketing strategy",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/marketing-strategy/",
-                  "description": "",
-                  "id": 6351503,
-                  "parent": 6351487
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Product marketing for technology companies",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/product-marketing-for-technology-companies/",
-                  "description": "",
-                  "id": 6351504,
-                  "parent": 6351487
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Product messaging",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/product-messaging/",
-                  "description": "",
-                  "id": 6351505,
-                  "parent": 6351487
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "Project Management for Marketers",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/project-management/",
-                  "description": "",
-                  "id": 6351506,
-                  "parent": 6351487
-                },
-                {
-                  "classes": [
-                    "",
-                    "menu-item",
-                    "menu-item-type-post_type",
-                    "menu-item-object-course"
-                  ],
-                  "depth": 3,
-                  "text": "SEO driven editorial calendar",
-                  "component": "a",
-                  "href": "http://localhost:8080/course/editorial-calendar/",
-                  "description": "",
-                  "id": 6351507,
-                  "parent": 6351487
+                  "href": "#"
                 }
               ]
             },
             {
-              "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
               "depth": 2,
-              "text": "",
-              "component": "hr",
-              "id": 6351488,
-              "parent": 6351477
+              "text": "Brand",
+              "parent": 364,
+              "children": [
+                {
+                  "depth": 3,
+                  "text": "Audience building",
+                  "component": "a",
+                  "href": "#"
+                },
+                {
+                  "depth": 3,
+                  "text": "Brand strategy",
+                  "component": "a",
+                  "href": "#"
+                },
+                {
+                  "depth": 3,
+                  "text": "Brand tracking 101",
+                  "component": "a",
+                  "href": "#"
+                },
+                {
+                  "depth": 3,
+                  "text": "Brand tracking with Momentive",
+                  "component": "a",
+                  "href": "#"
+                }
+              ]
+            },
+            {
+              "depth": 2,
+              "text": "Growth strategy",
+              "parent": 364,
+              "children": [
+                {
+                  "depth": 3,
+                  "text": "Account based marketing",
+                  "component": "a",
+                  "href": "#"
+                },
+                {
+                  "depth": 3,
+                  "text": "Building a growth process",
+                  "component": "a",
+                  "href": "#"
+                },
+                {
+                  "depth": 3,
+                  "text": "Building an innovative product",
+                  "component": "a",
+                  "href": "#"
+                },
+                {
+                  "depth": 3,
+                  "text": "Growth Mindset: growth vs traditional marketing",
+                  "component": "a",
+                  "href": "#"
+                }
+              ]
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Demand Capture",
+              "parent": 364,
+              "description": "Harvest the demand that exists today.",
+              "sectionheader": true
+            },
+            {
+              "depth": 2,
+              "text": "SEO",
+              "parent": 364
+            },
+            {
+              "depth": 2,
+              "text": "Paid media",
+              "parent": 364
             }
           ]
         },
         {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-          "depth": 1,
-          "text": "Upcoming courses",
-          "id": 6351478,
-          "parent": 6351475
+          "component": "hr"
         },
         {
-          "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
           "depth": 1,
-          "text": "",
-          "component": "hr",
-          "id": 6351479,
-          "parent": 6351475
-        },
-        {
-          "classes": [
-            "",
-            "menu-item",
-            "menu-item-type-custom",
-            "menu-item-object-custom",
-            "current-menu-item",
-            "current_page_item"
-          ],
-          "depth": 1,
-          "text": "See all trainings",
+          "text": "Broad skills",
           "component": "a",
-          "href": "/",
-          "description": "",
-          "id": 6351480,
-          "parent": 6351475
+          "href": "#",
+          "description": "Supporting knowledge base for wider success",
+          "id": 365,
+          "parent": 36,
+          "sectionheader": true
+        },
+        {
+          "depth": 1,
+          "text": "Brand marketing",
+          "component": "a",
+          "href": "#",
+          "id": 366,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Digital marketing",
+          "component": "a",
+          "href": "#",
+          "id": 367,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Digital psychology and persuasion",
+          "component": "a",
+          "href": "#",
+          "id": 368,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Ecommerce marketing",
+          "component": "a",
+          "href": "#",
+          "id": 369,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Product marketing",
+          "component": "a",
+          "href": "#",
+          "id": 370,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Technical content marketing",
+          "component": "a",
+          "href": "#",
+          "id": 371,
+          "parent": 36,
+          "children": []
+        },
+        {
+          "depth": 1,
+          "text": "Technical marketing",
+          "component": "a",
+          "href": "#",
+          "id": 372,
+          "parent": 36,
+          "children": []
         }
       ]
     },
     {
-      "classes": ["", "menu-item", "menu-item-type-post_type", "menu-item-object-page"],
       "depth": 0,
-      "text": "Pricing",
+      "text": "Online courses",
       "component": "a",
-      "href": "http://localhost:8080/pricing/",
-      "description": "",
-      "id": 6351631,
-      "parent": 0
-    },
-    {
-      "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-      "depth": 0,
-      "text": "Community",
-      "component": "a",
-      "href": "https://cxl.com/playbooks/",
-      "description": "",
-      "id": 6351508,
-      "parent": 0
-    },
-    {
-      "classes": ["", "menu-item", "menu-item-type-custom", "menu-item-object-custom"],
-      "depth": 0,
-      "text": "Job Board",
-      "component": "a",
-      "href": "https://cxl.com/jobs/",
-      "description": "",
-      "id": 6351509,
-      "parent": 0
-    },
-    {
-      "classes": [
-        "menu-item-split-nav",
-        "nmr-logged-out",
-        "menu-item",
-        "menu-item-type-custom",
-        "menu-item-object-custom"
-      ],
-      "depth": 0,
-      "text": "Login",
-      "component": "a",
-      "href": "/login/",
-      "description": "",
-      "id": 6351527,
-      "parent": 0
-    },
-    {
-      "classes": [
-        "nmr-logged-out",
-        "menu-item",
-        "menu-item-type-custom",
-        "menu-item-object-custom",
-        "menu-item-has-children"
-      ],
-      "depth": 0,
-      "text": "Sign up",
-      "id": 6351528,
+      "href": "https://conversionxl.com/institute/online-courses/",
+      "id": 37,
       "parent": 0,
       "children": [
         {
-          "classes": [
-            "",
-            "nmr-logged-out",
-            "menu-item",
-            "menu-item-type-custom",
-            "menu-item-object-custom"
-          ],
           "depth": 1,
-          "text": "Teams",
-          "component": "a",
-          "href": "/for-teams/",
-          "description": "",
-          "id": 6351529,
-          "parent": 6351528
+          "text": "CRO & UX",
+          "id": 51,
+          "parent": 37,
+          "children": [
+            {
+              "description": "This is a sample description",
+              "depth": 2,
+              "text": "A/B testing",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/ab-testing-mastery/",
+              "id": 54,
+              "parent": 51
+            },
+            {
+              "depth": 2,
+              "text": "Conversion optimization audits",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/conversion-optimization-audits/",
+              "id": 55,
+              "parent": 51
+            },
+            {
+              "depth": 2,
+              "text": "CRO agency masterclass",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/cro-agency/",
+              "id": 56,
+              "parent": 51
+            },
+            {
+              "depth": 2,
+              "text": "Experimentation analysis",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/advanced-experimentation-analysis/",
+              "id": 57,
+              "parent": 51
+            },
+            {
+              "depth": 2,
+              "text": "Landing page optimization",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/landing-page-optimization/",
+              "id": 58,
+              "parent": 51
+            },
+            {
+              "depth": 2,
+              "text": "Neuromarketing",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/applied-neuromarketing/",
+              "id": 59,
+              "parent": 51
+            },
+            {
+              "depth": 2,
+              "text": "Sales copywriting & product messaging",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/product-messaging/",
+              "id": 60,
+              "parent": 51
+            },
+            {
+              "depth": 2,
+              "text": "Statistics for A/B testing",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/statistics-for-ab-testing/",
+              "id": 61,
+              "parent": 51
+            }
+          ]
         },
         {
-          "classes": [
-            "",
-            "nmr-logged-out",
-            "menu-item",
-            "menu-item-type-custom",
-            "menu-item-object-custom"
-          ],
           "depth": 1,
-          "text": "Individuals",
-          "component": "a",
-          "href": "/all-access/",
-          "description": "",
-          "id": 6351530,
-          "parent": 6351528
+          "text": "Analytics",
+          "id": 52,
+          "parent": 37,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Adobe Analytics \u2013 beginner",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/adobe-analytics/",
+              "id": 62,
+              "parent": 52
+            },
+            {
+              "depth": 2,
+              "text": "Google Analytics \u2013 beginner",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/google-analytics-beginners/",
+              "id": 63,
+              "parent": 52
+            },
+            {
+              "depth": 2,
+              "text": "Google Analytics \u2013 intermediate",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/intermediate-google-analytics/",
+              "id": 64,
+              "parent": 52
+            },
+            {
+              "depth": 2,
+              "text": "Google Tag Manager \u2013 beginner",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/fundamentals-of-google-tag-manager/",
+              "id": 65,
+              "parent": 52
+            },
+            {
+              "depth": 2,
+              "text": "Google Tag Manager \u2013 intermediate",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/intermediate-google-tag-manager/",
+              "id": 66,
+              "parent": 52
+            },
+            {
+              "depth": 2,
+              "text": "Google Tag Manager \u2013 advanced",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/advanced-google-tag-manager/",
+              "id": 67,
+              "parent": 52
+            },
+            {
+              "depth": 2,
+              "text": "Product analytics",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/product-analytics/",
+              "id": 68,
+              "parent": 52
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Marketing",
+          "id": 53,
+          "parent": 37,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Account based marketing",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/account-based-marketing/",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Advanced AI for marketers",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/advanced-ai-marketing/",
+              "id": 70,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Content strategy \u2013 B2B",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/content-strategy-seo-lead-generation/",
+              "id": 71,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Data-driven influencer marketing",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/influencer-marketing/",
+              "id": 72,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Facebook ads",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/facebook-ads/",
+              "id": 73,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Google Ads \u2013 intermediate",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/google-ads/",
+              "id": 74,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Google Ads \u2013 maximizing audiences",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/maximizing-audiences-ppc/",
+              "id": 75,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "LinkedIn advertising",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/linkedin-advertising/",
+              "id": 76,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Marketing management",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/marketing-management/",
+              "id": 77,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Marketing tech stack",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/optimizing-your-marketing-tech-stack/",
+              "id": 78,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Product marketing",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/product-marketing-for-technology-companies/",
+              "id": 79,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Project management for marketers",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/project-management-for-marketers/",
+              "id": 80,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Retention for subscription products",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/retention/",
+              "id": 81,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "SEO \u2013 editorial calendar",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/editorial-calendar/",
+              "id": 82,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Technical SEO",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/technical-seo/",
+              "id": 83,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "User-centric marketing",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/user-centric-marketing/",
+              "id": 84,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "YouTube ads",
+              "component": "a",
+              "href": "https://conversionxl.com/institute/certificate/youtube-ads/",
+              "id": 85,
+              "parent": 53
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Long item names ",
+          "href": "#",
+          "id": 0,
+          "parent": 0,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Ut enim aeque doleamus animo, cum corpore dolemus",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Ullus investigandi veri, nisi inveneris, et quaerendi defatigatio turpis est",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Parent length > Child length",
+          "href": "#",
+          "id": 0,
+          "parent": 0,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Item #1",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #2",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #3",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Child length > Parent length",
+          "href": "#",
+          "id": 0,
+          "parent": 0,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Item #1",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #2",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #3",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #4",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #5",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            },
+            {
+              "depth": 2,
+              "text": "Item #6",
+              "component": "a",
+              "href": "#",
+              "id": 69,
+              "parent": 53
+            }
+          ]
         }
       ]
     },
     {
-      "classes": [
-        "menu-item-help",
-        "menu-item-institute-child",
-        "menu-item",
-        "menu-item-type-custom",
-        "menu-item-object-custom"
-      ],
+      "depth": 0,
+      "text": "Upcoming courses",
+      "component": "a",
+      "href": "https://conversionxl.com/institute/upcoming-courses/",
+      "id": 38,
+      "parent": 0
+    },
+    {
+      "depth": 0,
+      "text": "Event videos",
+      "component": "a",
+      "href": "https://conversionxl.com/institute/media/",
+      "id": 39,
+      "parent": 0
+    },
+    {
+      "depth": 0,
+      "text": "Invite team",
+      "icon": "lumo:plus",
+      "component": "a",
+      "split": true,
+      "href": "https://conversionxl.com/institute/my-account/teams/",
+      "id": 40,
+      "parent": 0
+    },
+    {
+      "depth": 0,
+      "text": "My account ",
+      "icon": "lumo:user",
+      "component": "a",
+      "href": "https://conversionxl.com/institute/my-account/",
+      "id": 41,
+      "parent": 0,
+      "children": [
+        {
+          "depth": 1,
+          "text": "Go to My Account",
+          "component": "a",
+          "href": "http://localhost:8080/my-account/",
+          "id": 87,
+          "parent": 41
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "Subscriptions",
+          "component": "a",
+          "href": "http://localhost:8080/my-account/subscriptions/",
+          "id": 88,
+          "parent": 41
+        },
+        {
+          "depth": 1,
+          "text": "Orders",
+          "component": "a",
+          "href": "http://localhost:8080/my-account/orders/",
+          "id": 89,
+          "parent": 41
+        },
+        {
+          "depth": 1,
+          "text": "Account details",
+          "component": "a",
+          "href": "http://localhost:8080/my-account/edit-account/",
+          "id": 90,
+          "parent": 41
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "Skip Trial Period",
+          "description": "Gain unlimited instant access to all CXL features.",
+          "component": "a",
+          "href": "http://localhost:8080/my-account/skip-trial-period/",
+          "id": 90,
+          "parent": 41
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "Logout",
+          "component": "a",
+          "href": "http://localhost:8080/my-account/logout/",
+          "id": 91,
+          "parent": 41
+        }
+      ]
+    },
+    {
       "depth": 0,
       "text": "Help",
       "id": 42,
