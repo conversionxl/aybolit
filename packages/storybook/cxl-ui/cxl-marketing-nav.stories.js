@@ -20,8 +20,14 @@ export const CXLMarketingNav = () => {
 
   return html`
     <cxl-marketing-nav class="menu" role="navigation" slot="header">
-      <div id="search-form-container">
-        <form id="search-form" role="search" method="get" class="search-form" action="https://cxl.com/institute/?s=">
+      <template id="cxl-marketing-nav-search-form-template">
+        <form
+          id="search-form"
+          role="search"
+          method="get"
+          class="search-form"
+          action="https://cxl.com/institute/?s="
+        >
           <label for="search-input">
             Search <em style="color: var(--lumo-primary-color);">C</em>XL:
           </label>
@@ -36,7 +42,7 @@ export const CXLMarketingNav = () => {
             <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
           </vaadin-button>
         </form>
-      </div>
+      </template>
     </cxl-marketing-nav>
   `;
 };

@@ -74,9 +74,6 @@ export class CXLMarketingNavElement extends LitElement {
         name: group,
         items: [...items?.map((item) => parseItem(item, group))],
       };
-      if ('primary' === group) {
-        newGroup.items.push({ component: this._createSearchButton(), isSearch: true });
-      }
       groups.push(newGroup);
     });
 
@@ -117,7 +114,7 @@ export class CXLMarketingNavElement extends LitElement {
         this.wide = !matches;
       })
     );
-    this._boundSearchDialog = this._setupSearchDialog.bind(this);
+    this._boundOnSearchOpen = this._onSearchOpen.bind(this);
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -133,7 +130,6 @@ export class CXLMarketingNavElement extends LitElement {
       this._updateContextMenuItems();
       this._replaceMenuIcon();
       this.initHeadroom();
-      this.searchDialog.$.overlay.setAttribute('theme', 'cxl-marketing-nav-search');
     });
   }
 
@@ -183,31 +179,25 @@ export class CXLMarketingNavElement extends LitElement {
       <vaadin-dialog
         id="search-dialog"
         class="search-form-dialog"
+        theme="cxl-marketing-nav-search"
         click
         ?wide=${this.wide}
         .opened="${this.searchDialogOpen}"
-        @opened-changed=${this._boundSearchDialog}
+        @opened-changed=${this._boundOnSearchOpen}
         ${dialogRenderer(this._searchDialogRenderer, [])}
       >
       </vaadin-dialog>
-      <slot id="search-form-slot"></slot>
+      <slot id="search-form-slot" @slotchange=${this._boundSetupSearchDialog}></slot>
     `;
   }
 
-  _setupSearchDialog(e) {
+  _onSearchOpen(e) {
     this.searchDialogOpen = e.detail.value;
     if (!e.detail.value) return;
 
-    const contents = this.searchFormSlot.assignedElements();
+    // Automatically focus search field when opened.
 
-    if (contents.length) {
-      this.searchDialog.$.overlay.querySelector('div.search-form-wrapper').appendChild(contents[0]);
-    }
-
-    this.searchDialog.$.overlay
-      .querySelector('div.search-form-wrapper')
-      .querySelector('#search-input')
-      .focus();
+    this.searchDialog.$.overlay.querySelector('#search-input')?.focus();
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -228,20 +218,16 @@ export class CXLMarketingNavElement extends LitElement {
     `;
   }
 
-  _createSearchButton() {
-    const searchMenuItemElement = this.createItem({ text: 'Search', icon: 'search' }, 'primary');
-    searchMenuItemElement.addEventListener('click', this.toggleSearchDialog.bind(this));
-
-    return searchMenuItemElement;
-  }
-
   toggleSearchDialog() {
     this.searchDialogOpen = !this.searchDialogOpen;
   }
 
   // eslint-disable-next-line class-methods-use-this
   _searchDialogRenderer() {
-    return html` <div class="search-form-wrapper"></div> `;
+    const template = this.querySelector('#cxl-marketing-nav-search-form-template');
+    const templateContents = template.content.cloneNode(true);
+    const searchForm = templateContents.querySelector('#search-form');
+    return searchForm;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -278,8 +264,15 @@ export class CXLMarketingNavElement extends LitElement {
       menuItemElement.classList.add('section-header');
     }
 
+    // If there are classes, add them, avoiding empty strings.
     if (classes) {
-      classes.forEach((className) => menuItemElement.classList.add(className));
+      classes.forEach((className) => {
+        if (className) menuItemElement.classList.add(className);
+      });
+
+      if (classes?.includes('menu-item-search')) {
+        menuItemElement.addEventListener('click', this.toggleSearchDialog.bind(this));
+      }
     }
 
     // Add prefix icon.
