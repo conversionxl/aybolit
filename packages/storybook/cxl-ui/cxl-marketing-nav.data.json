@@ -702,7 +702,7 @@
     {
       "depth": 0,
       "text": "Invite team",
-      "icon": "plus",
+      "icon": "lumo:plus",
       "component": "a",
       "split": true,
       "href": "https://conversionxl.com/institute/my-account/teams/",
@@ -712,7 +712,7 @@
     {
       "depth": 0,
       "text": "My account ",
-      "icon": "user",
+      "icon": "lumo:user",
       "component": "a",
       "href": "https://conversionxl.com/institute/my-account/",
       "id": 41,
