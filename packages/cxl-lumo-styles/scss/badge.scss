@@ -12,6 +12,11 @@
   background-color: var(--cxl-color-brand-blue);
 }
 
+[theme~="badge"][theme~="tertiary"] {
+  color: var(--lumo-primary-contrast-color);
+  background-color: var(--cxl-color-dark-green);
+}
+
 .course-skills {
   [theme~="badge"] {
     margin-right: var(--lumo-space-s);

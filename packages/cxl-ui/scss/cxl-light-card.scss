@@ -3,14 +3,23 @@
   max-width: 300px;
   height: auto;
   min-height: calc(3 * var(--lumo-space-xl));
-  padding: var(--lumo-space-m);
+  padding: var(--lumo-space-m) var(--lumo-space-m) var(--lumo-space-s);
+  overflow: hidden;
 
-  .container > .attributes {
-    display: none;
+  .container {
+    padding-right: 112px; // image width
+
+    & > .attributes {
+      display: none;
+    }
   }
 
   header {
+    height: 100%;
+
     .info {
+      max-width: none;
+
       .name {
         font-size: var(--lumo-font-size-m);
         font-weight: 600;
@@ -20,6 +29,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        margin-top: auto;
         padding-top: var(--lumo-space-xs);
         padding-bottom: 0;
         gap: var(--lumo-space-xs);
@@ -30,9 +40,57 @@
       }
     }
 
-    .instructor-image {
-      height: 80px;
+    .instructor-preposition {
+      display: none;
     }
+
+    .instructor-image {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 112px;
+      height: auto;
+      border-radius: 0;
+      border-bottom-right-radius: var(--lumo-border-radius-l);
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: auto;
+      }
+    }
+  }
+
+  .progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: var(--lumo-font-size-xs);
+    line-height: var(--lumo-line-height-s);
+    color: var(--lumo-body-text-color);
+  }
+}
+
+.badge-new {
+  display: none;
+}
+
+:host([new]) {
+  .badge-new {
+    position: absolute;
+    right: var(--lumo-space-s);
+    bottom: var(--lumo-space-s);
+    display: block;
+    padding: calc(var(--lumo-space-xs) / 2) var(--lumo-space-s);
+    font-size: var(--lumo-font-size-s);
+    font-weight: 700;
+    line-height: var(--lumo-line-height-s);
+    color: var(--lumo-primary-contrast-color);
+    border-radius: calc(var(--lumo-border-radius-l) * 6);
+    background: var(--lumo-primary-color);
+    z-index: 2;
   }
 }
 
@@ -64,5 +122,48 @@
   cxl-time {
     margin-left: -3px; // to align with the instructor text
     color: var(--lumo-tint-40pct);
+  }
+}
+
+:host([theme~="portrait"]) {
+  display: block;
+  width: 175px;
+  min-width: 0;
+  padding: 0;
+
+  .container {
+    display: block;
+    padding: 0;
+  }
+
+  header {
+    display: block;
+  }
+
+  .info {
+    padding: var(--lumo-space-s);
+
+    .attributes {
+      display: none;
+    }
+  }
+
+  .progress {
+    display: none;
+  }
+
+  .instructor-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: var(--lumo-space-s);
+    border-radius: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: auto;
+    }
   }
 }
