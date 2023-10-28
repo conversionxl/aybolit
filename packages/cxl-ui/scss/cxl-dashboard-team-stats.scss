@@ -1,0 +1,79 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "./mixins";
+
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: calc(2 * var(--lumo-space-m));
+    width: 100%;
+    max-width: var(--cxl-content-max-width-wide);
+    padding: var(--lumo-space-m);
+    background-color: var(--cxl-color-light-gray);
+
+    @include mixins.pesudo-element-full-width(var(--cxl-color-light-gray));
+
+    @media #{mq.$small} {
+      padding: var(--lumo-space-xl) 0;
+      padding-bottom: calc(var(--lumo-space-xl) + var(--lumo-space-l));
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+
+      .title {
+        margin-block: 0;
+        font-weight: 900;
+      }
+
+      .actions {
+        display: none;
+      }
+
+      .team-settings {
+        --_lumo-button-primary-color: var(--lumo-primary-color);
+        --_lumo-button-primary-background-color: var(--lumo-tint);
+      }
+
+      @media #{mq.$small} {
+        .actions {
+          display: flex;
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+
+      .progress {
+        min-width: 320px;
+      }
+
+      .progress-subtitle {
+        margin-block: 0;
+      }
+
+      ::slotted(.stats) {
+        padding: 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: calc(2 * var(--lumo-space-l));
+      }
+
+      @media #{mq.$small} {
+        flex-direction: row;
+
+        ::slotted(.stats) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+}

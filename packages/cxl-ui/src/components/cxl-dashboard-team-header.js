@@ -2,6 +2,7 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import '@conversionxl/cxl-lumo-styles';
 import cxlDashboardTeamHeaderStyles from '../styles/cxl-dashboard-team-header-css.js';
 import cxlDashboardTeamHeaderGlobalStyles from '../styles/global/cxl-dashboard-team-header-css.js';
 import '@vaadin/icon';

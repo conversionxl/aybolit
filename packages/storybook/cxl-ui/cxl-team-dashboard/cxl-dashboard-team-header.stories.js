@@ -1,4 +1,4 @@
-import { TeamDashboardHeaderTemplate, ArgTypes } from './template';
+import { TeamDashboardHeaderTemplate, ArgTypes } from './header-template';
 
 export default {
   title: 'CXL UI/cxl-team-dashboard',

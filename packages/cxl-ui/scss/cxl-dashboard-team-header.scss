@@ -15,7 +15,7 @@
     padding: var(--lumo-space-l) var(--lumo-space-m);
     background-color: var(--lumo-shade);
 
-    @include mixins.pesudo-element-full-width();
+    @include mixins.pesudo-element-full-width(var(--lumo-shade));
 
     @media #{mq.$small} {
       display: flex;

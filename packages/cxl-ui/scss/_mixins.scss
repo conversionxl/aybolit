@@ -62,7 +62,7 @@
   }
 }
 
-@mixin pesudo-element-full-width {
+@mixin pesudo-element-full-width($color) {
   &::before {
     position: absolute;
     top: 0;
@@ -71,7 +71,7 @@
     z-index: -1;
     width: 100vw;
     content: "";
-    background-color: var(--lumo-shade);
+    background-color: $color;
     transform: translateX(-50%);
   }
 }

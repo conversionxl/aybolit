@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { CXLDashboardTeamHeader } from './cxl-dashboard-team-header.stories';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLFooterNav } from '../footer-nav.stories';
+import { CXLDashboardTeamStats } from './cxl-dashboard-team-stats.stories';
 
 export default {
   title: 'CXL UI/cxl-team-dashboard',
@@ -12,6 +13,7 @@ export const CXLDashboard = (args) => html`
     ${CXLMarketingNav()}
     <article>
       ${CXLDashboardTeamHeader({ name: args.header_name, multiple: args.header_multiple })}
+      ${CXLDashboardTeamStats({ progress: 0.65 })}
     </article>
     ${CXLFooterNav()}
   </cxl-app-layout>
