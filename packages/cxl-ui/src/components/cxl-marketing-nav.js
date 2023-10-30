@@ -169,8 +169,7 @@ export class CXLMarketingNavElement extends LitElement {
                 theme="tertiary cxl-marketing-nav"
                 .items=${items}
               ></vaadin-menu-bar>
-              <slot name="${name}-after"></slot>
-              <slot name="${name}-end"></slot>
+              <slot name="${name}-items-fixed"></slot>
             </div>
           </nav>
         `;

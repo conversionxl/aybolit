@@ -22,6 +22,7 @@
     width: 100%;
     max-width: 100vw;
     padding: 0 var(--lumo-space-m);
+    overflow: hidden;
 
     &:not([wide]) {
       vaadin-menu-bar {
@@ -55,16 +56,13 @@
     }
 
     &[minimal] {
-
       vaadin-menu-bar {
-
         &::part(overflow-button) {
-          visibility: hidden;
           pointer-events: none;
+          visibility: hidden;
         }
       }
     }
-
 
     ::part(menu-bar-button),
     ::slotted(.menu-item),
