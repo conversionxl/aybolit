@@ -16,11 +16,18 @@
 }
 
 :host([theme~="cxl-stats-dashboard-header"]) {
-  padding: var(--lumo-space-m);
+  margin-top: var(--lumo-space-m);
+  padding: 0;
   border: 0;
-  background-color: var(--lumo-primary-contrast-color);
 
   @media #{mq.$medium} {
-    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0;
+    gap: var(--lumo-space-l);
+  }
+}
+
+:host([theme~="cxl-stats-dashboard-header"][theme~="completed"]) {
+  @media #{mq.$medium} {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

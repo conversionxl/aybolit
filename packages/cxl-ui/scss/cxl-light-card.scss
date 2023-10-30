@@ -1,7 +1,7 @@
 :host {
   min-width: 267px; // 3col widths on 1400px
   max-width: 300px;
-  height: auto;
+  height: 100%;
   min-height: calc(3 * var(--lumo-space-xl));
   padding: var(--lumo-space-m) var(--lumo-space-m) var(--lumo-space-s);
   overflow: hidden;
@@ -123,6 +123,10 @@
     margin-left: -3px; // to align with the instructor text
     color: var(--lumo-tint-40pct);
   }
+
+  .progress {
+    color: var(--lumo-primary-contrast-color);
+  }
 }
 
 :host([theme~="portrait"]) {
@@ -133,11 +137,13 @@
 
   .container {
     display: block;
+    height: 100%;
     padding: 0;
   }
 
   header {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .info {

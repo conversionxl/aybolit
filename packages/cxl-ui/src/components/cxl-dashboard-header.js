@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { LitElement, html, nothing } from 'lit';
+import {LitElement, html, nothing} from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
-import '@vaadin/progress-bar';
 import './cxl-dashboard-notification';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import cxlDashboardHeaderGlobalStyles from '../styles/global/cxl-dashboard-header-css.js';
+
 import cxlDashboardHeaderStyles from '../styles/cxl-dashboard-header-css.js';
+import cxlDashboardHeaderGlobalStyles from '../styles/global/cxl-dashboard-header-css.js';
 
 @customElement('cxl-dashboard-header')
 export class CXLDashboardHeaderElement extends LitElement {
@@ -14,120 +14,133 @@ export class CXLDashboardHeaderElement extends LitElement {
     return [cxlDashboardHeaderStyles];
   }
 
-  @property({ type: String }) title = 'Hello';
-
-  @property({ type: String }) subtitle = 'My dashboard';
-
-  @property({ type: String }) name = '';
-
   @property({ type: Number, attribute: 'notification-count' }) notificationCount = 0;
 
   @property({ type: String }) notificationTitle = "What's new in CXL";
 
   @property({ type: Object }) notificationData = null;
 
-  @property({ type: String, attribute: 'last-course-title' }) lastCourseTitle = '';
+  @property({ type: String }) subtitle = 'My dashboard';
 
-  @property({ type: String, attribute: 'last-course-link' }) lastCourseLink = '';
+  @property({ type: String }) title = 'Hello';
 
-  @property({ type: String }) lastCourseSubtitle = 'Continue where you left off';
+  @property({ type: String }) name = '';
 
-  @property({ type: Number, attribute: 'progress' }) progress = 0;
+  @property({ type: Boolean }) showCompletedStats = false;
 
-  @property({ type: Number, attribute: 'lessons-completed' }) lessonsCompleted = 0;
+  @property({ type: Boolean }) showContinueSlider = false;
 
-  @property({ type: Number, attribute: 'lessons-total' }) lessonsTotal = 0;
+  @property({ type: Boolean }) showRoadmap = false;
 
-  @property({ type: String }) cta1 = '';
+  @property({ type: Boolean }) showRoadmapStats = false;
 
-  @property({ type: String }) cta1Link = '';
+  @property({ type: Boolean }) showRoadmapSlider = false;
 
-  @property({ type: String }) cta2 = '';
+  @property({ type: String }) editRoadmapLinkUrl = '';
 
-  @property({ type: String }) cta2Link = '';
+  @property({ type: String }) editRoadmapLinkText = 'Edit roadmap';
 
-  @property({ type: String }) cta3 = '';
+  @property({ type: String }) createRoadmapLinkUrl = '';
 
-  @property({ type: String }) cta3Link = '';
+  @property({ type: String }) createRoadmapLinkText = 'Create your personal learning roadmap';
 
-  @property({ type: Boolean }) hasRoadmap = false;
+  @property({ type: Boolean }) showMinidegrees = false;
 
-  renderLastCourse() {
-    return this.hasRoadmap && this.lastCourseTitle
-      ? html`
-          <div class="last-course">
-            <a href="${this.lastCourseLink}">
-              <div>
-                <span class="subtitle">${this.lastCourseSubtitle}</span>
-                <span class="title">${this.lastCourseTitle}</span>
-              </div>
-              <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-            </a>
-            <div class="progress">
-              <span class="progress-title"
-                >Completed ${this.lessonsCompleted} of ${this.lessonsTotal} lessons</span
-              >
-              <vaadin-progress-bar value="${this.progress}"
-                >Completed ${this.lessonsCompleted} of ${this.lessonsTotal}
-                lessons</vaadin-progress-bar
-              >
-            </div>
-          </div>
-        `
-      : nothing;
+  _renderNotifications() {
+    if (this.notificationCount > 0) {
+      return html`
+        <div class="updates">
+          <cxl-dashboard-notification
+            count="${this.notificationCount}"
+            .tabs=${this.notificationData}
+          ></cxl-dashboard-notification>
+        </div>
+      `;
+    }
+
+    return nothing;
   }
 
-  renderStats() {
-    return this.hasRoadmap
-      ? html` <div class="stats">
-          <slot name="stats-desktop"></slot>
-          <slot name="stats-mobile"></slot>
-        </div>`
-      : nothing;
+  _renderUserSection() {
+    return html`
+      <section class="content">
+        <header>
+          <div class="titles">
+            <span class="subtitle">${this.subtitle}</span>
+            <h1 class="title">${this.title}, ${this.name}.</h1>
+          </div>
+          ${this.showCompletedStats ? html`
+            <slot name="completed-stats" class="completed-stats"></slot>
+          ` : nothing}
+        </header>
+        ${this.showContinueSlider ? html`
+          <div class="slider">
+            <span class="slider-title">Continue where you left off</span>
+            <slot name="continue-slider" class="slider-slider"></slot>
+          </div>
+        ` : nothing}
+      </section>
+    `;
+  }
+
+  _renderRoadmapSection() {
+    if (this.showRoadmap) {
+      return html`
+        <section class="content">
+          <header>
+            <h2 class="title">Training Roadmap</h2>
+            ${this.showRoadmapStats ? html`
+              <vaadin-button class="edit-roadmap" onclick="window.location.href='${this.editRoadmapLinkUrl}'">
+                <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
+                ${this.editRoadmapLinkText}
+              </vaadin-button>
+              <slot name="roadmap-stats" class="roadmap-stats"></slot>
+            ` : nothing}
+          </header>
+          ${!this.showRoadmapStats && !this.showRoadmapSlider ? html`
+            <vaadin-button
+              class="roadmap"
+              onclick="window.location.href='${this.createRoadmapLinkUrl}'"
+            >
+              ${this.createRoadmapLinkText}
+              <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
+            </vaadin-button>
+          ` : nothing}
+          ${this.showRoadmapSlider ? html`
+            <div class="slider">
+                <span class="slider-title">Next up</span>
+                <slot name="next-slider" class="slider-slider"></slot>
+            </div>
+          ` : nothing}
+        </section>
+      `;
+    }
+
+    return nothing;
+  }
+
+  _renderMinidegreesSection() {
+    if (this.showMinidegrees) {
+      return html`
+        <section class="content">
+          <header>
+            <h2 class="title">Minidegrees</h2>
+          </header>
+          <slot name="minidegree-slider"></slot>
+        </section>
+      `;
+    }
+
+    return nothing;
   }
 
   render() {
     return html`
       <div class="container">
-        <header>
-          ${this.notificationCount > 0
-            ? html`<div class="updates">
-                <cxl-dashboard-notification
-                  count="${this.notificationCount}"
-                  .tabs=${this.notificationData}
-                ></cxl-dashboard-notification>
-              </div>`
-            : ''}
-          <div class="titles">
-            <span class="subtitle">${this.subtitle}</span>
-            <h1 class="title">${this.title}, ${this.name}.</h1>
-          </div>
-        </header>
-        <section class="content">
-          <div>
-            ${this.renderLastCourse()}
-            <div class="courses">
-              <vaadin-button onclick="window.location.href='${this.cta1Link}'">
-                ${this.cta1}
-                <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-              </vaadin-button>
-              <vaadin-button onclick="window.location.href='${this.cta2Link}'">
-                ${this.cta2}
-                <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-              </vaadin-button>
-              ${!this.hasRoadmap
-                ? html` <vaadin-button
-                    class="roadmap"
-                    onclick="window.location.href='${this.cta3Link}'"
-                  >
-                    ${this.cta3}
-                    <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-                  </vaadin-button>`
-                : nothing}
-            </div>
-          </div>
-          ${this.renderStats()}
-        </section>
+        ${this._renderNotifications()}
+        ${this._renderUserSection()}
+        ${this._renderRoadmapSection()}
+        ${this._renderMinidegreesSection()}
       </div>
     `;
   }

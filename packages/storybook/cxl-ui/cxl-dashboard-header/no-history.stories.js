@@ -11,17 +11,13 @@ CXLDashboardHeaderNoHistory.argTypes = {
 };
 CXLDashboardHeaderNoHistory.args = {
   name: 'Mathias Z',
-  lastCourseTitle: '',
-  lastCourseLink: '',
-  hasRoadmap: true,
-  notificationCount: '6',
-  progress: '0',
-  lessonsCompleted: '0',
-  lessonsTotal: '6',
-  cta1: 'Browse all courses',
-  cta2: 'Browse fast skills',
-  cta3: 'Create your personal learning roadmap',
-  cta1Link: 'https://cxl.com',
-  cta2Link: 'https://cxl.com',
-  cta3Link: 'https://cxl.com',
+  notificationCount: 6,
+  showCompletedStats: false,
+  showContinueSlider: false,
+  showRoadmap: true,
+  showRoadmapStats: false,
+  showRoadmapSlider: false,
+  createRoadmapLinkUrl: 'https://cxl.com',
+  createRoadmapLinkText: 'Create your personal learning roadmap',
+  showMinidegrees: false
 };

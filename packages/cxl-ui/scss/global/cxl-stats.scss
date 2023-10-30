@@ -1,6 +1,10 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 cxl-stats {
+  .stat-item {
+    min-width: 112px;
+  }
+
   .stat-title {
     margin: 0 0 var(--lumo-space-s) 0;
     font-size: var(--lumo-font-size-xs);
@@ -19,11 +23,14 @@ cxl-stats {
     small {
       font-size: var(--lumo-font-size-l);
     }
+  }
 
-    a {
-      font-size: var(--lumo-font-size-m);
-      font-weight: 400;
-      text-decoration: underline;
+  a.stat-count {
+    color: var(--cxl-color-black);
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--lumo-primary-color);
     }
   }
 }

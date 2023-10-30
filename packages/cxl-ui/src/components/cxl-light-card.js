@@ -5,6 +5,7 @@ import { customElement, property } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/progress-bar';
 import cxlLightCardStyles from '../styles/cxl-light-card-css.js';
+
 import { CXLBaseCardElement } from './cxl-base-card.js';
 
 @customElement('cxl-light-card')

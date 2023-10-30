@@ -59,18 +59,20 @@ export class CXLBaseCardElement extends LitElement {
   }
 
   _renderHeaderAttributes() {
-    return html`
-      ${this.time || this.instructor
-        ? html`<div class="attributes">
-            ${this.time
-              ? html`<cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>`
-              : nothing}
-            ${this.instructor
-              ? html`<div class="instructor"><span class="instructor-preposition">By: </span>${this.instructor}</div>`
-              : nothing}
-          </div>`
-        : nothing}
-    `;
+    if (this.time || this.instructor) {
+      return html`
+        <div class="attributes">
+          ${this.time
+            ? html`<cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>`
+            : nothing}
+          ${this.instructor
+            ? html`<div class="instructor"><span class="instructor-preposition">By: </span>${this.instructor}</div>`
+            : nothing}
+        </div>
+      `;
+    }
+
+    return nothing;
   }
 
   _renderAvatar() {

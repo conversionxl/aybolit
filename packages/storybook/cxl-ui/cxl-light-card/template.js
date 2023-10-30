@@ -13,6 +13,6 @@ export const Template = (card) => html`
     .new="${card.new}"
     .completed="${card.completed}"
   >
-    ${card.footer ? html` <footer slot="footer">${unsafeHTML(card.footer)}</footer>` : nothing}
+    ${card.footer ? html` <div slot="footer">${unsafeHTML(card.footer)}</div>` : nothing}
   </cxl-light-card>
 `;

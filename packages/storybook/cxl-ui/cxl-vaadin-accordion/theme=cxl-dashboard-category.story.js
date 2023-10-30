@@ -54,7 +54,7 @@ export const CXLVaadinAccordionThemeCategory = () => html`
 
 Object.assign(CXLLightCardSlider, {
   args: {
-    numberOfCards: 8,
+    length: 8,
     theme: 'cxl-category-accordion',
   },
 });
