@@ -66,7 +66,7 @@ export class CXLBaseCardElement extends LitElement {
               ? html`<cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>`
               : nothing}
             ${this.instructor
-              ? html`<div class="instructor">By: ${this.instructor}</div>`
+              ? html`<div class="instructor"><span class="instructor-preposition">By: </span>${this.instructor}</div>`
               : nothing}
           </div>`
         : nothing}

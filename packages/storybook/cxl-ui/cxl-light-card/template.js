@@ -8,6 +8,8 @@ export const Template = (card) => html`
     time="${card.time}"
     instructor="${card.instructor}"
     avatar="${card.avatar}"
+    progress="${card.progress}"
+    lessons="${card.lessons}"
     .new="${card.new}"
     .completed="${card.completed}"
   >

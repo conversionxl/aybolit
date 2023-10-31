@@ -3,6 +3,7 @@ import { html, nothing } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { customElement, property } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
+import '@vaadin/progress-bar';
 import cxlLightCardStyles from '../styles/cxl-light-card-css.js';
 import { CXLBaseCardElement } from './cxl-base-card.js';
 
@@ -11,6 +12,10 @@ export class CXLLightCardElement extends CXLBaseCardElement {
   static get styles() {
     return [...super.styles, cxlLightCardStyles];
   }
+
+  @property({ type: Number }) progress = 0;
+
+  @property({ type: Number }) lessons = 0;
 
   constructor() {
     super();
@@ -28,6 +33,10 @@ export class CXLLightCardElement extends CXLBaseCardElement {
     this.requestUpdate('showTags', this._showTags);
   }
 
+  _renderNewBadge() {
+    return this.new ? html`<span class="badge-new">NEW</span>` : nothing;
+  }
+
   _renderHeaderName() {
     return html`
       <div class="name" title=${this.name}>
@@ -38,12 +47,30 @@ export class CXLLightCardElement extends CXLBaseCardElement {
     `;
   }
 
+  _renderProgress() {
+    if ( this.progress && this.lessons ) {
+      return html`
+        <div class="progress">
+          <span class="progress-title">
+            Completed ${this.progress} of ${this.lessons}
+          </span>
+          <vaadin-progress-bar value="${this.progress / this.lessons}">
+            Completed ${this.progress} of ${this.lessons}
+          </vaadin-progress-bar>
+        </div>
+      `;
+    }
+
+    return nothing;
+  }
+
   render() {
     return html`
       <div class="container">
         ${this._renderHeader()}
+        ${this._renderProgress()}
         <slot name="footer"></slot>
-        <vaadin-icon class="badge-new" icon="cxl:new"></vaadin-icon>
+        ${this._renderNewBadge()}
       </div>
     `;
   }
