@@ -7,7 +7,7 @@ import '@conversionxl/cxl-lumo-styles';
 import CXLDashboardTeamStatsStyles from '../styles/cxl-dashboard-team-stats-css.js';
 
 @customElement('cxl-dashboard-team-stats')
-export class CxlDashboardTeamStats extends LitElement {
+export class CxlDashboardTeamStatsElement extends LitElement {
   static get styles() {
     return [CXLDashboardTeamStatsStyles];
   }

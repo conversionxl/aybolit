@@ -9,7 +9,7 @@ import '@vaadin/icon';
 import '@vaadin/button';
 
 @customElement('cxl-dashboard-team-header')
-export class CxlDashboardTeamHeader extends LitElement {
+export class CxlDashboardTeamHeaderElement extends LitElement {
   static get styles() {
     return [cxlDashboardTeamHeaderStyles];
   }
