@@ -13,8 +13,8 @@ CXLLightCard.args = {
   theme: 'light-card',
   name: 'Account based marketing',
   avatar: 'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
-  progress: 3,
-  lessons: 12
+  progressCompleted: 3,
+  progressTotal: 12
 };
 
 const CXLLightCard2 = Template.bind({});
@@ -22,8 +22,8 @@ CXLLightCard2.args = {
   ...CXLLightCard.args,
   name: 'Basics of Casual Inference',
   avatar: '',
-  progress: 7,
-  lessons: 9
+  progressCompleted: 7,
+  progressTotal: 9
 };
 
 const CXLLightCard3 = Template.bind({});

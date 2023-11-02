@@ -16,7 +16,7 @@ export class CXLDashboardHeaderElement extends LitElement {
 
   @property({ type: Number, attribute: 'notification-count' }) notificationCount = 0;
 
-  @property({ type: String }) notificationTitle = "What's new in CXL";
+  @property({ type: String, attribute: 'notification-title' }) notificationTitle = "What's new in CXL";
 
   @property({ type: Object }) notificationData = null;
 
@@ -26,25 +26,21 @@ export class CXLDashboardHeaderElement extends LitElement {
 
   @property({ type: String }) name = '';
 
-  @property({ type: Boolean }) showCompletedStats = false;
+  @property({ type: Boolean, attribute: 'show-completed-stats' }) showCompletedStats = false;
 
-  @property({ type: Boolean }) showContinueSlider = false;
+  @property({ type: Boolean, attribute: 'show-continue-slider' }) showContinueSlider = false;
 
-  @property({ type: Boolean }) showRoadmap = false;
+  @property({ type: Boolean, attribute: 'show-roadmap' }) showRoadmap = false;
 
-  @property({ type: Boolean }) showRoadmapStats = false;
+  @property({ type: Boolean, attribute: 'show-roadmap-stats' }) showRoadmapStats = false;
 
-  @property({ type: Boolean }) showRoadmapSlider = false;
+  @property({ type: Boolean, attribute: 'show-roadmap-slider' }) showRoadmapSlider = false;
 
-  @property({ type: String }) editRoadmapLinkUrl = '';
+  @property({ type: String, attribute: 'edit-roadmap-link-url' }) editRoadmapLinkUrl = '';
 
-  @property({ type: String }) editRoadmapLinkText = 'Edit roadmap';
+  @property({ type: String, attribute: 'create-roadmap-link-url' }) createRoadmapLinkUrl = '';
 
-  @property({ type: String }) createRoadmapLinkUrl = '';
-
-  @property({ type: String }) createRoadmapLinkText = 'Create your personal learning roadmap';
-
-  @property({ type: Boolean }) showMinidegrees = false;
+  @property({ type: Boolean, attribute: 'show-minidegrees' }) showMinidegrees = false;
 
   _renderNotifications() {
     if (this.notificationCount > 0) {
@@ -88,21 +84,23 @@ export class CXLDashboardHeaderElement extends LitElement {
       return html`
         <section class="content">
           <header>
-            <h2 class="title">Training Roadmap</h2>
-            ${this.showRoadmapStats ? html`
-              <vaadin-button class="edit-roadmap" onclick="window.location.href='${this.editRoadmapLinkUrl}'">
-                <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
-                ${this.editRoadmapLinkText}
-              </vaadin-button>
-              <slot name="roadmap-stats" class="roadmap-stats"></slot>
-            ` : nothing}
+            <div class="header-flex">
+              <h2 class="title">Training Roadmap</h2>
+              ${this.showRoadmapStats ? html`
+                <vaadin-button class="edit-roadmap" onclick="window.location.href='${this.editRoadmapLinkUrl}'">
+                  <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
+                  Edit <span class="edit-roadmap-text-affix">roadmap</span>
+                </vaadin-button>
+              ` : nothing}
+            </div>
+            ${this.showRoadmapStats ? html`<slot name="roadmap-stats" class="roadmap-stats"></slot>` : nothing}
           </header>
           ${!this.showRoadmapStats && !this.showRoadmapSlider ? html`
             <vaadin-button
               class="roadmap"
               onclick="window.location.href='${this.createRoadmapLinkUrl}'"
             >
-              ${this.createRoadmapLinkText}
+              Create your personal learning roadmap
               <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
             </vaadin-button>
           ` : nothing}

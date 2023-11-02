@@ -14,9 +14,11 @@ export class CXLLightCardElement extends CXLBaseCardElement {
     return [...super.styles, cxlLightCardStyles];
   }
 
-  @property({ type: Number }) progress = 0;
+  @property({ type: Boolean }) showProgress = false;
 
-  @property({ type: Number }) lessons = 0;
+  @property({ type: Number, attribute: 'progress-completed' }) progressCompleted = 0;
+
+  @property({ type: Number, attribute: 'progress-total' }) progressTotal = 0;
 
   constructor() {
     super();
@@ -49,14 +51,16 @@ export class CXLLightCardElement extends CXLBaseCardElement {
   }
 
   _renderProgress() {
-    if ( this.progress && this.lessons ) {
+    if ( this.showProgress || ( this.progressCompleted && this.progressTotal ) ) {
       return html`
         <div class="progress">
           <span class="progress-title">
-            Completed ${this.progress} of ${this.lessons}
+            Completed ${this.progressCompleted} of ${this.progressTotal}
           </span>
-          <vaadin-progress-bar value="${this.progress / this.lessons}">
-            Completed ${this.progress} of ${this.lessons}
+          <vaadin-progress-bar
+            value="${this.progressCompleted / this.progressTotal}"
+          >
+            Completed ${this.progressCompleted} of ${this.progressTotal}
           </vaadin-progress-bar>
         </div>
       `;

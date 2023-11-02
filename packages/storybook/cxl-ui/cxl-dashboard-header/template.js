@@ -14,16 +14,14 @@ export const DashboardHeaderTemplate = (header) => html`
     name=${header.name}
     notification-count=${header.notificationCount}
     .notificationData=${notificationData}
-    .showCompletedStats=${header.showCompletedStats}
-    .showContinueSlider=${header.showContinueSlider}
-    .showRoadmap=${header.showRoadmap}
-    .showRoadmapStats=${header.showRoadmapStats}
-    .showRoadmapSlider=${header.showRoadmapSlider}
-    .editRoadmapLinkUrl=${header.editRoadmapLinkUrl}
-    .editRoadmapLinkText=${header.editRoadmapLinkText}
-    .createRoadmapLinkUrl=${header.createRoadmapLinkUrl}
-    .createRoadmapLinkText=${header.createRoadmapLinkText}
-    .showMinidegrees=${header.showMinidegrees}
+    ?show-completed-stats=${header.showCompletedStats}
+    ?show-continue-slider=${header.showContinueSlider}
+    ?show-roadmap=${header.showRoadmap}
+    ?show-roadmap-stats=${header.showRoadmapStats}
+    ?show-roadmap-slider=${header.showRoadmapSlider}
+    ?edit-roadmap-link-url=${header.editRoadmapLinkUrl}
+    ?create-roadmap-link-url=${header.createRoadmapLinkUrl}
+    ?show-minidegrees=${header.showMinidegrees}
   >
     <div slot="completed-stats">
       ${CXLStats({ theme: 'cxl-stats-dashboard-header completed', statsCount: 3 })}
@@ -35,7 +33,11 @@ export const DashboardHeaderTemplate = (header) => html`
       ${CXLLightCardSlider({ theme: 'cxl-slider-dashboard-header', length: 8 })}
     </div>
     <div slot="next-slider">
-      ${CXLLightCardSlider({ theme: 'cxl-slider-dashboard-header portrait', length: 16, args: { theme: 'portrait' } })}
+      ${CXLLightCardSlider({
+        theme: 'cxl-slider-dashboard-header portrait',
+        length: 16,
+        args: { theme: 'portrait' }
+      })}
     </div>
     <div slot="minidegree-slider">
       ${CXLLightCardSlider({ theme: 'cxl-slider-dashboard-header', length: 8, args: { theme: 'minidegree', progress: null, avatar: '' } })}

@@ -18,6 +18,5 @@ CXLDashboardHeaderNoHistory.args = {
   showRoadmapStats: false,
   showRoadmapSlider: false,
   createRoadmapLinkUrl: 'https://cxl.com',
-  createRoadmapLinkText: 'Create your personal learning roadmap',
   showMinidegrees: false
 };
