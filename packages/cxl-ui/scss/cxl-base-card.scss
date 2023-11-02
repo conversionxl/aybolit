@@ -156,12 +156,12 @@ header {
     }
 
     .name {
-      @include mixins.ellipsis-for-lines(3);
+      @include mixins.ellipsis-for-lines(2);
       font-family: var(--lumo-font-family);
       font-size: var(--lumo-font-size-xl);
       font-style: normal;
       font-weight: 700;
-      line-height: var(--lumo-line-height-xs);
+      line-height: var(--cxl-lumo-line-height-xs);
 
       a {
         color: var(--lumo-body-text-color);

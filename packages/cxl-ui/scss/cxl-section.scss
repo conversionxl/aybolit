@@ -19,24 +19,6 @@
 }
 
 /**
- * Wave design bottom.
- */
-:host(.has-wave) {
-  position: relative;
-
-  .wrap {
-    z-index: 1;
-  }
-}
-
-#wave {
-  position: absolute;
-  bottom: 0;
-  display: block;
-  width: 100%;
-}
-
-/**
  * Content readability.
  */
 .wrap {
@@ -59,5 +41,18 @@
 
   :host(.alignwide) > & {
     max-width: var(--cxl-content-max-width-wide);
+  }
+}
+
+:host(.has-gray-background-color) {
+  background-color: var(--cxl-color-light-gray);
+}
+
+:host(.has-black-background-color) {
+  color: var(--lumo-tint);
+  background-color: #000;
+
+  > * {
+    --lumo-header-text-color: var(--lumo-tint);
   }
 }
