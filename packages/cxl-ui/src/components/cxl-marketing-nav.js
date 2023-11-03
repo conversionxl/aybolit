@@ -4,13 +4,14 @@ import { customElement, property, query } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
 import { throttle } from 'lodash-es';
+import { consume } from '@lit/context';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
 import '@vaadin/button';
 import '@vaadin/tabs';
 import '@vaadin/context-menu';
+import { mediaContext } from '../media-context.js';
 
 @customElement('cxl-marketing-nav')
 export class CXLMarketingNavElement extends LitElement {
@@ -40,18 +41,16 @@ export class CXLMarketingNavElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   minimal = false;
 
-  // MediaQueryController.
-  @property({ type: Boolean, reflect: true })
+  @consume({ context: mediaContext, subscribe: true })
+  @property({ type: Boolean })
+  _phone;
+
+  @consume({ context: mediaContext, subscribe: true })
+  @property({ type: Boolean })
   wide;
 
   // Device Detector media query.
   _wideMediaQuery = '(min-width: 568px)';
-
-  @property({ type: Boolean, reflect: true })
-  _phone;
-
-  // @see https://github.com/vaadin/web-components/blob/de3db720ec8448a26d2f84d00965a9e369a1c3fb/packages/select/src/vaadin-select.js#L297
-  _phoneMediaQuery = '(max-width: 568px), (max-height: 568px)';
 
   @property({ type: HTMLElement })
   submenuOverlay = null;
@@ -122,22 +121,6 @@ export class CXLMarketingNavElement extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-
-    this.addController(
-      new MediaQueryController(this._wideMediaQuery, (matches) => {
-        if (this.wide !== undefined && this.wide !== matches) {
-          window.location.reload();
-        }
-
-        this.wide = matches;
-      })
-    );
-
-    this.addController(
-      new MediaQueryController(this._phoneMediaQuery, (matches) => {
-        this._phone = matches;
-      })
-    );
 
     this._boundOnOverlayOpen = this._onOverlayOpen.bind(this);
     const overlaysWrapper = document.createElement('div');

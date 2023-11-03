@@ -7,9 +7,11 @@ import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import normalizeWheel from '@conversionxl/normalize-wheel';
 import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
+import { provide } from '@lit/context';
 import cxlAppLayoutStyles from '../styles/cxl-app-layout-css.js';
 import cxlAppLayoutGlobalStyles from '../styles/global/cxl-app-layout-css.js';
 import '@vaadin/button';
+import { mediaContext } from '../media-context.js';
 
 const ASIDE_LOCAL_STORAGE_KEY = 'cxl-app-layout-aside-opened';
 
@@ -54,13 +56,20 @@ export class CXLAppLayoutElement extends LitElement {
   @property()
   layout = '1c';
 
-  // MediaQueryController.
-  @property({ type: Boolean, reflect: true })
-  wide;
+  // @see https://github.com/vaadin/web-components/blob/de3db720ec8448a26d2f84d00965a9e369a1c3fb/packages/select/src/vaadin-select.js#L297
+  _phoneMediaQuery = '(max-width: 568px), (max-height: 568px)';
 
   // @TODO: Improve media query using shared state, possibly @lit/Context (https://lit.dev/docs/data/context/)
   // Device Detector media query.
   _wideMediaQuery = '(min-width: 528px)';
+
+  @provide({ context: mediaContext })
+  @property()
+  _phone = false;
+
+  @provide({ context: mediaContext })
+  @property()
+  _wide = false;
 
   static get styles() {
     return [cxlAppLayoutStyles];
@@ -116,7 +125,17 @@ export class CXLAppLayoutElement extends LitElement {
 
     this.addController(
       new MediaQueryController(this._wideMediaQuery, (matches) => {
+        if (this.wide !== undefined && this.wide !== matches) {
+          window.location.reload();
+        }
+
         this.wide = matches;
+      })
+    );
+
+    this.addController(
+      new MediaQueryController(this._phoneMediaQuery, (matches) => {
+        this._phone = matches;
       })
     );
   }
