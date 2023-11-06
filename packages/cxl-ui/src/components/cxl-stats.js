@@ -2,8 +2,10 @@
 import { LitElement, html } from 'lit';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { customElement } from 'lit/decorators.js';
-import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+
 import '@conversionxl/cxl-lumo-styles';
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+
 import cxlStatsStyles from '../styles/cxl-stats-css.js';
 import cxlStatsGlobalStyles from '../styles/global/cxl-stats-css.js';
 
@@ -22,7 +24,7 @@ export class CXLStatsElement extends LitElement {
 
     // Global styles.
     registerGlobalStyles(cxlStatsGlobalStyles, {
-      moduleId: 'cxl-stats',
+      moduleId: 'cxl-stats-global',
     });
   }
 }

@@ -1,18 +1,16 @@
 [
   {
-    "title": "Categories<br>completed",
-    "count": "1"
-  },
-  {
-    "title": "Courses<br>completed",
+    "title": "Lessons<br>completed",
     "count": "30"
   },
   {
-    "title": "Lessons<br>completed",
-    "count": "95"
+    "title": "Courses<br>completed",
+    "count": "1",
+    "link": "https://cxl.com"
   },
   {
-    "title": "Complete<br>library",
-    "count": "12%"
+    "title": "Certificates<br>completed",
+    "count": "95",
+    "link": "https://cxl.com"
   }
 ]

@@ -2,22 +2,4 @@ cxl-dashboard-header {
   position: relative;
   z-index: 1;
   display: block;
-
-  .edit-roadmap {
-    display: flex;
-    align-items: center;
-    align-self: end;
-    max-width: fit-content;
-    height: fit-content;
-    padding: 0 var(--lumo-space-s);
-    margin: 0;
-    color: var(--lumo-primary-color);
-    cursor: pointer;
-    background-color: var(--lumo-primary-contrast-color);
-    border-radius: var(--lumo-border-radius-s);
-
-    &::part(label) {
-      line-height: 1.5;
-    }
-  }
 }

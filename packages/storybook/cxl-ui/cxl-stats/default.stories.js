@@ -8,7 +8,7 @@ export default {
   title: 'CXL UI/cxl-stats',
 };
 
-export const CXLStats = ({ statsCount }) => {
+export const CXLStats = ({ theme, statsCount }) => {
   for (let i = 0; i < statsCount; i += 1) {
     const newItem = {
       title: 'Complete<br>library',
@@ -19,22 +19,24 @@ export const CXLStats = ({ statsCount }) => {
   }
 
   return html`
-    <cxl-stats class="stats">
+    <cxl-stats class="stats" theme="${theme}">
       ${statsData.slice(0, statsCount).map(
-        (el) => html`
-          <div>
+    (el) => html`
+          <div class="stat-item">
             <h4 class="stat-title">${unsafeHTML(el.title)}</h4>
-            <p class="stat-count">${el.count}</p>
+            ${el.link
+      ? html`<a class="stat-count" href="${el.link}">${el.count}</a>`
+      : html`<p class="stat-count">${el.count}</p>`}
           </div>
         `
-      )}
+  )}
     </cxl-stats>
   `;
 };
 
 Object.assign(CXLStats, {
   args: {
-    statsCount: 4,
+    statsCount: 3,
   },
   storyName: 'CXL Stats',
 });

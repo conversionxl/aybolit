@@ -27,8 +27,8 @@ CXLLightCard.args = {
 CXLLightCardProgress.args = {
   theme: 'light-card',
   name: 'Account based marketing',
-  progress: 3,
-  lessons: 10,
+  progressCompleted: 3,
+  progressTotal: 10,
   avatar: 'https://cxl.com/institute/wp-content/uploads/2020/07/ben-labay_team_headshot-1x1-bw-min-150x150.png',
 };
 
