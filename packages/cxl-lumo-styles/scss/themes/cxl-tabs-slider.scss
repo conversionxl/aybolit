@@ -245,8 +245,9 @@
   }
 }
 
-:host([theme~="cxl-course-slider"][theme~="cxl-slider-dashboard-header"][theme~="portrait"]) {
+:host([theme~="cxl-course-slider"][theme~="cxl-slider-dashboard-header"]) {
   ::slotted(vaadin-tab) {
     width: auto;
+    max-width: 300px;
   }
 }

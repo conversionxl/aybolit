@@ -10,9 +10,12 @@ export class CXLTabsSliderElement extends Tabs {
    * @protected
    */
   get _scrollOffset() {
-    if (this.getAttribute('theme').split(' ').includes('cxl-category-accordion')) {
+    const theme = this.getAttribute('theme').split(' ');
+
+    if (theme.includes('cxl-category-accordion') || theme.includes('cxl-slider-dashboard-header')) {
       return 200;
     }
+
     return super._scrollOffset;
   }
 
