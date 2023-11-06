@@ -6,4 +6,14 @@ vaadin-details[theme~="cxl-checkout-details"] {
     font-weight: 900;
     text-transform: uppercase;
   }
+
+  /*
+  * Checkout Payment Methods
+  */
+
+  vaadin-accordion-panel.wc_payment_method {
+    display: block;
+    padding-block: var(--lumo-space-s);
+  }
+
 }

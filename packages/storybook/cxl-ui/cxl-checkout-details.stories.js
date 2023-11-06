@@ -5,6 +5,9 @@ import { CXLVaadinAccordionThemeVaadin } from './cxl-vaadin-accordion/vaadin-acc
 
 export default {
   title: 'CXL UI/cxl-checkout-details',
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 // eslint-disable-next-line no-empty-pattern
