@@ -14,13 +14,15 @@ export class CxlDashboardTeamStatsElement extends LitElement {
 
   @property({ type: Number }) progress = 0;
 
+  @property({ type: String, attribute: 'manage-roadmaps-url' }) manageRoadmapsURL = '';
+
   render() {
     return html`
       <div class="container">
         <header>
           <h1 class="title">Team progress & stats</h1>
           <div class="actions">
-            <a>
+            <a href=${this.manageRoadmapsURL}>
               <vaadin-button class="team-settings" theme="primary">
                 <vaadin-icon icon="lumo:edit"></vaadin-icon>
                 Manage team roadmaps
@@ -35,7 +37,7 @@ export class CxlDashboardTeamStatsElement extends LitElement {
             <h2 class="progress-subtitle">${100 * this.progress}% complete</h2>
           </div>
           <div class="stats">
-            <slot></slot>
+            <slot name="stats"></slot>
           </div>
         </section>
       </div>

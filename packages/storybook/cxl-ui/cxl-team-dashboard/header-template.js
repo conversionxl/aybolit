@@ -44,8 +44,9 @@ export const TeamDashboardHeaderTemplate = (header) => html`
   </style>
 
   <cxl-dashboard-team-header
-    theme="cxl-dashboard-header team"
-    name=${header.name}
+    theme="cxl-dashboeard-header team"
+    team-id=${header.teamId}
+    team-name=${header.teamName}
     ?multiple=${header.multiple}
   >
     <form slot="choose-team" id="user-active-teams">
@@ -62,6 +63,7 @@ export const TeamDashboardHeaderTemplate = (header) => html`
 `;
 
 export const ArgTypes = {
-  name: { control: 'text' },
+  teamId: { control: 'number' },
+  teamName: { control: 'text' },
   multiple: { control: 'boolean' },
 };

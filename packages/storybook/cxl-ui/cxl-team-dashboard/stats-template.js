@@ -4,7 +4,7 @@ import { CXLStats } from '../cxl-stats/default.stories';
 
 export const TeamDashboardStatsTemplate = (args) => html`
   <cxl-dashboard-team-stats progress=${args.progress}>
-    ${CXLStats({ statsCount: 3 })}
+    <div slot="stats">${CXLStats({ statsCount: 3 })}</div>
   </cxl-dashboard-team-stats>
 `;
 

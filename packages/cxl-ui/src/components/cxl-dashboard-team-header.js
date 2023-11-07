@@ -14,7 +14,11 @@ export class CxlDashboardTeamHeaderElement extends LitElement {
     return [cxlDashboardTeamHeaderStyles];
   }
 
-  @property({ type: String }) name = '';
+  @property({ type: String, attribute: 'team-name' }) teamName = '';
+
+  @property({ type: String, attribute: 'invite-url' }) inviteURL = '';
+
+  @property({ type: String, attribute: 'settings-url' }) settingsURL = '';
 
   @property({ type: Boolean }) multiple = false;
 
@@ -26,16 +30,16 @@ export class CxlDashboardTeamHeaderElement extends LitElement {
             <span class="subtitle">${this.multiple ? 'Choose team' : 'My team'}</span>
             ${this.multiple
               ? html`<slot name="choose-team"></slot>`
-              : html`<h1 class="title">${this.name}</h1>`}
+              : html`<h1 class="title">${this.teamName}</h1>`}
           </div>
         </header>
         <div class="actions">
-          <a>
+          <a href="${this.inviteURL}">
             <vaadin-button class="invite-manage" theme="secondary">
               Invite & manage team
             </vaadin-button>
           </a>
-          <a>
+          <a href="${this.settingsURL}">
             <vaadin-button class="team-settings" theme="primary">
               <vaadin-icon icon="lumo:edit"></vaadin-icon>
               Team settings

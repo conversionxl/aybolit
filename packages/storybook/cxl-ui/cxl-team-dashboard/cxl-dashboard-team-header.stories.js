@@ -11,6 +11,7 @@ CXLDashboardTeamHeader.argTypes = {
 };
 
 CXLDashboardTeamHeader.args = {
-  name: 'NOPE Creative',
+  teamName: 'NOPE Creative',
+  teamId: 6351659,
   multiple: false,
 };

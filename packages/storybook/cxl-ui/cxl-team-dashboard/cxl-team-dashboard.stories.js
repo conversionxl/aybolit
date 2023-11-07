@@ -12,7 +12,11 @@ export const CXLDashboard = (args) => html`
   <cxl-app-layout id="container" layout="1c-w" theme="cxl-dashboard">
     ${CXLMarketingNav()}
     <article>
-      ${CXLDashboardTeamHeader({ name: args.header_name, multiple: args.header_multiple })}
+      ${CXLDashboardTeamHeader({
+        teamName: args.header_name,
+        teamId: args.header_team_id,
+        multiple: args.header_multiple,
+      })}
       ${CXLDashboardTeamStats({ progress: 0.65 })}
     </article>
     ${CXLFooterNav()}
@@ -21,5 +25,6 @@ export const CXLDashboard = (args) => html`
 
 CXLDashboard.args = {
   header_name: 'NOPE Creative',
+  header_team_id: 6351659,
   header_multiple: false,
 };
