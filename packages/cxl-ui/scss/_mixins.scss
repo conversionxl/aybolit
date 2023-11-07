@@ -49,3 +49,15 @@
   -moz-box-orient: vertical;
   /* stylelint-enable */
 }
+
+@mixin primary-link-with-arrow {
+  &::after {
+    padding: calc(var(--lumo-space-xs) / 2);
+    margin-left: var(--lumo-space-s);
+    font-family: lumo-icons;
+    font-size: var(--lumo-font-size-s);
+    content: var(--lumo-icons-angle-right);
+    background-color: var(--lumo-primary-color-10pct);
+    border-radius: var(--lumo-font-size-s);
+  }
+}
