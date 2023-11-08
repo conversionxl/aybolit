@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // Theme style modules must be imported before elements.
 import '@conversionxl/cxl-lumo-styles';
 import 'qrcode';
@@ -16,11 +17,12 @@ import * as Headroom from 'headroom.js';
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
 export { CXLBaseCardElement } from './components/cxl-base-card.js';
 export { CXLCardElement } from './components/cxl-card.js';
-export { CXLCredentialElement } from './components/cxl-credential.js'
+export { CXLCredentialElement } from './components/cxl-credential.js';
 export { CXLCourseCardElement } from './components/cxl-course-card.js';
 export { CXLCourseDialogElement } from './components/cxl-course-dialog.js';
 export { CXLCheckoutDetailsElement } from './components/cxl-checkout-details.js';
 export { CXLDashboardHeaderElement } from './components/cxl-dashboard-header.js';
+export { CxlDashboardSectionElement } from './components/cxl-dashboard-section.js';
 export { CXLDashboardNotificationElement } from './components/cxl-dashboard-notification.js';
 export { CXLFeaturedCourseCardElement } from './components/cxl-featured-course-card.js';
 export { CXLLightCardElement } from './components/cxl-light-card.js';

@@ -4,8 +4,8 @@ import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
 import { CXLMarketingNav } from '../cxl-marketing-nav.stories';
 import { CXLDashboardHeader } from '../cxl-dashboard-header/dashboard-header.stories';
 import { DashboardSlider } from '../cxl-featured-course-card/dashboard-slider.stories';
-import { CXLVaadinAccordionThemeCategory } from '../cxl-vaadin-accordion.stories';
 import { CXLFooterNav } from '../footer-nav.stories';
+import { CXLDashboardSections } from './cxl-dashboard-sections.stories';
 
 export default {
   title: 'CXL UI/cxl-dashboard',
@@ -21,16 +21,15 @@ export const CXLDashboard = () => {
     showRoadmapStats: true,
     showRoadmapSlider: true,
     editRoadmapLinkUrl: 'https://cxl.com',
-    showMinidegrees: true
+    showMinidegrees: true,
   };
 
   return html`
     <cxl-app-layout id="container" layout="1c-w" theme="cxl-dashboard">
       ${CXLMarketingNav()}
       <div>
-        ${DashboardSlider()}
-        ${CXLDashboardHeader(CXLDashboardHeader.args)}
-        ${CXLVaadinAccordionThemeCategory()}
+        ${DashboardSlider()} ${CXLDashboardHeader(CXLDashboardHeader.args)}
+        ${CXLDashboardSections()}
       </div>
       ${CXLFooterNav()}
     </cxl-app-layout>

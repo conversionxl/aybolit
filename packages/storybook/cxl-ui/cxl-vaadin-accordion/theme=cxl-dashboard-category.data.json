@@ -3,6 +3,8 @@
     "id": 1,
     "title": "Deep skills",
     "completion": "10% complete",
+    "description": "Master these skills and become an expert in Growth, CRO and Analytics.",
+    "image": "https://s3-alpha-sig.figma.com/img/f1dc/f5fd/5ba006206994d76653204eaead33a7c6?Expires=1699228800&Signature=NGyGKy5hkTkdolJH0dj25ZEZpThq2ket7YdhhCD79yVCnSKh0K4W16z~YHjxM-4bYKqdyOx6R3TlW6K-ke4AtA7poTc6qEDHGMPxYsKM1NHpw5m3iBD5uwYe1DxlAjVP8YRhSVrfokUy6E~jiWtWc~VqD~DJa6DsIiIqQZhnWjCWL-P4VIKxs9T44LEUHH8JNsAHwKUYSXHFtOQzH6pHhC9IFJttBHHOf4aXOXVXYuWqVIMxvrSMkiT-WYfw7mY3CATEyq9MallTjiLeyDU8omWGRvzneJUg11fLe1vxH~yP0USalIk5mlGnQwF96qxzoBjy5SKryyl3Ua9rOL10ZQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
     "sections": [
       {
         "title": "Growth",
@@ -60,7 +62,9 @@
   {
     "id": 2,
     "title": "Broad skills",
+    "description": "Know a lot about a lot. Learn about all other aspects of marketing",
     "completion": "10% complete",
+    "image": "https://s3-alpha-sig.figma.com/img/c675/222a/a7e1325fb0d0cdb4809964954ed2ad2e?Expires=1699228800&Signature=EK4u0qpf8AqXFRMJBQyMxd2v8bhq5LhP8BUaRSO4MGb2MSifd3xfsDWTzZhnPFzmMJnACVg0HnTuJTzeIGMSIN5B59B0BbWzF8R3Ced~uoRBkbwz6AbT3VTTECqq3RERR2MnlRqZR5GRj~hYvfTtgHd1NIwnQFmrLrmMVnKRW0Iw92HECXJZUdR4BJ6j6TJy9aGGMOhx4u4Sy4iSWz9El6WV4kSWsFUjSKt6ZICsYNFM8Bj6c4HejW6dIjOTWaBhTH-Js31-LPB1~m4lzIBHVrOl7XyZEBrNZjLhte8FltasTxEE2UvdN9EHXPm8mYbvdPlHniK3vX1KPeLEicSnNw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
     "sections": []
   }
 ]
