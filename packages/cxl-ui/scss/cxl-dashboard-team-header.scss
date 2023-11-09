@@ -10,6 +10,7 @@
 
   .container {
     position: relative;
+    box-sizing: border-box;
     width: 100%;
     max-width: var(--cxl-content-max-width-wide);
     padding: var(--lumo-space-l) var(--lumo-space-m);

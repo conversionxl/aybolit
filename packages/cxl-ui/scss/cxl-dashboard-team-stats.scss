@@ -8,6 +8,7 @@
 
   .container {
     position: relative;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: calc(2 * var(--lumo-space-m));
@@ -54,7 +55,7 @@
       justify-content: space-between;
 
       .progress {
-        min-width: 320px;
+        min-width: 280px;
       }
 
       .progress-subtitle {
