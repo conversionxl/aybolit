@@ -144,6 +144,7 @@
   header {
     display: flex;
     flex-direction: column;
+    gap: 0;
   }
 
   .info {
@@ -162,7 +163,6 @@
     position: relative;
     width: 100%;
     height: auto;
-    margin-top: var(--lumo-space-s);
     border-radius: 0;
 
     img {
