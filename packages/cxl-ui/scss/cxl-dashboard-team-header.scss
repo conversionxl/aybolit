@@ -21,7 +21,10 @@
     @media #{mq.$small} {
       display: flex;
       justify-content: space-between;
-      padding: var(--lumo-space-l) 0;
+    }
+
+    @media #{mq.$large} {
+      padding: var(--lumo-space-xl) 0;
     }
   }
 

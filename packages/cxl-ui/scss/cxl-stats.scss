@@ -4,23 +4,19 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--lumo-space-m);
-  padding: var(--lumo-space-xl) var(--lumo-space-m) var(--lumo-space-m);
-
-  @media #{mq.$small} {
-    padding: var(--lumo-space-xl) var(--lumo-space-l) var(--lumo-space-l);
-  }
 
   @media #{mq.$medium} {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
   }
 }
 
 :host([theme~="cxl-stats-dashboard-header"]) {
-  margin-top: var(--lumo-space-m);
   padding: 0;
+  margin-top: var(--lumo-space-m);
   border: 0;
 
   @media #{mq.$medium} {
+    padding-top: var(--lumo-space-s);
     margin-top: 0;
     gap: var(--lumo-space-l);
   }
