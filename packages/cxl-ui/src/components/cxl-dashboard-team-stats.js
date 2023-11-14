@@ -34,7 +34,7 @@ export class CxlDashboardTeamStatsElement extends LitElement {
           <div class="progress">
             <span class="progress-title">Team roadmap progress</span>
             <vaadin-progress-bar value="${this.progress}"></vaadin-progress-bar>
-            <h2 class="progress-subtitle">${100 * this.progress}% complete</h2>
+            <h2 class="progress-subtitle">${(100 * this.progress).toFixed(0)}% complete</h2>
           </div>
           <div class="stats">
             <slot name="stats"></slot>
