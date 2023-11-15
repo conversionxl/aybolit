@@ -288,6 +288,8 @@ export class CXLMarketingNavElement extends LitElement {
    */
   _onOverlayOpen(e) {
     const overlay = e.target;
+    if (overlay.getAttribute('theme').indexOf('cxl-marketing-nav') === -1) return;
+
     overlay.addEventListener('opened-changed', this._onOverlayClose.bind(this));
 
     if (window.matchMedia(this._wideMediaQuery).matches) {
