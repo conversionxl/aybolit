@@ -61,3 +61,17 @@
     border-radius: var(--lumo-font-size-s);
   }
 }
+
+@mixin pesudo-element-full-width($color) {
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: -1;
+    width: 100vw;
+    content: "";
+    background-color: $color;
+    transform: translateX(-50%);
+  }
+}

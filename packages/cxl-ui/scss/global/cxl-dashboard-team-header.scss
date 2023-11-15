@@ -1,0 +1,17 @@
+/* stylelint-disable selector-max-type */
+cxl-dashboard-team-header {
+  form {
+    label {
+      display: none;
+    }
+
+    select {
+      height: unset;
+      font-size: var(--lumo-font-size-xxl);
+      font-weight: 900;
+      color: var(--lumo-tint);
+      background-color: var(--lumo-contrast-20pct);
+      border-radius: var(--lumo-border-radius-m);
+    }
+  }
+}

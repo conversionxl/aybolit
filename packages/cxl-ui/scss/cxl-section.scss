@@ -1,7 +1,14 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 :host {
   display: block;
+}
+
+:host([theme~="cxl-section-dashboard-team-content"]) {
+  @media #{mq.$large} {
+    --cxl-wrap-padding: 0;
+  }
 }
 
 /**
