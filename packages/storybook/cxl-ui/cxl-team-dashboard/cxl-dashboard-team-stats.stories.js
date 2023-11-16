@@ -12,4 +12,5 @@ CXLDashboardTeamStats.argTypes = {
 
 CXLDashboardTeamStats.args = {
   progress: 0.65,
+  manageRoadmapsURL: 'https://cxl.com',
 };

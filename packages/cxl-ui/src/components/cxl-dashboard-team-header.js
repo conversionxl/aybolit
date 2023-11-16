@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { LitElement, html } from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import '@conversionxl/cxl-lumo-styles';
@@ -34,17 +34,21 @@ export class CxlDashboardTeamHeaderElement extends LitElement {
           </div>
         </header>
         <div class="actions">
-          <a href="${this.inviteURL}">
-            <vaadin-button class="invite-manage" theme="secondary">
-              Invite & manage team
-            </vaadin-button>
-          </a>
-          <a href="${this.settingsURL}">
-            <vaadin-button class="team-settings" theme="primary">
-              <vaadin-icon icon="lumo:edit"></vaadin-icon>
-              Team settings
-            </vaadin-button>
-          </a>
+          ${this.inviteURL ? html`
+            <a href="${this.inviteURL}">
+              <vaadin-button class="invite-manage" theme="secondary">
+                Invite & manage team
+              </vaadin-button>
+            </a>
+          ` : nothing}
+          ${this.settingsURL ? html`
+            <a href="${this.settingsURL}">
+              <vaadin-button class="team-settings" theme="primary">
+                <vaadin-icon icon="lumo:edit"></vaadin-icon>
+                Team settings
+              </vaadin-button>
+            </a>
+          ` : nothing}
         </div>
       </div>
     `;
