@@ -16,12 +16,14 @@ export const CXLDashboard = (args) => html`
         teamName: args.header_name,
         teamId: args.header_team_id,
         multiple: args.header_multiple,
-        inviteURL: args.invite_url,
-        settingsURL: args.settings_url,
+        inviteURL: args.header_invite_url,
+        settingsURL: args.header_settings_url,
       })}
       ${CXLDashboardTeamStats({
-        progress: args.progress,
-        manageRoadmapsURL: args.manage_roadmaps_url
+        progress: args.stats_progress,
+        manageRoadmapsURL: args.stats_manage_roadmaps_url,
+        hideProgress: args.stats_hide_progress,
+        hideStats: args.stats_hide_stats
       })}
     </article>
     ${CXLFooterNav()}
@@ -32,8 +34,10 @@ CXLDashboard.args = {
   header_name: 'NOPE Creative',
   header_team_id: 6351659,
   header_multiple: false,
-  invite_url: 'https://cxl.com',
-  settings_url: 'https://cxl.com',
-  progress: 0.65,
-  manage_roadmaps_url: 'https://cxl.com',
+  header_invite_url: 'https://cxl.com',
+  header_settings_url: 'https://cxl.com',
+  stats_progress: 0.65,
+  stats_hide_progress: false,
+  stats_hide_stats: false,
+  stats_manage_roadmaps_url: 'https://cxl.com',
 };
