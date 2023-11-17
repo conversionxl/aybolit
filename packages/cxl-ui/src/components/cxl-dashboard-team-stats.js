@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/progress-bar';
 import '@vaadin/button';
-import '@conversionxl/cxl-lumo-styles';
 import CXLDashboardTeamStatsStyles from '../styles/cxl-dashboard-team-stats-css.js';
 
 @customElement('cxl-dashboard-team-stats')
@@ -15,6 +15,10 @@ export class CxlDashboardTeamStatsElement extends LitElement {
   @property({ type: Number }) progress = 0;
 
   @property({ type: String, attribute: 'manage-roadmaps-url' }) manageRoadmapsURL = '';
+
+  @property({ type: Boolean, attribute: 'hide-progress' }) hideProgress = false;
+
+  @property({ type: Boolean, attribute: 'hide-stats' }) hideStats = false;
 
   render() {
     return html`
@@ -32,16 +36,22 @@ export class CxlDashboardTeamStatsElement extends LitElement {
             ` : nothing}
           </div>
         </header>
-        <section class="content">
-          <div class="progress">
-            <span class="progress-title">Team roadmap progress</span>
-            <vaadin-progress-bar value="${this.progress}"></vaadin-progress-bar>
-            <h2 class="progress-subtitle">${(100 * this.progress).toFixed(0)}% complete</h2>
-          </div>
-          <div class="stats">
-            <slot name="stats"></slot>
-          </div>
-        </section>
+        ${!this.hideProgress || !this.hideStats ? html`
+          <section class="content">
+            ${!this.hideProgress ? html`
+              <div class="progress">
+                <span class="progress-title">Team roadmap progress</span>
+                <vaadin-progress-bar value="${this.progress}"></vaadin-progress-bar>
+                <h2 class="progress-subtitle">${(100 * this.progress).toFixed(0)}% complete</h2>
+              </div>
+            ` : nothing}
+            ${!this.hideStats ? html`
+              <div class="stats">
+                <slot name="stats"></slot>
+              </div>
+            ` : nothing}
+          </section>
+        ` : nothing}
       </div>
     `;
   }
