@@ -14,4 +14,6 @@ CXLDashboardTeamHeader.args = {
   teamName: 'NOPE Creative',
   teamId: 6351659,
   multiple: false,
+  inviteURL: 'https://cxl.com',
+  settingsURL: 'https://cxl.com',
 };

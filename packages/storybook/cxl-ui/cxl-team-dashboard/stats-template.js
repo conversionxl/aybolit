@@ -3,11 +3,15 @@ import '@conversionxl/cxl-ui/src/components/cxl-dashboard-team-stats.js';
 import { CXLStats } from '../cxl-stats/default.stories';
 
 export const TeamDashboardStatsTemplate = (args) => html`
-  <cxl-dashboard-team-stats progress=${args.progress}>
+  <cxl-dashboard-team-stats
+    progress=${args.progress}
+    manage-roadmaps-url=${args.manageRoadmapsURL}
+  >
     <div slot="stats">${CXLStats({ statsCount: 3 })}</div>
   </cxl-dashboard-team-stats>
 `;
 
 export const ArgTypes = {
-  progress: { type: Number },
+  progress: { type: Number, control: 'number' },
+  manageRoadmapsURL: { type: String, control: 'text' },
 };

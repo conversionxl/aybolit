@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { LitElement, html } from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@vaadin/progress-bar';
 import '@vaadin/button';
@@ -22,12 +22,14 @@ export class CxlDashboardTeamStatsElement extends LitElement {
         <header>
           <h1 class="title">Team progress & stats</h1>
           <div class="actions">
-            <a href=${this.manageRoadmapsURL}>
-              <vaadin-button class="team-settings" theme="primary">
-                <vaadin-icon icon="lumo:edit"></vaadin-icon>
-                Manage team roadmaps
-              </vaadin-button>
-            </a>
+            ${this.manageRoadmapsURL ? html`
+              <a href=${this.manageRoadmapsURL}>
+                <vaadin-button class="team-settings" theme="primary">
+                  <vaadin-icon icon="lumo:edit"></vaadin-icon>
+                  Manage team roadmaps
+                </vaadin-button>
+              </a>
+            ` : nothing}
           </div>
         </header>
         <section class="content">
