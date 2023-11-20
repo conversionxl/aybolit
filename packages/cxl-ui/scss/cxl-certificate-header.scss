@@ -1,0 +1,116 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "./mixins";
+
+:host {
+  color: var(--lumo-tint);
+  background-color: var(--lumo-shade);
+  overflow: hidden;
+  @include mixins.pesudo-element-full-width(var(--lumo-shade));
+
+  @media #{mq.$medium} {
+    overflow: visible;
+  }
+
+  .container {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--cxl-content-max-width-wide);
+    padding: var(--lumo-space-l) 0;
+
+    @media #{mq.$small} {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--lumo-space-m);
+    }
+
+    @media #{mq.$large} {
+      padding: var(--lumo-space-xl) 0;
+    }
+  }
+
+  .content {
+    max-width: var(--cxl-hero-content-max-width);
+  }
+
+  .title {
+    margin: 0;
+    font-family: var(--cxl-lumo-font-secondary);
+  }
+
+  .completed {
+    display: flex;
+    margin-top: var(--lumo-space-l);
+    font-size: var(--lumo-font-size-xl);
+    font-weight: 700;
+    color: var(--lumo-primary-color);
+  }
+
+  .completed-icon {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--lumo-space-m);
+    color: var(--lumo-primary-color);
+    background-color: var(--lumo-primary-color-10pct);
+    border-radius: 100%;
+  }
+
+  .description {
+    margin-top: var(--lumo-space-l);
+    font-family: var(--cxl-lumo-font-secondary);
+    line-height: var(--lumo-line-height-m);
+  }
+
+  .stats {
+    margin-top: var(--lumo-space-l);
+
+    @media #{mq.$medium} {
+      margin-top: calc(4 * var(--lumo-space-m));
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--lumo-space-s);
+    margin-top: var(--lumo-space-m);
+
+    @media #{mq.$medium} {
+      flex-direction: row;
+      gap: var(--lumo-space-m);
+      margin-top: var(--lumo-space-xl);
+    }
+  }
+
+  .credential {
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--lumo-space-l);
+    padding-top: var(--lumo-space-l);
+    border-top: solid 1px var(--cxl-color-dark-gray);
+
+    @media #{mq.$medium} {
+      max-width: var(--cxl-hero-certificate-max-width);
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+}
+
+:host([theme~="completed"]) {
+  color: var(--lumo-shade);
+  background-color: var(--lumo-tint);
+
+  @media #{mq.$medium} {
+    @include mixins.pesudo-element-full-width(var(--lumo-tint));
+  }
+
+  .credential {
+    padding-top: 0;
+    border-top: none;
+  }
+}

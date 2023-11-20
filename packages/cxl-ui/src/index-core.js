@@ -22,6 +22,7 @@ export { CXLCourseCardElement } from './components/cxl-course-card.js';
 export { CXLCourseDialogElement } from './components/cxl-course-dialog.js';
 export { CXLCheckoutDetailsElement } from './components/cxl-checkout-details.js';
 export { CXLDashboardHeaderElement } from './components/cxl-dashboard-header.js';
+export { CXLCertificateHeaderElement } from './components/cxl-certificate-header.js';
 export { CxlDashboardSectionElement } from './components/cxl-dashboard-section.js';
 export { CXLDashboardNotificationElement } from './components/cxl-dashboard-notification.js';
 export { CxlDashboardTeamHeaderElement } from './components/cxl-dashboard-team-header.js';
