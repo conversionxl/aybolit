@@ -11,7 +11,7 @@ export default {
 const CXLLightCard = Template.bind({});
 CXLLightCard.args = {
   theme: 'light-card',
-  name: 'Account based marketing',
+  name: 'Account based marketing and one more line',
   avatar: 'https://cxl.com/institute/wp-content/uploads/2020/05/48192546_10156982340630746_8127333122065825792_n-wpv_400pxx400px_center_center.jpg',
   progressCompleted: 3,
   progressTotal: 12
