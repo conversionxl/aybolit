@@ -265,9 +265,21 @@ export class CXLMarketingNavElement extends LitElement {
 
     // If there are classes, add them, avoiding empty strings.
     if (classes) {
-      classes.forEach((className) => {
-        if (className) menuItemElement.classList.add(className);
-      });
+      try {
+        classes.forEach((className) => {
+          if (className) menuItemElement.classList.add(className);
+        });
+      } catch (error) {
+        classes.forEach((className) => {
+          if (className.indexOf(' ') !== -1) {
+            // eslint-disable-next-line no-console
+            console.warn(`One of the classes items contains a space: ${className}`);
+            className.split(' ').forEach((splitClass) => {
+              if (splitClass) menuItemElement.classList.add(splitClass);
+            });
+          }
+        });
+      }
 
       if (classes?.includes('menu-item-search')) {
         menuItemElement.addEventListener('click', this.toggleSearchDialog.bind(this));
