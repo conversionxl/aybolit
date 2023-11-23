@@ -1,5 +1,7 @@
 import '@conversionxl/cxl-lumo-styles';
+import '@conversionxl/cxl-ui';
 import '@vaadin/button';
+import cxlColorStyles from '@conversionxl/cxl-lumo-styles/src/styles/color-css';
 import { withKnobs } from '@storybook/addon-knobs';
 import { html } from 'lit';
 
@@ -64,3 +66,119 @@ export const Examples = () => {
     <p>${loremIpsum}</p>
   `;
 };
+
+export const CXLComExamples = () => html`
+  <style>
+    ${cxlColorStyles}
+
+    cxl-section {
+      padding: 2em 0;
+    }
+
+    cxl-section.wide {
+      --cxl-content-max-width: 60em;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .w50-pct > * {
+      flex-basis: 50%;
+    }
+
+    .hero > div {
+      display: flex;
+      flex-direction: column;
+      gap: 3.75em;
+      align-items: start;
+    }
+
+    .hero > div h1,
+    .hero > div h3 {
+      margin: 0 auto;
+    }
+  </style>
+
+  <cxl-section class="hero has-black-background-color">
+    <div>
+      <h1><strong>Top 1% marketers</strong> teach you what they know.</h1>
+      <h3>Master the most in-demand marketing skills with our online courses created by marketers with a proven record of driving real growth.</h3>
+      <vaadin-button id="cxl-onboarding" class="cxl-homepage-button" role="button" theme="primary x-large">
+        Sign up now
+      </vaadin-button>
+    </div>
+  </cxl-section>
+
+  <cxl-section class="has-gray-background-color wide">
+    <h2 class="wp-block-heading center ">On-demand courses taught by <strong>elite marketers</strong> from companies like Drift, ClickUp and Hubspot.</h2>
+  </cxl-section>
+
+  <cxl-section class="wide">
+    <div class="flex w50-pct">
+      <div class="wrap">
+        <h2 class="wp-block-heading separator">Learn from the <strong>legitimate experts</strong> with a proven track record</h2>
+        <p>
+          Betting your career and your company's growth on some guru's playbook is dangerous.
+        </p>
+        <p>
+          We identify the top 1% masters of the marketing craft through a rock-solid vetting process that we've been perfecting for over a decade. Then we get them to teach you what they're best at.
+        </p>
+        <p>
+          <a href="https://cxl.com/institute/">Browse all courses and instructors here.</a>
+        </p>
+      </div>
+      <div></div>
+    </div>
+  </cxl-section>
+
+  <cxl-section class="has-black-background-color wide">
+    <div class="flex w50-pct">
+      <div class="wrap">
+        <h2 class="wp-block-heading separator separator-white">How we identify and vet <strong>top 1% marketers</strong></h2>
+        <p>
+          This is how we find and vet the top 1% marketers:
+        </p>
+        <ol>
+          <li>We regularly survey the marketing community for experts they want to learn from</li>
+          <li>We narrow down the list through a reference check, talking to their peers and executives</li>
+          <li>We make sure they have a proven track record, meaning they’ve significantly contributed to growth of more than 2 companies</li>
+        </ol>
+      </div>
+    </div>
+  </cxl-section>
+
+  <cxl-section class="has-gray-background-color wide">
+    <div class="flex w50-pct">
+      <div class="wrap">
+        <h2 class="wp-block-heading separator"><strong>Help your company grow</strong> with frameworks that bring results</h2>
+        <p>
+          In 2016, Drift’s CEO, David Cancel, famously said that the era of product-based differentiation is going away. By now, we can conclude that it has already gone away.
+        </p>
+      </div>
+      <div></div>
+    </div>
+  </cxl-section>
+
+  <cxl-section class="has-black-background-color">
+    <div class="wrap">
+      <h2 class="wp-block-heading center separator separator-white"><strong>All access</strong> Subscription</h2>
+    <ul>
+      <li>Access to 90+ courses and 11 minidegrees</li>
+      <li>Earn certificates and add them to your LinkedIn profile</li>
+      <li>2500+ playbooks</li>
+      <li>Exclusive community access</li>
+    </div>
+    <vaadin-button id="cxl-onboarding" class="cxl-homepage-button wide" role="button" theme="primary x-large">
+      Sign up now
+    </vaadin-button>
+  </cxl-section>
+  <cxl-section>
+    <div class="wrap">
+      <h2 class="wp-block-heading center separator separator-gray">Become certified in 10 minidegrees</h2>
+      <p>
+        Each course is a puzzle piece teaching discrete skills. Each Minidegree is a completed puzzle teaching a marketing discipline from A to Z and takes you on a path towards becoming the top 1% marketer. After going through the entire curriculum, you’ll be given an exam that earns you a CXL certificate. Add your certificates to your LinkedIn profile, share your accomplishments with the world, and join our alumni network.
+      </p>
+    </div>
+  </cxl-section>
+`;

@@ -72,12 +72,6 @@ cxl-app-layout {
     }
   }
 
-  &[layout^="2c"] {
-    > .entry > .entry-header > .entry-title {
-      font-size: var(--lumo-font-size-xxxl);
-    }
-  }
-
   &[layout^="2c"][wide] {
     iframe {
       height: $iframe-height * 2;

@@ -1,5 +1,7 @@
+/* stylelint-disable selector-no-qualifying-type */
 @use "./icons";
 @use "./mq";
+@use "./mixins";
 
 html {
   /**
@@ -16,9 +18,22 @@ html {
    * @ see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/typography.html#font-size
    */
   --cxl-lumo-font-size-hero: var(--lumo-font-size-xxxl);
+  --cxl-lumo-font-size-xxl: calc(var(--lumo-font-size-xl) + var(--lumo-font-size-m));
+
+  /**
+   * Line height.
+   *
+   * @see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/typography.html#line-height
+   */
+  --cxl-lumo-line-height-xl: 2;
+  --cxl-lumo-line-height-l: var(--lumo-line-height-m); // 1.625
+  --cxl-lumo-line-height-m: 1.5;
+  --cxl-lumo-line-height-s: var(--lumo-line-height-s); // 1.375
+  --cxl-lumo-line-height-xs: var(--lumo-line-height-xs); // 1.25
+  --cxl-lumo-line-height-xxs: 1.15;
 
   @media #{mq.$small} {
-    --cxl-lumo-font-size-hero: 4rem;
+    --cxl-lumo-font-size-hero: 3.5rem;
   }
 }
 
@@ -34,11 +49,13 @@ h4,
 h5,
 h6 {
   font-weight: 700;
+  line-height: var(--cxl-lumo-line-height-xs);
   word-break: break-word;
 }
 
 h1 {
   margin-top: 0;
+  margin-bottom: 0.75em;
   font-size: var(--cxl-lumo-font-size-hero);
   font-weight: 900;
 
@@ -49,15 +66,66 @@ h1 {
 }
 
 h2 {
-  @media #{mq.$small} {
-    font-size: var(--lumo-font-size-xxxl);
+  font-size: var(--cxl-lumo-font-size-xxl);
+  line-height: var(--cxl-lumo-line-height-xxs);
+
+  &.wp-block-heading {
+    &.separator {
+      &::after {
+        display: block;
+        width: 33%;
+        height: 3px;
+        margin: 1.5em auto 1.5em 0;
+        font-size: 16px;
+        content: "";
+        background: var(--lumo-primary-color);
+      }
+    }
+
+
+    &.separator-wide {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.center {
+      text-align: center;
+      &::after {
+        margin: 1.5em auto;
+      }
+    }
+
+    &.right {
+      text-align: right;
+      &::after {
+        margin: 1.5em 0 1.5em auto;
+      }
+    }
+
+    &.separator-white {
+      &::after {
+        background: #fff;
+      }
+    }
+
+    &.separator-black {
+      &::after {
+        background: #000;
+      }
+    }
+
+    &.separator-gray {
+      &::after {
+        background: var(--lumo-contrast-20pct);
+      }
+    }
   }
 }
 
 h3 {
-  @media #{mq.$small} {
-    font-size: var(--lumo-font-size-xxl);
-  }
+  font-size: var(--lumo-font-size-xl);
+  font-weight: 700;
 }
 
 h4 {
@@ -75,6 +143,7 @@ h6 {
 }
 
 p {
+  font-family: var(--cxl-lumo-font-secondary);
   .entry-content & {
     font-family: var(--cxl-lumo-font-secondary);
   }

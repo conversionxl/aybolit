@@ -127,6 +127,7 @@ img {
 ol,
 ul {
   padding-left: var(--lumo-space-l);
+  font-family: var(--cxl-lumo-font-secondary);
 }
 
 /**
@@ -268,18 +269,18 @@ ol.ordered-list-heavy {
 /* stylelint-enable order/properties-order */
 
 ul.courses-list {
+  padding-left: 0;
   font-family: inherit;
   list-style: none;
-  padding-left: 0;
 
   cxl-card {
+    display: flex;
     align-items: center;
+    padding: var(--lumo-space-m) var(--lumo-space-s);
+    margin: 0;
     border: none;
     border-radius: 0;
     box-shadow: none;
-    display: flex;
-    margin: 0;
-    padding: var(--lumo-space-m) var(--lumo-space-s);
 
     .entry-byline {
       margin-bottom: 0;
