@@ -14,6 +14,7 @@ import cxlVaadinNotificationContainerStyles from './styles/themes/vaadin-notific
 import cxlVaadinOverlayStyles from './styles/themes/vaadin-overlay-css.js';
 import cxlVaadinTabStyles from './styles/themes/vaadin-tab-css.js';
 import cxlVaadinTabsStyles from './styles/themes/vaadin-tabs-css.js';
+import cxlVaadinButtonStyles from './styles/themes/vaadin-button-css.js';
 
 /* Mixins, alphabetic order. */
 registerStyles('cxl-accordion-card', cxlAccordionCardStyles, {
@@ -61,3 +62,6 @@ registerStyles('vaadin-tab', cxlVaadinTabStyles, {
 registerStyles('vaadin-tabs', cxlVaadinTabsStyles, {
   moduleId: 'cxl-vaadin-tabs-styles',
 });
+registerStyles('vaadin-button', cxlVaadinButtonStyles, {
+  moduleId: 'cxl-vaadin-button-styles',
+})

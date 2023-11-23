@@ -5,4 +5,3 @@ packages/**/pkg
 coverage
 tmp
 test/visual/screenshots
-.idea

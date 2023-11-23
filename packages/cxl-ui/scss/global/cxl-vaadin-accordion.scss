@@ -15,10 +15,6 @@ cxl-vaadin-accordion {
       --vaadin-icon-width: var(--vaadin-icon-height);
     }
 
-    p {
-      font-family: inherit;
-    }
-
     .entry {
       //mixin affects: .entry-header > label
       @include mixins.label-contrast("> .entry-header") {
@@ -47,7 +43,7 @@ cxl-vaadin-accordion {
 
     .entry-title {
       flex: 1;
-      height: calc(var(--lumo-line-height-xs) * 4em);
+      height: calc(var(--cxl-lumo-line-height-xs) * 4em);
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
     }
@@ -100,10 +96,6 @@ cxl-vaadin-accordion {
    * Theme "cxl-minidegree-course".
    */
   &[theme~="cxl-minidegree-course"] {
-    p {
-      font-family: inherit;
-    }
-
     .entry-header {
       display: grid;
       grid-column-gap: var(--lumo-space-m);
@@ -158,10 +150,6 @@ cxl-vaadin-accordion {
     vaadin-icon {
       --vaadin-icon-height: var(--lumo-icon-size-s);
       --vaadin-icon-width: var(--vaadin-icon-height);
-    }
-
-    p {
-      font-family: inherit;
     }
 
     .entry {
@@ -220,7 +208,7 @@ cxl-vaadin-accordion {
       flex: 1;
       flex-basis: auto;
       /* stylelint-disable-next-line declaration-no-important */
-      height: calc(var(--lumo-line-height-xs) * 3em) !important;
+      height: calc(var(--cxl-lumo-line-height-xs) * 3em) !important;
       margin-top: 0;
       margin-bottom: 0;
       overflow: hidden;
