@@ -79,6 +79,29 @@ export const CXLComExamples = () => html`
       --cxl-content-max-width: 60em;
     }
 
+    #view-hero {
+      margin-bottom: 4em;
+    }
+
+    .pure-u-lg-1-2 {
+      width: 40%;
+      display: inline-block;
+      letter-spacing: normal;
+      word-spacing: normal;
+      vertical-align: top;
+      text-rendering: auto;
+    }
+
+    .wp-block-cxl-section#view-hero {
+      --cxl-content-max-width: 85em;
+
+      background: url(http://localhost:8080/wp-content/uploads/2023/07/ben-labay_team_headshot-1x1-bw-min.png) no-repeat bottom right var(--lumo-shade-5pct);
+      background-size: auto 85%;
+      background-position: bottom right calc( 45% - 200px );
+
+      padding: unset;
+    }
+
     .flex {
       display: flex;
     }
@@ -100,8 +123,8 @@ export const CXLComExamples = () => html`
     }
   </style>
 
-  <cxl-section class="hero has-black-background-color">
-    <div>
+  <cxl-section id="view-hero" class="wide hero wp-block-cxl-section wide-background-black">
+    <div class="pure-u-lg-1-2">
       <h1><strong>Top 1% marketers</strong> teach you what they know.</h1>
       <h3>Master the most in-demand marketing skills with our online courses created by marketers with a proven record of driving real growth.</h3>
       <vaadin-button id="cxl-onboarding" class="cxl-homepage-button" role="button" theme="primary x-large">

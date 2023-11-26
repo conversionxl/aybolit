@@ -56,3 +56,50 @@
     --lumo-header-text-color: var(--lumo-tint);
   }
 }
+
+:host(#view-hero),
+:host([theme~="cxl-header"]) {
+  margin-top: var(--lumo-space-xl);
+  background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+}
+
+@media #{mq.$large} {
+  :host(#view-hero),
+  :host([theme~="cxl-header"]) {
+    @include mixins.wide-background();
+    @include mixins.extend-background-right();
+
+  }
+
+  :host(.wide-background) {
+    @include mixins.wide-background();
+  }
+
+  :host(.wide-background-left) {
+    @include mixins.extend-background-left();
+  }
+
+  :host(.wide-background-right) {
+    @include mixins.extend-background-right();
+  }
+
+  :host(.wide-background-black) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-black));
+  }
+
+  :host(.wide-background-red) {
+    @include mixins.wide-background-color(var(--lumo-primary-color));
+  }
+
+  :host(.wide-background-blue) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-blue));
+  }
+
+  :host(.wide-background-light-blue) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-light-blue));
+  }
+
+  :host(.wide-background-green) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-green));
+  }
+}

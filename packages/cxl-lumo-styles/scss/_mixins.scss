@@ -43,3 +43,49 @@
     max-width: $max-width;
   }
 }
+
+@mixin wide-background {
+  position: relative;
+  overflow-x: hidden;
+  background-repeat: no-repeat !important;
+  background-size: auto clamp(65%, 40vw, 90%) !important;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: "";
+    border-radius: calc(6 * var(--lumo-border-radius-l))
+
+  }
+}
+
+@mixin extend-background-left {
+  background-position: bottom right calc(50vw + clamp(48px,5%,100px)) !important;
+
+  &::before {
+    right: 47%;
+    height: 60%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@mixin extend-background-right {
+  background-position: bottom left calc(50vw + clamp(48px,5%,100px)) !important;
+
+  &::before {
+    left: 47%;
+    height: 60%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+@mixin wide-background-color($background-color: var(--lumo-base-color)) {
+  &::before {
+    background-color: $background-color;
+  }
+}
