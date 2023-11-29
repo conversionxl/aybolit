@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-str */
 import { html } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@conversionxl/cxl-lumo-styles';
@@ -6,6 +7,21 @@ import '@vaadin/button';
 
 export default {
   title: 'CXL UI/cxl-section',
+  parameters: {
+    docs: {
+      description: {
+        component: 'Use `<cxl-section theme="cxl-header">` to create a section header component. \
+          `cxl-section` components with id="view-hero" are automatically themed as hero headers. \
+          Additionally, it is necessary to add CSS code in wordpress block-editor: \
+          \
+          \
+          `#view-hero::after { \
+            background-image: url([wpv-post-featured-image size="xx-large" output="url"]); \
+          }` \
+        ',
+      },
+    }
+  }
 };
 
 export const CXLSectionHeader = (args) => html`
@@ -50,15 +66,13 @@ export const CXLSectionHeader = (args) => html`
     }
 
     @media screen and (min-width: 1024px) {
-      cxl-section {
-        background: url(https://cxl.com/institute/wp-content/uploads/2020/07/ben-labay_team_headshot-1x1-bw-min-1024x1024.png) no-repeat bottom right;
-        background-size: auto 100%;
-        background-position: bottom right 30%;
+      cxl-section#view-hero::after {
+        background-image: url("https://cxl.com/institute/wp-content/uploads/2020/07/ben-labay_team_headshot-1x1-bw-min-1024x1024.png");
       }
     }
   </style>
 
-  <cxl-section theme="cxl-header" class="${args.backgroundColor} wide">
+  <cxl-section id="view-hero" class="${args.backgroundColor} wide">
     <div class="wp-block-columns">
       <div class="wp-block-column column-1 column-span-1 column-push-0">
         <h1>${unsafeHTML(args.title)}</h1>

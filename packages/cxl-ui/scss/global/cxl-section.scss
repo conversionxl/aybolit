@@ -1,10 +1,16 @@
 /* stylelint-disable selector-no-qualifying-type */
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
+
+// Use more specific selector to hide cxl-section background-image.
+cxl-section.wp-block-group.wp-block-cxl-section#view-hero {
+  background: none !important;
+}
+
 cxl-section#view-hero, cxl-section[theme~="cxl-header"] {
   .column-1 {
     @media #{mq.$large} {
-      max-width: 40%;
+      max-width: 45%;
     }
   }
 
@@ -19,8 +25,15 @@ cxl-section#view-hero, cxl-section[theme~="cxl-header"] {
   }
 
   &.wide-background-light-blue {
-    .column-2 * {
-      color: var(--lumo-shade);
+    #view-hero .cxl-hero-titles {
+      bottom: 0;
+      transform: translateY(50%);
+    }
+
+    .column-2 {
+      * {
+        color: var(--lumo-shade);
+      }
     }
   }
 

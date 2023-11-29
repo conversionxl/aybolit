@@ -66,8 +66,7 @@
   background-position: bottom right calc(50vw + clamp(48px,5%,100px)) !important;
 
   &::before {
-    right: 47%;
-    height: 60%;
+    right: 50%;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -77,10 +76,38 @@
   background-position: bottom left calc(50vw + clamp(48px,5%,100px)) !important;
 
   &::before {
-    left: 47%;
-    height: 60%;
+    left: 50%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+  }
+}
+
+@mixin wide-background-hero {
+  &::before {
+    height: clamp(164px, calc(2 * var(--figure-height-factor)), calc(100 * var(--figure-height-factor))/2);
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+}
+
+// Use ::after pseudo element to add hero background image. url must be set to CSS custom property --hero-image
+@mixin wide-background-hero-image {
+  &::after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    width: 100%;
+    height: clamp(calc(50% + 82px), calc(50% + var(--figure-height-factor)), calc(50% + var(--figure-height-factor)));
+    max-height: calc(50% + var(--figure-height-factor));
+    background-image: var(--hero-image);
+    background-repeat: no-repeat !important;
+    background-size: auto clamp(65%, 40vw, 100%) !important;
+    background-position-x: left !important;
+    background-position-y: bottom;
+    overflow: visible;
+    z-index: -1;
+    bottom: 50%;
+    transform: translateY(var(--figure-height-factor));
   }
 }
 
