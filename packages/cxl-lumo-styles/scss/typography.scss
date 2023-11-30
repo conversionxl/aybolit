@@ -68,58 +68,6 @@ h1 {
 h2 {
   font-size: var(--cxl-lumo-font-size-xxl);
   line-height: var(--cxl-lumo-line-height-xxs);
-
-  &.wp-block-heading {
-    &.separator {
-      &::after {
-        display: block;
-        width: 33%;
-        height: 3px;
-        margin: 1.5em auto 1.5em 0;
-        font-size: 16px;
-        content: "";
-        background: var(--lumo-primary-color);
-      }
-    }
-
-    &.separator-wide {
-      &::after {
-        width: 100%;
-      }
-    }
-
-    &.center {
-      text-align: center;
-      &::after {
-        margin: 1.5em auto;
-      }
-    }
-
-    &.right {
-      text-align: right;
-      &::after {
-        margin: 1.5em 0 1.5em auto;
-      }
-    }
-
-    &.separator-white {
-      &::after {
-        background: #fff;
-      }
-    }
-
-    &.separator-black {
-      &::after {
-        background: #000;
-      }
-    }
-
-    &.separator-gray {
-      &::after {
-        background: var(--lumo-contrast-20pct);
-      }
-    }
-  }
 }
 
 h3 {
