@@ -1,15 +1,9 @@
 /* stylelint-disable selector-no-qualifying-type */
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
-
-// Use more specific selector to hide cxl-section background-image.
-cxl-section.wp-block-group.wp-block-cxl-section#view-hero {
-  background: none !important;
-}
-
-cxl-section#view-hero, cxl-section[theme~="cxl-header"] {
+cxl-section#view-hero, cxl-section[theme~="cxl-hero"] {
   .column-1 {
-    @media #{mq.$large} {
+    @media #{mq.$medium} {
       max-width: 45%;
     }
   }

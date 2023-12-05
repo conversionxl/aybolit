@@ -65,7 +65,7 @@
   background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
 }
 
-@media #{mq.$large} {
+@media #{mq.$medium} {
   :host(#view-hero) {
     @include mixins.wide-background();
     @include mixins.extend-background-right();

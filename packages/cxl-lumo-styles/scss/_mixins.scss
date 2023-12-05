@@ -47,8 +47,7 @@
 @mixin wide-background {
   position: relative;
   overflow-x: hidden;
-  background-repeat: no-repeat !important;
-  background-size: auto clamp(65%, 40vw, 90%) !important;
+  background: unset !important;
 
   &::before {
     position: absolute;
@@ -90,7 +89,7 @@
   }
 }
 
-// Use ::after pseudo element to add hero background image. url must be set to CSS custom property --hero-image
+// Use ::after pseudo element to add hero background image. url must be set to CSS custom property --cxl-hero-image
 @mixin wide-background-hero-image {
   &::after {
     content: "";
@@ -99,10 +98,10 @@
     width: 100%;
     height: clamp(calc(50% + 82px), calc(50% + var(--figure-height-factor)), calc(50% + var(--figure-height-factor)));
     max-height: calc(50% + var(--figure-height-factor));
-    background-image: var(--hero-image);
-    background-repeat: no-repeat !important;
-    background-size: auto clamp(65%, 40vw, 100%) !important;
-    background-position-x: left !important;
+    background-image: var(--cxl-hero-image);
+    background-repeat: no-repeat;
+    background-size: auto clamp(65%, 40vw, 100%) ;
+    background-position-x: left;
     background-position-y: bottom;
     overflow: visible;
     z-index: -1;

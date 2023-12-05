@@ -12,12 +12,14 @@ export default {
       description: {
         component: 'Use `<cxl-section theme="cxl-header">` to create a section header component. \
           `cxl-section` components with id="view-hero" are automatically themed as hero headers. \
-          Additionally, it is necessary to add CSS code in wordpress block-editor: \
+          Additionally, it is necessary to custom CSS code on cxl-section element, for each page: \
           \
           \
-          `#view-hero::after { \
-            background-image: url([wpv-post-featured-image size="xx-large" output="url"]); \
-          }` \
+           <style> \
+            cxl-section { \
+              --cxl-hero-image: url([wpv-post-featured-image size="large" output="url"]) \
+            } \
+          </style> \
         ',
       },
     }
