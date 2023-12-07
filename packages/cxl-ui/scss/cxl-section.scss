@@ -3,6 +3,8 @@
 
 :host {
   display: block;
+  --figure-height-multiplier: 0.10;
+  --figure-height-factor: calc(var(--figure-height-multiplier) * var(--cxl-content-max-width-wide));
 }
 
 :host([theme~="cxl-section-dashboard-team-content"]) {
@@ -54,5 +56,67 @@
 
   > * {
     --lumo-header-text-color: var(--lumo-tint);
+  }
+}
+
+:host(#view-hero),
+:host([theme~="cxl-hero"]) {
+  margin-top: var(--lumo-space-xl);
+  background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+}
+
+@media #{mq.$medium} {
+  :host(#view-hero) {
+    @include mixins.wide-background();
+    @include mixins.extend-background-right();
+    @include mixins.wide-background-hero();
+    @include mixins.wide-background-hero-image();
+  }
+
+  :host([theme~="cxl-hero"]) {
+    @include mixins.wide-background();
+    @include mixins.extend-background-right();
+    @include mixins.wide-background-hero();
+    @include mixins.wide-background-hero-image();
+  }
+
+  :host(.wide-background) {
+    @include mixins.wide-background();
+  }
+
+  :host(.wide-background-hero) {
+    @include mixins.wide-background-hero();
+  }
+
+  :host(.wide-background-hero-image) {
+    @include mixins.wide-background-hero-image();
+  }
+
+  :host(.wide-background-left) {
+    @include mixins.extend-background-left();
+  }
+
+  :host(.wide-background-right) {
+    @include mixins.extend-background-right();
+  }
+
+  :host(.wide-background-black) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-black));
+  }
+
+  :host(.wide-background-red) {
+    @include mixins.wide-background-color(var(--lumo-primary-color));
+  }
+
+  :host(.wide-background-blue) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-blue));
+  }
+
+  :host(.wide-background-light-blue) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-light-blue));
+  }
+
+  :host(.wide-background-green) {
+    @include mixins.wide-background-color(var(--cxl-brand-color-green));
   }
 }
