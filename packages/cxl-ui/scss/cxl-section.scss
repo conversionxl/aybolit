@@ -1,7 +1,9 @@
-@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@use "./mixins" as cxl-mixins;
 
 :host {
+  position: relative;
   display: block;
   --figure-height-multiplier: 0.10;
   --figure-height-factor: calc(var(--figure-height-multiplier) * var(--cxl-content-max-width-wide));
@@ -10,6 +12,12 @@
 :host([theme~="cxl-section-dashboard-team-content"]) {
   @media #{mq.$large} {
     --cxl-wrap-padding: 0;
+  }
+}
+
+:host([theme~="cxl-section-certificate-unfinished"]) {
+  @media #{mq.$medium} {
+    @include cxl-mixins.pesudo-element-full-width(var(--cxl-color-medium-gray));
   }
 }
 
@@ -31,18 +39,32 @@
   /**
    * Spacious section spacing.
    */
-  margin-top: var(--cxl-section-wrap-margin-top, var(--lumo-space-xl));
-  margin-bottom: var(--cxl-section-wrap-margin-bottom, var(--lumo-space-xl));
+  margin-top: var(--cxl-section-wrap-margin-top, var(--lumo-space-l));
+  margin-bottom: var(--cxl-section-wrap-margin-bottom, var(--lumo-space-l));
 
   /**
    * Block editor integration.
    */
+  :host([theme~="full"]) > &,
   :host(.alignfull) > & {
     max-width: unset;
   }
 
+  :host([theme~="wide"]) > &,
   :host(.alignwide) > & {
     max-width: var(--cxl-content-max-width-wide);
+  }
+
+  :host([theme~="cxl-certificate-header"]) > & {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  :host([theme~="cxl-section-certificate-unfinished"]) > & {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: var(--lumo-space-m);
+    padding-bottom: var(--lumo-space-xl);
   }
 }
 

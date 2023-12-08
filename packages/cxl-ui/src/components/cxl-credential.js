@@ -21,6 +21,8 @@ export class CXLCredentialElement extends LitElement {
 
   @property({ type: String, attribute: 'full-name' }) fullName = '';
 
+  @property({ type: String }) theme = '';
+
   @property({ type: String }) title = '';
 
  /**
@@ -45,7 +47,7 @@ export class CXLCredentialElement extends LitElement {
   @query('#qr-code') qrCodeCanvas = null;
 
   defaultUrl ='https://cxl.com/institute/credential'
-  
+
   get url() {
     return `${this.credentialUrl || this.defaultUrl}/${this.credentialId}`;
   }
@@ -134,11 +136,15 @@ export class CXLCredentialElement extends LitElement {
     }
 
     if (changes.has('type')) {
-      this.setAttribute('theme', this.type === 'minidegree' ? 'dark' : 'light');
+      this.theme += ` ${this.type === 'minidegree' ? 'dark' : 'light'}`;
     }
 
     if (changes.has('scale') || changes.has('correctionFactor') || changes.has('codeScale')) {
       requestAnimationFrame(() => this._handleScaling());
+    }
+
+    if (this.theme) {
+      this.setAttribute('theme', this.theme);
     }
   }
 

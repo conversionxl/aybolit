@@ -237,7 +237,8 @@
  * Theme "cxl-course-slider" and "cxl-category-accordion"
  */
 
-:host([theme~="cxl-course-slider"][theme~="cxl-category-accordion"][theme~="minimal"]) {
+:host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-category-accordion"]),
+:host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-category-slider"]) {
   margin-left: calc(-1 * var(--lumo-space-m));
 
   @media #{mq.$small} {

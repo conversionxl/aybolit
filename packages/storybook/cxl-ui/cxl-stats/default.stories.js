@@ -13,6 +13,7 @@ export const CXLStats = ({ theme, statsCount }) => {
     const newItem = {
       title: 'Complete<br>library',
       count: '12%',
+      featured: true,
     };
 
     statsData.push(newItem);
@@ -20,16 +21,14 @@ export const CXLStats = ({ theme, statsCount }) => {
 
   return html`
     <cxl-stats class="stats" theme="${theme}">
-      ${statsData.slice(0, statsCount).map(
-    (el) => html`
-          <div class="stat-item">
-            <h4 class="stat-title">${unsafeHTML(el.title)}</h4>
-            ${el.link
-      ? html`<a class="stat-count" href="${el.link}">${el.count}</a>`
-      : html`<p class="stat-count">${el.count}</p>`}
-          </div>
-        `
-  )}
+      ${statsData.slice(0, statsCount).map((el) => html`
+        <div class="stat-item ${el.featured ? 'featured' : ''}">
+          <h4 class="stat-title">${unsafeHTML(el.title)}</h4>
+          ${el.link
+            ? html`<a class="stat-count" href="${el.link}">${el.count}</a>`
+            : html`<p class="stat-count">${el.count}</p>`}
+        </div>
+      `)}
     </cxl-stats>
   `;
 };

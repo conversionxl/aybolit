@@ -112,3 +112,16 @@ slot[name="action-bar"]::slotted(div) {
     }
   }
 }
+
+/**
+ * Certificate layout
+ */
+:host([layout^="1c"][theme~="cxl-certificate"]:not([layout="1c"])) {
+  overflow: hidden;
+
+  main {
+    > slot {
+      padding: 0;
+    }
+  }
+}

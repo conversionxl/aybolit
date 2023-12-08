@@ -25,12 +25,28 @@ cxl-stats {
     }
   }
 
+  .stat-item.featured .stat-count {
+    color: var(--lumo-primary-color);
+  }
+
   a.stat-count {
     color: var(--cxl-color-black);
     text-decoration: underline;
 
     &:hover {
       color: var(--lumo-primary-color);
+    }
+  }
+
+  &[theme~="dark"] {
+    color: var(--lumo-tint);
+
+    .stat-title {
+      color: var(--lumo-tint);
+    }
+
+    a.stat-count {
+      color: var(--lumo-tint);
     }
   }
 }
