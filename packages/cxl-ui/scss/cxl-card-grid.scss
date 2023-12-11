@@ -1,0 +1,28 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  position: relative;
+  display: block;
+
+  ::slotted(.grid) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--lumo-space-m);
+
+    @media #{mq.$medium} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media #{mq.$large} {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+:host([theme~="courses"]) {
+  ::slotted(.grid) {
+    @media #{mq.$large} {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

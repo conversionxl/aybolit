@@ -1,15 +1,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import '@conversionxl/cxl-lumo-styles';
-import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import cxlCardGlobalStyles from '../styles/global/cxl-card-css.js';
-import cxlCardStyles from '../styles/cxl-card-css.js';
 
-@customElement('cxl-card')
-export class CXLCardElement extends LitElement {
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+
+import '@conversionxl/cxl-lumo-styles';
+import cxlCardGridStyles from '../styles/cxl-card-grid-css.js';
+import cxlCardGridGlobalStyles from '../styles/global/cxl-card-grid-css.js';
+
+@customElement('cxl-card-grid')
+export class CxlCardGridElement extends LitElement {
   static get styles() {
-    return [cxlCardStyles];
+    return [cxlCardGridStyles];
   }
 
   render() {
@@ -20,8 +22,9 @@ export class CXLCardElement extends LitElement {
     super.firstUpdated(_changedProperties);
 
     // Global styles.
-    registerGlobalStyles(cxlCardGlobalStyles, {
-      moduleId: 'cxl-card-global',
+    registerGlobalStyles(cxlCardGridGlobalStyles, {
+      moduleId: 'cxl-card-grid-global',
     });
   }
+
 }
