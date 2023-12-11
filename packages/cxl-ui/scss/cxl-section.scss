@@ -83,7 +83,6 @@
 
 :host(#view-hero),
 :host([theme~="cxl-hero"]) {
-  margin-top: var(--lumo-space-xl);
   background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
 }
 

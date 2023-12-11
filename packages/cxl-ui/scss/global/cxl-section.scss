@@ -2,6 +2,7 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 cxl-section#view-hero, cxl-section[theme~="cxl-hero"] {
+
   .column-1 {
     @media #{mq.$medium} {
       max-width: 45%;
@@ -19,10 +20,6 @@ cxl-section#view-hero, cxl-section[theme~="cxl-hero"] {
   }
 
   &.wide-background-light-blue {
-    #view-hero .cxl-hero-titles {
-      bottom: 0;
-      transform: translateY(50%);
-    }
 
     .column-2 {
       * {
