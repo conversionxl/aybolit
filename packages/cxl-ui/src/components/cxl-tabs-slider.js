@@ -12,7 +12,13 @@ export class CXLTabsSliderElement extends Tabs {
   get _scrollOffset() {
     const theme = this.getAttribute('theme').split(' ');
 
-    if (theme.includes('cxl-category-accordion') || theme.includes('cxl-slider-dashboard-header')) {
+    const themes = [
+      'cxl-category-accordion',
+      'cxl-slider-dashboard-header',
+      'cxl-category-slider'
+    ];
+
+    if (themes.some(name => theme.includes(name))) {
       return 200;
     }
 
