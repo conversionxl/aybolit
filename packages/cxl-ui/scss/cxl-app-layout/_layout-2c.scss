@@ -162,13 +162,4 @@ $vertical-padding: var(--cxl-wrap-padding);
     }
   }
 }
-
-/**
- * Visuals.
- */
-:host([layout^="2c"][wide]) {
-  main {
-    box-shadow: var(--lumo-box-shadow-s);
-  }
-}
 /* stylelint-enable no-duplicate-selectors */
