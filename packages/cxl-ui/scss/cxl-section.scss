@@ -15,12 +15,6 @@
   }
 }
 
-:host([theme~="cxl-section-certificate-unfinished"]) {
-  @media #{mq.$medium} {
-    @include cxl-mixins.pesudo-element-full-width(var(--cxl-color-medium-gray));
-  }
-}
-
 /**
  * Avoid margin collapse with background.
  */
@@ -65,6 +59,11 @@
     margin-bottom: 0;
     padding-top: var(--lumo-space-m);
     padding-bottom: var(--lumo-space-xl);
+  }
+
+  :host([theme~="course-section"]) > & {
+    margin-top: var(--lumo-space-xl);
+    margin-bottom: var(--lumo-space-xl);
   }
 }
 

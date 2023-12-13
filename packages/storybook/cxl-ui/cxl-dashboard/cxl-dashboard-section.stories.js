@@ -4,6 +4,7 @@ import '@conversionxl/cxl-lumo-styles';
 import '@conversionxl/cxl-ui/src/components/cxl-dashboard-section.js';
 import '@vaadin/progress-bar';
 import { CXLLightCardSlider } from '../cxl-light-card/light-card-slider.stories';
+import { CXLStats } from '../cxl-stats/default.stories';
 
 export default {
   title: 'CXL UI/cxl-dashboard',
@@ -46,6 +47,13 @@ const Template = (section) => html`
           <span class="progress-label">Progress: </span>
           <vaadin-progress-bar value="0.5"></vaadin-progress-bar>
         </div>
+        <div class="info-2">
+          ${CXLStats({ theme: 'cxl-stats-categories', statsCount: 3 })}
+          <div class="cta">
+            Feeling ready for the exam?
+            <vaadin-button theme="primary small">${section.title} exam</vaadin-button>
+          </div>
+        </div>
         <div class="section-3">
           <div class="section-4">
             <div class="entry-title">
@@ -53,7 +61,7 @@ const Template = (section) => html`
               /
               <h6 class="title-4">Organic Content</h6>
             </div>
-            ${CXLLightCardSlider(CXLLightCardSlider.args)}
+            ${CXLLightCardSlider({ ...CXLLightCardSlider.args, theme: 'cxl-category-slider' })}
           </div>
         </div>
       </div>

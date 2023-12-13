@@ -124,6 +124,43 @@ cxl-dashboard-section {
     color: var(--cxl-color-black-50pct);
   }
 
+  .info-2 {
+    display: block;
+    margin-top: var(--lumo-space-l);
+    margin-bottom: var(--lumo-space-l);
+
+    @media #{mq.$medium} {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--lumo-space-m);
+      margin-bottom: var(--lumo-space-m);
+    }
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: var(--lumo-space-m);
+    font-family: var(--cxl-lumo-font-secondary);
+
+    @media #{mq.$medium} {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--lumo-space-l);
+      margin-top: 0;
+    }
+
+    vaadin-button {
+      margin-top: var(--lumo-space-s);
+
+      @media #{mq.$medium} {
+        margin-top: 0;
+      }
+    }
+  }
+
   cxl-tabs-slider {
     padding: var(--lumo-space-s) 0;
   }

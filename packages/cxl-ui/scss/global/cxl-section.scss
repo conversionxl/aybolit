@@ -29,3 +29,9 @@ cxl-section#view-hero, cxl-section[theme~="cxl-hero"] {
   }
 
 }
+
+cxl-section[theme~="course-section"] {
+  & + & {
+    border-top: 1px solid var(--cxl-color-medium-gray);
+  }
+}
