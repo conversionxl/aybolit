@@ -829,6 +829,7 @@
     {
       "depth": 0,
       "text": "Invite team",
+      "classes": ["menu-item-split-nav"],
       "icon": "lumo:plus",
       "component": "a",
       "split": true,
@@ -840,6 +841,7 @@
       "depth": 0,
       "text": "My account ",
       "icon": "lumo:user",
+      "classes": ["menu-item-split-nav"],
       "component": "a",
       "href": "https://conversionxl.com/institute/my-account/",
       "id": 41,
