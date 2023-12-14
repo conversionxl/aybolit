@@ -20,13 +20,9 @@ CXLLightCard.args = {
 
 export const CXLLightCardGrid = ({ length, args }) => html`
   <cxl-card-grid>
-    <div class="grid">
-      ${Array.from({ length }, () => html`
-        <div class="col">
-          ${CXLLightCard({ ...CXLLightCard.args, ...args })}
-        </div>
-      `)}
-    </div>
+    ${Array.from({ length }, () => html`
+      ${CXLLightCard({ ...CXLLightCard.args, ...args })}
+    `)}
   </cxl-card-grid>
 `;
 

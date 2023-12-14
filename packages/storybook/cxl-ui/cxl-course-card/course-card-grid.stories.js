@@ -27,13 +27,9 @@ CXLCourseCard.args = {
 
 export const CXLCourseCardGrid = ({ length, args }) => html`
   <cxl-card-grid theme="courses">
-    <div class="grid">
-      ${Array.from({ length }, () => html`
-        <div class="col">
-          ${CXLCourseCard({ ...CXLCourseCard.args, ...args })}
-        </div>
-      `)}
-    </div>
+    ${Array.from({ length }, () => html`
+      ${CXLCourseCard({ ...CXLCourseCard.args, ...args })}
+    `)}
   </cxl-card-grid>
 `;
 
