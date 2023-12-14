@@ -55,7 +55,7 @@
       "id": 51595,
       "parent": 0,
       "href": "https://cxl.com/institute/pricing/",
-      "classes": ["menu-item-cta", "menu-item-split-nav", "menu-item-start-free-trial"],
+      "classes":  ["menu-item-split-nav","menu-item-start-free-trial","nmr-logged-out","menu-item-cta","menu-item","menu-item-type-custom","menu-item-object-custom"],
       "text": "Sign up now"
     }
   ],

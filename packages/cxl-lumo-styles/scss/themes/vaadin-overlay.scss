@@ -34,14 +34,17 @@
 
   &::part(overlay),
   &::part(content) {
+    /* Repeated as fallback for older browsers*/
     height: calc(100vh - 40px);
+    height: calc(100dvh - 40px);
     max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
   }
 
   &::part(backdrop) {
     display: none;
   }
-  
+
   &::part(overlay) {
     box-shadow: 0 0 0 1px var(--lumo-shade-5pct), 0 2px 6px -1px var(--lumo-shade-5pct),
       0 8px 24px -4px var(--lumo-shade-5pct);
@@ -65,7 +68,7 @@
     align-items: stretch !important;
     justify-content: flex-end !important;
 
-    
+
     [part='overlay'] {
       top: 0 !important;
       right: 0 !important;
@@ -74,8 +77,12 @@
       align-items: stretch !important;
       justify-content: flex-end !important;
       width: 100vw;
+      /* Repeated as fallback for older browsers*/
       height: calc(100vh - 40px) !important;
+      height: calc(100dvh - 40px) !important;
       max-height: calc(100vh - 40px) !important;
+      max-height: calc(100dvh - 40px) !important;
+
       border-top: 1px solid var(--lumo-shade-5pct);
       border-radius: 0;
       box-shadow: none;
