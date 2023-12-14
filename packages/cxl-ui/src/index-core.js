@@ -29,6 +29,7 @@ export { CxlDashboardTeamHeaderElement } from './components/cxl-dashboard-team-h
 export { CxlDashboardTeamStatsElement } from './components/cxl-dashboard-team-stats.js';
 export { CXLFeaturedCourseCardElement } from './components/cxl-featured-course-card.js';
 export { CXLLightCardElement } from './components/cxl-light-card.js';
+export { CxlCardGridElement } from './components/cxl-card-grid.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 export { CXLNotification } from './components/cxl-notification.js';
 export { CXLNotificationCardElement } from './components/cxl-notification-card.js';

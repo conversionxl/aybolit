@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
