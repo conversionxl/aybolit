@@ -27,3 +27,9 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+:host([theme~="cxl-stats-categories"]) {
+  @media #{mq.$medium} {
+    gap: var(--lumo-space-l);
+  }
+}

@@ -15,13 +15,22 @@ cxl-stats {
   }
 
   .stat-count {
+    display: flex;
+    align-items: center;
+    gap: var(--lumo-space-xs);
     margin: 0;
     font-size: var(--lumo-font-size-xxl);
+    font-family: var(--lumo-font-family);
     font-weight: 700;
     line-height: 1.3;
 
     small {
       font-size: var(--lumo-font-size-l);
+    }
+
+    vaadin-icon {
+      width: calc(var(--lumo-icon-size-m) / 2);
+      height: calc(var(--lumo-icon-size-m) / 2);
     }
   }
 

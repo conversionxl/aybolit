@@ -1,12 +1,12 @@
 [
   {
     "title": "Lessons<br>completed",
-    "count": "30"
+    "count": "<small>96%</small><vaadin-icon icon=\"lumo:arrow-right\"></vaadin-icon>100%"
   },
   {
     "title": "Courses<br>completed",
     "count": "1",
-    "link": "https://cxl.com"
+    "featured": true
   },
   {
     "title": "Certificates<br>completed",

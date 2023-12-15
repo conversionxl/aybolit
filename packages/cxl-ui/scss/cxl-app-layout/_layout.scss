@@ -125,3 +125,16 @@ slot[name="action-bar"]::slotted(div) {
     }
   }
 }
+
+/**
+ * Course layout
+ */
+:host([layout^="1c"][theme~="cxl-course"]:not([layout="1c"])) {
+  overflow: hidden;
+
+  main {
+    > slot {
+      padding: 0;
+    }
+  }
+}

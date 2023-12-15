@@ -25,8 +25,8 @@ export const CXLStats = ({ theme, statsCount }) => {
         <div class="stat-item ${el.featured ? 'featured' : ''}">
           <h4 class="stat-title">${unsafeHTML(el.title)}</h4>
           ${el.link
-            ? html`<a class="stat-count" href="${el.link}">${el.count}</a>`
-            : html`<p class="stat-count">${el.count}</p>`}
+            ? html`<a class="stat-count" href="${el.link}">${unsafeHTML(el.count)}</a>`
+            : html`<p class="stat-count">${unsafeHTML(el.count)}</p>`}
         </div>
       `)}
     </cxl-stats>
