@@ -1,0 +1,30 @@
+
+@keyframes cxl-lumo-mobile-menu-overlay-enter {
+  0% {
+    transform: translateX(150%);
+  }
+}
+
+@keyframes cxl-lumo-mobile-menu-overlay-exit {
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+@media (max-width: 568px), (max-height: 568px) {
+  
+  /* Animations */
+  
+  :host([opening]) [part='overlay'] {
+    animation: 0.2s cxl-lumo-mobile-menu-overlay-enter cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  }
+  
+  :host([closing]),
+  :host([closing]) [part='backdrop'] {
+    animation-delay: 0.14s;
+  }
+  
+  :host([closing]) [part='overlay'] {
+    animation: 0.14s 0.14s cxl-lumo-mobile-menu-overlay-exit cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+  }
+}

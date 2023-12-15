@@ -2,7 +2,7 @@ import { html } from 'lit';
 import '@conversionxl/cxl-ui/src/components/cxl-light-card.js';
 import '@conversionxl/cxl-ui/src/components/cxl-tabs-slider.js';
 import '@conversionxl/cxl-lumo-styles';
-import { CXLCourseCard } from './[theme=course|lesson].stories.js';
+import { CXLCourseCard } from './[theme=course-lesson].stories.js';
 
 export default {
   title: 'CXL UI/cxl-course-card',

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { registerStyles } from '@vaadin/vaadin-themable-mixin/register-styles.js';
 import cxlAccordionCardStyles from './styles/themes/cxl-accordion-card-css.js';
 import cxlCheckoutDetailsStyles from './styles/themes/cxl-checkout-details-css.js';
@@ -6,6 +7,9 @@ import cxlVaadinAccordionStyles from './styles/themes/vaadin-accordion-css.js';
 import cxlVaadinAccordionPanelStyles from './styles/themes/vaadin-accordion-panel-css.js';
 import cxlVaadinContextMenuItemStyles from './styles/themes/vaadin-context-menu-item-css.js';
 import cxlVaadinContextMenuListBoxStyles from './styles/themes/vaadin-context-menu-list-box-css.js';
+import cxlVaadinMenuBarStyles from './styles/themes/vaadin-menu-bar-css.js';
+import cxlVaadinMenuBarButtonStyles from './styles/themes/vaadin-menu-bar-button-css.js';
+import cxlVaadinContextMenuOverlayStyles from './styles/themes/vaadin-context-menu-overlay-css.js';
 import cxlVaadinDetailsStyles from './styles/themes/vaadin-details-css.js';
 import cxlVaadinIconStyles from './styles/themes/vaadin-icon-css.js';
 import cxlVaadinHorizontalLayoutStyles from './styles/themes/vaadin-horizontal-layout-css.js';
@@ -15,6 +19,7 @@ import cxlVaadinOverlayStyles from './styles/themes/vaadin-overlay-css.js';
 import cxlVaadinTabStyles from './styles/themes/vaadin-tab-css.js';
 import cxlVaadinTabsStyles from './styles/themes/vaadin-tabs-css.js';
 import cxlVaadinButtonStyles from './styles/themes/vaadin-button-css.js';
+import cxlVaadinDialogOverlayStyles from './styles/themes/vaadin-dialog-overlay-css.js';
 
 /* Mixins, alphabetic order. */
 registerStyles('cxl-accordion-card', cxlAccordionCardStyles, {
@@ -37,6 +42,15 @@ registerStyles('vaadin-context-menu-item', cxlVaadinContextMenuItemStyles, {
 });
 registerStyles('vaadin-context-menu-list-box', cxlVaadinContextMenuListBoxStyles, {
   moduleId: 'cxl-vaadin-context-menu-list-box-styles',
+});
+registerStyles('vaadin-context-menu-overlay', cxlVaadinContextMenuOverlayStyles, {
+  moduleId: 'cxl-vaadin-context-menu-overlay-styles',
+});
+registerStyles('vaadin-menu-bar', cxlVaadinMenuBarStyles, {
+  moduleId: 'cxl-vaadin-menu-bar-styles',
+});
+registerStyles('vaadin-menu-bar-button', cxlVaadinMenuBarButtonStyles, {
+  moduleId: 'cxl-vaadin-menu-bar-button-styles',
 });
 registerStyles('vaadin-details', cxlVaadinDetailsStyles, {
   moduleId: 'cxl-vaadin-details-styles',
@@ -65,3 +79,6 @@ registerStyles('vaadin-tabs', cxlVaadinTabsStyles, {
 registerStyles('vaadin-button', cxlVaadinButtonStyles, {
   moduleId: 'cxl-vaadin-button-styles',
 })
+registerStyles('vaadin-dialog-overlay', cxlVaadinDialogOverlayStyles, {
+  moduleId: 'cxl-vaadin-dialog-overlay-styles',
+});

@@ -14,30 +14,41 @@
 }
 
 :host([theme~="cxl-marketing-nav"].vaadin-menu-list-box) {
+  padding: var(--lumo-space-m) 0;
+
+  @media (min-width: 568px) {
+    padding: 0;
+  }
+  
   [part="items"] ::slotted(.vaadin-menu-item) {
     padding-right: var(--lumo-space-m);
     padding-left: var(--lumo-space-m);
   }
 
-  [part="items"] ::slotted(.section-header.vaadin-menu-item:not(.section-header):hover:not([disabled])) {
+  [part="items"]
+    ::slotted(.section-header.vaadin-menu-item:not(.section-header):hover:not([disabled])) {
     /* revert default vaadin-context-menu-list-box hovering style, without losing other styles styles applied */
     background-color: revert-layer;
   }
 
-  [part='items'] ::slotted(.vaadin-menu-item.section-header:hover) {
+  [part="items"] ::slotted(.vaadin-menu-item.section-header:hover) {
     background-color: unset;
-  }
-   
-}
-
-@media screen and (min-width: 768px) and (min-height: 768px) {
-  :host([theme~="cxl-marketing-nav"]) {
-    display: block;
-    width: var(--cxl-vaadin-context-menu-item-max-width);
-    padding: 0 var(--lumo-space-s);
   }
 }
 
 :host([theme~="cxl-marketing-nav"]) [part="items"] ::slotted(.vaadin-menu-item) {
   border-radius: 0;
+  
+  &::part(checkmark) ::before {
+    content: unset;
+  }
+}
+
+@media (max-width: 568px) {
+  :host([theme~="cxl-marketing-nav"]) [part="items"] {
+    
+    ::slotted(.global-menu-item) {
+      background-color: var(--cxl-color-light-gray);
+    }
+  }
 }
