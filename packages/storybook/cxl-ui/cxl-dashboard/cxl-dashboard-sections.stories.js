@@ -11,10 +11,7 @@ export default {
 };
 
 export const CXLDashboardSections = () => html`
-  <div style="margin-top: var(--lumo-space-xl); padding: 0 var(--lumo-space-l);">
-    <div>
-      <h2>Explore all Categories</h2>
-    </div>
+  <div style="margin-top: var(--lumo-space-xl); padding: 0 var(--lumo-space-m)">
     ${categoryData.map(
       (cat) => html`
         <cxl-dashboard-section image=${cat.image}>
