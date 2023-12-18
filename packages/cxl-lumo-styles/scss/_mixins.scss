@@ -58,13 +58,12 @@
     width: 100%;
     height: 100%;
     content: "";
-    border-radius: calc(6 * var(--lumo-border-radius-l))
-
+    border-radius: calc(6 * var(--lumo-border-radius-l));
   }
 }
 
 @mixin extend-background-left {
-  background-position: bottom right calc(50vw + clamp(48px,5%,100px)) !important;
+  background-position: bottom right calc(50vw + clamp(48px, 5%, 100px)) !important;
 
   &::before {
     right: 50%;
@@ -75,7 +74,7 @@
 }
 
 @mixin extend-background-right {
-  background-position: bottom left calc(50vw + clamp(48px,5%,100px)) !important;
+  background-position: bottom left calc(50vw + clamp(48px, 5%, 100px)) !important;
 
   &::before {
     right: -50vw;
@@ -88,7 +87,11 @@
 @mixin wide-background-hero {
   &::before {
     bottom: 50%;
-    height: clamp(164px, calc(2 * var(--figure-height-factor)), calc(100 * var(--figure-height-factor)) / 2);
+    height: clamp(
+      164px,
+      calc(2 * var(--figure-height-factor)),
+      calc(100 * var(--figure-height-factor)) / 2
+    );
     transform: translateY(50%);
   }
 }
@@ -101,13 +104,18 @@
     left: 55%;
     z-index: -1;
     width: 100%;
-    height: clamp(calc(50% + 82px), calc(50% + var(--figure-height-factor)), calc(50% + var(--figure-height-factor)));
+    height: clamp(
+      calc(50% + 82px),
+      calc(50% + var(--figure-height-factor)),
+      calc(50% + var(--figure-height-factor))
+    );
     max-height: calc(50% + var(--figure-height-factor));
+    content: "";
     background-image: var(--cxl-hero-image);
     background-repeat: no-repeat;
     background-position-x: left;
     background-position-y: bottom;
-    background-size: auto clamp(65%, 40vw, 100%) ;
+    background-size: auto clamp(65%, 40vw, 100%);
     transform: translateY(var(--figure-height-factor));
   }
 }
