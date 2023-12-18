@@ -185,20 +185,20 @@
   }
 
   [part="back-button"] {
-    left: calc(-1 * var(--lumo-space-l));
+    left: calc(-1 * var(--lumo-space-m));
     margin-left: var(--lumo-space-s);
 
     @media #{mq.$small} {
-      left: calc(-1 * var(--lumo-space-xl));
+      left: calc(-1 * var(--lumo-space-l));
     }
   }
 
   [part="forward-button"] {
-    right: calc(-1 * var(--lumo-space-l));
+    right: calc(-1 * var(--lumo-space-m));
     margin-right: var(--lumo-space-s);
 
     @media #{mq.$small} {
-      right: calc(-1 * var(--lumo-space-xl));
+      right: calc(-1 * var(--lumo-space-l));
     }
   }
 }
@@ -235,7 +235,8 @@
  * Theme "cxl-course-slider" and "cxl-slider-dashboard-header"
  */
 
-:host([theme~="cxl-course-slider"][theme~="cxl-slider-dashboard-header"]) {
+:host([theme~="cxl-course-slider"][theme~="cxl-slider-dashboard-header"]),
+:host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-category-accordion"]) {
   margin-inline: 0;
 
   @media #{mq.$small} {

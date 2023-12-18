@@ -29,9 +29,7 @@ export const CXLDashboard = () => {
       ${CXLMarketingNav()}
       <div>
         ${CXLDashboardHeader(CXLDashboardHeader.args)}
-        <div style="padding: 0 var(--lumo-space-m)">
-          <h1 class="cxl-separator">Explore all courses</h1>
-        </div>
+        <h1 class="cxl-separator">Explore all courses</h1>
         ${DashboardSlider()}
         ${CXLDashboardSections()}
       </div>

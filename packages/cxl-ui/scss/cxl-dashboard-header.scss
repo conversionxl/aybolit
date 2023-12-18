@@ -9,11 +9,6 @@
   .container {
     position: relative;
     z-index: 1;
-    padding: 0 var(--lumo-space-m) var(--lumo-space-xl);
-
-    @media #{mq.$medium} {
-      padding: calc(var(--lumo-space-m) * 2) var(--lumo-space-l);
-    }
   }
 
   .updates {
