@@ -96,6 +96,7 @@
 // Use ::after pseudo element to add hero background image. url must be set to CSS custom property --cxl-hero-image
 @mixin wide-background-hero-image {
   &::after {
+    content: "";
     position: absolute;
     bottom: 50%;
     left: 55%;
