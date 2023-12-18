@@ -28,7 +28,11 @@ export const CXLDashboard = () => {
     <cxl-app-layout id="container" layout="1c-w" theme="cxl-dashboard">
       ${CXLMarketingNav()}
       <div>
-        ${DashboardSlider()} ${CXLDashboardHeader(CXLDashboardHeader.args)}
+        ${CXLDashboardHeader(CXLDashboardHeader.args)}
+        <div style="padding: 0 var(--lumo-space-m)">
+          <h1 class="cxl-separator">Explore all courses</h1>
+        </div>
+        ${DashboardSlider()}
         ${CXLDashboardSections()}
       </div>
       ${CXLFooterNav()}

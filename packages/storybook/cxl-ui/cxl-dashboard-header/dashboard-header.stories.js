@@ -11,7 +11,7 @@ CXLDashboardHeader.argTypes = {
 };
 
 CXLDashboardHeader.args = {
-  name: 'Mathias Z',
+  name: 'Username Here',
   notificationCount: 6,
   showCompletedStats: true,
   showContinueSlider: true,

@@ -1,11 +1,12 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
-@use "../mixins";
+@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@use "../mixins" as cxl-ui-mixins;
 
 /**
 * Theme "cxl-dashboard-category"
 */
 cxl-dashboard-section {
-  padding-bottom: var(--lumo-space-xl);
+  padding-bottom: calc(var(--lumo-space-xl) + var(--lumo-space-l));
 
   .header {
     --lumo-header-text-color: var(--lumo-tint);
@@ -15,41 +16,51 @@ cxl-dashboard-section {
     min-height: 240px;
     padding: var(--lumo-space-xl) 0;
     margin-bottom: var(--lumo-space-l);
-    background-color: var(--lumo-shade);
+
+    @include mixins.wide-background();
+    overflow-x: unset;
+    @include mixins.extend-background-left();
 
     &::before {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      z-index: -1;
-      width: 100vw;
-      content: "";
-      background-color: var(--lumo-shade);
-      transform: translateX(-50%);
+      right: 0%;
+      width: unset;
+      background-color: var(--cxl-brand-color-light-blue-30pct);
+      border-radius: var(--lumo-space-l);
+    }
+
+    @media #{mq.$medium} {
+      .entry-title {
+        max-width: calc(45% - var(--lumo-space-xl));
+      }
+
+      .entry-summary {
+        max-width: calc(45% - var(--lumo-space-xl));
+      }
+
     }
 
     .entry-title {
       margin: 0;
       font-weight: 900;
+      padding-right: var(--lumo-space-l);
+      color: var(--lumo-contrast);
     }
 
     .entry-summary {
-      max-width: 480px;
       padding: 0;
+      padding-right: var(--lumo-space-l);
       margin: var(--lumo-space-m) 0;
-      color: var(--lumo-tint);
     }
 
     > span {
       font-size: var(--lumo-font-size-xs);
       font-weight: 600;
-      color: var(--lumo-primary-color);
+      color: var(--lumo-contrast-60pct);
       text-transform: uppercase;
     }
 
     > .view-all {
-      @include mixins.primary-link-with-arrow();
+      @include cxl-ui-mixins.primary-link-with-arrow();
     }
   }
 
@@ -88,7 +99,7 @@ cxl-dashboard-section {
             margin-left: var(--lumo-space-m);
             text-decoration: none;
 
-            @include mixins.primary-link-with-arrow();
+            @include cxl-ui-mixins.primary-link-with-arrow();
           }
         }
       }

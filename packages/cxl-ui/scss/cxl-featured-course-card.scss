@@ -10,18 +10,18 @@
   min-height: 400px;
   max-width: unset;
   margin: 0 calc(var(--lumo-space-m) * -1);
-  padding: 0 var(--lumo-space-m) var(--lumo-space-m) var(--lumo-space-m);
+  padding: 0 var(--lumo-space-xl) var(--lumo-space-m) var(--lumo-space-m);
   line-height: var(--lumo-line-height-m);
   border: 0;
   box-shadow: none;
-  border-radius: 0;
+  border-radius: var(--lumo-size-xl);
   background-color: var(--cxl-color-black);
   overflow: hidden;
 
   @media #{mq.$large} {
     width: 100%;
     margin: 0;
-    padding: 0 var(--lumo-space-m);
+    padding: 0 calc(2 * var(--lumo-space-xl));
   }
 
   .container {
@@ -83,7 +83,7 @@
     .instructor-image {
       display: block;
       margin: var(--lumo-space-m) auto 0;
-      max-height: calc(var(--lumo-space-xl) * 4);
+      max-height: 100%;
       object-fit: contain;
 
       @media #{mq.$large} {
@@ -113,6 +113,7 @@
     display: block;
     max-width: var(--cxl-hero-content-max-width);
     padding: 0 var(--lumo-space-m);
+    overflow: hidden;
 
     @media #{mq.$large} {
       position: initial;
@@ -127,15 +128,14 @@
       img {
         width: 100%;
         height: auto;
-        margin-top: auto;
         border-radius: 0;
         object-fit: contain;
       }
 
       @media #{mq.$large} {
         position: absolute;
-        top: var(--lumo-space-l);
-        left: 60%;
+        bottom: calc(-1 * var(--lumo-space-xl));
+        right: calc(2 * var(--lumo-space-xl));
         display: flex;
         justify-content: flex-end;
         width: auto;

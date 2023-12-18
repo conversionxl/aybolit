@@ -3,10 +3,8 @@ import {LitElement, html, nothing} from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 import './cxl-dashboard-notification';
-import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 
 import cxlDashboardHeaderStyles from '../styles/cxl-dashboard-header-css.js';
-import cxlDashboardHeaderGlobalStyles from '../styles/global/cxl-dashboard-header-css.js';
 
 @customElement('cxl-dashboard-header')
 export class CXLDashboardHeaderElement extends LitElement {
@@ -61,9 +59,9 @@ export class CXLDashboardHeaderElement extends LitElement {
     return html`
       <section class="content">
         <header>
-          <div class="titles">
-            <span class="subtitle">${this.subtitle}</span>
-            <h1 class="title">${this.title}, ${this.name}.</h1>
+          <div class="user-header">
+            <h1 class="title">${this.title}, <span class="username">${this.name}.</span></h1>
+            ${this._renderNotifications()}
           </div>
           ${this.showCompletedStats ? html`
             <slot name="completed-stats" class="completed-stats"></slot>
@@ -135,20 +133,10 @@ export class CXLDashboardHeaderElement extends LitElement {
   render() {
     return html`
       <div class="container">
-        ${this._renderNotifications()}
         ${this._renderUserSection()}
         ${this._renderRoadmapSection()}
         ${this._renderMinidegreesSection()}
       </div>
     `;
-  }
-
-  firstUpdated(_changedProperties) {
-    super.firstUpdated(_changedProperties);
-
-    // Global styles.
-    registerGlobalStyles(cxlDashboardHeaderGlobalStyles, {
-      moduleId: 'cxl-dashboard-header-global',
-    });
   }
 }

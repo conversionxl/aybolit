@@ -2,6 +2,13 @@
   width: 100%;
   min-width: 100%;
   padding: 0;
+
+  // Override the featured card default theme for the dashboard
+  ::slotted(cxl-featured-course-card) {
+    --lumo-tint: initial;
+
+    background-color: unset;
+  }
 }
 
 // Dashboard notifications

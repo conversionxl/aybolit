@@ -1,6 +1,8 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 :host {
+  display: flex;
+
   .notification {
     display: flex;
     align-items: center;
@@ -9,12 +11,13 @@
     padding: var(--lumo-space-s);
     margin: 0 calc(-1 * var(--lumo-space-m));
     color: var(--cxl-color-dark-gray);
-    background-color: var(--lumo-primary-contrast-color);
+    background-color: var(--cxl-color-light-gray);
     border-radius: 0;
 
     &::part(label) {
       display: flex;
       align-items: center;
+      color: var(--lumo-primary-color);
     }
 
     @media #{mq.$medium} {
@@ -26,6 +29,7 @@
   .icon-bell {
     position: relative;
     margin-right: 14px;
+    color: initial;
 
     &::after {
       position: absolute;

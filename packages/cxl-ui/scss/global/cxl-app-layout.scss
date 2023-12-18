@@ -109,4 +109,22 @@ cxl-app-layout {
   &[wide] [slot="action-bar"] > *:first-child {
     flex: unset;
   }
+
+  /**
+   * Dashboard layout.
+   */
+  &[theme~="cxl-dashboard"]:not([layout="1c"]) {
+    overflow-x: hidden;
+
+    h1 {
+      margin-block: calc(2 * var(--lumo-space-xl));
+
+      ::before {
+        width: 33%;
+        content: "";
+        border-bottom: var(--lumo-space-xs) solid var(--lumo-primary-color);
+      }
+    }
+  }
+
 }
