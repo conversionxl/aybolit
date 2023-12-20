@@ -9,9 +9,10 @@
   .container {
     position: relative;
     z-index: 1;
+    padding: 0 var(--lumo-space-l);
 
     @media #{mq.$medium} {
-      padding-block: calc(var(--lumo-space-m) * 2);
+      padding: calc(var(--lumo-space-m) * 2) 0;
     }
   }
 
