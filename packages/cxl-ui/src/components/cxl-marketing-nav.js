@@ -45,6 +45,8 @@ export class CXLMarketingNavElement extends LitElement {
 
   @property({ type: Boolean, attribute: 'minimal' }) minimal = false;
 
+  @property({ type: String, attribute: 'logo-bar' }) logoBar = 'global';
+
   @property({ type: Object })
   get contextMenuItems() {
     return this._contextMenuItems;
@@ -151,7 +153,7 @@ export class CXLMarketingNavElement extends LitElement {
         return html`
           <nav id="menu-${name}-items" ?minimal=${this.minimal} ?wide=${this.wide}>
             <div class="container">
-              ${'global' === name || !this.wide
+              ${this.logoBar === name || !this.wide
                 ? html`
                     <vaadin-menu-bar-button class="cxl-logo" theme="tertiary cxl-marketing-nav">
                       <a href=${this.homeUrl || 'https://cxl.com'}>

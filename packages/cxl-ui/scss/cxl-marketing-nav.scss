@@ -72,20 +72,9 @@
     }
 
     /* stylelint-disable-next-line selector-no-qualifying-type */
-    &#menu-global-items {
-      background-color: var(--lumo-shade);
-
-      /* stylelint-disable-next-line selector-no-qualifying-type */
-      ::part(menu-bar-button),
-      ::slotted(.menu-item) {
-        color: var(--lumo-tint);
-      }
-    }
-
-    /* stylelint-disable-next-line selector-no-qualifying-type */
-    &#menu-primary-items {
+    &#menu-global-items, &#menu-primary-items {
       background-color: var(--lumo-base-color);
-      border-bottom: 1px solid var(--lumo-shade-10pct);
+      border-bottom: 1px solid var(--lumo-shade-5pct);
     }
 
     .vaadin-context-menu-item--dropdown-icon {

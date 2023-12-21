@@ -8,3 +8,7 @@
 :host(.wide) {
   width: 100%;
 }
+
+:host-context(.menu-item-cta) {
+  --lumo-button-size: var(--lumo-size-s);
+}
