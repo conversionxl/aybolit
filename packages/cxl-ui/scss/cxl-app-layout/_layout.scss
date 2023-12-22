@@ -11,6 +11,8 @@ $toggle-icon: "lumo:angle-right";
  */
 :host {
   display: block;
+  /* Prevent any horizontal overflowing/scrolling within app-layout */
+  overflow: hidden;
 
   aside,
   main {
