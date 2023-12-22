@@ -1,4 +1,7 @@
 :host([theme~="cxl-accordion-card"]) {
+  box-sizing: border-box;
+  max-width: calc(100vw - 2 * var(--cxl-wrap-padding));
+
   column-gap: calc(var(--lumo-space-m) * 2);
   column-rule: 1px solid var(--lumo-shade-10pct); // match panel `outline`
   column-width: calc(var(--cxl-content-max-width) / 2);
