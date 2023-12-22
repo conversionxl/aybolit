@@ -1,4 +1,5 @@
-@import "~@conversionxl/cxl-ui/scss/cxl-card";
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "~@conversionxl/cxl-ui/scss/cxl-card";
 
 :host(:not[disabled]) {
   [part="summary"]:hover {
@@ -42,4 +43,15 @@
 ::slotted(.entry-header) {
   display: flex;
   flex-wrap: wrap;
+}
+
+:host {
+  box-sizing: border-box;
+  max-width: calc(100vw - 2 * var(--cxl-wrap-padding));
+}
+
+@media #{mq.$small} {
+  :host {
+    max-width: initial;
+  }
 }
