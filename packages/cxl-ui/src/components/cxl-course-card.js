@@ -27,9 +27,9 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
   }
 
   _renderHeaderName() {
-    return html`<div class="name" title=${this.name}>
+    return html`<h3 class="name" title=${this.name}>
       <a href=${this.ctaUrl}>${unsafeHTML(this.name)}</a>
-    </div>`;
+    </h3>`;
   }
 
   render() {

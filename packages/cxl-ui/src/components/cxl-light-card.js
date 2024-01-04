@@ -42,11 +42,11 @@ export class CXLLightCardElement extends CXLBaseCardElement {
 
   _renderHeaderName() {
     return html`
-      <div class="name" title=${this.name}>
+      <h3 class="name" title=${this.name}>
           ${unsafeHTML(this.name)}${
       this.completed ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>` : nothing
     }
-      </div>
+      </h3>
     `;
   }
 

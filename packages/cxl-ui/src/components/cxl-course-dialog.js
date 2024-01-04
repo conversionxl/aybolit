@@ -50,7 +50,7 @@ export class CXLCourseDialogElement extends LitElement {
       </div>
       <div class="info">
         <div>
-          <div class="name">${this.course.name}</div>
+          <h2 class="name">${this.course.name}</h2>
           <div class="attributes">
             <cxl-time
               time=${this.course.time}
