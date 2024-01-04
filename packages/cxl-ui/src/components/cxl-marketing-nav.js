@@ -375,7 +375,6 @@ export class CXLMarketingNavElement extends LitElement {
       const overflowMenuButton = menu.shadowRoot.querySelector(
         'vaadin-menu-bar-button[part="overflow-button"]'
       );
-      overflowMenuButton.toggleAttribute('hidden', false);
 
       if (overflowMenuButton && !overflowMenuButton.iconFixed) {
         const menuIcon = document.createElement('vaadin-icon');
