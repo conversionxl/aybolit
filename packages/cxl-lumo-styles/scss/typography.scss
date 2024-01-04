@@ -9,8 +9,9 @@ html {
    *
    * @see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/typography.html#font-family
    */
-  --lumo-font-family: "Roboto", sans-serif;
-  --cxl-lumo-font-secondary: "Libre Baskerville", "Georgia", serif;
+  --lumo-font-family: "lato", sans-serif;
+  --cxl-lumo-font-secondary: "lato", sans-serif;
+  --cxl-lumo-font-ternary: raleway, sans-serif;
 
   /**
    * Font size.
@@ -35,6 +36,13 @@ html {
   @media #{mq.$small} {
     --cxl-lumo-font-size-hero: 4rem;
   }
+
+  /**
+   * Improve readability.
+   *
+   * @since 2024.07.09
+   */
+  --lumo-font-size: var(--lumo-font-size-l);
 }
 
 b,
@@ -48,6 +56,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--cxl-lumo-font-ternary);
   font-weight: 700;
   line-height: var(--cxl-lumo-line-height-xs);
   word-break: break-word;
@@ -58,6 +67,7 @@ h1 {
   margin-bottom: 0.75em;
   font-size: var(--cxl-lumo-font-size-hero);
   font-weight: 900;
+  line-height: var(--cxl-lumo-line-height-xxs);
 
   b,
   strong {
@@ -67,17 +77,24 @@ h1 {
 
 h2 {
   font-size: var(--cxl-lumo-font-size-xxl);
+  font-weight: 900;
   line-height: var(--cxl-lumo-line-height-xxs);
 }
 
 h3 {
   font-size: var(--lumo-font-size-xl);
-  font-weight: 700;
+  font-weight: 900;
 }
 
 h4 {
   @media #{mq.$small} {
     font-size: var(--lumo-font-size-xl);
+  }
+
+  font-weight: 700;
+
+  b, strong {
+    font-weight: 900;
   }
 }
 
@@ -103,6 +120,7 @@ blockquote {
   font-style: italic;
   background-color: var(--lumo-shade);
   border-left: var(--lumo-space-s) solid var(--lumo-primary-color);
+  border-radius: var(--lumo-border-radius);
   box-shadow: var(--lumo-box-shadow-xs);
 
   @include icons.mixin-icon("vaadin-icons-quote-right") {

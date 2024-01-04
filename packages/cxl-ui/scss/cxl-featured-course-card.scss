@@ -1,5 +1,6 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "~@conversionxl/cxl-ui/scss/mixins";
+@import "~@conversionxl/cxl-lumo-styles/scss/typography";
 
 :host {
   position: relative;
@@ -37,14 +38,6 @@
     > .attributes {
       display: none;
       padding: 0;
-    }
-
-    .name {
-      font-size: var(--lumo-font-size-xl);
-
-      @media #{mq.$large} {
-        font-size: var(--lumo-font-size-xxxl);
-      }
     }
 
     .name strong {
