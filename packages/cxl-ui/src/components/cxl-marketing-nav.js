@@ -286,6 +286,12 @@ export class CXLMarketingNavElement extends LitElement {
       if (classes?.includes('menu-item-search')) {
         menuItemElement.addEventListener('click', this.toggleSearchDialog.bind(this));
       }
+
+      if (classes?.includes('menu-item-help')) {
+        menuItemElement.addEventListener('click', () => {
+          Intercom('show');
+        });
+      }
     }
 
     // Add prefix icon.
