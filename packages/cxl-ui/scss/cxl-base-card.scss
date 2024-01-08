@@ -157,6 +157,7 @@ header {
 
     .name {
       @include mixins.ellipsis-for-lines(2);
+      margin-block: 0;
 
       a {
         color: var(--lumo-body-text-color);
