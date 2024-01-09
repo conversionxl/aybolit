@@ -138,9 +138,10 @@
   }
 
   ::slotted(vaadin-tab:first-of-type) {
-    margin-inline-start: calc(var(--lumo-space-m) - var(--lumo-space-xs));
+    margin-inline-start: calc(var(--lumo-space-xs) * -1);
 
     @media #{mq.$small} {
+      margin-inline-start: calc(var(--lumo-space-m) - var(--lumo-space-xs));
       scroll-margin-inline-start: var(--lumo-space-l);
     }
   }
