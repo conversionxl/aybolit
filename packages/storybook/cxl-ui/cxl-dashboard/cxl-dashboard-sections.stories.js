@@ -25,12 +25,12 @@ export const CXLDashboardSections = () => html`
               (section) => html`
                 <div class="section-2">
                   <div class="header-2">
-                    <h4 class="title-2">
+                    <h3 class="title-2">
                       <a href=${section.action}>
                         <span class="title">${section.title}</span>
                         <span class="view-all"> View All </span>
                       </a>
-                    </h4>
+                    </h3>
                     <span class="progress-label">Progress: </span>
                     <vaadin-progress-bar value="${section.progress}"></vaadin-progress-bar>
                   </div>

@@ -55,7 +55,7 @@ export class CXLBaseCardElement extends LitElement {
   }
 
   _renderHeaderName() {
-    return html`<div class="name">${unsafeHTML(this.name)}</div>`;
+    return html`<h2 class="name">${unsafeHTML(this.name)}</h2>`;
   }
 
   _renderHeaderAttributes() {
