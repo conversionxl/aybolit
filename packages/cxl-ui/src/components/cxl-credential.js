@@ -44,6 +44,13 @@ export class CXLCredentialElement extends LitElement {
 
   @property({ type: Number, attribute: 'code-scale' }) codeScale = 8;
 
+  /**
+   * Resize credential to fit the parent element.
+   *
+   * @type {boolean}
+   */
+  @property({ type: Boolean, attribute: 'fit-parent' }) fitParent = false;
+
   @query('#qr-code') qrCodeCanvas = null;
 
   defaultUrl ='https://cxl.com/institute/credential'
@@ -109,7 +116,10 @@ export class CXLCredentialElement extends LitElement {
    * device orientation. But it will adjust, if the page is reloaded after.
    */
   _handleScaling() {
-    const width = this.maxWidth || window.innerWidth - this.parentPadding;
+    const width = this.fitParent
+      ? this.parentElement.clientWidth - this.parentPadding
+      : this.maxWidth || window.innerWidth - this.parentPadding;
+
     const finalW = this._certWidth * this.scale;
     this.correctionFactor = width < finalW || this.maxWidth ? width / finalW : 1;
     this.style.height = `${this._certHeight * this.scale * this.correctionFactor}px`;
