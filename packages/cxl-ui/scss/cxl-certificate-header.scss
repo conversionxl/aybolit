@@ -101,15 +101,39 @@
 }
 
 :host([theme~="completed"]) {
+  &::before {
+    display: none;
+  }
+
   color: var(--lumo-shade);
   background-color: var(--lumo-tint);
 
-  @media #{mq.$medium} {
-    @include mixins.pesudo-element-full-width(var(--lumo-tint));
+  .container {
+    @media #{mq.$small} {
+      display: block;
+    }
+
+    @media #{mq.$medium} {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--lumo-space-m);
+    }
   }
 
   .credential {
     padding-top: 0;
     border-top: none;
+
+    @media #{mq.$small} {
+      max-width: var(--cxl-hero-certificate-max-width);
+    }
+
+    @media #{mq.$medium} {
+      max-width: calc( var(--cxl-hero-certificate-max-width) / 2 );
+    }
+
+    @media #{mq.$large} {
+      max-width: var(--cxl-hero-certificate-max-width);
+    }
   }
 }
