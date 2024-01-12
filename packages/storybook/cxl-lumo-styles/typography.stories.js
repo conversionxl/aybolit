@@ -17,9 +17,13 @@ export const Base = () => html`
   <h2>Heading 2</h2>
   <h2>Heading 2 with <strong>highlight</strong></h2>
   <h3>Heading 3</h3>
+  <h3>Heading 3 with <strong>highlight</strong></h3>
   <h4>Heading 4</h4>
+  <h4>Heading 4 with <strong>highlight</strong></h4>
   <h5>Heading 5</h5>
+  <h5>Heading 5 with <strong>highlight</strong></h5>
   <h6>Heading 6</h6>
+  <h6>Heading 6 with <strong>highlight</strong></h6>
   <p>Paragraph text.</p>
   <p><a href="https://cxl.com">Paragraph link</a></p>
   <p><a href="https://cxl.com" target="_blank">Paragraph link external.</a></p>
