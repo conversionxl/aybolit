@@ -88,22 +88,7 @@ export class CXLMarketingNavElement extends LitElement {
    * menu items last in the list by sorting the original this.groups array before
    * flat map operation.
    */
-  @property({ type: Array })
-  get mobileGroups() {
-    // eslint-disable-next-line no-nested-ternary
-    const sorter = (a, b) => ('global' === a.name ? 1 : 'global' === b.name ? -1 : 0);
-    const groups = [...this.groups];
-
-    return [
-      {
-        name: 'primary',
-        items: groups
-          .sort(sorter)
-          .map((group) => group.items.filter((item) => !item.isSearch))
-          .flat(1),
-      },
-    ];
-  }
+  @property({ type: Array }) mobileGroups = [];
 
   get menuItemSearchElement() {
     return this.querySelector('.search-button');
@@ -129,7 +114,6 @@ export class CXLMarketingNavElement extends LitElement {
     });
 
     requestAnimationFrame(() => {
-      this._updateContextMenuItems();
       this._replaceMenuIcon();
       this.initHeadroom();
     });
@@ -139,6 +123,10 @@ export class CXLMarketingNavElement extends LitElement {
     if (changes.has('groups') || changes.has('wide')) {
       this._updateContextMenuItems();
       this._replaceMenuIcon();
+    }
+
+    if (changes.has('groups')) {
+      this.mobileGroups = this.getMobileGroups();
     }
   }
 
@@ -441,5 +429,21 @@ export class CXLMarketingNavElement extends LitElement {
     });
 
     headroom.init();
+  }
+
+  getMobileGroups() {
+    // eslint-disable-next-line no-nested-ternary
+    const sorter = (a, b) => ('global' === a.name ? 1 : 'global' === b.name ? -1 : 0);
+    const groups = [...this.groups];
+
+    return [
+      {
+        name: 'primary',
+        items: groups
+          .sort(sorter)
+          .map((group) => group.items.filter((item) => !item.isSearch))
+          .flat(1),
+      },
+    ];
   }
 }
