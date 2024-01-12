@@ -1,6 +1,6 @@
 {
   "name": "@conversionxl/cxl-ui",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "author": "CXL <leho@cxl.com>",
   "license": "SEE LICENSE IN LICENSE",
   "main": "src/index.js",
@@ -10,7 +10,7 @@
     "directory": "packages/cxl-ui"
   },
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.18.0",
+    "@conversionxl/cxl-lumo-styles": "^1.19.0",
     "qrcode": "^1.5.3"
   },
   "devDependencies": {
