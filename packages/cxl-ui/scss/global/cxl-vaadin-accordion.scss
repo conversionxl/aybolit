@@ -44,6 +44,7 @@ cxl-vaadin-accordion {
     .entry-title {
       flex: 1;
       height: calc(var(--cxl-lumo-line-height-xs) * 4em);
+      font-family: var(--lumo-font-family);
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
     }
