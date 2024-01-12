@@ -157,6 +157,7 @@ header {
 
     .name {
       @include mixins.ellipsis-for-lines(2);
+      font-family: var(--lumo-font-family);
       margin-block: 0;
 
       a {
