@@ -1,5 +1,6 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "./mixins";
+@import "../../cxl-lumo-styles/scss/typography";
 
 :host {
   color: var(--lumo-tint);
@@ -38,10 +39,8 @@
   }
 
   .completed {
+    align-items: center;
     display: flex;
-    margin-top: var(--lumo-space-l);
-    font-size: var(--lumo-font-size-xl);
-    font-weight: 700;
     color: var(--lumo-primary-color);
   }
 
