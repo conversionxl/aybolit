@@ -31,6 +31,8 @@ export const VaadinButton = ({ Label }) => html`
   <vaadin-button theme="tertiary">${Label}</vaadin-button>
   <h6>Tertiary inline</h6>
   <vaadin-button theme="tertiary-inline">${Label}</vaadin-button>
+  <h6>Linkedin</h6>
+  <vaadin-button theme="linkedin">${Label} <vaadin-icon icon="cxl:linkedin" slot="prefix"></vaadin-icon></vaadin-button>
   <h6>Upstream</h6>
   <p>
     Also see
