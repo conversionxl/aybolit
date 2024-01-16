@@ -9,9 +9,9 @@ html {
    *
    * @see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/typography.html#font-family
    */
-  --lumo-font-family: 'lato', sans-serif;
-  --cxl-lumo-font-secondary: 'lato', sans-serif;
-  --cxl-lumo-font-ternary: 'Montserrat', sans-serif;
+  --lumo-font-family: "lato", sans-serif;
+  --cxl-lumo-font-secondary: "lato", sans-serif;
+  --cxl-lumo-font-ternary: "Montserrat", sans-serif;
 
   /**
    * Font size.
@@ -77,8 +77,13 @@ h1 {
 
 h2 {
   font-size: var(--cxl-lumo-font-size-xxl);
-  font-weight: 700;
+  font-weight: 900;
   line-height: var(--cxl-lumo-line-height-xxs);
+
+  b,
+  strong {
+    font-weight: inherit;
+  }
 }
 
 h3 {
@@ -93,7 +98,8 @@ h4 {
 
   font-weight: 500;
 
-  b, strong {
+  b,
+  strong {
     font-weight: 700;
   }
 }
