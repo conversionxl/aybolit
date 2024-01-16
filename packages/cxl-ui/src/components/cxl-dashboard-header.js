@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import {LitElement, html, nothing} from 'lit';
+import { LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '@conversionxl/cxl-lumo-styles';
 import './cxl-dashboard-notification';
@@ -14,7 +14,8 @@ export class CXLDashboardHeaderElement extends LitElement {
 
   @property({ type: Number, attribute: 'notification-count' }) notificationCount = 0;
 
-  @property({ type: String, attribute: 'notification-title' }) notificationTitle = "What's new in CXL";
+  @property({ type: String, attribute: 'notification-title' }) notificationTitle =
+    "What's new in CXL";
 
   @property({ type: Object }) notificationData = null;
 
@@ -63,16 +64,18 @@ export class CXLDashboardHeaderElement extends LitElement {
             <h1 class="title">${this.title}, <span class="username">${this.name}.</span></h1>
             ${this._renderNotifications()}
           </div>
-          ${this.showCompletedStats ? html`
-            <slot name="completed-stats" class="completed-stats"></slot>
-          ` : nothing}
+          ${this.showCompletedStats
+            ? html` <slot name="completed-stats" class="completed-stats"></slot> `
+            : nothing}
         </header>
-        ${this.showContinueSlider ? html`
-          <div class="slider">
-            <span class="slider-title">Continue where you left off</span>
-            <slot name="continue-slider" class="slider-slider"></slot>
-          </div>
-        ` : nothing}
+        ${this.showContinueSlider
+          ? html`
+              <div class="slider">
+                <span class="slider-title">Continue where you left off</span>
+                <slot name="continue-slider" class="slider-slider"></slot>
+              </div>
+            `
+          : nothing}
       </section>
     `;
   }
@@ -84,30 +87,41 @@ export class CXLDashboardHeaderElement extends LitElement {
           <header>
             <div class="header-flex">
               <h2 class="title">Training Roadmap</h2>
-              ${this.showRoadmapStats ? html`
-                <vaadin-button class="edit-roadmap" onclick="window.location.href='${this.editRoadmapLinkUrl}'">
-                  <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
-                  Edit <span class="edit-roadmap-text-affix">roadmap</span>
-                </vaadin-button>
-              ` : nothing}
+              ${this.showRoadmapStats
+                ? html`
+                    <vaadin-button
+                      class="edit-roadmap"
+                      onclick="window.location.href='${this.editRoadmapLinkUrl}'"
+                    >
+                      <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
+                      Edit <span class="edit-roadmap-text-affix">roadmap</span>
+                    </vaadin-button>
+                  `
+                : nothing}
             </div>
-            ${this.showRoadmapStats ? html`<slot name="roadmap-stats" class="roadmap-stats"></slot>` : nothing}
+            ${this.showRoadmapStats
+              ? html`<slot name="roadmap-stats" class="roadmap-stats"></slot>`
+              : nothing}
           </header>
-          ${!this.showRoadmapStats && !this.showRoadmapSlider ? html`
-            <vaadin-button
-              class="roadmap"
-              onclick="window.location.href='${this.createRoadmapLinkUrl}'"
-            >
-              Create your personal learning roadmap
-              <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
-            </vaadin-button>
-          ` : nothing}
-          ${this.showRoadmapSlider ? html`
-            <div class="slider">
-                <span class="slider-title">Next up</span>
-                <slot name="next-slider" class="slider-slider"></slot>
-            </div>
-          ` : nothing}
+          ${!this.showRoadmapStats && !this.showRoadmapSlider
+            ? html`
+                <vaadin-button
+                  class="roadmap"
+                  onclick="window.location.href='${this.createRoadmapLinkUrl}'"
+                >
+                  Create your personal learning roadmap
+                  <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
+                </vaadin-button>
+              `
+            : nothing}
+          ${this.showRoadmapSlider
+            ? html`
+                <div class="slider">
+                  <span class="slider-title">Next up</span>
+                  <slot name="next-slider" class="slider-slider"></slot>
+                </div>
+              `
+            : nothing}
         </section>
       `;
     }
@@ -122,7 +136,9 @@ export class CXLDashboardHeaderElement extends LitElement {
           <header>
             <h2 class="title">Minidegrees</h2>
           </header>
-          <slot name="minidegree-slider"></slot>
+          <div class="slider">
+            <slot name="minidegree-slider"></slot>
+          </div>
         </section>
       `;
     }
@@ -133,8 +149,7 @@ export class CXLDashboardHeaderElement extends LitElement {
   render() {
     return html`
       <div class="container">
-        ${this._renderUserSection()}
-        ${this._renderRoadmapSection()}
+        ${this._renderUserSection()} ${this._renderRoadmapSection()}
         ${this._renderMinidegreesSection()}
       </div>
     `;
