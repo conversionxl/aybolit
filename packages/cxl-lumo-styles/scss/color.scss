@@ -3,7 +3,7 @@ html,
   --cxl-brand-color-black: #1a1a1a;
   --cxl-brand-color-green: #007951;
   --cxl-brand-color-light-blue: #cce7ff;
-  --cxl-brand-color-light-blue-30pct: #CCE7FF4D;
+  --cxl-brand-color-light-blue-30pct: #cce7ff4d;
   --cxl-brand-color-blue: #65abc3;
 
   /**
@@ -32,8 +32,16 @@ html,
    * @see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/colors.html#grayscale
    */
   --lumo-shade: hsl(0, 0%, 10%);
-  --lumo-contrast: hsl(0, 0%, 10%);
-  --lumo-contrast-20pct: hsl(0, 0%, 20%);
+  --lumo-shade-5pct: hsla(0, 0%, 10%, 0.05);
+  --lumo-shade-10pct: hsla(0, 0%, 10%, 0.1);
+  --lumo-shade-20pct: hsla(0, 0%, 10%, 0.16);
+  --lumo-shade-30pct: hsla(0, 0%, 10%, 0.26);
+  --lumo-shade-40pct: hsla(0, 0%, 10%, 0.38);
+  --lumo-shade-50pct: hsla(0, 0%, 10%, 0.52);
+  --lumo-shade-60pct: hsla(0, 0%, 10%, 0.6);
+  --lumo-shade-70pct: hsla(0, 0%, 10%, 0.69);
+  --lumo-shade-80pct: hsla(0, 0%, 10%, 0.83);
+  --lumo-shade-90pct: hsla(0, 0%, 10%, 0.94);
 
   /**
    * Text
