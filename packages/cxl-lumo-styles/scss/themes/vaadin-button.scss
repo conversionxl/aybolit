@@ -12,3 +12,12 @@
 :host-context(.menu-item-cta) {
   --lumo-button-size: var(--lumo-size-s);
 }
+
+:host([theme="linkedin"]) {
+  --_lumo-button-color: #fff;
+  --_lumo-button-background-color: #0073b1;
+}
+
+:host([theme="linkedin"]:hover)::before {
+  opacity: 0.05;
+}
