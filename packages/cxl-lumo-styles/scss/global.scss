@@ -318,5 +318,50 @@ ul.courses-list {
       --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 3);
     }
   }
+}
+
+// Background elements, only for tablet and larger size screens,
+
+@media #{mq.$medium} {
+
+  .cxl-wide-background {
+    @include mixins.wide-background();
+  }
+
+  .cxl-wide-background-hero {
+    @include mixins.wide-background-hero();
+  }
+
+  .cxl-wide-background-hero-image {
+    @include mixins.wide-background-hero-image();
+  }
+
+  .cxl-wide-background-left {
+    @include mixins.extend-background-left();
+  }
+
+  .cxl-wide-background-right {
+    @include mixins.extend-background-right();
+  }
+
+  .cxl-wide-background-black {
+    @include mixins.wide-background-color(var(--cxl-brand-color-black));
+  }
+
+  .cxl-wide-background-red {
+    @include mixins.wide-background-color(var(--lumo-primary-color));
+  }
+
+  .cxl-wide-background-blue {
+    @include mixins.wide-background-color(var(--cxl-brand-color-blue));
+  }
+
+  .cxl-wide-background-light-blue {
+    @include mixins.wide-background-color(var(--cxl-brand-color-light-blue));
+  }
+
+  .cxl-wide-background-green {
+    @include mixins.wide-background-color(var(--cxl-brand-color-green));
+  }
 
 }
