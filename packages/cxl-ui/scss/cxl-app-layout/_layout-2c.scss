@@ -171,4 +171,10 @@ $vertical-padding: var(--cxl-wrap-padding);
     box-shadow: var(--lumo-box-shadow-s);
   }
 }
+
+:host([layout^="2c"][wide].cxl-blog) {
+  main {
+    box-shadow: none;
+  }
+}
 /* stylelint-enable no-duplicate-selectors */
