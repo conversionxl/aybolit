@@ -76,6 +76,7 @@ export class CXLDashboardHeaderElement extends LitElement {
               </div>
             `
           : nothing}
+        <slot name="user-section"></slot>
       </section>
     `;
   }
