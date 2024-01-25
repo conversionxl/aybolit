@@ -1,7 +1,11 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 :host {
+  padding: 0 var(--lumo-space-l);
   position: relative;
   display: block;
-  width: 100%;
+
+  @media #{mq.$medium} {
+    padding: 0;
+  }
 }
