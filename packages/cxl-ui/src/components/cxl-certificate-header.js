@@ -35,7 +35,7 @@ export class CXLCertificateHeaderElement extends LitElement {
 
     return html`<h2 class="completed">
       <span class="completed-icon"><vaadin-icon icon="lumo:checkmark"></vaadin-icon></span>
-      Course completed
+      Training completed
     </h2>`;
   }
 
