@@ -58,6 +58,7 @@
     }
 
     .title {
+      font-size: var(--lumo-font-size-xxl);
       margin: 0;
     }
   }
@@ -92,7 +93,9 @@
     }
 
     @media #{mq.$large} {
+      margin-bottom: 0;
       margin-left: var(--lumo-space-m);
+      margin-top: 0;
     }
 
     .edit-roadmap-text-affix {
