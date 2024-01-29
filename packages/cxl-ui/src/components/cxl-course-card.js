@@ -58,7 +58,6 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
             <vaadin-icon icon="lumo:angle-right"></vaadin-icon>
           </vaadin-button>
         </footer>
-        <vaadin-icon class="icon-new" icon="cxl:new"></vaadin-icon>
       </div>
     `;
   }
