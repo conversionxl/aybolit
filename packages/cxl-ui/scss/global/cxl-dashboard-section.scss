@@ -8,6 +8,11 @@
 cxl-dashboard-section {
   padding-bottom: calc(var(--lumo-space-xl) + var(--lumo-space-l));
 
+  cxl-section & {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .header {
     --lumo-header-text-color: var(--lumo-tint);
 
