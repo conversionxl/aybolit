@@ -273,3 +273,12 @@
     );
   }
 }
+
+/**
+  * Theme "cxl-course-slider" and "cxl-full-card"
+  */
+:host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-full-card"]) {
+  ::slotted(vaadin-tab) {
+    width: 364px;
+  }
+}
