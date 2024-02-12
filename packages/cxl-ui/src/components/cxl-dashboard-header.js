@@ -41,6 +41,8 @@ export class CXLDashboardHeaderElement extends LitElement {
 
   @property({ type: Boolean, attribute: 'show-minidegrees' }) showMinidegrees = false;
 
+  @property({ type: Boolean, attribute: 'show-programs' }) showPrograms = false;
+
   _renderNotifications() {
     if (this.notificationCount > 0) {
       return html`
@@ -135,10 +137,27 @@ export class CXLDashboardHeaderElement extends LitElement {
       return html`
         <section class="content">
           <header>
-            <h2 class="title">Minidegrees</h2>
+            <h2 class="title">Purchased minidegrees</h2>
           </header>
           <div class="slider">
             <slot name="minidegree-slider"></slot>
+          </div>
+        </section>
+      `;
+    }
+
+    return nothing;
+  }
+
+  _renderProgramsSection() {
+    if (this.showPrograms) {
+      return html`
+        <section class="content">
+          <header>
+            <h2 class="title">Programs</h2>
+          </header>
+          <div class="slider">
+            <slot name="programs-slider"></slot>
           </div>
         </section>
       `;
@@ -151,6 +170,7 @@ export class CXLDashboardHeaderElement extends LitElement {
     return html`
       <div class="container">
         ${this._renderUserSection()} ${this._renderRoadmapSection()}
+        ${this._renderProgramsSection()}
         ${this._renderMinidegreesSection()}
       </div>
     `;
