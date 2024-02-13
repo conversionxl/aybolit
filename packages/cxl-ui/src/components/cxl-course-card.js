@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { customElement, property, state } from 'lit/decorators.js';
 import '@vaadin/details';
@@ -29,6 +29,7 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
   _renderHeaderName() {
     return html`<h3 class="name" title=${this.name}>
       <a href=${this.ctaUrl}>${unsafeHTML(this.name)}</a>
+      ${this.completed ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>` : nothing}
     </h3>`;
   }
 
