@@ -84,13 +84,8 @@ export class JWPlaylist extends LitElement {
     this.playlist = await this.__getPlaylist(this.playlistId);
   }
 
-  async __getPlaylist(playlistId) {
-    const response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`);
-    const result = await response.json();
-
-    console.log(result);
-
-    return result;
+  async __getPlaylist(playlistId) { 
+    return (await fetch(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`)).json();
   }
 
   __renderItem(item, model, virtualList) {
