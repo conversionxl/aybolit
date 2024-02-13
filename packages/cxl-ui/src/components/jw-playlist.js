@@ -16,10 +16,6 @@ export class JWPlaylist extends LitElement {
   static get styles() {
     return [
       css`
-        .border {
-          /* border: 0.25rem solid black; */
-        }
-
         .no-wrap {
           white-space: nowrap;
           text-overflow: ellipsis;
@@ -42,7 +38,6 @@ export class JWPlaylist extends LitElement {
           box-shadow: 0 8px 10px #00000024, 0 3px 14px #0000001f, 0 4px 5px #0003;
           width: 320px;
           height: 180px;
-          box-shadow: 0 8px 10px #00000024, 0 3px 14px #0000001f, 0 4px 5px #0003;
         }
 
         .transform {
@@ -57,13 +52,6 @@ export class JWPlaylist extends LitElement {
         lit-virtualizer {
           height: 320px;
           padding: 1rem;
-        }
-
-        lit-virtualizer > div.image {
-        }
-
-        lit-virtualizer div.image:hover {
-          /* border: 0.25rem solid red; */
         }
 
         lit-virtualizer div:last-of-type {
