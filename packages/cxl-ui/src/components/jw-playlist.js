@@ -25,16 +25,15 @@ export class JWPlaylist extends LitElement {
         .container {
           display: grid;
           gap: 1rem;
-          margin-left: 1rem;
           max-width: 336px;
         }
 
         .container:hover .image {
-          border: 0.25rem solid red;
+          /* border: 0.2rem solid red; */
         }
 
         .image {
-          border-radius: 1rem;
+          border-radius: 4px;
           box-shadow: 0 8px 10px #00000024, 0 3px 14px #0000001f, 0 4px 5px #0003;
           width: 320px;
           height: 180px;
@@ -42,7 +41,7 @@ export class JWPlaylist extends LitElement {
 
         .transform {
           overflow: hidden;
-          /* transition: transform .2s ease-out,-webkit-transform .2s ease-out; */
+          transition: transform .2s ease-out,-webkit-transform .2s ease-out;
         }
 
         .transform:hover {
@@ -88,7 +87,7 @@ export class JWPlaylist extends LitElement {
     return (await fetch(`https://cdn.jwplayer.com/v2/playlists/${playlistId}`)).json();
   }
 
-  __renderItem(item, model, virtualList) {
+  __renderItem(item, index) {
     return html`
     <div class="container">
       <a class="transform">
