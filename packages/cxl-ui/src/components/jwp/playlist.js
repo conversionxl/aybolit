@@ -10,6 +10,10 @@ export class JWPPlaylist extends LitElement {
   @property({ type: Object }) playlist;
   @property({ attribute: 'playlist-id', type: String }) playlistId = '';
 
+  get __endpoint() {
+    return `https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`;
+  }
+
   static get styles() {
     return [
       jwpCommonStyles,
