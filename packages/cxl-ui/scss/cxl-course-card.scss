@@ -12,6 +12,16 @@
   box-shadow: var(--lumo-box-shadow-s);
 }
 
+:host([completed]) {
+  opacity: 0.6;
+
+  [icon="lumo:checkmark"] {
+    display: inline-block;
+    margin-top: calc(var(--lumo-space-xs) * -1);
+    color: var(--lumo-primary-color);
+  }
+}
+
 header {
   .name {
     @include mixins.ellipsis-for-lines(3);
