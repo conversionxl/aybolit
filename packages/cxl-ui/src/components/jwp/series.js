@@ -1,4 +1,4 @@
-import '@conversionxl/cxl-lumo-styles';
+// import '@conversionxl/cxl-lumo-styles';
 import '@lit-labs/virtualizer';
 import { css, LitElement, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
@@ -45,7 +45,7 @@ export class JWPSeries extends LitElement {
     <div class="container">
       <a class="transform">
         <div class="image" style="background-image: url('${item.images[0].src}')"></div>
-        <h3 class="no-wrap" id="title">${item.title}</h3>
+        <h4 class="no-wrap" id="title">${item.title}</h4>
       </a>
     </div>
     `;

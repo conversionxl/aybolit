@@ -18,7 +18,12 @@ export class JWPPlaylist extends LitElement {
     return [
       jwpCommonStyles,
       jwpPlaylistStyles,
-      css``
+      css`
+        #title {
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+        }
+      `
     ];
   }
 
@@ -50,7 +55,7 @@ export class JWPPlaylist extends LitElement {
     <div class="container">
       <a class="transform">
         <div class="image" style="background-image: url('${item.images[0].src}')"></div>
-        <h3 class="no-wrap" id="title">${item.title}</h3>
+        <h5 class="no-wrap" id="title">${item.title}</h5>
       </a>
     </div>
     `;
