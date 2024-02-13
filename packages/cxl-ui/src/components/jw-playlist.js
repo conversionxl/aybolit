@@ -60,7 +60,6 @@ export class JWPlaylist extends LitElement {
         }
 
         lit-virtualizer > div.image {
-
         }
 
         lit-virtualizer div.image:hover {
@@ -79,14 +78,14 @@ export class JWPlaylist extends LitElement {
       ${
         this.playlist
           ? html`
-        <h1>Vaadin Virtual List</h1>
-        <vaadin-virtual-list .items=${this.playlist.playlist} ${virtualListRenderer(
-              this.__renderItem
-            )}></vaadin-virtual-list>
         <h1>Lit Labs Virtualizer</h1>
         <lit-virtualizer .items=${this.playlist.playlist} .layout=${flow({
               direction: 'horizontal',
             })} .renderItem=${this.__renderItem} scroller></lit-virtualizer>
+        <h1>Vaadin Virtual List</h1>
+        <vaadin-virtual-list .items=${this.playlist.playlist} ${virtualListRenderer(
+              this.__renderItem
+            )}></vaadin-virtual-list>
       `
           : nothing
       }
