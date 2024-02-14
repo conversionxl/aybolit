@@ -191,6 +191,15 @@ export class CXLMarketingNavElement extends LitElement {
 
   // eslint-disable-next-line class-methods-use-this
   _renderSearch(group) {
+    /**
+     * Disable search on mobile.
+     * 
+     * @since 2024.02.14
+     * @see https://app.clickup.com/t/86azbhf2a
+     */
+    return '';
+    
+    // eslint-disable-next-line no-unreachable
     if (this.minimal || 'primary' !== group.name) return '';
 
     return html`
