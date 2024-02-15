@@ -13,15 +13,10 @@
   top: unset;
   height: 1.5em; // Upstream width.
   font-size: var(--lumo-icon-size-l);
-  background-color: var(--lumo-tint);
-  box-shadow: var(--lumo-box-shadow-s);
-  transition: box-shadow 0.3s;
 
   &:hover {
     color: var(--lumo-primary-color);
     cursor: pointer;
-    box-shadow: var(--lumo-box-shadow-m);
-    transition: box-shadow 0.3s;
     transform: scale(1.05);
   }
 }
@@ -151,10 +146,10 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 68px;
+    width: 16px;
     content: "";
     background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
-    opacity: 0%;
+    opacity: 0;
   }
 
   [part="tabs"] {
