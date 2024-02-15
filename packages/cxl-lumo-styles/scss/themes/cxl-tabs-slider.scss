@@ -251,21 +251,21 @@
  */
 
 :host([theme~="cxl-course-slider"][theme~="cxl-category-slider"]) {
-  margin-left: calc(-1 * var(--lumo-space-m));
-
   @media #{mq.$small} {
-    margin-left: calc(-1 * var(--lumo-space-l));
+    margin-inline: calc(-1*var(--lumo-space-l));
   }
 }
 
 :host([theme~="cxl-course-slider"][theme~="cxl-category-slider"][theme~="unfinished"]) {
   &::before,
   &::after {
-    background: linear-gradient(
-      270deg,
-      var(--cxl-color-medium-gray) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    @media #{mq.$medium} {
+      background: linear-gradient(
+          270deg,
+          var(--cxl-color-medium-gray) 0%,
+          rgba(255, 255, 255, 0) 100%
+      );
+    }
   }
 }
 
