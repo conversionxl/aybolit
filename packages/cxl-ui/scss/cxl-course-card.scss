@@ -23,10 +23,6 @@
 }
 
 header {
-  .name {
-    @include mixins.ellipsis-for-lines(3);
-  }
-
   .info {
     overflow: visible;
 
@@ -113,4 +109,25 @@ footer {
       border-radius: 100%;
     }
   }
+}
+
+:host(.cxl-full-card) {
+    height: 320px;
+
+    header {
+      .info {
+        .name {
+          @include mixins.ellipsis-for-lines(4);
+        }
+      }
+    }
+
+    .content-wrapper {
+      min-height: calc(var(--lumo-line-height-s) * 4); // four standard line-heights
+
+      .content {
+        @include mixins.ellipsis-for-lines(4);
+        min-height: calc(var(--lumo-line-height-s) * 4); // four standard line-heights
+      }
+    }
 }
