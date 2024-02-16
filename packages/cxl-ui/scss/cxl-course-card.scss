@@ -117,7 +117,7 @@ footer {
     header {
       .info {
         .name {
-          @include mixins.ellipsis-for-lines(4);
+          @include mixins.ellipsis-for-lines(3);
         }
       }
     }
