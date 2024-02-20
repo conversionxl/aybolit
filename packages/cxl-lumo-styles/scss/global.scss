@@ -320,3 +320,37 @@ ul.courses-list {
   }
 
 }
+
+/**
+  * Set button cursor to pointer, and add pending state.
+  *
+  * @see https://app.clickup.com/t/86azbhexr
+  * @since 2024.02.20
+  */
+vaadin-button {
+  cursor: pointer;
+
+  &[theme~="primary"][pending] {
+    color: var(--lumo-primary-color);
+    background-color: var(--lumo-primary-color);
+
+    &::before {
+      background-color: var(--lumo-base-color);
+      mask: var(--cxl-loading-spinner-url);
+      mask-size: 24px;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      opacity: initial;
+    }
+  }
+
+  &[theme~="secondary"][pending]::before {
+    background-color: var(--lumo-base-color);
+    background-image: var(--cxl-loading-spinner-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    border: 1px solid var(--lumo-primary-color);
+    opacity: initial;
+  }
+}

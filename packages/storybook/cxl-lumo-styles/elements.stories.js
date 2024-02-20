@@ -3,6 +3,7 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-lumo-styles';
 import '@vaadin/button';
 import '@vaadin/notification';
+import cxlLoadingStyles from '@conversionxl/cxl-lumo-styles/src/styles/loading-css';
 
 export default {
   decorators: [withKnobs],
@@ -17,6 +18,9 @@ export default {
  * @constructor
  */
 export const VaadinButton = ({ Label }) => html`
+  <style>
+    ${cxlLoadingStyles}
+  </style>
   <h6>Basic</h6>
   <vaadin-button>${Label}</vaadin-button>
   <h6>Disabled</h6>
@@ -25,8 +29,12 @@ export const VaadinButton = ({ Label }) => html`
   <vaadin-button theme="primary">${Label}</vaadin-button>
   <h6>Primary Contrast</h6>
   <vaadin-button theme="primary contrast">${Label}</vaadin-button>
+  <h6>Primary Pending</h6>
+  <vaadin-button pending theme="primary">${Label}</vaadin-button>
   <h6>Secondary</h6>
   <vaadin-button>${Label}</vaadin-button>
+  <h6>Secondary Pending</h6>
+  <vaadin-button pending theme="secondary">${Label}</vaadin-button>
   <h6>Tertiary</h6>
   <vaadin-button theme="tertiary">${Label}</vaadin-button>
   <h6>Tertiary inline</h6>
