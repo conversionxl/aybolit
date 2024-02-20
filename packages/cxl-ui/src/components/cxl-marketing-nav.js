@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { LitElement, html } from 'lit';
 import { customElement, property, state, query, queryAll } from 'lit/decorators.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
@@ -139,6 +140,7 @@ export class CXLMarketingNavElement extends LitElement {
         const { name, items } = group;
 
         return html`
+          ${this._renderHiddenNavigation()}
           <nav id="menu-${name}-items" ?minimal=${this.minimal} ?wide=${this.wide}>
             <div class="container">
               ${this.logoBar === name || !this.wide
@@ -454,5 +456,36 @@ export class CXLMarketingNavElement extends LitElement {
           .flat(1),
       },
     ];
+  }
+
+  _renderHiddenNavigation() {
+    const group = this.groups[0];
+    const items = group.items;
+
+    return html`
+      <nav hidden id="menu-hidden-items">
+        <ul id="root">
+          ${items.map(this._renderItem.bind(this))}
+        </ul>
+      </nav>
+    `;
+  }
+
+  _renderItem(item) {
+    if (item.children) {
+      return html`
+        <li>
+          ${item.component.innerText}
+          <ul>
+            ${item.children.map(this._renderItem.bind(this))}
+          </ul>
+        </li>
+      `;
+    }
+    return html`
+      <li>
+        ${unsafeHTML(item.component.innerHTML)}
+      </li>
+    `;
   }
 }
