@@ -112,7 +112,7 @@ export class CXLDashboardHeaderElement extends LitElement {
                   class="roadmap"
                   onclick="window.location.href='${this.createRoadmapLinkUrl}'"
                 >
-                  Create your personal learning roadmap
+                  Create roadmap
                   <vaadin-icon icon="lumo:arrow-right"></vaadin-icon>
                 </vaadin-button>
               `
