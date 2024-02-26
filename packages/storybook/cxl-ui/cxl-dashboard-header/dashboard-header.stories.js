@@ -19,5 +19,8 @@ CXLDashboardHeader.args = {
   showRoadmapStats: true,
   showRoadmapSlider: true,
   editRoadmapLinkUrl: 'https://cxl.com',
-  showMinidegrees: true
+  showMinidegrees: true,
+  subscriptionStatus: 'On hold',
+  subscriptionStatusAction: 'Reactivate',
+  subscriptionStatusActionLink: '#',
 };

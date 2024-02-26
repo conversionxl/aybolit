@@ -43,6 +43,12 @@ export class CXLDashboardHeaderElement extends LitElement {
 
   @property({ type: Boolean, attribute: 'show-programs' }) showPrograms = false;
 
+  @property({ type: String, attribute: 'subscription-status' }) subscriptionStatus = '';
+
+  @property({ type: String, attribute: 'subscription-status-action' }) subscriptionStatusAction = '';
+
+  @property({ type: String, attribute: 'subscription-status-action-link' }) subscriptionStatusActionLink = '';
+
   _renderNotifications() {
     if (this.notificationCount > 0) {
       return html`
@@ -64,6 +70,7 @@ export class CXLDashboardHeaderElement extends LitElement {
         <header>
           <div class="user-header">
             <h1 class="title">${this.title}, <span class="username">${this.name}.</span></h1>
+            ${this._renderSubscriptionStatus()}
             ${this._renderNotifications()}
           </div>
           ${this.showCompletedStats
@@ -81,6 +88,21 @@ export class CXLDashboardHeaderElement extends LitElement {
         <slot name="user-section"></slot>
       </section>
     `;
+  }
+
+  _renderSubscriptionStatus() {
+    if (this.subscriptionStatus) {
+      return html`
+        <div class="subscription-status">
+          <span class="status"><strong>Subscription status:</strong> ${this.subscriptionStatus}</span>
+          ${this.subscriptionStatusAction
+            ? html`<a href="${this.subscriptionStatusActionLink}" class="action">${this.subscriptionStatusAction}</a>`
+            : nothing}
+        </div>
+      `;
+    }
+
+    return nothing;
   }
 
   _renderRoadmapSection() {
