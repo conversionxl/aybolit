@@ -22,6 +22,9 @@ export const DashboardHeaderTemplate = (header) => html`
     ?edit-roadmap-link-url=${header.editRoadmapLinkUrl}
     ?create-roadmap-link-url=${header.createRoadmapLinkUrl}
     ?show-minidegrees=${header.showMinidegrees}
+    subscription-status=${header.subscriptionStatus}
+    subscription-status-action=${header.subscriptionStatusAction}
+    subscription-status-action-link=${header.subscriptionStatusActionLink}
   >
     <div slot="completed-stats">
       ${CXLStats({ theme: 'cxl-stats-dashboard-header completed', statsCount: 3 })}
