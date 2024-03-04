@@ -33,10 +33,10 @@ export class CXLCertificateHeaderElement extends LitElement {
       return nothing;
     }
 
-    return html`<h2 class="completed">
+    return html`<h3 class="completed">
       <span class="completed-icon"><vaadin-icon icon="lumo:checkmark"></vaadin-icon></span>
-      Training completed
-    </h2>`;
+      Certificate earned
+    </h3>`;
   }
 
   // eslint-disable-next-line class-methods-use-this

@@ -1,5 +1,19 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
 cxl-certificate-header {
   position: relative;
   display: block;
   z-index: 1;
+
+  &[theme~="completed"] {
+    [slot="credential"] {
+      cxl-credential, img {
+        display: none;
+
+        @media #{mq.$medium} {
+          display: block;
+        }
+      }
+    }
+  }
 }
