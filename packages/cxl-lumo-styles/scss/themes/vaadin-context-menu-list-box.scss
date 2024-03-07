@@ -19,7 +19,7 @@
   @media (min-width: 568px) {
     padding: 0;
   }
-  
+
   [part="items"] ::slotted(.vaadin-menu-item) {
     padding-right: var(--lumo-space-m);
     padding-left: var(--lumo-space-m);
@@ -38,7 +38,7 @@
 
 :host([theme~="cxl-marketing-nav"]) [part="items"] ::slotted(.vaadin-menu-item) {
   border-radius: 0;
-  
+
   &::part(checkmark) ::before {
     content: unset;
   }
@@ -46,7 +46,7 @@
 
 @media (max-width: 568px) {
   :host([theme~="cxl-marketing-nav"]) [part="items"] {
-    
+
     ::slotted(.global-menu-item) {
       background-color: var(--cxl-color-light-gray);
     }

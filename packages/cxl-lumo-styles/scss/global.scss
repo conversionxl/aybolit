@@ -360,3 +360,7 @@ vaadin-button {
     }
   }
 }
+
+vaadin-context-menu-item[theme~="cxl-context-menu-section-header"] {
+  pointer-events: none
+}
