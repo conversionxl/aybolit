@@ -97,17 +97,30 @@ cxl-app-layout {
   /**
    * Action bar.
    */
-  [slot="action-bar"] > * {
-    margin-left: var(--lumo-space-xs);
+  [slot="action-bar"] {
+    > * {
+      margin-left: var(--lumo-space-xs);
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    > .mobile,
+    > vaadin-button {
+      flex: 1;
+    }
+
+    > .mobile {
+      text-align: center;
+    }
   }
 
-  [slot="action-bar"] > *:first-child {
-    flex: 1;
-    margin-left: unset;
-  }
-
-  &[wide] [slot="action-bar"] > *:first-child {
-    flex: unset;
+  &[wide] [slot="action-bar"] {
+    > .mobile,
+    > vaadin-button {
+      flex: initial;
+    }
   }
 
   /**
@@ -126,5 +139,4 @@ cxl-app-layout {
       }
     }
   }
-
 }
