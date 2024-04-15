@@ -106,18 +106,18 @@ cxl-app-layout {
       }
     }
 
-    > .mobile,
+    > div:not(.pure-hidden-sm .pure-hidden-xs),
     > vaadin-button {
       flex: 1;
     }
 
-    > .mobile {
+    > div:not(.pure-hidden-sm .pure-hidden-xs) {
       text-align: center;
     }
   }
 
   &[wide] [slot="action-bar"] {
-    > .mobile,
+    > div:not(.pure-hidden-sm .pure-hidden-xs),
     > vaadin-button {
       flex: initial;
     }
