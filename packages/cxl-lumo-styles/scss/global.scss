@@ -327,36 +327,34 @@ ul.courses-list {
   * @see https://app.clickup.com/t/86azbhexr
   * @since 2024.02.20
   */
-vaadin-button {
+form.processing button, vaadin-button[pending] {
   cursor: pointer;
 
-  &[pending] {
-    &::before{
+  &::before{
+    background-color: var(--lumo-base-color) !important;
+    opacity: unset !important;
+  }
+
+  &[theme~="primary"] {
+    color: var(--lumo-primary-color);
+    background-color: var(--lumo-primary-color);
+
+    &::before {
+      mask: var(--cxl-loading-spinner-url);
+      mask-size: 24px;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+  }
+
+  &[theme~="secondary"] {
+    &::before {
       background-color: var(--lumo-base-color);
-      opacity: initial;
-    }
-
-    &[theme~="primary"] {
-      color: var(--lumo-primary-color);
-      background-color: var(--lumo-primary-color);
-
-      &::before {
-        mask: var(--cxl-loading-spinner-url);
-        mask-size: 24px;
-        mask-repeat: no-repeat;
-        mask-position: center;
-      }
-    }
-
-    &[theme~="secondary"] {
-      &::before {
-        background-color: var(--lumo-base-color);
-        background-image: var(--cxl-loading-spinner-url);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        border: 1px solid var(--lumo-primary-color);
-      }
+      background-image: var(--cxl-loading-spinner-url);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px;
+      border: 1px solid var(--lumo-primary-color);
     }
   }
 }
