@@ -20,4 +20,8 @@ cxl-card {
       display: block;
     }
   }
+
+  &.instructor-bio h2 {
+    font-size: var(--lumo-font-size-xxl);
+  }
 }
