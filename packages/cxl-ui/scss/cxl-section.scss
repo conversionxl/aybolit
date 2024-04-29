@@ -3,7 +3,7 @@
 @use "./mixins" as cxl-mixins;
 
 :host {
-  --figure-height-multiplier: 0.10;
+  --figure-height-multiplier: 0.1;
   --figure-height-factor: calc(var(--figure-height-multiplier) * var(--cxl-content-max-width-wide));
 
   position: relative;
@@ -88,14 +88,14 @@
 }
 
 @media #{mq.$medium} {
-  :host(#view-hero) {
+  :host(#view-hero):not(.view-hero-modern) {
     @include mixins.wide-background();
     @include mixins.extend-background-right();
     @include mixins.wide-background-hero();
     @include mixins.wide-background-hero-image();
   }
 
-  :host([theme~="cxl-hero"]) {
+  :host([theme~="cxl-hero"]):not(.view-hero-modern) {
     @include mixins.wide-background();
     @include mixins.extend-background-right();
     @include mixins.wide-background-hero();
@@ -150,5 +150,21 @@
     &::before {
       background-color: var(--cxl-brand-color-green);
     }
+  }
+}
+
+@media only screen and (min-width: 782px) {
+  :host(#view-hero.view-hero-modern) {
+    @include mixins.wide-background();
+    @include mixins.extend-background-right();
+    @include mixins.wide-background-hero();
+    @include mixins.wide-background-hero-image();
+  }
+
+  :host([theme~="cxl-hero"].view-hero-modern) {
+    @include mixins.wide-background();
+    @include mixins.extend-background-right();
+    @include mixins.wide-background-hero();
+    @include mixins.wide-background-hero-image();
   }
 }
