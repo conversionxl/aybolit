@@ -32,6 +32,7 @@ export { CXLLightCardElement } from './components/cxl-light-card.js';
 export { CXLNotification } from './components/cxl-notification.js';
 export { CXLNotificationCardElement } from './components/cxl-notification-card.js';
 export { CXLSectionElement } from './components/cxl-section.js';
+export { CXLStarRatingElement } from './components/cxl-star-rating.js';
 export { CXLStatsElement } from './components/cxl-stats.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
