@@ -124,9 +124,6 @@ export class CXLStarRatingElement extends LitElement {
       this.setAttribute('readonly', 'true');
       return;
     }
-
-    this._saveState(value);
-    this._updateReadonlyAndValue();
   }
 
   _starClicked(e, value) {
