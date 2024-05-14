@@ -3,7 +3,7 @@ import '@conversionxl/cxl-lumo-styles';
 import '@conversionxl/cxl-ui/src/components/cxl-dashboard-header.js';
 import '@conversionxl/cxl-ui/src/components/cxl-stats';
 
-import { CXLStats } from "../cxl-stats/default.stories";
+import { CXLStats } from '../cxl-stats/default.stories';
 import { CXLLightCardSlider } from '../cxl-light-card/light-card-slider.stories';
 
 import notificationData from '../cxl-dashboard-notification/cxl-dashboard-notification.data.json';
@@ -26,6 +26,9 @@ export const DashboardHeaderTemplate = (header) => html`
     subscription-status-action=${header.subscriptionStatusAction}
     subscription-status-action-link=${header.subscriptionStatusActionLink}
   >
+    <div slot="user-header">
+      <vaadin-button onclick="window.location.href='https://app.cxl.com'">Go to CXL+</vaadin-button>
+    </div>
     <div slot="completed-stats">
       ${CXLStats({ theme: 'cxl-stats-dashboard-header completed', statsCount: 3 })}
     </div>
@@ -39,16 +42,20 @@ export const DashboardHeaderTemplate = (header) => html`
       ${CXLLightCardSlider({
         theme: 'cxl-slider-dashboard-header portrait',
         length: 16,
-        args: { theme: 'portrait' }
+        args: { theme: 'portrait' },
       })}
     </div>
     <div slot="minidegree-slider">
-      ${CXLLightCardSlider({ theme: 'cxl-slider-dashboard-header', length: 8, args: { theme: 'minidegree', progress: null, avatar: '' } })}
+      ${CXLLightCardSlider({
+        theme: 'cxl-slider-dashboard-header',
+        length: 8,
+        args: { theme: 'minidegree', progress: null, avatar: '' },
+      })}
     </div>
   </cxl-dashboard-header>
 `;
 
 export const ArgTypes = {
   name: { control: 'text' },
-  notificationCount: { control: 'number' }
+  notificationCount: { control: 'number' },
 };
