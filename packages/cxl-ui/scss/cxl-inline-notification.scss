@@ -1,0 +1,26 @@
+// stylelint-disable order/properties-order
+:host {
+  background-color: var(--lumo-contrast-5pct);
+  display: flex;
+
+  .wrap {
+    display: flex;
+    flex-grow: 1;
+    margin: 0 auto;
+    max-width: var(--cxl-content-max-width-wide);
+  }
+
+  #content {
+    flex-grow: 1;
+  }
+
+  vaadin-button {
+    background-color: inherit;
+    color: var(--cxl-brand-color-black);
+    cursor: pointer;
+  }
+}
+
+:host([hidden]) {
+  display: none;
+}
