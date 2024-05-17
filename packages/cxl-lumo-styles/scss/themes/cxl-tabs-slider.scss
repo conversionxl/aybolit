@@ -232,7 +232,8 @@
 
 :host([theme~="cxl-course-slider"][theme~="cxl-slider-dashboard-header"]),
 :host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-category-accordion"]),
-:host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-featured-courses"]) {
+:host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-featured-courses"]),
+:host([theme~="cxl-course-slider"][theme~="minimal"][theme~="cxl-purchased-courses"]) {
   margin-inline: 0;
 
   @media #{mq.$small} {
