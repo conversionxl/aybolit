@@ -112,22 +112,29 @@ footer {
 }
 
 :host(.cxl-full-card) {
-    height: 320px;
+  height: 320px;
 
-    header {
-      .info {
-        .name {
-          @include mixins.ellipsis-for-lines(3);
-        }
+  header {
+    .info {
+      .name {
+        @include mixins.ellipsis-for-lines(3);
       }
     }
+  }
 
-    .content-wrapper {
+  .content-wrapper {
+    min-height: calc(var(--lumo-line-height-s) * 4); // four standard line-heights
+
+    .content {
+      @include mixins.ellipsis-for-lines(4);
       min-height: calc(var(--lumo-line-height-s) * 4); // four standard line-heights
-
-      .content {
-        @include mixins.ellipsis-for-lines(4);
-        min-height: calc(var(--lumo-line-height-s) * 4); // four standard line-heights
-      }
     }
+  }
+}
+
+:host([theme~="course"]) {
+  .name {
+    font-size: var(--lumo-font-size-m);
+    -webkit-line-clamp: unset;
+  }
 }
