@@ -138,3 +138,9 @@ footer {
     -webkit-line-clamp: unset;
   }
 }
+
+:host([theme~="minidegree"]) {
+  .info {
+    max-width: unset;
+  }
+}
