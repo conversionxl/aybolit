@@ -1,0 +1,9 @@
+cxl-tabs-slider {
+  cxl-course-card[theme~="course"] {
+    &::part(name) {
+      -webkit-line-clamp: 3;
+
+      font-size: var(--lumo-font-size-m);
+    }
+  }
+}

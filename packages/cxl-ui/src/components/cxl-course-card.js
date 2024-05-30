@@ -4,6 +4,8 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { customElement, property, state } from 'lit/decorators.js';
 import '@vaadin/details';
 import '@vaadin/button';
+import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
+import cxlCourseCardGlobalStyles from '../styles/global/cxl-course-card-css.js';
 import cxlCourseCardStyles from '../styles/cxl-course-card-css.js';
 import { CXLBaseCardElement } from './cxl-base-card.js';
 
@@ -27,10 +29,19 @@ export class CXLCourseCardElement extends CXLBaseCardElement {
   }
 
   _renderHeaderName() {
-    return html`<h3 class="name" title=${this.name}>
+    return html`<h3 class="name" part="name" title=${this.name}>
       <a href=${this.ctaUrl}>${unsafeHTML(this.name)}</a>
       ${this.completed ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>` : nothing}
     </h3>`;
+  }
+
+  firstUpdated(_changedProperties) {
+    super.firstUpdated(_changedProperties);
+
+    // Global styles.
+    registerGlobalStyles(cxlCourseCardGlobalStyles, {
+      moduleId: 'cxl-course-card-global',
+    });
   }
 
   render() {

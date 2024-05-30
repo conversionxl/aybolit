@@ -132,13 +132,6 @@ footer {
   }
 }
 
-:host([theme~="course"]) {
-  .name {
-    font-size: var(--lumo-font-size-m);
-    -webkit-line-clamp: unset;
-  }
-}
-
 :host([theme~="minidegree"]) {
   .info {
     max-width: unset;
