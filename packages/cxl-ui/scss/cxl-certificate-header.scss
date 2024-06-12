@@ -97,6 +97,17 @@
       border-top: none;
     }
   }
+
+  a:any-link {
+    color: var(--lumo-primary-text-color);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+
 }
 
 :host([theme~="completed"]) {
