@@ -1,0 +1,63 @@
+// stylelint-disable order/properties-order
+
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+:host {
+  position: relative;
+  display: block;
+  height: 25vh;
+  min-width: 320px;
+
+  @media #{mq.$medium} {
+    display: none;
+  }
+
+  #container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    background-color: var(--cxl-brand-color-black, rgb(26, 26, 26));
+    border-radius: calc(3 * var(--lumo-border-radius-l));
+  }
+
+  #image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-size: contain;
+  }
+}
+
+:host(.black) {
+  #container {
+    background-color: var(--cxl-brand-color-black);
+  }
+}
+
+:host(.blue) {
+  #container {
+    background-color: var(--cxl-brand-color-blue);
+  }
+}
+
+:host(.green) {
+  #container {
+    background-color: var(--cxl-brand-color-green);
+  }
+}
+
+:host(.light-blue) {
+  #container {
+    background-color: var(--cxl-brand-color-light-blue);
+  }
+}
+
+:host(.red) {
+  #container {
+    background-color: var(--lumo-primary-color);
+  }
+}
