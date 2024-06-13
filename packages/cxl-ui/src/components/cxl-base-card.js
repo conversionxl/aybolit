@@ -36,6 +36,8 @@ export class CXLBaseCardElement extends LitElement {
 
   @property({ type: Boolean, reflect: true, attribute: 'show-time-icon' }) showTimeIcon = false;
 
+  @property({ type: Boolean }) lazyload = true;
+
   _slotHasChildren(e) {
     const slot = e.target;
     const { name } = slot;
@@ -76,7 +78,7 @@ export class CXLBaseCardElement extends LitElement {
   }
 
   _renderAvatar() {
-    return html`<img src=${this.avatar} alt="${this.instructor}" />`;
+    return html`<img src=${this.avatar} alt="${this.instructor}" loading="${this.lazyload ? 'lazy' : nothing}" />`;
   }
 
   /**
