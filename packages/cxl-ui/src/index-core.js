@@ -25,16 +25,8 @@ export { CXLStarRatingElement } from './components/cxl-star-rating.js';
 export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
 export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 
-/**
- * Order matters.
- *
- * Note:
- * `CXLPlaybookProgressBarElement` belong's to `index-playbooks`,
- * but it doesn't work there, so placed instead, because these elements are related and order matters too.
- */
+// Order matters.
 export { CXLVaadinAccordionElement } from './components/cxl-vaadin-accordion.js';
-export { CXLPlaybookProgressBarElement } from './components/cxl-playbook-progress-bar.js';
-export { CXLPlaybookAccordionElement } from './components/cxl-playbook-accordion.js';
 export { CXLAccordionCardElement } from './components/cxl-accordion-card.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from
