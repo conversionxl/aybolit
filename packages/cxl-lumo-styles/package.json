@@ -1,6 +1,6 @@
 {
   "name": "@conversionxl/cxl-lumo-styles",
-  "version": "1.19.13",
+  "version": "1.19.14",
   "author": "CXL <leho@cxl.com>",
   "license": "SEE LICENSE IN LICENSE.md",
   "main": "src/index.js",
