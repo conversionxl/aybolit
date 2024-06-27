@@ -15166,6 +15166,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-live-chat-loader@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/react-live-chat-loader/-/react-live-chat-loader-2.9.1.tgz#70c04eaf9a4a0661ff0828b32f5353660919936b"
+  integrity sha512-SSP7t+qpk9mu/uPkbU7K53XH6v66Do4y+gwORkBvJw4SHktewQ2IKubDvuiMti/2SRfZBi0Q5gcGRNIICOwvzg==
+
 react-select@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-3.2.0.tgz#de9284700196f5f9b5277c5d850a9ce85f5c72fe"

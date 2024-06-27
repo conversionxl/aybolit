@@ -19,6 +19,7 @@ export { CXLBaseCardElement } from './components/cxl-base-card.js';
 export { CXLCardElement } from './components/cxl-card.js';
 export { CXLCourseCardElement } from './components/cxl-course-card.js';
 export { CXLFeaturedImage } from './components/cxl-featured-image';
+export { CXLIntercom } from './components/cxl-intercom.js';
 export { CXLLightCardElement } from './components/cxl-light-card.js';
 export { CXLNotification } from './components/cxl-notification.js';
 export { CXLSectionElement } from './components/cxl-section.js';
