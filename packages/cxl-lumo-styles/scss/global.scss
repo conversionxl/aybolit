@@ -172,9 +172,17 @@ ul {
 
 .thumbnail {
   --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 3);
-  width: var(--cxl-thumbnail-size);
   height: var(--cxl-thumbnail-size);
   border-radius: 50%;
+
+  /**
+   * Needed in Chrome
+   * @see https://app.clickup.com/t/86b0z4ujy
+   * @since 2024.07.09
+   */
+  :not(.large) {
+    width: var(--cxl-thumbnail-size);
+  }
 }
 
 .wrap {
