@@ -36,6 +36,13 @@ html {
   @media #{mq.$small} {
     --cxl-lumo-font-size-hero: 4rem;
   }
+
+  /**
+   * Improve readability.
+   *
+   * @since 2024.07.09
+   */
+  --lumo-font-size: var(--lumo-font-size-l);
 }
 
 b,
