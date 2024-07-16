@@ -44,7 +44,6 @@
       display: flex;
       align-items: center;
       width: 100%;
-      max-width: var(--cxl-content-max-width-wide, none);
 
       /* stylelint-disable-next-line selector-no-qualifying-type */
       vaadin-menu-bar-button.cxl-logo {
@@ -73,7 +72,8 @@
     }
 
     /* stylelint-disable-next-line selector-no-qualifying-type */
-    &#menu-global-items, &#menu-primary-items {
+    &#menu-global-items,
+    &#menu-primary-items {
       background-color: var(--lumo-base-color);
       border-bottom: 1px solid var(--lumo-shade-5pct);
     }
