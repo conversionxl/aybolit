@@ -1,4 +1,5 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mixins" as cxl-lumo-styles-mixins;
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "../mixins";
 
 cxl-app-layout {
@@ -137,6 +138,18 @@ cxl-app-layout {
         content: "";
         border-bottom: var(--lumo-space-xs) solid var(--lumo-primary-color);
       }
+    }
+  }
+
+  #cxl-feature-cover {
+    padding: var(--lumo-space-m) var(--cxl-wrap-padding);
+
+    @media #{mq.$large} {
+      padding: var(--lumo-space-m) var(--cxl-wrap-padding);
+    }
+
+    @media #{mq.$retina} {
+      padding: var(--lumo-space-m) calc(2 * var(--lumo-space-xl));
     }
   }
 }
