@@ -139,4 +139,16 @@ cxl-app-layout {
       }
     }
   }
+
+  /**
+  * Improve readability.
+  *
+  * @see https://cxlworld.slack.com/archives/C01JABH8AHX/p1720530653218939
+  * @since 2024.07.24
+  */
+  .archive-description,
+  .entry-content,
+  .entry-summary {
+    font-size: var(--lumo-font-size-l);
+  }
 }
