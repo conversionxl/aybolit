@@ -3,14 +3,6 @@
 @use "../mixins";
 
 cxl-app-layout {
-  $iframe-height: 200px;
-
-  iframe {
-    width: 100%;
-    height: $iframe-height;
-    border: 0;
-  }
-
   /**
    * Entry.
    */
@@ -74,10 +66,6 @@ cxl-app-layout {
   }
 
   &[layout^="2c"][wide] {
-    iframe {
-      height: $iframe-height * 2;
-    }
-
     > .entry {
       .entry-content,
       .entry-footer {
