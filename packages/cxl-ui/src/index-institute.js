@@ -8,5 +8,6 @@ export { CXLDashboardNotificationElement } from './components/cxl-dashboard-noti
 export { CxlDashboardTeamHeaderElement } from './components/cxl-dashboard-team-header.js';
 export { CxlDashboardTeamStatsElement } from './components/cxl-dashboard-team-stats.js';
 export { CXLFeaturedCourseCardElement } from './components/cxl-featured-course-card.js';
+export { CXLInlineNotification } from './components/cxl-inline-notification.js';
 export { CXLNotificationCardElement } from './components/cxl-notification-card.js';
 export { CXLStatsElement } from './components/cxl-stats.js';
