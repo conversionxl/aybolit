@@ -106,17 +106,6 @@ a[target="_blank"]:any-link::after {
   content: var(--vaadin-icons-external-link);
 }
 
-// Heading highlights w/ formatting (strikethrough etc) support.
-b,
-strong {
-  h1 &,
-  h2 &,
-  h3 & {
-    color: var(--lumo-primary-color);
-    font-weight: inherit;
-  }
-}
-
 code,
 pre {
   overflow-x: scroll;

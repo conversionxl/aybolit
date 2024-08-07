@@ -50,7 +50,7 @@ h4,
 h5,
 h6 {
   font-family: var(--cxl-lumo-font-ternary);
-  font-weight: 700;
+  font-weight: 400;
   line-height: var(--cxl-lumo-line-height-xs);
   word-break: break-word;
 }
@@ -59,37 +59,32 @@ h1 {
   margin-top: 0;
   margin-bottom: 0.75em;
   font-size: var(--cxl-lumo-font-size-hero);
-  font-weight: 900;
   line-height: var(--cxl-lumo-line-height-xxs);
 
   b,
   strong {
-    font-weight: inherit;
+    font-weight: 900;
   }
 }
 
 h2 {
   font-size: var(--cxl-lumo-font-size-xxl);
-  font-weight: 900;
   line-height: var(--cxl-lumo-line-height-xxs);
 
   b,
   strong {
-    font-weight: inherit;
+    font-weight: 900;
   }
 }
 
 h3 {
   font-size: var(--lumo-font-size-xl);
-  font-weight: 700;
 }
 
 h4 {
   @media #{mq.$small} {
     font-size: var(--lumo-font-size-xl);
   }
-
-  font-weight: 500;
 
   b,
   strong {
