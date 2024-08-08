@@ -13,6 +13,7 @@
     "build-styling": "node packages/sass-render/bin/sass-render.js -s \"packages/*/scss/**/*.scss\"",
     "deploy-storybook": "yarn --cwd packages/storybook storybook-to-ghpages",
     "dist": "yarn build && lerna run dist",
+    "dist:editor": "yarn --cwd packages/cxl-lumo-styles sass scss/editor.scss dist/editor.css --style compressed",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint *.js packages --ignore-path .gitignore",
     "lint:scss": "stylelint packages/**/*.scss",
