@@ -351,3 +351,18 @@ form.processing button, vaadin-button[pending] {
 vaadin-context-menu-item[theme~="cxl-context-menu-section-header"] {
   pointer-events: none
 }
+
+/**
+ * Increase blog font size
+ * @see https://app.clickup.com/t/86b1dy579
+ * @since 2024.08.12
+ */
+body.theme-conversionxl-better {
+	--cxl-content-max-width: 48rem;
+
+  .archive-description,
+  .entry-content,
+  .entry-summary {
+    font-size: var(--lumo-font-size-l);
+  }
+}
