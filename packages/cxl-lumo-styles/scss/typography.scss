@@ -52,7 +52,9 @@ h6 {
   font-family: var(--cxl-lumo-font-ternary);
   font-weight: 400;
   line-height: var(--cxl-lumo-line-height-xs);
-  word-break: break-word;
+  text-wrap: balance;
+  text-wrap: pretty;
+  word-break: auto-phrase;
 }
 
 h1 {
