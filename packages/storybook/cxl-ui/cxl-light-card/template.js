@@ -3,6 +3,7 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 export const Template = (card) => html`
   <cxl-light-card
+    ?locked="${card.locked}"
     theme="${card.theme}"
     name="${card.name}"
     time="${card.time}"

@@ -43,9 +43,10 @@ export class CXLLightCardElement extends CXLBaseCardElement {
   _renderHeaderName() {
     return html`
       <h3 class="name" title=${this.name}>
-          ${unsafeHTML(this.name)}${
-      this.completed ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>` : nothing
-    }
+        ${unsafeHTML(this.name)}${
+          this.completed ? html`<vaadin-icon icon="lumo:checkmark"></vaadin-icon>` : nothing
+        }
+        ${this.locked ? html`<vaadin-icon class="icon-lock" icon="vaadin:lock"><vaadin-tooltip slot="tooltip" text="${this.lockedMessage}"></vaadin-tooltip></vaadin-icon>` : ''}
       </h3>
     `;
   }

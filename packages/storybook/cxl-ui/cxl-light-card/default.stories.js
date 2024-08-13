@@ -16,6 +16,7 @@ export const CXLLightCardMinidegree = Template.bind({});
 export const CXLLightCardFooter = Template.bind({});
 
 CXLLightCard.args = {
+  locked: false,
   theme: 'light-card',
   new: false,
   completed: false,

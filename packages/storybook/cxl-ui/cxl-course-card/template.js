@@ -9,6 +9,7 @@ export const CourseCardTemplate = (course) => html`
   <cxl-course-card
     id=${course.id}
     class=${course.classes || ''}
+    ?locked=${course.locked}
     theme=${course.theme}
     name=${course.name}
     time=${course.time}
@@ -26,6 +27,7 @@ export const CourseCardTemplate = (course) => html`
 
 export const args = {
   id: 'cxl-course-1',
+  locked: false,
   name: 'Account based marketing',
   time: '3h 00min',
   instructor: 'Tom Wesseling',
