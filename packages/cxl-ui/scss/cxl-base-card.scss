@@ -220,6 +220,15 @@ header {
   display: none;
 }
 
+.icon-lock {
+  color: var(--lumo-body-text-color);
+
+  :host([theme~="category"]) &,
+  :host([theme~="minidegree"]) & {
+    color: var(--lumo-tint);
+  }
+}
+
 :host([new]) {
   .icon-new {
     position: absolute;
@@ -248,4 +257,11 @@ vaadin-button {
       transition: opacity 0.3s ease;
     }
   }
+}
+
+:host([locked]) {
+  header, .content-wrapper {
+    opacity: 0.6;
+  }
+
 }

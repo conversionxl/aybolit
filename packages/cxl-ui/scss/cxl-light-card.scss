@@ -177,3 +177,12 @@
     }
   }
 }
+
+.icon-lock {
+  position: absolute;
+  top: var(--lumo-space-s);
+  right: var(--lumo-space-s);
+  z-index: 2;
+  width: var(--lumo-icon-size-s);
+  height: var(--lumo-icon-size-s);
+}
