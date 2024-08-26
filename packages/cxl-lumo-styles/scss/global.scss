@@ -366,3 +366,17 @@ body.theme-conversionxl-better {
     font-size: var(--lumo-font-size-l);
   }
 }
+
+/**
+ * Add spacing and typography styles to details and summary elements
+ * @see https://cxlworld.slack.com/archives/C01HXU5GGJG/p1724673491752389
+ * @since 2024.08.26
+ */
+details {
+  margin: var(--lumo-space-m) 0;
+
+  summary {
+    font-weight: 900;
+    margin-bottom: var(--lumo-space-s);
+  }
+}
