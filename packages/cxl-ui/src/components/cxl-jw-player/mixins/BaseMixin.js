@@ -162,6 +162,9 @@ export function BaseMixin(BaseClass) {
      */
 
     // eslint-disable-next-line class-methods-use-this, no-unused-vars, no-empty-function
+    async _onReadyListener() {}
+
+    // eslint-disable-next-line class-methods-use-this, no-unused-vars, no-empty-function
     async _onTimeListener(event) {}
 
     _registerListeners() {
@@ -193,7 +196,11 @@ export function BaseMixin(BaseClass) {
       });
 
       await new Promise((resolve) => {
-        this._jwPlayer.on('ready', resolve);
+        this._jwPlayer.on('ready', async () => {
+          await this._onReadyListener();
+
+          resolve();
+        });
       });
 
       this._jwPlayerContainer = this._jwPlayer.getContainer();
