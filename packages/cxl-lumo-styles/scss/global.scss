@@ -1,10 +1,29 @@
 @use "mixins";
+@use "mq";
 
 html {
   // Variables.
-  --cxl-content-width: 36em;
-  --cxl-wrap-width: 72rem;
+  --cxl-content-max-width: 48em;
+  --cxl-content-max-width-wide: calc(var(--cxl-content-max-width) * 2);
   --cxl-wrap-padding: var(--lumo-space-m);
+  --cxl-hero-content-max-width: 650px;
+  --cxl-hero-certificate-max-width: 480px;
+  --cxl-space-sm: 12px;
+  --cxl-color-light-gray: hsla(0, 0%, 96%, 1);
+  --cxl-color-medium-gray: hsla(210, 20%, 96%, 1);
+  --cxl-color-dark-gray: hsla(240, 1%, 24%, 1);
+  --cxl-color-black: hsl(0, 0%, 0%);
+  --cxl-color-black-50pct: hsla(0, 0%, 0%, 0.5);
+  --cxl-color-brand-blue: hsla(214, 61%, 25%, 1);
+  --cxl-color-light-pink: hsl(353, 73%, 96%, 1);
+  --cxl-color-dark-green: hsl(148, 57%, 24%, 1);
+
+  /**
+   * Lumo Icons have a documented 4px "safe area" around them. Vaadin Icons don't, for unknown reasons.
+   *
+   * @see https://vaadin.com/docs/latest/components/icons
+   */
+  --cxl-vaadin-icon-safe-area: 4px;
 
   /**
    * Shadow.
@@ -22,7 +41,7 @@ html {
     0 #{$cxl-box-shadow-width} 0 0 #{$cxl-box-shadow-color} inset;
 
   // cxl-marketing-nav height on desktop
-  --cxl-marketing-nav-height: 88px;
+  --cxl-marketing-nav-height: 76px;
 }
 
 // @see https://github.com/conversionxl/aybolit/blob/490e58e71f13c2e8a398959f91b938f9309b41f8/packages/cxl-ui/src/components/cxl-marketing-nav.js#L46
@@ -87,16 +106,6 @@ a[target="_blank"]:any-link::after {
   content: var(--vaadin-icons-external-link);
 }
 
-// Heading highlights w/ formatting (strikethrough etc) support.
-b,
-strong {
-  h1 &,
-  h2 &,
-  h3 & {
-    color: var(--lumo-primary-color);
-  }
-}
-
 code,
 pre {
   overflow-x: scroll;
@@ -110,6 +119,10 @@ img {
 ol,
 ul {
   padding-left: var(--lumo-space-l);
+
+  .entry-content & {
+    font-family: var(--cxl-lumo-font-secondary);
+  }
 }
 
 /**
@@ -160,4 +173,196 @@ ul {
 // Center align the `<vaadin-icon>` wrapped in `<vaadin-button>`
 vaadin-notification-card vaadin-button[theme~="icon"]:not([theme~="tertiary-inline"]) {
   flex: none;
+}
+
+/* stylelint-disable order/properties-order */
+/* stylelint-disable-next-line selector-no-qualifying-type */
+ol.ordered-list-heavy {
+  $item-height: 96px;
+
+  counter-reset: li;
+  display: grid;
+  gap: var(--lumo-space-m);
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    border: 1px solid var(--lumo-shade-20pct);
+    border-radius: 9999px /* This is needed to create the pill shape */;
+    height: $item-height;
+    position: relative;
+
+    &::before {
+      align-items: center;
+      background-color: #000;
+      border-radius: 50%;
+      color: #fff;
+      content: counter(li);
+      counter-increment: li;
+      display: flex;
+      font-size: var(--lumo-font-size-xxxl);
+      font-weight: 800;
+      height: $item-height;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      width: $item-height;
+    }
+
+    /* stylelint-disable-next-line selector-max-type */
+    p {
+      font-size: var(--lumo-font-size-xs);
+      margin: 0;
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      padding: 0 calc($item-height * 0.5) 0 calc($item-height * 1.25);
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    .title {
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 400px) {
+    $item-height: 64px;
+
+    li {
+      height: $item-height;
+
+      &::before {
+        height: $item-height;
+        width: $item-height;
+      }
+
+      /* stylelint-disable-next-line selector-max-type */
+      p {
+        font-size: var(--lumo-font-size-xxs);
+        line-height: 1em;
+      }
+
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      .content {
+        padding: 0 calc($item-height * 0.5) 0 calc($item-height * 1.25);
+      }
+
+      /* stylelint-disable-next-line selector-no-qualifying-type */
+      .title {
+        line-height: initial;
+      }
+    }
+  }
+}
+/* stylelint-enable order/properties-order */
+
+ul.courses-list {
+  padding-left: 0;
+  font-family: inherit;
+  list-style: none;
+
+  cxl-card {
+    display: flex;
+    align-items: center;
+    padding: var(--lumo-space-m) var(--lumo-space-s);
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    .entry-byline {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      margin-left: var(--lumo-space-l);
+    }
+
+    .entry-title {
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  li  {
+    margin: 0;
+
+    + li {
+      border-top: 1px solid var(--lumo-contrast-10pct);
+    }
+  }
+
+  .thumbnail {
+    --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
+
+    @media #{mq.$small} {
+      --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 3);
+    }
+  }
+
+}
+
+/**
+  * Set button cursor to pointer, and add pending state.
+  *
+  * @see https://app.clickup.com/t/86azbhexr
+  * @since 2024.02.20
+  */
+form.processing button, vaadin-button[pending] {
+  cursor: pointer;
+
+  &::before{
+    background-color: var(--lumo-base-color) !important;
+    opacity: unset !important;
+  }
+
+  &[theme~="primary"] {
+    color: var(--lumo-primary-color);
+    background-color: var(--lumo-primary-color);
+
+    &::before {
+      mask: var(--cxl-loading-spinner-url);
+      mask-size: 24px;
+      mask-repeat: no-repeat;
+      mask-position: center;
+    }
+  }
+
+  &[theme~="secondary"] {
+    &::before {
+      background-color: var(--lumo-base-color);
+      background-image: var(--cxl-loading-spinner-url);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px;
+      border: 1px solid var(--lumo-primary-color);
+    }
+  }
+}
+
+vaadin-context-menu-item[theme~="cxl-context-menu-section-header"] {
+  pointer-events: none
+}
+
+/**
+ * Increase blog font size
+ * @see https://app.clickup.com/t/86b1dy579
+ * @since 2024.08.12
+ */
+body.theme-conversionxl-better {
+	--cxl-content-max-width: 48rem;
+
+  .archive-description,
+  .entry-content,
+  .entry-summary {
+    font-size: var(--lumo-font-size-l);
+  }
 }

@@ -1,0 +1,31 @@
+:host {
+  position: relative;
+  
+  ::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 1;
+    width: var(--lumo-size-s);
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: 50% 100%;
+    opacity: 0;
+    transition: 0.14s transform cubic-bezier(0.12, 0.32, 0.54, 1);
+    will-change: transform, opacity;
+  }
+}
+
+:host([active]:not([part="overflow-button"])) {
+  position: relative;
+  
+  ::after {
+    content: "";
+    transform: translateX(-50%) scale(1);
+    border-radius: var(--lumo-border-radius-s) var(--lumo-border-radius-s) 0 0;
+    border: 1px solid var(--lumo-primary-color);
+    box-shadow: 0px -1px 3px 0px rgba(214, 31, 44, 0.05);
+    opacity: 1;
+    transition: 0.14s opacity ease-in, 0.3s transform cubic-bezier(0.12, 0.32, 0.54, 1,5);
+  }
+}

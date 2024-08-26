@@ -6,13 +6,13 @@ cxl-vaadin-accordion {
    * Theme "cxl-accordion-card".
    */
   &[theme~="cxl-accordion-card"] {
+    cxl-course-card {
+      max-width: calc(100vw - 2 * var(--cxl-wrap-padding));
+    }
+
     vaadin-icon {
       --vaadin-icon-height: var(--lumo-icon-size-s);
       --vaadin-icon-width: var(--vaadin-icon-height);
-    }
-
-    p {
-      font-family: inherit;
     }
 
     .entry {
@@ -43,7 +43,8 @@ cxl-vaadin-accordion {
 
     .entry-title {
       flex: 1;
-      height: calc(var(--lumo-line-height-xs) * 4em);
+      height: calc(var(--cxl-lumo-line-height-xs) * 4em);
+      font-family: var(--lumo-font-family);
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
     }
@@ -87,6 +88,7 @@ cxl-vaadin-accordion {
         vertical-align: bottom;
         background-color: var(--lumo-primary-color);
         border-radius: var(--lumo-border-radius);
+        aspect-ratio: 1;
       }
     }
   }
@@ -95,10 +97,6 @@ cxl-vaadin-accordion {
    * Theme "cxl-minidegree-course".
    */
   &[theme~="cxl-minidegree-course"] {
-    p {
-      font-family: inherit;
-    }
-
     .entry-header {
       display: grid;
       grid-column-gap: var(--lumo-space-m);
@@ -148,15 +146,11 @@ cxl-vaadin-accordion {
   &[theme~="cxl-accordion-playbook-card"] {
     column-gap: calc(var(--lumo-space-m) * 2);
     column-rule: 1px solid var(--lumo-shade-10pct);
-    column-width: calc(var(--cxl-wrap-width) / 4);
+    column-width: calc(var(--cxl-content-max-width) / 2);
 
     vaadin-icon {
       --vaadin-icon-height: var(--lumo-icon-size-s);
       --vaadin-icon-width: var(--vaadin-icon-height);
-    }
-
-    p {
-      font-family: inherit;
     }
 
     .entry {
@@ -215,7 +209,7 @@ cxl-vaadin-accordion {
       flex: 1;
       flex-basis: auto;
       /* stylelint-disable-next-line declaration-no-important */
-      height: calc(var(--lumo-line-height-xs) * 3em) !important;
+      height: calc(var(--cxl-lumo-line-height-xs) * 3em) !important;
       margin-top: 0;
       margin-bottom: 0;
       overflow: hidden;
@@ -261,6 +255,111 @@ cxl-vaadin-accordion {
 
       > a:hover {
         cursor: pointer;
+      }
+    }
+  }
+
+  /**
+   * Theme "cxl-dashboard-category"
+   */
+  &[theme~="cxl-dashboard-category"] {
+    padding-bottom: var(--lumo-space-xl);
+
+    .header {
+      display: flex;
+      align-items: baseline;
+      padding: var(--lumo-space-l) var(--lumo-space-m);
+
+      @media #{mq.$small} {
+        padding: var(--lumo-space-l);
+      }
+
+      .entry-title {
+        margin: 0;
+      }
+
+      > span {
+        margin: 0 0 0 var(--lumo-space-m);
+        font-size: var(--lumo-font-size-xs);
+        font-weight: 600;
+        color: var(--lumo-primary-color);
+        text-transform: uppercase;
+      }
+    }
+
+    .summary {
+      padding: 0 var(--lumo-space-m) var(--lumo-space-l);
+
+      @media #{mq.$small} {
+        padding: 0 var(--lumo-space-l);
+      }
+    }
+
+    .header-2 {
+      display: flex;
+      align-items: center;
+      padding: var(--lumo-space-s) 0;
+
+      a {
+        margin-left: auto;
+      }
+
+      vaadin-progress-bar {
+        width: 100px;
+        margin-left: var(--lumo-space-m);
+      }
+    }
+
+    .title-2,
+    .title-3,
+    .title-4 {
+      margin: 0;
+    }
+
+    .title-2 {
+      font-size: var(--lumo-font-size-m);
+    }
+
+    .title-3 {
+      padding: var(--lumo-space-s) 0;
+      font-size: var(--lumo-font-size-xs);
+      font-weight: 600;
+    }
+
+    .title-4 {
+      padding: var(--lumo-space-s) 0;
+      font-size: var(--lumo-font-size-xs);
+      font-weight: 400;
+      color: var(--cxl-color-black-50pct);
+    }
+
+    cxl-tabs-slider {
+      padding: var(--lumo-space-s) 0;
+    }
+
+    .section-2:not(.has-cards):not(:first-of-type) {
+      padding-top: var(--lumo-space-m);
+      margin-top: var(--lumo-space-m);
+      border-top: 1px solid var(--cxl-color-light-gray);
+    }
+
+    .section-2.has-cards:not(:last-of-type),
+    .section-3:not(:last-of-type) {
+      padding-bottom: var(--lumo-space-m);
+      margin-bottom: var(--lumo-space-m);
+      border-bottom: solid 1px var(--cxl-color-light-gray);
+    }
+
+    .section-2.has-cards > .section-3:not(.section-3 ~ .section-3),
+    .section-3.has-cards .section-4:first-of-type {
+      padding-top: var(--lumo-space-m);
+      margin-top: var(--lumo-space-m);
+      border-top: solid 1px var(--cxl-color-light-gray);
+    }
+
+    @media #{mq.$medium} {
+      .section-4 {
+        padding-left: var(--lumo-space-xl);
       }
     }
   }

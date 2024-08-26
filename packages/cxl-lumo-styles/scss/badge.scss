@@ -7,7 +7,19 @@
   color: var(--lumo-primary-text-color);
 }
 
-.course-skills [theme~="badge"] {
-  margin-right: var(--lumo-space-s);
-  margin-bottom: var(--lumo-space-s);
+[theme~="badge"][theme~="secondary"] {
+  color: var(--lumo-primary-contrast-color);
+  background-color: var(--cxl-color-brand-blue);
+}
+
+[theme~="badge"][theme~="tertiary"] {
+  color: var(--lumo-primary-contrast-color);
+  background-color: var(--cxl-color-dark-green);
+}
+
+.course-skills {
+  [theme~="badge"] {
+    margin-right: var(--lumo-space-s);
+    margin-bottom: var(--lumo-space-s);
+  }
 }

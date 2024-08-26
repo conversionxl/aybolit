@@ -359,9 +359,9 @@ export const CXLAppLayout2cr = () => {
           >Complete lesson <vaadin-icon icon="vaadin:check-circle" slot="suffix"></vaadin-icon
         ></vaadin-button>
         <vaadin-button>Secondary action</vaadin-button>
-        <vaadin-context-menu selector="vaadin-button" open-on="click" theme="cxl-marketing-nav">
+        <vaadin-context-menu selector="vaadin-button" open-on="click" theme="cxl-action-bar-context-menu">
           <template>
-            <vaadin-context-menu-list-box theme="cxl-marketing-nav">
+            <vaadin-context-menu-list-box theme="cxl-action-bar-context-menu">
               <vaadin-context-menu-item class="vaadin-menu-item" theme="cxl-marketing-nav"
                 >Next lesson <vaadin-icon icon="lumo:arrow-right"></vaadin-icon
               ></vaadin-context-menu-item>
@@ -370,18 +370,27 @@ export const CXLAppLayout2cr = () => {
                 lesson</vaadin-context-menu-item
               >
               <hr />
+              <vaadin-context-menu-item class="vaadin-menu-item" theme="cxl-context-menu-section-header"
+              >Minidegrees</vaadin-context-menu-item
+              >
               <vaadin-context-menu-item class="vaadin-menu-item" theme="cxl-marketing-nav"
-                >Go to course</vaadin-context-menu-item
+              ><vaadin-icon icon="lumo:arrow-left"></vaadin-icon> Growth</vaadin-context-menu-item
+              >
+              <vaadin-context-menu-item class="vaadin-menu-item" theme="cxl-marketing-nav"
+              ><vaadin-icon icon="lumo:arrow-left"></vaadin-icon> Digital Psychology & Persuation</vaadin-context-menu-item
+              >
+              <hr />
+              <vaadin-context-menu-item class="vaadin-menu-item" theme="cxl-marketing-nav"
+                ><vaadin-icon icon="lumo:arrow-left"></vaadin-icon> Go to course</vaadin-context-menu-item
               >
             </vaadin-context-menu-list-box>
           </template>
-          <vaadin-button theme="icon contrast" aria-label="More actions"
-            ><vaadin-icon icon="vaadin:ellipsis-dots-v"></vaadin-icon
-          ></vaadin-button>
+          <vaadin-button theme="secondary" aria-label="More actions"
+            >Navigate to...</vaadin-button>
         </vaadin-context-menu>
       </div>
     </cxl-app-layout>
   `;
 };
 
-CXLAppLayout2cr.storyName = '[layout=2c-r]';
+CXLAppLayout2cr.storyName = '[layout=2c-r] content right';

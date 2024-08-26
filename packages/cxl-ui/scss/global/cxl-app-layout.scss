@@ -1,15 +1,8 @@
 @use "~@conversionxl/cxl-lumo-styles/scss/mixins" as cxl-lumo-styles-mixins;
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "../mixins";
 
 cxl-app-layout {
-  $iframe-height: 200px;
-
-  iframe {
-    width: 100%;
-    height: $iframe-height;
-    border: 0;
-  }
-
   /**
    * Entry.
    */
@@ -72,21 +65,11 @@ cxl-app-layout {
     }
   }
 
-  &[layout^="2c"] {
-    > .entry > .entry-header > .entry-title {
-      font-size: var(--lumo-font-size-xxxl);
-    }
-  }
-
   &[layout^="2c"][wide] {
-    iframe {
-      height: $iframe-height * 2;
-    }
-
     > .entry {
       .entry-content,
       .entry-footer {
-        max-width: var(--cxl-content-width);
+        max-width: var(--cxl-content-max-width);
         margin-right: auto;
         margin-left: auto;
       }
@@ -97,22 +80,64 @@ cxl-app-layout {
     --cxl-lumo-space-xxl: calc(var(--lumo-space-xl) + var(--lumo-space-l));
     --cxl-section-wrap-margin-bottom: var(--cxl-lumo-space-xxl);
     --cxl-section-wrap-margin-top: var(--cxl-lumo-space-xxl);
-    --cxl-wrap-padding: var(--lumo-space-l);
+    --cxl-wrap-padding: var(--lumo-space-xl);
   }
 
   /**
    * Action bar.
    */
-  [slot="action-bar"] > * {
-    margin-left: var(--lumo-space-xs);
+  [slot="action-bar"] {
+    > * {
+      margin-left: var(--lumo-space-xs);
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    > div:not(.pure-hidden-sm .pure-hidden-xs),
+    > vaadin-button {
+      flex: 1;
+    }
+
+    > div:not(.pure-hidden-sm .pure-hidden-xs) {
+      text-align: center;
+    }
   }
 
-  [slot="action-bar"] > *:first-child {
-    flex: 1;
-    margin-left: unset;
+  &[wide] [slot="action-bar"] {
+    > div:not(.pure-hidden-sm .pure-hidden-xs),
+    > vaadin-button {
+      flex: initial;
+    }
   }
 
-  &[wide] [slot="action-bar"] > *:first-child {
-    flex: unset;
+  /**
+   * Dashboard layout.
+   */
+  &[theme~="cxl-dashboard"]:not([layout="1c"]) {
+    overflow-x: hidden;
+
+    h1 {
+      margin-block: calc(2 * var(--lumo-space-xl));
+
+      ::before {
+        width: 33%;
+        content: "";
+        border-bottom: var(--lumo-space-xs) solid var(--lumo-primary-color);
+      }
+    }
+  }
+
+  #cxl-feature-cover {
+    padding: var(--lumo-space-m) var(--cxl-wrap-padding);
+
+    @media #{mq.$large} {
+      padding: var(--lumo-space-m) var(--cxl-wrap-padding);
+    }
+
+    @media #{mq.$retina} {
+      padding: var(--lumo-space-m) calc(2 * var(--lumo-space-xl));
+    }
   }
 }

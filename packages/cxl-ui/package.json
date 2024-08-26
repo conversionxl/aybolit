@@ -1,6 +1,6 @@
 {
   "name": "@conversionxl/cxl-ui",
-  "version": "1.5.0",
+  "version": "1.19.17",
   "author": "CXL <leho@cxl.com>",
   "license": "SEE LICENSE IN LICENSE",
   "main": "src/index.js",
@@ -10,7 +10,8 @@
     "directory": "packages/cxl-ui"
   },
   "dependencies": {
-    "@conversionxl/cxl-lumo-styles": "^1.5.0"
+    "@conversionxl/cxl-lumo-styles": "^1.19.17",
+    "qrcode": "^1.5.3"
   },
   "devDependencies": {
     "@conversionxl/normalize-wheel": "^1.0.1",
@@ -25,6 +26,7 @@
     "@vaadin/icon": "^23.3.7",
     "@vaadin/notification": "^23.3.7",
     "@vaadin/progress-bar": "^23.3.7",
+    "@vaadin/menu-bar": "^23.3.7",
     "@vaadin/tabs": "^23.3.7",
     "@vaadin/text-field": "^23.3.7",
     "@vaadin/tooltip": "^23.3.7",

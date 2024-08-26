@@ -8,7 +8,7 @@
     // `[wide] #main` flex column item with narrow content doesn't auto-fill x-axis.
     main {
       > slot {
-        max-width: var(--cxl-content-width);
+        max-width: var(--cxl-content-max-width);
       }
     }
   }

@@ -11,6 +11,7 @@
  */
 
 // Import required packages.
+// eslint-disable-next-line import/no-extraneous-dependencies
 const mix = require('laravel-mix');
 
 /*
@@ -81,6 +82,7 @@ mix.version();
 
 mix
   .js(`${devPath}/index-core.js`, `${distPath}/cxl-ui.js`)
+  .js(`${devPath}/index-institute.js`, `${distPath}/cxl-ui-institute.js`)
   .js(`${devPath}/index-playbooks.js`, `${distPath}/cxl-ui-playbooks.js`)
   .js(`${devPath}/index-jwplayer.js`, `${distPath}/cxl-ui-jwplayer.js`);
 

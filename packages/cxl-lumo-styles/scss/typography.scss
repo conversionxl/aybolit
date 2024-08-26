@@ -1,5 +1,7 @@
+/* stylelint-disable selector-no-qualifying-type */
 @use "./icons";
 @use "./mq";
+@use "./mixins";
 
 html {
   /**
@@ -7,8 +9,9 @@ html {
    *
    * @see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/typography.html#font-family
    */
-  --lumo-font-family: "Roboto", sans-serif;
-  --cxl-lumo-font-secondary: "Libre Baskerville", "Georgia", serif;
+  --lumo-font-family: "lato", sans-serif;
+  --cxl-lumo-font-secondary: "lato", sans-serif;
+  --cxl-lumo-font-ternary: "Montserrat", sans-serif;
 
   /**
    * Font size.
@@ -16,6 +19,19 @@ html {
    * @ see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/typography.html#font-size
    */
   --cxl-lumo-font-size-hero: var(--lumo-font-size-xxxl);
+  --cxl-lumo-font-size-xxl: calc(var(--lumo-font-size-xl) + var(--lumo-font-size-m));
+
+  /**
+   * Line height.
+   *
+   * @see https://cdn.vaadin.com/vaadin-lumo-styles/1.5.0/demo/typography.html#line-height
+   */
+  --cxl-lumo-line-height-xl: 2;
+  --cxl-lumo-line-height-l: var(--lumo-line-height-m); // 1.625
+  --cxl-lumo-line-height-m: 1.5;
+  --cxl-lumo-line-height-s: var(--lumo-line-height-s); // 1.375
+  --cxl-lumo-line-height-xs: var(--lumo-line-height-xs); // 1.25
+  --cxl-lumo-line-height-xxs: 1.15;
 
   @media #{mq.$small} {
     --cxl-lumo-font-size-hero: 4rem;
@@ -33,36 +49,48 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
-  word-break: break-word;
+  font-family: var(--cxl-lumo-font-ternary);
+  font-weight: 400;
+  line-height: var(--cxl-lumo-line-height-xs);
+  text-wrap: balance;
+  text-wrap: pretty;
+  word-break: auto-phrase;
 }
 
 h1 {
   margin-top: 0;
+  margin-bottom: 0.75em;
   font-size: var(--cxl-lumo-font-size-hero);
-  font-weight: 900;
+  line-height: var(--cxl-lumo-line-height-xxs);
 
   b,
   strong {
-    font-weight: inherit;
+    font-weight: 900;
   }
 }
 
 h2 {
-  @media #{mq.$small} {
-    font-size: var(--lumo-font-size-xxxl);
+  font-size: var(--cxl-lumo-font-size-xxl);
+  line-height: var(--cxl-lumo-line-height-xxs);
+
+  b,
+  strong {
+    font-weight: 900;
   }
 }
 
 h3 {
-  @media #{mq.$small} {
-    font-size: var(--lumo-font-size-xxl);
-  }
+  font-size: var(--lumo-font-size-xl);
 }
 
 h4 {
   @media #{mq.$small} {
     font-size: var(--lumo-font-size-xl);
+  }
+
+  b,
+  strong {
+    font-weight: 700;
   }
 }
 
@@ -75,6 +103,7 @@ h6 {
 }
 
 p {
+  font-family: var(--cxl-lumo-font-secondary);
   .entry-content & {
     font-family: var(--cxl-lumo-font-secondary);
   }
@@ -87,6 +116,7 @@ blockquote {
   font-style: italic;
   background-color: var(--lumo-shade);
   border-left: var(--lumo-space-s) solid var(--lumo-primary-color);
+  border-radius: var(--lumo-border-radius);
   box-shadow: var(--lumo-box-shadow-xs);
 
   @include icons.mixin-icon("vaadin-icons-quote-right") {

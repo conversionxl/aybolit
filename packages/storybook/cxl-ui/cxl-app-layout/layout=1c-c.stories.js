@@ -38,6 +38,14 @@ export const CXLAppLayout1cc = () => html`
             >Managed services <vaadin-icon icon="lumo:angle-right" slot="suffix"></vaadin-icon
           ></vaadin-button>
         </p>
+        <vaadin-horizontal-layout theme="cxl-marketing-hero-details spacing-s">
+          <span><vaadin-icon icon="lumo:clock"></vaadin-icon>Updated 10/2022</span>
+          <span
+            ><vaadin-icon icon="vaadin:globe-wire" theme="lumo"></vaadin-icon>English
+            subtitles</span
+          >
+          <span><vaadin-icon icon="lumo:checkmark"></vaadin-icon>Certificate included</span>
+        </vaadin-horizontal-layout>
       </div>
     </article>
 
@@ -45,4 +53,4 @@ export const CXLAppLayout1cc = () => html`
   </cxl-app-layout>
 `;
 
-CXLAppLayout1cc.storyName = '[layout=1c-c]';
+CXLAppLayout1cc.storyName = '[layout=1c-c] compact';

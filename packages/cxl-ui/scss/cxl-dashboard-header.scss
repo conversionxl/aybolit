@@ -1,0 +1,161 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@import "~@conversionxl/cxl-lumo-styles/scss/typography";
+
+:host {
+  position: relative;
+  z-index: 1;
+  display: block;
+
+  .container {
+    position: relative;
+    z-index: 1;
+    padding: 0 var(--lumo-space-l);
+
+    @media #{mq.$medium} {
+      padding: calc(var(--lumo-space-m) * 2) 0;
+    }
+  }
+
+  .updates {
+    position: relative;
+  }
+
+  header {
+    margin-bottom: var(--lumo-space-s);
+
+    @media #{mq.$medium} {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .user-header {
+      flex-shrink: 0;
+      padding-top: var(--lumo-size-s);
+
+      .title {
+        padding-right: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-xxxl);
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      @media #{mq.$medium} {
+        padding-top: 0;
+      }
+
+      .username {
+        color: var(--lumo-primary-color);
+      }
+    }
+
+    .subscription-status {
+      font-family: var(--cxl-lumo-font-ternary);
+      font-size: var(--lumo-font-size-s);
+      margin-bottom: var(--lumo-space-s);
+
+      a {
+        color: var(--lumo-primary-color);
+        margin-left: var(--lumo-space-s);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .subtitle {
+      font-size: var(--lumo-font-size-xs);
+      line-height: 1;
+      color: var(--cxl-color-black-50pct);
+      text-transform: uppercase;
+    }
+
+    .title {
+      font-size: var(--lumo-font-size-xxl);
+      margin: 0;
+    }
+  }
+
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+
+    @media #{mq.$medium} {
+      flex-direction: column;
+    }
+
+    @media #{mq.$large} {
+      flex-direction: row;
+    }
+  }
+
+  .edit-roadmap {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+    height: fit-content;
+    padding: 0 var(--lumo-space-s);
+    margin-left: var(--lumo-space-s);
+    color: var(--lumo-primary-color);
+    cursor: pointer;
+    background-color: var(--lumo-primary-contrast-color);
+    border-radius: var(--lumo-border-radius-s);
+
+    @media #{mq.$medium} {
+      margin-left: 0;
+    }
+
+    @media #{mq.$large} {
+      margin-bottom: 0;
+      margin-left: var(--lumo-space-m);
+      margin-top: 0;
+    }
+
+    .edit-roadmap-text-affix {
+      display: none;
+
+      @media #{mq.$medium} {
+        display: inline;
+      }
+    }
+
+    &::part(label) {
+      line-height: 1.5;
+    }
+  }
+
+  .roadmap {
+    color: var(--lumo-primary-contrast-color);
+    background-color: var(--lumo-primary-color);
+
+    @media #{mq.$large} {
+      color: var(--lumo-primary-contrast-color);
+    }
+
+    vaadin-icon {
+      color: var(--lumo-primary-contrast-color);
+    }
+  }
+
+  .slider {
+    margin-top: calc(var(--lumo-space-l) + var(--lumo-space-s));
+  }
+
+  .slider-title {
+    display: block;
+    margin-bottom: var(--lumo-space-s);
+    font-size: var(--lumo-font-size-xs);
+    line-height: 1;
+    color: var(--cxl-color-black-50pct);
+    text-transform: uppercase;
+  }
+
+  .content + .content {
+    padding-top: var(--lumo-space-l);
+    margin-top: var(--lumo-space-l);
+    border-top: 1px solid var(--lumo-shade-20pct);
+  }
+}

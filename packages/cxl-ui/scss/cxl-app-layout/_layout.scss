@@ -2,6 +2,7 @@
  * Layout commons.
  */
 @use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 $toggle-icon: "lumo:angle-right";
 
@@ -24,6 +25,15 @@ $toggle-icon: "lumo:angle-right";
   main {
     > slot:not([name]) {
       /**
+      * Force container height.
+      *
+      * border-box is used to avoid overflow caused by padding.
+      * 60px is action bar height
+      */
+      box-sizing: border-box;
+      min-height: calc(100% - 60px);
+
+      /**
        * Wrap layout, space edges.
        */
       @include mixins.wrap();
@@ -43,6 +53,7 @@ $toggle-icon: "lumo:angle-right";
       right: 0;
       bottom: 0;
       left: 0;
+      z-index: 2;
       background-color: var(--lumo-base-color);
 
       &::slotted(*) {
@@ -76,4 +87,42 @@ slot[name="action-bar"]::slotted(div) {
   align-items: center;
   justify-content: flex-end;
   box-shadow: var(--lumo-box-shadow-m);
+}
+
+/**
+ * Dashboard layout
+ */
+:host([layout^="1c"][theme~="cxl-dashboard"]:not([layout="1c"])) {
+  main {
+    min-height: calc(100vh - 200px);
+    overflow-x: hidden;
+
+    > slot {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 0 calc(-1 * var(--lumo-space-m));
+
+      @media #{mq.$medium} {
+        margin: 0 auto;
+      }
+    }
+
+    // make article take full height of viewport even with little content
+    ::slotted(article:only-of-type) {
+      min-height: calc(100vh - 200px);
+    }
+  }
+}
+
+/**
+ * Certificate layout
+ */
+:host([layout^="1c"][theme~="cxl-certificate"]:not([layout="1c"])) {
+  overflow: hidden;
+
+  main {
+    > slot {
+      padding: 0;
+    }
+  }
 }

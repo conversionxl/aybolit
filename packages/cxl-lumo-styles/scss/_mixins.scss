@@ -1,4 +1,6 @@
 // @see https://www.filamentgroup.com/lab/scrollbars/ 2019-09-10
+// stylelint-disable declaration-no-important
+
 @mixin better-webkit-scrollbars {
   --scrollbar-track-color: transparent;
   --scrollbar-color: var(--lumo-contrast-30pct);
@@ -29,11 +31,90 @@
   }
 }
 
-@mixin wrap($max-width: var(--cxl-wrap-width, none), $padding: var(--cxl-wrap-padding, none)) {
+@mixin wrap(
+  $max-width: var(--cxl-content-max-width-wide, none),
+  $padding: var(--cxl-wrap-padding, none)
+) {
   position: relative;
-  max-width: $max-width;
   padding-right: $padding;
   padding-left: $padding;
   margin-right: auto;
   margin-left: auto;
+
+  @if $max-width {
+    max-width: $max-width;
+  }
+}
+
+@mixin wide-background {
+  position: relative;
+  overflow-x: hidden;
+  background: unset !important;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    content: "";
+    border-radius: calc(6 * var(--lumo-border-radius-l))
+
+  }
+}
+
+@mixin extend-background-left {
+  background-position: bottom right calc(50vw + clamp(48px,5%,100px)) !important;
+
+  &::before {
+    right: 50%;
+    left: -50vw;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@mixin extend-background-right {
+  background-position: bottom left calc(50vw + clamp(48px,5%,100px)) !important;
+
+  &::before {
+    right: -50vw;
+    left: 50%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+@mixin wide-background-hero {
+  &::before {
+    bottom: 50%;
+    height: clamp(164px, calc(2 * var(--figure-height-factor)), calc(100 * var(--figure-height-factor)) / 2);
+    transform: translateY(50%);
+  }
+}
+
+// Use ::after pseudo element to add hero background image. url must be set to CSS custom property --cxl-hero-image
+@mixin wide-background-hero-image {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    left: 55%;
+    z-index: -1;
+    width: 100%;
+    height: clamp(calc(50% + 82px), calc(50% + var(--figure-height-factor)), calc(50% + var(--figure-height-factor)));
+    max-height: calc(50% + var(--figure-height-factor));
+    background-image: var(--cxl-hero-image);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: bottom;
+    background-size: auto clamp(65%, 40vw, 100%) ;
+    transform: translateY(var(--figure-height-factor));
+  }
+}
+
+@mixin wide-background-color($background-color: var(--lumo-base-color)) {
+  &::before {
+    background-color: $background-color;
+  }
 }

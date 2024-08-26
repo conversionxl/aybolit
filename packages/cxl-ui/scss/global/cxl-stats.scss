@@ -1,0 +1,51 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+cxl-stats {
+  .stat-item {
+    min-width: 112px;
+  }
+
+  .stat-title {
+    margin: 0 0 var(--lumo-space-s) 0;
+    font-size: var(--lumo-font-size-xs);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--cxl-color-black-50pct);
+    text-transform: uppercase;
+  }
+
+  .stat-count {
+    margin: 0;
+    font-size: var(--lumo-font-size-xxl);
+    line-height: 1.3;
+
+    small {
+      font-size: var(--lumo-font-size-l);
+    }
+  }
+
+  .stat-item.featured .stat-count {
+    color: var(--lumo-primary-color);
+  }
+
+  a.stat-count {
+    color: var(--cxl-color-black);
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--lumo-primary-color);
+    }
+  }
+
+  &[theme~="dark"] {
+    color: var(--lumo-tint);
+
+    .stat-title {
+      color: var(--lumo-tint);
+    }
+
+    a.stat-count {
+      color: var(--lumo-tint);
+    }
+  }
+}

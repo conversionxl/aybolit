@@ -1,136 +1,111 @@
-import { LitElement, html, render } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+/* eslint-disable yoda */
+/* eslint-disable import/no-extraneous-dependencies */
+import { LitElement, html } from 'lit';
+import { customElement, property, state, query, queryAll } from 'lit/decorators.js';
+import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
 import '@conversionxl/cxl-lumo-styles';
 import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
-import { MediaQueryController } from '@vaadin/component-base/src/media-query-controller.js';
-import { throttle } from 'lodash-es';
+import { dialogRenderer } from '@vaadin/dialog/lit.js';
 import cxlMarketingNavStyles from '../styles/cxl-marketing-nav-css.js';
 import cxlMarketingNavGlobalStyles from '../styles/global/cxl-marketing-nav-css.js';
-import '@vaadin/button';
-import '@vaadin/tabs';
+import '@vaadin/icon';
+import '@vaadin/menu-bar';
 import '@vaadin/context-menu';
+import '@vaadin/button';
+import '@vaadin/dialog';
 
 @customElement('cxl-marketing-nav')
 export class CXLMarketingNavElement extends LitElement {
-  @property({ type: Object })
-  contextMenuItems;
-
-  @property({ type: Boolean, reflect: true })
-  fixed = false;
-
-  @query('.menu-items')
-  menuShadowItemsElement;
-
-  @property({ type: HTMLElement })
-  get menuItemSearchElement() {
-    return this.shadowRoot.querySelector('.menu-item-search');
-  }
-
-  @property({ type: NodeList })
-  get menuItemsElements() {
-    return this.querySelectorAll('.menu-items');
-  }
-
-  @property({ type: Number })
-  menuShadowItemsSelectedIdx = -1;
-
-  // Conditionally hide distracting shadow menu items. Used for checkout, etc.
-  @property({ type: Boolean, reflect: true })
-  minimal = false;
-
-  // MediaQueryController.
-  @property({ type: Boolean, reflect: true })
-  wide;
-
-  // Device Detector media query.
-  _wideMediaQuery = '(min-width: 750px)';
-
-  @property({ type: Boolean, reflect: true })
-  _phone;
-
-  // @see https://github.com/vaadin/web-components/blob/de3db720ec8448a26d2f84d00965a9e369a1c3fb/packages/select/src/vaadin-select.js#L297
-  _phoneMediaQuery = '(max-width: 420px), (max-height: 420px)';
-
-  @property({ type: HTMLElement })
-  submenuOverlay = null;
-
   static get styles() {
     return [cxlMarketingNavStyles];
   }
 
-  render() {
-    return html`
-      <vaadin-tabs
-        id="menu-shadow-items"
-        class="menu-items"
-        selected="${this.menuShadowItemsSelectedIdx}"
-        orientation="horizontal"
-        theme="cxl-marketing-nav hide-scroll-buttons minimal"
-        @selected-changed="${(e) => {
-          this.menuShadowItemsSelectedIdx = e.detail.value;
-        }}"
-        @click="${this._menuShadowItemsClick}"
-      >
-        <vaadin-tab class="menu-item menu-item-logo" theme="cxl-marketing-nav">
-          <a href="https://cxl.com"
-            ><vaadin-icon
-              icon="cxl:logo"
-              style="width: var(--lumo-icon-size-xl, 48px);"
-            ></vaadin-icon
-          ></a>
-        </vaadin-tab>
-        <vaadin-tab
-          class="menu-item menu-item-search"
-          theme="cxl-marketing-nav"
-          ?hidden="${this.minimal}"
-        >
-          <a
-            ><vaadin-icon icon="lumo:search"></vaadin-icon> Search
-            <vaadin-icon icon="lumo:dropdown"></vaadin-icon
-          ></a>
-          <vaadin-context-menu
-            close-on="outside-click"
-            open-on="click"
-            theme="cxl-marketing-nav"
-          ></vaadin-context-menu
-        ></vaadin-tab>
-        <vaadin-tab
-          class="menu-item menu-item-menu-toggle"
-          theme="cxl-marketing-nav"
-          ?hidden="${this.minimal}"
-          @click=${this._toggleMobileMenu}
-        >
-          <a
-            >Menu <vaadin-icon icon="lumo:menu"></vaadin-icon
-            ><vaadin-icon icon="lumo:cross"></vaadin-icon
-          ></a>
-        </vaadin-tab>
-      </vaadin-tabs>
+  _contextMenuItems = { global: [], primary: [] };
 
-      <nav>
-        <slot></slot>
-      </nav>
-    `;
+  _phoneMediaQuery = '(max-width: 568px)';
+
+  @queryAll('vaadin-menu-bar')
+  menuBars;
+
+  @query('#search-dialog')
+  searchDialog;
+
+  @query('slot#search-form-slot')
+  searchFormSlot;
+
+  @state()
+  groups = [];
+
+  @state()
+  searchDialogOpen = false;
+
+  @property({ type: Boolean, reflect: true, attribute: 'wide' }) wide = false;
+
+  @property({ type: String, attribute: 'home-url' }) homeUrl = '';
+
+  @property({ type: Boolean, attribute: 'minimal' }) minimal = false;
+
+  @property({ type: String, attribute: 'logo-bar' }) logoBar = 'global';
+
+  @property({ type: Object })
+  get contextMenuItems() {
+    return this._contextMenuItems;
   }
 
-  constructor() {
-    super();
+  set contextMenuItems(data) {
+    this._contextMenuItems = { ...data };
+    const parseItem = (item, group) => {
+      const newItem = { component: this.createItem(item, group) };
 
-    this.addController(
-      new MediaQueryController(this._wideMediaQuery, (matches) => {
-        this.wide = matches;
-      })
-    );
+      if (item.children?.length) {
+        newItem.children = [{ component: 'back' }, ...item.children].map(parseItem);
+      }
 
+      if ('primary' === group) {
+        newItem.separator = true;
+      }
+
+      return newItem;
+    };
+
+    const groups = [];
+
+    Object.keys(data).forEach((group) => {
+      const items = data[group];
+      const newGroup = {
+        name: group,
+        items: [...items?.map((item) => parseItem(item, group))],
+      };
+      groups.push(newGroup);
+    });
+
+    this.groups = groups;
+    this.requestUpdate('groups');
+  }
+
+  /**
+   * Concatenate nav groups into a single nav list for mobile layout. Keeps global
+   * menu items last in the list by sorting the original this.groups array before
+   * flat map operation.
+   */
+  @property({ type: Array }) mobileGroups = [];
+
+  get menuItemSearchElement() {
+    return this.querySelector('.search-button');
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
     this.addController(
       new MediaQueryController(this._phoneMediaQuery, (matches) => {
-        this._phone = matches;
+        this.wide = !matches;
       })
     );
+    this._boundOnSearchOpen = this._onSearchOpen.bind(this);
   }
 
-  firstUpdated(changedProperties) {
+  // eslint-disable-next-line class-methods-use-this
+  firstUpdated() {
     /**
      * Global styles.
      */
@@ -138,432 +113,288 @@ export class CXLMarketingNavElement extends LitElement {
       moduleId: 'cxl-marketing-nav-global',
     });
 
-    /**
-     * Configure context menu trigger on main link click.
-     *
-     * @see https://github.com/vaadin/vaadin-context-menu/blob/v4.3.12/src/vaadin-context-menu.html#L172
-     * @see https://www.nngroup.com/articles/split-buttons-navigation/
-     */
-    this.querySelectorAll('.menu-item > vaadin-context-menu').forEach((contextMenu) => {
-      // eslint-disable-next-line no-param-reassign
-      contextMenu.listenOn = contextMenu.parentElement;
-
-      /**
-       * Back button custom event.
-       *
-       * @since 2022.11.14
-       * @see https://app.clickup.com/t/3rgnekt
-       * @type {string}
-       */
-      // eslint-disable-next-line no-param-reassign
-      contextMenu.closeOn = 'backBtnClose';
-
-      /**
-       * @todo Needs docblock.
-       */
-      contextMenu.addEventListener('opened-changed', () => {
-        const listBox = document.querySelector('vaadin-context-menu-list-box');
-        let listBoxWidth = parseFloat(getComputedStyle(listBox).getPropertyValue('width'));
-
-        const vaadinMenuItemComputedStyle = getComputedStyle(
-          listBox.querySelector('.vaadin-menu-item')
-        );
-
-        listBoxWidth -=
-          parseFloat(vaadinMenuItemComputedStyle.paddingLeft) +
-          parseFloat(vaadinMenuItemComputedStyle.paddingRight) * 2;
-
-        listBox.style.setProperty('--cxl-vaadin-context-menu-item-max-width', `${listBoxWidth}px`);
-      });
+    requestAnimationFrame(() => {
+      this._replaceMenuIcon();
+      this.initHeadroom();
     });
+  }
 
+  updated(changes) {
+    if (changes.has('groups') || changes.has('wide')) {
+      this._updateContextMenuItems();
+      this._replaceMenuIcon();
+    }
+
+    if (changes.has('groups')) {
+      this.mobileGroups = this.getMobileGroups();
+    }
+  }
+
+  render() {
+    // collapse all navs into one if in mobile layout
+    const groups = this.wide ? this.groups : this.mobileGroups;
+
+    return html`
+      ${groups.map((group) => {
+        const { name, items } = group;
+
+        return html`
+          <nav id="menu-${name}-items" ?minimal=${this.minimal} ?wide=${this.wide}>
+            <div class="container">
+              ${this.logoBar === name || !this.wide
+                ? html`
+                    <vaadin-menu-bar-button class="cxl-logo" theme="tertiary cxl-marketing-nav">
+                      <a href=${this.homeUrl || 'https://cxl.com'}>
+                        <vaadin-icon
+                          icon="cxl:logo"
+                          style="width: var(--lumo-icon-size-xl, 48px);"
+                        ></vaadin-icon>
+                      </a>
+                    </vaadin-menu-bar-button>
+                  `
+                : ''}
+              ${!this.wide ? this._renderSearch(group) : ''}
+              <vaadin-menu-bar
+                id="${name}-menu-bar"
+                theme="tertiary cxl-marketing-nav"
+                .items=${items}
+              ></vaadin-menu-bar>
+              <slot name="${name}-items-fixed"></slot>
+            </div>
+          </nav>
+        `;
+      })}
+
+      <vaadin-dialog
+        id="search-dialog"
+        class="search-form-dialog"
+        theme="cxl-marketing-nav-search"
+        click
+        ?wide=${this.wide}
+        .opened="${this.searchDialogOpen}"
+        @opened-changed=${this._boundOnSearchOpen}
+        ${dialogRenderer(this._searchDialogRenderer, [])}
+      >
+      </vaadin-dialog>
+      <slot id="search-form-slot" @slotchange=${this._boundSetupSearchDialog}></slot>
+    `;
+  }
+
+  _onSearchOpen(e) {
+    this.searchDialogOpen = e.detail.value;
+    if (!e.detail.value) return;
+
+    // Automatically focus search field when opened.
+
+    this.searchDialog.$.overlay.querySelector('#search-input')?.focus();
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _renderSearch(group) {
     /**
-     * Listen for `vaadin-overlay-open` and remove the `hidden` attribute from description elements.
+     * Disable search on mobile.
+     * 
+     * @since 2024.02.14
+     * @see https://app.clickup.com/t/86azbhf2a
      */
-    document.addEventListener('vaadin-overlay-open', (e) => {
-      if (e.target.tagName.toLowerCase() === 'vaadin-context-menu-overlay') {
-        const contextMenuListBox = e.target.getFirstChild();
-        const listItems = contextMenuListBox.items;
+    return '';
+    
+    // eslint-disable-next-line no-unreachable
+    if (this.minimal || 'primary' !== group.name) return '';
 
-        listItems.forEach((listItem) => {
-          const description = listItem.querySelector('.vaadin-context-menu-item--description');
+    return html`
+      <vaadin-menu-bar-button
+        theme="tertiary cxl-marketing-nav"
+        class="search-button"
+        @click=${this.toggleSearchDialog}
+      >
+        <span>
+          <vaadin-icon icon="lumo:search"></vaadin-icon> Search
+          <vaadin-icon icon="lumo:dropdown"></vaadin-icon>
+        </span>
+      </vaadin-menu-bar-button>
+    `;
+  }
 
-          if (description) {
-            description.hidden = false;
+  toggleSearchDialog() {
+    this.searchDialogOpen = !this.searchDialogOpen;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _searchDialogRenderer() {
+    const template = this.querySelector('#cxl-marketing-nav-search-form-template');
+    const templateContents = template.content.cloneNode(true);
+    const searchForm = templateContents.querySelector('#search-form');
+    return searchForm;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _onBackBtnClick(e) {
+    e.stopImmediatePropagation();
+    [...document.body.querySelectorAll('vaadin-context-menu-overlay')].at(-1).close();
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _redirectMenuItemClick(e) {
+    const { currentTarget } = e;
+    const anchorElement = currentTarget.querySelector('a');
+    anchorElement.click();
+  }
+
+  // Creates and returns a custom menu item component for use in vaadin-menu-bar
+  createItem(
+    { text, description, sectionheader, component, icon, href, children, depth, classes },
+    group
+  ) {
+    // If divider, return an <hr> element, nothing else.
+    if ('hr' === component) {
+      return document.createElement('hr');
+    }
+    // Create menu item.
+    const menuItemElement = document.createElement('vaadin-context-menu-item');
+
+    // Add relevant classes and attributes conditionally.
+    if (group) {
+      menuItemElement.classList.add(`${group}-menu-item`);
+    }
+
+    if (sectionheader) {
+      menuItemElement.classList.add('section-header');
+    }
+
+    // If there are classes, add them, avoiding empty strings.
+    if (classes) {
+      try {
+        classes.forEach((className) => {
+          if (className) menuItemElement.classList.add(className);
+        });
+      } catch (error) {
+        classes.forEach((className) => {
+          if (className.indexOf(' ') !== -1) {
+            // eslint-disable-next-line no-console
+            console.warn(`One of the classes items contains a space: ${className}`);
+            className.split(' ').forEach((splitClass) => {
+              if (splitClass) menuItemElement.classList.add(splitClass);
+            });
           }
         });
       }
-    });
 
-    /**
-     * Search form integration.
-     */
-    this._setupSearchForm();
-
-    /**
-     * Decide `<vaadin-tabs>` initial orientation.
-     */
-    this._updatedWide();
-
-    /**
-     * Highlight current menu item.
-     */
-    this._highlightCurrentMenuItem();
-
-    /**
-     * Handle `<vaadin-context-menu-overlay>`.
-     * Check every 1000ms the scroll position.
-     */
-    window.addEventListener(
-      'scroll',
-      throttle(() => {
-        this._maybeCloseContextMenuOverlay();
-      }, 1000)
-    );
-
-    document.body.addEventListener('vaadin-overlay-open', this._onOverlayOpen.bind(this));
-
-    super.firstUpdated(changedProperties);
-  }
-
-  /**
-   * Store overlay when triggered for `vaadin-context-menu-item` sub menu.
-   *
-   * @since 2022.11.14
-   * @see https://app.clickup.com/t/3rgnekt
-   * @private
-   */
-  _onOverlayOpen(e) {
-    const overlay = e.target;
-
-    /**
-     * Vertically align context menu panels.
-     * Check if the child overlay is larger than the top level overlay.
-     *
-     * @since 2023.02.11
-     */
-    const overlays = document.querySelectorAll(
-      'vaadin-context-menu-overlay[theme="cxl-marketing-nav"]'
-    );
-
-    if (overlays.length > 1) {
-      const topLevelOverlay = overlays[0];
-      const listBox = overlay.querySelector('vaadin-context-menu-list-box');
-      const previousOverlay = overlays[overlays.length - 2];
-      const previousListBox = previousOverlay.querySelector('vaadin-context-menu-list-box');
-
-      requestAnimationFrame(() => {
-        if (listBox.offsetHeight > previousListBox.offsetHeight) {
-          overlay.style.top = topLevelOverlay.style.top;
-        }
-      });
-    }
-
-    /**
-     * Non-wide context menu "Back" button.
-     */
-    const backBtn = overlay.querySelector('.context-menu-item-back-button');
-
-    if (!backBtn) {
-      return;
-    }
-
-    this.submenuOverlay = overlay;
-  }
-
-  /**
-   * Listen to back button click event,
-   * close the relevant overlay.
-   *
-   * @since 2022.11.14
-   * @see https://app.clickup.com/t/3rgnekt
-   * @private
-   */
-  _onBackBtnClick() {
-    if (!this.submenuOverlay) {
-      return;
-    }
-
-    this.submenuOverlay.dispatchEvent(new CustomEvent('backBtnClose', { bubbles: true }));
-  }
-
-  updated(changedProps) {
-    if (changedProps.has('contextMenuItems')) {
-      this._updatedContextMenuItems();
-    }
-
-    if (changedProps.has('wide')) {
-      this._updatedWide();
-    }
-
-    super.updated(changedProps);
-  }
-
-  /**
-   * Add `<vaadin-context-menu>` element for back button.
-   */
-  // eslint-disable-next-line class-methods-use-this
-  _addBackButtonItem(contextMenuItems) {
-    const backBtn = {
-      component: 'back',
-    };
-
-    // eslint-disable-next-line no-param-reassign
-    contextMenuItems = [backBtn, ...contextMenuItems];
-
-    return contextMenuItems;
-  }
-
-  /**
-   * Create `<vaadin-context-menu>` elements, with children nesting support.
-   * Support `{ component: a }`.
-   *
-   * @private
-   * @see https://github.com/vaadin/vaadin-context-menu/issues/254
-   */
-  _createContextMenuItems(contextMenuItems) {
-    contextMenuItems.forEach((item, i, self) => {
-      if (item.children) {
-        // eslint-disable-next-line no-param-reassign
-        item.children = this._addBackButtonItem(item.children);
-        this._createContextMenuItems(item.children);
+      if (classes?.includes('menu-item-search')) {
+        menuItemElement.addEventListener('click', this.toggleSearchDialog.bind(this));
       }
 
-      if (item.component === 'a') {
-        const menuItem = document.createElement('vaadin-context-menu-item');
-        const link = document.createElement('a');
-
-        link.href = item.href;
-        link.text = item.text;
-
-        menuItem.appendChild(link);
-
-        // Add `description` element, if WordPress Menu Item has `description` field set.
-        if (item.description) {
-          const descriptionItem = document.createElement('div');
-
-          descriptionItem.classList.add('vaadin-context-menu-item--description');
-
-          // Set to hidden, to calculate currently opened menu width and use it for description.
-          descriptionItem.hidden = true;
-
-          render(html`${unsafeHTML(item.description)}`, descriptionItem);
-
-          menuItem.appendChild(descriptionItem);
-        }
-
-        // eslint-disable-next-line no-param-reassign
-        self[i] = { component: menuItem };
-      }
-
-      if (item.component === 'back') {
-        const menuItemBack = document.createElement('vaadin-context-menu-item');
-        const backBtn = document.createElement('vaadin-button');
-
-        backBtn.classList.add('context-menu-item-back-button');
-        backBtn.innerHTML = '<vaadin-icon icon="lumo:angle-left"></vaadin-icon> Back';
-
-        menuItemBack.classList.add('back-button-menu-item');
-        menuItemBack.appendChild(backBtn);
-
-        menuItemBack.addEventListener('click', this._onBackBtnClick.bind(this));
-
-        // eslint-disable-next-line no-param-reassign
-        self[i] = { component: menuItemBack };
-      }
-    });
-
-    return contextMenuItems;
-  }
-
-  /**
-   * Highlight menu item with special class.
-   * Improves visual "Where am I?" navigation clarity.
-   *
-   * @since 2020.04.12
-   * @private
-   */
-  _highlightCurrentMenuItem() {
-    this.menuItemsElements.forEach((menuItemsEl) => {
-      const currentMenuItemEl = menuItemsEl.querySelector('.current-menu-item');
-
-      if (currentMenuItemEl && currentMenuItemEl.id && menuItemsEl.items) {
-        const idx = menuItemsEl.items.findIndex((i) => i.id === currentMenuItemEl.id);
-
-        menuItemsEl.setAttribute('selected', idx);
-      }
-    });
-  }
-
-  /**
-   * Populate children `<vaadin-context-menu>` elements.
-   *
-   * @private
-   * @todo Links cannot be sub-menu hosts?
-   */
-  _updatedContextMenuItems() {
-    Object.values(this.contextMenuItems).forEach((items) => {
-      items.forEach((menuItem) => {
-        if (!menuItem.children) {
-          return;
-        }
-
-        const contextMenu = this.querySelector(
-          `vaadin-tab#menu-item-${menuItem.id} > vaadin-context-menu`
-        );
-
-        // Populate.
-        contextMenu.items = this._createContextMenuItems(menuItem.children);
-
-        // Prevent close on upstream events: clicks, keydown, etc
-        contextMenu.addEventListener('item-selected', (e) => {
-          e.stopImmediatePropagation();
+      if (classes?.includes('menu-item-help')) {
+        menuItemElement.addEventListener('click', () => {
+          Intercom('show');
         });
+      }
+    }
+
+    // Add prefix icon.
+    if (icon) {
+      const prefixIconElement = document.createElement('vaadin-icon');
+      prefixIconElement.setAttribute('icon', `${icon}`);
+      prefixIconElement.classList.add('vaadin-context-menu-item--icon');
+      menuItemElement.appendChild(prefixIconElement);
+    }
+
+    // Add regular link, text label or CTA.
+    if (href && !children && !sectionheader) {
+      const link = document.createElement('a');
+      const isCTA = classes?.includes('menu-item-cta');
+      link.href = href;
+      if (isCTA) {
+        const ctaElement = document.createElement('vaadin-button');
+        ctaElement.setAttribute('theme', 'primary');
+        ctaElement.innerText = text;
+        link.appendChild(ctaElement);
+      } else {
+        link.innerText = text;
+      }
+      menuItemElement.appendChild(link);
+      menuItemElement.addEventListener('click', this._redirectMenuItemClick);
+      menuItemElement.classList.add('has-link');
+    } else if (text) {
+      const labelElement = sectionheader
+        ? document.createElement('h6')
+        : document.createElement('span');
+      labelElement.classList.add('vaadin-context-menu-item--label');
+      labelElement.appendChild(document.createTextNode(text));
+      menuItemElement.appendChild(labelElement);
+    }
+
+    // Add description.
+    if (description) {
+      const descriptionElement = document.createElement('div');
+      descriptionElement.classList.add('vaadin-context-menu-item--description');
+      descriptionElement.appendChild(document.createTextNode(description));
+      menuItemElement.appendChild(descriptionElement);
+    }
+
+    // Add suffix dropdown icon, for a top level item with children.
+    if (children?.length && 0 === depth) {
+      const suffixIconElement = document.createElement('vaadin-icon');
+      suffixIconElement.setAttribute('icon', 'lumo:dropdown');
+      suffixIconElement.classList.add('vaadin-context-menu-item--dropdown-icon');
+      menuItemElement.appendChild(suffixIconElement);
+    }
+
+    // Add back button. Used in mobile layout only.
+    if ('back' === component) {
+      const backButtonElement = document.createElement('vaadin-button');
+
+      backButtonElement.classList.add('context-menu-item-back-button');
+      backButtonElement.innerHTML = '<vaadin-icon icon="lumo:angle-left"></vaadin-icon> Back';
+
+      menuItemElement.classList.add('back-button-menu-item');
+      menuItemElement.appendChild(backButtonElement);
+
+      menuItemElement.addEventListener('click', this._onBackBtnClick.bind(this));
+    }
+
+    return menuItemElement;
+  }
+
+  _updateContextMenuItems() {
+    if (!this.menuBars) return;
+
+    [...this.menuBars].forEach((menu) => {
+      const splitItems = menu.shadowRoot.querySelectorAll(
+        'vaadin-context-menu-item.menu-item-split-nav'
+      );
+      [...splitItems].forEach((item) => {
+        if (!item.parentElement.classList.contains('menu-item-split-nav')) {
+          item.parentElement.classList.add('menu-item-split-nav');
+        }
       });
     });
   }
 
-  /**
-   * Re-orient menu items.
-   *
-   * @see https://github.com/vaadin/vaadin-context-menu/blob/v4.3.12/src/vaadin-device-detector.html#L12
-   * @see https://github.com/vaadin/vaadin-context-menu/issues/253
-   * @todo refactor w/ `<cxl-icon-nav>`?
-   */
-  _reorientMenuItems() {
-    let orientation = 'vertical';
+  _replaceMenuIcon() {
+    if (!this.menuBars || this.wide) return;
 
-    if (this.wide) {
-      orientation = 'horizontal';
-    }
+    [...this.menuBars].forEach((menu) => {
+      const overflowMenuButton = menu.shadowRoot.querySelector(
+        'vaadin-menu-bar-button[part="overflow-button"]'
+      );
 
-    this.menuItemsElements.forEach((el) => {
-      el.setAttribute('orientation', orientation);
-      el.setAttribute('wide', this.wide);
-    });
+      if (overflowMenuButton && !overflowMenuButton.iconFixed) {
+        const menuIcon = document.createElement('vaadin-icon');
+        menuIcon.setAttribute('icon', 'lumo:menu');
+        menuIcon.classList.add('vaadin-menu-bar-button--icon');
+        menuIcon.classList.add('menu-icon');
 
-    this.menuShadowItemsElement.setAttribute('wide', this.wide);
-  }
+        const closeIcon = document.createElement('vaadin-icon');
+        closeIcon.setAttribute('icon', 'lumo:cross');
+        closeIcon.classList.add('vaadin-menu-bar-button--icon');
+        closeIcon.classList.add('close-icon');
 
-  /**
-   * Rotate search menu item context menu listener, because Chrome does not allow sending clicks to hidden elements.
-   *
-   * @see https://sookocheff.com/post/javascript/the-javascript-click-event-and-hidden-input-elements/
-   */
-  _rotateMenuItemSearchListenOn() {
-    let searchElement = this.menuItemSearchElement;
-
-    if (this.wide) {
-      searchElement = this.querySelector('.menu-item-search');
-    }
-
-    // Empty `cxl-marketing-nav` check.
-    if (searchElement) {
-      this.menuItemSearchElement.querySelector('vaadin-context-menu').listenOn = searchElement;
-    }
-  }
-
-  /**
-   * @private
-   */
-  _setupSearchForm() {
-    /**
-     * Configure `.menu-item-search`.
-     */
-    const menuItemSearchContextMenu =
-      this.menuItemSearchElement.querySelector('vaadin-context-menu');
-
-    /**
-     * `<vaadin-context-menu-item>` interferes with form input.
-     *
-     * @see https://github.com/vaadin/vaadin-item/blob/v2.1.1/src/vaadin-item-mixin.html#L136
-     */
-    menuItemSearchContextMenu.addEventListener(
-      'opened-changed',
-      (ee) => {
-        const searchForm = ee.target.$.overlay.querySelector('.search-form');
-
-        searchForm.addEventListener('keydown', (ef) => {
-          // Allow Esc.
-          if (ef.key !== 'Escape') {
-            ef.stopPropagation();
-          }
-        });
-      },
-      { once: true }
-    );
-
-    /**
-     * Avoid upstream default immediate close behavior.
-     */
-    menuItemSearchContextMenu.addEventListener('item-selected', (e) => {
-      e.stopImmediatePropagation();
-    });
-
-    /**
-     * Attach search form template.
-     */
-    const searchFormTemplate = this.querySelector('#cxl-marketing-nav-search-form-template') || '';
-
-    if (searchFormTemplate && 'content' in searchFormTemplate) {
-      menuItemSearchContextMenu.items = [
-        { component: searchFormTemplate.content.firstElementChild },
-      ];
-    }
-
-    /**
-     * Enable instant typing, avoid focus click.
-     */
-    menuItemSearchContextMenu.$.overlay.addEventListener('vaadin-overlay-open', (e) =>
-      e.target.querySelector('#search-input').focus()
-    );
-  }
-
-  /**
-   * @private
-   */
-  _updatedWide() {
-    this._reorientMenuItems();
-    this._rotateMenuItemSearchListenOn();
-  }
-
-  /**
-   * Mobile menu toggle.
-   *
-   * @see https://app.clickup.com/t/3phu3bv
-   * @since 2022.10.18
-   */
-  // eslint-disable-next-line class-methods-use-this
-  _toggleMobileMenu() {
-    const bodyElement = document.querySelector('body');
-
-    if (bodyElement) {
-      bodyElement.classList.toggle('cxl-mobile-menu-opened');
-    }
-  }
-
-  _menuShadowItemsClick(e) {
-    if (this.menuShadowItemsSelectedIdx !== -1) {
-      if (this.menuShadowItemsSelectedIdx === e.currentTarget.selected) {
-        e.currentTarget.selected = -1;
-        e.stopImmediatePropagation();
+        overflowMenuButton.appendChild(closeIcon);
+        overflowMenuButton.appendChild(menuIcon);
+        overflowMenuButton.iconFixed = true;
       }
-    }
-  }
-
-  /**
-   * Maybe close context menu overlay on scroll?
-   * Only applicable if it's shown as dropdown.
-   *
-   * @see https://app.clickup.com/t/3q2z1a3
-   * @since 2022.10.19
-   */
-  _maybeCloseContextMenuOverlay() {
-    const el = document.querySelector('vaadin-context-menu-overlay');
-
-    if (el && !this._phone) {
-      el.close();
-    }
+    });
   }
 
   /**
@@ -574,7 +405,7 @@ export class CXLMarketingNavElement extends LitElement {
    * @param contextMenuItems
    * @param Headroom
    */
-  async initHeadroom(Headroom) {
+  async initHeadroom() {
     /**
      * Fix race condition where the css properties are not available yet.
      *
@@ -592,7 +423,7 @@ export class CXLMarketingNavElement extends LitElement {
      *
      * @see https://github.com/WickyNilliams/headroom.js
      */
-    const headroom = new Headroom(this, {
+    const headroom = new window.Headroom(this, {
       tolerance: {
         up: 30,
         down: 30,
@@ -607,5 +438,21 @@ export class CXLMarketingNavElement extends LitElement {
     });
 
     headroom.init();
+  }
+
+  getMobileGroups() {
+    // eslint-disable-next-line no-nested-ternary
+    const sorter = (a, b) => ('global' === a.name ? 1 : 'global' === b.name ? -1 : 0);
+    const groups = [...this.groups];
+
+    return [
+      {
+        name: 'primary',
+        items: groups
+          .sort(sorter)
+          .map((group) => group.items.filter((item) => !item.isSearch))
+          .flat(1),
+      },
+    ];
   }
 }

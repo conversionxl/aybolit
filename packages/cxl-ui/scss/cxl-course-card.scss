@@ -1,0 +1,139 @@
+/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
+/* stylelint-disable declaration-no-important  */
+
+@use "~@conversionxl/cxl-ui/scss/mixins";
+@use "~@conversionxl/cxl-lumo-styles/scss/typography";
+
+:host {
+  height: 280px;
+}
+
+:host(:hover) {
+  box-shadow: var(--lumo-box-shadow-s);
+}
+
+:host([completed]) {
+  opacity: 0.6;
+
+  [icon="lumo:checkmark"] {
+    display: inline-block;
+    margin-top: calc(var(--lumo-space-xs) * -1);
+    color: var(--lumo-primary-color);
+  }
+}
+
+header {
+  .info {
+    overflow: visible;
+
+    cxl-time,
+    .instructor {
+      white-space: nowrap;
+    }
+  }
+}
+
+.content-wrapper {
+  height: 100%;
+  min-height: calc(var(--lumo-line-height-s) * 3); // three standard line-heights
+  line-height: var(--lumo-line-height-s);
+
+  .content {
+    @include mixins.ellipsis-for-lines(3);
+    min-height: calc(var(--lumo-line-height-s) * 3); // three standard line-heights
+
+    ::slotted(p) {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .tags {
+    flex-wrap: wrap;
+    margin-top: var(--lumo-space-s);
+    transition: height 0.3s ease-in-out;
+
+    ::slotted(span) {
+      font-style: italic;
+      line-height: 1;
+    }
+  }
+}
+
+footer {
+  position: relative;
+  display: flex;
+  justify-content: end;
+
+  vaadin-details[theme="reverse"] {
+    display: none;
+    &::part(summary) {
+      justify-content: flex-start;
+      gap: var(--lumo-space-s);
+      font-size: var(--lumo-font-size-s);
+    }
+
+    &::part(toggle) {
+      padding: calc(var(--lumo-space-xs) / 4);
+      margin-left: initial;
+      font-size: var(--lumo-font-size-m);
+      transform: rotate(90deg);
+    }
+
+    &[opened]::part(toggle) {
+      transform: rotate(-90deg);
+    }
+
+    &::part(summary-content) {
+      font-weight: 600;
+      color: var(--lumo-contrast);
+    }
+
+    &::part(content) {
+      padding-bottom: 0;
+      font-size: var(--lumo-font-size-s);
+      line-height: var(--cxl-lumo-line-height-s);
+    }
+  }
+
+  .cta {
+    right: 0;
+    font-weight: 600;
+
+    vaadin-icon {
+      width: var(--lumo-icon-size-s);
+      height: var(--lumo-icon-size-s);
+      padding: calc(var(--lumo-space-xs) / 2);
+      margin-left: var(--lumo-space-xs);
+      background: var(--lumo-primary-color-10pct);
+      border-radius: 100%;
+    }
+  }
+}
+
+:host(.cxl-full-card) {
+  height: 320px;
+
+  header {
+    .info {
+      .name {
+        @include mixins.ellipsis-for-lines(3);
+      }
+    }
+  }
+
+  .content-wrapper {
+    min-height: calc(var(--lumo-line-height-s) * 4); // four standard line-heights
+
+    .content {
+      @include mixins.ellipsis-for-lines(4);
+      min-height: calc(var(--lumo-line-height-s) * 4); // four standard line-heights
+    }
+  }
+}
+
+:host([theme~="minidegree"]) {
+  .info {
+    max-width: unset;
+  }
+}

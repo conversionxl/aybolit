@@ -1,7 +1,31 @@
-:host([theme~="cxl-marketing-nav"]) ::slotted(a[href]:hover) {
-  text-decoration: underline !important; /* stylelint-disable-line declaration-no-important */
+:host([theme~="cxl-featured-course-slider"]) {
+  width: 100%;
+  min-width: 100%;
+  padding: 0;
+
+  // Override the featured card default theme for the dashboard
+  ::slotted(cxl-featured-course-card) {
+    --lumo-tint: initial;
+
+    background-color: unset;
+  }
 }
 
-:host([theme~="cxl-marketing-nav"][hidden]) {
-  visibility: hidden;
+// Dashboard notifications
+:host([theme~="cxl-dashboard-notification"]) {
+  padding: 6px 16px;
+  font-weight: 500;
+  color: var(--lumo-body-text-color);
+  border-top-left-radius: var(--lumo-border-radius-s);
+  border-top-right-radius: var(--lumo-border-radius-s);
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+:host([theme~="cxl-dashboard-notification"][selected]) {
+  color: var(--lumo-primary-contrast-color);
+  background-color: var(--lumo-primary-color);
 }

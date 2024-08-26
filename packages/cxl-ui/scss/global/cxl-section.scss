@@ -1,0 +1,34 @@
+/* stylelint-disable selector-no-qualifying-type */
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+cxl-section#view-hero,
+cxl-section[theme~="cxl-hero"] {
+  .column-1 {
+    @media #{mq.$medium} {
+      max-width: 45%;
+    }
+  }
+
+  &.wide-background-black,
+  &.wide-background-red,
+  &.wide-background-blue,
+  &.wide-background-green {
+    .column-2 * {
+      color: var(--lumo-tint);
+    }
+  }
+
+  &.wide-background-light-blue {
+    .column-2 {
+      * {
+        color: var(--lumo-shade);
+      }
+    }
+  }
+
+  h1 {
+    @media #{mq.$medium} {
+      font-size: calc((var(--cxl-lumo-font-size-hero) + var(--lumo-font-size-xxxl)) / 2);
+    }
+  }
+}

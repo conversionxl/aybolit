@@ -12,7 +12,7 @@ export class CXLCardElement extends LitElement {
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html`<slot></slot>`;
   }
 
   firstUpdated(_changedProperties) {

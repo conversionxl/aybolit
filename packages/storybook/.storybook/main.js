@@ -1,10 +1,4 @@
 module.exports = {
-  // @see https://github.com/storybookjs/storybook/issues/16555
-  core: {
-    builder: 'webpack5',
-  },
-  // @see https://github.com/storybookjs/storybook/issues/12307
-  stories: ['../**/*.stories.js'],
   addons: [
     '@storybook/addon-controls',
     '@storybook/addon-docs',
@@ -12,8 +6,23 @@ module.exports = {
     '@storybook/addon-storysource',
     '@storybook/addon-viewport',
   ],
+  // @see https://github.com/storybookjs/storybook/issues/16555
+  core: {
+    builder: {
+      name: 'webpack5',
+      // @see https://storybook.js.org/docs/react/builders/webpack
+      options: {
+        fsCache: true,
+      },
+    },
+  },
+  features: {
+    storyStoreV7: true,
+  },
+  // @see https://github.com/storybookjs/storybook/issues/12307
+  stories: ['../**/*.stories.js'],
   // @see https://stackoverflow.com/questions/61375674/upgrade-to-webpack-5-breaking-storybook-5
-  webpackFinal: (config) => {
+  webpackFinal: async (config) => {
     return {
       ...config,
       resolve: {

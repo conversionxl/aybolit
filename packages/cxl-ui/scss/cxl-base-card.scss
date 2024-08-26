@@ -1,0 +1,267 @@
+/* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "~@conversionxl/cxl-ui/scss/mixins";
+
+:host {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: max-content;
+  padding: var(--lumo-space-m);
+  font-size: var(--lumo-font-size-s);
+  background: var(--lumo-tint);
+  border: 1px solid var(--lumo-contrast-10pct);
+  border-radius: var(--lumo-border-radius-l);
+  box-shadow: var(--lumo-box-shadow-xs);
+  break-inside: avoid;
+  transform: translateZ(0); // CSS columns @see https://stackoverflow.com/a/55110789/35946
+
+  // @see https://github.com/conversionxl/aybolit/pull/293
+  --video-background: hsla(355.8, 74.7%, 48%, 0.03); // --lumo-primary-color-3pct does not exist
+  --training-background: hsla(0, 0%, 10%, 0.03); // --lumo-shade-3pct does not exist
+  --playbook-background: hsla(213, 100%, 62%, 0.03); // No similar base color exists
+
+  // Container / Media queries
+  @media #{mq.$small} {
+    max-width: unset;
+    padding: var(--lumo-space-m) var(--lumo-space-l);
+    margin: unset;
+
+    .container > .attributes {
+      display: none;
+    }
+
+    header .info .attributes {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  [empty] {
+    visibility: hidden;
+    user-select: none;
+  }
+}
+
+:host([hidden]) {
+  display: none;
+}
+
+:host(:first-child) {
+  margin-top: unset;
+}
+
+:host(:last-child) {
+  margin-bottom: unset;
+}
+
+:host([theme~="video"]) {
+  background-color: var(--video-background);
+}
+
+:host([theme~="training"]) {
+  background-color: var(--training-background);
+}
+
+:host([theme~="playbook"]) {
+  background-color: var(--playbook-background);
+}
+
+:host([theme~="minidegree"]),
+:host([theme~="category"]) {
+  color: var(--lumo-tint);
+  background-color: var(--lumo-contrast);
+
+  .attributes {
+    color: var(--lumo-tint);
+  }
+
+  .name a {
+    color: var(--lumo-tint);
+  }
+
+  vaadin-button {
+    &:hover {
+      cursor: pointer;
+
+      &::before {
+        opacity: 0.2;
+      }
+    }
+  }
+}
+
+:host([theme~="lesson"]),
+:host([theme~="course"]) {
+  background-color: var(--lumo-tint);
+}
+
+:host([theme~="exam"]) {
+  background-color: var(--lumo-primary-color-10pct);
+  border-color: var(--lumo-primary-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lumo-space-s);
+  justify-content: space-between;
+  width: 100%;
+  transition: all 0.3s ease;
+
+  > .attributes {
+    padding-top: 0;
+  }
+}
+
+.tags {
+  align-items: center;
+  display: flex;
+  gap: var(--lumo-space-s);
+  max-width: 100%;
+}
+
+.attributes {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: var(--lumo-space-s) 0;
+  gap: var(--lumo-space-m);
+  color: var(--lumo-shade);
+  opacity: 0.6;
+}
+
+header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--lumo-space-m);
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--lumo-space-xs);
+    align-self: stretch;
+    max-width: calc(100% - var(--lumo-space-m) - 80px);
+    overflow: hidden;
+
+    .label {
+      display: block;
+      margin-bottom: var(--lumo-space-s);
+      font-size: var(--lumo-font-size-s);
+      font-weight: 400;
+      color: var(--lumo-primary-color);
+      text-transform: capitalize;
+    }
+
+    .name {
+      @include mixins.ellipsis-for-lines(2);
+      font-family: var(--lumo-font-family);
+      margin-block: 0;
+
+      a {
+        color: var(--lumo-body-text-color);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .attributes {
+      display: none;
+    }
+
+    .tags {
+      flex-wrap: nowrap;
+
+      ::slotted(.tag),
+      .tag:not(:first-child):not(.new) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .tag {
+        &:first-child {
+          font-weight: 900;
+          text-transform: capitalize;
+        }
+
+        &.new {
+          color: var(--lumo-primary-contrast-color);
+          border-radius: calc(var(--lumo-border-radius-l) * 6);
+          background: var(--lumo-primary-color);
+          padding: calc(var(--lumo-space-xs) / 2) var(--lumo-space-s);
+          font-size: var(--lumo-font-size-s);
+          font-weight: 700;
+          line-height: var(--lumo-line-height-s);
+        }
+      }
+    }
+  }
+
+  .instructor-image {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 100px;
+
+    img {
+      height: 80px;
+    }
+  }
+}
+
+.icon-new {
+  display: none;
+}
+
+.icon-lock {
+  color: var(--lumo-body-text-color);
+
+  :host([theme~="category"]) &,
+  :host([theme~="minidegree"]) & {
+    color: var(--lumo-tint);
+  }
+}
+
+:host([new]) {
+  .icon-new {
+    position: absolute;
+    top: calc(-1 * var(--lumo-space-s));
+    right: calc(-1 * var(--lumo-space-s));
+    display: block;
+    width: calc(2 * var(--lumo-space-m));
+    height: calc(2 * var(--lumo-space-m));
+    padding: 6px;
+    color: var(--lumo-primary-contrast-color);
+    background: var(--lumo-primary-color);
+    border-radius: 100%;
+  }
+}
+
+:host(:hover) {
+  border-color: var(--lumo-primary-color);
+}
+
+vaadin-button {
+  &:hover {
+    cursor: pointer;
+
+    &::before {
+      opacity: 0.05;
+      transition: opacity 0.3s ease;
+    }
+  }
+}
+
+:host([locked]) {
+  header, .content-wrapper {
+    opacity: 0.6;
+  }
+
+}

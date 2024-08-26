@@ -1,0 +1,4 @@
+// Use when you want Vaadin icon be same size as Lumo icon.
+:host([theme~="lumo"]) {
+  padding: var(--cxl-vaadin-icon-safe-area);
+}

@@ -1,0 +1,115 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+
+vaadin-dialog-overlay[theme="cxl-course-dialog"] {
+  .header {
+    width: 100%;
+  }
+
+  .info {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: var(--lumo-space-s);
+
+    @media #{mq.$small} {
+      padding-bottom: var(--lumo-space-xs);
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--lumo-space-xs);
+    column-gap: var(--lumo-space-s);
+    font-size: var(--lumo-font-size-s);
+    line-height: normal;
+
+    .tag {
+      &:first-child,
+      &.new {
+        color: var(--lumo-primary-color);
+      }
+
+      &:first-child {
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .icon-close {
+    position: absolute;
+    top: calc(-1 * var(--lumo-space-s));
+    right: calc(-1 * var(--lumo-space-s));
+    flex-shrink: 0;
+    width: var(--lumo-icon-size-l);
+    height: var(--lumo-icon-size-l);
+    color: var(--lumo-shade-70pct);
+  }
+
+  .name {
+    margin-bottom: var(--lumo-space-s);
+    font-size: var(--lumo-font-size-xl);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--lumo-shade-90pct);
+
+    @media #{mq.$small} {
+      font-size: var(--lumo-font-size-xxl);
+      line-height: 1.4;
+    }
+  }
+
+  .attributes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--lumo-space-s);
+    font-size: var(--lumo-font-size-s);
+    color: var(--lumo-shade-60pct);
+  }
+
+  .instructor-image {
+    width: calc(2 * var(--lumo-space-xl));
+    height: calc(2 * var(--lumo-space-xl));
+    border-radius: 100%;
+
+    @media #{mq.$small} {
+      margin: 0 var(--lumo-space-xl) 0 var(--lumo-space-m);
+    }
+  }
+
+  section {
+    margin-top: var(--lumo-space-m);
+
+    @media #{mq.$small} {
+      margin-top: var(--lumo-space-l);
+    }
+  }
+
+  jw-player {
+    display: block;
+    margin: 0 calc(-1 * var(--lumo-space-m)) var(--lumo-space-l) calc(-1 * var(--lumo-space-m));
+    aspect-ratio: 16 / 9;
+
+    @media #{mq.$small} {
+      margin: 0 calc(-1 * var(--lumo-space-l)) var(--lumo-space-l) calc(-1 * var(--lumo-space-l));
+    }
+  }
+
+  .content {
+    max-width: 75%;
+    padding-bottom: var(--lumo-space-l);
+    margin: 0 auto;
+  }
+
+  .content-tags {
+    padding: var(--lumo-space-s) 0;
+    font-style: italic;
+  }
+
+  .icon-plus {
+    margin-left: var(--lumo-space-xs);
+  }
+}

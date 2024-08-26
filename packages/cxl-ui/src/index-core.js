@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // Theme style modules must be imported before elements.
 import '@conversionxl/cxl-lumo-styles';
+import 'qrcode';
 
 // Vaadin.
 import '@vaadin/details';
@@ -13,23 +15,19 @@ import * as Headroom from 'headroom.js';
 
 // CXL.
 export { CXLAppLayoutElement } from './components/cxl-app-layout.js';
+export { CXLBaseCardElement } from './components/cxl-base-card.js';
 export { CXLCardElement } from './components/cxl-card.js';
-export { CXLCheckoutDetailsElement } from './components/cxl-checkout-details.js';
-export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
-export { CXLSectionElement } from './components/cxl-section.js';
-export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
+export { CXLCourseCardElement } from './components/cxl-course-card.js';
+export { CXLFeaturedImage } from './components/cxl-featured-image';
+export { CXLLightCardElement } from './components/cxl-light-card.js';
 export { CXLNotification } from './components/cxl-notification.js';
+export { CXLSectionElement } from './components/cxl-section.js';
+export { CXLStarRatingElement } from './components/cxl-star-rating.js';
+export { CXLTabsSliderElement } from './components/cxl-tabs-slider.js';
+export { CXLMarketingNavElement } from './components/cxl-marketing-nav.js';
 
-/**
- * Order matters.
- *
- * Note:
- * `CXLPlaybookProgressBarElement` belong's to `index-playbooks`,
- * but it doesn't work there, so placed instead, because these elements are related and order matters too.
- */
+// Order matters.
 export { CXLVaadinAccordionElement } from './components/cxl-vaadin-accordion.js';
-export { CXLPlaybookProgressBarElement } from './components/cxl-playbook-progress-bar.js';
-export { CXLPlaybookAccordionElement } from './components/cxl-playbook-accordion.js';
 export { CXLAccordionCardElement } from './components/cxl-accordion-card.js';
 
 // @todo maybe https://github.com/tc39/proposal-export-default-from

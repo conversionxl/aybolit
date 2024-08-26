@@ -16,7 +16,7 @@
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint *.js packages --ignore-path .gitignore",
     "lint:scss": "stylelint packages/**/*.scss",
-    "storybook": "yarn --cwd packages/storybook start-storybook -p 6006",
+    "storybook": "yarn --cwd packages/storybook start-storybook -p 6006 --modern",
     "test": "karma start",
     "test:visual": "rimraf tmp && BABEL_ENV=visual webpack --config test/visual/webpack.config.js && rimraf test/visual/screenshots/chrome/* && vrtest run --config test/visual/vrtest.config.js --record",
     "watch": "node scripts/watcher.js"
@@ -33,6 +33,7 @@
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
     "@commitlint/config-lerna-scopes": "^12.1.4",
+    "@lit-labs/observers": "^2.0.0",
     "@open-wc/testing-helpers": "^0.9.5",
     "@size-limit/file": "^6.0.3",
     "@webcomponents/webcomponentsjs": "^2.2.10",

@@ -1,14 +1,97 @@
-// Perfectly align modal in the center of the screen.
-:host([theme~="cxl-marketing-nav"][phone]) [part="overlay"] {
-  top: 0;
-  bottom: 0;
-  margin-top: auto;
-  margin-bottom: auto;
+@use "../mq";
+
+// Theme: cxl-course-dialog
+:host([theme="cxl-course-dialog"]) {
+  [part="backdrop"] {
+    background-color: var(--cxl-color-black-50pct);
+  }
+
+  [part="overlay"] {
+    width: 100%;
+    max-width: var(--cxl-content-max-width);
+  }
+
+  [part="content"] {
+    padding: var(--lumo-space-m) var(--lumo-space-m) 0 var(--lumo-space-m);
+
+    @media #{mq.$small} {
+      padding: var(--lumo-space-l) var(--lumo-space-l) 0 var(--lumo-space-l);
+    }
+  }
+
+  [part="footer"] {
+    background-color: unset;
+    box-shadow: var(--lumo-box-shadow-m);
+
+    @media #{mq.$small} {
+      gap: var(--lumo-space-m);
+      padding-right: var(--lumo-space-l);
+    }
+  }
 }
 
-// Reduce visual noise below overlay.
-:host([theme~="cxl-marketing-nav"]) [part="backdrop"] {
-  $vaadin-overlay-shade-pct: 20;
+:host([theme~="cxl-marketing-nav"]) {
 
-  background-color: var(--lumo-shade-#{$vaadin-overlay-shade-pct * 3.5}#{"pct"});
+  &::part(overlay),
+  &::part(content) {
+    /* Repeated as fallback for older browsers */
+    max-height: calc(100% - var(--cxl-marketing-nav-height));
+    max-height: calc(100dvh - var(--cxl-marketing-nav-height));
+  }
+
+  &::part(backdrop) {
+    display: none;
+  }
+
+  &::part(overlay) {
+    box-shadow: 0 0 0 1px var(--lumo-shade-5pct), 0 2px 6px -1px var(--lumo-shade-5pct),
+      0 8px 24px -4px var(--lumo-shade-5pct);
+  }
+
+  &::part(content) {
+    padding: var(--lumo-space-s);
+  }
+
+  /* It's necessary to define some properties again in a media query, because of vaadin-overlay hard coded styles at 420px*/
+  @media (max-width: 568px), (max-height: 568px) {
+    top: 0 !important;
+    bottom: var(--vaadin-overlay-viewport-bottom, 0) !important;
+    align-items: stretch !important;
+    justify-content: flex-end !important;
+
+    [part='overlay'] {
+      position: relative;
+      height: 100dvh;
+      max-height: calc(100dvh - var(--cxl-marketing-nav-height));
+      bottom: var(--vaadin-overlay-viewport-bottom, 0) !important;
+      width: 100%;
+    }
+
+    /* The content part scrolls instead of the overlay part, because of the gradient fade-out */
+    [part='content'] {
+      box-sizing: border-box;
+      max-height: inherit;
+      overflow: auto;
+      mask-image: unset;
+      padding: 0;
+
+      -webkit-overflow-scrolling: touch;
+      -webkit-mask-image: unset;
+    }
+
+    /* Animations */
+
+    :host([opening]) [part='overlay'] {
+      animation: 0.2s lumo-mobile-menu-overlay-enter cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    }
+
+    :host([closing]),
+    :host([closing]) [part='backdrop'] {
+      animation-delay: 0.14s;
+    }
+
+    :host([closing]) [part='overlay'] {
+      animation: 0.14s 0.14s lumo-mobile-menu-overlay-exit cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+    }
+  }
 }

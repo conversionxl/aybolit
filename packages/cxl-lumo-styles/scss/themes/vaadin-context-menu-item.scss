@@ -1,10 +1,101 @@
+@use "../mq";
+
+:host([theme~="cxl-marketing-nav"]) {
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  ::slotted(h6) {
+    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+  }
+}
+
+:host([theme~="cxl-marketing-nav"].vaadin-menu-item.has-link) {
+  cursor: pointer !important;
+}
+
+:host([theme~="cxl-marketing-nav"].section-header) {
+  font-weight: 600;
+  color: var(--lumo-body-text-color);
+  text-transform: uppercase;
+
+  ::slotted(.vaadin-context-menu-item--description) {
+    text-transform: none;
+  }
+}
+
+:host([theme~="cxl-marketing-nav"].has-description) {
+  [part="content"] ::slotted(.vaadin-context-menu-item--description) {
+    font-weight: 400;
+  }
+}
+
+:host([theme~="cxl-marketing-nav"]:not(.section-header):hover),
+:host([theme~="cxl-marketing-nav"]:not(.section-header)[expanded]) {
+  color: var(--lumo-primary-color);
+
+  &::after {
+    color: var(--lumo-primary-color);
+  }
+}
+
 ::slotted(a) {
   // Increase link click surface.
   display: block;
 
   color: inherit !important; /* stylelint-disable-line declaration-no-important */
+  text-decoration: none !important; /* stylelint-disable-line declaration-no-important */
 }
 
-::slotted(a:not(:hover)) {
-  text-decoration: none !important; /* stylelint-disable-line declaration-no-important */
+::slotted(a:hover) {
+  color: var(--lumo-primary-color) !important; /* stylelint-disable-line declaration-no-important */
+}
+
+:host {
+  ::slotted(.vaadin-context-menu-item--description) {
+    margin-top: var(--lumo-space-s);
+    font-family: var(--lumo-font-family);
+    font-size: var(--lumo-font-size-s);
+    font-weight: 400;
+    color: var(--lumo-secondary-text-color);
+  }
+
+  ::slotted(.vaadin-context-menu-item--label) {
+    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  [part="checkmark"] {
+    display: none !important;
+
+    &::before {
+      content: unset !important;
+    }
+  }
+}
+
+:host(.vaadin-context-menu-parent-item) {
+
+  ::slotted(.vaadin-context-menu-item--dropdown-icon) {
+    visibility: hidden;
+  }
+
+  &::after {
+    margin-right: unset !important;
+  }
+}
+
+@media (min-width: 568px) and (min-height: 568px) {
+  :host([theme~="cxl-marketing-nav"].vaadin-menu-item.back-button-menu-item) {
+    display: none;
+  }
+
+  /* Mobile layout loses cxl-marketing-nav theme, so we need to match theme="menu-bar-item" */
+  :host([theme~="menu-bar-item"]) {
+    ::slotted(.vaadin-context-menu-item--icon) {
+      display: none;
+    }
+  }
+}
+
+:host([theme~="cxl-context-menu-section-header"]) {
+  font-size: var(--lumo-font-size-s);
+  font-weight: 700;
+  text-transform: uppercase;
 }

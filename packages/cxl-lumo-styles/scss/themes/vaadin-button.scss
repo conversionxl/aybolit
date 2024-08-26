@@ -1,0 +1,23 @@
+:host([theme="x-large"]), :host(.cxl-homepage-button) {
+  --lumo-button-size: calc(var(--lumo-size-xl) * 1.25);
+  cursor: pointer;
+  padding: 1.25em 3.5em 1.25em 3em;
+  font-size: calc(var(--lumo-font-size-xxxl) / 2) !important;
+}
+
+:host(.wide) {
+  width: 100%;
+}
+
+:host-context(.menu-item-cta) {
+  --lumo-button-size: var(--lumo-size-s);
+}
+
+:host([theme="linkedin"]) {
+  --_lumo-button-color: #fff;
+  --_lumo-button-background-color: #0073b1;
+}
+
+:host([theme="linkedin"]:hover)::before {
+  opacity: 0.05;
+}

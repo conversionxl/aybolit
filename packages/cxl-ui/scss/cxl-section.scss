@@ -1,7 +1,25 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
 @use "~@conversionxl/cxl-lumo-styles/scss/mixins";
+@use "./mixins" as cxl-mixins;
 
 :host {
+  --figure-height-multiplier: 0.1;
+  --figure-height-factor: calc(var(--figure-height-multiplier) * var(--cxl-content-max-width-wide));
+
+  position: relative;
   display: block;
+}
+
+:host([theme~="cxl-section-dashboard-team-content"]) {
+  @media #{mq.$large} {
+    --cxl-wrap-padding: 0;
+  }
+}
+
+:host([theme~="cxl-section-certificate-unfinished"]) {
+  @media #{mq.$medium} {
+    @include cxl-mixins.pesudo-element-full-width(var(--cxl-color-medium-gray));
+  }
 }
 
 /**
@@ -12,45 +30,135 @@
 }
 
 /**
- * Wave design bottom.
- */
-:host(.has-wave) {
-  position: relative;
-
-  .wrap {
-    z-index: 1;
-  }
-}
-
-#wave {
-  position: absolute;
-  bottom: 0;
-  display: block;
-  width: 100%;
-}
-
-/**
  * Content readability.
  */
 .wrap {
   @include mixins.wrap();
 
-  max-width: var(--cxl-content-width);
+  max-width: var(--cxl-content-max-width);
 
   /**
    * Spacious section spacing.
    */
-  margin-top: var(--cxl-section-wrap-margin-top, var(--lumo-space-xl));
-  margin-bottom: var(--cxl-section-wrap-margin-bottom, var(--lumo-space-xl));
+  margin-top: var(--cxl-section-wrap-margin-top, var(--lumo-space-l));
+  margin-bottom: var(--cxl-section-wrap-margin-bottom, var(--lumo-space-l));
 
   /**
    * Block editor integration.
    */
+  :host([theme~="full"]) > &,
   :host(.alignfull) > & {
     max-width: unset;
   }
 
+  :host([theme~="wide"]) > &,
   :host(.alignwide) > & {
-    max-width: var(--cxl-wrap-width);
+    max-width: var(--cxl-content-max-width-wide);
+  }
+
+  :host([theme~="cxl-certificate-header"]) > & {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  :host([theme~="cxl-section-certificate-unfinished"]) > & {
+    padding-top: var(--lumo-space-m);
+    padding-bottom: var(--lumo-space-xl);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+:host(.has-gray-background-color) {
+  background-color: var(--cxl-color-light-gray);
+}
+
+:host(.has-black-background-color) {
+  color: var(--lumo-tint);
+  background-color: #000;
+
+  > * {
+    --lumo-header-text-color: var(--lumo-tint);
+  }
+}
+
+:host(#view-hero),
+:host([theme~="cxl-hero"]) {
+  background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
+}
+
+@media #{mq.$medium} {
+  :host(#view-hero:not(.view-hero-modern)),
+  :host([theme~="cxl-hero"]:not(.view-hero-modern)) {
+    @include mixins.wide-background();
+    @include mixins.extend-background-right();
+    @include mixins.wide-background-hero();
+    @include mixins.wide-background-hero-image();
+  }
+
+  :host(.wide-background) {
+    @include mixins.wide-background();
+  }
+
+  :host(.wide-background-hero) {
+    @include mixins.wide-background-hero();
+  }
+
+  :host(.wide-background-hero-image) {
+    @include mixins.wide-background-hero-image();
+  }
+
+  :host(.wide-background-left) {
+    @include mixins.extend-background-left();
+  }
+
+  :host(.wide-background-right) {
+    @include mixins.extend-background-right();
+  }
+
+  :host(.wide-background-black) {
+    &::before {
+      background-color: var(--cxl-brand-color-black);
+    }
+  }
+
+  :host(.wide-background-red) {
+    &::before {
+      background-color: var(--lumo-primary-color);
+    }
+  }
+
+  :host(.wide-background-blue) {
+    &::before {
+      background-color: var(--cxl-brand-color-blue);
+    }
+  }
+
+  :host(.wide-background-light-blue) {
+    &::before {
+      background-color: var(--cxl-brand-color-light-blue);
+    }
+  }
+
+  :host(.wide-background-green) {
+    &::before {
+      background-color: var(--cxl-brand-color-green);
+    }
+  }
+}
+
+/**
+ * Breakpoint comes from WordPress columns block. Using this value
+ * is the simplest solution for a hero section layout.
+ *
+ * @see https://cxlworld.slack.com/archives/C01JABH8AHX/p1714384594016109?thread_ts=1713699357.038669&cid=C01JABH8AHX
+ */
+@media only screen and (min-width: 782px) {
+  :host(#view-hero.view-hero-modern),
+  :host([theme~="cxl-hero"].view-hero-modern) {
+    @include mixins.wide-background();
+    @include mixins.extend-background-right();
+    @include mixins.wide-background-hero();
+    @include mixins.wide-background-hero-image();
   }
 }

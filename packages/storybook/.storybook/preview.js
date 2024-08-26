@@ -1,10 +1,8 @@
-import { addParameters } from '@storybook/web-components';
-
-addParameters({
+export const parameters = {
   docs: {
     source: {
       state: 'open',
     },
   },
   layout: 'none', // disable default 'padded'
-});
+};
