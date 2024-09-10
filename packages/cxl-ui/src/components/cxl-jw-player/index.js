@@ -21,6 +21,7 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
   StateMixin,
 ]) {
   config = {
+    height: '100%',
     width: '100%',
     playbackRateControls: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
     plugins: {

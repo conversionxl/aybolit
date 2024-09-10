@@ -141,7 +141,7 @@ export function TranscriptMixin(BaseClass) {
       }
 
       if (this._tracks.length) {
-        this.hasCaptions = true;
+        this.captions = true;
 
         // Make sure the DOM is up to date
         await this.updateComplete;
@@ -155,7 +155,7 @@ export function TranscriptMixin(BaseClass) {
           'toggle-transcript'
         );
       } else {
-        this.hasCaptions = false;
+        this.captions = false;
         this._jwPlayer.removeButton('toggle-transcript');
       }
     }
