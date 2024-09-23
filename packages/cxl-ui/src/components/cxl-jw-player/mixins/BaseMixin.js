@@ -8,6 +8,8 @@ import { MediaQueryController } from '@vaadin/component-base/src/media-query-con
 
 export function BaseMixin(BaseClass) {
   class Mixin extends BaseClass {
+    _baseUrl = 'https://cdn.jwplayer.com/';
+
     _boundOnTimeListener;
 
     _chapters;
@@ -70,7 +72,7 @@ export function BaseMixin(BaseClass) {
 
       if (this.libraryId) {
         if (this.isPublic) {
-          scriptUrl = `https://content.jwplatform.com/libraries/${this.libraryId}.js`;
+          scriptUrl = `${this._baseUrl}libraries/${this.libraryId}.js`;
         } else {
           scriptUrl = this.__signedURL(`libraries/${this.libraryId}.js`);
         }
@@ -113,9 +115,9 @@ export function BaseMixin(BaseClass) {
 
       if (this.mediaId) {
         if (this.isPublic) {
-          response = await fetch(`https://cdn.jwplayer.com/v2/media/${this.mediaId}`);
+          response = await fetch(`${this._baseUrl}v2/media/${this.mediaId}`);
         } else {
-          response = await fetch(await this._signedJWTURL(`/v2/media/${this.mediaId}`));
+          response = await fetch(await this._signedJWTURL(`v2/media/${this.mediaId}`));
         }
       }
 
@@ -133,9 +135,9 @@ export function BaseMixin(BaseClass) {
 
       if (this.playlistId) {
         if (this.isPublic) {
-          response = await fetch(`https://cdn.jwplayer.com/v2/playlists/${this.playlistId}`);
+          response = await fetch(`${this._baseUrl}v2/playlists/${this.playlistId}`);
         } else {
-          response = await fetch(await this._signedJWTURL(`/v2/playlists/${this.playlistId}`));
+          response = await fetch(await this._signedJWTURL(`v2/playlists/${this.playlistId}`));
         }
       }
 
@@ -220,14 +222,14 @@ export function BaseMixin(BaseClass) {
         .setExpirationTime('2h')
         .sign(secret);
 
-      return `https://cdn.jwplayer.com${path}?token=${token}`;
+      return `${this._baseUrl}${path}?token=${token}`;
     }
 
     __signedURL(path) {
       const expires = Math.ceil((new Date().getTime() + 3600) / 300) * 300;
       const signature = MD5(`${path}:${expires}:${this.apiSecret}`);
 
-      return `https://cdn.jwplayer.com/${path}?exp=${expires}&sig=${signature}`;
+      return `${this._baseUrl}${path}?exp=${expires}&sig=${signature}`;
     }
   }
 
