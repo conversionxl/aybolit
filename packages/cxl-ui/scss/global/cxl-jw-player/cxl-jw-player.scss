@@ -23,3 +23,7 @@ cxl-jw-player {
     }
   }
 }
+
+.jw-rightclick-list li:last-of-type {
+  display: none;
+}
