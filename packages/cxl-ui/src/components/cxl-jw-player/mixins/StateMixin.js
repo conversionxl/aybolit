@@ -7,15 +7,15 @@ export function StateMixin(BaseClass) {
     _userId;
 
     async _index() {
-      if (this.playlistId) {
+      if (this._playlistId) {
         const index =
-          localStorage.getItem(`cxl-jw-player-${this.playlistId}-index`) ||
+          localStorage.getItem(`cxl-jw-player-${this._playlistId}-index`) ||
           this._jwPlayer.getPlaylistIndex();
 
         this._jwPlayer.playlistItem(index);
 
         this._jwPlayer.on('playlistItem', async ({ index }) => {
-          localStorage.setItem(`cxl-jw-player-${this.playlistId}-index`, index);
+          localStorage.setItem(`cxl-jw-player-${this._playlistId}-index`, index);
         });
       }
     }
@@ -49,28 +49,30 @@ export function StateMixin(BaseClass) {
     }
 
     _position() {
-      if (this.mediaId) {
+      if (this._mediaId) {
         this._setPosition();
       }
 
-      if (this.playlistId) {
+      if (this._playlistId) {
         this._jwPlayer.on('playlistItem', async ({ index }) => {
-          await jwplayer().getPlaylistItemPromise(index);
+          await this._jwPlayer.getPlaylistItemPromise(index);
           this._setPosition();
         });
       }
 
       this._jwPlayer.on('seek time', ({ position }) => {
-        const mediaId = this.mediaId || this._jwPlayer.getPlaylistItem().mediaid;
+        const mediaId = this._mediaId || this._jwPlayer.getPlaylistItem().mediaid;
         localStorage.setItem(`cxl-jw-player-${mediaId}-position`, position);
       });
     }
 
     _setPosition() {
-      const mediaId = this.mediaId || this._jwPlayer.getPlaylistItem().mediaid;
+      const mediaId = this._mediaId || this._jwPlayer.getPlaylistItem().mediaid;
       const position = localStorage.getItem(`cxl-jw-player-${mediaId}-position`);
 
-      this._jwPlayer.seek(Number(position));
+      this._jwPlayer.on('firstFrame', () => {
+        this._jwPlayer.seek(Number(position));
+      });
     }
   }
 

@@ -18,6 +18,10 @@ export function BaseMixin(BaseClass) {
 
     _jwPlayerContainer;
 
+    _mediaId
+
+    _playlistId;
+
     // Device Detector media query.
     _wideMediaQuery = '(min-width: 750px)';
 
@@ -92,7 +96,25 @@ export function BaseMixin(BaseClass) {
     }
 
     // eslint-disable-next-line class-methods-use-this, no-empty-function
-    _beforeSetup() {}
+    _beforeSetup() {
+      if(this.mediaId) {
+        this._mediaId = this.mediaId;
+      }
+
+      if(this.mediaSource) {
+        const url = new URL(this.mediaSource);
+        this._mediaId = url.pathname.split('/').pop();
+      }
+
+      if(this.playlistId) {
+        this._playlistId = this.playlistId;
+      }
+
+      if(this.playlistSource) {
+        const url = new URL(this.playlistSource);
+        this._playlistId = url.pathname.split('/').pop();
+      }
+    }
 
     async _getChapters() {
       const playlistItem = this._jwPlayer.getPlaylistItem();
