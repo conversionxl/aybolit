@@ -1,13 +1,10 @@
 import { render } from 'lit';
-import { property } from 'lit/decorators.js';
 import style from '../../../../styles/global/cxl-jw-player/cxl-jw-player-chapter-navigation-css';
 import { chapterNavigationTemplate } from './index.html';
 
 export function ChapterNavigationMixin(BaseClass) {
   class Mixin extends BaseClass {
     _chapterNavigation;
-
-    @property({ attribute: 'plugin-path', type: String }) pluginPath;
 
     async _setupChapterNavigation() {
       const chapters = await this._getChapters();
