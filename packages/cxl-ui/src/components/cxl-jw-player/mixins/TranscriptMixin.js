@@ -10,6 +10,7 @@ export function TranscriptMixin(BaseClass) {
     _mark;
 
     @property({ reflect: true, type: Boolean }) captions = false;
+
     @property({ attribute: 'has-captions', reflect: true, type: Boolean }) hasCaptions = false;
 
     @state() _currentCue = 0;
@@ -22,7 +23,7 @@ export function TranscriptMixin(BaseClass) {
 
     @property({ attribute: 'minimum-search-length', type: Number }) minimumSearchLength = 3;
 
-    @property({ type: Boolean }) shouldScroll = true;
+    @property({ type: Boolean }) shouldScroll = false;
 
     @query('#search') _searchElement;
 

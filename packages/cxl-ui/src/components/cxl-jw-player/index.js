@@ -30,7 +30,7 @@ export class CXLJWPlayerElement extends mixin(LitElement, [
     skin: {
       name: 'cxl-institute',
     },
-    stretching: 'uniform',
+    // stretching: 'uniform',
   };
 
   static get styles() {

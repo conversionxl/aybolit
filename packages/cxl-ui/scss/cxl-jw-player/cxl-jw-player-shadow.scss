@@ -1,7 +1,14 @@
 @use '~@conversionxl/cxl-lumo-styles/scss/mixins';
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
 
 :host {
+  background-color: var(--wp--preset--color--white);
   box-sizing: border-box;
+  display: block;
+
+  * {
+    box-sizing: border-box;
+  }
 
   [active] {
     background-color: var(--lumo-shade-10pct);
@@ -9,13 +16,24 @@
 }
 
 :host([captions]) {
+  height: 512px;
+
+  @media #{mq.$medium} {
+    height: 1024px;
+  }
+
   #container {
+    background-color: var(--lumo-shade-5pct);
     display: grid;
-    grid-template-rows: 1fr max-content 1fr;
+    grid-template-rows: max-content max-content auto;
   }
 }
 
 .captions {
+  line-height: calc(var(--lumo-line-height-m) * 1.25);
+  margin: 0 auto;
+  max-width: var(--cxl-content-max-width);
+
   h2,
   span {
     &:hover {
@@ -86,15 +104,21 @@
 .scroll {
   @include mixins.better-webkit-scrollbars();
 
-  overflow: auto;
+  overflow: hidden;
+
+  &:hover {
+    overflow: auto;
+  }
 }
 
 .search {
   color: #fff;
-  background-color: #000;
+  max-width: 100vw;
 
   vaadin-checkbox {
     --lumo-body-text-color: #fff;
+
+    display: none;
   }
 
   vaadin-checkbox:not([checked])::part(checkbox) {
@@ -102,7 +126,8 @@
   }
 
   vaadin-text-field {
-    width: 50%;
+    box-shadow: var(--lumo-box-shadow-xs);
+    width: var(--cxl-content-max-width);
     padding: 0;
     background-color: #fff;
     border-radius: var(--lumo-space-xs);
