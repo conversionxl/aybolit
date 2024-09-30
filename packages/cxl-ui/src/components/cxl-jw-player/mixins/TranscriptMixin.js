@@ -23,7 +23,7 @@ export function TranscriptMixin(BaseClass) {
 
     @property({ attribute: 'minimum-search-length', type: Number }) minimumSearchLength = 3;
 
-    @property({ type: Boolean }) shouldScroll = false;
+    @property({ attribute: 'should-scroll', type: Boolean }) shouldScroll = true;
 
     @query('#search') _searchElement;
 
@@ -98,7 +98,8 @@ export function TranscriptMixin(BaseClass) {
           if (this.shouldScroll) {
             const el = this.renderRoot.querySelector(`[data-index="${index}"]`);
             if (el) {
-              el.scrollIntoView(true);
+              const container = this.renderRoot.querySelector('.captions');
+              container.scrollTop = el.offsetTop - container.offsetTop;
             }
           }
 
