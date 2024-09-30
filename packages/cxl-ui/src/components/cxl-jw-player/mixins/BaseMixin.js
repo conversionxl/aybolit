@@ -27,6 +27,8 @@ export function BaseMixin(BaseClass) {
 
     @property({ attribute: 'api-secret', type: String }) apiSecret = '';
 
+    @property({ attribute: 'error', reflect: true, type: Boolean }) error;
+
     @property({ attribute: 'is-public', type: Boolean }) isPublic;
 
     @property({ attribute: 'library-id', type: String }) libraryId;
@@ -40,6 +42,8 @@ export function BaseMixin(BaseClass) {
     @property({ attribute: 'playlist-id', type: String }) playlistId;
 
     @property({ attribute: 'playlist-source', type: String }) playlistSource;
+
+    @property({ type: Boolean }) ready;
 
     // MediaQueryController.
     @property({ type: Boolean, reflect: true })
@@ -186,7 +190,9 @@ export function BaseMixin(BaseClass) {
      */
 
     // eslint-disable-next-line class-methods-use-this, no-unused-vars, no-empty-function
-    async _onReadyListener() {}
+    async _onReadyListener() {
+      this.ready = true;
+    }
 
     // eslint-disable-next-line class-methods-use-this, no-unused-vars, no-empty-function
     async _onTimeListener(event) {}
@@ -217,6 +223,10 @@ export function BaseMixin(BaseClass) {
         ...this.config,
         ...(await this._getMedia()),
         ...(await this._getPlaylist()),
+      });
+
+      this._jwPlayer.on('setupError', () => {
+        this.error = true;
       });
 
       await new Promise((resolve) => {

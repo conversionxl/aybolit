@@ -21,6 +21,8 @@ export function StateMixin(BaseClass) {
     }
 
     async _onReadyListener() {
+      super._onReadyListener();
+      
       await this._index();
       this._position();
       this._playbackRate();
