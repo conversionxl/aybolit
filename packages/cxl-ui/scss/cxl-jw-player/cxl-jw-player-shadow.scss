@@ -107,7 +107,10 @@
 }
 
 .search {
-  color: #fff;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: var(--cxl-content-max-width);
+  width: 100%;
 
   vaadin-checkbox {
     --lumo-body-text-color: #fff;
@@ -123,7 +126,6 @@
     box-shadow: var(--lumo-box-shadow-xs);
     background-color: #fff;
     border-radius: var(--lumo-space-xs);
-    max-width: var(--cxl-content-max-width);
     width: 100%;
 
     &::part(input-field) {
