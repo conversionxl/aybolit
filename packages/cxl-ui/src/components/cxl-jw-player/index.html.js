@@ -11,7 +11,7 @@ export const template = function () {
             <slot></slot>
             ${this.captions
               ? html`
-                  <div class="center search padding">
+                  <div class="center gap padding search">
                     <vaadin-text-field
                       @input=${this._debouncedSearch}
                       clear-button-visible
@@ -21,11 +21,9 @@ export const template = function () {
                     >
                       <vaadin-icon slot="prefix" icon="lumo:search"></vaadin-icon>
                     </vaadin-text-field>
-                    <div id="searchResultCount">
-                      ${this._isSearchMinimumLength
-                        ? html`<span>(${this._matches} matches)</span>`
-                        : nothing}
-                    </div>
+                    ${this._isSearchMinimumLength
+                      ? html`<div id="search-result-count">(${this._matches} matches)</div>`
+                      : nothing}
                     <vaadin-checkbox
                       @change=${this._toggleShouldScroll}
                       ?checked=${this._shouldScroll}
@@ -55,6 +53,8 @@ export const template = function () {
           </div>
         `
       : nothing}
-    ${this.error ? html`<div class="center error">There was an error loading the video.</div>` : nothing}
+    ${this.error
+      ? html`<div class="center error">There was an error loading the video.</div>`
+      : nothing}
   `;
 };

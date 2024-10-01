@@ -73,7 +73,7 @@
 }
 
 .gap {
-  gap: var(--lumo-space-m);
+  gap: var(--lumo-space-s);
 }
 
 .grid {
@@ -111,6 +111,10 @@
   margin: 0 auto;
   max-width: var(--cxl-content-max-width);
   width: 100%;
+
+  #search-result-count {
+    font-size: var(--lumo-font-size-s);
+  }
 
   vaadin-checkbox {
     --lumo-body-text-color: #fff;
