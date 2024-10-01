@@ -366,3 +366,19 @@ body.theme-conversionxl-better {
     font-size: var(--lumo-font-size-l);
   }
 }
+
+
+
+vaadin-details {
+  h4 {
+    font-weight: 500;
+  }
+
+  .detail-content {
+    font-size: var(--lumo-font-size-l);
+
+    ul {
+      margin: 0;
+    }
+  }
+}
