@@ -4,6 +4,8 @@ export function StateMixin(BaseClass) {
 
     _nonce;
 
+    _position = 0;
+
     _userId;
 
     async _index() {
@@ -24,7 +26,7 @@ export function StateMixin(BaseClass) {
       super._onReadyListener();
       
       await this._index();
-      this._position();
+      this._setupPosition();
       this._playbackRate();
     }
 
@@ -36,6 +38,11 @@ export function StateMixin(BaseClass) {
       if (typeof window.cxl_pum_vars !== 'undefined') {
         this._nonce = window.cxl_pum_vars.nonce;
       }
+
+      this._jwPlayer.on('complete', () => {
+        this._position = 0;
+        localStorage.setItem(`cxl-jw-player-${mediaId}-position`, this._position);
+      });
     }
 
     _playbackRate() {
@@ -50,7 +57,7 @@ export function StateMixin(BaseClass) {
       });
     }
 
-    _position() {
+    _setupPosition() {
       if (this._mediaId) {
         this._setPosition();
       }
@@ -70,10 +77,10 @@ export function StateMixin(BaseClass) {
 
     _setPosition() {
       const mediaId = this._mediaId || this._jwPlayer.getPlaylistItem().mediaid;
-      const position = localStorage.getItem(`cxl-jw-player-${mediaId}-position`);
+      this._position = localStorage.getItem(`cxl-jw-player-${mediaId}-position`);
 
       this._jwPlayer.on('firstFrame', () => {
-        this._jwPlayer.seek(Number(position));
+        this._jwPlayer.seek(Number(this._position));
       });
     }
   }
