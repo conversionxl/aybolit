@@ -33,19 +33,21 @@ export const template = function () {
                   <div class="captions padding scroll">
                     ${this._tracks.map(
                       (track, index) =>
-                        html`${track.isChapter
-                          ? html`<h2 @click=${this._onCaptionClick} data-index=${index}>
-                              ${track.data.text}
-                            </h2>`
-                          : html`
-                              <span
-                                @click=${this._onCaptionClick}
-                                ?active=${this._currentTrack === index}
-                                data-index=${index}
-                              >
-                                ${track.data.text}
-                              </span>
-                            `}`
+                        html`${track.data.text
+                          ? html`${track.isChapter
+                              ? html`<h2 @click=${this._onCaptionClick} data-index=${index}>
+                                  ${track.data.text}
+                                </h2>`
+                              : html`
+                                  <span
+                                    @click=${this._onCaptionClick}
+                                    ?active=${this._currentTrack === index}
+                                    data-index=${index}
+                                  >
+                                    ${track.data.text}
+                                  </span>
+                                `}`
+                          : nothing}`
                     )}
                   </div>
                 `
