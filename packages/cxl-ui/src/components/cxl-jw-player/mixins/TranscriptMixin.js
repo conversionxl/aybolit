@@ -9,6 +9,10 @@ export function TranscriptMixin(BaseClass) {
 
     _mark;
 
+    _searchIndex = 0;
+
+    _searchResults = [];
+
     @property({ reflect: true, type: Boolean }) captions = false;
 
     @property({ attribute: 'has-captions', reflect: true, type: Boolean }) hasCaptions = false;
@@ -96,16 +100,19 @@ export function TranscriptMixin(BaseClass) {
       this._tracks.forEach(({ data: { end, start } }, index) => {
         if (start <= position && end >= position) {
           if (this.shouldScroll) {
-            const el = this.renderRoot.querySelector(`[data-index="${index}"]`);
-            if (el) {
-              const container = this.renderRoot.querySelector('.captions');
-              container.scrollTop = el.offsetTop - container.offsetTop;
-            }
+            this._scrollTo(this.renderRoot.querySelector(`[data-index="${index}"]`));
           }
 
           this._currentTrack = index;
         }
       });
+    }
+
+    _scrollTo(element) {
+      if (this.shouldScroll) {
+        const container = this.renderRoot.querySelector('.captions');
+        container.scrollTop = element.offsetTop - container.offsetTop;
+      }
     }
 
     _search() {
@@ -123,6 +130,8 @@ export function TranscriptMixin(BaseClass) {
       } else {
         this._isSearchMinimumLength = false;
       }
+
+      this._searchResults = this.shadowRoot.querySelectorAll('mark');
     }
 
     async _setup() {
@@ -131,6 +140,20 @@ export function TranscriptMixin(BaseClass) {
       this._setupTranscript();
 
       this._jwPlayer.on('playlistItem', this._setupTranscript.bind(this));
+
+      this.shadowRoot.querySelector('vaadin-text-field').addEventListener('keyup', (e) => {
+        if(e.key === 'Enter') {
+          if(this._searchResults.length) {
+            if(this._searchIndex === this._searchResults.length - 1) {
+              this._searchIndex = 0;
+            }
+
+            this._scrollTo(this._searchResults[this._searchIndex]);
+
+            this._searchIndex++;
+          }
+        }
+      });
     }
 
     async _setupTranscript() {
