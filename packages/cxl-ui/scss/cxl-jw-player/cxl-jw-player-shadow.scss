@@ -1,5 +1,5 @@
 @use '~@conversionxl/cxl-lumo-styles/scss/mixins';
-@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use '~@conversionxl/cxl-lumo-styles/scss/mq';
 
 :host {
   background-color: var(--wp--preset--color--white);
@@ -41,12 +41,15 @@
 
   mark {
     color: #fff;
-    background-color: var(--lumo-primary-color);
+    background-color: var(--lumo-shade-50pct);
+
+    &.search-active {
+      background-color: var(--lumo-primary-color);
+    }
   }
 
   span {
     padding: var(--lumo-space-xs) calc(var(--lumo-space-xs) / 2);
-    border-radius: var(--lumo-space-xs);
   }
 }
 

@@ -132,6 +132,17 @@ export function TranscriptMixin(BaseClass) {
       }
 
       this._searchResults = this.shadowRoot.querySelectorAll('mark');
+
+      this._setActive(this._searchResults[0]);
+
+      this._searchIndex++;
+    }
+
+    _setActive(el) {
+      this._searchResults.forEach((el) => el.classList.remove('search-active'));
+      el.classList.add('search-active');
+
+      this._scrollTo(el);
     }
 
     async _setup() {
@@ -142,13 +153,13 @@ export function TranscriptMixin(BaseClass) {
       this._jwPlayer.on('playlistItem', this._setupTranscript.bind(this));
 
       this.shadowRoot.querySelector('vaadin-text-field').addEventListener('keyup', (e) => {
-        if(e.key === 'Enter') {
-          if(this._searchResults.length) {
-            if(this._searchIndex === this._searchResults.length - 1) {
+        if ('Enter' === e.key) {
+          if (this._searchResults.length) {
+            if (this._searchIndex === this._searchResults.length - 1) {
               this._searchIndex = 0;
             }
 
-            this._scrollTo(this._searchResults[this._searchIndex]);
+            this._setActive(this._searchResults[this._searchIndex]);
 
             this._searchIndex++;
           }
