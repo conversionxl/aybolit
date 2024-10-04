@@ -5,7 +5,6 @@ import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import '@vaadin/button';
 import '@vaadin/dialog';
 import './cxl-time.js';
-import './cxl-jw-player/index.js';
 import { dialogFooterRenderer, dialogRenderer } from '@vaadin/dialog/lit.js';
 import cxlCourseDialogGlobalStyles from '../styles/global/cxl-course-dialog-css.js';
 
