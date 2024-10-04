@@ -7,9 +7,9 @@ export const template = function () {
   return html`
     ${this.ready
       ? html`
-          <div class="grid height-100" ?hidden=${this.captions} id="container">
+          <div class="grid height-100" id="container">
             <slot></slot>
-            <div class="center gap padding search">
+            <div class="center gap padding search" ?hidden=${!this.captions}>
               <vaadin-text-field
                 @input=${this._debouncedSearch}
                 clear-button-visible
@@ -28,7 +28,7 @@ export const template = function () {
                 label="Scroll"
               ></vaadin-checkbox>
             </div>
-            <div class="captions padding scroll">
+            <div class="captions padding scroll" ?hidden=${!this.captions}>
               ${this._tracks.map(
                 (track, index) =>
                   html`${track.data.text
