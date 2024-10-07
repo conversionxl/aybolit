@@ -44,11 +44,11 @@
   }
 
   mark {
-    color: #fff;
-    background-color: var(--lumo-shade-50pct);
+    background-color: var(--lumo-shade-10pct);
 
     &.search-active {
       background-color: var(--lumo-primary-color);
+      color: #fff;
     }
   }
 
