@@ -5,7 +5,6 @@ import { registerGlobalStyles } from '@conversionxl/cxl-lumo-styles/src/utils';
 import '@vaadin/button';
 import '@vaadin/dialog';
 import './cxl-time.js';
-import './jw-player/index.js';
 import { dialogFooterRenderer, dialogRenderer } from '@vaadin/dialog/lit.js';
 import cxlCourseDialogGlobalStyles from '../styles/global/cxl-course-dialog-css.js';
 
@@ -64,14 +63,14 @@ export class CXLCourseDialogElement extends LitElement {
     </div>
     <section>
       ${this.video
-        ? html` <jw-player
+        ? html` <cxl-jw-player
             ?captions=${this.video.captions}
             media-id=${this.video.mediaId}
             minimum-search-length=${this.video.minimumSearchLength}
             player-id=${this.video.playerId}
             playlist-id=${this.video.playlistId}
             plugin-path="${this.video.pluginPath}"
-          ></jw-player>`
+          ></cxl-jw-player>`
         : ''}
       <div class="content">
         <p>${this.course.description}</p>

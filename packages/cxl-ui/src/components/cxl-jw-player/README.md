@@ -1,15 +1,16 @@
-# JW Player
+# CXL JW Player
 
 ## Usage
 
 ```
-    <jw-player
+    <cxl-jw-player
+      is-public
       captions
       media-id="fZ0XiGdb"
       minimum-search-length="3"
-      player-id="5CFJNXKb"
+      library-id="5CFJNXKb"
       plugin-path="https://cxl.com/institute/wp-content/plugins/cxl-jwplayer/"
-    ></jw-player>
+    ></cxl-jw-player>
 ```
 
 ## Features:
@@ -61,13 +62,13 @@ Order is important as each mixin extends the previous one. In this case, `MixinT
 
 There are currently two methods which are important to the lifecycle of the component:
 
-`__setup()`
+`_setup()`
 
-This method is async and called when the component is first created. You must call `await super.__setup()` at the beginning of this method to make sure each parent class's setup method is called.
+This method is async and called when the component is first created. You must call `await super._setup()` at the beginning of this method to make sure each parent class's setup method is called.
 
-`__onTimeListener()`
+`_onTimeListener()`
 
-This method is async and called when the player's time changes. As with `__setup()`, you must call `await super.__onTimeListener()` at the beginning of this method.
+This method is async and called when the player's time changes. As with `_setup()`, you must call `await super._onTimeListener()` at the beginning of this method.
 
 Current mixins available for use:
 

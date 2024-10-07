@@ -1,0 +1,35 @@
+cxl-jw-player {
+  &[wide] {
+    .jw-nextup-cta-mobile {
+      display: none;
+    }
+  }
+
+  &:not([wide]) {
+    .jw-nextup-cta {
+      display: none;
+    }
+  }
+
+  .jw-nextup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .jw-nextup-cta,
+    .jw-nextup-cta-mobile {
+      a {
+        pointer-events: all;
+      }
+    }
+
+    .jw-nextup-cta {
+      max-width: 400px;
+      width: 64%;
+
+      vaadin-button {
+        width: 100%;
+      }
+    }
+  }
+}
