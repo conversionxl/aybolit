@@ -3,7 +3,7 @@
 
 html {
   // Variables.
-  --cxl-content-max-width: 48em;
+  --cxl-content-max-width: 48rem;
   --cxl-content-max-width-wide: calc(var(--cxl-content-max-width) * 2);
   --cxl-wrap-padding: var(--lumo-space-m);
   --cxl-hero-content-max-width: 650px;
@@ -353,16 +353,26 @@ vaadin-context-menu-item[theme~="cxl-context-menu-section-header"] {
 }
 
 /**
- * Increase blog font size
+ * Increase font size
  * @see https://app.clickup.com/t/86b1dy579
  * @since 2024.08.12
  */
-body.theme-conversionxl-better {
-	--cxl-content-max-width: 48rem;
+.archive-description,
+.entry-content,
+.entry-summary {
+  font-size: var(--lumo-font-size-l);
+}
 
-  .archive-description,
-  .entry-content,
-  .entry-summary {
+vaadin-details {
+  h4 {
+    font-weight: 500;
+  }
+
+  .detail-content {
     font-size: var(--lumo-font-size-l);
+
+    ul {
+      margin: 0;
+    }
   }
 }

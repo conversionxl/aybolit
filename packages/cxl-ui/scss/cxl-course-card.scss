@@ -1,10 +1,11 @@
 /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix -- some of these are necessary for line-clamp implementation */
-/* stylelint-disable declaration-no-important  */
+/* stylelint-disable declaration-no-important, order/properties-order */
 
 @use "~@conversionxl/cxl-ui/scss/mixins";
 @use "~@conversionxl/cxl-lumo-styles/scss/typography";
 
 :host {
+  font-size: var(--lumo-font-size-m);
   height: 280px;
 }
 
