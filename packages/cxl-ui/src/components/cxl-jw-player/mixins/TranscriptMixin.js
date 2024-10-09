@@ -84,7 +84,13 @@ export function TranscriptMixin(BaseClass) {
         });
       }
 
-      return tracks;
+      const filteredTracks = tracks.map((track) => {
+        track.data.text = track.data.text.replace("<v ->", "").replace("</v>", "");
+
+        return track;
+      });
+        
+      return filteredTracks;
     }
 
     _onCaptionClick(e) {

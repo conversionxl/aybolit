@@ -131,7 +131,15 @@ export function BaseMixin(BaseClass) {
       const { file } = chapters.length > 0 ? chapters[0] : '';
       const response = await (await fetch(file)).text();
 
-      return parseSync(response);
+      let result = [];
+
+      try {
+        result = parseSync(response);
+      } catch (e) {
+        console.error(e);
+      }
+
+      return result;
     }
 
     async _getMedia() {
