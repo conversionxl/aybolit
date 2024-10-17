@@ -2,6 +2,7 @@ node_modules
 lerna-debug.log
 packages/**/src/**/styles/**/*-css.js
 packages/**/pkg
+packages/cxl-lumo-styles/dist
 coverage
 tmp
 test/visual/screenshots
