@@ -17,38 +17,44 @@ export default {
  * @returns {TemplateResult}
  * @constructor
  */
-export const VaadinButton = ({ Label }) => html`
-  <style>
-    ${cxlLoadingStyles}
-  </style>
-  <h6>Basic</h6>
-  <vaadin-button>${Label}</vaadin-button>
-  <h6>Disabled</h6>
-  <vaadin-button disabled>${Label}</vaadin-button>
-  <h6>Primary</h6>
-  <vaadin-button theme="primary">${Label}</vaadin-button>
-  <h6>Primary Contrast</h6>
-  <vaadin-button theme="primary contrast">${Label}</vaadin-button>
-  <h6>Primary Pending</h6>
-  <vaadin-button pending theme="primary">${Label}</vaadin-button>
-  <h6>Secondary</h6>
-  <vaadin-button>${Label}</vaadin-button>
-  <h6>Secondary Pending</h6>
-  <vaadin-button pending theme="secondary">${Label}</vaadin-button>
-  <h6>Tertiary</h6>
-  <vaadin-button theme="tertiary">${Label}</vaadin-button>
-  <h6>Tertiary inline</h6>
-  <vaadin-button theme="tertiary-inline">${Label}</vaadin-button>
-  <h6>Linkedin</h6>
-  <vaadin-button theme="linkedin">${Label} <vaadin-icon icon="cxl:linkedin" slot="prefix"></vaadin-icon></vaadin-button>
-  <h6>Upstream</h6>
-  <p>
-    Also see
-    <a href="https://vaadin.com/components/vaadin-button/html-examples"
-      >https://vaadin.com/components/vaadin-button/html-examples</a
-    >
-  </p>
-`;
+export const VaadinButton = ({ Label }) => {
+  document.body.removeAttribute('unresolved');
+
+  return html`
+    <style>
+      ${cxlLoadingStyles}
+    </style>
+    <h6>Basic</h6>
+    <vaadin-button>${Label}</vaadin-button>
+    <h6>Disabled</h6>
+    <vaadin-button disabled>${Label}</vaadin-button>
+    <h6>Primary</h6>
+    <vaadin-button theme="primary">${Label}</vaadin-button>
+    <h6>Primary Contrast</h6>
+    <vaadin-button theme="primary contrast">${Label}</vaadin-button>
+    <h6>Primary Pending</h6>
+    <vaadin-button pending theme="primary">${Label}</vaadin-button>
+    <h6>Secondary</h6>
+    <vaadin-button>${Label}</vaadin-button>
+    <h6>Secondary Pending</h6>
+    <vaadin-button pending theme="secondary">${Label}</vaadin-button>
+    <h6>Tertiary</h6>
+    <vaadin-button theme="tertiary">${Label}</vaadin-button>
+    <h6>Tertiary inline</h6>
+    <vaadin-button theme="tertiary-inline">${Label}</vaadin-button>
+    <h6>Linkedin</h6>
+    <vaadin-button theme="linkedin"
+      >${Label} <vaadin-icon icon="cxl:linkedin" slot="prefix"></vaadin-icon
+    ></vaadin-button>
+    <h6>Upstream</h6>
+    <p>
+      Also see
+      <a href="https://vaadin.com/components/vaadin-button/html-examples"
+        >https://vaadin.com/components/vaadin-button/html-examples</a
+      >
+    </p>
+  `;
+};
 
 Object.assign(VaadinButton, {
   args: {
