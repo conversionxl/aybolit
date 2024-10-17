@@ -1,0 +1,11 @@
+@import "block-editor/color";
+@import "block-editor/sizing";
+@import "block-editor/spacing";
+@import "block-editor/style";
+@import "block-editor/typography";
+@import "color";
+@import "typography";
+
+.has-cxl-red-color {
+  color: var(--lumo-primary-color);
+}
