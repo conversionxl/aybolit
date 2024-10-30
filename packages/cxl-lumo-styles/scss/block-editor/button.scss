@@ -1,0 +1,32 @@
+.wp-block-button {
+  all: unset;
+
+  /* Sizing */
+  --lumo-button-size: var(--lumo-size-m);
+  min-width: calc(var(--lumo-button-size) * 2);
+  height: var(--lumo-button-size);
+  padding: 0 calc(var(--lumo-button-size) / 3 + var(--lumo-border-radius-m) / 2);
+  margin: var(--lumo-space-xs) 0;
+  box-sizing: border-box;
+  /* Style */
+  font-family: var(--lumo-font-family);
+  font-size: var(--lumo-font-size-m);
+  font-weight: 500;
+  color: var(--_lumo-button-primary-color, var(--lumo-primary-contrast-color));
+  background-color: var(--_lumo-button-primary-background-color, var(--lumo-primary-color));
+  border-radius: var(--lumo-border-radius-m);
+  cursor: var(--lumo-clickable-cursor);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  display: flex;
+  align-items: center;
+
+  .wp-block-button__link {
+    background-color: unset;
+    color: unset;
+    font-size: unset;
+    padding: unset;
+  }
+}
