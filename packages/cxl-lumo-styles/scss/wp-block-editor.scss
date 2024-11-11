@@ -9,3 +9,15 @@
 .has-cxl-red-color {
   color: var(--lumo-primary-color);
 }
+
+/* Fix resource editing display */
+// stylelint-disable-next-line selector-class-pattern
+.components-modal__content {
+  display: flex;
+  flex-direction: column;
+
+  // stylelint-disable-next-line selector-class-pattern
+  div:not(.components-modal__header) {
+    flex: 1;
+  }
+}
