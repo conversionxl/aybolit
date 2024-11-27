@@ -33,9 +33,19 @@
       .container {
         justify-content: space-between;
 
+        .cxl-logo{
+          margin-left: 0;
+          padding-left: 0;
+        }
+
         .search-button {
           width: 140px;
           color: var(--lumo-shade);
+        }
+
+        vaadin-menu-bar::part(overflow-button) {
+          margin-right: 0;
+          padding-right: 0;
         }
       }
     }
