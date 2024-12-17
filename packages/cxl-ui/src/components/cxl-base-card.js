@@ -54,7 +54,7 @@ export class CXLBaseCardElement extends LitElement {
         ${this.theme && this._tagsHasChildren ? this.separator : ''}
         <slot name="tags" @slotchange=${this._slotHasChildren}></slot>
         ${this.new ? html`${this.theme ? this.separator : ''}<span class="tag new">NEW</span>` : ''}
-        ${this.locked ? html`${this.theme ? this.separator : ''}<span><vaadin-icon class="icon-lock" icon="vaadin:lock"><vaadin-tooltip slot="tooltip" text="${this.lockedMessage}"></vaadin-tooltip></vaadin-icon></span>` : ''}
+        ${this.locked ? html`${this.theme && !(this.new && this.locked) ? this.separator : ''}<span id="locked"><vaadin-icon class="icon-lock" icon="vaadin:lock"><vaadin-tooltip slot="tooltip" text="${this.lockedMessage}"></vaadin-tooltip></vaadin-icon></span>` : ''}
       </div>
     `;
   }

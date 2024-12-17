@@ -7,6 +7,15 @@
 :host {
   font-size: var(--lumo-font-size-m);
   height: 280px;
+
+  #locked {
+    display: flex;
+
+    vaadin-icon {
+      height: var(--lumo-icon-size-s);
+      width: var(--lumo-icon-size-s)
+    }
+  }
 }
 
 :host(:hover) {
