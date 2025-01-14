@@ -139,7 +139,7 @@ export class CXLMarketingNavElement extends LitElement {
         const { name, items } = group;
 
         return html`
-          <nav id="menu-${name}-items" ?minimal=${this.minimal} ?wide=${this.wide}>
+          <nav id="menu-${name}-items" ?minimal=${this.minimal} part="nav" ?wide=${this.wide}>
             <div class="container">
               ${this.logoBar === name || !this.wide
                 ? html`
@@ -193,12 +193,12 @@ export class CXLMarketingNavElement extends LitElement {
   _renderSearch(group) {
     /**
      * Disable search on mobile.
-     * 
+     *
      * @since 2024.02.14
      * @see https://app.clickup.com/t/86azbhf2a
      */
     return '';
-    
+
     // eslint-disable-next-line no-unreachable
     if (this.minimal || 'primary' !== group.name) return '';
 
@@ -286,7 +286,7 @@ export class CXLMarketingNavElement extends LitElement {
 
       if (classes?.includes('menu-item-help')) {
         menuItemElement.addEventListener('click', () => {
-          Intercom('show');
+          window.Intercom('show');
         });
       }
     }
