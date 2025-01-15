@@ -131,3 +131,8 @@ vaadin-context-menu-list-box {
     display: none;
   }
 }
+
+cxl-app-layout[layout="1c-w"] cxl-marketing-nav::part(nav) {
+  max-width: var(--cxl-content-max-width-wide);
+  margin: 0 auto;
+}
