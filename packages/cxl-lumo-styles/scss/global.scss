@@ -118,8 +118,6 @@ img {
 
 ol,
 ul {
-  padding-left: var(--lumo-space-l);
-
   .entry-content & {
     font-family: var(--cxl-lumo-font-secondary);
   }
@@ -373,6 +371,34 @@ vaadin-details {
 
     ul {
       margin: 0;
+    }
+  }
+}
+
+/**
+ * Improve the appearance of the list items.
+ *
+ * @see https://app.clickup.com/t/86b3kq1cc
+ * @since 2025.01.22
+ */
+article {
+  ol, ul {
+    padding: unset;
+    list-style-type: none;
+
+    // stylelint-disable-next-line selector-max-type 
+    li {
+      display: flex;
+      align-items: center;
+
+      // stylelint-disable-next-line selector-max-type 
+      &::before {
+        padding: 0 var(--lumo-space-l);
+        font-size: var(--lumo-font-size-xl);
+        line-height: 0;
+        color: var(--lumo-primary-color);
+        content: "•";
+      }
     }
   }
 }
