@@ -376,3 +376,32 @@ vaadin-details {
     }
   }
 }
+
+/**
+ * Improve the appearance of list items.
+ *
+ * @see https://app.clickup.com/t/86b3kq1cc
+ * @since 2025.01.22
+ * 
+ */
+/* stylelint-disable selector-class-pattern */
+.singular-page:not(.slug-blog):not(.woocommerce-page) {
+  .entry-content, .archive-description {
+    ul:not(.gform_fields):not(.glide__slides) {
+      padding: unset;
+
+      li {
+        padding-left: var(--lumo-space-l);
+        margin-left: var(--lumo-space-xl);
+
+        &::marker {
+          font-size: var(--lumo-font-size-xl);
+          line-height: 0;
+          color: var(--lumo-primary-color);
+          content: '\25CF';
+        }
+      }
+    }
+  }
+}
+/* stylelint-enable selector-class-pattern */
