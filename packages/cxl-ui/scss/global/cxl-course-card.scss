@@ -1,9 +1,19 @@
 cxl-tabs-slider {
   cxl-course-card[theme~="course"] {
+    &::part(tags) {
+      gap: 0;
+    }
+
     &::part(name) {
       -webkit-line-clamp: 3;
 
-      font-size: var(--lumo-font-size-m);
+      font-size: var(--lumo-font-size-l);
+      font-weight: 900;
+    }
+
+    &::part(separator),
+    &::part(theme) {
+      display: none;
     }
   }
 }
