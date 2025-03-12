@@ -136,3 +136,26 @@ cxl-app-layout[layout="1c-w"] cxl-marketing-nav::part(nav) {
   max-width: var(--cxl-content-max-width-wide);
   margin: 0 auto;
 }
+
+vaadin-context-menu-item {
+  /* stylelint-disable-next-line selector-no-qualifying-type */
+  &.section-header {
+    pointer-events: none;
+
+    a,
+    span {
+      /* Copy styles from H6 */
+      margin-top: 0;
+      margin-bottom: 0;
+      font-family: var(--cxl-lumo-font-ternary);
+      font-size: var(--lumo-font-size-m);
+      font-weight: 400;
+      line-height: var(--cxl-lumo-line-height-xs);
+      color: var(--lumo-header-text-color);
+      text-wrap: balance;
+      text-wrap: pretty;
+      letter-spacing: 0.03em;
+      word-break: auto-phrase;
+    }
+  }
+}
