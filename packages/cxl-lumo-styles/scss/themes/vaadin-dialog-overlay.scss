@@ -1,20 +1,14 @@
 :host([theme~="cxl-marketing-nav-search"]) {
-  left: 0;
-  right: 0;
+  top: calc(var(--cxl-marketing-nav-height) * 2);
+  bottom: unset;
 
   [part="content"] {
     padding: var(--lumo-space-l);
   }
 
   @media (min-width: 568px) {
-    top: calc(2 * var(--cxl-marketing-nav-height));
-    bottom: unset;
-    
-    [part="backdrop"] {
-      opacity: 0;
-    }
-
     [part="content"] {
+      min-width: calc(100vw / 2);
       padding: var(--lumo-space-l);
     }
   }
