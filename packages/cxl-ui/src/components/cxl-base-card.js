@@ -12,7 +12,7 @@ export class CXLBaseCardElement extends LitElement {
     return [cxlBaseCardStyles];
   }
 
-  separator = html`<span> | </span>`;
+  separator = html`<span part="separator"> | </span>`;
 
   @state() _tagsHasChildren = false;
 
@@ -20,7 +20,8 @@ export class CXLBaseCardElement extends LitElement {
 
   @property({ type: Boolean, reflect: true }) locked;
 
-  @property({ type: String, attribute: 'locked-message' }) lockedMessage = 'Purchase an All-Access subscription to unlock this course.';
+  @property({ type: String, attribute: 'locked-message' }) lockedMessage =
+    'Purchase an All-Access subscription to unlock this course.';
 
   @property({ type: String }) theme = '';
 
@@ -49,12 +50,20 @@ export class CXLBaseCardElement extends LitElement {
 
   _renderHeaderTags() {
     return html`
-      <div class="tags">
-        ${this.theme ? html`<span class="tag">${this.theme}</span>` : ''}
+      <div class="tags" part="tags">
+        ${this.theme ? html`<span class="tag" part="theme">${this.theme}</span>` : ''}
         ${this.theme && this._tagsHasChildren ? this.separator : ''}
         <slot name="tags" @slotchange=${this._slotHasChildren}></slot>
         ${this.new ? html`${this.theme ? this.separator : ''}<span class="tag new">NEW</span>` : ''}
-        ${this.locked ? html`${this.theme && !(this.new && this.locked) ? this.separator : ''}<span id="locked"><vaadin-icon class="icon-lock" icon="vaadin:lock"><vaadin-tooltip slot="tooltip" text="${this.lockedMessage}"></vaadin-tooltip></vaadin-icon></span>` : ''}
+        ${this.locked
+          ? html`${this.theme && !(this.new && this.locked) ? this.separator : ''}<span id="locked"
+                ><vaadin-icon class="icon-lock" icon="vaadin:lock"
+                  ><vaadin-tooltip
+                    slot="tooltip"
+                    text="${this.lockedMessage}"
+                  ></vaadin-tooltip></vaadin-icon
+              ></span>`
+          : ''}
       </div>
     `;
   }
@@ -71,7 +80,9 @@ export class CXLBaseCardElement extends LitElement {
             ? html`<cxl-time time=${this.time} ?show-icon=${this.showTimeIcon}></cxl-time>`
             : nothing}
           ${this.instructor
-            ? html`<div class="instructor"><span class="instructor-preposition">By: </span>${this.instructor}</div>`
+            ? html`<div class="instructor">
+                <span class="instructor-preposition">By: </span>${this.instructor}
+              </div>`
             : nothing}
         </div>
       `;
