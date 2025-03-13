@@ -376,3 +376,20 @@ vaadin-details {
     }
   }
 }
+
+#search-form {
+  display: flex;
+  width: 100%;
+
+  /* stylelint-disable-next-line selector-max-id */
+  #search-input {
+    flex: 1;
+    padding: 0 var(--lumo-space-s);
+    margin-right: var(--lumo-space-s);
+    box-shadow: unset;
+  }
+
+  vaadin-button {
+    margin: unset;
+  }
+}
