@@ -146,7 +146,7 @@ export class CXLCredentialElement extends LitElement {
     }
 
     if (changes.has('type')) {
-      this.theme += ` ${this.type === 'minidegree' ? 'dark' : 'light'}`;
+      this.theme += ` ${['minidegree', 'training'].includes(this.type) ? 'dark' : 'light'}`;
     }
 
     if (changes.has('scale') || changes.has('correctionFactor') || changes.has('codeScale')) {
