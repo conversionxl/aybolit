@@ -19,6 +19,10 @@
   ::slotted(.vaadin-context-menu-item--description) {
     text-transform: none;
   }
+
+  ::slotted(*:not(.vaadin-context-menu-item--description)) {
+    font-weight: 600 !important; /* stylelint-disable-line declaration-no-important */
+  }
 }
 
 :host([theme~="cxl-marketing-nav"].has-description) {
