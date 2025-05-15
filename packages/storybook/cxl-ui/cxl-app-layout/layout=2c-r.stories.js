@@ -358,7 +358,7 @@ export const CXLAppLayout2cr = () => {
         <vaadin-button theme="primary"
           >Complete lesson <vaadin-icon icon="vaadin:check-circle" slot="suffix"></vaadin-icon
         ></vaadin-button>
-        <vaadin-button>Secondary action</vaadin-button>
+        <vaadin-button theme="secondary">Secondary action</vaadin-button>
         <vaadin-context-menu selector="vaadin-button" open-on="click" theme="cxl-action-bar-context-menu">
           <template>
             <vaadin-context-menu-list-box theme="cxl-action-bar-context-menu">
