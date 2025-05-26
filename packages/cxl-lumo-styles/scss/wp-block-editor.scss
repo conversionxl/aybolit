@@ -7,6 +7,43 @@
 @import "color";
 @import "typography";
 
+
+.has-cxl-black-background-color {
+  background-color: var(--cxl-brand-color-black);
+}
+
+.has-cxl-beige-background-color {
+  background-color: var(--cxl-b2b-redesign-beige);
+}
+
+.has-cxl-red-background-color {
+  background-color: var(--lumo-primary-color);
+}
+
+.has-cxl-teal-background-color {
+  background-color: var(--cxl-b2b-redesign-teal);
+}
+
+.has-cxl-white-background-color {
+  background-color: var(--cxl-brand-color-white);
+}
+
+.has-cxl-black-color {
+  color: var(--cxl-brand-color-black);
+}
+
+.has-cxl-beige-color {
+  color: var(--cxl-b2b-redesign-beige);
+}
+
 .has-cxl-red-color {
   color: var(--lumo-primary-color);
+}
+
+.has-cxl-teal-color {
+  color: var(--cxl-b2b-redesign-teal);
+}
+
+.has-cxl-white-color {
+  color: var(--cxl-brand-color-white);
 }
