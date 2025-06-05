@@ -93,6 +93,11 @@ cxl-app-layout {
       &:first-child {
         margin-left: 0;
       }
+
+      &[theme~="cxl-action-bar-context-menu"] vaadin-button {
+        vertical-align: middle;
+      }
+
     }
 
     > div:not(.pure-hidden-sm .pure-hidden-xs),

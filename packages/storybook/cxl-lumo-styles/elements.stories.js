@@ -35,17 +35,20 @@ export const VaadinButton = ({ Label }) => {
     <h6>Primary Pending</h6>
     <vaadin-button pending theme="primary">${Label}</vaadin-button>
     <h6>Secondary</h6>
-    <vaadin-button>${Label}</vaadin-button>
+    <vaadin-button theme="secondary">${Label}</vaadin-button>
+    <h6>Secondary Contrast</h6>
+    <vaadin-button theme="secondary contrast">${Label}</vaadin-button>
     <h6>Secondary Pending</h6>
     <vaadin-button pending theme="secondary">${Label}</vaadin-button>
     <h6>Tertiary</h6>
     <vaadin-button theme="tertiary">${Label}</vaadin-button>
-    <h6>Tertiary inline</h6>
-    <vaadin-button theme="tertiary-inline">${Label}</vaadin-button>
+    <h6>Tertiary Contrast</h6>
+    <vaadin-button theme="tertiary contrast">${Label}</vaadin-button>
     <h6>Linkedin</h6>
     <vaadin-button theme="linkedin"
       >${Label} <vaadin-icon icon="cxl:linkedin" slot="prefix"></vaadin-icon
     ></vaadin-button>
+
     <h6>Upstream</h6>
     <p>
       Also see

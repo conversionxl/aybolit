@@ -87,6 +87,7 @@ slot[name="action-bar"]::slotted(div) {
   align-items: center;
   justify-content: flex-end;
   box-shadow: var(--lumo-box-shadow-m);
+  gap: var(--lumo-space-m);
 }
 
 /**

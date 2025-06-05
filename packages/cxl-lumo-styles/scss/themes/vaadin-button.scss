@@ -11,6 +11,7 @@
 
 :host-context(.menu-item-cta) {
   --lumo-button-size: var(--lumo-size-s);
+  margin: var(--lumo-space-xs) var(--lumo-space-xs) var(--lumo-space-s);
 }
 
 :host([theme="linkedin"]) {
@@ -20,4 +21,24 @@
 
 :host([theme="linkedin"]:hover)::before {
   opacity: 0.05;
+}
+
+:host([theme~="primary"]),
+:host([theme~="secondary"]),
+:host([theme="linkedin"]) {
+  border: 2px solid var(--lumo-contrast);
+  border-radius: 10px;
+  box-shadow: 3px 4px 0 var(--lumo-contrast);
+  font-size: var(--lumo-font-size-l);
+  font-weight: 600;
+}
+
+:host([theme~="contrast"][theme~="primary"]) {
+  background-color: var(--cxl-b2b-redesign-teal) !important;
+  color: var(--cxl-brand-color-black);
+}
+
+:host([theme~="secondary"]) {
+  background-color: var(--lumo-base-color);
+  color: var(--lumo-contrast);
 }
