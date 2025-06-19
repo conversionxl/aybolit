@@ -393,3 +393,41 @@ vaadin-details {
     margin: unset;
   }
 }
+
+cxl-app-layout[theme~="cxl-ui-neo-brutal"] {
+  h1.entry-title {
+    font-weight: 900;
+  }
+
+  input {
+    border: 2px solid var(--cxl-brand-color-black);
+    border-radius: var(--lumo-border-radius-l);
+    box-shadow: 3px 4px 0 var(--lumo-contrast) !important;
+    font-size: var(--lumo-font-size-l);
+  }
+
+  .entry-author {
+    strong { font-size: var(--lumo-font-size-xxl); font-weight: 900; }
+    .thumbnail { border: 3px solid var(--cxl-brand-color-black); }
+  }
+
+  .search-submit {
+    font-size: var(--lumo-font-size-l);
+    min-width: 60px;
+    padding: var(--lumo-space-m) 0;
+    border-radius: var(--lumo-border-radius-m);
+
+    vaadin-icon {
+      background: var(--cxl-brand-color-white);
+      border-radius: 50%;
+      color: var(--lumo-primary-color);
+      height: 20px;
+      vertical-align: text-bottom;
+      width: 20px;
+    }
+  }
+
+  [slot="action-bar"] {
+    background-color: var(--cxl-b2b-redesign-beige);
+  }
+}

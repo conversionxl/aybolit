@@ -60,7 +60,7 @@ export class CXLAppLayoutElement extends LitElement {
 
   // @TODO: Improve media query using shared state, possibly @lit/Context (https://lit.dev/docs/data/context/)
   // Device Detector media query.
-  _wideMediaQuery = '(min-width: 528px)';
+  _wideMediaQuery = '(min-width: 1024px)';
 
   static get styles() {
     return [cxlAppLayoutStyles];
