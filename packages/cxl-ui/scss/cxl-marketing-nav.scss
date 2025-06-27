@@ -130,3 +130,8 @@
     display: none;
   }
 }
+
+// cxl-app-layout[theme~="cxl-ui-neo-brutal"]
+:host-context(cxl-app-layout[theme~="cxl-ui-neo-brutal"]) {
+  background-color: var(--cxl-b2b-redesign-beige);
+}

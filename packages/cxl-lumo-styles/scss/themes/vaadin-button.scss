@@ -27,7 +27,7 @@
 :host([theme~="secondary"]),
 :host([theme="linkedin"]) {
   border: 2px solid var(--cxl-brand-color-black);
-  border-radius: 10px;
+  border-radius: var(--lumo-border-radius-l);
   box-shadow: 3px 4px 0 var(--lumo-contrast);
   font-size: var(--lumo-font-size-l);
   font-weight: 600;
