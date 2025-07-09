@@ -146,19 +146,3 @@
     }
   }
 }
-
-/**
- * Breakpoint comes from WordPress columns block. Using this value
- * is the simplest solution for a hero section layout.
- *
- * @see https://cxlworld.slack.com/archives/C01JABH8AHX/p1714384594016109?thread_ts=1713699357.038669&cid=C01JABH8AHX
- */
-@media only screen and (min-width: 782px) {
-  :host(#view-hero.view-hero-modern),
-  :host([theme~="cxl-hero"].view-hero-modern) {
-    @include mixins.wide-background();
-    @include mixins.extend-background-right();
-    @include mixins.wide-background-hero();
-    @include mixins.wide-background-hero-image();
-  }
-}
