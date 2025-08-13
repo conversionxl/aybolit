@@ -127,3 +127,10 @@ slot[name="action-bar"]::slotted(div) {
     }
   }
 }
+
+:host([theme~="cxl-ui-neo-brutal"][layout^="2c-r"]),
+:host([theme~="cxl-ui-neo-brutal"][layout^="2c-l"]) { background-color: var(--cxl-b2b-redesign-beige);
+  #main, main {
+    background-color: var(--cxl-b2b-redesign-beige);
+  }
+}
