@@ -1,0 +1,501 @@
+[
+  {
+    "id": 442534,
+
+    "title": {
+      "raw": "Set up Goal Tracking in Google Ads (longer title test 123 456 789)"
+    },
+
+    "featured_media": 1497178,
+
+    "categories_names": [
+      "Marketing", "Paid Advertising", "Tracking", "Goals", "Google Ads"
+    ],
+
+    "breadcrumbs": ["paid-advertising", "tracking", "goals", "google-ads"],
+
+    "versions": [
+      {
+        "version": "1234",
+        "author": "Samuel Jackson",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 1234: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 1234: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 1234: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 1234: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          },
+          {
+            "id": 4,
+            "title": "Version 1234: Set up the tag to add to your website."
+          },
+          {
+            "id": 5,
+            "title": "Version 1234: Create your App conversions."
+          },
+          {
+            "id": 6,
+            "title": "Phone Calls Conversions"
+          },
+          {
+            "id": 7,
+            "title": "Go to your Conversion tab and check Tracking Status to ensure the tracking is working."
+          },
+          {
+            "id": 8,
+            "title": "Periodically check your Conversions section to see if your goal tracking still has a status of Recording Conversions or No Recent Conversions."
+          }
+        ]
+      },
+
+      {
+        "version": "5679",
+        "author": "Joe Wallnut",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5679: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5679: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5679: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5679: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5680",
+        "author": "Hanna Marks",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5680: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5680: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5680: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5680: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5777",
+        "author": "Barbara Rowling-Smith",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5777: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5777: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5777: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5777: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5888",
+        "author": "Nathan Mikes",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5888: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5888: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5888: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5888: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "5999",
+        "author": "George W. Bash",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 5999: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 5999: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 5999: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 5999: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "6677",
+        "author": "Barnack Obama",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 6677: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 6677: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 6677: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 6677: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "61678",
+        "author": "Kano Jackson",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 61678: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 61678: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 61678: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 61678: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "223344",
+        "author": "Joel Chaikovsky",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 223344: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 223344: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 223344: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 223344: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      },
+
+      {
+        "version": "665555",
+        "author": "Bruce Markinson",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 665555: Monitor the profitability of your campaigns to track how they are meeting your business objectives.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 665555: In Google Ads, click on Tools and Settings and select Conversions, then click the + button."
+          },
+          {
+            "id": 2,
+            "title": "Version 665555: Select the types of conversions that your business needs to track."
+          },
+          {
+            "id": 3,
+            "title": "Version 665555: For website conversions: Create a conversion action by completing the prompts on the following screen."
+          }
+        ]
+      }
+    ],
+
+
+    "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/ab-testing-mastery\/",
+    "conversionxl_certificate_instructor": "Ton Wesseling",
+    "conversionxl_live_course_duration": "8h",
+    "cxl_hybrid_attr_post": {
+      "@attributes": {
+        "class": "entry author-maddie-sidoff-3 has-more-link post-442534 certificate type-certificate status-publish has-post-thumbnail category-online-trainings membership-content access-granted format-previously live column pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3",
+        "itemscope": "itemscope",
+        "itemtype": "http:\/\/schema.org\/CreativeWork",
+        "id": "post-442534"
+      }
+    },
+    "cxl_featured_media": {
+      "shop_catalog": "https:\/\/cxl.com\/institute\/wp-content\/uploads\/2017\/12\/ton-wesseling-1x1-bw-transparent-150x150.png"
+    }
+  },
+
+
+
+  {
+    "id": 760235,
+    "title": {
+      "raw": "Build your Twitter following"
+    },
+
+    "featured_media": 899387,
+
+    "categories_names": [
+      "Marketing", "Social Media", "Twitter", "Followers"
+    ],
+
+    "breadcrumbs": ["social-media", "Twitter", "followers"],
+
+    "versions": [
+
+      {
+        "version": "33333",
+        "author": "Uncle Sam",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 33333: Connect with your audience and increase your following on Twitter.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 33333: Set up a Twitter account with your complete name, a profile picture, and an attractive header image and a bio with industry-targeted keywords and social proof."
+          },
+          {
+            "id": 2,
+            "title": "Version 33333: Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
+          },
+          {
+            "id": 3,
+            "title": "Version 33333: Use the trending tab and search function on Twitter to identify popular tweets, participate actively, connect with influencers, boost engagement, and curate content."
+          },
+          {
+            "id": 4,
+            "title": "Version 33333: Use Tweetdeck to reach out to niche influencers and participate in their recent tweets by liking, commenting or retweeting."
+          },
+          {
+            "id": 5,
+            "title": "Version 33333: Use Twitter Analytics to identify your top tweets and recycle them for more engagement and re-targeting."
+          },
+          {
+            "id": 6,
+            "title": "Version 33333: Boost the reach of your top-performing tweets with Twitter ads."
+          },
+          {
+            "id": 7,
+            "title": "Version 33333: Create a conversion funnel to warm up your Twitter traffic and build brand awareness before promoting products."
+          },
+          {
+            "id": 8,
+            "title": "Version 33333: Create a Twitter landing page that is engaging and conversion-friendly to attract visitors and re-target them in the future."
+          },
+          {
+            "id": 9,
+            "title": "Version 33333: Promote your Twitter landing page, schedule tweets in advance and diversify your tweet copy by doing these."
+          },
+          {
+            "id": 10,
+            "title": "Version 33333: Engage with niche followers to grab attention, get feedback, and promote your product, using these tips"
+          }]
+      },
+
+      {
+        "version": "44444",
+        "author": "Joe Smith",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 44444: Connect with your audience and increase your following on Twitter.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 44444: Set up a Twitter account with your complete name, a profile picture, and an attractive header image and a bio with industry-targeted keywords and social proof."
+          },
+          {
+            "id": 2,
+            "title": "Version 44444: Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
+          }
+        ]
+      },
+
+      {
+        "version": "8890",
+        "author": "Faith Rally",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "<p>Version 8890: Connect with your audience and increase your following on Twitter.</p>"
+        },
+
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 8890: Set up a Twitter account with your complete name, a profile picture, and an attractive header image and a bio with industry-targeted keywords and social proof."
+          },
+          {
+            "id": 2,
+            "title": "Version 8890: Participate in major and relevant Twitter chats to gain followers and use the advanced search feature to find relevant discussions"
+          }
+        ]
+      }
+    ],
+
+
+    "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/account-based-marketing\/",
+    "conversionxl_certificate_instructor": "Ann  Smarty",
+    "conversionxl_live_course_duration": "3h",
+    "cxl_hybrid_attr_post": {
+      "@attributes": {
+        "class": "entry author-martin-bon has-more-link post-760235 certificate type-certificate status-publish has-post-thumbnail category-online-trainings tag-marketing membership-content access-granted format-studio column pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3",
+        "itemscope": "itemscope",
+        "itemtype": "http:\/\/schema.org\/CreativeWork",
+        "id": "post-760235"
+      }
+    },
+    "cxl_featured_media": {
+      "shop_catalog": "https:\/\/cxl.com\/institute\/wp-content\/uploads\/2018\/11\/Steve_Watt-1x1-transparent-v2-150x150.png"
+    }
+  },
+
+
+  {
+    "id": 826496,
+    "title": {
+      "raw": "Identify Broken Internal Links"
+    },
+
+    "featured_media": 1620767,
+
+    "categories_names": [
+      "Marketing", "seo", "audit", "broken links", "internal"
+    ],
+
+    "breadcrumbs": ["seo", "audit", "broken-links", "internal"],
+
+    "versions": [
+      {
+        "version": "8888",
+        "author": "Jason Smith",
+        "upvotes": 10,
+
+        "content": {
+          "cxl_get_extended_main": "Version 8888: Create better user experience and protect the value of your SEO efforts."
+        },
+        "playbook_steps": [
+          {
+            "id": 1,
+            "title": "Version 8888: Use the tool Screaming Frog to find broken internal links."
+          },
+          {
+            "id": 2,
+            "title": "Version 8888: Create a spreadsheet using Excel or Google Sheets where you can export or copy and paste the Screaming Frog data on broken links to track your progress."
+          },
+          {
+            "id": 3,
+            "title": "Version 8888: Determine which broken internal links are worth fixing by checking the traffic to each page in Google Analytics and record them in your spreadsheet."
+          },
+          {
+            "id": 4,
+            "title": "Version 8888: Repair your broken internal links by redirecting them in your CMS."
+          },
+          {
+            "id": 5,
+            "title": "Version 8888: Conduct a broken link audit on a monthly basis by repeating these steps every month."
+          }
+        ]
+      }
+    ],
+
+    "conversionxl_certificate_sales_page": "https:\/\/cxl.com\/institute\/online-course\/adobe-analytics\/",
+    "conversionxl_certificate_instructor": "Fiona De Brabanter",
+    "conversionxl_live_course_duration": "5h 22min",
+    "cxl_hybrid_attr_post": {
+      "@attributes": {
+        "class": "entry author-martin-bon has-more-link post-826496 certificate type-certificate status-publish has-post-thumbnail category-online-trainings tag-analytics membership-content access-granted format-studio column pure-u-1 pure-u-sm-1-2 pure-u-lg-1-3",
+        "itemscope": "itemscope",
+        "itemtype": "http:\/\/schema.org\/CreativeWork",
+        "id": "post-826496"
+      }
+    },
+    "cxl_featured_media": {
+      "shop_catalog": "https:\/\/cxl.com\/institute\/wp-content\/uploads\/2019\/09\/fiona-de-brabant-bw-crop-min-150x150.png"
+    }
+  }
+
+]
