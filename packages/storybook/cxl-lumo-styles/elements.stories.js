@@ -49,6 +49,20 @@ export const VaadinButton = ({ Label }) => {
       >${Label} <vaadin-icon icon="cxl:linkedin" slot="prefix"></vaadin-icon
     ></vaadin-button>
 
+    <h6>Sizes</h6>
+    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      <vaadin-button theme="primary small">Small</vaadin-button>
+      <vaadin-button theme="primary">Medium</vaadin-button>
+      <vaadin-button theme="primary large">Large</vaadin-button>
+      <vaadin-button theme="primary x-large">X-Large</vaadin-button>
+    </div>
+
+    <h6>Text Wrapping</h6>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; max-width: 320px;">
+      <vaadin-button class="wp-block-button" theme="primary large">Learn about CXL subscriptions and pricing</vaadin-button>
+      <vaadin-button class="wp-block-button" theme="secondary large">CXL for Teams</vaadin-button>
+    </div>
+
     <h6>Upstream</h6>
     <p>
       Also see
