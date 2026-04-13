@@ -4,6 +4,7 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-knobs',
     '@storybook/addon-storysource',
+    '@storybook/addon-toolbars',
     '@storybook/addon-viewport',
   ],
   // @see https://github.com/storybookjs/storybook/issues/16555
