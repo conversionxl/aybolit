@@ -4,10 +4,20 @@
   font-size: var(--lumo-font-size-xl) !important;
 }
 
+:host(.wp-block-button) {
+  height: auto;
+}
+
+:host(.wp-block-button) .vaadin-button-container {
+  height: auto;
+  overflow: visible;
+}
+
 :host(.wp-block-button) [part="label"] {
   white-space: normal;
   overflow: visible;
   text-overflow: unset;
+  padding-block: 0.5em;
 }
 
 :host(.wide) {
