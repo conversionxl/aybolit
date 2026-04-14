@@ -2,7 +2,7 @@
     /* Sizing */
     --lumo-button-size: var(--lumo-size-m);
     min-width: var(--vaadin-button-min-width, calc(var(--_button-size) * 2));
-    height: var(--_button-size);
+    min-height: var(--_button-size);
     padding: var(--vaadin-button-padding, 0 calc(var(--_button-size) / 3 + var(--lumo-border-radius-m) / 2));
     margin: var(--vaadin-button-margin, var(--lumo-space-xs) 0);
     box-sizing: border-box;
@@ -73,9 +73,8 @@
   }
 
   &.x-large {
-    --lumo-button-size: calc(var(--lumo-size-xl) * 1.25);
-    padding: 1.25em 3.5em 1.25em 3em;
-    font-size: calc(var(--lumo-font-size-xxxl) / 2) !important;
+    --lumo-button-size: var(--lumo-size-xl);
+    font-size: var(--lumo-font-size-xl) !important;
   }
 
   .wp-block-button__link {
