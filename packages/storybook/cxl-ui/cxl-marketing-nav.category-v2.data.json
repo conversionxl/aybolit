@@ -1,0 +1,1089 @@
+{
+  "global": [],
+  "primary": [
+    {
+      "depth": 0,
+      "text": "Courses",
+      "component": "a",
+      "href": "#",
+      "id": 100,
+      "parent": 0,
+      "children": [
+        {
+          "depth": 1,
+          "text": "Browse all courses",
+          "component": "a",
+          "href": "#",
+          "id": 1000,
+          "parent": 100
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "AI & Automation",
+          "id": 101,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "AI Leadership & Strategy",
+              "sectionheader": true,
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "Audience research and social listening",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "Competitor research with AI",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "AI ready agencies: what clients see",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "ICP modeling and targeting with AI",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Workflow Automation",
+              "sectionheader": true,
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "Content automation for B2B marketers with n8n",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "SEO automation with n8n and Claude Code",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "B2B ad campaigns with Claude Code and n8n",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "AI for ABM list building and outreach",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Building with AI",
+              "sectionheader": true,
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "Building apps as content with AI",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "Standardize and scale on-brand content with a custom brand GPT",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "Building optimized B2B content funnels with AI",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            },
+            {
+              "depth": 2,
+              "text": "Optimizing B2B content funnels with AI",
+              "component": "a",
+              "href": "#",
+              "parent": 101
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "B2B Marketing",
+          "id": 102,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "B2B Strategy & GTM",
+              "sectionheader": true,
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "B2B GTM Strategy: Get to $10m ARR",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "B2B buyer pain-led GTM strategy",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Experimentation-led GTM",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Align sales, marketing and leadership in B2B",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Running efficient B2B campaigns",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Partner Marketing",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Project Management for Marketers",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Sales Copywriting & Product Messaging",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Account-Based Marketing",
+              "sectionheader": true,
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "ABM - Get ROI in 6 Weeks",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "AI for ABM list building and outreach",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Measure ABM impact with funnel attribution and outcome modeling",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "ICP modeling and targeting with AI",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "B2B Demand Generation",
+              "sectionheader": true,
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "B2B Demand Gen",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Building an all-bound marketing engine",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Content Strategy for Demand Generation",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            },
+            {
+              "depth": 2,
+              "text": "Email Marketing: Fundamentals",
+              "component": "a",
+              "href": "#",
+              "parent": 102
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Growth Marketing",
+          "id": 103,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Growth Strategy",
+              "sectionheader": true,
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "Growth Strategy",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "Experimentation-led GTM",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "Building an innovative product",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "User-centric marketing",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "Partner Marketing",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "User & Audience Research",
+              "sectionheader": true,
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "Audience research and social listening",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "User research",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "Voice of Customer data",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            },
+            {
+              "depth": 2,
+              "text": "ICP modeling and targeting with AI",
+              "component": "a",
+              "href": "#",
+              "parent": 103
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Conversion Optimization",
+          "id": 104,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Plan and Process",
+              "sectionheader": true,
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Advanced Experimentation Masterclass",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "CRO Agency masterclass",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "CRO and Experimentation",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Experimentation program management",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Assess",
+              "sectionheader": true,
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "GA4 Audit",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Heuristic Evaluation",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Strategic Research for Experimentation",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "User research",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Voice of Customer data",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Test and Learn",
+              "sectionheader": true,
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "A/B testing foundations",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "A/B Testing Mastery",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "CRO for Ecommerce Growth",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Good Practices",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Statistics for A/B testing",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Statistics fundamentals for testing",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Testing Strategies",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Decide & Act",
+              "sectionheader": true,
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Digital psychology & behavioral design",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Landing Page Optimization",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "People & Psychology",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            },
+            {
+              "depth": 2,
+              "text": "Sales Copywriting & Product Messaging",
+              "component": "a",
+              "href": "#",
+              "parent": 104
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Marketing Analytics",
+          "id": 105,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Measurement & Attribution",
+              "sectionheader": true,
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "Measuring the modern AI-powered funnel",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "Strategic Analytics Framework for GA4",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "GA4 Audit",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "Data presentation and visualization",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "Excel and Sheets for marketers",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "Product Analytics",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Visualisation & Reporting",
+              "sectionheader": true,
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "Data presentation and visualization",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            },
+            {
+              "depth": 2,
+              "text": "Excel and Sheets for marketers",
+              "component": "a",
+              "href": "#",
+              "parent": 105
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "PPC",
+          "id": 106,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Search Advertising",
+              "sectionheader": true,
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "Google Ads for Beginners",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "Google Ads Experiments",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "Improve your LTV:CAC on Google Ads",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "Plan, validate, and scale PPC campaigns",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "Growing AppSumo to $80M with performance marketing",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Social & Display Advertising",
+              "sectionheader": true,
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "Validate and scale LinkedIn Ads",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "Validate and scale Meta Ads",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "LinkedIn Experimentation",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            },
+            {
+              "depth": 2,
+              "text": "B2B ad campaigns with Claude Code and n8n",
+              "component": "a",
+              "href": "#",
+              "parent": 106
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "SEO",
+          "id": 107,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "SEO Strategy & Content",
+              "sectionheader": true,
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "On-Page, On-Site & Programmatic SEO",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "Bottom-of-funnel SEO strategies in tough niches",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "Growth Focused SEO testing",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "SEO-Driven Editorial Calendar",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "SEO Link Building",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "Content Strategy for Demand Generation",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "SEO automation with n8n and Claude Code",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "GEO & AI Search",
+              "sectionheader": true,
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "Increase visibility and revenue from AI discovery engines",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "Optimizing pages with GEO",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            },
+            {
+              "depth": 2,
+              "text": "Building brand mental availability for zero-click behavior",
+              "component": "a",
+              "href": "#",
+              "parent": 107
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Brand Management",
+          "id": 108,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Brand Strategy & Positioning",
+              "sectionheader": true,
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Brand strategy",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Branding",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Positioning and company storytelling",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Unique positioning for agencies",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Building brand mental availability for zero-click behavior",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Messaging & Copywriting",
+              "sectionheader": true,
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Messaging",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Sales Copywriting & Product Messaging",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Storytelling",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Customer storytelling and proof",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Psychology & Behavioural Design",
+              "sectionheader": true,
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Behavioral Psychology",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "Digital psychology & behavioral design",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            },
+            {
+              "depth": 2,
+              "text": "People & Psychology",
+              "component": "a",
+              "href": "#",
+              "parent": 108
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "text": "Product Marketing",
+          "id": 109,
+          "parent": 100,
+          "children": [
+            {
+              "depth": 2,
+              "text": "Intelligence & Strategy",
+              "sectionheader": true,
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Introduction to product marketing",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Competitive intel & market research",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Segmentation and Persona Research",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Voice of Customer data",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Positioning and company storytelling",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Pricing and packaging",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Product Analytics",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Messaging",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Product Marketing Functions",
+              "sectionheader": true,
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Analyst relations",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Content marketing research",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Customer storytelling and proof",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Product launches",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Product Marketing Content",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "component": "hr"
+            },
+            {
+              "depth": 2,
+              "text": "Cross-functional Collaboration",
+              "sectionheader": true,
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Hiring product marketers",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Partner Marketing",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Sales and customer success enablement",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            },
+            {
+              "depth": 2,
+              "text": "Working with the product team",
+              "component": "a",
+              "href": "#",
+              "parent": 109
+            }
+          ]
+        },
+        {
+          "component": "hr"
+        },
+        {
+          "depth": 1,
+          "text": "Course Archive",
+          "component": "a",
+          "href": "#",
+          "id": 1099,
+          "parent": 100
+        }
+      ]
+    }
+  ]
+}
