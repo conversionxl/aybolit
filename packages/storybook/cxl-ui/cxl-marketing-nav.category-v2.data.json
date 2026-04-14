@@ -455,7 +455,7 @@
             },
             {
               "depth": 2,
-              "text": "Test and Learn",
+              "text": "Test and learn",
               "sectionheader": true,
               "parent": 104
             },
@@ -889,36 +889,6 @@
               "href": "#",
               "parent": 108
             },
-            {
-              "component": "hr"
-            },
-            {
-              "depth": 2,
-              "text": "Psychology & Behavioural Design",
-              "sectionheader": true,
-              "parent": 108
-            },
-            {
-              "depth": 2,
-              "text": "Behavioral Psychology",
-              "component": "a",
-              "href": "#",
-              "parent": 108
-            },
-            {
-              "depth": 2,
-              "text": "Digital psychology & behavioral design",
-              "component": "a",
-              "href": "#",
-              "parent": 108
-            },
-            {
-              "depth": 2,
-              "text": "People & Psychology",
-              "component": "a",
-              "href": "#",
-              "parent": 108
-            }
           ]
         },
         {
