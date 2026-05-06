@@ -17,7 +17,7 @@ export default {
  * @returns {TemplateResult}
  * @constructor
  */
-export const VaadinButton = ({ Label }) => {
+export const VaadinButton = ({ Label, WrapText, WrapTheme }) => {
   document.body.removeAttribute('unresolved');
 
   return html`
@@ -49,6 +49,19 @@ export const VaadinButton = ({ Label }) => {
       >${Label} <vaadin-icon icon="cxl:linkedin" slot="prefix"></vaadin-icon
     ></vaadin-button>
 
+    <h6>Sizes</h6>
+    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      <vaadin-button theme="primary small">Small</vaadin-button>
+      <vaadin-button theme="primary">Medium</vaadin-button>
+      <vaadin-button theme="primary large">Large</vaadin-button>
+      <vaadin-button theme="primary x-large">X-Large</vaadin-button>
+    </div>
+
+    <h6>Text Wrapping</h6>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; max-width: 320px;">
+      <vaadin-button class="wp-block-button" theme="${WrapTheme}">${WrapText}</vaadin-button>
+    </div>
+
     <h6>Upstream</h6>
     <p>
       Also see
@@ -62,6 +75,28 @@ export const VaadinButton = ({ Label }) => {
 Object.assign(VaadinButton, {
   args: {
     Label: 'Button',
+    WrapText: 'Learn about CXL subscriptions and pricing',
+    WrapTheme: 'primary large',
+  },
+  argTypes: {
+    WrapTheme: {
+      control: {
+        type: 'select',
+        options: [
+          'primary small',
+          'primary',
+          'primary large',
+          'primary x-large',
+          'primary contrast',
+          'primary large contrast',
+          'secondary',
+          'secondary large',
+          'secondary x-large',
+          'secondary contrast',
+          'secondary large contrast',
+        ],
+      },
+    },
   },
   storyName: 'vaadin-button',
 });
