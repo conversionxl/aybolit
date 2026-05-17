@@ -57,6 +57,25 @@ cxl-vaadin-accordion {
   }
 
   /**
+   * Theme "cxl-minidegree-card".
+   */
+  &[theme~="cxl-minidegree-card"] {
+    .entry-byline a {
+      text-decoration: underline;
+    }
+
+    .entry-title {
+      height: initial;
+      margin: 0;
+      margin-top: var(--lumo-space-s);
+    }
+
+    .entry-title a {
+      color: inherit;
+    }
+  }
+
+  /**
    * Theme "cxl-minidegree-track".
    */
   &[theme~="cxl-minidegree-track"] {

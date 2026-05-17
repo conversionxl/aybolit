@@ -3,6 +3,7 @@ import { CXLVaadinAccordionThemeCourses } from './cxl-vaadin-accordion/cxl-accor
 import { CXLPlaybookAccordion } from './cxl-vaadin-accordion/cxl-playbook-accordion.story';
 import { CXLVaadinAccordionThemeVaadin } from './cxl-vaadin-accordion/vaadin-accordion-panel[theme=vaadin].story';
 import { CXLVaadinAccordionThemeFaq } from './cxl-vaadin-accordion/theme=cxl-faq.story';
+import { CXLVaadinAccordionThemeMinidegree } from './cxl-vaadin-accordion/cxl-accordion-card-minidegree.story';
 import { CXLVaadinAccordionThemeMinidegreeTrack } from './cxl-vaadin-accordion/theme=cxl-minidegree-track.story';
 import { CXLVaadinAccordionThemeCategory } from './cxl-vaadin-accordion/theme=cxl-dashboard-category.story';
 import { CXLHubsAndPlaybooks } from './cxl-vaadin-accordion/cxl-hubs-and-playbooks.story';
@@ -33,6 +34,7 @@ export {
   CXLVaadinAccordionThemeArchive,
   CXLVaadinAccordionThemeCourses,
   CXLVaadinAccordionThemeFaq,
+  CXLVaadinAccordionThemeMinidegree,
   CXLVaadinAccordionThemeMinidegreeTrack,
   CXLVaadinAccordionThemeVaadin,
   CXLVaadinAccordionThemeCategory,
